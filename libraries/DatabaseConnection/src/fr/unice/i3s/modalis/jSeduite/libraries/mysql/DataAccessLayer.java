@@ -38,25 +38,32 @@ public class DataAccessLayer {
 
     /** Build a DAL using the default jSeduite JDBC resource
      */
-    public DataAccessLayer() { this.jndiName = DEFAULT_JNDI; }
+    public DataAccessLayer() {
+        this.jndiName = DEFAULT_JNDI;
+    }
 
     /** Build a DAL using a user-given JDBC resource JNDI name
      * @param url the JNDI name of the wanted JDBC resource
      */
-    public DataAccessLayer(String url) { this.jndiName = url; }
+    public DataAccessLayer(String url) {
+        this.jndiName = url;
+    }
 
     /** (De)Activate the query log mechanism
      * @param b true to activate, false to deactivate
      * @remarks this mechanism is deactivated by default
      */
-    public void setQueryLog(boolean b) { this.shouldLog = b; }
+    public void setQueryLog(boolean b) {
+        this.shouldLog = b;
+    }
 
     /** Log a string, if explicitely asked for (basically print it to stdout)
      * @param l the log to print
      */
     private void log(String l) {
-        if (this.shouldLog)
+        if (this.shouldLog) {
             System.out.println(l);
+        }
     }
 
     /** Build a connection to the database
@@ -69,10 +76,9 @@ public class DataAccessLayer {
             InitialContext ictx = new InitialContext();
             DataSource ds = (DataSource) ictx.lookup(this.jndiName);
             return ds.getConnection();
-       }
-       catch(Exception e) {
-           throw new DALException(e.getMessage());
-       }
+        } catch (Exception e) {
+            throw new DALException(e.getMessage());
+        }
     }
 
     /** Close a connection previously opened to the database
@@ -81,10 +87,12 @@ public class DataAccessLayer {
      */
     private void closeConnection(Connection c) throws DALException {
         log("Closing connection");
-        try { c.close(); }
-        catch(Exception e) { throw new DALException(e.getMessage()); }
+        try {
+            c.close();
+        } catch (Exception e) {
+            throw new DALException(e.getMessage());
+        }
     }
-
 
     /** Execute a query which does not produce any output result (eg insert)
      * @param query the SQL (MySQL dialect) query to execute
@@ -94,14 +102,15 @@ public class DataAccessLayer {
         Connection c = buildConnection();
         try {
             Statement s = c.createStatement();
-            log("executeVoid ["+s+"]");
+            log("executeVoid [" + s + "]");
             s.executeUpdate(query);
-            return ;
-        }catch (Exception e) {
+            return;
+        } catch (Exception e) {
             throw new DALException(e.getMessage());
-        }  finally { closeConnection(c);}
+        } finally {
+            closeConnection(c);
+        }
     }
-
 
     /** Extract a scalar value from the database 
      * @param query the query to execute
@@ -114,14 +123,17 @@ public class DataAccessLayer {
         Connection c = buildConnection();
         try {
             Statement s = c.createStatement();
-            log("extractScalar ["+query+"]");
+            log("extractScalar [" + query + "]");
             ResultSet r = s.executeQuery(query);
-            if ( ! r.first())
+            if (!r.first()) {
                 throw new DALException("No result for [" + query + "]");
+            }
             return r.getString(column);
-        } catch(Exception e) {
+        } catch (Exception e) {
             throw new DALException(e.getMessage());
-        } finally { closeConnection(c);}
+        } finally {
+            closeConnection(c);
+        }
     }
 
     /** Extract a set of scalar values from the database
@@ -135,15 +147,18 @@ public class DataAccessLayer {
         Connection c = buildConnection();
         try {
             Statement s = c.createStatement();
-            log("extractScalarSet ["+query+"]");
+            log("extractScalarSet [" + query + "]");
             ResultSet r = s.executeQuery(query);
             ArrayList<String> result = new ArrayList<String>();
-            while (r.next())
+            while (r.next()) {
                 result.add(r.getString(column));
+            }
             return result.toArray(new String[0]);
-        }catch (Exception e) {
+        } catch (Exception e) {
             throw new DALException(e.getMessage());
-        }  finally { closeConnection(c);}
+        } finally {
+            closeConnection(c);
+        }
     }
 
     /** Extract a complex dataset from the database
@@ -155,11 +170,13 @@ public class DataAccessLayer {
         Connection c = buildConnection();
         try {
             Statement s = c.createStatement();
-            log("extractDataSet ["+query+"]");
+            log("extractDataSet [" + query + "]");
             ResultSet r = s.executeQuery(query);
             return new DalResultSet(r);
         } catch (Exception e) {
             throw new DALException(e.getMessage());
-        }  finally { closeConnection(c);}
+        } finally {
+            closeConnection(c);
+        }
     }
 }
