@@ -98,7 +98,6 @@ public class DataAccessLayer {
             s.executeUpdate(query);
             return ;
         }catch (Exception e) {
-            closeConnection(c);
             throw new DALException(e.getMessage());
         }  finally { closeConnection(c);}
     }
@@ -115,13 +114,12 @@ public class DataAccessLayer {
         Connection c = buildConnection();
         try {
             Statement s = c.createStatement();
-            log("extractScalar ["+s+"]");
+            log("extractScalar ["+query+"]");
             ResultSet r = s.executeQuery(query);
             if ( ! r.first())
                 throw new DALException("No result for [" + query + "]");
             return r.getString(column);
         } catch(Exception e) {
-            closeConnection(c);
             throw new DALException(e.getMessage());
         } finally { closeConnection(c);}
     }
@@ -137,14 +135,13 @@ public class DataAccessLayer {
         Connection c = buildConnection();
         try {
             Statement s = c.createStatement();
-            log("extractScalarSet ["+s+"]");
+            log("extractScalarSet ["+query+"]");
             ResultSet r = s.executeQuery(query);
             ArrayList<String> result = new ArrayList<String>();
             while (r.next())
                 result.add(r.getString(column));
             return result.toArray(new String[0]);
         }catch (Exception e) {
-            closeConnection(c);
             throw new DALException(e.getMessage());
         }  finally { closeConnection(c);}
     }
@@ -158,10 +155,10 @@ public class DataAccessLayer {
         Connection c = buildConnection();
         try {
             Statement s = c.createStatement();
+            log("extractDataSet ["+query+"]");
             ResultSet r = s.executeQuery(query);
             return new DalResultSet(r);
         } catch (Exception e) {
-            closeConnection(c);
             throw new DALException(e.getMessage());
         }  finally { closeConnection(c);}
     }
