@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/jSeduite/FeedRegistry/FeedRegistryService?WSDL" uri="src/localhost_8080/jSeduite/FeedRegistry/FeedRegistryService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/RssReader/RssReaderService?WSDL" uri="src/localhost_8080/jSeduite/RssReader/RssReaderService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/FeedRegistry/FeedRegistryService?wsdl" uri="src/localhost_8080/jSeduite/FeedRegistry/FeedRegistryService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/FeedRegistry/FeedRegistryService?xsd=1" uri="src/localhost_8080/jSeduite/FeedRegistry/FeedRegistryService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/jSeduite/RssReader/RssReaderService?wsdl" uri="src/localhost_8080/jSeduite/RssReader/RssReaderService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/RssReader/RssReaderService?xsd=1" uri="src/localhost_8080/jSeduite/RssReader/RssReaderService.xsd_1.xsd"/>
+</catalog>
