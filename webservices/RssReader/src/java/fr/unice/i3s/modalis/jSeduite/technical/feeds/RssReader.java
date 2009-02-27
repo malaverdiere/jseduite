@@ -24,10 +24,11 @@ import com.sun.syndication.io.XmlReader;
 public class RssReader {
     
     @WebMethod()
-    public FeedContent readCompleteContent (@WebParam(name="url") String url) {
+    public FeedContent read (@WebParam(name="url") URL url) {
         try {
             // retrieving data stream from third party publisher
-            URL feedUrl = new URL(url);
+            //URL feedUrl = new URL(url);
+            URL feedUrl = url;
             SyndFeedInput input = new SyndFeedInput();
             SyndFeed feed = input.build(new XmlReader(feedUrl));
 
