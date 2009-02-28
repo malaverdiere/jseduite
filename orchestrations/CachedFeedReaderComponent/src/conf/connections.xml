@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/wsdl/CachedFeedReader" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/bpel/CachedFeedReader" xmlns:ns3="http://modalis.polytech.unice.fr/jSeduite/wsdl/FeedReader" xmlns:ns4="http://cache.technical.jSeduite.modalis.i3s.unice.fr/" version="1.0">
+<service-assembly>
+<identification>
+<name>CachedFeedReaderComponent</name>
+<description>Represents the Service Assembly of CachedFeedReaderComponent</description>
+</identification>
+<connections>
+<connection>
+<consumer endpoint-name="CachedFeedReaderPort" service-name="ns1:CachedFeedReaderService"/>
+<provider endpoint-name="CachedFeedReaderPortTypeRole_myRole" service-name="ns2:external"/>
+</connection>
+<connection>
+<consumer endpoint-name="FeedReaderPortTypeRole_partnerRole" service-name="ns2:reader"/>
+<provider endpoint-name="FeedReaderPort" service-name="ns3:FeedReaderService"/>
+</connection>
+<connection>
+<consumer endpoint-name="cache_partnerRole" service-name="ns2:cache"/>
+<provider endpoint-name="DataCachePort" service-name="ns4:DataCacheService"/>
+</connection>
+</connections>
+</service-assembly>
+</jbi>
