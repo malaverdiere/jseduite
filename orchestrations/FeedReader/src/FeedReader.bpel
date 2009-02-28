@@ -12,14 +12,12 @@
     <import namespace="http://registry.technical.jSeduite.modalis.i3s.unice.fr/" location="localhost_8080/jSeduite/FeedRegistry/FeedRegistryService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://enterprise.netbeans.org/bpel/RssReaderServiceWrapper" location="localhost_8080/jSeduite/RssReader/RssReaderServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" location="localhost_8080/jSeduite/RssReader/RssReaderService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
-    <import namespace="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" location="localhost_8080/jSeduite/RssReader/RssReaderService.xsd_1.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
     <partnerLinks>
         <partnerLink name="registry" xmlns:tns="http://enterprise.netbeans.org/bpel/FeedRegistryServiceWrapper" partnerLinkType="tns:FeedRegistryLinkType" partnerRole="registry"/>
         <partnerLink name="reader" xmlns:tns="http://enterprise.netbeans.org/bpel/RssReaderServiceWrapper" partnerLinkType="tns:RssReaderLinkType" partnerRole="reader"/>
         <partnerLink name="external" xmlns:tns="http://modalis.polytech.unice.fr/jSeduite/wsdl/FeedReader" partnerLinkType="tns:FeedReader" myRole="FeedReaderPortTypeRole"/>
     </partnerLinks>
     <variables>
-        <variable name="result" type="ns1:feedContent"/>
         <variable name="ReadOut" xmlns:tns="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:readResponse"/>
         <variable name="ReadIn" xmlns:tns="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:read"/>
         <variable name="url" type="xsd:anyURI"/>
@@ -65,17 +63,11 @@
             <assign name="a3_post">
                 <copy>
                     <from>$ReadOut.parameters/return</from>
-                    <to variable="result"/>
+                    <to>$FeedReaderOperationOut.out/ns0:return</to>
                 </copy>
             </assign>
         </sequence>
         <sequence name="a4">
-            <assign name="a4_pre">
-                <copy>
-                    <from variable="result"/>
-                    <to>$FeedReaderOperationOut.out/ns0:return</to>
-                </copy>
-            </assign>
             <reply name="a4_tech" partnerLink="external" operation="FeedReaderOperation" xmlns:tns="http://modalis.polytech.unice.fr/jSeduite/wsdl/FeedReader" portType="tns:FeedReaderPortType" variable="FeedReaderOperationOut"/>
         </sequence>
     </sequence>
