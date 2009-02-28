@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns2="http://registry.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns3="http://modalis.polytech.unice.fr/jSeduite/wsdl/FeedReader" xmlns:ns4="http://modalis.polytech.unice.fr/jSeduite/bpel/FeedReader" xmlns:xlink="http://www.w3.org/2000/xlink">
+<endpoints>
+<endpoint endpoint-name="RssReaderPort" interface-name="ns1:RssReader" name="endpoint1" service-name="ns1:RssReaderService"/>
+<endpoint endpoint-name="FeedRegistryPort" interface-name="ns2:FeedRegistry" name="endpoint2" service-name="ns2:FeedRegistryService"/>
+<endpoint endpoint-name="FeedReaderPort" interface-name="ns3:FeedReaderPortType" name="endpoint3" service-name="ns3:FeedReaderService"/>
+<endpoint display-name="external" endpoint-name="FeedReaderPortTypeRole_myRole" file-path="FeedReader.bpel" interface-name="ns3:FeedReaderPortType" name="endpoint4" process-name="FeedReader" service-name="ns4:external"/>
+<endpoint display-name="registry" endpoint-name="registry_partnerRole" file-path="FeedReader.bpel" interface-name="ns2:FeedRegistry" name="endpoint5" process-name="FeedReader" service-name="ns4:registry"/>
+<endpoint display-name="reader" endpoint-name="reader_partnerRole" file-path="FeedReader.bpel" interface-name="ns1:RssReader" name="endpoint6" process-name="FeedReader" service-name="ns4:reader"/>
+</endpoints>
+<service-units>
+<service-engine-service-unit artifacts-zip="FeedReader.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="FeedReaderComponent-FeedReader" unit-name="FeedReader" unknown="false" x="145" y="97">
+<provides endpoint="endpoint4"/>
+<consumes endpoint="endpoint5"/>
+<consumes endpoint="endpoint6"/>
+</service-engine-service-unit>
+<binding-component-service-unit artifacts-zip="sun-http-binding.jar" component-name="sun-http-binding" description="Represents this Service Unit" name="FeedReaderComponent-sun-http-binding" unit-name="sun-http-binding">
+<ports>
+<port x="67" y="180">
+<link xlink:href="../jbiServiceUnits/FeedReader/FeedReader.wsdl#xpointer(/definitions/service[@name='FeedReaderService']/port[@name='FeedReaderPort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint3"/>
+<provides endpoint="endpoint3"/>
+</port>
+<port x="67" y="39">
+<link xlink:href="../jbiServiceUnits/FeedReader/localhost_8080/jSeduite/FeedRegistry/FeedRegistryService.wsdl#xpointer(/definitions/service[@name='FeedRegistryService']/port[@name='FeedRegistryPort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint2"/>
+<provides endpoint="endpoint2"/>
+</port>
+<port x="67" y="348">
+<link xlink:href="../jbiServiceUnits/FeedReader/localhost_8080/jSeduite/RssReader/RssReaderService.wsdl#xpointer(/definitions/service[@name='RssReaderService']/port[@name='RssReaderPort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint1"/>
+<provides endpoint="endpoint1"/>
+</port>
+</ports>
+</binding-component-service-unit>
+</service-units>
+<connections>
+<connection consumer="endpoint3" provider="endpoint4" state="unchanged"/>
+<connection consumer="endpoint5" provider="endpoint2" state="unchanged"/>
+<connection consumer="endpoint6" provider="endpoint1" state="unchanged"/>
+</connections>
+<porttypes>
+<link xlink:href="../jbiServiceUnits/FeedReader/FeedReader.wsdl#xpointer(/definitions/portType[@name='FeedReaderPortType'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/FeedReader/localhost_8080/jSeduite/FeedRegistry/FeedRegistryService.wsdl#xpointer(/definitions/portType[@name='FeedRegistry'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/FeedReader/localhost_8080/jSeduite/RssReader/RssReaderService.wsdl#xpointer(/definitions/portType[@name='RssReader'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/FeedReader/src/localhost_8080/jSeduite/FeedRegistry/FeedRegistryService.wsdl#xpointer(/definitions/portType[@name='FeedRegistry'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/FeedReader/src/localhost_8080/jSeduite/RssReader/RssReaderService.wsdl#xpointer(/definitions/portType[@name='RssReader'])" xlink:type="simple"/>
+</porttypes>
+<bindings>
+<link xlink:href="../jbiServiceUnits/FeedReader/FeedReader.wsdl#xpointer(/definitions/binding[@name='FeedReaderBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/FeedReader/localhost_8080/jSeduite/FeedRegistry/FeedRegistryService.wsdl#xpointer(/definitions/binding[@name='FeedRegistryPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/FeedReader/localhost_8080/jSeduite/RssReader/RssReaderService.wsdl#xpointer(/definitions/binding[@name='RssReaderPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/FeedReader/src/localhost_8080/jSeduite/FeedRegistry/FeedRegistryService.wsdl#xpointer(/definitions/binding[@name='FeedRegistryPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/FeedReader/src/localhost_8080/jSeduite/RssReader/RssReaderService.wsdl#xpointer(/definitions/binding[@name='RssReaderPortBinding'])" xlink:type="simple"/>
+</bindings>
+<services>
+<link xlink:href="../jbiServiceUnits/FeedReader/FeedReader.wsdl#xpointer(/definitions/service[@name='FeedReaderService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/FeedReader/localhost_8080/jSeduite/FeedRegistry/FeedRegistryService.wsdl#xpointer(/definitions/service[@name='FeedRegistryService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/FeedReader/localhost_8080/jSeduite/RssReader/RssReaderService.wsdl#xpointer(/definitions/service[@name='RssReaderService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/FeedReader/src/localhost_8080/jSeduite/FeedRegistry/FeedRegistryService.wsdl#xpointer(/definitions/service[@name='FeedRegistryService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/FeedReader/src/localhost_8080/jSeduite/RssReader/RssReaderService.wsdl#xpointer(/definitions/service[@name='RssReaderService'])" xlink:type="simple"/>
+</services>
+<regions>
+        <region name="WSDL Endpoints" width="150"/>
+        <region name="JBI Modules" width="500"/>
+        <region name="External Modules" width="200"/>
+    </regions>
+</casa>

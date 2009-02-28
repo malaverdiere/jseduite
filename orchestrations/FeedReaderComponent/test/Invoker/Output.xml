@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <ns1:FeedReaderResponse xmlns:msgns="http://modalis.polytech.unice.fr/jSeduite/wsdl/FeedReader" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/schema/FeedReader">
+      <ns1:return xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/">
+        <content xmlns="">
+          <author/>
+          <content>
+    
+    Prévisions pour : antibes&lt;br /&gt;
+    Le 27 f&amp;#233;vrier 2009 à 07 heures&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/WWNEBUL_P2.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Matin : 7°&lt;br /&gt;
+    Après-midi : 13°&lt;br /&gt;
+    Vent :&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/DD_.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Force : 10 Km/h&lt;br /&gt;
+    Hygrométrie : 80 %&lt;br /&gt;
+    &lt;!--TAG-BLC previsionZone_EtatMer--&gt;
+    &lt;!--TAG-BLC previsionZone_TTMer--&gt;
+    &lt;br /&gt;&lt;br /&gt;
+  
+  </content>
+          <title> 27/02/2009 07:00 : prévision météo pour le 27 f&amp;#233;vrier 2009 à 07 heures </title>
+          <type>text/html</type>
+        </content>
+        <content xmlns="">
+          <author/>
+          <content>
+    
+    Prévisions pour : antibes&lt;br /&gt;
+    Le 27 f&amp;#233;vrier 2009 à 13 heures&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/WWNEBUL_P2.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Matin : 7°&lt;br /&gt;
+    Après-midi : 13°&lt;br /&gt;
+    Vent :&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/DD_.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Force : 20 Km/h&lt;br /&gt;
+    Hygrométrie : 60 %&lt;br /&gt;
+    &lt;!--TAG-BLC previsionZone_EtatMer--&gt;
+    &lt;!--TAG-BLC previsionZone_TTMer--&gt;
+    &lt;br /&gt;&lt;br /&gt;
+  
+  </content>
+          <title> 27/02/2009 13:00 : prévision météo pour le 27 f&amp;#233;vrier 2009 à 13 heures </title>
+          <type>text/html</type>
+        </content>
+        <content xmlns="">
+          <author/>
+          <content>
+    
+    Prévisions pour : antibes&lt;br /&gt;
+    Le 27 f&amp;#233;vrier 2009 à 19 heures&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/WWNEBUL_P2.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Matin : 7°&lt;br /&gt;
+    Après-midi : 13°&lt;br /&gt;
+    Vent :&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/DD_.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Force : 5 Km/h&lt;br /&gt;
+    Hygrométrie : 80 %&lt;br /&gt;
+    &lt;!--TAG-BLC previsionZone_EtatMer--&gt;
+    &lt;!--TAG-BLC previsionZone_TTMer--&gt;
+    &lt;br /&gt;&lt;br /&gt;
+  
+  </content>
+          <title> 27/02/2009 19:00 : prévision météo pour le 27 f&amp;#233;vrier 2009 à 19 heures </title>
+          <type>text/html</type>
+        </content>
+        <content xmlns="">
+          <author/>
+          <content>
+    
+    Prévisions pour : antibes&lt;br /&gt;
+    Le 28 f&amp;#233;vrier 2009 à 01 heures&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/WWNEBUL_P2.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Matin : 7°&lt;br /&gt;
+    Après-midi : 14°&lt;br /&gt;
+    Vent :&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/DD_.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Force : 10 Km/h&lt;br /&gt;
+    Hygrométrie : 80 %&lt;br /&gt;
+    &lt;!--TAG-BLC previsionZone_EtatMer--&gt;
+    &lt;!--TAG-BLC previsionZone_TTMer--&gt;
+    &lt;br /&gt;&lt;br /&gt;
+  
+  </content>
+          <title> 28/02/2009 01:00 : prévision météo pour le 28 f&amp;#233;vrier 2009 à 01 heures </title>
+          <type>text/html</type>
+        </content>
+        <content xmlns="">
+          <author/>
+          <content>
+    
+    Prévisions pour : antibes&lt;br /&gt;
+    Le 28 f&amp;#233;vrier 2009 à 07 heures&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/WWNEBUL_P1.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Matin : 7°&lt;br /&gt;
+    Après-midi : 14°&lt;br /&gt;
+    Vent :&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/DD_.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Force : 10 Km/h&lt;br /&gt;
+    Hygrométrie : 90 %&lt;br /&gt;
+    &lt;!--TAG-BLC previsionZone_EtatMer--&gt;
+    &lt;!--TAG-BLC previsionZone_TTMer--&gt;
+    &lt;br /&gt;&lt;br /&gt;
+  
+  </content>
+          <title> 28/02/2009 07:00 : prévision météo pour le 28 f&amp;#233;vrier 2009 à 07 heures </title>
+          <type>text/html</type>
+        </content>
+        <content xmlns="">
+          <author/>
+          <content>
+    
+    Prévisions pour : antibes&lt;br /&gt;
+    Le 28 f&amp;#233;vrier 2009 à 13 heures&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/WWNEBUL_P2.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Matin : 7°&lt;br /&gt;
+    Après-midi : 14°&lt;br /&gt;
+    Vent :&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/DD_.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Force : 10 Km/h&lt;br /&gt;
+    Hygrométrie : 60 %&lt;br /&gt;
+    &lt;!--TAG-BLC previsionZone_EtatMer--&gt;
+    &lt;!--TAG-BLC previsionZone_TTMer--&gt;
+    &lt;br /&gt;&lt;br /&gt;
+  
+  </content>
+          <title> 28/02/2009 13:00 : prévision météo pour le 28 f&amp;#233;vrier 2009 à 13 heures </title>
+          <type>text/html</type>
+        </content>
+        <content xmlns="">
+          <author/>
+          <content>
+    
+    Prévisions pour : antibes&lt;br /&gt;
+    Le 28 f&amp;#233;vrier 2009 à 19 heures&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/WWNEBUL_P3.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Matin : 7°&lt;br /&gt;
+    Après-midi : 14°&lt;br /&gt;
+    Vent :&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/DD_.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Force : 10 Km/h&lt;br /&gt;
+    Hygrométrie : 80 %&lt;br /&gt;
+    &lt;!--TAG-BLC previsionZone_EtatMer--&gt;
+    &lt;!--TAG-BLC previsionZone_TTMer--&gt;
+    &lt;br /&gt;&lt;br /&gt;
+  
+  </content>
+          <title> 28/02/2009 19:00 : prévision météo pour le 28 f&amp;#233;vrier 2009 à 19 heures </title>
+          <type>text/html</type>
+        </content>
+        <content xmlns="">
+          <author/>
+          <content>
+    
+    Prévisions pour : antibes&lt;br /&gt;
+    Le 01 mars 2009 à 01 heures&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/WWNEBUL_P4.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Matin : 9°&lt;br /&gt;
+    Après-midi : 12°&lt;br /&gt;
+    Vent :&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/DD_.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Force : 10 Km/h&lt;br /&gt;
+    Hygrométrie : 80 %&lt;br /&gt;
+    &lt;!--TAG-BLC previsionZone_EtatMer--&gt;
+    &lt;!--TAG-BLC previsionZone_TTMer--&gt;
+    &lt;br /&gt;&lt;br /&gt;
+  
+  </content>
+          <title> 01/03/2009 01:00 : prévision météo pour le 01 mars 2009 à 01 heures </title>
+          <type>text/html</type>
+        </content>
+        <content xmlns="">
+          <author/>
+          <content>
+    
+    Prévisions pour : antibes&lt;br /&gt;
+    Le 01 mars 2009 à 07 heures&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/WWNEBUL_P22.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Matin : 9°&lt;br /&gt;
+    Après-midi : 12°&lt;br /&gt;
+    Vent :&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/DD_.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Force : 20 Km/h&lt;br /&gt;
+    Hygrométrie : 90 %&lt;br /&gt;
+    &lt;!--TAG-BLC previsionZone_EtatMer--&gt;
+    &lt;!--TAG-BLC previsionZone_TTMer--&gt;
+    &lt;br /&gt;&lt;br /&gt;
+  
+  </content>
+          <title> 01/03/2009 07:00 : prévision météo pour le 01 mars 2009 à 07 heures </title>
+          <type>text/html</type>
+        </content>
+        <content xmlns="">
+          <author/>
+          <content>
+    
+    Prévisions pour : antibes&lt;br /&gt;
+    Le 01 mars 2009 à 13 heures&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/WWNEBUL_P24.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Matin : 9°&lt;br /&gt;
+    Après-midi : 12°&lt;br /&gt;
+    Vent :&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/DD_.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Force : 30 Km/h&lt;br /&gt;
+    Hygrométrie : 70 %&lt;br /&gt;
+    &lt;!--TAG-BLC previsionZone_EtatMer--&gt;
+    &lt;!--TAG-BLC previsionZone_TTMer--&gt;
+    &lt;br /&gt;&lt;br /&gt;
+  
+  </content>
+          <title> 01/03/2009 13:00 : prévision météo pour le 01 mars 2009 à 13 heures </title>
+          <type>text/html</type>
+        </content>
+        <content xmlns="">
+          <author/>
+          <content>
+    
+    Prévisions pour : antibes&lt;br /&gt;
+    Le 01 mars 2009 à 19 heures&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/WWNEBUL_P24.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Matin : 9°&lt;br /&gt;
+    Après-midi : 12°&lt;br /&gt;
+    Vent :&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/DD_.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Force : 20 Km/h&lt;br /&gt;
+    Hygrométrie : 90 %&lt;br /&gt;
+    &lt;!--TAG-BLC previsionZone_EtatMer--&gt;
+    &lt;!--TAG-BLC previsionZone_TTMer--&gt;
+    &lt;br /&gt;&lt;br /&gt;
+  
+  </content>
+          <title> 01/03/2009 19:00 : prévision météo pour le 01 mars 2009 à 19 heures </title>
+          <type>text/html</type>
+        </content>
+        <content xmlns="">
+          <author/>
+          <content>
+    
+    Prévisions pour : antibes&lt;br /&gt;
+    Le 02 mars 2009 à 01 heures&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/WWNEBUL_P24.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Matin : 8°&lt;br /&gt;
+    Après-midi : 13°&lt;br /&gt;
+    Vent :&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/DD_.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Force : 10 Km/h&lt;br /&gt;
+    Hygrométrie : 80 %&lt;br /&gt;
+    &lt;!--TAG-BLC previsionZone_EtatMer--&gt;
+    &lt;!--TAG-BLC previsionZone_TTMer--&gt;
+    &lt;br /&gt;&lt;br /&gt;
+  
+  </content>
+          <title> 02/03/2009 01:00 : prévision météo pour le 02 mars 2009 à 01 heures </title>
+          <type>text/html</type>
+        </content>
+        <content xmlns="">
+          <author/>
+          <content>
+    
+    Prévisions pour : antibes&lt;br /&gt;
+    Le 02 mars 2009 à 07 heures&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/WWNEBUL_P4.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Matin : 8°&lt;br /&gt;
+    Après-midi : 13°&lt;br /&gt;
+    Vent :&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/DD_.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Force : 10 Km/h&lt;br /&gt;
+    Hygrométrie : 80 %&lt;br /&gt;
+    &lt;!--TAG-BLC previsionZone_EtatMer--&gt;
+    &lt;!--TAG-BLC previsionZone_TTMer--&gt;
+    &lt;br /&gt;&lt;br /&gt;
+  
+  </content>
+          <title> 02/03/2009 07:00 : prévision météo pour le 02 mars 2009 à 07 heures </title>
+          <type>text/html</type>
+        </content>
+        <content xmlns="">
+          <author/>
+          <content>
+    
+    Prévisions pour : antibes&lt;br /&gt;
+    Le 02 mars 2009 à 13 heures&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/WWNEBUL_P4.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Matin : 8°&lt;br /&gt;
+    Après-midi : 13°&lt;br /&gt;
+    Vent :&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/DD_.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Force : 5 Km/h&lt;br /&gt;
+    Hygrométrie : 70 %&lt;br /&gt;
+    &lt;!--TAG-BLC previsionZone_EtatMer--&gt;
+    &lt;!--TAG-BLC previsionZone_TTMer--&gt;
+    &lt;br /&gt;&lt;br /&gt;
+  
+  </content>
+          <title> 02/03/2009 13:00 : prévision météo pour le 02 mars 2009 à 13 heures </title>
+          <type>text/html</type>
+        </content>
+        <content xmlns="">
+          <author/>
+          <content>
+    
+    Prévisions pour : antibes&lt;br /&gt;
+    Le 02 mars 2009 à 19 heures&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/WWNEBUL_P4.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Matin : 8°&lt;br /&gt;
+    Après-midi : 13°&lt;br /&gt;
+    Vent :&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/DD_.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Force : 5 Km/h&lt;br /&gt;
+    Hygrométrie : 90 %&lt;br /&gt;
+    &lt;!--TAG-BLC previsionZone_EtatMer--&gt;
+    &lt;!--TAG-BLC previsionZone_TTMer--&gt;
+    &lt;br /&gt;&lt;br /&gt;
+  
+  </content>
+          <title> 02/03/2009 19:00 : prévision météo pour le 02 mars 2009 à 19 heures </title>
+          <type>text/html</type>
+        </content>
+        <content xmlns="">
+          <author/>
+          <content>
+    
+    Prévisions pour : antibes&lt;br /&gt;
+    Le 03 mars 2009 à 01 heures&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/WWNEBUL_P24.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Matin : 8°&lt;br /&gt;
+    Après-midi : 14°&lt;br /&gt;
+    Vent :&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/DD_.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Force : 10 Km/h&lt;br /&gt;
+    Hygrométrie : 80 %&lt;br /&gt;
+    &lt;!--TAG-BLC previsionZone_EtatMer--&gt;
+    &lt;!--TAG-BLC previsionZone_TTMer--&gt;
+    &lt;br /&gt;&lt;br /&gt;
+  
+  </content>
+          <title> 03/03/2009 01:00 : prévision météo pour le 03 mars 2009 à 01 heures </title>
+          <type>text/html</type>
+        </content>
+        <content xmlns="">
+          <author/>
+          <content>
+    
+    Prévisions pour : antibes&lt;br /&gt;
+    Le 03 mars 2009 à 07 heures&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/WWNEBUL_P2.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Matin : 8°&lt;br /&gt;
+    Après-midi : 14°&lt;br /&gt;
+    Vent :&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/DD_.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Force : 10 Km/h&lt;br /&gt;
+    Hygrométrie : 80 %&lt;br /&gt;
+    &lt;!--TAG-BLC previsionZone_EtatMer--&gt;
+    &lt;!--TAG-BLC previsionZone_TTMer--&gt;
+    &lt;br /&gt;&lt;br /&gt;
+  
+  </content>
+          <title> 03/03/2009 07:00 : prévision météo pour le 03 mars 2009 à 07 heures </title>
+          <type>text/html</type>
+        </content>
+        <content xmlns="">
+          <author/>
+          <content>
+    
+    Prévisions pour : antibes&lt;br /&gt;
+    Le 03 mars 2009 à 13 heures&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/WWNEBUL_P2.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Matin : 8°&lt;br /&gt;
+    Après-midi : 14°&lt;br /&gt;
+    Vent :&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/DD_.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Force : 10 Km/h&lt;br /&gt;
+    Hygrométrie : 70 %&lt;br /&gt;
+    &lt;!--TAG-BLC previsionZone_EtatMer--&gt;
+    &lt;!--TAG-BLC previsionZone_TTMer--&gt;
+    &lt;br /&gt;&lt;br /&gt;
+  
+  </content>
+          <title> 03/03/2009 13:00 : prévision météo pour le 03 mars 2009 à 13 heures </title>
+          <type>text/html</type>
+        </content>
+        <content xmlns="">
+          <author/>
+          <content>
+    
+    Prévisions pour : antibes&lt;br /&gt;
+    Le 03 mars 2009 à 19 heures&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/WWNEBUL_P24.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Matin : 8°&lt;br /&gt;
+    Après-midi : 14°&lt;br /&gt;
+    Vent :&lt;br /&gt;
+    &lt;img src="http://www.antibes.maville.com/design/images/meteo/pictos/DD_.gif" title="www.maville.com" /&gt;&lt;br /&gt;
+    Force : 10 Km/h&lt;br /&gt;
+    Hygrométrie : 80 %&lt;br /&gt;
+    &lt;!--TAG-BLC previsionZone_EtatMer--&gt;
+    &lt;!--TAG-BLC previsionZone_TTMer--&gt;
+    &lt;br /&gt;&lt;br /&gt;
+  
+  </content>
+          <title> 03/03/2009 19:00 : prévision météo pour le 03 mars 2009 à 19 heures </title>
+          <type>text/html</type>
+        </content>
+        <language xmlns="">fr</language>
+        <link xmlns="">http://www.antibes.maville.com</link>
+        <title xmlns="">Antibes : météo quotidienne</title>
+      </ns1:return>
+    </ns1:FeedReaderResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
