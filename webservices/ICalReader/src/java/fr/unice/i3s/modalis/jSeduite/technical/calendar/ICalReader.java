@@ -23,13 +23,13 @@
 
 package fr.unice.i3s.modalis.jSeduite.technical.calendar;
 
-import java.io.InputStream;
+import java.io.*;
 import java.net.URL;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
-import net.fortuna.ical4j.data.CalendarBuilder;
+import net.fortuna.ical4j.data.*;
 import net.fortuna.ical4j.model.*;
 import net.fortuna.ical4j.filter.*;
 
@@ -41,11 +41,20 @@ import net.fortuna.ical4j.filter.*;
 @WebService()
 public class ICalReader {
 
+    private String getResourceContent(URL url) throws Exception  {
+       InputStream is = url.openStream();
+       BufferedReader bread = new BufferedReader(new InputStreamReader(is));
+       String line = "";
+       StringBuilder buff = new StringBuilder();
+       while((line = bread.readLine()) != null)
+           buff.append(line+"\n");
+        return buff.toString();
+    }
 
     private ComponentList buildComponents(URL url) throws Exception {
-        InputStream is = url.openStream();
+        StringReader sin = new StringReader(getResourceContent(url));
         CalendarBuilder builder = new CalendarBuilder();
-        Calendar c = builder.build(is);
+        Calendar c = builder.build(sin);
         return c.getComponents(Component.VEVENT);
     }
 

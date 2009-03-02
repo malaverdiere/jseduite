@@ -47,9 +47,9 @@ public class CalendarEvent implements Serializable {
      */
     public static CalendarEvent[] transform(ComponentList cList) {
         ArrayList<CalendarEvent> result = new ArrayList<CalendarEvent>();
-        Iterator<Component> it = cList.iterator();
+        Iterator it = cList.iterator();
         while(it.hasNext()) {
-          result.add(new CalendarEvent(it.next()));
+          result.add(new CalendarEvent((Component) it.next()));
         }
         return result.toArray(new CalendarEvent[result.size()]);
     }
