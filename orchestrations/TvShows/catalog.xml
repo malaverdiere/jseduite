@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/jSeduite/TvHelper/TvHelperService?WSDL" uri="src/Partners/localhost_8080/jSeduite/TvHelper/TvHelperService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/TvHelper/TvHelperService?xsd=1" uri="src/Partners/localhost_8080/jSeduite/TvHelper/TvHelperService.xsd_1.xsd"/>
+</catalog>

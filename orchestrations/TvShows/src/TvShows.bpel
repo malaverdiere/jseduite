@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process
+    name="TvShows"
+    targetNamespace="http://modalis.i3s.unice.fr/jSeduite/bpel/TvShows"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
+    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/bpel/TvShows" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/schema/CachedFeedReader" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/schema/TvShows">
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" location="TvShows.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/wsdl/CachedFeedReader" location="Partners/CachedFeedReader.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/TvHelperServiceWrapper" location="Partners/localhost_8080/jSeduite/TvHelper/TvHelperServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://tv.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/localhost_8080/jSeduite/TvHelper/TvHelperService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="cachedFeedReader" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/CachedFeedReader" partnerLinkType="tns:CachedFeedReader" partnerRole="CachedFeedReaderPortTypeRole"/>
+        <partnerLink name="helper" xmlns:tns="http://enterprise.netbeans.org/bpel/TvHelperServiceWrapper" partnerLinkType="tns:TvHelperLinkType" partnerRole="helper"/>
+        <partnerLink name="external" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" partnerLinkType="tns:TvShows" myRole="TvShowsPortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="CachedFeedReaderOperationOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/CachedFeedReader" messageType="tns:CachedFeedReaderOperationResponse"/>
+        <variable name="CachedFeedReaderOperationIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/CachedFeedReader" messageType="tns:CachedFeedReaderOperationRequest"/>
+        <variable name="key" type="xsd:string"/>
+        <variable name="TvShowsOperationOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" messageType="tns:TvShowsOperationResponse"/>
+        <variable name="TvShowsOperationIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" messageType="tns:TvShowsOperationRequest"/>
+    </variables>
+    <sequence>
+        <sequence name="a1">
+            <receive name="a1_tech" createInstance="yes" partnerLink="external" operation="TvShowsOperation" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" portType="tns:TvShowsPortType" variable="TvShowsOperationIn"/>
+            <assign name="constants">
+                    <copy>
+                        <from>'tv-krinien.com'</from>
+                            <to variable="key"/>
+                    </copy>
+            </assign>
+        </sequence>
+        <sequence name="a2">
+            <assign name="a2_pre">
+                <copy>
+                    <from variable="key"/>
+                    <to>$CachedFeedReaderOperationIn.in/ns0:name</to>
+                </copy>
+                <copy>
+                    <from>60</from>
+                    <to>$CachedFeedReaderOperationIn.in/ns0:validity</to>
+                </copy>
+            </assign>
+            <invoke name="a2_tech" partnerLink="cachedFeedReader" operation="CachedFeedReaderOperation" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/CachedFeedReader" portType="tns:CachedFeedReaderPortType" inputVariable="CachedFeedReaderOperationIn" outputVariable="CachedFeedReaderOperationOut"/>
+        </sequence>
+        <scope name="a3">
+            <variables>
+                <variable name="ExtractOut" xmlns:tns="http://tv.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:extractResponse"/>
+                <variable name="ExtractIn" xmlns:tns="http://tv.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:extract"/>
+                <variable name="size" type="xsd:int"/>
+                <variable name="cpt" type="xsd:int"/>
+            </variables>
+            <sequence name="a3_sequence">
+                <assign name="a3_loop_pre">
+                    <copy>
+                        <from>1</from>
+                        <to variable="cpt"/>
+                    </copy>
+                    <copy>
+                        <from>count($CachedFeedReaderOperationOut.out/ns0:return/content)</from>
+                        <to variable="size"/>
+                    </copy>
+                </assign>
+                <while name="a3_loop">
+                    <condition>$cpt &lt;= $size</condition>
+                    <sequence name="Sequence1">
+                        <assign name="a3_pre">
+                            <copy>
+                                <from>$CachedFeedReaderOperationOut.out/ns0:return/content[$cpt]/title</from>
+                                <to>$ExtractIn.parameters/complexString</to>
+                            </copy>
+                        </assign>
+                        <invoke name="a3_helper" partnerLink="helper" operation="extract" xmlns:tns="http://tv.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:TvHelper" inputVariable="ExtractIn" outputVariable="ExtractOut"/>
+                        <assign name="a3_tech">
+                            <copy>
+                                <from>$CachedFeedReaderOperationOut.out/ns0:return/content[$cpt]/content</from>
+                                <to>$TvShowsOperationOut.out/ns1:show[$cpt]/ns1:summary</to>
+                            </copy>
+                            <copy>
+                                <from>$ExtractOut.parameters/return[1]</from>
+                                <to>$TvShowsOperationOut.out/ns1:show[$cpt]/ns1:title</to>
+                            </copy>
+                            <copy>
+                                <from>$ExtractOut.parameters/return[3]</from>
+                                <to>$TvShowsOperationOut.out/ns1:show[$cpt]/ns1:start</to>
+                            </copy>
+                            <copy>
+                                <from>$ExtractOut.parameters/return[2]</from>
+                                <to>$TvShowsOperationOut.out/ns1:show[$cpt]/@channel</to>
+                            </copy>
+                        </assign>
+                        <assign name="a3_post">
+                            <copy>
+                                <from>$cpt + 1</from>
+                                <to variable="cpt"/>
+                            </copy>
+                        </assign>
+                    </sequence>
+                </while>
+            </sequence>
+        </scope>
+        <sequence name="a4">
+            <reply name="a4_tech" partnerLink="external" operation="TvShowsOperation" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" portType="tns:TvShowsPortType" variable="TvShowsOperationOut"/>
+        </sequence>
+    </sequence>
+</process>
