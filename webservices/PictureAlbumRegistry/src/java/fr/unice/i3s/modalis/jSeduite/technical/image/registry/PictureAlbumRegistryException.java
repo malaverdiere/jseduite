@@ -21,7 +21,7 @@
  *
  **/
 
-package fr.unice.i3s.modalis.jSeduite.technicals.image.registry;
+package fr.unice.i3s.modalis.jSeduite.technical.image.registry;
 
 /** A simple exception to specialize errors
  * @author mosser

@@ -21,7 +21,7 @@
  *
  **/
 
-package fr.unice.i3s.modalis.jSeduite.technicals.image.registry;
+package fr.unice.i3s.modalis.jSeduite.technical.image.registry;
 import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DalResultSet;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -30,7 +30,8 @@ import java.util.*;
  * @author mosser
  */
 public class PictureAlbum {
-    
+
+    private String name;
     private String repository;
     private String user;
     private String album;
@@ -40,21 +41,31 @@ public class PictureAlbum {
     public PictureAlbum(){};
 
     public PictureAlbum(String repository, String user, String album,
-            Date validFrom, int duration) {
+            Date validFrom, int duration, String name) {
         this.repository = repository;
         this.user = user;
         this.album = album;
         this.validFrom = validFrom;
         this.duration = duration;
+        this.name = name;
     }
 
     public PictureAlbum(DalResultSet dataSet) throws Exception {
+        this.name = dataSet.getValue("album_name");
         this.repository = dataSet.getValue("repository");
         this.user = dataSet.getValue("repository_user_id");
         this.album  = dataSet.getValue("repository_album_name");
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         this.validFrom = format.parse(dataSet.getValue("start"));
         this.duration = Integer.parseInt(dataSet.getValue("duration"));
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAlbum() {

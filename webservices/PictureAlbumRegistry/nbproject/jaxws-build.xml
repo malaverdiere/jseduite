@@ -15,7 +15,7 @@
         </taskdef>
     </target>
     <target name="wsgen-PictureAlbumRegistry" depends="wsgen-init">
-        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="fr.unice.i3s.modalis.jSeduite.technicals.image.registry.PictureAlbumRegistry">
+        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="fr.unice.i3s.modalis.jSeduite.technical.image.registry.PictureAlbumRegistry">
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>

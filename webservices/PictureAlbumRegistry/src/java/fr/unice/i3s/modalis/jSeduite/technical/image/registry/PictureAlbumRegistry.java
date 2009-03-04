@@ -21,7 +21,7 @@
  *
  **/
 
-package fr.unice.i3s.modalis.jSeduite.technicals.image.registry;
+package fr.unice.i3s.modalis.jSeduite.technical.image.registry;
 import fr.unice.i3s.modalis.jSeduite.libraries.mysql.*;
 
 import java.util.ArrayList;
