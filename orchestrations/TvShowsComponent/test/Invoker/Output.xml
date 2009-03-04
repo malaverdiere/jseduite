@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <ns1:TvShowsResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/schema/TvShows">
+      <ns1:show channel="TF1">
+        <ns1:title>Les bronzés</ns1:title>
+        <ns1:start>20:45</ns1:start>
+        <ns1:summary>Une comédie culte pour toute une génération. Maintenant, on serait  certainement plus exigeant...
+</ns1:summary>
+      </ns1:show>
+      <ns1:show channel="TF1">
+        <ns1:title>Enquêtes et révélations</ns1:title>
+        <ns1:start>22:30</ns1:start>
+        <ns1:summary>La voiture, l'un des principaux poste de dépense du français. Un énième magazine de consommation ? Non, cette fois-ci on parle alcoolisme et cannabis. Et de jeunes bien sûr ! de jeunes délinquant mêmes ! On pourrait même raccourcir le propos et proférer que le jeune est toujours délinquant. Ce serait caricural, mais on n'est plus à cela prêt !
+</ns1:summary>
+      </ns1:show>
+      <ns1:show channel="France 2">
+        <ns1:title>Ils font bouger la France</ns1:title>
+        <ns1:start>20:35</ns1:start>
+        <ns1:summary>Les français vont trop à l'hopital et creusent ainsi le trou de la sécu. Pour résoudre le problème, le service public nous a concocté un petit reportage sur les maladies nosocomiales. Pas de doute, dès demain, les services seront vides !
+</ns1:summary>
+      </ns1:show>
+      <ns1:show channel="France 2">
+        <ns1:title>Faites entrer l'accusé</ns1:title>
+        <ns1:start>22:45</ns1:start>
+        <ns1:summary>Ce soir, projecteur sur François Besse, l'ancien bras droit de Jacques Mesrine. Cassel avait pourtant ses deux bras aux Césars, non ?
+</ns1:summary>
+      </ns1:show>
+      <ns1:show channel="France 3">
+        <ns1:title>Tatie Danielle</ns1:title>
+        <ns1:start>20:35</ns1:start>
+        <ns1:summary>Tanguy ne voulait pas partir ; s'il avait du cohabiter avec Tatie Danielle, parions qu'il n'aurait pas traîné !
+</ns1:summary>
+      </ns1:show>
+      <ns1:show channel="France 3">
+        <ns1:title>Ce soir (ou jamais !)</ns1:title>
+        <ns1:start>23:15</ns1:start>
+        <ns1:summary>Paradoxalement, on peut le rater ce soir et pourtant en profiter demain.
+</ns1:summary>
+      </ns1:show>
+      <ns1:show channel="Canal Plus">
+        <ns1:title>La graine et le mulet</ns1:title>
+        <ns1:start>20:45</ns1:start>
+        <ns1:summary>Allergiques au couscous au poisson, passez votre chemin, ou préparez vos médicaments !
+</ns1:summary>
+      </ns1:show>
+      <ns1:show channel="Canal Plus">
+        <ns1:title>Le tueur</ns1:title>
+        <ns1:start>23:15</ns1:start>
+        <ns1:summary>On peut être tueur et arrangeant. La preuve.
+</ns1:summary>
+      </ns1:show>
+      <ns1:show channel="Arte">
+        <ns1:title>Dati, l'ambitieuse</ns1:title>
+        <ns1:start>20:45</ns1:start>
+        <ns1:summary>Gala en a rêvé, c'est Arte qui le diffuse. Blague à part, c'est toujours intéressant de découvrir les coulisse d'une montée en pouvoir. Et d'une chute...
+</ns1:summary>
+      </ns1:show>
+      <ns1:show channel="Arte">
+        <ns1:title>Dissonances</ns1:title>
+        <ns1:start>23:00</ns1:start>
+        <ns1:summary>Il ne s'agit pas d'un concert de musique moderne, mais plutôt d'une entrée dans la folie ordinaire.
+</ns1:summary>
+      </ns1:show>
+      <ns1:show channel="M6">
+        <ns1:title>Nouvelle star</ns1:title>
+        <ns1:start>20:40</ns1:start>
+        <ns1:summary>Même jury shoot again.
+</ns1:summary>
+      </ns1:show>
+      <ns1:show channel="M6">
+        <ns1:title>Un crime dans la tête</ns1:title>
+        <ns1:start>22:40</ns1:start>
+        <ns1:summary>Denzel Washington et Meryl Streep dans un film au cerveau torturé.
+</ns1:summary>
+      </ns1:show>
+    </ns1:TvShowsResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
