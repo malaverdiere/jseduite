@@ -14,7 +14,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with jSeduite::UserProfile; if not, write to the Free Software
+ * along with jSeduite::FlickrWrapper; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  * @author      Main Sébastien Mosser          [mosser@polytech.unice.fr]
@@ -26,41 +26,38 @@ import javax.jws.WebService;
 import javax.jws.WebParam;
 import javax.jws.WebMethod;
 import java.net.URL;
-import org.netbeans.saas.flickr.FlickrPhotoService;
-import org.netbeans.saas.RestResponse;
+import java.util.*;
+import org.jdom.*;
+import org.jdom.input.*;
 
-/**
- *
+
+
+/** A web service to wrap flickr queries (read only mode, no secret stuff)
  * @author mosser
  */
 @WebService()
 public class FlickrWrapper {
 
+    private static final String HOST = "api.flickr.com";
+    private static final String REST_SERVICE = "/services/rest/";
+    private static final String API_KEY = "XXX";
+    
     /** Retrieve the content of a given flickr Web Album
-     * @param user album's owner (valid Google User Account)
-     * @param album album's name (following Google's naming conventions)
+     * @param album album's id (see flickr link)
      * @return an array of URL
      */
     @WebMethod(operationName = "getAlbumContent")
-    public URL[] getAlbumContent(@WebParam(name = "user") String user,
-            @WebParam(name = "album") String album)
+    public URL[] getAlbumContent(@WebParam(name = "album") String album)
             throws FlickrWrapperException {
-
         try {
-            String photosetId = "";
-            String extras = null;
-            String privacyFilter = null;
-            String perPage = null;
-            String page = null;
-            RestResponse result = FlickrPhotoService.photosetsGetPhotos(photosetId, extras, privacyFilter, perPage, page);
-            if (result.getDataAsObject(flickr.photoservice.flickrresponse.Rsp.class) instanceof flickr.photoservice.flickrresponse.Rsp) {
-                flickr.photoservice.flickrresponse.Rsp resultObj = result.getDataAsObject(flickr.photoservice.flickrresponse.Rsp.class);
-            }
-            return null;
+            String address = buildAddressPrefix("photosets.getPhotos");
+            address += "&photoset_id=" + album;
+            return this.transform("photoset",address);
         } catch (Exception ex) {
             throw new FlickrWrapperException(ex.getMessage());
         }
     }
+
 
     /** Retrieve some pictures from a flickr folksonomy
      * @param tag the expected tags
@@ -68,9 +65,63 @@ public class FlickrWrapper {
      * @return an array of URL
      */
     @WebMethod(operationName = "getFolksonomyContent")
-    public URL[] getFolksonomyContent(@WebParam(name = "tags") String[] tags,
+    public URL[] getFolksonomyContent(@WebParam(name = "tags") String tags,
             @WebParam(name = "count") int count)
             throws FlickrWrapperException {
-        return null;
+        try {
+            String address = buildAddressPrefix("photos.search");
+            address += "&tags=" + tags + "&per_page="+count;
+            return this.transform("photos",address);
+        } catch (Exception e){
+            throw new FlickrWrapperException(e.getMessage());
+        }
     }
+
+    /** Build the address prefix (ie without argument) for a remote Flickr call
+     * @param operationName the name of the expected operation
+     * @return a string containing the address prefix following Flickr's convention
+     */
+    private String buildAddressPrefix(String operationName) {
+        String tmp = "http://" + HOST + REST_SERVICE + "?method=flickr.";
+        tmp += operationName + "&api_key=" + API_KEY;
+        return tmp;
+    }
+
+    /** Transform a XML document (conforms to Flickr XSD) into an URL[]
+     * @param rootNode the name of the expected node inside the XML document
+     * @param address the xml document address
+     * @return a set of URL representing all pictures in the document
+     * @throws Exception
+     */
+    private URL[] transform(String rootNode, String address) throws Exception {
+        URL url = new URL(address);
+ 	    SAXBuilder builder = new SAXBuilder();
+ 	    Document doc = builder.build(url);
+ 	    Element root = doc.getRootElement();
+ 	    Element photosNode = root.getChild(rootNode);
+ 	    List photoNodes = photosNode.getChildren();
+ 	    Iterator itr = photoNodes.iterator();
+ 	    ArrayList<URL> result = new ArrayList<URL>();
+ 	    while(itr.hasNext()) {
+            Element photo = (Element) itr.next();
+ 	        result.add(parseXml(photo));
+ 	    }
+ 	    return result.toArray(new URL[result.size()]);
+    }
+
+    /** Extract an URL from a Flickr XmlElement
+     * @param e
+     * @return
+     * @throws java.lang.Exception
+     */
+    private URL parseXml(Element e) throws Exception {
+        String farm = e.getAttributeValue("farm");
+        String serverId = e.getAttributeValue("server");
+ 	    String secret = e.getAttributeValue("secret");
+ 	    String id = e.getAttributeValue("id");
+        String tmp = "http://farm" + farm + ".static.flickr.com/";
+        tmp += serverId + "/" + id + "_" + secret + ".jpg";
+        return new URL(tmp);
+    }
+
 }
