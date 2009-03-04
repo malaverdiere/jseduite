@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/wsdl/WeatherProxy" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/bpel/WeatherProxy" xmlns:ns3="http://api.wxbug.net/" version="1.0">
+<service-assembly>
+<identification>
+<name>WeatherProxyComponent</name>
+<description>Represents the Service Assembly of WeatherProxyComponent</description>
+</identification>
+<connections>
+<connection>
+<consumer endpoint-name="WeatherProxyPort" service-name="ns1:WeatherProxyService"/>
+<provider endpoint-name="WeatherProxyPortTypeRole_myRole" service-name="ns2:external"/>
+</connection>
+<connection>
+<consumer endpoint-name="weatherbug_partnerRole" service-name="ns2:weatherbug"/>
+<provider endpoint-name="WeatherBugWebServicesSoap" service-name="ns3:WeatherBugWebServices"/>
+</connection>
+</connections>
+</service-assembly>
+</jbi>

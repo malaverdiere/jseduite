@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <ns1:WeatherProxyResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/wsdl/WeatherProxy" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/schema/WeatherProxy">
+      <ns1:return>
+        <ns1:live>
+          <ns1:station>Nice (Cote D'Azur)</ns1:station>
+          <ns1:pressure>1013.88</ns1:pressure>
+          <ns1:rain>0.0</ns1:rain>
+          <ns1:windSpeed>24</ns1:windSpeed>
+          <ns1:windDirection>ESE</ns1:windDirection>
+          <ns1:icon>cond024.gif</ns1:icon>
+          <ns1:minTemp>10.0</ns1:minTemp>
+          <ns1:maxTemp>14.0</ns1:maxTemp>
+          <ns1:temp>14.0</ns1:temp>
+        </ns1:live>
+        <ns1:forecast day="MON">
+          <ns1:maxTemp>11.0</ns1:maxTemp>
+          <ns1:minTemp>8.0</ns1:minTemp>
+          <ns1:icon>024.gif</ns1:icon>
+        </ns1:forecast>
+        <ns1:forecast day="TUE">
+          <ns1:maxTemp>11.0</ns1:maxTemp>
+          <ns1:minTemp>7.0</ns1:minTemp>
+          <ns1:icon>024.gif</ns1:icon>
+        </ns1:forecast>
+        <ns1:forecast day="WED">
+          <ns1:maxTemp>9.0</ns1:maxTemp>
+          <ns1:minTemp>6.0</ns1:minTemp>
+          <ns1:icon>109.gif</ns1:icon>
+        </ns1:forecast>
+        <ns1:forecast day="THU">
+          <ns1:maxTemp>11.0</ns1:maxTemp>
+          <ns1:minTemp>7.0</ns1:minTemp>
+          <ns1:icon>050.gif</ns1:icon>
+        </ns1:forecast>
+        <ns1:forecast day="FRI">
+          <ns1:maxTemp>9.0</ns1:maxTemp>
+          <ns1:minTemp>7.0</ns1:minTemp>
+          <ns1:icon>050.gif</ns1:icon>
+        </ns1:forecast>
+        <ns1:forecast day="SAT">
+          <ns1:maxTemp>11.0</ns1:maxTemp>
+          <ns1:minTemp>6.0</ns1:minTemp>
+          <ns1:icon>109.gif</ns1:icon>
+        </ns1:forecast>
+        <ns1:forecast day="SUN">
+          <ns1:maxTemp>9.0</ns1:maxTemp>
+          <ns1:minTemp>6.0</ns1:minTemp>
+          <ns1:icon>024.gif</ns1:icon>
+        </ns1:forecast>
+      </ns1:return>
+    </ns1:WeatherProxyResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
