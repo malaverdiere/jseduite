@@ -1,0 +1,8 @@
+<soapenv:Envelope xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:imag="http://modalis.i3s.unice.fr/jSeduite/schema/ImageScapper">
+  <soapenv:Body>
+    <imag:ImageScrapperRequest>
+      <imag:tags>nuitinfo08</imag:tags>
+      <imag:size>10</imag:size>
+    </imag:ImageScrapperRequest>
+  </soapenv:Body>
+</soapenv:Envelope>
