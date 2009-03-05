@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <ns1:PictureAlbumResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/wsdl/PictureAlbum" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/schema/PictureAlbum">
+      <ns1:result>
+        <ns0:photoAlbum xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/schema/PictureAlbum">
+          <ns0:source>picasa</ns0:source>
+          <ns0:name>Pot de départ PB</ns0:name>
+        </ns0:photoAlbum>
+        <ns0:photoAlbum xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/schema/PictureAlbum">
+          <ns0:source>flickr</ns0:source>
+          <ns0:name>Nuit de l'Info 2008</ns0:name>
+        </ns0:photoAlbum>
+      </ns1:result>
+    </ns1:PictureAlbumResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
