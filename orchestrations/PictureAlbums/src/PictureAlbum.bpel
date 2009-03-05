@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process
+    name="PictureAlbum"
+    targetNamespace="http://modalis.i3s.unice.fr/jSeduite/bpel/PictureAlbums"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
+    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/bpel/PictureAlbums" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/schema/PictureAlbum">
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/wsdl/PictureAlbum" location="PictureAlbum.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/schema/PictureAlbum" location="PictureAlbum.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/PictureAlbumRegistryServiceWrapper" location="Partners/localhost_8080/jSeduite/PictureAlbumRegistry/PictureAlbumRegistryServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://registry.image.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/localhost_8080/jSeduite/PictureAlbumRegistry/PictureAlbumRegistryService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/PicasaWrapperServiceWrapper" location="Partners/localhost_8080/jSeduite/PicasaWrapper/PicasaWrapperServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://picasa.image.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/localhost_8080/jSeduite/PicasaWrapper/PicasaWrapperService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/PictureSetServiceWrapper" location="Partners/localhost_8080/jSeduite/PictureSet/PictureSetServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://helper.image.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/localhost_8080/jSeduite/PictureSet/PictureSetService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/FlickrWrapperServiceWrapper" location="Partners/localhost_8080/jSeduite/FlickrWrapper/FlickrWrapperServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://flickr.image.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/localhost_8080/jSeduite/FlickrWrapper/FlickrWrapperService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="registry" xmlns:tns="http://enterprise.netbeans.org/bpel/PictureAlbumRegistryServiceWrapper" partnerLinkType="tns:PictureAlbumRegistryLinkType" partnerRole="registry"/>
+        <partnerLink name="picasa" xmlns:tns="http://enterprise.netbeans.org/bpel/PicasaWrapperServiceWrapper" partnerLinkType="tns:PicasaWrapperLinkType" partnerRole="picasa"/>
+        <partnerLink name="flickr" xmlns:tns="http://enterprise.netbeans.org/bpel/FlickrWrapperServiceWrapper" partnerLinkType="tns:FlickrWrapperLinkType" partnerRole="flickr"/>
+        <partnerLink name="helper" xmlns:tns="http://enterprise.netbeans.org/bpel/PictureSetServiceWrapper" partnerLinkType="tns:PictureSetLinkType" partnerRole="helper"/>
+        <partnerLink name="external" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/PictureAlbum" partnerLinkType="tns:PictureAlbum" myRole="PictureAlbumPortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="descr_star" type="ns0:AlbumDescriptionSet"/>
+        <variable name="GetValidAlbumsOut" xmlns:tns="http://registry.image.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:getValidAlbumsResponse"/>
+        <variable name="GetValidAlbumsIn" xmlns:tns="http://registry.image.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:getValidAlbums"/>
+        <variable name="result_star" type="ns0:PhotoAlbumSet"/>
+        <variable name="maxSize" type="xsd:integer"/>
+        <variable name="PictureAlbumOperationOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/PictureAlbum" messageType="tns:PictureAlbumOperationResponse"/>
+        <variable name="PictureAlbumOperationIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/PictureAlbum" messageType="tns:PictureAlbumOperationRequest"/>
+    </variables>
+    <sequence>
+        <sequence name="a1">
+            <receive name="a1_tech" createInstance="yes" partnerLink="external" operation="PictureAlbumOperation" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/PictureAlbum" portType="tns:PictureAlbumPortType" variable="PictureAlbumOperationIn"/>
+            <assign name="a1_post">
+                <copy>
+                    <from>$PictureAlbumOperationIn.in/ns0:maxSize</from>
+                    <to variable="maxSize"/>
+                </copy>
+            </assign>
+        </sequence>
+        <sequence name="a2">
+            <assign name="a2_pre">
+                <copy>
+                    <from>''</from>
+                    <to variable="GetValidAlbumsIn" part="parameters"/>
+                </copy>
+            </assign>
+            <invoke name="a2_tech" partnerLink="registry" operation="getValidAlbums" xmlns:tns="http://registry.image.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:PictureAlbumRegistry" inputVariable="GetValidAlbumsIn" outputVariable="GetValidAlbumsOut"/>
+            <assign name="a2_post">
+                <copy>
+                    <from>$GetValidAlbumsOut.parameters/return</from>
+                    <to>$descr_star/ns0:albumDescription</to>
+                </copy>
+            </assign>
+        </sequence>
+        <scope name="iteration">
+            <variables>
+                <variable name="GetFlickrAlbumContentOut" xmlns:tns="http://flickr.image.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:getAlbumContentResponse"/>
+                <variable name="GetFlickrAlbumContentIn" xmlns:tns="http://flickr.image.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:getAlbumContent"/>
+                <variable name="TruncateOut" xmlns:tns="http://helper.image.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:truncateResponse"/>
+                <variable name="TruncateIn" xmlns:tns="http://helper.image.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:truncate"/>
+                <variable name="truncated_star" type="ns0:UrlSet"/>
+                <variable name="shuffled_star" type="ns0:UrlSet"/>
+                <variable name="ShuffleOut" xmlns:tns="http://helper.image.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:shuffleResponse"/>
+                <variable name="ShuffleIn" xmlns:tns="http://helper.image.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:shuffle"/>
+                <variable name="raw_star" type="ns0:UrlSet"/>
+                <variable name="GetPicasaAlbumContentOut" xmlns:tns="http://picasa.image.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:getAlbumContentResponse"/>
+                <variable name="GetPicasaAlbumContentIn" xmlns:tns="http://picasa.image.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:getAlbumContent"/>
+                <variable name="cliff" type="xsd:integer"/>
+                <variable name="cpt" type="xsd:integer"/>
+                <variable name="descr" element="ns0:AlbumDescription"/>
+                <variable name="result" type="ns0:PhotoAlbum"/>
+            </variables>
+            <sequence name="iteration_seq">
+                <assign name="iteration_init">
+                    <copy>
+                        <from>1</from>
+                        <to variable="cpt"/>
+                    </copy>
+                    <copy>
+                        <from>count($descr_star/ns0:albumDescription)</from>
+                        <to variable="cliff"/>
+                    </copy>
+                </assign>
+                <while name="loop">
+                    <condition>$cpt &lt;= $cliff</condition>
+                    <sequence name="loop_body">
+                        <assign name="feed">
+                            <copy>
+                                <from>$descr_star/ns0:albumDescription[$cpt]</from>
+                                <to variable="descr"/>
+                            </copy>
+                        </assign>
+                        <sequence name="iteration_core">
+                            <flow name="doInParallel">
+                                <sequence name="p1">
+                                    <if name="t">
+                                        <condition>'picasa' = $descr/repository</condition>
+                                        <sequence name="a003">
+                                            <assign name="a003_pre">
+                                                <copy>
+                                                    <from>$descr/album</from>
+                                                    <to>$GetPicasaAlbumContentIn.parameters/album</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$descr/user</from>
+                                                    <to>$GetPicasaAlbumContentIn.parameters/user</to>
+                                                </copy>
+                                            </assign>
+                                            <invoke name="a003_tech" partnerLink="picasa" operation="getAlbumContent" xmlns:tns="http://picasa.image.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:PicasaWrapper" inputVariable="GetPicasaAlbumContentIn" outputVariable="GetPicasaAlbumContentOut"/>
+                                            <assign name="a003_post">
+                                                <copy>
+                                                    <from>$GetPicasaAlbumContentOut.parameters/return</from>
+                                                    <to>$raw_star/ns0:url</to>
+                                                </copy>
+                                            </assign>
+                                        </sequence>
+                                        <else>
+                                            <sequence name="a013">
+                                                <assign name="a013_pre">
+                                                    <copy>
+                                                        <from>$descr/album</from>
+                                                        <to>$GetFlickrAlbumContentIn.parameters/album</to>
+                                                    </copy>
+                                                </assign>
+                                                <invoke name="a013_tech" partnerLink="flickr" operation="getAlbumContent" xmlns:tns="http://flickr.image.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:FlickrWrapper" inputVariable="GetFlickrAlbumContentIn" outputVariable="GetFlickrAlbumContentOut"/>
+                                                <assign name="a013_post">
+                                                    <copy>
+                                                        <from>$GetFlickrAlbumContentOut.parameters/return</from>
+                                                        <to>$raw_star/ns0:url</to>
+                                                    </copy>
+                                                </assign>
+                                            </sequence>
+                                        </else>
+                                    </if>
+                                    <sequence name="a04">
+                                        <assign name="a04_pre">
+                                            <copy>
+                                                <from>$raw_star/ns0:url</from>
+                                                <to>$ShuffleIn.parameters/set</to>
+                                            </copy>
+                                        </assign>
+                                        <invoke name="a04_tech" partnerLink="helper" operation="shuffle" xmlns:tns="http://helper.image.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:PictureSet" inputVariable="ShuffleIn" outputVariable="ShuffleOut"/>
+                                        <assign name="a04_post">
+                                            <copy>
+                                                <from>$ShuffleOut.parameters/return</from>
+                                                <to>$shuffled_star/ns0:url</to>
+                                            </copy>
+                                        </assign>
+                                    </sequence>
+                                    <sequence name="a5">
+                                        <assign name="a5_pre">
+                                            <copy>
+                                                <from variable="maxSize"/>
+                                                <to>$TruncateIn.parameters/count</to>
+                                            </copy>
+                                            <copy>
+                                                <from>$shuffled_star/ns0:url</from>
+                                                <to>$TruncateIn.parameters/set</to>
+                                            </copy>
+                                        </assign>
+                                        <invoke name="a5_tech" partnerLink="helper" operation="truncate" xmlns:tns="http://helper.image.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:PictureSet" inputVariable="TruncateIn" outputVariable="TruncateOut"/>
+                                        <assign name="a5_post">
+                                            <copy>
+                                                <from>$TruncateOut.parameters/return</from>
+                                                <to>$truncated_star/ns0:url</to>
+                                            </copy>
+                                        </assign>
+                                    </sequence>
+                                </sequence>
+                                <sequence name="p2">
+                                    <assign name="a13">
+                                        <copy>
+                                            <from>$descr/repository</from>
+                                                <to>$result/ns0:source</to>
+                                        </copy>
+                                    </assign>
+                                    <assign name="a14">
+                                        <copy>
+                                                <from>$descr/name</from>
+                                                    <to>$result/ns0:name</to>
+                                            </copy>
+                                    </assign>
+                                </sequence>
+                            </flow>
+                            <assign name="a6">
+                                <copy>
+                                    <from>$truncated_star/ns0:url</from>
+                                    <to>$result/ns0:photo_star/ns0:url</to>
+                                </copy>
+                            </assign>
+                        </sequence>
+                        <assign name="swell">
+                            <copy>
+                                <from variable="result"/>
+                                <to>$result_star/ns0:photoAlbum[$cpt]</to>
+                            </copy>
+                        </assign>
+                        <assign name="increment">
+                            <copy>
+                                <from>$cpt + 1</from>
+                                <to variable="cpt"/>
+                            </copy>
+                        </assign>
+                    </sequence>
+                </while>
+            </sequence>
+        </scope>
+        <sequence name="a7">
+            <assign name="a7_pre">
+                <copy>
+                    <from variable="result_star"/>
+                    <to>$PictureAlbumOperationOut.out/ns0:result</to>
+                </copy>
+            </assign>
+            <reply name="a7_tech" partnerLink="external" operation="PictureAlbumOperation" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/PictureAlbum" portType="tns:PictureAlbumPortType" variable="PictureAlbumOperationOut"/>
+        </sequence>
+    </sequence>
+</process>
