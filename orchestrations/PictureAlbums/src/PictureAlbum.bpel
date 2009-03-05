@@ -153,8 +153,8 @@
                                             </copy>
                                         </assign>
                                     </sequence>
-                                    <sequence name="a5">
-                                        <assign name="a5_pre">
+                                    <sequence name="a05">
+                                        <assign name="a05_pre">
                                             <copy>
                                                 <from variable="maxSize"/>
                                                 <to>$TruncateIn.parameters/count</to>
@@ -164,8 +164,8 @@
                                                 <to>$TruncateIn.parameters/set</to>
                                             </copy>
                                         </assign>
-                                        <invoke name="a5_tech" partnerLink="helper" operation="truncate" xmlns:tns="http://helper.image.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:PictureSet" inputVariable="TruncateIn" outputVariable="TruncateOut"/>
-                                        <assign name="a5_post">
+                                        <invoke name="a05_tech" partnerLink="helper" operation="truncate" xmlns:tns="http://helper.image.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:PictureSet" inputVariable="TruncateIn" outputVariable="TruncateOut"/>
+                                        <assign name="a05_post">
                                             <copy>
                                                 <from>$TruncateOut.parameters/return</from>
                                                 <to>$truncated_star/ns0:url</to>
