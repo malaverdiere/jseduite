@@ -1,0 +1,18 @@
+digraph feed_reader_business {
+
+  label="FeedReader business process";
+  fontname="Courier";
+  node [fontsize=12, shape="record"];
+  fontsize=12;
+
+  a1 [label="a1|receive(name)"];
+  a2 [label="a2|url := FeedRegistry::getUrl(name)"];
+  a3 [label="a3|result := RssReader::read(url)"];
+  a4 [label="a4|reply(result)"];
+
+  a1 -> a2;
+  a2 -> a3;
+  a3 -> a4;
+
+
+}
