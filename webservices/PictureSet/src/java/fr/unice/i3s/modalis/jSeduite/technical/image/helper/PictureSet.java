@@ -8,8 +8,6 @@ package fr.unice.i3s.modalis.jSeduite.technical.image.helper;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Collection;
-import java.util.List;//
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
@@ -29,6 +27,8 @@ public class PictureSet {
     @WebMethod(operationName = "merge")
     public URL[] merge(@WebParam(name = "first") URL[] first,
             @WebParam(name = "second") URL[] second) {
+        first = this.jerk(first);
+        second = this.jerk(second);
         int cliff = Math.min(first.length, second.length);
         ArrayList<URL> result = new ArrayList<URL>();
         for(int i= 0; i < cliff; i++) {
@@ -55,6 +55,7 @@ public class PictureSet {
     @WebMethod(operationName = "truncate")
     public URL[] truncate(@WebParam(name = "set") URL[] set,
             @WebParam(name = "count") int count) {
+        set = this.jerk(set);
         if (set.length <= count)
             return set;
         URL[] result = new URL[count];
@@ -70,10 +71,25 @@ public class PictureSet {
      */
     @WebMethod(operationName = "shuffle")
     public URL[] shuffle(@WebParam(name = "set") URL[] set) {
+        set = this.jerk(set);
         ArrayList<URL> result = new ArrayList<URL>();
         for(URL u: set)
             result.add(u);
         Collections.shuffle(result);
         return result.toArray(new URL[result.size()]);
     }
+
+    /** Jerk the null content of a set (added by ... who no who ... :@)
+     * @param input
+     * @return
+     */
+    private URL[] jerk(URL[] input) {
+        ArrayList<URL> result = new ArrayList<URL>();
+        for(URL u: input) {
+            if (u != null)
+                result.add(u);
+        }
+        return result.toArray(new URL[result.size()]);
+    }
+
 }
