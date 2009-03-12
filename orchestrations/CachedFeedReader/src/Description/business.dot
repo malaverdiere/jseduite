@@ -1,0 +1,30 @@
+digraph feed_reader_business {
+
+  label="FeedReader business process";
+  fontname="Courier";
+  node [fontsize=12, shape="record"];
+  edge [fontname="Courier", fontsize=9];
+  fontsize=12;
+
+  a1 [label="a1|receive(name,validity)"];
+  a2 [label="a2|v := DataCache::isValid(name,validity)"];
+  a3 [label="a3| c := isTrue(v)"];
+  a04 [label="a04| cached := DataCache::getcontent(name)"];
+  a05 [label="a05| result := unmarshal(cached)"];
+  a14 [label="a14| result := FeedReader::Operation(name)"];
+  a15 [label="a15| cached := marshal(result)"];
+  a16 [label="a16| DataCache::setContent(name,cached)"];
+  a7 [label="a7| reply(result)"];
+
+  a1 -> a2;
+  a2 -> a3;
+  a3 -> a04 [label="c"];
+  a04 -> a05 [label="c"];
+  a05 -> a7 [label="c"];
+  a3 -> a14 [label="!c"];
+  a14 -> a15 [label="!c"];
+  a15 -> a16 [label="!c"];
+  a16 -> a7 [label="!c"];
+
+
+}

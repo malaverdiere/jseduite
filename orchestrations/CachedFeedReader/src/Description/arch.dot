@@ -1,0 +1,24 @@
+digraph feed_reader_arch {
+
+  label="CachedFeedReader architectural description";
+  fontname="Courier";
+  node [fontsize=12, style=filled, shape="ellipse", color="#4682B4"];
+  edge [arrowhead="none"];
+  fontsize=12;
+  rankdir=LR ;
+
+
+  feed_registry [label="FeedRegistry", ];
+  rss_reader [label="RssReader"];
+
+  feed_reader [label="FeedReader", color="#E6E6FA", shape="octagon"];
+
+  feed_reader -> feed_registry;
+  feed_reader -> rss_reader ;
+
+  cache [label="DataCache"];
+
+  cached_feed_reader [label="CachedFeedReader", color="#E6E6FA", shape="octagon"];
+  cached_feed_reader -> cache;
+  cached_feed_reader -> feed_reader;
+}
