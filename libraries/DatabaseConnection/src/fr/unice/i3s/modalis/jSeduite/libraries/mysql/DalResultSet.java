@@ -62,10 +62,10 @@ public class DalResultSet {
                 String[] row = new String[colCount+1];
                 for(int i = 1; i < colCount+1; i++) {
                     row[i] = r.getString(i);
-                    tmp.add(row);
                 }
+                tmp.add(row);
             }
-            this.content = tmp.toArray(new String[0][0]);
+            this.content = tmp.toArray(new String[tmp.size()][labels.size()]);
         } catch(Exception e) {
             throw new DALException(e.getMessage());
         }
