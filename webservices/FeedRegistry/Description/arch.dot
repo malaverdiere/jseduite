@@ -1,0 +1,34 @@
+digraph jSeduite_arch {
+  label="FeedRegistry Architecture";
+  fontname="Courier";
+  node [fontsize=12, style=filled, shape="ellipse", color="#4682B4"];
+  edge [arrowhead="none"];
+  fontsize=12;
+  rankdir=LR ;
+
+  subgraph cluster_database {
+    label="jSeduite Database" ;
+    labelloc=b;
+    node [shape="box", color="#D2B48C"];
+    edge [arrowhead="inv",arrowtail="inv"] ;
+
+    feed_registry_db -> feed_class_db ;
+    {rank=same; feed_class_db; feed_registry_db; }
+    feed_class_db    [label="feed_class"] ;
+    feed_registry_db [label="feed_registry"] ;
+
+  }
+
+  subgraph cluster_librairies {
+    label="jSeduite Libraries" ;
+    labelloc=b;
+    node [shape="hexagon",color="#B0B0E6",style="filled"];
+
+    db_conn [label="DatabaseConnection"];
+  }
+
+  feed_registry [label="FeedRegistry"];
+  feed_registry -> feed_registry_db ;
+  feed_registry -> feed_class_db ;
+  feed_registry ->  db_conn ;
+}
