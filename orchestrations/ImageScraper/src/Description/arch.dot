@@ -1,0 +1,19 @@
+digraph weather_proxy_arch {
+
+  label="ImageScraper architectural description";
+  fontname="Courier";
+  node [fontsize=12, style=filled, shape="ellipse", color="#4682B4"];
+  edge [arrowhead="none"];
+  fontsize=12;
+  rankdir=LR ;
+
+  flickr [label="FlickrWrapper"];
+  picasa [label="PicasaWrapper"];
+  picture_set [label="PictureSet"];
+
+  image_scraper [label="ImageScraper", color="#E6E6FA", shape="octagon"];
+  image_scraper -> flickr;
+  image_scraper -> picasa;
+  image_scraper -> picture_set;
+
+}
