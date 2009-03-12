@@ -70,7 +70,7 @@ public class PicasaWrapper {
             @WebParam(name = "count") int count)
             throws PicasaWrapperException {
         String address = "http://"+HOST + SERVICE +"/all?kind=photo";
-        address += "&max-results=" + count + "&q=" + query;
+        address += "&max-results=" + count + "&tag=" + query;
         try {
             return this.transform(address);
         } catch (Exception e) {
