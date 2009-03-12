@@ -1,0 +1,21 @@
+digraph weather_proxy_arch {
+
+  label="PictureAlbums architectural description";
+  fontname="Courier";
+  node [fontsize=12, style=filled, shape="ellipse", color="#4682B4"];
+  edge [arrowhead="none"];
+  fontsize=12;
+  rankdir=LR ;
+
+  picture_album_registry [label="PictureAlbumRegistry"];
+  flickr [label="FlickrWrapper"];
+  picasa [label="PicasaWrapper"];
+  picture_set [label="PictureSet"];
+
+  picture_albums [label="PictureAlbums", color="#E6E6FA", shape="octagon"];
+  picture_albums -> picture_album_registry
+  picture_albums -> flickr;
+  picture_albums -> picasa;
+  picture_albums -> picture_set;
+
+}
