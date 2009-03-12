@@ -1,0 +1,39 @@
+digraph feed_reader_business {
+
+  label="WeatherProxy business process";
+  fontname="Courier";
+  node [fontsize=12, shape="record"];
+  edge [fontname="Courier", fontsize=9];
+  fontsize=12;
+
+  a1 [label="a1|receive(cityCode)"];
+  a02 [label="a02|liveWeather := WeatherBug::getLiveWeatherByCityCode(cityCode)"];
+  a12 [label="a12|forecast* := WeatherBug::getforecastByCityCode(cityCode)"];
+  a3 [label="a3| result.live := simplify(liveWeather)"];
+
+  a4 [label="a4| fInfo := simplify(aForecast)|<p>*",fillcolor="#FFFFCC",style=filled];
+  a5 [label="a5| reply(result)"];
+
+  a1 -> a02;
+  a1 -> a12;
+  a12 -> a3;
+  a02 -> a3;
+  a12 -> a02 [style="invis"];
+  a3 -> a4;
+  a4 -> a5;
+
+  subgraph cluster_policy {
+    label="Set Policy";
+    labeloc=b;
+    rankdir=LR;
+    node [fillcolor="#FFFFCC",style=filled];
+    feed [label="-|aForecast := pop(forecast*)"];
+    acts [shape="doublecircle",label="*"];
+    swell [label="-|result.forecast* := push(fInfo,result.forecast*)"];
+    feed -> acts -> swell;
+  }
+
+  a4:p -> acts [arrowhead="none"];
+
+
+}
