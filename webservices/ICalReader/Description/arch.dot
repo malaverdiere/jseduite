@@ -1,0 +1,22 @@
+digraph jSeduite_arch {
+  label="ICalReader Architecture";
+  fontname="Courier";
+  node [fontsize=12, style=filled, shape="ellipse", color="#4682B4"];
+  edge [arrowhead="none"];
+  fontsize=12;
+  rankdir=LR ;
+
+  subgraph cluster_third_libraries {
+    label="Third Party Libraries" ;
+    labelloc=b;
+    node [shape="hexagon",color="#FFFFCC",style="filled"];
+    edge [arrowhead="inv",arrowtail="inv"];
+
+   ical4j  [label="iCal4j"];
+  }
+
+
+  ical [label="ICalReader"];
+  ical -> ical4j ;
+
+}
