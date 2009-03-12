@@ -1,0 +1,31 @@
+digraph feed_reader_arch {
+
+  label="TvShows architectural description";
+  fontname="Courier";
+  node [fontsize=12, style=filled, shape="ellipse", color="#4682B4"];
+  edge [arrowhead="none"];
+  fontsize=12;
+  rankdir=LR ;
+
+
+  feed_registry [label="FeedRegistry", ];
+  rss_reader [label="RssReader"];
+
+  feed_reader [label="FeedReader", color="#E6E6FA", shape="octagon"];
+
+  feed_reader -> feed_registry;
+  feed_reader -> rss_reader ;
+
+  cache [label="DataCache"];
+
+  cached_feed_reader [label="CachedFeedReader", color="#E6E6FA", shape="octagon"];
+  cached_feed_reader -> cache;
+  cached_feed_reader -> feed_reader;
+  { rank=same; feed_reader; cached_feed_reader; }
+  tv_helper [label="TvHelper"];
+
+  tv_shows [label="TvShows", color="#E6E6FA", shape="octagon"];
+  tv_shows -> tv_helper;
+  tv_shows -> cached_feed_reader; 
+
+}

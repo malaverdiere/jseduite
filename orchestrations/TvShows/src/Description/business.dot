@@ -1,0 +1,32 @@
+digraph feed_reader_business {
+
+  label="TvShows business process";
+  fontname="Courier";
+  node [fontsize=12, shape="record"];
+  edge [fontname="Courier", fontsize=9];
+  fontsize=12;
+
+  a1 [label="a1|receive()"];
+  a2 [label="a2|feed := CachedFeedReader::Operation('tv')"];
+  a3 [label="a3| result := TvHelper::extract(aNode.title)|<p>*",fillcolor="#FFFFCC",style=filled];
+  a4 [label="a4| reply(result*)"];
+
+  a1 -> a2;
+  a2 -> a3;
+  a3 -> a4;
+
+  subgraph cluster_policy {
+    label="Set Policy";
+    labeloc=b;
+    rankdir=LR;
+    node [fillcolor="#FFFFCC",style=filled];
+    feed [label="-|aNode := pop(feed.node*)"];
+    acts [shape="doublecircle",label="*"];
+    swell [label="-|result* := push(result,result*)"];
+    feed -> acts -> swell;
+  }
+
+  a3:p -> acts [arrowhead="none"];
+
+
+}
