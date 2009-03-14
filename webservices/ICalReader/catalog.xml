@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/jSeduite/ICalReader/ICalReaderService?WSDL" uri="web/WSDL/localhost_8080/jSeduite/ICalReader/ICalReaderService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/ICalReader/ICalReaderService?xsd=1" uri="web/WSDL/localhost_8080/jSeduite/ICalReader/ICalReaderService.xsd_1.xsd"/>
+    <nextCatalog catalog="nbproject/private/cache/retriever/catalog.xml"/>
+</catalog>
