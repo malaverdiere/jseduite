@@ -43,16 +43,19 @@
 <link xlink:href="../jbiServiceUnits/CachedFeedReader/CachedFeedReader.wsdl#xpointer(/definitions/portType[@name='CachedFeedReaderPortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/CachedFeedReader/localhost_8080/jSeduite/DataCache/DataCacheService.wsdl#xpointer(/definitions/portType[@name='DataCache'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/CachedFeedReader/localhost_9080/FeedReader.wsdl#xpointer(/definitions/portType[@name='FeedReaderPortType'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/CachedFeedReader/WSDL/CachedFeedReader.wsdl#xpointer(/definitions/portType[@name='CachedFeedReaderPortType'])" xlink:type="simple"/>
 </porttypes>
 <bindings>
 <link xlink:href="../jbiServiceUnits/CachedFeedReader/CachedFeedReader.wsdl#xpointer(/definitions/binding[@name='CachedFeedReaderBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/CachedFeedReader/localhost_8080/jSeduite/DataCache/DataCacheService.wsdl#xpointer(/definitions/binding[@name='DataCachePortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/CachedFeedReader/localhost_9080/FeedReader.wsdl#xpointer(/definitions/binding[@name='FeedReaderBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/CachedFeedReader/WSDL/CachedFeedReader.wsdl#xpointer(/definitions/binding[@name='CachedFeedReaderBinding'])" xlink:type="simple"/>
 </bindings>
 <services>
 <link xlink:href="../jbiServiceUnits/CachedFeedReader/CachedFeedReader.wsdl#xpointer(/definitions/service[@name='CachedFeedReaderService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/CachedFeedReader/localhost_8080/jSeduite/DataCache/DataCacheService.wsdl#xpointer(/definitions/service[@name='DataCacheService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/CachedFeedReader/localhost_9080/FeedReader.wsdl#xpointer(/definitions/service[@name='FeedReaderService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/CachedFeedReader/WSDL/CachedFeedReader.wsdl#xpointer(/definitions/service[@name='CachedFeedReaderService'])" xlink:type="simple"/>
 </services>
 <regions>
         <region name="WSDL Endpoints" width="150"/>
