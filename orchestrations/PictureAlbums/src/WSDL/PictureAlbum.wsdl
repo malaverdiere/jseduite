@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="PictureAlbum" targetNamespace="http://modalis.i3s.unice.fr/jSeduite/wsdl/PictureAlbum"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/PictureAlbum" xmlns:ns="http://modalis.i3s.unice.fr/jSeduite/schema/PictureAlbum" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types>
+        <xsd:schema targetNamespace="http://modalis.i3s.unice.fr/jSeduite/wsdl/PictureAlbum">
+            <xsd:import namespace="http://modalis.i3s.unice.fr/jSeduite/schema/PictureAlbum" schemaLocation="PictureAlbum.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="PictureAlbumOperationRequest">
+        <part name="in" element="ns:PictureAlbumRequest"/>
+    </message>
+    <message name="PictureAlbumOperationResponse">
+        <part name="out" element="ns:PictureAlbumResponse"/>
+    </message>
+    <portType name="PictureAlbumPortType">
+        <operation name="PictureAlbumOperation">
+            <input name="input1" message="tns:PictureAlbumOperationRequest"/>
+            <output name="output1" message="tns:PictureAlbumOperationResponse"/>
+        </operation>
+    </portType>
+    <binding name="PictureAlbumBinding" type="tns:PictureAlbumPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="PictureAlbumOperation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="PictureAlbumService">
+        <port name="PictureAlbumPort" binding="tns:PictureAlbumBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/PictureAlbumService/PictureAlbumPort"/>
+        </port>
+    </service>
+    <plnk:partnerLinkType name="PictureAlbum">
+        <!-- A partner link type is automatically generated when a new port type is added. Partner link types are used by BPEL processes. 
+In a BPEL process, a partner link represents the interaction between the BPEL process and a partner service. Each partner link is associated with a partner link type.
+A partner link type characterizes the conversational relationship between two services. The partner link type can have one or two roles.-->
+        <plnk:role name="PictureAlbumPortTypeRole" portType="tns:PictureAlbumPortType"/>
+    </plnk:partnerLinkType>
+</definitions>
