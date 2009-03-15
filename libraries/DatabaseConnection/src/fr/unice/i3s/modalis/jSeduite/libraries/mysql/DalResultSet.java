@@ -53,7 +53,7 @@ public class DalResultSet {
             this.labels = new Hashtable<String, Integer>();
             ResultSetMetaData metadata = r.getMetaData();
             for(int i = 1; i < metadata.getColumnCount()+1; i++)
-                this.labels.put(metadata.getColumnName(i), new Integer(i));
+                this.labels.put(metadata.getColumnLabel(i), new Integer(i));
 
             ArrayList<String[]> tmp = new ArrayList<String[]>();
             int colCount = metadata.getColumnCount();
