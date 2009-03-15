@@ -1,0 +1,31 @@
+digraph jSeduite_arch {
+  label="ErrorLogger Architecture";
+  fontname="Courier";
+  node [fontsize=12, style=filled, shape="ellipse", color="#4682B4"];
+  edge [arrowhead="none"];
+  fontsize=12;
+  rankdir=LR ;
+
+  subgraph cluster_database {
+    label="jSeduite Database" ;
+    labelloc=b;
+    node [shape="box", color="#D2B48C"];
+    edge [arrowhead="inv",arrowtail="inv"] ;
+
+    errors_db         [label="errors"] ;
+  }
+
+  subgraph cluster_librairies {
+    label="jSeduite Libraries" ;
+    labelloc=b;
+    node [shape="hexagon",color="#B0B0E6",style="filled"];
+
+    db_conn [label="DatabaseConnection"];
+  }
+
+  error_logger [label="ErrorLogger"];
+  error_logger -> errors_db ;
+  error_logger -> db_conn;
+ 
+
+}

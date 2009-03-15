@@ -49,7 +49,7 @@ public class ErrorLog {
     }
 
     public ErrorLog(DalResultSet result) throws Exception {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd H:m:s");
         this.stamp = format.parse(result.getValue("stamp"));
         this.trigger = result.getValue("trigger");
         this.level = result.getValue("level");
