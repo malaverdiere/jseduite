@@ -33,7 +33,7 @@ import javax.jws.WebService;
 @WebService()
 public class BreakingNews {
 
-    /** Extract BreakingNews from the database
+    /** Extract the 10 lasts BreakingNews from the database
      * @return Roday's breaking news
      * @throws BreakingNewsException
      */
@@ -41,7 +41,7 @@ public class BreakingNews {
     public BreakNew[] getBreakingNews() throws BreakingNewsException {
         DataAccessLayer dal = new DataAccessLayer();
         String sql = "SELECT * FROM `breaking_news` WHERE TO_DAYS(NOW()) = ";
-        sql += "TO_DAYS(`stamp`);";
+        sql += "TO_DAYS(`stamp`) ORDER BY `stamp` DESC LIMIT 10;";
         try {
             ArrayList<BreakNew> result = new ArrayList<BreakNew>();
             DalResultSet rset = dal.extractDataSet(sql);
