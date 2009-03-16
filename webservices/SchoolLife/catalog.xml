@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/jSeduite/SchoolLife/TeacherAbsencesService?WSDL" uri="web/WSDL/localhost_8080/jSeduite/SchoolLife/TeacherAbsencesService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/SchoolLife/TeacherAbsencesService?xsd=1" uri="web/WSDL/localhost_8080/jSeduite/SchoolLife/TeacherAbsencesService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/jSeduite/SchoolLife/StudentSummonService?WSDL" uri="web/WSDL/localhost_8080/jSeduite/SchoolLife/StudentSummonService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/SchoolLife/StudentSummonService?xsd=1" uri="web/WSDL/localhost_8080/jSeduite/SchoolLife/StudentSummonService.xsd_1.xsd"/>
+    <nextCatalog catalog="nbproject/private/cache/retriever/catalog.xml"/>
+</catalog>

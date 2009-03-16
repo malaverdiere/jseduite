@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
+  <services>
+    <service name="StudentSummon">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.news.summon.StudentSummon</implementation-class>
+    </service>
+    <service name="TeacherAbsences">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.news.absence.TeacherAbsences</implementation-class>
+    </service>
+  </services>
+  <clients/>
+</jax-ws>

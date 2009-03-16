@@ -1,0 +1,54 @@
+digraph jSeduite_arch {
+
+  label="SchoolLife Architecture";
+  fontname="Courier";
+  node [fontsize=12, style=filled, shape="ellipse", color="#4682B4"];
+  edge [arrowhead="none"];
+  fontsize=12;
+  rankdir=LR ;
+
+
+  subgraph cluster_database {
+    label="jSeduite Database" ;
+    labelloc=b;
+    node [shape="box", color="#D2B48C"];
+    edge [arrowhead="inv",arrowtail="inv"] ;
+
+    summon_levels_db [label="summon_levels"];
+    promos_db [label="promos"];
+    summonings_db [label="summonings"];
+    valid_summonings_view [label="valid_summonings"];
+    teacher_absences_db [label="teachers_absences"];
+
+    valid_summonings_view -> promos_db;
+    valid_summonings_view -> summon_levels_db;
+    valid_summonings_view -> summonings_db;
+    {rank=same; valid_summonings_view; teacher_absences_db; }
+
+
+  }
+
+  subgraph cluster_librairies {
+    label="jSeduite Libraries" ;
+    labelloc=b;
+    node [shape="hexagon",color="#B0B0E6",style="filled"];
+
+    db_conn [label="DatabaseConnection"];
+  }
+
+
+  subgraph cluster_school_life {
+    label="SchoolLife";
+
+    students_summons [label="StudentSummon"];
+    teacher_absences [label="TeacherAbsences"];
+  }
+
+  students_summons -> valid_summonings_view;
+  db_conn -> students_summons;
+  teacher_absences -> teacher_absences_db;
+  db_conn -> teacher_absences;
+
+
+
+}
