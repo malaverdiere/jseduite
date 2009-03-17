@@ -52,10 +52,10 @@
 </service-units>
 <connections>
 <connection consumer="endpoint1" provider="endpoint6" state="unchanged"/>
-<connection consumer="endpoint7" provider="endpoint2" state="unchanged"/>
-<connection consumer="endpoint8" provider="endpoint3" state="unchanged"/>
-<connection consumer="endpoint10" provider="endpoint4" state="unchanged"/>
 <connection consumer="endpoint9" provider="endpoint5" state="unchanged"/>
+<connection consumer="endpoint10" provider="endpoint4" state="unchanged"/>
+<connection consumer="endpoint8" provider="endpoint3" state="unchanged"/>
+<connection consumer="endpoint7" provider="endpoint2" state="unchanged"/>
 </connections>
 <porttypes>
 <link xlink:href="../jbiServiceUnits/META-INF/PictureAlbums/src/Partners/localhost_8080/jSeduite/FlickrWrapper/FlickrWrapperService.wsdl#xpointer(/definitions/portType[@name='FlickrWrapper'])" xlink:type="simple"/>
