@@ -36,13 +36,14 @@
 </service-units>
 <connections>
 <connection consumer="endpoint3" provider="endpoint4" state="unchanged"/>
-<connection consumer="endpoint5" provider="endpoint2" state="unchanged"/>
 <connection consumer="endpoint6" provider="endpoint1" state="unchanged"/>
+<connection consumer="endpoint5" provider="endpoint2" state="unchanged"/>
 </connections>
 <porttypes>
 <link xlink:href="../jbiServiceUnits/FeedReader/FeedReader.wsdl#xpointer(/definitions/portType[@name='FeedReaderPortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/FeedReader/localhost_8080/jSeduite/FeedRegistry/FeedRegistryService.wsdl#xpointer(/definitions/portType[@name='FeedRegistry'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/FeedReader/localhost_8080/jSeduite/RssReader/RssReaderService.wsdl#xpointer(/definitions/portType[@name='RssReader'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/FeedReader/WSDL/FeedReader.wsdl#xpointer(/definitions/portType[@name='FeedReaderPortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/FeedReader/src/localhost_8080/jSeduite/FeedRegistry/FeedRegistryService.wsdl#xpointer(/definitions/portType[@name='FeedRegistry'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/FeedReader/src/localhost_8080/jSeduite/RssReader/RssReaderService.wsdl#xpointer(/definitions/portType[@name='RssReader'])" xlink:type="simple"/>
 </porttypes>
@@ -50,6 +51,7 @@
 <link xlink:href="../jbiServiceUnits/FeedReader/FeedReader.wsdl#xpointer(/definitions/binding[@name='FeedReaderBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/FeedReader/localhost_8080/jSeduite/FeedRegistry/FeedRegistryService.wsdl#xpointer(/definitions/binding[@name='FeedRegistryPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/FeedReader/localhost_8080/jSeduite/RssReader/RssReaderService.wsdl#xpointer(/definitions/binding[@name='RssReaderPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/FeedReader/WSDL/FeedReader.wsdl#xpointer(/definitions/binding[@name='FeedReaderBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/FeedReader/src/localhost_8080/jSeduite/FeedRegistry/FeedRegistryService.wsdl#xpointer(/definitions/binding[@name='FeedRegistryPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/FeedReader/src/localhost_8080/jSeduite/RssReader/RssReaderService.wsdl#xpointer(/definitions/binding[@name='RssReaderPortBinding'])" xlink:type="simple"/>
 </bindings>
@@ -57,6 +59,7 @@
 <link xlink:href="../jbiServiceUnits/FeedReader/FeedReader.wsdl#xpointer(/definitions/service[@name='FeedReaderService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/FeedReader/localhost_8080/jSeduite/FeedRegistry/FeedRegistryService.wsdl#xpointer(/definitions/service[@name='FeedRegistryService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/FeedReader/localhost_8080/jSeduite/RssReader/RssReaderService.wsdl#xpointer(/definitions/service[@name='RssReaderService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/FeedReader/WSDL/FeedReader.wsdl#xpointer(/definitions/service[@name='FeedReaderService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/FeedReader/src/localhost_8080/jSeduite/FeedRegistry/FeedRegistryService.wsdl#xpointer(/definitions/service[@name='FeedRegistryService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/FeedReader/src/localhost_8080/jSeduite/RssReader/RssReaderService.wsdl#xpointer(/definitions/service[@name='RssReaderService'])" xlink:type="simple"/>
 </services>
