@@ -23,6 +23,7 @@
         <partnerLink name="external" xmlns:tns="http://modalis.polytech.unice.fr/jSeduite/wsdl/InfoProvider/skel" partnerLinkType="tns:InfoProvider" myRole="InfoProviderPortTypeRole"/>
     </partnerLinks>
     <variables>
+        <variable name="globalIndex" type="xsd:integer"/>
         <variable name="IsAuthorizedOut" xmlns:tns="http://accounts.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:isAuthorizedResponse"/>
         <variable name="IsAuthorizedIn" xmlns:tns="http://accounts.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:isAuthorized"/>
         <variable name="authorized" type="xsd:boolean"/>
@@ -68,6 +69,125 @@
         </sequence>
         <flow name="source_invocations">
             <empty name="source_hook"/>
+<!--
+            <scope name="SourceName">
+                <variables>
+                    <variable name="SourceOperationOut" xmlns:tns="http://..." messageType="tns:..."/>
+                    <variable name="SourceOperationIn"  xmlns:tns="http://..." messageType="tns:..."/>
+
+                    <variable name="LogOut" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:logResponse"/>
+                    <variable name="LogIn" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:log"/>
+                    <variable name="GetParameterValueOut" xmlns:tns="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:getParameterValueResponse"/>
+                    <variable name="GetParameterValueIn" xmlns:tns="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:getParameterValue"/>
+                    <variable name="cpt" type="xsd:integer"/>
+                    <variable name="GetCallIdentifiersOut" xmlns:tns="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:getCallIdentifiersResponse"/>
+                    <variable name="GetCallIdentifiersIn" xmlns:tns="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:getCallIdentifiers"/>
+                </variables>
+                <faultHandlers>
+                    <catchAll>
+                        <sequence name="onError">
+                            <sequence name="log">
+                                <assign name="log_pre">
+                                    <copy>
+                                        <from>'InfoProvider'</from>
+                                        <to>$LogIn.parameters/trigger</to>
+                                    </copy>
+                                    <copy>
+                                        <from>'exception'</from>
+                                        <to>$LogIn.parameters/level</to>
+                                    </copy>
+                                    <copy>
+                                        <from>'SourceName Source Exception'</from>
+                                        <to>$LogIn.parameters/message</to>
+                                    </copy>
+                                </assign>
+                                <invoke name="log_tech" partnerLink="logger" operation="log" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:ErrorLogger" inputVariable="LogIn" outputVariable="LogOut"/>
+                            </sequence>
+                            <assign name="silentIgnore">
+                                <copy>
+                                        <from>''</from>
+                                            <to variable="global_variable_name"/>
+                                    </copy>
+                            </assign>
+                        </sequence>
+                    </catchAll>
+                </faultHandlers>
+                <sequence name="internal">
+                    <sequence name="getCalls">
+                        <assign name="getCalls_pre">
+                            <copy>
+                                <from>'service'</from>
+                                <to>$GetCallIdentifiersIn.parameters/service</to>
+                            </copy>
+                            <copy>
+                                <from>'operation'</from>
+                                <to>$GetCallIdentifiersIn.parameters/operation</to>
+                            </copy>
+                            <copy>
+                                <from variable="user"/>
+                                <to>$GetCallIdentifiersIn.parameters/login</to>
+                            </copy>
+                        </assign>
+                        <invoke name="getCals_tech" partnerLink="preferences" operation="getCallIdentifiers" xmlns:tns="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:PreferenceManager" inputVariable="GetCallIdentifiersIn" outputVariable="GetCallIdentifiersOut"/>
+                    </sequence>
+                    <assign name="call_loop_init">
+                        <copy>
+                            <from>1</from>
+                            <to variable="cpt"/>
+                        </copy>
+                    </assign>
+                    <while name="call_loop">
+                        <condition>$cpt &lt;= count($GetCallIdentifiersOut.parameters/return)</condition>
+                        <sequence name="call_loop_body">
+                            <sequence name="getParameter_ParamName">
+                                <assign name="getParameter_ParamName_pre">
+                                    <copy>
+                                        <from>'service'</from>
+                                        <to>$GetParameterValueIn.parameters/service</to>
+                                    </copy>
+                                    <copy>
+                                        <from>'operation'</from>
+                                        <to>$GetParameterValueIn.parameters/operation</to>
+                                    </copy>
+                                    <copy>
+                                        <from variable="user"/>
+                                        <to>$GetParameterValueIn.parameters/login</to>
+                                    </copy>
+                                    <copy>
+                                        <from>'ParamName'</from>
+                                        <to>$GetParameterValueIn.parameters/param</to>
+                                    </copy>
+                                    <copy>
+                                        <from>string($GetCallIdentifiersOut.parameters/return[$cpt])</from>
+                                        <to>$GetParameterValueIn.parameters/call</to>
+                                    </copy>
+                                </assign>
+                                <invoke name="getParameter_ParamName_tech" partnerLink="preferences" operation="getParameterValue" xmlns:tns="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:PreferenceManager" inputVariable="GetParameterValueIn" outputVariable="GetParameterValueOut"/>
+                                <assign name="getParameter_ParamName_post">
+                                    <copy>
+                                        <from>$GetParameterValueOut.parameters/return</from>
+                                        <to>$SourceOperationIn.in/ns:ParamName</to>
+                                    </copy>
+                                </assign>
+                            </sequence>
+                            <invoke name="perform_call" partnerLink="partner" operation="SourceOperation" xmlns:tns="http://..." portType="tns:SourcePortType" inputVariable="SourceOperationIn" outputVariable="SourceOperationOut"/>
+                            <assign name="feedLocalResult">
+                                <copy>
+                                    <from>$CachedFeedReaderOperationOut.out/ns1:return</from>
+                                    <to>$global_variable_name/ns0:item[$cpt]</to>
+                                </copy>
+                            </assign>
+                            <assign name="increment">
+                                <copy>
+                                    <from>$cpt + 1</from>
+                                    <to variable="cpt"/>
+                                </copy>
+                            </assign>
+                        </sequence>
+                    </while>
+                </sequence>
+            </scope>
+-->
         </flow>
         <sequence name="feed_result">
             <assign name="init_result">
@@ -75,7 +195,51 @@
                     <from>''</from>
                     <to variable="result"/>
                 </copy>
+                <copy>
+                    <from>1</from>
+                    <to variable="globalIndex"/>
+                </copy>
             </assign>
+<!--
+            <scope name="SourceName_Feed">
+                <variables>
+                    <variable name="cpt" type="xsd:integer"/>
+                </variables>
+                <sequence name="internal">
+                    <assign name="init">
+                        <copy>
+                            <from>1</from>
+                            <to variable="cpt"/>
+                        </copy>
+                    </assign>
+                        <while name="feed_loop">
+                            <condition>$cpt &lt;= count($global_variable_name/ns0:item)</condition>
+                                <sequence name="feed_loop_body">
+                                    <assign name="feed_result">
+                                        <copy>
+                                            <from>$global_variable_name/ns0:item[$cpt]</from>
+                                            <to>$result/ns0:item[$globalIndex]/ns0:feedContent</to>
+                                        </copy>
+                                        <copy>
+                                            <from>'dataType'</from>
+                                            <to>$result/ns0:item[$globalIndex]/@kind</to>
+                                        </copy>
+                                    </assign>
+                                        <assign name="increment">
+                                            <copy>
+                                                <from>$globalIndex + 1</from>
+                                                <to variable="globalIndex"/>
+                                            </copy>
+                                            <copy>
+                                                <from>$cpt + 1</from>
+                                                <to variable="cpt"/>
+                                            </copy>
+                                        </assign>
+                                </sequence>
+                        </while>
+                </sequence>
+            </scope>
+            -->
         </sequence>
         <sequence name="response">
             <assign name="collect_result">
