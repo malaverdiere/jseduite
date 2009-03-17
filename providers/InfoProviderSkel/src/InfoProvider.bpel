@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process
+    name="InfoProvider"
+    targetNamespace="http://modalis.polytech.unice.fr/jSeduite/bpel/InfoProvider/skel"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
+    xmlns:tns="http://modalis.polytech.unice.fr/jSeduite/bpel/InfoProvider/skel" xmlns:ns0="http://modalis.polytech.unice.fr/jSeduite/schema/InfoProvider/skel">
+    <import namespace="http://modalis.polytech.unice.fr/jSeduite/wsdl/InfoProvider/skel" location="InfoProvider.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.polytech.unice.fr/jSeduite/schema/InfoProvider/skel" location="InfoProvider.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/ErrorLoggerServiceWrapper" location="TechPartners/ErrorLoggerServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" location="TechPartners/ErrorLoggerService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/AccountManagerServiceWrapper" location="TechPartners/AccountManagerServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://accounts.technical.jSeduite.modalis.i3s.unice.fr/" location="TechPartners/AccountManagerService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/PreferenceManagerServiceWrapper" location="TechPartners/PreferenceManagerServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" location="TechPartners/PreferenceManagerService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="accounts" xmlns:tns="http://enterprise.netbeans.org/bpel/AccountManagerServiceWrapper" partnerLinkType="tns:AccountManagerLinkType" partnerRole="accounts"/>
+        <partnerLink name="preferences" xmlns:tns="http://enterprise.netbeans.org/bpel/PreferenceManagerServiceWrapper" partnerLinkType="tns:PreferenceManagerLinkType" partnerRole="preferences"/>
+        <partnerLink name="logger" xmlns:tns="http://enterprise.netbeans.org/bpel/ErrorLoggerServiceWrapper" partnerLinkType="tns:ErrorLoggerLinkType" partnerRole="logger"/>
+        <partnerLink name="external" xmlns:tns="http://modalis.polytech.unice.fr/jSeduite/wsdl/InfoProvider/skel" partnerLinkType="tns:InfoProvider" myRole="InfoProviderPortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="IsAuthorizedOut" xmlns:tns="http://accounts.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:isAuthorizedResponse"/>
+        <variable name="IsAuthorizedIn" xmlns:tns="http://accounts.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:isAuthorized"/>
+        <variable name="authorized" type="xsd:boolean"/>
+        <variable name="result" type="ns0:InformationSet"/>
+        <variable name="password" type="xsd:string"/>
+        <variable name="user" type="xsd:string"/>
+        <variable name="GetInformationOut" xmlns:tns="http://modalis.polytech.unice.fr/jSeduite/wsdl/InfoProvider/skel" messageType="tns:GetInformationResponse"/>
+        <variable name="GetInformationIn" xmlns:tns="http://modalis.polytech.unice.fr/jSeduite/wsdl/InfoProvider/skel" messageType="tns:GetInformationRequest"/>
+    </variables>
+    <sequence>
+        <sequence name="reception">
+            <receive name="receive" createInstance="yes" partnerLink="external" operation="GetInformation" xmlns:tns="http://modalis.polytech.unice.fr/jSeduite/wsdl/InfoProvider/skel" portType="tns:InfoProviderPortType" variable="GetInformationIn"/>
+            <assign name="feed_vars">
+                <documentation>literal assignment looks weird using netbeans bpel runtime</documentation>
+                <copy>
+                    <from>$GetInformationIn.in/ns0:user</from>
+                    <to variable="user"/>
+                </copy>
+                <copy>
+                    <from>$GetInformationIn.in/ns0:password</from>
+                    <to variable="password"/>
+                </copy>
+            </assign>
+        </sequence>
+        <sequence name="authentication">
+            <assign name="authentication_pre">
+                <copy>
+                    <from variable="user"/>
+                    <to>$IsAuthorizedIn.parameters/login</to>
+                </copy>
+                <copy>
+                    <from variable="password"/>
+                    <to>$IsAuthorizedIn.parameters/password</to>
+                </copy>
+            </assign>
+            <invoke name="authentication_tech" partnerLink="accounts" operation="isAuthorized" xmlns:tns="http://accounts.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:AccountManager" inputVariable="IsAuthorizedIn" outputVariable="IsAuthorizedOut"/>
+            <assign name="authentication_post">
+                <copy>
+                    <from>$IsAuthorizedOut.parameters/return</from>
+                    <to variable="authorized"/>
+                </copy>
+            </assign>
+        </sequence>
+        <flow name="source_invocations">
+            <empty name="source_hook"/>
+        </flow>
+        <sequence name="feed_result">
+            <assign name="init_result">
+                <copy>
+                    <from>''</from>
+                    <to variable="result"/>
+                </copy>
+            </assign>
+        </sequence>
+        <sequence name="response">
+            <assign name="collect_result">
+                <copy>
+                    <from variable="result"/>
+                    <to>$GetInformationOut.out/ns0:result</to>
+                </copy>
+            </assign>
+            <reply name="reply" partnerLink="external" operation="GetInformation" xmlns:tns="http://modalis.polytech.unice.fr/jSeduite/wsdl/InfoProvider/skel" portType="tns:InfoProviderPortType" variable="GetInformationOut"/>
+        </sequence>
+    </sequence>
+</process>
