@@ -44,15 +44,16 @@
 </service-units>
 <connections>
 <connection consumer="endpoint4" provider="endpoint5" state="unchanged"/>
-<connection consumer="endpoint8" provider="endpoint3" state="unchanged"/>
-<connection consumer="endpoint6" provider="endpoint2" state="unchanged"/>
 <connection consumer="endpoint7" provider="endpoint1" state="unchanged"/>
+<connection consumer="endpoint6" provider="endpoint2" state="unchanged"/>
+<connection consumer="endpoint8" provider="endpoint3" state="unchanged"/>
 </connections>
 <porttypes>
 <link xlink:href="../jbiServiceUnits/ImageScraper/ImageScrapper.wsdl#xpointer(/definitions/portType[@name='ImageScrapperPortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/ImageScraper/Partners/localhost_8080/jSeduite/FlickrWrapper/FlickrWrapperService.wsdl#xpointer(/definitions/portType[@name='FlickrWrapper'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/ImageScraper/Partners/localhost_8080/jSeduite/PicasaWrapper/PicasaWrapperService.wsdl#xpointer(/definitions/portType[@name='PicasaWrapper'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/ImageScraper/Partners/localhost_8080/jSeduite/PictureSet/PictureSetService.wsdl#xpointer(/definitions/portType[@name='PictureSet'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/ImageScraper/WSDL/ImageScrapper.wsdl#xpointer(/definitions/portType[@name='ImageScrapperPortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/localhost_8080/jSeduite/FlickrWrapper/FlickrWrapperService.wsdl#xpointer(/definitions/portType[@name='FlickrWrapper'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/localhost_8080/jSeduite/PicasaWrapper/PicasaWrapperService.wsdl#xpointer(/definitions/portType[@name='PicasaWrapper'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/localhost_8080/jSeduite/PictureSet/PictureSetService.wsdl#xpointer(/definitions/portType[@name='PictureSet'])" xlink:type="simple"/>
@@ -62,6 +63,7 @@
 <link xlink:href="../jbiServiceUnits/ImageScraper/Partners/localhost_8080/jSeduite/FlickrWrapper/FlickrWrapperService.wsdl#xpointer(/definitions/binding[@name='FlickrWrapperPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/ImageScraper/Partners/localhost_8080/jSeduite/PicasaWrapper/PicasaWrapperService.wsdl#xpointer(/definitions/binding[@name='PicasaWrapperPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/ImageScraper/Partners/localhost_8080/jSeduite/PictureSet/PictureSetService.wsdl#xpointer(/definitions/binding[@name='PictureSetPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/ImageScraper/WSDL/ImageScrapper.wsdl#xpointer(/definitions/binding[@name='ImageScrapperBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/localhost_8080/jSeduite/FlickrWrapper/FlickrWrapperService.wsdl#xpointer(/definitions/binding[@name='FlickrWrapperPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/localhost_8080/jSeduite/PicasaWrapper/PicasaWrapperService.wsdl#xpointer(/definitions/binding[@name='PicasaWrapperPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/localhost_8080/jSeduite/PictureSet/PictureSetService.wsdl#xpointer(/definitions/binding[@name='PictureSetPortBinding'])" xlink:type="simple"/>
@@ -71,6 +73,7 @@
 <link xlink:href="../jbiServiceUnits/ImageScraper/Partners/localhost_8080/jSeduite/FlickrWrapper/FlickrWrapperService.wsdl#xpointer(/definitions/service[@name='FlickrWrapperService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/ImageScraper/Partners/localhost_8080/jSeduite/PicasaWrapper/PicasaWrapperService.wsdl#xpointer(/definitions/service[@name='PicasaWrapperService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/ImageScraper/Partners/localhost_8080/jSeduite/PictureSet/PictureSetService.wsdl#xpointer(/definitions/service[@name='PictureSetService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/ImageScraper/WSDL/ImageScrapper.wsdl#xpointer(/definitions/service[@name='ImageScrapperService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/localhost_8080/jSeduite/FlickrWrapper/FlickrWrapperService.wsdl#xpointer(/definitions/service[@name='FlickrWrapperService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/localhost_8080/jSeduite/PicasaWrapper/PicasaWrapperService.wsdl#xpointer(/definitions/service[@name='PicasaWrapperService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/localhost_8080/jSeduite/PictureSet/PictureSetService.wsdl#xpointer(/definitions/service[@name='PictureSetService'])" xlink:type="simple"/>
