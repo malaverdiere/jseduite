@@ -44,18 +44,21 @@
 <link xlink:href="../jbiServiceUnits/TvShows/Partners/CachedFeedReader.wsdl#xpointer(/definitions/portType[@name='CachedFeedReaderPortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/TvShows/Partners/localhost_8080/jSeduite/TvHelper/TvHelperService.wsdl#xpointer(/definitions/portType[@name='TvHelper'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/TvShows/TvShows.wsdl#xpointer(/definitions/portType[@name='TvShowsPortType'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/TvShows/WSDL/TvShows.wsdl#xpointer(/definitions/portType[@name='TvShowsPortType'])" xlink:type="simple"/>
 </porttypes>
 <bindings>
 <link xlink:href="../jbiServiceUnits/META-INF/TvShows/src/Partners/localhost_8080/jSeduite/TvHelper/TvHelperService.wsdl#xpointer(/definitions/binding[@name='TvHelperPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/TvShows/Partners/CachedFeedReader.wsdl#xpointer(/definitions/binding[@name='CachedFeedReaderBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/TvShows/Partners/localhost_8080/jSeduite/TvHelper/TvHelperService.wsdl#xpointer(/definitions/binding[@name='TvHelperPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/TvShows/TvShows.wsdl#xpointer(/definitions/binding[@name='TvShowsBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/TvShows/WSDL/TvShows.wsdl#xpointer(/definitions/binding[@name='TvShowsBinding'])" xlink:type="simple"/>
 </bindings>
 <services>
 <link xlink:href="../jbiServiceUnits/META-INF/TvShows/src/Partners/localhost_8080/jSeduite/TvHelper/TvHelperService.wsdl#xpointer(/definitions/service[@name='TvHelperService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/TvShows/Partners/CachedFeedReader.wsdl#xpointer(/definitions/service[@name='CachedFeedReaderService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/TvShows/Partners/localhost_8080/jSeduite/TvHelper/TvHelperService.wsdl#xpointer(/definitions/service[@name='TvHelperService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/TvShows/TvShows.wsdl#xpointer(/definitions/service[@name='TvShowsService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/TvShows/WSDL/TvShows.wsdl#xpointer(/definitions/service[@name='TvShowsService'])" xlink:type="simple"/>
 </services>
 <regions>
         <region name="WSDL Endpoints" width="150"/>
