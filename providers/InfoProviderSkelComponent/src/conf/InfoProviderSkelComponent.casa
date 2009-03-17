@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="http://accounts.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns2="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns3="http://modalis.polytech.unice.fr/jSeduite/wsdl/InfoProvider/skel" xmlns:ns4="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns5="http://modalis.polytech.unice.fr/jSeduite/bpel/InfoProvider/skel" xmlns:xlink="http://www.w3.org/2000/xlink">
+<endpoints>
+<endpoint endpoint-name="AccountManagerPort" interface-name="ns1:AccountManager" name="endpoint1" service-name="ns1:AccountManagerService"/>
+<endpoint endpoint-name="ErrorLoggerPort" interface-name="ns2:ErrorLogger" name="endpoint2" service-name="ns2:ErrorLoggerService"/>
+<endpoint endpoint-name="InfoProviderPort" interface-name="ns3:InfoProviderPortType" name="endpoint3" service-name="ns3:InfoProviderService"/>
+<endpoint endpoint-name="PreferenceManagerPort" interface-name="ns4:PreferenceManager" name="endpoint4" service-name="ns4:PreferenceManagerService"/>
+<endpoint display-name="external" endpoint-name="InfoProviderPortTypeRole_myRole" file-path="InfoProvider.bpel" interface-name="ns3:InfoProviderPortType" name="endpoint5" process-name="InfoProvider" service-name="ns5:external"/>
+<endpoint display-name="accounts" endpoint-name="accounts_partnerRole" file-path="InfoProvider.bpel" interface-name="ns1:AccountManager" name="endpoint6" process-name="InfoProvider" service-name="ns5:accounts"/>
+<endpoint display-name="preferences" endpoint-name="preferences_partnerRole" file-path="InfoProvider.bpel" interface-name="ns4:PreferenceManager" name="endpoint7" process-name="InfoProvider" service-name="ns5:preferences"/>
+<endpoint display-name="logger" endpoint-name="logger_partnerRole" file-path="InfoProvider.bpel" interface-name="ns2:ErrorLogger" name="endpoint8" process-name="InfoProvider" service-name="ns5:logger"/>
+</endpoints>
+<service-units>
+<service-engine-service-unit artifacts-zip="InfoProviderSkel.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="InfoProviderSkelComponent-InfoProviderSkel" unit-name="InfoProviderSkel" unknown="false" x="129" y="97">
+<provides endpoint="endpoint5"/>
+<consumes endpoint="endpoint6"/>
+<consumes endpoint="endpoint7"/>
+<consumes endpoint="endpoint8"/>
+</service-engine-service-unit>
+<binding-component-service-unit artifacts-zip="sun-http-binding.jar" component-name="sun-http-binding" description="Represents this Service Unit" name="InfoProviderSkelComponent-sun-http-binding" unit-name="sun-http-binding">
+<ports>
+<port x="0" y="-1">
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/InfoProvider.wsdl#xpointer(/definitions/service[@name='InfoProviderService']/port[@name='InfoProviderPort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint3"/>
+<provides endpoint="endpoint3"/>
+</port>
+<port x="0" y="-1">
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/service[@name='AccountManagerService']/port[@name='AccountManagerPort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint1"/>
+<provides endpoint="endpoint1"/>
+</port>
+<port x="0" y="-1">
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/ErrorLoggerService.wsdl#xpointer(/definitions/service[@name='ErrorLoggerService']/port[@name='ErrorLoggerPort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint2"/>
+<provides endpoint="endpoint2"/>
+</port>
+<port x="0" y="-1">
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/PreferenceManagerService.wsdl#xpointer(/definitions/service[@name='PreferenceManagerService']/port[@name='PreferenceManagerPort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint4"/>
+<provides endpoint="endpoint4"/>
+</port>
+</ports>
+</binding-component-service-unit>
+</service-units>
+<connections>
+<connection consumer="endpoint3" provider="endpoint5" state="unchanged"/>
+<connection consumer="endpoint8" provider="endpoint2" state="unchanged"/>
+<connection consumer="endpoint6" provider="endpoint1" state="unchanged"/>
+<connection consumer="endpoint7" provider="endpoint4" state="unchanged"/>
+</connections>
+<porttypes>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/InfoProvider.wsdl#xpointer(/definitions/portType[@name='InfoProviderPortType'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/portType[@name='AccountManager'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/ErrorLoggerService.wsdl#xpointer(/definitions/portType[@name='ErrorLogger'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/PreferenceManagerService.wsdl#xpointer(/definitions/portType[@name='PreferenceManager'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/portType[@name='AccountManager'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/TechPartners/ErrorLoggerService.wsdl#xpointer(/definitions/portType[@name='ErrorLogger'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/TechPartners/PreferenceManagerService.wsdl#xpointer(/definitions/portType[@name='PreferenceManager'])" xlink:type="simple"/>
+</porttypes>
+<bindings>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/InfoProvider.wsdl#xpointer(/definitions/binding[@name='InfoProviderBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/binding[@name='AccountManagerPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/ErrorLoggerService.wsdl#xpointer(/definitions/binding[@name='ErrorLoggerPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/PreferenceManagerService.wsdl#xpointer(/definitions/binding[@name='PreferenceManagerPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/binding[@name='AccountManagerPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/TechPartners/ErrorLoggerService.wsdl#xpointer(/definitions/binding[@name='ErrorLoggerPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/TechPartners/PreferenceManagerService.wsdl#xpointer(/definitions/binding[@name='PreferenceManagerPortBinding'])" xlink:type="simple"/>
+</bindings>
+<services>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/InfoProvider.wsdl#xpointer(/definitions/service[@name='InfoProviderService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/service[@name='AccountManagerService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/ErrorLoggerService.wsdl#xpointer(/definitions/service[@name='ErrorLoggerService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/PreferenceManagerService.wsdl#xpointer(/definitions/service[@name='PreferenceManagerService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/service[@name='AccountManagerService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/TechPartners/ErrorLoggerService.wsdl#xpointer(/definitions/service[@name='ErrorLoggerService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/TechPartners/PreferenceManagerService.wsdl#xpointer(/definitions/service[@name='PreferenceManagerService'])" xlink:type="simple"/>
+</services>
+<regions>
+        <region name="WSDL Endpoints" width="150"/>
+        <region name="JBI Modules" width="500"/>
+        <region name="External Modules" width="200"/>
+    </regions>
+</casa>
