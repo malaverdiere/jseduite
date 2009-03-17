@@ -6,7 +6,8 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
     xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
-    xmlns:tns="http://modalis.polytech.unice.fr/jSeduite/bpel/InfoProvider/skel" xmlns:ns0="http://modalis.polytech.unice.fr/jSeduite/schema/InfoProvider/skel">
+    xmlns:tns="http://modalis.polytech.unice.fr/jSeduite/bpel/InfoProvider/skel"
+    xmlns:ns0="http://modalis.polytech.unice.fr/jSeduite/schema/InfoProvider/skel">
     <import namespace="http://modalis.polytech.unice.fr/jSeduite/wsdl/InfoProvider/skel" location="InfoProvider.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://modalis.polytech.unice.fr/jSeduite/schema/InfoProvider/skel" location="InfoProvider.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
     <import namespace="http://enterprise.netbeans.org/bpel/ErrorLoggerServiceWrapper" location="TechPartners/ErrorLoggerServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>

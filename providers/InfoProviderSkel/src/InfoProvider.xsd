@@ -6,7 +6,7 @@
     elementFormDefault="qualified">
     <xsd:complexType name="InformationSet">
         <xsd:sequence>
-            <xsd:element name="item" type="tns:Information"/>
+            <xsd:element name="item" type="tns:Information" maxOccurs="unbounded"/>
         </xsd:sequence>
     </xsd:complexType>
     <xsd:complexType name="InfoProviderIn">
