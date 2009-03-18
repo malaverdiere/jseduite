@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <ns1:InfoProviderResponse xmlns:msgns="http://modalis.polytech.unice.fr/jSeduite/wsdl/InfoProvider/epu" xmlns:ns1="http://modalis.polytech.unice.fr/jSeduite/schema/InfoProvider/epu">
+      <ns1:result>
+        <ns0:item xmlns:ns0="http://modalis.polytech.unice.fr/jSeduite/schema/InfoProvider/epu" kind="feedContent">
+          <ns5:feedContent xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:msgns="http://modalis.polytech.unice.fr/jSeduite/wsdl/FeedReader" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/schema/CachedFeedReader" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/schema/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/schema/CachedFeedReader" xmlns:ns4="http://modalis.polytech.unice.fr/jSeduite/schema/InfoProvider/epu" xmlns:ns5="http://modalis.polytech.unice.fr/jSeduite/schema/InfoProvider/epu" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+            <content xmlns="">
+              <author/>
+              <content>Les propos du pape Benoît XVI, qui a estimé mardi que le préservatif "aggrave le problème du sida", ont déclenché une polémique mondiale pour le premier voyage en Afrique du souverain pontife.</content>
+              <title>Le pape commence sa visite en Afrique avec une polémique sur le préservatif</title>
+              <type>text/html</type>
+            </content>
+            <content xmlns="">
+              <author/>
+              <content>L'Autrichien Josef Fritzl, qui a séquestré et violé sa fille pendant 24 ans, a reconnu sa culpabilité pour tous les chefs d'accusation, y compris la mort d'un enfant de l'inceste, dans un revirement spectaculaire mercredi, au troisième jour de son procès.</content>
+              <title>Autriche: Josef Fritzl se reconnaît coupable de tout, verdict attendu jeudi</title>
+              <type>text/html</type>
+            </content>
+            <content xmlns="">
+              <author/>
+              <content>La CGT a annoncé mardi que 213 manifestations seraient organisées jeudi dans toute la France à l'occasion de la journée nationale unitaire de grève et de manifestations sur l'emploi et les salaires, soit 18 de plus que lors de la précédente mobilisation du 29 janvier.</content>
+              <title>Journée d'action du 19 mars: 213 manifestations prévues dans toute la France</title>
+              <type>text/html</type>
+            </content>
+            <content xmlns="">
+              <author/>
+              <content>Annecy a été désignée candidate française à l'organisation des jeux Olympiques 2018 au terme d'un vote plébiscite du Comité national olympique (CNOSF) expédié en un seul tour de scrutin mercredi, laissant groggy la favorite Grenoble, qui a même été distancée par Nice.</content>
+              <title>JO-2018: Le Comité national olympique plébiscite Annecy</title>
+              <type>text/html</type>
+            </content>
+            <content xmlns="">
+              <author/>
+              <content>La polémique suscitée par la nomination de François Pérol à la tête du groupe bancaire Caisse d'épargne-Banque populaire a rebondi sur le plan judiciaire avec le dépôt d'une première plainte par une association de lutte contre la corruption contre l'ancien conseiller élyséen.</content>
+              <title>Banque: l'affaire Pérol rebondit sur le plan judiciaire</title>
+              <type>text/html</type>
+            </content>
+            <content xmlns="">
+              <author/>
+              <content>Un pompier de 32 ans a été tué à coup de fusil dans la nuit de mardi à mercredi par un octogénaire lors d'une intervention à Belley (Ain) au domicile du vieil homme, atteint de forte surdité et qui dit avoir cru à un cambriolage.</content>
+              <title>Un pompier tué par un octogénaire au cours d'une intervention dans l'Ain</title>
+              <type>text/html</type>
+            </content>
+            <content xmlns="">
+              <author/>
+              <content>La Haut cour constitutionnelle (HCC) de Madagascar a légalisé mercredi l'accession à la présidence d'Andry Rajoelina en entérinant la démission forcée de son prédécesseur Marc Ravalomanana la veille et la remise par l'armée "des pleins pouvoirs" au nouveau chef de l'Etat.</content>
+              <title>Madagascar: la cour constitutionnelle légalise le pouvoir de Rajoelina</title>
+              <type>text/html</type>
+            </content>
+            <content xmlns="">
+              <author/>
+              <content>Le PDG d'AIG, Edward Liddy, à la tête de l'assureur américain depuis l'intervention de l'Etat, a reconnu que de grosses "erreurs" avaient été commises particulièrement dans l'attribution de primes à certains cadres, dans un point de vue publié mercredi dans le Washington Post.</content>
+              <title>AIG: "Des erreurs" ont été commises, reconnaît le PDG de l'assureur</title>
+              <type>text/html</type>
+            </content>
+            <content xmlns="">
+              <author/>
+              <content>L'encadrement du XV de France a procédé à six changements, dont deux de poste, dans le XV de départ qui affrontera l'Italie, samedi à Rome lors de la 5e et dernière journée du Tournoi des six nations, par rapport au XV défait (10-34) en Angleterre dimanche.</content>
+              <title>XV de France: six changements dont deux de poste pour affronter l'Italie</title>
+              <type>text/html</type>
+            </content>
+            <content xmlns="">
+              <author/>
+              <content> C'est aujourd'hui que débute l'exposition Andy Warhol au Grand Palais à Paris, une première   d'envergure jamais réalisée sur le thème du portrait chez le pionnier du pop art.</content>
+              <title>Ouverture de l'exposition Andy Warhol au Grand Palais</title>
+              <type>text/html</type>
+            </content>
+            <language xmlns="">fr</language>
+            <link xmlns="">http://www.tv5.org</link>
+            <title xmlns="">TV5.org info - La Une</title>
+          </ns5:feedContent>
+        </ns0:item>
+        <ns0:item xmlns:ns0="http://modalis.polytech.unice.fr/jSeduite/schema/InfoProvider/epu" kind="feedContent">
+          <ns4:feedContent xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:msgns="http://modalis.polytech.unice.fr/jSeduite/wsdl/FeedReader" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/schema/CachedFeedReader" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/schema/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns3="http://modalis.polytech.unice.fr/jSeduite/schema/InfoProvider/epu" xmlns:ns4="http://modalis.polytech.unice.fr/jSeduite/schema/InfoProvider/epu" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+            <content xmlns="">
+              <author/>
+              <content>mercredi 18 mars 2009&lt;br&gt; &lt;p class="nm_txt_1_lettrine_courant"&gt;Le service Espaces Verts de la ville et ses 125 employ&amp;#233;s travaillent activement pour pr&amp;#233;senter sous leur plus beau jour les 114 hectares de parcs et jardins (notamment le parc Exflora et les jardins de la Pin&amp;#232;de), mais aussi les 78 hectares d'espaces naturels que constituent le Bois de Notre Dame ou encore l'espace Fort-Carr&amp;#233;.&lt;/p&gt; &lt;br&gt;&lt;br&gt; espaces verts  Les 125 employés du service oeuvrent activement à la floraison printanière sur les 192 hectares de verdure de la commune </content>
+              <title> Pour le printemps, les parcs font le plein d'essences  (Nice-Matin)</title>
+              <type>text/html</type>
+            </content>
+            <content xmlns="">
+              <author/>
+              <content>mercredi 18 mars 2009&lt;br&gt; &lt;p class="nm_txt_1_lettrine_courant"&gt;La gr&amp;#232;ve nationale pr&amp;#233;vue demain devrait entra&amp;#238;ner quelques perturbations sur le secteur antibois.  Il est difficile d'en &amp;#233;valuer toutes les cons&amp;#233;quences.&lt;/p&gt; &lt;br&gt;&lt;br&gt; grève </content>
+              <title> Trois écoles fermées demain  (Nice-Matin)</title>
+              <type>text/html</type>
+            </content>
+            <content xmlns="">
+              <author/>
+              <content>mercredi 18 mars 2009&lt;br&gt; &lt;p class="nm_txt_1_lettrine_courant"&gt;On conna&amp;#238;t l'association AJCV pour ses combats en faveur du cadre de vie &amp;#224; Juan et, &amp;#224; titre d'exemple, la d&amp;#233;fense de l'&amp;#238;lot de verdure de l'h&amp;#244;tel Welcome. Elle propose aujourd'hui un parcours culturel &amp;#224; Juan-les-Pins qui sera mis en place par l'office de tourisme.&lt;/p&gt; &lt;br&gt;&lt;br&gt; initiative </content>
+              <title> L'AJCV lance un parcours culturel dans Juan-les-Pins  (Nice-Matin)</title>
+              <type>text/html</type>
+            </content>
+            <content xmlns="">
+              <author/>
+              <content>mardi 17 mars 2009&lt;br&gt; &lt;p class="nm_txt_1_lettrine_courant"&gt;Le rapport d'&amp;#233;valuation du comit&amp;#233; olympique (CNOSF) qui marginalise la candidature de Pelvoux et fragilise celle de Nice au profit d'Annecy et surtout de Grenoble, est-il totalement impartial ?&lt;/p&gt; &lt;br&gt;&lt;br&gt; J-1 La publication du rapport d'évaluation qui écarte Pelvoux et fait de Grenoble le grand favori, relance la vieille rumeur d'un conflit d'intérêts obligeant  le comité olympique à certifier que l'impartialité de l'expertise a été respectée </content>
+              <title> JO 2018 : le grand micmac de l'expertise olympique  (Nice-Matin)</title>
+              <type>text/html</type>
+            </content>
+            <content xmlns="">
+              <author/>
+              <content>mardi 17 mars 2009&lt;br&gt; &lt;p class="nm_txt_1_lettrine_courant"&gt;&amp;#192; l'institut m&amp;#233;dico-l&amp;#233;gal de Nice, o&amp;#249; le corps de Nathan est conserv&amp;#233; par la justice depuis pr&amp;#232;s de deux ans, on lui a propos&amp;#233; de venir se recueillir quelques instants. &lt;i&gt;&amp;#171; Mais les gendarmes m'ont d&amp;#233;conseill&amp;#233; de le voir comme &amp;#231;a &amp;#187;&lt;/i&gt;, souffle L&amp;#230;titia Bruggeman, la m&amp;#232;re de cet enfant martyr retrouv&amp;#233;, en mai 2007, enterr&amp;#233; &amp;#224; l'or&amp;#233;e d'un bois de Villars-sur-Var (1).&lt;/p&gt; &lt;br&gt;&lt;br&gt; villars-sur-var </content>
+              <title> La famille de Nathan, l'enfant martyr, va enfin faire son deuil  (Nice-Matin)</title>
+              <type>text/html</type>
+            </content>
+            <content xmlns="">
+              <author/>
+              <content>mercredi 18 mars 2009&lt;br&gt; &lt;p class="nm_txt_1_lettrine_courant"&gt;Hier en fin de matin&amp;#233;e, Emerse Fa&amp;#233; a quitt&amp;#233; pr&amp;#233;matur&amp;#233;ment ses co&amp;#233;quipiers &amp;#224; l'entra&amp;#238;nement. La cause ? Sa cheville qui avait consid&amp;#233;rablement enfl&amp;#233; lundi et gu&amp;#232;re d&amp;#233;senfl&amp;#233; mardi. Surtout, le milieu ni&amp;#231;ois a senti une g&amp;#234;ne sur ses appuis.&lt;/p&gt; &lt;br&gt;&lt;br&gt; football - ligue 1 - ogcn </content>
+              <title> Emerse Faé ménagé  (Nice-Matin)</title>
+              <type>text/html</type>
+            </content>
+            <content xmlns="">
+              <author/>
+              <content>mercredi 18 mars 2009&lt;br&gt; &lt;p class="nm_txt_1_lettrine_courant"&gt;Comme dit Ricardo, le chemin vers la finale du 9 mai &lt;i&gt;&amp;#171; est encore tr&amp;#232;s long &amp;#187;.&lt;/i&gt; Au moment de croiser le fer avec le GF 38, le coach mon&amp;#233;gasque se gardera de trop sp&amp;#233;culer sur les bienfaits d'une qualification europ&amp;#233;enne, une perspective qui  donnerait un s&amp;#233;rieux coup de neuf &amp;#224; un blason ayant eu la f&amp;#226;chause tendance &amp;#224; prendre la poussi&amp;#232;re ces derni&amp;#232;res saisons (plus le moindre titre depuis la Coupe de la Ligue 2003). Mais avant de songer demie, Stade de France et pourquoi pas ramener la Coupe sur le Rocher, dix-huit ans apr&amp;#232;s la derni&amp;#232;re lev&amp;#233;e, l'AS Monaco va donc s'attaquer &amp;#224; un col difficile aujourd'hui, un vrai chemin pav&amp;#233; de pi&amp;#232;ges. Grenoble dans son stade des Alpes, tient la r&amp;#233;putation justifi&amp;#233;e d'&amp;#234;tre un client solide et accrocheur. Dans le onze de Bazdarevic, les Jemmali, Battles, Moreira,   Grondin, Akrour et Courtois ne tiennent pas exactement le r&amp;#244;le de promus na&amp;#239;fs et mal&amp;#233;ables. A l'exp&amp;#233;rience du club recevant, Monaco tentera d'opposer les promesses de sa jeunesse.&lt;/p&gt; &lt;br&gt;&lt;br&gt; football - coupe de france </content>
+              <title> AS Monaco : un col à gravir  (Nice-Matin)</title>
+              <type>text/html</type>
+            </content>
+            <content xmlns="">
+              <author/>
+              <content>mercredi 18 mars 2009&lt;br&gt; &lt;p class="nm_txt_1_lettrine_courant"&gt;Trente-trois &amp;#233;quipes et environ quatre cents licenci&amp;#233;s &amp;#224; la rue. C'est vers cette issue que se dirige le Nice Cavigal Olympic si l'on en croit ses deux copr&amp;#233;sidents, Fr&amp;#233;d&amp;#233;ric Sciolla et Ren&amp;#233; Naudin.&lt;/p&gt; &lt;br&gt;&lt;br&gt; basket - nationale 1 féminine </content>
+              <title> Le NCO vers le dépôt de bilan  (Nice-Matin)</title>
+              <type>text/html</type>
+            </content>
+            <language xmlns="">fr</language>
+            <link xmlns="">http://www.antibes.maville.com</link>
+            <title xmlns="">Antibes : actu quotidienne locale départementale sportive </title>
+          </ns4:feedContent>
+        </ns0:item>
+        <ns0:item xmlns:ns0="http://modalis.polytech.unice.fr/jSeduite/schema/InfoProvider/epu" kind="calendarEvent">
+          <ns0:calendarEvent xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://calendar.technical.jSeduite.modalis.i3s.unice.fr/">
+            <description xmlns="">bla bla bla</description>
+            <end xmlns="">2009-03-18T16:30:00+01:00</end>
+            <location xmlns="">Amphi Ouest</location>
+            <start xmlns="">2009-03-18T15:30:00+01:00</start>
+            <summary xmlns="">Super evenemtn</summary>
+          </ns0:calendarEvent>
+        </ns0:item>
+      </ns1:result>
+    </ns1:InfoProviderResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
