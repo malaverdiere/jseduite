@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This file is part of jSeduite::InfoProvider
+
+Copyright (C) 2008-  Sebastien Mosser
+
+jSeduite::InfoProvider is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+jSeduite::InfoProvider is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with jSeduite::InfoProvider; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+@author      Main Sébastien Mosser          [mosser@polytech.unice.fr]
+@contributor 2008 Clémentine Delerce-Mauris [delercm@polytech.unice.fr]
+@contributor 2008 Lionel Palacin            [lionel.palacin@gmail.com]
+@contributor 2008 Stéphane Martarello       [stephane.martarello@gmail.com]
+-->
+<definitions name="InfoProvider"
+    targetNamespace="http://modalis.polytech.unice.fr/jSeduite/wsdl/InfoProvider/epu"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:tns="http://modalis.polytech.unice.fr/jSeduite/wsdl/InfoProvider/epu"
+    xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+    xmlns:ns="http://modalis.polytech.unice.fr/jSeduite/schema/InfoProvider/epu"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types>
+        <xsd:schema targetNamespace="http://modalis.polytech.unice.fr/jSeduite/wsdl/InfoProvider/epu">
+            <xsd:import namespace="http://modalis.polytech.unice.fr/jSeduite/schema/InfoProvider/epu"
+                        schemaLocation="InfoProvider.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="GetInformationRequest">
+        <part name="in" element="ns:InfoProviderRequest"/>
+    </message>
+    <message name="GetInformationResponse">
+        <part name="out" element="ns:InfoProviderResponse"/>
+    </message>
+    <portType name="InfoProviderPortType">
+        <operation name="GetInformation">
+            <input name="input1" message="tns:GetInformationRequest"/>
+            <output name="output1" message="tns:GetInformationResponse"/>
+        </operation>
+    </portType>
+    <binding name="InfoProviderBinding" type="tns:InfoProviderPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="GetInformation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="InfoProviderService">
+        <port name="InfoProviderPort" binding="tns:InfoProviderBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/InfoProviderService/InfoProviderPort"/>
+        </port>
+    </service>
+    <plnk:partnerLinkType name="InfoProvider">
+        <!-- A partner link type is automatically generated when a new port type is added. Partner link types are used by BPEL processes. 
+In a BPEL process, a partner link represents the interaction between the BPEL process and a partner service. Each partner link is associated with a partner link type.
+A partner link type characterizes the conversational relationship between two services. The partner link type can have one or two roles.-->
+        <plnk:role name="InfoProviderPortTypeRole" portType="tns:InfoProviderPortType"/>
+    </plnk:partnerLinkType>
+</definitions>
