@@ -46,10 +46,10 @@ CREATE TABLE `messages` (
     `value` VARCHAR(255),
     PRIMARY KEY (`id`));
 
-INSERT INTO `messages` VALUES (1,1,1,'delta','30');
-INSERT INTO `messages` VALUES (2,1,1,'feed','TV5_une');
-INSERT INTO `messages` VALUES (3,1,2,'delta','30');
-INSERT INTO `messages` VALUES (4,1,2,'feed','Antibes_tout');
+INSERT INTO `messages` VALUES (1,1,1,'validity','30');
+INSERT INTO `messages` VALUES (2,1,1,'name','TV5_une');
+INSERT INTO `messages` VALUES (3,1,2,'validity','30');
+INSERT INTO `messages` VALUES (4,1,2,'name','Antibes_tout');
 INSERT INTO `messages`  VALUES (5,2,1,'calendar',
   'http://www.google.com/calendar/ical/polytech.sophia.jseduite%40gmail.com/public/basic.ics');
 
