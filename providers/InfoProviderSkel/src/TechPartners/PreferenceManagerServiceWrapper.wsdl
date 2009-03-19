@@ -7,6 +7,6 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PreferenceManagerServiceWrapper" targetNamespace="http://enterprise.netbeans.org/bpel/PreferenceManagerServiceWrapper" xmlns:tns="http://enterprise.netbeans.org/bpel/PreferenceManagerServiceWrapper" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/">
     <import location="PreferenceManagerService.wsdl" namespace="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/"/>
     <plnk:partnerLinkType name="PreferenceManagerLinkType">
-        <plnk:role name="preferences" portType="ns:PreferenceManager"/>
+        <plnk:role name="prefs" portType="ns:PreferenceManager"/>
     </plnk:partnerLinkType>
 </definitions>

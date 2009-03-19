@@ -6,4 +6,28 @@
     <system systemId="file:/Users/mosser/Desktop/PreferenceManagerService.xsd" uri="src/TechPartners/PreferenceManagerService.xsd"/>
     <system systemId="file:/Users/mosser/Desktop/AccountManagerService.wsdl" uri="src/TechPartners/AccountManagerService.wsdl"/>
     <system systemId="file:/Users/mosser/Desktop/AccountManagerService.xsd" uri="src/TechPartners/AccountManagerService.xsd"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/BreakingNewsService.wsdl" uri="src/Sources/Interfaces/BreakingNewsService.wsdl"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/CachedFeedReader.wsdl" uri="src/Sources/Interfaces/CachedFeedReader.wsdl"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/ICalReaderService.wsdl" uri="src/Sources/Interfaces/ICalReaderService.wsdl"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/ImageScrapper.wsdl" uri="src/Sources/Interfaces/ImageScrapper.wsdl"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/InternalNewsService.wsdl" uri="src/Sources/Interfaces/InternalNewsService.wsdl"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/PictureAlbum.wsdl" uri="src/Sources/Interfaces/PictureAlbum.wsdl"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/StudentSummonService.wsdl" uri="src/Sources/Interfaces/StudentSummonService.wsdl"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/TeacherAbsencesService.wsdl" uri="src/Sources/Interfaces/TeacherAbsencesService.wsdl"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/TvShows.wsdl" uri="src/Sources/Interfaces/TvShows.wsdl"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/WeatherProxy.wsdl" uri="src/Sources/Interfaces/WeatherProxy.wsdl"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/BreakingNewsService.xsd" uri="src/Sources/Interfaces/BreakingNewsService.xsd"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/CachedFeedReader.xsd" uri="src/Sources/Interfaces/CachedFeedReader.xsd"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/ICalReaderService.xsd" uri="src/Sources/Interfaces/ICalReaderService.xsd"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/ImageScapper.xsd" uri="src/Sources/Interfaces/ImageScapper.xsd"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/InternalNewsService.xsd" uri="src/Sources/Interfaces/InternalNewsService.xsd"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/PictureAlbum.xsd" uri="src/Sources/Interfaces/PictureAlbum.xsd"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/StudentSummonService.xsd" uri="src/Sources/Interfaces/StudentSummonService.xsd"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/TeacherAbsencesService.xsd" uri="src/Sources/Interfaces/TeacherAbsencesService.xsd"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/TvShows.xsd" uri="src/Sources/Interfaces/TvShows.xsd"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/WeatherProxy.xsd" uri="src/Sources/Interfaces/WeatherProxy.xsd"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/RssReaderService.xsd" uri="src/Sources/Interfaces/RssReaderService.xsd"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/PictureAlbumRegistryService.xsd" uri="src/Sources/Interfaces/PictureAlbumRegistryService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/webservices/UserProfile/web/WSDL/PreferenceManagerService.wsdl" uri="src/TechPartners/PreferenceManagerService.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/webservices/UserProfile/web/WSDL/PreferenceManagerService.xsd" uri="src/TechPartners/PreferenceManagerService.xsd"/>
 </catalog>

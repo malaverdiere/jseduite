@@ -1,52 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-This file is part of jSeduite::InfoProvider
 
-Copyright (C) 2008-  Sebastien Mosser
-
-jSeduite::InfoProvider is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-
-jSeduite::InfoProvider is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with jSeduite::InfoProvider; if not, write to the Free Software
-Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-
-@author      Main Sébastien Mosser          [mosser@polytech.unice.fr]
-@contributor 2008 Clémentine Delerce-Mauris [delercm@polytech.unice.fr]
-@contributor 2008 Lionel Palacin            [lionel.palacin@gmail.com]
-@contributor 2008 Stéphane Martarello       [stephane.martarello@gmail.com]
--->
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="http://modalis.polytech.unice.fr/jSeduite/schema/InfoProvider/skel"
-    xmlns:tns="http://modalis.polytech.unice.fr/jSeduite/schema/InfoProvider/skel"
-    elementFormDefault="qualified">
-    <xsd:complexType name="InformationSet">
-        <xsd:sequence>
-            <xsd:element name="item" type="tns:Information" maxOccurs="unbounded"/>
-        </xsd:sequence>
-    </xsd:complexType>
-    <xsd:complexType name="InfoProviderIn">
+    targetNamespace="http://modalis.polytech.unice.fr/jSeduite/providers/schema/InfoProvider"
+    xmlns:tns="http://modalis.polytech.unice.fr/jSeduite/providers/schema/InfoProvider"
+    elementFormDefault="qualified" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/sources/schema/CommonSource">
+    <xsd:import schemaLocation="Sources/CommonSource.xsd" namespace="http://modalis.i3s.unice.fr/jSeduite/sources/schema/CommonSource"/>
+    <xsd:element name="GetAllInformationRequest" type="tns:GetAllInformationsIn"/>
+    <xsd:element name="GetAllInformationResponse" type="tns:GetAllInformationsOut"/>
+    <xsd:complexType name="GetAllInformationsIn">
         <xsd:sequence>
             <xsd:element name="user" type="xsd:string"/>
             <xsd:element name="password" type="xsd:string"/>
         </xsd:sequence>
     </xsd:complexType>
-    <xsd:complexType name="InfoProviderOut">
+    <xsd:complexType name="GetAllInformationsOut">
         <xsd:sequence>
-            <xsd:element name="result" type="tns:InformationSet"/>
+            <xsd:element name="result" type="ns1:InformationSet"/>
         </xsd:sequence>
     </xsd:complexType>
-    <xsd:complexType name="Information">
-        <xsd:choice></xsd:choice>
-        <xsd:attribute name="kind" type="xsd:string"/>
-    </xsd:complexType>
-    <xsd:element name="InfoProviderRequest" type="tns:InfoProviderIn"/>
-    <xsd:element name="InfoProviderResponse" type="tns:InfoProviderOut"/>
 </xsd:schema>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process
+    name="TvSource"
+    targetNamespace="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TvSource"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
+    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TvSource" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schema/CommonSource" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TvSource" xmlns:ns2="http://modalis.polytech.unice.fr/jSeduite/sources/schema/TvSource" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/schema/TvShows">
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TvSource" location="TvSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/PreferenceManagerServiceWrapper" location="../TechPartners/PreferenceManagerServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" location="../TechPartners/PreferenceManagerService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/schema/CommonSource" location="CommonSource.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/ErrorLoggerServiceWrapper" location="../TechPartners/ErrorLoggerServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" location="../TechPartners/ErrorLoggerService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" location="Interfaces/TvShows.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.polytech.unice.fr/jSeduite/sources/schema/TvSource" location="TvSource.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
+    <partnerLinks>
+        <partnerLink name="log" xmlns:tns="http://enterprise.netbeans.org/bpel/ErrorLoggerServiceWrapper" partnerLinkType="tns:ErrorLoggerLinkType" partnerRole="logger"/>
+        <partnerLink name="prefs" xmlns:tns="http://enterprise.netbeans.org/bpel/PreferenceManagerServiceWrapper" partnerLinkType="tns:PreferenceManagerLinkType" partnerRole="prefs"/>
+        <partnerLink name="tv" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" partnerLinkType="tns:TvShows" partnerRole="TvShowsPortTypeRole"/>
+        <partnerLink name="ext" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TvSource" partnerLinkType="tns:TvSource" myRole="TvSourcePortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="shows_set" type="ns2:showSet"/>
+        <variable name="TvShowsOperationOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" messageType="tns:TvShowsOperationResponse"/>
+        <variable name="TvShowsOperationIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" messageType="tns:TvShowsOperationRequest"/>
+        <variable name="ShouldCallOut" xmlns:tns="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:shouldCallResponse"/>
+        <variable name="ShouldCallIn" xmlns:tns="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:shouldCall"/>
+        <variable name="shouldCall" type="xsd:boolean"/>
+        <variable name="LogOut" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:logResponse"/>
+        <variable name="LogIn" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:log"/>
+        <variable name="GetOutError" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TvSource" messageType="tns:GetResponse"/>
+        <variable name="infos_set" type="ns0:InformationSet"/>
+        <variable name="token" type="xsd:string"/>
+        <variable name="user" type="xsd:string"/>
+        <variable name="GetOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TvSource" messageType="tns:GetResponse"/>
+        <variable name="GetIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TvSource" messageType="tns:GetRequest"/>
+    </variables>
+    <faultHandlers>
+        <catchAll>
+            <sequence name="onError">
+                <sequence name="log" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/">
+                    <assign name="log_pre">
+                            <copy>
+                                <from>'TvSource'</from>
+                                <to>$LogIn.parameters/trigger</to>
+                            </copy>
+                                <copy>
+                                <from>'Exception'</from>
+                                <to>$LogIn.parameters/level</to>
+                            </copy>
+                                <copy>
+                                <from>'Tv Source throws an exception'</from>
+                                <to>$LogIn.parameters/message</to>
+                            </copy>
+                        </assign>
+                        <invoke name="log_post" partnerLink="log" operation="log" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:ErrorLogger" inputVariable="LogIn" outputVariable="LogOut"/>
+                </sequence>
+                <sequence name="ignore">
+                    <assign name="ignore_pre">
+                        <copy>
+                            <from>''</from>
+                            <to>$GetOutError.out/ns0:result</to>
+                        </copy>
+                    </assign>
+                    <reply name="ignore_tech" partnerLink="ext" operation="Get" portType="ns1:TvSourcePortType" variable="GetOutError"/>
+                    <exit name="ignore_post"/>
+                </sequence>
+            </sequence>
+        </catchAll>
+    </faultHandlers>
+    <eventHandlers>
+        <onAlarm>
+            <for>'P0Y0M0DT0H0M30S'</for>
+            <scope name="timeOutScope">
+                <sequence name="onTimeOut">
+                    <sequence name="log">
+                        <assign name="log_pre">
+                            <copy>
+                                <from>'TvSource'</from>
+                                <to>$LogIn.parameters/trigger</to>
+                            </copy>
+                            <copy>
+                                <from>'Timeout'</from>
+                                <to>$LogIn.parameters/level</to>
+                            </copy>
+                            <copy>
+                                <from>'Tv Source encounters a timeout !'</from>
+                                <to>$LogIn.parameters/message</to>
+                            </copy>
+                        </assign>
+                        <invoke name="log_post" partnerLink="log" operation="log" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:ErrorLogger" inputVariable="LogIn" outputVariable="LogOut"/>
+                    </sequence>
+                        <sequence name="ignore">
+                            <assign name="ignore_pre">
+                                <copy>
+                                    <from>''</from>
+                                    <to>$GetOutError.out/ns0:result</to>
+                                </copy>
+                            </assign>
+                                <reply name="ignore_tech" partnerLink="ext" operation="Get" portType="ns1:TvSourcePortType" variable="GetOutError"/>
+                                <exit name="ignore_post"/>
+                        </sequence>
+                </sequence>
+            </scope>
+        </onAlarm>
+    </eventHandlers>
+    <sequence>
+        <sequence name="a1">
+            <receive name="a1_tech" createInstance="yes" partnerLink="ext" operation="Get" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TvSource" portType="tns:TvSourcePortType" variable="GetIn"/>
+            <assign name="a1_post">
+                <copy>
+                    <from>$GetIn.in/ns0:user</from>
+                    <to variable="user"/>
+                </copy>
+                <copy>
+                    <from>$GetIn.in/ns0:token</from>
+                    <to variable="token"/>
+                </copy>
+            </assign>
+        </sequence>
+        <sequence name="a2">
+            <assign name="a2_pre">
+                <copy>
+                    <from variable="user"/>
+                    <to>$ShouldCallIn.parameters/login</to>
+                </copy>
+                <copy>
+                    <from>'TvShows'</from>
+                    <to>$ShouldCallIn.parameters/service</to>
+                </copy>
+                <copy>
+                    <from>'get'</from>
+                    <to>$ShouldCallIn.parameters/operation</to>
+                </copy>
+            </assign>
+            <invoke name="a2_tech" partnerLink="prefs" operation="shouldCall" xmlns:tns="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:PreferenceManager" inputVariable="ShouldCallIn" outputVariable="ShouldCallOut"/>
+            <assign name="a2_post">
+                <copy>
+                    <from>$ShouldCallOut.parameters/return</from>
+                    <to variable="shouldCall"/>
+                </copy>
+            </assign>
+        </sequence>
+        <if name="souldCall">
+            <condition>$shouldCall</condition>
+            <sequence name="isTrue">
+                <sequence name="a4">
+                    <assign name="a4_pre">
+                        <copy>
+                            <from>''</from>
+                            <to variable="TvShowsOperationIn" part="in"/>
+                        </copy>
+                    </assign>
+                    <invoke name="a4_tech" partnerLink="tv" operation="TvShowsOperation" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" portType="tns:TvShowsPortType" inputVariable="TvShowsOperationIn" outputVariable="TvShowsOperationOut"/>
+                    <assign name="a4_post">
+                        <copy>
+                            <from>$TvShowsOperationOut.out/ns3:show</from>
+                            <to>$shows_set/ns2:item</to>
+                        </copy>
+                    </assign>
+                </sequence>
+                <assign name="a5">
+                    <copy>
+                        <from>'TvSource'</from>
+                        <to>$infos_set/ns0:item/@source</to>
+                    </copy>
+                    <copy>
+                        <from>'showSet'</from>
+                        <to>$infos_set/ns0:item/@node</to>
+                    </copy>
+                    <copy>
+                        <from variable="shows_set"/>
+                        <to>$infos_set/ns0:item/ns0:showSet</to>
+                    </copy>
+                </assign>
+            </sequence>
+            <else>
+                <sequence name="isFalse">
+                    <assign name="a14">
+                        <copy>
+                                <from>''</from>
+                                    <to>$infos_set/ns0:item</to>
+                            </copy>
+                    </assign>
+                </sequence>
+            </else>
+        </if>
+        <sequence name="a6">
+            <assign name="a6_pre">
+                <copy>
+                    <from variable="infos_set"/>
+                    <to>$GetOut.out/ns0:result</to>
+                </copy>
+            </assign>
+            <reply name="a6_tech" partnerLink="ext" operation="Get" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TvSource" portType="tns:TvSourcePortType" variable="GetOut"/>
+        </sequence>
+    </sequence>
+</process>
