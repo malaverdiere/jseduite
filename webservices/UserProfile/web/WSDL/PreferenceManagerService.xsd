@@ -6,9 +6,32 @@
 
     <xs:element name="getCallIdentifiersResponse" type="tns:getCallIdentifiersResponse"></xs:element>
 
-    <xs:element name="getParameterValue" type="tns:getParameterValue"></xs:element>
+    <xs:element name="getValue" type="tns:getValue"></xs:element>
 
-    <xs:element name="getParameterValueResponse" type="tns:getParameterValueResponse"></xs:element>
+    <xs:element name="getValueByCall" type="tns:getValueByCall"></xs:element>
+
+    <xs:element name="getValueByCallResponse" type="tns:getValueByCallResponse"></xs:element>
+
+    <xs:element name="getValueResponse" type="tns:getValueResponse"></xs:element>
+
+    <xs:element name="shouldCall" type="tns:shouldCall"></xs:element>
+
+    <xs:element name="shouldCallResponse" type="tns:shouldCallResponse"></xs:element>
+
+    <xs:complexType name="getValue">
+        <xs:sequence>
+            <xs:element name="service" type="xs:string" minOccurs="0"></xs:element>
+            <xs:element name="operation" type="xs:string" minOccurs="0"></xs:element>
+            <xs:element name="login" type="xs:string" minOccurs="0"></xs:element>
+            <xs:element name="param" type="xs:string" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getValueResponse">
+        <xs:sequence>
+            <xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
 
     <xs:complexType name="getCallIdentifiers">
         <xs:sequence>
@@ -24,7 +47,7 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="getParameterValue">
+    <xs:complexType name="getValueByCall">
         <xs:sequence>
             <xs:element name="service" type="xs:string" minOccurs="0"></xs:element>
             <xs:element name="operation" type="xs:string" minOccurs="0"></xs:element>
@@ -34,9 +57,23 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="getParameterValueResponse">
+    <xs:complexType name="getValueByCallResponse">
         <xs:sequence>
             <xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="shouldCall">
+        <xs:sequence>
+            <xs:element name="service" type="xs:string" minOccurs="0"></xs:element>
+            <xs:element name="operation" type="xs:string" minOccurs="0"></xs:element>
+            <xs:element name="login" type="xs:string" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="shouldCallResponse">
+        <xs:sequence>
+            <xs:element name="return" type="xs:boolean"></xs:element>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>

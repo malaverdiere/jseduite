@@ -28,12 +28,66 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
-/**
- *
+/** A Web service to handle user's parameters for information sources
  * @author mosser
  */
 @WebService()
 public class PreferenceManager {
+
+    /** Should the user identified by login call
+     * @param service
+     * @param operation
+     * @param login
+     * @return
+     */
+    @WebMethod(operationName = "shouldCall")
+    public boolean shouldCall(@WebParam(name = "service") String service,
+            @WebParam(name = "operation") String operation,
+            @WebParam(name = "login") String login) {
+        DataAccessLayer dal = new DataAccessLayer();
+        String sql = "SELECT COUNT(*) AS c FROM  `preferences`, `sources` ";
+        sql += " WHERE `sources`.`id` = `preferences`.`source` AND ";
+        sql += " `service` = \"" + service + "\" AND";
+        sql += " `operation` = \"" + operation + "\" AND ";
+        sql += " `login` = \"" + login + "\";";
+        try {
+            return Integer.parseInt(dal.extractScalar(sql, "c")) != 0;
+        } catch (Exception e) {
+            System.err.println(e);
+            return false;
+        }
+    /**
+     * select COUNT(*) from preferences, sources where sources.id = preferences.source
+    and service = "CachedFeedReeader" and `operation` = "read" and `login` = "hall";
+     */
+    }
+
+    /** Extract parameter's value of a given service::operation
+     * @param service
+     * @param operation
+     * @param call
+     * @return
+     */
+    @WebMethod(operationName = "getValue")
+    public String getValue(
+            @WebParam(name = "service") String service,
+            @WebParam(name = "operation") String operation,
+            @WebParam(name = "login") String login,
+            @WebParam(name = "param") String param) {
+        DataAccessLayer dal = new DataAccessLayer();
+        String sql = "SELECT `value` FROM `settings` WHERE ";
+        sql += "`service` = \"" + service + "\" AND ";
+        sql += "`operation` = \"" + operation + "\" AND ";
+        sql += "`login` = \"" + login + "\" AND ";
+        sql += "`parameter` = \"" + param + "\" ORDER BY `callId`";
+        sql += " LIMIT 1;";
+        try {
+            return dal.extractScalar(sql, "value");
+        } catch (Exception e) {
+            System.err.println(e);
+            return null;
+        }
+    }
 
     /** Extract all the call we have to do from the database
      * @param service
@@ -52,8 +106,9 @@ public class PreferenceManager {
         try {
             String[] data = dal.extractScalarSet(sql, "callId");
             int[] result = new int[data.length];
-            for(int i = 0; i < data.length; i++)
+            for (int i = 0; i < data.length; i++) {
                 result[i] = Integer.parseInt(data[i]);
+            }
             return result;
         } catch (Exception e) {
             System.err.println(e);
@@ -67,8 +122,9 @@ public class PreferenceManager {
      * @param call
      * @return
      */
-    @WebMethod(operationName = "getParameterValue")
-    public String getParameterValue(@WebParam(name = "service") String service,
+    @WebMethod(operationName = "getValueByCall")
+    public String getValueByCallId(
+            @WebParam(name = "service") String service,
             @WebParam(name = "operation") String operation,
             @WebParam(name = "login") String login,
             @WebParam(name = "param") String param,
@@ -78,7 +134,7 @@ public class PreferenceManager {
         sql += "`service` = \"" + service + "\" AND ";
         sql += "`operation` = \"" + operation + "\" AND ";
         sql += "`login` = \"" + login + "\" AND ";
-        sql += "`parameter` = \""+ param + "\" AND ";
+        sql += "`parameter` = \"" + param + "\" AND ";
         sql += "`callId` = " + call + ";";
         try {
             return dal.extractScalar(sql, "value");

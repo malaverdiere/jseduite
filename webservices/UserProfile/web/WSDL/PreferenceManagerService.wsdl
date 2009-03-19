@@ -7,30 +7,68 @@
             <xsd:import namespace="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" schemaLocation="PreferenceManagerService.xsd"></xsd:import>
         </xsd:schema>
     </types>
+    <message name="getValue">
+        <part name="parameters" element="tns:getValue"></part>
+    </message>
+    <message name="getValueResponse">
+        <part name="parameters" element="tns:getValueResponse"></part>
+    </message>
+    <message name="shouldCall">
+        <part name="parameters" element="tns:shouldCall"></part>
+    </message>
+    <message name="shouldCallResponse">
+        <part name="parameters" element="tns:shouldCallResponse"></part>
+    </message>
     <message name="getCallIdentifiers">
         <part name="parameters" element="tns:getCallIdentifiers"></part>
     </message>
     <message name="getCallIdentifiersResponse">
         <part name="parameters" element="tns:getCallIdentifiersResponse"></part>
     </message>
-    <message name="getParameterValue">
-        <part name="parameters" element="tns:getParameterValue"></part>
+    <message name="getValueByCall">
+        <part name="parameters" element="tns:getValueByCall"></part>
     </message>
-    <message name="getParameterValueResponse">
-        <part name="parameters" element="tns:getParameterValueResponse"></part>
+    <message name="getValueByCallResponse">
+        <part name="parameters" element="tns:getValueByCallResponse"></part>
     </message>
     <portType name="PreferenceManager">
+        <operation name="getValue">
+            <input message="tns:getValue"></input>
+            <output message="tns:getValueResponse"></output>
+        </operation>
+        <operation name="shouldCall">
+            <input message="tns:shouldCall"></input>
+            <output message="tns:shouldCallResponse"></output>
+        </operation>
         <operation name="getCallIdentifiers">
             <input message="tns:getCallIdentifiers"></input>
             <output message="tns:getCallIdentifiersResponse"></output>
         </operation>
-        <operation name="getParameterValue">
-            <input message="tns:getParameterValue"></input>
-            <output message="tns:getParameterValueResponse"></output>
+        <operation name="getValueByCall">
+            <input message="tns:getValueByCall"></input>
+            <output message="tns:getValueByCallResponse"></output>
         </operation>
     </portType>
     <binding name="PreferenceManagerPortBinding" type="tns:PreferenceManager">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
+        <operation name="getValue">
+            <soap:operation soapAction=""></soap:operation>
+            <input>
+                <soap:body use="literal"></soap:body>
+            </input>
+            <output>
+                <soap:body use="literal"></soap:body>
+            </output>
+        </operation>
+        <operation name="shouldCall">
+            <soap:operation soapAction=""></soap:operation>
+            <input>
+                <soap:body use="literal"></soap:body>
+            </input>
+            <output>
+                <soap:body use="literal"></soap:body>
+            </output>
+        </operation>
         <operation name="getCallIdentifiers">
             <soap:operation soapAction=""></soap:operation>
             <input>
@@ -40,7 +78,7 @@
                 <soap:body use="literal"></soap:body>
             </output>
         </operation>
-        <operation name="getParameterValue">
+        <operation name="getValueByCall">
             <soap:operation soapAction=""></soap:operation>
             <input>
                 <soap:body use="literal"></soap:body>
