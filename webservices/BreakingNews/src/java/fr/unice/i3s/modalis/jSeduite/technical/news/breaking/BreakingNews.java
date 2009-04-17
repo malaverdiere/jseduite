@@ -34,7 +34,7 @@ import javax.jws.WebService;
 public class BreakingNews {
 
     /** Extract the 10 lasts BreakingNews from the database
-     * @return Roday's breaking news
+     * @return Today's breaking news
      * @throws BreakingNewsException
      */
     @WebMethod(operationName = "getBreakingNews")
