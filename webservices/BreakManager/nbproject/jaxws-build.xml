@@ -15,7 +15,7 @@
         </taskdef>
     </target>
     <target name="wsgen-BreakTimeManager" depends="wsgen-init">
-        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="cn.m1.hebut.jSeduite.technical.news.breaktime.BreakTimeManager">
+        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="cn.m1.hebut.jSeduite.technical.breaktime.BreakTimeManager">
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>

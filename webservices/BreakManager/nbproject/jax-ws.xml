@@ -2,7 +2,7 @@
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
     <service name="BreakTimeManager">
-      <implementation-class>cn.m1.hebut.jSeduite.technical.news.breaktime.BreakTimeManager</implementation-class>
+      <implementation-class>cn.m1.hebut.jSeduite.technical.breaktime.BreakTimeManager</implementation-class>
     </service>
   </services>
   <clients/>
