@@ -50,19 +50,3 @@ CREATE VIEW `break_time_today` AS
           `break_time_days_lnk`.`break_id`=`break_time`.`break_id` AND
           `promos`.`id`=`break_time`.`promo`;
 
-
-INSERT INTO `break_time` VALUES (NULL,1,"8:45","8:55","short");
-INSERT INTO `break_time` VALUES (NULL,2,"9:40","10:00","short");
-INSERT INTO `break_time` VALUES (NULL,3,"10:45","10:55","short");
-INSERT INTO `break_time` VALUES (NULL,1,"11:40","2:00","lunch");
-INSERT INTO `break_time` VALUES (NULL,2,"14:45","14:55","short");
-INSERT INTO `break_time` VALUES (NULL,5,"15:40","16:00","short");
-INSERT INTO `break_time` VALUES (NULL,3,"16:45","16:55","short");
-
-INSERT INTO `break_time_days_lnk` VALUES (1,"Monday");
-INSERT INTO `break_time_days_lnk` VALUES (1,"Tuesday");
-INSERT INTO `break_time_days_lnk` VALUES (1,"Wednesday");
-INSERT INTO `break_time_days_lnk` VALUES (1,"Thursday");
-INSERT INTO `break_time_days_lnk` VALUES (1,"Friday");
-INSERT INTO `break_time_days_lnk` VALUES (1,"Saturday");
-INSERT INTO `break_time_days_lnk` VALUES (1,"Sunday"); 

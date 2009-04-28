@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="http://accounts.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns2="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns3="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns4="http://modalis.polytech.unice.fr/jSeduite/wsdl/InfoProvider/epu" xmlns:ns5="http://modalis.i3s.unice.fr/jSeduite/wsdl/CachedFeedReader" xmlns:ns6="http://calendar.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns7="http://time.helpers.technical.jSeduite.modails.i3s.unice.fr/" xmlns:ns8="http://modalis.polytech.unice.fr/jSeduite/bpel/InfoProvider/epu" xmlns:xlink="http://www.w3.org/2000/xlink">
+<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="http://accounts.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns2="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns3="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns4="http://modalis.polytech.unice.fr/jSeduite/wsdl/InfoProvider/epu" xmlns:ns5="http://modalis.i3s.unice.fr/jSeduite/wsdl/CachedFeedReader" xmlns:ns6="http://calendar.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns7="http://time.helpers.technical.jSeduite.modails.i3s.unice.fr/" xmlns:ns8="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" xmlns:ns9="http://modalis.polytech.unice.fr/jSeduite/bpel/InfoProvider/epu" xmlns:xlink="http://www.w3.org/2000/xlink">
 <endpoints>
 <endpoint endpoint-name="AccountManagerPort" interface-name="ns1:AccountManager" name="endpoint1" service-name="ns1:AccountManagerService"/>
 <endpoint endpoint-name="ErrorLoggerPort" interface-name="ns2:ErrorLogger" name="endpoint2" service-name="ns2:ErrorLoggerService"/>
@@ -8,23 +8,26 @@
 <endpoint endpoint-name="CachedFeedReaderPort" interface-name="ns5:CachedFeedReaderPortType" name="endpoint5" service-name="ns5:CachedFeedReaderService"/>
 <endpoint endpoint-name="ICalReaderPort" interface-name="ns6:ICalReader" name="endpoint6" service-name="ns6:ICalReaderService"/>
 <endpoint endpoint-name="TimeMachinePort" interface-name="ns7:TimeMachine" name="endpoint7" service-name="ns7:TimeMachineService"/>
-<endpoint display-name="external" endpoint-name="InfoProviderPortTypeRole_myRole" file-path="InfoProvider.bpel" interface-name="ns4:InfoProviderPortType" name="endpoint8" process-name="InfoProvider" service-name="ns8:external"/>
-<endpoint display-name="accounts" endpoint-name="accounts_partnerRole" file-path="InfoProvider.bpel" interface-name="ns1:AccountManager" name="endpoint9" process-name="InfoProvider" service-name="ns8:accounts"/>
-<endpoint display-name="preferences" endpoint-name="preferences_partnerRole" file-path="InfoProvider.bpel" interface-name="ns3:PreferenceManager" name="endpoint10" process-name="InfoProvider" service-name="ns8:preferences"/>
-<endpoint display-name="logger" endpoint-name="logger_partnerRole" file-path="InfoProvider.bpel" interface-name="ns2:ErrorLogger" name="endpoint11" process-name="InfoProvider" service-name="ns8:logger"/>
-<endpoint display-name="time" endpoint-name="time_partnerRole" file-path="InfoProvider.bpel" interface-name="ns7:TimeMachine" name="endpoint12" process-name="InfoProvider" service-name="ns8:time"/>
-<endpoint display-name="feedreader" endpoint-name="CachedFeedReaderPortTypeRole_partnerRole" file-path="InfoProvider.bpel" interface-name="ns5:CachedFeedReaderPortType" name="endpoint13" process-name="InfoProvider" service-name="ns8:feedreader"/>
-<endpoint display-name="iCal" endpoint-name="iCal_partnerRole" file-path="InfoProvider.bpel" interface-name="ns6:ICalReader" name="endpoint14" process-name="InfoProvider" service-name="ns8:iCal"/>
+<endpoint endpoint-name="TvShowsPort" interface-name="ns8:TvShowsPortType" name="endpoint8" service-name="ns8:TvShowsService"/>
+<endpoint display-name="external" endpoint-name="InfoProviderPortTypeRole_myRole" file-path="InfoProvider.bpel" interface-name="ns4:InfoProviderPortType" name="endpoint9" process-name="InfoProvider" service-name="ns9:external"/>
+<endpoint display-name="accounts" endpoint-name="accounts_partnerRole" file-path="InfoProvider.bpel" interface-name="ns1:AccountManager" name="endpoint10" process-name="InfoProvider" service-name="ns9:accounts"/>
+<endpoint display-name="preferences" endpoint-name="preferences_partnerRole" file-path="InfoProvider.bpel" interface-name="ns3:PreferenceManager" name="endpoint11" process-name="InfoProvider" service-name="ns9:preferences"/>
+<endpoint display-name="logger" endpoint-name="logger_partnerRole" file-path="InfoProvider.bpel" interface-name="ns2:ErrorLogger" name="endpoint12" process-name="InfoProvider" service-name="ns9:logger"/>
+<endpoint display-name="time" endpoint-name="time_partnerRole" file-path="InfoProvider.bpel" interface-name="ns7:TimeMachine" name="endpoint13" process-name="InfoProvider" service-name="ns9:time"/>
+<endpoint display-name="feedreader" endpoint-name="CachedFeedReaderPortTypeRole_partnerRole" file-path="InfoProvider.bpel" interface-name="ns5:CachedFeedReaderPortType" name="endpoint14" process-name="InfoProvider" service-name="ns9:feedreader"/>
+<endpoint display-name="iCal" endpoint-name="iCal_partnerRole" file-path="InfoProvider.bpel" interface-name="ns6:ICalReader" name="endpoint15" process-name="InfoProvider" service-name="ns9:iCal"/>
+<endpoint display-name="tv" endpoint-name="TvShowsPortTypeRole_partnerRole" file-path="InfoProvider.bpel" interface-name="ns8:TvShowsPortType" name="endpoint16" process-name="InfoProvider" service-name="ns9:tv"/>
 </endpoints>
 <service-units>
 <service-engine-service-unit artifacts-zip="InfoProviderEPU.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="InfoProviderEPUComponent-InfoProviderEPU" unit-name="InfoProviderEPU" unknown="false" x="-1" y="-1">
-<provides endpoint="endpoint8"/>
-<consumes endpoint="endpoint9"/>
+<provides endpoint="endpoint9"/>
 <consumes endpoint="endpoint10"/>
 <consumes endpoint="endpoint11"/>
 <consumes endpoint="endpoint12"/>
 <consumes endpoint="endpoint13"/>
 <consumes endpoint="endpoint14"/>
+<consumes endpoint="endpoint15"/>
+<consumes endpoint="endpoint16"/>
 </service-engine-service-unit>
 <binding-component-service-unit artifacts-zip="sun-http-binding.jar" component-name="sun-http-binding" description="Represents this Service Unit" name="InfoProviderEPUComponent-sun-http-binding" unit-name="sun-http-binding">
 <ports>
@@ -42,6 +45,11 @@
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/Sources/ICalReaderService.wsdl#xpointer(/definitions/service[@name='ICalReaderService']/port[@name='ICalReaderPort'])" xlink:type="simple"/>
 <consumes endpoint="endpoint6"/>
 <provides endpoint="endpoint6"/>
+</port>
+<port x="0" y="-1">
+<link xlink:href="../jbiServiceUnits/InfoProviderEPU/Sources/TvShows.wsdl#xpointer(/definitions/service[@name='TvShowsService']/port[@name='TvShowsPort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint8"/>
+<provides endpoint="endpoint8"/>
 </port>
 <port x="0" y="-1">
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/service[@name='AccountManagerService']/port[@name='AccountManagerPort'])" xlink:type="simple"/>
@@ -67,24 +75,27 @@
 </binding-component-service-unit>
 </service-units>
 <connections>
-<connection consumer="endpoint4" provider="endpoint8" state="unchanged"/>
-<connection consumer="endpoint14" provider="endpoint6" state="unchanged"/>
-<connection consumer="endpoint9" provider="endpoint1" state="unchanged"/>
-<connection consumer="endpoint11" provider="endpoint2" state="unchanged"/>
-<connection consumer="endpoint10" provider="endpoint3" state="unchanged"/>
-<connection consumer="endpoint13" provider="endpoint5" state="unchanged"/>
-<connection consumer="endpoint12" provider="endpoint7" state="unchanged"/>
+<connection consumer="endpoint4" provider="endpoint9" state="unchanged"/>
+<connection consumer="endpoint15" provider="endpoint6" state="unchanged"/>
+<connection consumer="endpoint10" provider="endpoint1" state="unchanged"/>
+<connection consumer="endpoint12" provider="endpoint2" state="unchanged"/>
+<connection consumer="endpoint11" provider="endpoint3" state="unchanged"/>
+<connection consumer="endpoint14" provider="endpoint5" state="unchanged"/>
+<connection consumer="endpoint13" provider="endpoint7" state="unchanged"/>
+<connection consumer="endpoint16" provider="endpoint8" state="unchanged"/>
 </connections>
 <porttypes>
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/InfoProvider.wsdl#xpointer(/definitions/portType[@name='InfoProviderPortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/Sources/CachedFeedReader.wsdl#xpointer(/definitions/portType[@name='CachedFeedReaderPortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/Sources/ICalReaderService.wsdl#xpointer(/definitions/portType[@name='ICalReader'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderEPU/Sources/TvShows.wsdl#xpointer(/definitions/portType[@name='TvShowsPortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/portType[@name='AccountManager'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/TechPartners/ErrorLoggerService.wsdl#xpointer(/definitions/portType[@name='ErrorLogger'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/TechPartners/PreferenceManagerService.wsdl#xpointer(/definitions/portType[@name='PreferenceManager'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/TechPartners/TimeMachineService.wsdl#xpointer(/definitions/portType[@name='TimeMachine'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderEPU/src/Sources/CachedFeedReader.wsdl#xpointer(/definitions/portType[@name='CachedFeedReaderPortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderEPU/src/Sources/ICalReaderService.wsdl#xpointer(/definitions/portType[@name='ICalReader'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderEPU/src/Sources/TvShows.wsdl#xpointer(/definitions/portType[@name='TvShowsPortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderEPU/src/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/portType[@name='AccountManager'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderEPU/src/TechPartners/ErrorLoggerService.wsdl#xpointer(/definitions/portType[@name='ErrorLogger'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderEPU/src/TechPartners/PreferenceManagerService.wsdl#xpointer(/definitions/portType[@name='PreferenceManager'])" xlink:type="simple"/>
@@ -94,12 +105,14 @@
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/InfoProvider.wsdl#xpointer(/definitions/binding[@name='InfoProviderBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/Sources/CachedFeedReader.wsdl#xpointer(/definitions/binding[@name='CachedFeedReaderBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/Sources/ICalReaderService.wsdl#xpointer(/definitions/binding[@name='ICalReaderPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderEPU/Sources/TvShows.wsdl#xpointer(/definitions/binding[@name='TvShowsBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/binding[@name='AccountManagerPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/TechPartners/ErrorLoggerService.wsdl#xpointer(/definitions/binding[@name='ErrorLoggerPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/TechPartners/PreferenceManagerService.wsdl#xpointer(/definitions/binding[@name='PreferenceManagerPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/TechPartners/TimeMachineService.wsdl#xpointer(/definitions/binding[@name='TimeMachinePortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderEPU/src/Sources/CachedFeedReader.wsdl#xpointer(/definitions/binding[@name='CachedFeedReaderBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderEPU/src/Sources/ICalReaderService.wsdl#xpointer(/definitions/binding[@name='ICalReaderPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderEPU/src/Sources/TvShows.wsdl#xpointer(/definitions/binding[@name='TvShowsBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderEPU/src/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/binding[@name='AccountManagerPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderEPU/src/TechPartners/ErrorLoggerService.wsdl#xpointer(/definitions/binding[@name='ErrorLoggerPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderEPU/src/TechPartners/PreferenceManagerService.wsdl#xpointer(/definitions/binding[@name='PreferenceManagerPortBinding'])" xlink:type="simple"/>
@@ -109,12 +122,14 @@
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/InfoProvider.wsdl#xpointer(/definitions/service[@name='InfoProviderService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/Sources/CachedFeedReader.wsdl#xpointer(/definitions/service[@name='CachedFeedReaderService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/Sources/ICalReaderService.wsdl#xpointer(/definitions/service[@name='ICalReaderService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderEPU/Sources/TvShows.wsdl#xpointer(/definitions/service[@name='TvShowsService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/service[@name='AccountManagerService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/TechPartners/ErrorLoggerService.wsdl#xpointer(/definitions/service[@name='ErrorLoggerService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/TechPartners/PreferenceManagerService.wsdl#xpointer(/definitions/service[@name='PreferenceManagerService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderEPU/TechPartners/TimeMachineService.wsdl#xpointer(/definitions/service[@name='TimeMachineService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderEPU/src/Sources/CachedFeedReader.wsdl#xpointer(/definitions/service[@name='CachedFeedReaderService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderEPU/src/Sources/ICalReaderService.wsdl#xpointer(/definitions/service[@name='ICalReaderService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderEPU/src/Sources/TvShows.wsdl#xpointer(/definitions/service[@name='TvShowsService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderEPU/src/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/service[@name='AccountManagerService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderEPU/src/TechPartners/ErrorLoggerService.wsdl#xpointer(/definitions/service[@name='ErrorLoggerService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderEPU/src/TechPartners/PreferenceManagerService.wsdl#xpointer(/definitions/service[@name='PreferenceManagerService'])" xlink:type="simple"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://modalis.polytech.unice.fr/jSeduite/wsdl/FeedReader" xmlns:ns2="http://modalis.polytech.unice.fr/jSeduite/bpel/FeedReader" xmlns:ns3="http://registry.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns4="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" version="1.0">
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://modalis.polytech.unice.fr/jSeduite/wsdl/FeedReader" xmlns:ns2="http://modalis.polytech.unice.fr/jSeduite/bpel/FeedReader" xmlns:ns3="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns4="http://registry.technical.jSeduite.modalis.i3s.unice.fr/" version="1.0">
 <service-assembly>
 <identification>
 <name>FeedReaderComponent</name>
@@ -11,12 +11,12 @@
 <provider endpoint-name="FeedReaderPortTypeRole_myRole" service-name="ns2:external"/>
 </connection>
 <connection>
-<consumer endpoint-name="registry_partnerRole" service-name="ns2:registry"/>
-<provider endpoint-name="FeedRegistryPort" service-name="ns3:FeedRegistryService"/>
+<consumer endpoint-name="reader_partnerRole" service-name="ns2:reader"/>
+<provider endpoint-name="RssReaderPort" service-name="ns3:RssReaderService"/>
 </connection>
 <connection>
-<consumer endpoint-name="reader_partnerRole" service-name="ns2:reader"/>
-<provider endpoint-name="RssReaderPort" service-name="ns4:RssReaderService"/>
+<consumer endpoint-name="registry_partnerRole" service-name="ns2:registry"/>
+<provider endpoint-name="FeedRegistryPort" service-name="ns4:FeedRegistryService"/>
 </connection>
 </connections>
 </service-assembly>

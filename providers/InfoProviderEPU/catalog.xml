@@ -13,4 +13,6 @@
     <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/ICalReader/ICalReaderService.xsd" uri="src/Sources/ICalReaderService.xsd"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/webservices/TimeMachine/web/WSDL/TimeMachineService.wsdl" uri="src/TechPartners/TimeMachineService.wsdl"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/webservices/TimeMachine/web/WSDL/TimeMachineService.xsd" uri="src/TechPartners/TimeMachineService.xsd"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/TvShows/TvShows.wsdl" uri="src/Sources/TvShows.wsdl"/>
+    <system systemId="file:/Users/mosser/Desktop/jSeduite-Sources-WSDL-v1.0/TvShows/TvShows.xsd" uri="src/Sources/TvShows.xsd"/>
 </catalog>

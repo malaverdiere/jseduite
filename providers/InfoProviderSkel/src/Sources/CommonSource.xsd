@@ -30,6 +30,11 @@
         <xsd:attribute name="source" type="xsd:string"/>
         <xsd:attribute name="node" type="xsd:string"/>
     </xsd:complexType>
+    <xsd:complexType name="IntegerSet">
+        <xsd:sequence>
+            <xsd:element name="item" minOccurs="0" maxOccurs="unbounded" type="xsd:integer"/>
+        </xsd:sequence>
+    </xsd:complexType>
     <xsd:element name="GetInfosRequest" type="tns:GetInfosIn"/>
     <xsd:element name="GetInfosResponse" type="tns:GetInfosOut"/>
 </xsd:schema>

@@ -36,8 +36,8 @@
 </service-units>
 <connections>
 <connection consumer="endpoint3" provider="endpoint4" state="unchanged"/>
-<connection consumer="endpoint6" provider="endpoint1" state="unchanged"/>
 <connection consumer="endpoint5" provider="endpoint2" state="unchanged"/>
+<connection consumer="endpoint6" provider="endpoint1" state="unchanged"/>
 </connections>
 <porttypes>
 <link xlink:href="../jbiServiceUnits/CachedFeedReader/CachedFeedReader.wsdl#xpointer(/definitions/portType[@name='CachedFeedReaderPortType'])" xlink:type="simple"/>

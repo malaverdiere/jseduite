@@ -40,7 +40,7 @@ public class FlickrWrapper {
 
     private static final String HOST = "api.flickr.com";
     private static final String REST_SERVICE = "/services/rest/";
-    private static final String API_KEY = "XXX";
+    private static final String API_KEY = "83416fd662f08086b84f91fc89b12fbf";
     
     /** Retrieve the content of a given flickr Web Album
      * @param album album's id (see flickr link)

@@ -36,8 +36,8 @@
 </service-units>
 <connections>
 <connection consumer="endpoint2" provider="endpoint4" state="unchanged"/>
-<connection consumer="endpoint5" provider="endpoint1" state="unchanged"/>
 <connection consumer="endpoint6" provider="endpoint3" state="unchanged"/>
+<connection consumer="endpoint5" provider="endpoint1" state="unchanged"/>
 </connections>
 <porttypes>
 <link xlink:href="../jbiServiceUnits/META-INF/TvShows/src/Partners/localhost_8080/jSeduite/TvHelper/TvHelperService.wsdl#xpointer(/definitions/portType[@name='TvHelper'])" xlink:type="simple"/>

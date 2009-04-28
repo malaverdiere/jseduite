@@ -31,7 +31,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
     xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
     xmlns:tns="http://modalis.polytech.unice.fr/jSeduite/bpel/InfoProvider/epu"
-    xmlns:ns0="http://modalis.polytech.unice.fr/jSeduite/schema/InfoProvider/epu" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/schema/CachedFeedReader" xmlns:ns2="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns3="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:sxxf="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/XPathFunctions">
+    xmlns:ns0="http://modalis.polytech.unice.fr/jSeduite/schema/InfoProvider/epu" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/schema/CachedFeedReader" xmlns:ns2="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns3="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:sxxf="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/XPathFunctions" xmlns:ns4="http://modalis.i3s.unice.fr/jSeduite/schema/TvShows">
     <import namespace="http://modalis.polytech.unice.fr/jSeduite/wsdl/InfoProvider/epu" location="InfoProvider.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://modalis.polytech.unice.fr/jSeduite/schema/InfoProvider/epu" location="InfoProvider.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
     <import namespace="http://enterprise.netbeans.org/bpel/ErrorLoggerServiceWrapper" location="TechPartners/ErrorLoggerServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
@@ -45,6 +45,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     <import namespace="http://calendar.technical.jSeduite.modalis.i3s.unice.fr/" location="Sources/ICalReaderService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://enterprise.netbeans.org/bpel/TimeMachineServiceWrapper" location="TechPartners/TimeMachineServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://time.helpers.technical.jSeduite.modails.i3s.unice.fr/" location="TechPartners/TimeMachineService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" location="Sources/TvShows.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <partnerLinks>
         <partnerLink name="accounts" xmlns:tns="http://enterprise.netbeans.org/bpel/AccountManagerServiceWrapper" partnerLinkType="tns:AccountManagerLinkType" partnerRole="accounts"/>
         <partnerLink name="preferences" xmlns:tns="http://enterprise.netbeans.org/bpel/PreferenceManagerServiceWrapper" partnerLinkType="tns:PreferenceManagerLinkType" partnerRole="preferences"/>
@@ -52,9 +53,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
         <partnerLink name="time" xmlns:tns="http://enterprise.netbeans.org/bpel/TimeMachineServiceWrapper" partnerLinkType="tns:TimeMachineLinkType" partnerRole="time"/>
         <partnerLink name="feedreader" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/CachedFeedReader" partnerLinkType="tns:CachedFeedReader" partnerRole="CachedFeedReaderPortTypeRole"/>
         <partnerLink name="iCal" xmlns:tns="http://enterprise.netbeans.org/bpel/ICalReaderServiceWrapper" partnerLinkType="tns:ICalReaderLinkType" partnerRole="iCal"/>
+        <partnerLink name="tv" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" partnerLinkType="tns:TvShows" partnerRole="TvShowsPortTypeRole"/>
         <partnerLink name="external" xmlns:tns="http://modalis.polytech.unice.fr/jSeduite/wsdl/InfoProvider/epu" partnerLinkType="tns:InfoProvider" myRole="InfoProviderPortTypeRole"/>
     </partnerLinks>
     <variables>
+        <variable name="tvShows" type="ns0:ShowSet"/>
         <variable name="ical_result" type="ns0:CalendatEventSet"/>
         <variable name="globalIndex" type="xsd:integer"/>
         <variable name="feed_reader_result" type="ns0:FeedContentSet"/>
@@ -429,6 +432,85 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
                     </while>
                 </sequence>
             </scope>
+            <scope name="TvShows">
+                <variables>
+                    <variable name="LogOut" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:logResponse"/>
+                    <variable name="LogIn" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:log"/>
+                    <variable name="TvShowsOperationOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" messageType="tns:TvShowsOperationResponse"/>
+                    <variable name="TvShowsOperationIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" messageType="tns:TvShowsOperationRequest"/>
+                    <variable name="GetCallIdentifiersOut" messageType="ns2:getCallIdentifiersResponse"/>
+                    <variable name="GetCallIdentifiersIn" messageType="ns2:getCallIdentifiers"/>
+                </variables>
+                <faultHandlers>
+                    <catchAll>
+                        <sequence name="onError" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/">
+                            <sequence name="log">
+                                <assign name="log_pre">
+                                    <copy>
+                                        <from>'InfoProvider'</from>
+                                        <to>$LogIn.parameters/trigger</to>
+                                    </copy>
+                                    <copy>
+                                        <from>'exception'</from>
+                                        <to>$LogIn.parameters/level</to>
+                                    </copy>
+                                    <copy>
+                                        <from>'TvShows Source Exception'</from>
+                                        <to>$LogIn.parameters/message</to>
+                                    </copy>
+                                </assign>
+                                <invoke name="log_tech" partnerLink="logger" operation="log" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:ErrorLogger" inputVariable="LogIn" outputVariable="LogOut"/>
+                            </sequence>
+                        </sequence>
+                    </catchAll>
+                </faultHandlers>
+                <sequence name="internal">
+                    <assign name="init_results">
+                        <copy>
+                            <from>''</from>
+                            <to variable="tvShows"/>
+                        </copy>
+                    </assign>
+                    <sequence name="getCalls">
+                        <assign name="getCalls_pre">
+                            <copy>
+                                <from>'TvShows'</from>
+                                <to>$GetCallIdentifiersIn.parameters/service</to>
+                            </copy>
+                                <copy>
+                                <from>'get'</from>
+                                <to>$GetCallIdentifiersIn.parameters/operation</to>
+                            </copy>
+                                <copy>
+                                <from variable="user"/>
+                                <to>$GetCallIdentifiersIn.parameters/login</to>
+                            </copy>
+                        </assign>
+                            <invoke name="getCals_tech" partnerLink="preferences" operation="getCallIdentifiers" portType="ns2:PreferenceManager" inputVariable="GetCallIdentifiersIn" outputVariable="GetCallIdentifiersOut"/>
+                    </sequence>
+                    <if name="shouldCall">
+                        <condition>1 = count($GetCallIdentifiersOut.parameters/return)</condition>
+                        <sequence name="perform_call">
+                            <assign name="call_pre">
+                                <copy>
+                                    <from>''</from>
+                                    <to variable="TvShowsOperationIn" part="in"/>
+                                </copy>
+                            </assign>
+                            <invoke name="call_tech" partnerLink="tv" operation="TvShowsOperation" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" portType="tns:TvShowsPortType" inputVariable="TvShowsOperationIn" outputVariable="TvShowsOperationOut"/>
+                            <assign name="call_post">
+                                <copy>
+                                    <from>$TvShowsOperationOut.out/ns4:show</from>
+                                    <to>$tvShows/ns0:item</to>
+                                </copy>
+                            </assign>
+                        </sequence>
+                        <else>
+                            <empty name="nop"/>
+                        </else>
+                    </if>
+                </sequence>
+            </scope>
         </flow>
         <sequence name="feed_result">
             <assign name="init">
@@ -515,6 +597,34 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
                                         </assign>
                                 </sequence>
                         </while>
+                </sequence>
+            </scope>
+            <scope name="TvShows_Feed">
+                <sequence name="internal">
+                    <if name="shouldAdd">
+                        <condition>count($tvShows/ns0:item) &gt; 0</condition>
+                        <sequence name="Sequence1">
+                            <assign name="feed">
+                                <copy>
+                                    <from variable="tvShows"/>
+                                    <to>$result/ns0:item/ns0:ShowSet</to>
+                                </copy>
+                                <copy>
+                                    <from>'ShowSet'</from>
+                                    <to>$result/ns0:item/@kind</to>
+                                </copy>
+                            </assign>
+                            <assign name="increment">
+                                <copy>
+                                    <from>$globalIndex + 1</from>
+                                    <to variable="globalIndex"/>
+                                </copy>
+                            </assign>
+                        </sequence>
+                        <else>
+                            <empty name="nop"/>
+                        </else>
+                    </if>
                 </sequence>
             </scope>
         </sequence>

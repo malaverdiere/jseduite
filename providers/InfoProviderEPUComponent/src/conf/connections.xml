@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://modalis.polytech.unice.fr/jSeduite/wsdl/InfoProvider/epu" xmlns:ns2="http://modalis.polytech.unice.fr/jSeduite/bpel/InfoProvider/epu" xmlns:ns3="http://calendar.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns4="http://accounts.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns5="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns6="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns7="http://modalis.i3s.unice.fr/jSeduite/wsdl/CachedFeedReader" xmlns:ns8="http://time.helpers.technical.jSeduite.modails.i3s.unice.fr/" version="1.0">
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://modalis.polytech.unice.fr/jSeduite/wsdl/InfoProvider/epu" xmlns:ns2="http://modalis.polytech.unice.fr/jSeduite/bpel/InfoProvider/epu" xmlns:ns3="http://calendar.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns4="http://accounts.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns5="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns6="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns7="http://modalis.i3s.unice.fr/jSeduite/wsdl/CachedFeedReader" xmlns:ns8="http://time.helpers.technical.jSeduite.modails.i3s.unice.fr/" xmlns:ns9="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" version="1.0">
 <service-assembly>
 <identification>
 <name>InfoProviderEPUComponent</name>
@@ -33,6 +33,10 @@
 <connection>
 <consumer endpoint-name="time_partnerRole" service-name="ns2:time"/>
 <provider endpoint-name="TimeMachinePort" service-name="ns8:TimeMachineService"/>
+</connection>
+<connection>
+<consumer endpoint-name="TvShowsPortTypeRole_partnerRole" service-name="ns2:tv"/>
+<provider endpoint-name="TvShowsPort" service-name="ns9:TvShowsService"/>
 </connection>
 </connections>
 </service-assembly>

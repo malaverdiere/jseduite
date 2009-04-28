@@ -3,75 +3,67 @@
   <SOAP-ENV:Body>
     <ns1:TvShowsResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/schema/TvShows">
       <ns1:show channel="TF1">
-        <ns1:title>Les bronzés</ns1:title>
+        <ns1:title>Dr House</ns1:title>
         <ns1:start>20:45</ns1:start>
-        <ns1:summary>Une comédie culte pour toute une génération. Maintenant, on serait  certainement plus exigeant...
+        <ns1:summary>C'est mercredi c'est donc diagnostic différentiel sur TF1. A part l'épisode 3 de la soirée qui sort de la saison 1 vous pourrez vous régaler de la saison 4, avec la fin du recrutement pour House et un cas pour le moins surprenant.
 </ns1:summary>
       </ns1:show>
       <ns1:show channel="TF1">
-        <ns1:title>Enquêtes et révélations</ns1:title>
-        <ns1:start>22:30</ns1:start>
-        <ns1:summary>La voiture, l'un des principaux poste de dépense du français. Un énième magazine de consommation ? Non, cette fois-ci on parle alcoolisme et cannabis. Et de jeunes bien sûr ! de jeunes délinquant mêmes ! On pourrait même raccourcir le propos et proférer que le jeune est toujours délinquant. Ce serait caricural, mais on n'est plus à cela prêt !
+        <ns1:title>Life</ns1:title>
+        <ns1:start>23:20</ns1:start>
+        <ns1:summary>Enquêter c'est leur credo, alors go go go !
 </ns1:summary>
       </ns1:show>
       <ns1:show channel="France 2">
-        <ns1:title>Ils font bouger la France</ns1:title>
+        <ns1:title>Les poissons marteaux</ns1:title>
         <ns1:start>20:35</ns1:start>
-        <ns1:summary>Les français vont trop à l'hopital et creusent ainsi le trou de la sécu. Pour résoudre le problème, le service public nous a concocté un petit reportage sur les maladies nosocomiales. Pas de doute, dès demain, les services seront vides !
-</ns1:summary>
+        <ns1:summary/>
       </ns1:show>
       <ns1:show channel="France 2">
-        <ns1:title>Faites entrer l'accusé</ns1:title>
-        <ns1:start>22:45</ns1:start>
-        <ns1:summary>Ce soir, projecteur sur François Besse, l'ancien bras droit de Jacques Mesrine. Cassel avait pourtant ses deux bras aux Césars, non ?
-</ns1:summary>
+        <ns1:title>Ca se discute</ns1:title>
+        <ns1:start>22:10</ns1:start>
+        <ns1:summary/>
       </ns1:show>
       <ns1:show channel="France 3">
-        <ns1:title>Tatie Danielle</ns1:title>
+        <ns1:title>Obésité : le poids de la souffrance...</ns1:title>
         <ns1:start>20:35</ns1:start>
-        <ns1:summary>Tanguy ne voulait pas partir ; s'il avait du cohabiter avec Tatie Danielle, parions qu'il n'aurait pas traîné !
-</ns1:summary>
+        <ns1:summary/>
       </ns1:show>
       <ns1:show channel="France 3">
         <ns1:title>Ce soir (ou jamais !)</ns1:title>
-        <ns1:start>23:15</ns1:start>
-        <ns1:summary>Paradoxalement, on peut le rater ce soir et pourtant en profiter demain.
-</ns1:summary>
+        <ns1:start>23:10</ns1:start>
+        <ns1:summary/>
       </ns1:show>
       <ns1:show channel="Canal Plus">
-        <ns1:title>La graine et le mulet</ns1:title>
+        <ns1:title>SuperGrave</ns1:title>
         <ns1:start>20:45</ns1:start>
-        <ns1:summary>Allergiques au couscous au poisson, passez votre chemin, ou préparez vos médicaments !
-</ns1:summary>
+        <ns1:summary/>
       </ns1:show>
       <ns1:show channel="Canal Plus">
-        <ns1:title>Le tueur</ns1:title>
-        <ns1:start>23:15</ns1:start>
-        <ns1:summary>On peut être tueur et arrangeant. La preuve.
-</ns1:summary>
+        <ns1:title>Les rois du patin</ns1:title>
+        <ns1:start>22:35</ns1:start>
+        <ns1:summary/>
       </ns1:show>
       <ns1:show channel="Arte">
-        <ns1:title>Dati, l'ambitieuse</ns1:title>
+        <ns1:title>Les derniers jours d'Abraham Lincoln</ns1:title>
         <ns1:start>20:45</ns1:start>
-        <ns1:summary>Gala en a rêvé, c'est Arte qui le diffuse. Blague à part, c'est toujours intéressant de découvrir les coulisse d'une montée en pouvoir. Et d'une chute...
-</ns1:summary>
+        <ns1:summary/>
       </ns1:show>
       <ns1:show channel="Arte">
-        <ns1:title>Dissonances</ns1:title>
-        <ns1:start>23:00</ns1:start>
-        <ns1:summary>Il ne s'agit pas d'un concert de musique moderne, mais plutôt d'une entrée dans la folie ordinaire.
+        <ns1:title>Si le vent soulève les sables</ns1:title>
+        <ns1:start>23:15</ns1:start>
+        <ns1:summary/>
+      </ns1:show>
+      <ns1:show channel="M6">
+        <ns1:title>Ajax/Marseille</ns1:title>
+        <ns1:start>20:35</ns1:start>
+        <ns1:summary>Ajax n'est pas qu'une marque de lessive, il parait que c'est aussi un club de foot, et il parait que ce soir les marseillais font la lessive !
 </ns1:summary>
       </ns1:show>
       <ns1:show channel="M6">
-        <ns1:title>Nouvelle star</ns1:title>
-        <ns1:start>20:40</ns1:start>
-        <ns1:summary>Même jury shoot again.
-</ns1:summary>
-      </ns1:show>
-      <ns1:show channel="M6">
-        <ns1:title>Un crime dans la tête</ns1:title>
+        <ns1:title>Enquête exclusive</ns1:title>
         <ns1:start>22:40</ns1:start>
-        <ns1:summary>Denzel Washington et Meryl Streep dans un film au cerveau torturé.
+        <ns1:summary>Les jeunes et l'alcool, un problème récurrent dans notre société... Et en particulier en ce moment où cela semble être un problème des plus importants pour notre gouvernement...
 </ns1:summary>
       </ns1:show>
     </ns1:TvShowsResponse>

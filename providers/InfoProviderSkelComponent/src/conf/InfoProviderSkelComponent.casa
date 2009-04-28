@@ -1,76 +1,178 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="http://accounts.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns2="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns3="http://modalis.polytech.unice.fr/jSeduite/wsdl/InfoProvider/skel" xmlns:ns4="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns5="http://modalis.polytech.unice.fr/jSeduite/bpel/InfoProvider/skel" xmlns:xlink="http://www.w3.org/2000/xlink">
+<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="http://accounts.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns10="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/CalendarToday" xmlns:ns11="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TvSource" xmlns:ns2="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns3="http://preferences.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns4="http://modalis.i3s.unice.fr/jSeduite/wsdl/TvShows" xmlns:ns5="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TvSource" xmlns:ns6="http://modalis.polytech.unice.fr/jSeduite/providers/wsdl/InfoProvider" xmlns:ns7="http://modalis.i3s.unice.fr/jSeduite/wsdl/CachedFeedReader" xmlns:ns8="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/CalendarToday" xmlns:ns9="http://modalis.polytech.unice.fr/jSeduite/providers/bpel/InfoProvider" xmlns:xlink="http://www.w3.org/2000/xlink">
 <endpoints>
 <endpoint endpoint-name="AccountManagerPort" interface-name="ns1:AccountManager" name="endpoint1" service-name="ns1:AccountManagerService"/>
 <endpoint endpoint-name="ErrorLoggerPort" interface-name="ns2:ErrorLogger" name="endpoint2" service-name="ns2:ErrorLoggerService"/>
-<endpoint endpoint-name="InfoProviderPort" interface-name="ns3:InfoProviderPortType" name="endpoint3" service-name="ns3:InfoProviderService"/>
-<endpoint endpoint-name="PreferenceManagerPort" interface-name="ns4:PreferenceManager" name="endpoint4" service-name="ns4:PreferenceManagerService"/>
-<endpoint display-name="external" endpoint-name="InfoProviderPortTypeRole_myRole" file-path="InfoProvider.bpel" interface-name="ns3:InfoProviderPortType" name="endpoint5" process-name="InfoProvider" service-name="ns5:external"/>
-<endpoint display-name="accounts" endpoint-name="accounts_partnerRole" file-path="InfoProvider.bpel" interface-name="ns1:AccountManager" name="endpoint6" process-name="InfoProvider" service-name="ns5:accounts"/>
-<endpoint display-name="preferences" endpoint-name="preferences_partnerRole" file-path="InfoProvider.bpel" interface-name="ns4:PreferenceManager" name="endpoint7" process-name="InfoProvider" service-name="ns5:preferences"/>
-<endpoint display-name="logger" endpoint-name="logger_partnerRole" file-path="InfoProvider.bpel" interface-name="ns2:ErrorLogger" name="endpoint8" process-name="InfoProvider" service-name="ns5:logger"/>
+<endpoint endpoint-name="PreferenceManagerPort" interface-name="ns3:PreferenceManager" name="endpoint3" service-name="ns3:PreferenceManagerService"/>
+<endpoint endpoint-name="TvShowsPort" interface-name="ns4:TvShowsPortType" name="endpoint4" service-name="ns4:TvShowsService"/>
+<endpoint endpoint-name="TvSourcePort" interface-name="ns5:TvSourcePortType" name="endpoint5" service-name="ns5:TvSourceService"/>
+<endpoint endpoint-name="InfoProviderPort" interface-name="ns6:InfoProviderPortType" name="endpoint6" service-name="ns6:InfoProviderService"/>
+<endpoint endpoint-name="CachedFeedReaderPort" interface-name="ns7:CachedFeedReaderPortType" name="endpoint7" service-name="ns7:CachedFeedReaderService"/>
+<endpoint endpoint-name="CalendarTodayPort" interface-name="ns8:CalendarTodayPortType" name="endpoint8" service-name="ns8:CalendarTodayService"/>
+<endpoint display-name="ext" endpoint-name="provider_myRole" file-path="InfoProvider.bpel" interface-name="ns6:InfoProviderPortType" name="endpoint9" process-name="InfoProvider" service-name="ns9:ext"/>
+<endpoint display-name="ext" endpoint-name="CalendarTodayPortTypeRole_myRole" file-path="Sources/CalendarToday.bpel" interface-name="ns8:CalendarTodayPortType" name="endpoint10" process-name="CalendarToday" service-name="ns10:ext"/>
+<endpoint display-name="ext" endpoint-name="TvSourcePortTypeRole_myRole" file-path="Sources/TvSource.bpel" interface-name="ns5:TvSourcePortType" name="endpoint11" process-name="TvSource" service-name="ns11:ext"/>
+<endpoint display-name="account" endpoint-name="accounts_partnerRole" file-path="InfoProvider.bpel" interface-name="ns1:AccountManager" name="endpoint12" process-name="InfoProvider" service-name="ns9:account"/>
+<endpoint display-name="log" endpoint-name="logger_partnerRole" file-path="Sources/TvSource.bpel" interface-name="ns2:ErrorLogger" name="endpoint13" process-name="TvSource" service-name="ns11:log"/>
+<endpoint display-name="prefs" endpoint-name="prefs_partnerRole" file-path="Sources/TvSource.bpel" interface-name="ns3:PreferenceManager" name="endpoint14" process-name="TvSource" service-name="ns11:prefs"/>
+<endpoint display-name="tv" endpoint-name="TvShowsPortTypeRole_partnerRole" file-path="Sources/TvSource.bpel" interface-name="ns4:TvShowsPortType" name="endpoint15" process-name="TvSource" service-name="ns11:tv"/>
 </endpoints>
 <service-units>
-<service-engine-service-unit artifacts-zip="InfoProviderSkel.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="InfoProviderSkelComponent-InfoProviderSkel" unit-name="InfoProviderSkel" unknown="false" x="129" y="97">
-<provides endpoint="endpoint5"/>
-<consumes endpoint="endpoint6"/>
-<consumes endpoint="endpoint7"/>
-<consumes endpoint="endpoint8"/>
+<service-engine-service-unit artifacts-zip="InfoProviderSkel.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="InfoProviderSkelComponent-InfoProviderSkel" unit-name="InfoProviderSkel" unknown="false" x="137" y="277">
+<provides endpoint="endpoint9"/>
+<provides endpoint="endpoint10"/>
+<provides endpoint="endpoint11"/>
+<consumes endpoint="endpoint12"/>
+<consumes endpoint="endpoint13"/>
+<consumes endpoint="endpoint14"/>
+<consumes endpoint="endpoint15"/>
 </service-engine-service-unit>
 <binding-component-service-unit artifacts-zip="sun-http-binding.jar" component-name="sun-http-binding" description="Represents this Service Unit" name="InfoProviderSkelComponent-sun-http-binding" unit-name="sun-http-binding">
 <ports>
-<port x="0" y="-1">
+<port x="67" y="191">
 <link xlink:href="../jbiServiceUnits/InfoProviderSkel/InfoProvider.wsdl#xpointer(/definitions/service[@name='InfoProviderService']/port[@name='InfoProviderPort'])" xlink:type="simple"/>
-<consumes endpoint="endpoint3"/>
-<provides endpoint="endpoint3"/>
+<consumes endpoint="endpoint6"/>
+<provides endpoint="endpoint6"/>
 </port>
 <port x="0" y="-1">
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/CalendarToday.wsdl#xpointer(/definitions/service[@name='CalendarTodayService']/port[@name='CalendarTodayPort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint8"/>
+<provides endpoint="endpoint8"/>
+</port>
+<port state="deleted" x="67" y="114">
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/CachedFeedReader.wsdl#xpointer(/definitions/service[@name='CachedFeedReaderService']/port[@name='CachedFeedReaderPort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint7"/>
+<provides endpoint="endpoint7"/>
+</port>
+<port x="67" y="499">
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/TvShows.wsdl#xpointer(/definitions/service[@name='TvShowsService']/port[@name='TvShowsPort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint4"/>
+<provides endpoint="endpoint4"/>
+</port>
+<port x="67" y="345">
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/TvSource.wsdl#xpointer(/definitions/service[@name='TvSourceService']/port[@name='TvSourcePort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint5"/>
+<provides endpoint="endpoint5"/>
+</port>
+<port x="67" y="268">
 <link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/service[@name='AccountManagerService']/port[@name='AccountManagerPort'])" xlink:type="simple"/>
 <consumes endpoint="endpoint1"/>
 <provides endpoint="endpoint1"/>
 </port>
-<port x="0" y="-1">
+<port x="67" y="576">
 <link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/ErrorLoggerService.wsdl#xpointer(/definitions/service[@name='ErrorLoggerService']/port[@name='ErrorLoggerPort'])" xlink:type="simple"/>
 <consumes endpoint="endpoint2"/>
 <provides endpoint="endpoint2"/>
 </port>
-<port x="0" y="-1">
+<port x="67" y="422">
 <link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/PreferenceManagerService.wsdl#xpointer(/definitions/service[@name='PreferenceManagerService']/port[@name='PreferenceManagerPort'])" xlink:type="simple"/>
-<consumes endpoint="endpoint4"/>
-<provides endpoint="endpoint4"/>
+<consumes endpoint="endpoint3"/>
+<provides endpoint="endpoint3"/>
 </port>
 </ports>
 </binding-component-service-unit>
 </service-units>
 <connections>
-<connection consumer="endpoint3" provider="endpoint5" state="unchanged"/>
-<connection consumer="endpoint8" provider="endpoint2" state="unchanged"/>
-<connection consumer="endpoint6" provider="endpoint1" state="unchanged"/>
-<connection consumer="endpoint7" provider="endpoint4" state="unchanged"/>
+<connection consumer="endpoint5" provider="endpoint11" state="unchanged"/>
+<connection consumer="endpoint6" provider="endpoint9" state="unchanged"/>
+<connection consumer="endpoint8" provider="endpoint10" state="unchanged"/>
+<connection consumer="endpoint14" provider="endpoint3" state="unchanged"/>
+<connection consumer="endpoint13" provider="endpoint2" state="unchanged"/>
+<connection consumer="endpoint15" provider="endpoint4" state="unchanged"/>
+<connection consumer="endpoint12" provider="endpoint1" state="unchanged"/>
 </connections>
 <porttypes>
 <link xlink:href="../jbiServiceUnits/InfoProviderSkel/InfoProvider.wsdl#xpointer(/definitions/portType[@name='InfoProviderPortType'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/CalendarToday.wsdl#xpointer(/definitions/portType[@name='CalendarTodayPortType'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/BreakingNewsService.wsdl#xpointer(/definitions/portType[@name='BreakingNews'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/CachedFeedReader.wsdl#xpointer(/definitions/portType[@name='CachedFeedReaderPortType'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/ICalReaderService.wsdl#xpointer(/definitions/portType[@name='ICalReader'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/ImageScrapper.wsdl#xpointer(/definitions/portType[@name='ImageScrapperPortType'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/InternalNewsService.wsdl#xpointer(/definitions/portType[@name='InternalNews'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/PictureAlbum.wsdl#xpointer(/definitions/portType[@name='PictureAlbumPortType'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/StudentSummonService.wsdl#xpointer(/definitions/portType[@name='StudentSummon'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/TeacherAbsencesService.wsdl#xpointer(/definitions/portType[@name='TeacherAbsences'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/TvShows.wsdl#xpointer(/definitions/portType[@name='TvShowsPortType'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/WeatherProxy.wsdl#xpointer(/definitions/portType[@name='WeatherProxyPortType'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/TvSource.wsdl#xpointer(/definitions/portType[@name='TvSourcePortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/portType[@name='AccountManager'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/ErrorLoggerService.wsdl#xpointer(/definitions/portType[@name='ErrorLogger'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/PreferenceManagerService.wsdl#xpointer(/definitions/portType[@name='PreferenceManager'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/TimeMachineService.wsdl#xpointer(/definitions/portType[@name='TimeMachine'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/BreakingNewsService.wsdl#xpointer(/definitions/portType[@name='BreakingNews'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/CachedFeedReader.wsdl#xpointer(/definitions/portType[@name='CachedFeedReaderPortType'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/ICalReaderService.wsdl#xpointer(/definitions/portType[@name='ICalReader'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/ImageScrapper.wsdl#xpointer(/definitions/portType[@name='ImageScrapperPortType'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/InternalNewsService.wsdl#xpointer(/definitions/portType[@name='InternalNews'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/PictureAlbum.wsdl#xpointer(/definitions/portType[@name='PictureAlbumPortType'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/StudentSummonService.wsdl#xpointer(/definitions/portType[@name='StudentSummon'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/TeacherAbsencesService.wsdl#xpointer(/definitions/portType[@name='TeacherAbsences'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/TvShows.wsdl#xpointer(/definitions/portType[@name='TvShowsPortType'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/WeatherProxy.wsdl#xpointer(/definitions/portType[@name='WeatherProxyPortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/portType[@name='AccountManager'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/TechPartners/ErrorLoggerService.wsdl#xpointer(/definitions/portType[@name='ErrorLogger'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/TechPartners/PreferenceManagerService.wsdl#xpointer(/definitions/portType[@name='PreferenceManager'])" xlink:type="simple"/>
 </porttypes>
 <bindings>
 <link xlink:href="../jbiServiceUnits/InfoProviderSkel/InfoProvider.wsdl#xpointer(/definitions/binding[@name='InfoProviderBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/CalendarToday.wsdl#xpointer(/definitions/binding[@name='CalendarTodayBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/BreakingNewsService.wsdl#xpointer(/definitions/binding[@name='BreakingNewsPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/CachedFeedReader.wsdl#xpointer(/definitions/binding[@name='CachedFeedReaderBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/ICalReaderService.wsdl#xpointer(/definitions/binding[@name='ICalReaderPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/ImageScrapper.wsdl#xpointer(/definitions/binding[@name='ImageScrapperBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/InternalNewsService.wsdl#xpointer(/definitions/binding[@name='InternalNewsPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/PictureAlbum.wsdl#xpointer(/definitions/binding[@name='PictureAlbumBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/StudentSummonService.wsdl#xpointer(/definitions/binding[@name='StudentSummonPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/TeacherAbsencesService.wsdl#xpointer(/definitions/binding[@name='TeacherAbsencesPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/TvShows.wsdl#xpointer(/definitions/binding[@name='TvShowsBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/WeatherProxy.wsdl#xpointer(/definitions/binding[@name='WeatherProxyBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/TvSource.wsdl#xpointer(/definitions/binding[@name='TvSourceBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/binding[@name='AccountManagerPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/ErrorLoggerService.wsdl#xpointer(/definitions/binding[@name='ErrorLoggerPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/PreferenceManagerService.wsdl#xpointer(/definitions/binding[@name='PreferenceManagerPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/TimeMachineService.wsdl#xpointer(/definitions/binding[@name='TimeMachinePortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/BreakingNewsService.wsdl#xpointer(/definitions/binding[@name='BreakingNewsPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/CachedFeedReader.wsdl#xpointer(/definitions/binding[@name='CachedFeedReaderBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/ICalReaderService.wsdl#xpointer(/definitions/binding[@name='ICalReaderPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/ImageScrapper.wsdl#xpointer(/definitions/binding[@name='ImageScrapperBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/InternalNewsService.wsdl#xpointer(/definitions/binding[@name='InternalNewsPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/PictureAlbum.wsdl#xpointer(/definitions/binding[@name='PictureAlbumBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/StudentSummonService.wsdl#xpointer(/definitions/binding[@name='StudentSummonPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/TeacherAbsencesService.wsdl#xpointer(/definitions/binding[@name='TeacherAbsencesPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/TvShows.wsdl#xpointer(/definitions/binding[@name='TvShowsBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/WeatherProxy.wsdl#xpointer(/definitions/binding[@name='WeatherProxyBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/binding[@name='AccountManagerPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/TechPartners/ErrorLoggerService.wsdl#xpointer(/definitions/binding[@name='ErrorLoggerPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/TechPartners/PreferenceManagerService.wsdl#xpointer(/definitions/binding[@name='PreferenceManagerPortBinding'])" xlink:type="simple"/>
 </bindings>
 <services>
 <link xlink:href="../jbiServiceUnits/InfoProviderSkel/InfoProvider.wsdl#xpointer(/definitions/service[@name='InfoProviderService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/CalendarToday.wsdl#xpointer(/definitions/service[@name='CalendarTodayService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/BreakingNewsService.wsdl#xpointer(/definitions/service[@name='BreakingNewsService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/CachedFeedReader.wsdl#xpointer(/definitions/service[@name='CachedFeedReaderService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/ICalReaderService.wsdl#xpointer(/definitions/service[@name='ICalReaderService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/ImageScrapper.wsdl#xpointer(/definitions/service[@name='ImageScrapperService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/InternalNewsService.wsdl#xpointer(/definitions/service[@name='InternalNewsService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/PictureAlbum.wsdl#xpointer(/definitions/service[@name='PictureAlbumService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/StudentSummonService.wsdl#xpointer(/definitions/service[@name='StudentSummonService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/TeacherAbsencesService.wsdl#xpointer(/definitions/service[@name='TeacherAbsencesService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/TvShows.wsdl#xpointer(/definitions/service[@name='TvShowsService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/Interfaces/WeatherProxy.wsdl#xpointer(/definitions/service[@name='WeatherProxyService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/Sources/TvSource.wsdl#xpointer(/definitions/service[@name='TvSourceService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/service[@name='AccountManagerService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/ErrorLoggerService.wsdl#xpointer(/definitions/service[@name='ErrorLoggerService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/PreferenceManagerService.wsdl#xpointer(/definitions/service[@name='PreferenceManagerService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/InfoProviderSkel/TechPartners/TimeMachineService.wsdl#xpointer(/definitions/service[@name='TimeMachineService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/BreakingNewsService.wsdl#xpointer(/definitions/service[@name='BreakingNewsService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/CachedFeedReader.wsdl#xpointer(/definitions/service[@name='CachedFeedReaderService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/ICalReaderService.wsdl#xpointer(/definitions/service[@name='ICalReaderService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/ImageScrapper.wsdl#xpointer(/definitions/service[@name='ImageScrapperService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/InternalNewsService.wsdl#xpointer(/definitions/service[@name='InternalNewsService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/PictureAlbum.wsdl#xpointer(/definitions/service[@name='PictureAlbumService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/StudentSummonService.wsdl#xpointer(/definitions/service[@name='StudentSummonService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/TeacherAbsencesService.wsdl#xpointer(/definitions/service[@name='TeacherAbsencesService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/TvShows.wsdl#xpointer(/definitions/service[@name='TvShowsService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/Sources/Interfaces/WeatherProxy.wsdl#xpointer(/definitions/service[@name='WeatherProxyService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/TechPartners/AccountManagerService.wsdl#xpointer(/definitions/service[@name='AccountManagerService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/TechPartners/ErrorLoggerService.wsdl#xpointer(/definitions/service[@name='ErrorLoggerService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/InfoProviderSkel/src/TechPartners/PreferenceManagerService.wsdl#xpointer(/definitions/service[@name='PreferenceManagerService'])" xlink:type="simple"/>

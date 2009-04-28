@@ -11,11 +11,15 @@
     <import namespace="http://enterprise.netbeans.org/bpel/AccountManagerServiceWrapper" location="TechPartners/AccountManagerServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://accounts.technical.jSeduite.modalis.i3s.unice.fr/" location="TechPartners/AccountManagerService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/schema/CommonSource" location="Sources/CommonSource.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/CalendarToday" location="Sources/CalendarToday.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <partnerLinks>
         <partnerLink name="account" xmlns:tns="http://enterprise.netbeans.org/bpel/AccountManagerServiceWrapper" partnerLinkType="tns:AccountManagerLinkType" partnerRole="accounts"/>
+        <partnerLink name="PartnerLink1" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/CalendarToday" partnerLinkType="tns:CalendarToday" partnerRole="CalendarTodayPortTypeRole"/>
         <partnerLink name="ext" xmlns:tns="http://modalis.polytech.unice.fr/jSeduite/providers/wsdl/InfoProvider" partnerLinkType="tns:InfoProvider" myRole="provider"/>
     </partnerLinks>
     <variables>
+        <variable name="GetOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/CalendarToday" messageType="tns:GetResponse"/>
+        <variable name="GetIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/CalendarToday" messageType="tns:GetRequest"/>
         <variable name="infos_set" type="ns2:InformationSet"/>
         <variable name="token" type="xsd:string"/>
         <variable name="password" type="xsd:string"/>
@@ -59,12 +63,11 @@
             </assign>
         </sequence>
         <flow name="sources">
-            <assign name="a3">
-                <copy>
-                    <from>''</from>
-                    <to variable="infos_set"/>
-                </copy>
-            </assign>
+            <sequence name="source">
+                <assign name="s1"/>
+                <invoke name="s2" partnerLink="PartnerLink1" operation="Get" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/CalendarToday" portType="tns:CalendarTodayPortType" inputVariable="GetIn" outputVariable="GetOut"/>
+                <assign name="s3"/>
+            </sequence>
         </flow>
         <sequence name="a4">
             <assign name="a4_pre">

@@ -1,7 +1,7 @@
 <soapenv:Envelope xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:feed="http://modalis.i3s.unice.fr/jSeduite/schema/FeedReader">
   <soapenv:Body>
     <feed:FeedReaderRequest>
-      <feed:name>Meteo_Antibes</feed:name>
+      <feed:name>TV5_une</feed:name>
     </feed:FeedReaderRequest>
   </soapenv:Body>
 </soapenv:Envelope>
