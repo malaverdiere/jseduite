@@ -36,39 +36,7 @@ import javax.jws.WebService;
 @WebService()
 public class BreakTimeManager {
 
-      /** Extract all valid break from the database
-     * @return a set of valid breaks
-     * @throws BreakTimeException
-     */
-    @WebMethod(operationName = "getAllBreakTime")
-    public BreakTime[] getAllBreakTime() throws BreakTimeException {
-        DataAccessLayer dal = new DataAccessLayer();
-        String sql = "SELECT`promos`.`code` AS `p_code`, `promos`.`name` AS `promo`,"+
-		"`break_time`.`start` AS  `start_time`, `break_time`.`end` AS `end_time`," +
-                "`break_time`.`kind` AS `break_type`,`day`" +
-                "FROM`break_time`, `promos`,`break_time_days_lnk`" +
-                " WHERE" +
-                " `break_time_days_lnk`.`break_id`=`break_time`.`break_id` AND" +
-                "`promos`.`promos_id`=`break_time`.`promo`;";
-        try {
-            ArrayList<BreakTime> result = new ArrayList<BreakTime>();
-            DalResultSet rset = dal.extractDataSet(sql);
-            for(int i = 0; i < rset.size(); i++){
-                result.add(new BreakTime(rset));
-                rset.next();
-            }
-             return result.toArray(new BreakTime[result.size()]);
-
-        } catch(Exception e) {
-
-          throw new BreakTimeException(e.getMessage());
-
-        }
-
-
-    }
-
-      /** Extract all breaks for today
+     /** Extract all breaks for today
       * @return a set of valid breaks for today
      * @throws BreakTimeException
      */
@@ -101,14 +69,8 @@ public class BreakTimeManager {
     public BreakTime[] getBreakTime(@WebParam(name = "day")
    String day) throws BreakTimeException {
              DataAccessLayer dal = new DataAccessLayer();
-      String sql = "SELECT`promos`.`code` AS `p_code`, `promos`.`name` AS `promo`," +
-              " `break_time`.`start` AS  `start_time`, `break_time`.`end` AS `end_time`," +
-              "`break_time`.`kind` AS `break_type`,`day`" +
-                "FROM`break_time`, `promos`,`break_time_days_lnk`" +
-                " WHERE" +
-                " `break_time_days_lnk`.`break_id`=`break_time`.`break_id` AND" +
-                "`promos`.`promos_id`=`break_time`.`promo` AND ";
-         sql+= "day='"+day+"';";
+       String sql = "SELECT * FROM `break_time` WHERE ";
+        sql += " day = '"+day+"';";
         try {
             ArrayList<BreakTime> result = new ArrayList<BreakTime>();
             DalResultSet rset = dal.extractDataSet(sql);
