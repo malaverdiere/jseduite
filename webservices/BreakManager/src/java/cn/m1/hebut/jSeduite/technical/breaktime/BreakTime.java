@@ -43,22 +43,22 @@ public class BreakTime {
         this.kind = rset.getValue("kind");
        }
 
-    public String getDay() {
-        return day;
-    }
-
-    public void setDay(String day) {
-        this.day = day;
-    }
-
-       public BreakTime(String pcode, String promo, String start, String end, String kind){
-           this.day=pcode;
+ 
+       public BreakTime(String day, String promo, String start, String end, String kind){
+           this.day=day;
            this.promo=promo;
            this.start=start;
            this.end=end;
            this.kind=kind;
        }
 
+   public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
 
     public String getEnd() {
         return end;
