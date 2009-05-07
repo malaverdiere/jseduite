@@ -40,6 +40,8 @@ public class BreakTimeManager {
       * @return a set of valid breaks for today
      * @throws BreakTimeException
      */
+   
+
     @WebMethod(operationName = "getBreakTimeForToday")
     public BreakTime[] getBreakTimeForToday() throws BreakTimeException {
         DataAccessLayer dal = new DataAccessLayer();
@@ -69,9 +71,37 @@ public class BreakTimeManager {
     public BreakTime[] getBreakTime(@WebParam(name = "day")
    String day) throws BreakTimeException {
              DataAccessLayer dal = new DataAccessLayer();
-       String sql = "SELECT * FROM `break_time` WHERE ";
-        sql += " day = '"+day+"';";
+       String sql = "SELECT `break_time`.`break_id` AS `break_id`," +
+               "`promos`.`name` AS `promo`,`break_time`.`start` AS  `start`," +
+               " `break_time`.`end` AS `end`,`break_time`.`kind` AS `kind`," +
+               "`break_time`.`day` FROM `break_time`,`promos` WHERE ";
+        sql += " day = '"+day+"'";
+        sql+="AND `promos`.`promos_id`=`break_time`.`promo`;";
         try {
+            ArrayList<BreakTime> result = new ArrayList<BreakTime>();
+            DalResultSet rset = dal.extractDataSet(sql);
+            for(int i = 0; i < rset.size(); i++){
+                result.add(new BreakTime(rset));
+                rset.next();
+            }
+             return result.toArray(new BreakTime[result.size()]);
+
+        } catch(Exception e) {
+
+      throw new BreakTimeException(e.getMessage());
+
+        }
+    }
+
+    /** Extract all breaks
+     * @return a set of valid breaks
+     * @throws BreakTimeException
+     */
+    @WebMethod(operationName = "getAllBreak")
+    public BreakTime[] getAllBreak() throws BreakTimeException {
+          DataAccessLayer dal = new DataAccessLayer();
+       String sql = "SELECT * FROM `break_time`";
+     try {
             ArrayList<BreakTime> result = new ArrayList<BreakTime>();
             DalResultSet rset = dal.extractDataSet(sql);
             for(int i = 0; i < rset.size(); i++){

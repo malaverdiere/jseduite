@@ -22,21 +22,14 @@
  **/
 
 package cn.m1.hebut.jSeduite.technical.breaktime.admin;
+
 import cn.m1.hebut.jSeduite.technical.breaktime.BreakTime;
 import fr.unice.i3s.modalis.jSeduite.libraries.mysql.*;
-import java.util.ArrayList;
-
-
-
-;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
-/**
- *
- * @author Administrator
- */
+
 @WebService()
 public class BreakManagerAdmin{
 
@@ -45,8 +38,8 @@ public class BreakManagerAdmin{
      * @param promo_id,start_time,end_time,break type,week day
      * @throws BreakTimeAdminException
      */
-    @WebMethod(operationName = "breakAdd")
-    public void breakAdd(@WebParam(name = "promo")
+    @WebMethod(operationName = "create")
+    public void create(@WebParam(name = "promo")
     int promo, @WebParam(name = "start")
     String start, @WebParam(name = "end")
     String end, @WebParam(name = "kind")
@@ -76,20 +69,16 @@ public class BreakManagerAdmin{
      * @throws BreakTimeAdminException
      *
      */
-    @WebMethod(operationName = "breakFind")
-    public BreakTime[] breakFind(@WebParam(name = "id")
+    @WebMethod(operationName = "read")
+    public BreakTime read(@WebParam(name = "id")
     int id) throws BreakTimeAdminException {
       DataAccessLayer dal=new DataAccessLayer();
         String sql="select * from break_time ";
         sql+="where break_id='"+id+"';";
    try {
-            ArrayList<BreakTime> result = new ArrayList<BreakTime>();
+          
             DalResultSet rset = dal.extractDataSet(sql);
-            for(int i = 0; i < rset.size(); i++){
-                result.add(new BreakTime(rset));
-                rset.next();
-            }
-             return result.toArray(new BreakTime[result.size()]);
+              return new BreakTime(rset);
 
         } catch(Exception e) {
 
@@ -105,8 +94,8 @@ public class BreakManagerAdmin{
      *  @param promo_id,start_time,end_time,break type,week day,id as break_id
      * @throws BreakTimeAdminException
      */
-    @WebMethod(operationName = "breakUpdate")
-    public void breakUpdate(@WebParam(name = "promo")
+    @WebMethod(operationName = "update")
+    public void update(@WebParam(name = "promo")
     int promo, @WebParam(name = "start")
     String start, @WebParam(name = "end")
     String end, @WebParam(name = "kind")
@@ -136,8 +125,8 @@ public class BreakManagerAdmin{
      * @param id expected break_id
      * @throws BreakTimeAdminException
      */
-    @WebMethod(operationName = "breakDel")
-    public void breakDel(@WebParam(name = "id")
+    @WebMethod(operationName = "delete")
+    public void delete(@WebParam(name = "id")
     int id) throws BreakTimeAdminException {
          DataAccessLayer dal=new DataAccessLayer();
         String sql="delete from break_time ";

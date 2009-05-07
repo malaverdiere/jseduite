@@ -26,30 +26,33 @@ import fr.unice.i3s.modalis.jSeduite.libraries.mysql.*;
 
 
 public class BreakTime {
-     private String day;
+      private String day;
       private String promo;
       private String start;
       private String end;
       private String kind;
+      private int id;
 
       public BreakTime(){}
 
        public BreakTime(DalResultSet rset) throws Exception {
 
         this.day= rset.getValue("day");
-        this.promo = rset.getValue("promo");
+        this.promo =rset.getValue("promo");
         this.end = rset.getValue("end");
         this.start  = rset.getValue("start");
         this.kind = rset.getValue("kind");
+        this.id = Integer.parseInt(rset.getValue("break_id"));
        }
 
  
-       public BreakTime(String day, String promo, String start, String end, String kind){
+       public BreakTime(String day, String promo, String start, String end, String kind,int id){
            this.day=day;
            this.promo=promo;
            this.start=start;
            this.end=end;
            this.kind=kind;
+           this.id=id;
        }
 
    public String getDay() {
@@ -84,11 +87,20 @@ public class BreakTime {
         this.promo = promo;
     }
 
+
     public String getStart() {
         return start;
     }
 
     public void setStart(String start) {
         this.start = start;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
