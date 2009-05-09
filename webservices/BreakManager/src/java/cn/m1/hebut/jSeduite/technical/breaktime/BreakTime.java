@@ -33,6 +33,7 @@ public class BreakTime {
       private String kind;
       private int id;
 
+
       public BreakTime(){}
 
        public BreakTime(DalResultSet rset) throws Exception {
@@ -42,17 +43,26 @@ public class BreakTime {
         this.end = rset.getValue("end");
         this.start  = rset.getValue("start");
         this.kind = rset.getValue("kind");
+
+         this.id = Integer.parseInt(rset.getValue("break_id"));
+
         this.id = Integer.parseInt(rset.getValue("break_id"));
+
        }
 
  
+
+       
+
        public BreakTime(String day, String promo, String start, String end, String kind,int id){
+
            this.day=day;
            this.promo=promo;
            this.start=start;
            this.end=end;
            this.kind=kind;
-           this.id=id;
+             this.id=id;
+
        }
 
    public String getDay() {
@@ -96,6 +106,7 @@ public class BreakTime {
         this.start = start;
     }
 
+
     public int getId() {
         return id;
     }
@@ -103,4 +114,5 @@ public class BreakTime {
     public void setId(int id) {
         this.id = id;
     }
+    
 }

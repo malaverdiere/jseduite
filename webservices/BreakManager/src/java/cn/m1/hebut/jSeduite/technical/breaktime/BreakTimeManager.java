@@ -24,6 +24,7 @@ package cn.m1.hebut.jSeduite.technical.breaktime;
 
 import fr.unice.i3s.modalis.jSeduite.libraries.mysql.*;
 import java.util.ArrayList;
+import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
@@ -93,14 +94,19 @@ public class BreakTimeManager {
         }
     }
 
-    /** Extract all breaks
+
+     /** Extract all breaks
      * @return a set of valid breaks
      * @throws BreakTimeException
      */
     @WebMethod(operationName = "getAllBreak")
     public BreakTime[] getAllBreak() throws BreakTimeException {
-          DataAccessLayer dal = new DataAccessLayer();
-       String sql = "SELECT * FROM `break_time`";
+         DataAccessLayer dal = new DataAccessLayer();
+       String sql = "SELECT `break_time`.`break_id` AS `break_id`," +
+               "`promos`.`name` AS `promo`,`break_time`.`start` AS  `start`," +
+               " `break_time`.`end` AS `end`,`break_time`.`kind` AS `kind`," +
+               "`break_time`.`day` FROM `break_time`,`promos` " +
+               "WHERE `promos`.`promos_id`=`break_time`.`promo`;";
      try {
             ArrayList<BreakTime> result = new ArrayList<BreakTime>();
             DalResultSet rset = dal.extractDataSet(sql);
@@ -115,7 +121,31 @@ public class BreakTimeManager {
       throw new BreakTimeException(e.getMessage());
 
         }
+      
     }
+
+    /**
+     * Web 服务操作
+     */
+    @WebMethod(operationName = "GetAllPromos")
+    public List GetAllPromos() throws DALException {
+        DataAccessLayer dal = new DataAccessLayer();
+        String sql="select `name` from `promos`;";
+         DalResultSet rset=dal.extractDataSet(sql);
+         ArrayList promolist=new ArrayList();
+         for(int i = 0; i < rset.size(); i++){
+             promolist.add(rset.getValue("name"));
+              rset.next();
+         }
+          return promolist;
+       
+    }
+   
+   
+
+
+    
+
 
 }
 

@@ -33,6 +33,7 @@ import javax.jws.WebService;
 @WebService()
 public class BreakManagerAdmin{
 
+
     /**
      *Create a break
      * @param promo_id,start_time,end_time,break type,week day
@@ -40,13 +41,16 @@ public class BreakManagerAdmin{
      */
     @WebMethod(operationName = "create")
     public void create(@WebParam(name = "promo")
-    int promo, @WebParam(name = "start")
+    String promo, @WebParam(name = "start")
     String start, @WebParam(name = "end")
     String end, @WebParam(name = "kind")
     String kind, @WebParam(name = "day")
-    String day) throws BreakTimeAdminException{
+    String day) throws BreakTimeAdminException, DALException{
      DataAccessLayer dal = new DataAccessLayer();
-    String sql ="INSERT INTO `break_time` VALUES (NULL,"+promo+",'"+start+"','"+end+"'," +
+     String sql2="select promos_id from promos where name='"+promo+"';";
+        DalResultSet rset = dal.extractDataSet(sql2);
+         int promoid=Integer.parseInt(rset.getValue("promos_id"));
+    String sql ="INSERT INTO `break_time` VALUES (NULL,"+promoid+",'"+start+"','"+end+"'," +
             "'"+kind+"','"+day+"');";
 
         try{
@@ -76,7 +80,6 @@ public class BreakManagerAdmin{
         String sql="select * from break_time ";
         sql+="where break_id='"+id+"';";
    try {
-          
             DalResultSet rset = dal.extractDataSet(sql);
               return new BreakTime(rset);
 
@@ -86,7 +89,7 @@ public class BreakManagerAdmin{
 
         }
 
-       
+
     }
 
     /**
@@ -96,14 +99,17 @@ public class BreakManagerAdmin{
      */
     @WebMethod(operationName = "update")
     public void update(@WebParam(name = "promo")
-    int promo, @WebParam(name = "start")
+    String promo, @WebParam(name = "start")
     String start, @WebParam(name = "end")
     String end, @WebParam(name = "kind")
     String kind, @WebParam(name = "day")
     String day,@WebParam(name = "id")
-    int id) throws BreakTimeAdminException {
+    int id) throws BreakTimeAdminException, DALException {
         DataAccessLayer dal=new DataAccessLayer();
-         String sql="update break_time set promo='"+promo+"',";
+        String sql2="select promos_id from promos where name='"+promo+"';";
+        DalResultSet rset = dal.extractDataSet(sql2);
+         int promoid=Integer.parseInt(rset.getValue("promos_id"));
+         String sql="update break_time set promo='"+promoid+"',";
                 sql+="start='"+start+"',";
                 sql+="end='"+end+"',";
                 sql+="kind='"+kind+"',";
@@ -142,5 +148,6 @@ public class BreakManagerAdmin{
 
         }
     }
+
 
 }
