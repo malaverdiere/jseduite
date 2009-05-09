@@ -125,7 +125,7 @@ public class BreakTimeManager {
     }
 
     /**
-     * Web 服务操作
+     * get all the promos from database
      */
     @WebMethod(operationName = "GetAllPromos")
     public List GetAllPromos() throws DALException {
