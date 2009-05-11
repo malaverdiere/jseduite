@@ -234,6 +234,10 @@ webservice(weatherBugAPI).
 provides(weatherBugAPI, getLiveWeatherByCityCode).
 provides(weatherBugAPI, getForecastByCityCode).
 
+webservice(helloWorld).
+provides(helloWorld,sayHello).
+provides(helloWorld, sayPersonalizedHello).
+
 %%%%%%%%%%%%%%%%%%%%%%
 %%% Orchestrations %%%
 %%%%%%%%%%%%%%%%%%%%%%
