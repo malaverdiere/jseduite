@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/WeatherProxy"
+    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/WeatherProxy"
+    elementFormDefault="qualified">
+<xsd:complexType name="WeatherInformation">
+        <xsd:sequence>
+            <xsd:element name="live" type="tns:LiveWeather"/>
+            <xsd:element name="forecast_star" minOccurs="1" maxOccurs="1" type="tns:SetOfForecastWeather"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="LiveWeather">
+        <xsd:sequence>
+            <xsd:element name="station" type="xsd:string"/>
+            <xsd:element name="pressure" type="xsd:float"/>
+            <xsd:element name="rain" type="xsd:float"/>
+            <xsd:element name="windSpeed" type="xsd:int"/>
+            <xsd:element name="windDirection" type="xsd:string"/>
+            <xsd:element name="icon" type="xsd:string"/>
+            <xsd:element name="minTemp" type="xsd:float"/>
+            <xsd:element name="maxTemp" type="xsd:float"/>
+            <xsd:element name="temp" type="xsd:float"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ForecastWeather">
+        <xsd:sequence>
+            <xsd:element name="maxTemp" type="xsd:float"/>
+            <xsd:element name="minTemp" type="xsd:float"/>
+            <xsd:element name="icon" type="xsd:string"/>
+        </xsd:sequence>
+        <xsd:attribute name="day" type="xsd:string"/>
+    </xsd:complexType>
+    <xsd:complexType name="WeatherProxyIn">
+        <xsd:sequence>
+            <xsd:element name="CityCode" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="WeatherProxyOut">
+        <xsd:sequence>
+            <xsd:element name="return" type="tns:WeatherInformation"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="SetOfForecastWeather">
+        <xsd:sequence>
+            <xsd:element name="item" maxOccurs="unbounded" minOccurs="0" type="tns:ForecastWeather"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="WeatherProxyRequest" type="tns:WeatherProxyIn"/>
+    <xsd:element name="WeatherProxyResponse" type="tns:WeatherProxyOut"/>
+</xsd:schema>
