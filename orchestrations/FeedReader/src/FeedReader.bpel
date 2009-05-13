@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process
+    name="FeedReader"
+    targetNamespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/FeedReader"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
+    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/FeedReader" xmlns:ns0="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/FeedReader">
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/FeedReader" location="FeedReader.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/FeedRegistryServiceWrapper" location="Partners/FeedRegistryServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://registry.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/FeedRegistryService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/RssReaderServiceWrapper" location="Partners/RssReaderServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/RssReaderService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/RssReaderService.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
+    <partnerLinks>
+        <partnerLink name="feedRegistry" xmlns:tns="http://enterprise.netbeans.org/bpel/FeedRegistryServiceWrapper" partnerLinkType="tns:FeedRegistryLinkType" partnerRole="FeedRegistryRole"/>
+        <partnerLink name="rssReader" xmlns:tns="http://enterprise.netbeans.org/bpel/RssReaderServiceWrapper" partnerLinkType="tns:RssReaderLinkType" partnerRole="RssReaderRole"/>
+        <partnerLink name="external" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/FeedReader" partnerLinkType="tns:FeedReader" myRole="FeedReaderPortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="ReadOut" messageType="ns0:readResponse"/>
+        <variable name="ReadIn" messageType="ns0:read"/>
+        <variable name="GetURLOut" xmlns:tns="http://registry.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:getURLResponse"/>
+        <variable name="GetURLIn" xmlns:tns="http://registry.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:getURL"/>
+        <variable name="ReadAFeedOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/FeedReader" messageType="tns:ReadAFeedResponse"/>
+        <variable name="ReadAFeedIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/FeedReader" messageType="tns:ReadAFeedRequest"/>
+        <variable name="result" type="ns0:feedContent"/>
+        <variable name="url" type="xsd:anyURI"/>
+        <variable name="feedName" type="xsd:string"/>
+    </variables>
+    <sequence>
+        <sequence name="a1">
+            <receive name="a1_tech" createInstance="yes" partnerLink="external" operation="ReadAFeed" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/FeedReader" portType="tns:FeedReaderPortType" variable="ReadAFeedIn"/>
+            <assign name="a1_post">
+                <copy>
+                    <from>$ReadAFeedIn.in/ns1:feedName</from>
+                    <to variable="feedName"/>
+                </copy>
+            </assign>
+        </sequence>
+        <sequence name="a2">
+            <assign name="a2_pre">
+                <copy>
+                    <from variable="feedName"/>
+                    <to>$GetURLIn.parameters/name</to>
+                </copy>
+            </assign>
+            <invoke name="a2_tech" partnerLink="feedRegistry" operation="getURL" xmlns:tns="http://registry.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:FeedRegistry" inputVariable="GetURLIn" outputVariable="GetURLOut"/>
+            <assign name="a2_post">
+                <copy>
+                    <from>$GetURLOut.parameters/return</from>
+                    <to variable="url"/>
+                </copy>
+            </assign>
+        </sequence>
+        <sequence name="a3">
+            <assign name="a3_pre">
+                <copy>
+                    <from variable="url"/>
+                    <to>$ReadIn.parameters/url</to>
+                </copy>
+            </assign>
+            <invoke name="a3_tech" partnerLink="rssReader" operation="read" portType="ns0:RssReader" inputVariable="ReadIn" outputVariable="ReadOut"/>
+            <assign name="a3_post">
+                <copy>
+                    <from>$ReadOut.parameters/return</from>
+                    <to variable="result"/>
+                </copy>
+            </assign>
+        </sequence>
+        <sequence name="a4">
+            <assign name="a4_pre">
+                <copy>
+                    <from variable="result"/>
+                    <to>$ReadAFeedOut.out/ns1:feedData</to>
+                </copy>
+            </assign>
+            <reply name="a4_tech" partnerLink="external" operation="ReadAFeed" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/FeedReader" portType="tns:FeedReaderPortType" variable="ReadAFeedOut"/>
+        </sequence>
+    </sequence>
+</process>
