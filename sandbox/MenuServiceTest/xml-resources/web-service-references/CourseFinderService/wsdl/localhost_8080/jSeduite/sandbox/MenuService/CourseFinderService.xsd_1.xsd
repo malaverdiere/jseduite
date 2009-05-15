@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-417-SNAPSHOT. --><xs:schema xmlns:tns="http://restaurant.sanbox/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://restaurant.sanbox/">
+
+<xs:element name="findByKind" type="tns:findByKind"></xs:element>
+
+<xs:element name="findByKindResponse" type="tns:findByKindResponse"></xs:element>
+
+<xs:element name="findByName" type="tns:findByName"></xs:element>
+
+<xs:element name="findByNameResponse" type="tns:findByNameResponse"></xs:element>
+
+<xs:complexType name="findByKind">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findByKindResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:course" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="course">
+<xs:sequence>
+<xs:element name="id" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="kind" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findByName">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findByNameResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:course" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
