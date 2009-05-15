@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS `course`;
+CREATE TABLE `course` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `kind` VARCHAR(50) NOT NULL,
+   `name` VARCHAR(255) NOT NULL,
+  PRIMARY KEY(`id`));
+
+DROP TABLE IF EXISTS `menu`;
+CREATE TABLE `menu`(
+  `date` DATE NOT NULL,
+  `course` INTEGER NOT NULL REFERENCES `course`,
+  PRIMARY KEY(`date`,`course`));
