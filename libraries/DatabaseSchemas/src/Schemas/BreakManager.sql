@@ -21,15 +21,20 @@
  * @contributor 2009 Mosser Sebastien [mosser@polytech.unice.fr]
 **/
 
-DROP TABLE IF EXISTS `alarms`;
-CREATE TABLE `alarms` (
-    `alarm_id` INT(11)      NOT NULL AUTO_INCREMENT,
-    `content`  VARCHAR(255) NOT NULL,
-    PRIMARY KEY (`alarm_id`));
+DROP TABLE IF EXISTS `break_time_promos_lnk`;
 
-DROP TABLE IF EXISTS `break_alarm_lnk`;
-CREATE TABLE `break_alarm_lnk` (
+CREATE TABLE `break_time_promos_lnk` (
     `break`         INT(11) NOT NULL REFERENCES `break_time`,
-    `binding_alarm` INT(11) NOT NULL REFERENCES `alarms`,
+    `binding_alarm` INT(11) NOT NULL REFERENCES `promos`,
     PRIMARY KEY (`break`,`binding_alarm`));
+
+DROP TABLE IF EXISTS `break_time`;
+
+CREATE TABLE `break_time` (
+    `break_id`  INT(11)     NOT NULL AUTO_INCREMENT ,
+    `start`     VARCHAR(20) NOT NULL ,
+    `end`       VARCHAR(20) NOT NULL ,
+    `kind`      VARCHAR(10) NOT NULL ,
+    `day`       VARCHAR(10) NOT NULL,
+    PRIMARY KEY (`break_id`));
 
