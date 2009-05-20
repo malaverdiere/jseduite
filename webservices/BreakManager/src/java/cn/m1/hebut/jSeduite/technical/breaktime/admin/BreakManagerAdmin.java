@@ -36,11 +36,7 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 
 
-@WebService()
-public class BreakManagerAdmin{
-
-
-    /**
+ /**
      *Create a break
      * @param promo_id,start_time,end_time,break type,week day
      * @throws BreakTimeAdminException
@@ -128,7 +124,11 @@ public class BreakManagerAdmin{
     @WebMethod(operationName = "update")
     public void update(@WebParam(name = "breakId")
     int breakId, @WebParam(name = "promo")
-    String promo) throws DALException {
+    String promo,@WebParam(name = "start")
+    String start,@WebParam(name = "end")
+    String end, @WebParam(name = "kind")
+    String kind,@WebParam(name = "day")
+    String day) throws DALException {
        DataAccessLayer dal=new DataAccessLayer();
       if(!(promo==null))//if the promo is null not insert into lnk table
       {
@@ -138,6 +138,8 @@ public class BreakManagerAdmin{
            sql="insert into break_time_promos_lnk values('"+promoid+"','"+
                         breakId+"');";
            dal.executeVoid(sql);
+           sql="update break_time set start='"+start+"',end='"+end+"',kind='" +
+                  kind+"',day='"+day+"' where break_id='"+breakId+"'";
       }
      }
 
