@@ -1,4 +1,7 @@
+INSERT INTO `alarms` VALUES(null,"it is time to rest","start");
+INSERT INTO `alarms` VALUES(null,"Go back to work, you lazy students!","end");
+INSERT INTO `alarms` VALUES(null,"it is time to go to lunch","start");		
 
-INSERT INTO `alarms` VALUES (NULL,1,"you have to change the classrome 222 in the next class ");
-INSERT INTO `alarms` VALUES (NULL,2,"Because your teacher is ill, you will be teached by professor qin"); 
-INSERT INTO `alarms` VALUES (NULL,3,"Because the H1N1 flu, you are free"); 
+INSERT INTO `break_alarm_lnk` VALUES (1,1);
+INSERT INTO `break_alarm_lnk` VALUES (2,1);
+INSERT INTO `break_alarm_lnk` VALUES (3,3);
