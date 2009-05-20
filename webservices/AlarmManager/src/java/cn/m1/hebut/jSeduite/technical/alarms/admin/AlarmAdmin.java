@@ -76,13 +76,8 @@ public class AlarmAdmin {
     public void deleteAlarm(@WebParam(name = "alarmId")
     int alarmId) throws DALException {
           DataAccessLayer dal=new DataAccessLayer();
-            String sql="select * from break_alarm_lnk where binding_alarm='"+
-                    alarmId+"';";
-            DalResultSet rset=dal.extractDataSet(sql);
-            if(rset.size()==1||rset.size()==0){
-            sql="delete from alarms where alarm_id='"+alarmId+"';";
+            String sql="delete from alarms where alarm_id='"+alarmId+"';";
             dal.executeVoid(sql);
-            }
             sql="delete from break_alarm_lnk where binding_alarm='"+alarmId+"';";
             dal.executeVoid(sql);
     }
