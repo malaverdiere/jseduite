@@ -51,12 +51,13 @@ public class AlarmAdmin {
    @WebMethod(operationName = "createAlarm")
     public void createAlarm(@WebParam(name = "breakId")
     int breakId, @WebParam(name = "content")
-    String content) throws AlarmsAdminException, DALException{
+    String content,@WebParam(name = "position")
+    String position) throws AlarmsAdminException, DALException{
          DataAccessLayer dal = new DataAccessLayer();
          String sql="select * from alarms where content='"+content+"';";
          DalResultSet rset=dal.extractDataSet(sql);
          if(rset.size()==0){
-         sql="insert into `alarms` values(NULL,'"+content+"');";
+         sql="insert into `alarms` values(NULL,'"+content+"','"+position+"');";
          dal.executeVoid(sql);}
          sql="select max(alarm_id) as max from alarms;";
          rset=dal.extractDataSet(sql);
@@ -100,10 +101,12 @@ public class AlarmAdmin {
        @WebMethod(operationName = "updateAlarms")
        public void updateAlarms(@WebParam(name = "alarmId")
        int alarmId, @WebParam(name = "content")
-       String content,@WebParam(name = "breakId")
+       String content,@WebParam(name = "position")
+       String position,@WebParam(name = "breakId")
        int breakId) throws DALException {
            DataAccessLayer dal=new DataAccessLayer();
-         String sql="update alarms set content='"+content+ "'where `alarm_id`='"+alarmId+"';";
+         String sql="update alarms set content='"+content+ "',position='"+
+                 position+"'where `alarm_id`='"+alarmId+"';";
          dal.executeVoid(sql);
          if(breakId!=0){
              sql="insert into break_alarm_lnk values('"+breakId+"','"+alarmId+"');";
@@ -138,24 +141,6 @@ public class AlarmAdmin {
            throw new AlarmsAdminException(e.getMessage());
         }
     }
-    /**
-     *get all the alarms which are not linked with break
-     * @return a list of alarms
-     */
-    @WebMethod(operationName = "getNoLnkAlarm")
-    public List<Alarm> getNoLnkAlarm() throws DALException {
-        DataAccessLayer dal=new DataAccessLayer();
-        String sql="select * from alarms where alarm_id <> " +
-                "all(select binding_alarm from break_alarm_lnk);";
-        DalResultSet rset=dal.extractDataSet(sql);
-        List<Alarm> list=new ArrayList<Alarm>();
-        if(rset.size()==0) return null;
-        for(int i=0;i<rset.size();i++){
-            list.add(new Alarm(rset));
-            rset.next();
-        }
-        return list;
-    }
 
     /**
      * get all the alarms
@@ -174,5 +159,4 @@ public class AlarmAdmin {
         return list;
     }
     
-
 }
