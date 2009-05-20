@@ -204,11 +204,13 @@ public class BreakAdminBean {
            port.deleteAllLnkByBreak(editBreak.getId());
            if(promo.size()==0)
            {
-               port.update(editBreak.getId(), null);
+               port.update(editBreak.getId(),null, editBreak.getStart(),
+                       editBreak.getEnd(), editBreak.getKind(), editBreak.getDay());
            }
            for(int i=0;i<promo.size();i++)
            {
-            port.update(editBreak.getId(), promo.get(i));
+            port.update(editBreak.getId(), promo.get(i),editBreak.getStart(),
+                       editBreak.getEnd(), editBreak.getKind(), editBreak.getDay());
            }
         } catch (Exception ex) {
             ex.getMessage();

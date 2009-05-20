@@ -30,6 +30,7 @@ import cn.m1.hebut.jseduite.technical.breaktime.BreakTimeManagerService;
 import cn.m1.hebut.jseduite.technical.breaktime.Exception_Exception;
 import cn.m1.hebut.jseduite.technical.breaktime.BreakTimeManager;
 import cn.m1.hebut.jseduite.technical.breaktime.BreakTime;
+import com.sun.istack.NotNull;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
@@ -52,7 +53,7 @@ public class AlarmAdminBean {
    DataModel allAlarmModel;
    Break breakTime=new Break();
    int breakid=0;
-   String content;
+   String content,position;
    Alarm delAlarm,editAlarm,currentAlarm;
     public DataModel getAllBreakModel() {
         try {
@@ -99,13 +100,20 @@ public class AlarmAdminBean {
     public void setBreakid(int breakid) {
         this.breakid = breakid;
     }
-
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     public Alarm getDelAlarm() {
@@ -140,11 +148,11 @@ public class AlarmAdminBean {
                 Break b=bint.next();
                  if(b.isBreakChecked()){
                      id=b.getId();
-                     port.createAlarm(id, content);
+                     port.createAlarm(id, content,position);
               }
             }
             if(id==0){
-                port.createAlarm(id, content);
+                port.createAlarm(id, content,position);
             }
 
           } catch (Exception ex) {
@@ -193,11 +201,11 @@ public class AlarmAdminBean {
                 Break b=bint.next();
                  if(b.isBreakChecked()){
                       id=b.getId();
-                     port.updateAlarms(alarmId,editAlarm.getAlarmContent(), id);
+                     port.updateAlarms(alarmId,editAlarm.getAlarmContent(),editAlarm.getPosition() ,id);
                  }
                }
               if(id==0){
-                port.updateAlarms(alarmId, editAlarm.getAlarmContent(), 0);
+                port.updateAlarms(alarmId, editAlarm.getAlarmContent(),editAlarm.getPosition(), 0);
               }
         } catch (Exception ex) {
            ex.getMessage();

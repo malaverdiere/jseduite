@@ -36,7 +36,6 @@ import java.util.ArrayList;
  */
 public class Break {
       private String day;
-      private String promo;
       private String start;
       private String end;
       private String kind;
@@ -46,9 +45,8 @@ public class Break {
     public Break() {
     }
 
-    public Break(String day, String promo, String start, String end, String kind, int id, boolean breakChecked) {
+    public Break(String day,String start, String end, String kind, int id, boolean breakChecked) {
         this.day = day;
-        this.promo = promo;
         this.start = start;
         this.end = end;
         this.kind = kind;
@@ -96,13 +94,6 @@ public class Break {
         this.kind = kind;
     }
 
-    public String getPromo() {
-        return promo;
-    }
-
-    public void setPromo(String promo) {
-        this.promo = promo;
-    }
 
     public String getStart() {
         return start;
@@ -128,7 +119,7 @@ public class Break {
         if(getBreakList().size()==0) return null;
         List<Break> list=new ArrayList<Break>();
         for(int i=0;i<getBreakList().size();i++){
-            Break b=new Break(getBreakList().get(i).getDay(),getBreakList().get(i).getPromo(),
+            Break b=new Break(getBreakList().get(i).getDay(),
                     getBreakList().get(i).getStart(),getBreakList().get(i).getEnd(),
                     getBreakList().get(i).getKind(), getBreakList().get(i).getId(),
                     breakChecked);
@@ -144,7 +135,7 @@ public class Break {
          BreakTimeManager port = service.getBreakTimeManagerPort();
          List<BreakTime> result = port.getBreakByAlarm(bid);
           for(int i=0;i<getBreakList().size();i++){
-             Break b=new Break(getBreakList().get(i).getDay(),getBreakList().get(i).getPromo(),
+             Break b=new Break(getBreakList().get(i).getDay(),
              getBreakList().get(i).getStart(),getBreakList().get(i).getEnd(),
              getBreakList().get(i).getKind(), getBreakList().get(i).getId(),
              false);
