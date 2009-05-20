@@ -23,9 +23,11 @@
 
 DROP TABLE IF EXISTS `alarms`;
 CREATE TABLE `alarms` (
-    `alarm_id` INT(11)      NOT NULL AUTO_INCREMENT,
-    `content`  VARCHAR(255) NOT NULL,
-    PRIMARY KEY (`alarm_id`));
+`alarm_id` INT(11) NOT NULL AUTO_INCREMENT,
+`content`  VARCHAR(255) NOT NULL,
+`position` VARCHAR(50) NOT NULL;
+PRIMARY KEY (`alarm_id`)
+);
 
 DROP TABLE IF EXISTS `break_alarm_lnk`;
 CREATE TABLE `break_alarm_lnk` (
