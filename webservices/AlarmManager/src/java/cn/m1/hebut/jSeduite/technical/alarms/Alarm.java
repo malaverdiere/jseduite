@@ -33,14 +33,17 @@ import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DalResultSet;
 public class Alarm {
     private int alarmId;
     private String alarmContent;
+    private String position;
     public Alarm(){}
     public Alarm(DalResultSet rset){
         this.alarmId= Integer.parseInt(rset.getValue("alarm_id"));
         this.alarmContent = rset.getValue("content");
+        this.position=rset.getValue("position");
     }
-    public Alarm(int alarmId, String alarmContent) {
+    public Alarm(int alarmId, String alarmContent,String position) {
         this.alarmId = alarmId;     
         this.alarmContent = alarmContent;
+        this.position=position;
     }
 
     public String getAlarmContent() {
@@ -59,7 +62,12 @@ public class Alarm {
         this.alarmId = alarmId;
     }
 
+    public String getPosition() {
+        return position;
+    }
 
-
-
+    public void setPosition(String position) {
+        this.position = position;
+    }
+   
 }
