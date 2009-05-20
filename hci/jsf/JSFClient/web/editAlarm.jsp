@@ -19,6 +19,7 @@
          <h2>you can choose the break to make links with alarms or choose nothing</h2>
          <f:view>
             <h:form>
+                <h:messages/>
                 <h:dataTable value="#{AlarmAdmin.editModel}" var="a" border="1">
             <h:column>
 				<f:facet name="header">
@@ -53,8 +54,15 @@
             </h:dataTable>
             <br/>
             <h:outputText value="Content: "/>
-            <h:inputText value="#{AlarmAdmin.editAlarm.alarmContent}"/>
+            <h:inputText value="#{AlarmAdmin.editAlarm.alarmContent}" required="true"
+             requiredMessage="the content can't be null"/>
             <br/>
+            <h:outputText value="Position: "/>
+            <h:selectOneMenu value="#{AlarmAdmin.editAlarm.position}">
+                <f:selectItem itemValue="start" itemLabel="start"/>
+                <f:selectItem itemLabel="end" itemValue="end"/>
+            </h:selectOneMenu>
+            <br/><br/>
             <h:commandButton action="#{AlarmAdmin.editAlarm}" value="ok"/>
             &nbsp&nbsp<h:commandButton action="back" value="back"/>
             </h:form>

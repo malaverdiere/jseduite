@@ -31,18 +31,18 @@
 				</f:facet>
 				<h:outputText value="#{a.alarmContent}" />
 			</h:column>
+             <h:column>
+				<f:facet name="header">
+					<h:outputText value="position" />
+				</f:facet>
+				<h:outputText value="#{a.position}" />
+			</h:column>
             <h:column>
 				<f:facet name="header">
 					<h:outputText value="relevant breaks" />
 				</f:facet>
                 <h:dataTable value="#{AlarmAdmin.breakByAlarmModel}" var="b">
                      <h:column>
-                    <h:outputText value="#{b.id}"/>
-			       </h:column>
-                     <h:column>
-                    <h:outputText value="#{b.start}"/>
-			       </h:column>
-                   <h:column>
                     <h:outputText value="#{b.start}"/>
 			       </h:column>
                     <h:column>

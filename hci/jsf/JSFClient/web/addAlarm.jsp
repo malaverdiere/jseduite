@@ -19,7 +19,10 @@
         <h2>you can choose the break to make links with alarms or choose nothing</h2>
          <f:view>
             <h:form>
-                <h:dataTable value="#{AlarmAdmin.allBreakModel}" var="a" border="1">
+               <h:messages/>
+                <table>
+                    <tr><td>choose breaks</td>
+                <td><h:dataTable value="#{AlarmAdmin.allBreakModel}" var="a" border="1">
             <h:column>
 				<f:facet name="header">
 					<h:outputText value="start" />
@@ -50,13 +53,22 @@
 				</f:facet>
                 <h:selectBooleanCheckbox  value="#{a.breakChecked}"/>
 		    	</h:column>
-            </h:dataTable>
-            <br/>
-            <h:outputText value="Content: "/>
-            <h:inputText value="#{AlarmAdmin.content}"/>
-            <br/>
+            </h:dataTable></td></tr>
+            <tr>
+            <td><h:outputText value="Content: "/></td>
+            <td> <h:inputText value="#{AlarmAdmin.content}" required="true"
+            requiredMessage="the content can't be null">
+                </h:inputText>
+                </td></tr>
+            <tr><td><h:outputText value="Position"/></td>
+                <td><h:selectOneMenu value="#{AlarmAdmin.position}">
+                <f:selectItem itemLabel="start" itemValue="start"/>
+                <f:selectItem itemLabel="end" itemValue="end"/>
+                </h:selectOneMenu>
+            </td></tr>
+            </table>
             <h:commandButton action="#{AlarmAdmin.addAlarm}" value="ok"/>
-            &nbsp&nbsp<h:commandButton action="back" value="back"/>
+            &nbsp&nbsp<input type="button" value="back" onclick="window.document.location.href='listAllAlarms.jsf'"/>
             </h:form>
             </f:view>
 

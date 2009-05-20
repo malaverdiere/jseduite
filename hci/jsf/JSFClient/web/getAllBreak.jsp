@@ -60,6 +60,9 @@
                     <h:column>
 				    <h:outputText value="#{a.alarmContent}" />
 			        </h:column>
+                    <h:column>
+				    <h:outputText value="#{a.position}" />
+			        </h:column>
                 </h:dataTable>
 			</h:column>
           </h:dataTable>

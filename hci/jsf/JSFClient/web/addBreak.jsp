@@ -18,6 +18,7 @@
         <h1>add a new break</h1>
           <f:view>
             <h:form>
+                <h:messages/>
                 <h:panelGrid  columns="2">
                     <f:facet name="footer">
                         <h:panelGroup>
@@ -28,8 +29,12 @@
                     <h:selectManyListbox value="#{BreakAdminBean.promo}">
                          <f:selectItems value="#{BreakAdminBean.plist}"/>
                      </h:selectManyListbox>
-                    <h:outputText value="Start Time:" /><h:inputText id="start" value="#{BreakAdminBean.start}" />
-                    <h:outputText value="End Time:" /><h:inputText id="end" value="#{BreakAdminBean.end}" />
+                    <h:outputText value="Start Time:" />
+                    <h:inputText id="start" value="#{BreakAdminBean.start}"
+                    required="true" requiredMessage="the start can't be null"/>
+                    <h:outputText value="End Time:" />
+                    <h:inputText id="end" value="#{BreakAdminBean.end}"
+                    required="true" requiredMessage="the end can't be null"/>
                     <h:outputText value="Break Type:" />
                     <h:selectOneMenu value="#{BreakAdminBean.kind}">
                         <f:selectItem itemValue="Short" itemLabel="Short"/>
@@ -44,7 +49,7 @@
                         <f:selectItem itemValue="Friday" itemLabel="Friday"/>     
                     </h:selectOneMenu>
                 </h:panelGrid>
-                <h:commandButton action="back" value="back" />
+                <input type="button" value="back" onclick="window.document.location.href='listAllBreaks.jsf'"/>
             </h:form>
         </f:view>
     </body>

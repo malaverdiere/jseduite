@@ -18,10 +18,38 @@
         <h1>you can edit the link between break and promo!</h1>
         <f:view>
           <h:form>
-              <h:selectManyListbox value="#{BreakAdminBean.promo}">
+              <h:messages/>
+              <table>
+               <tr><td><h:outputText value="promo: "/></td>
+               <td> <h:selectManyListbox value="#{BreakAdminBean.promo}">
                    <f:selectItems value="#{BreakAdminBean.plist}"/>
-                </h:selectManyListbox>
-                <br/>
+                </h:selectManyListbox></td></tr>
+                <tr><td>
+                <h:outputText value="start: "/></td>
+                <td><h:inputText value="#{BreakAdminBean.editBreak.start}"
+                required="true" requiredMessage="the end can't not be null"/>
+                </td></tr>
+                <tr>
+                 <td><h:outputText value="end: "/></td>
+                 <td><h:inputText value="#{BreakAdminBean.editBreak.end}"
+                 required="true" requiredMessage="the end can't not be null"/>
+                 <td></tr>
+                <tr>
+                 <td><h:outputText value="kind: "/></td>
+                 <td> <h:selectOneMenu value="#{BreakAdminBean.editBreak.end}">
+                      <f:selectItem itemValue="short" itemLabel="short"/>
+                      <f:selectItem itemValue="long" itemLabel="long"/>
+                   </h:selectOneMenu></td></tr>
+                 <tr>
+                 <td><h:outputText value="day: "/></td>
+                 <td><h:selectOneMenu value="#{BreakAdminBean.editBreak.end}">
+                       <f:selectItem itemValue="Monday" itemLabel="Monday"/>
+                        <f:selectItem itemValue="Tuesday" itemLabel="Tuesday"/>
+                        <f:selectItem itemValue="Wednesday" itemLabel="Wednesday"/>
+                        <f:selectItem itemValue="Thursday" itemLabel="Thursday"/>
+                        <f:selectItem itemValue="Friday" itemLabel="Friday"/>
+                 </h:selectOneMenu></td></tr>
+                 </table>
                 <h:commandButton action="#{BreakAdminBean.editABreak}" value="ok"/>
                 <br/>
                 <h:commandButton action="back" value="back"/>
