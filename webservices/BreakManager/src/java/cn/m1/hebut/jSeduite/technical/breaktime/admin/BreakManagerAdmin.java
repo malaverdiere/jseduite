@@ -1,32 +1,15 @@
-/**
- * This file is part of jSeduite::BreakTimeManager
- *
- * Copyright (C) 2008-  Sebastien Mosser
- *
- * jSeduite::BreakTimeManager is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * jSeduite::BreakTimeManager is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with jSeduite::InternalNews; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
- *
- * @author      Zhao Yichen         [yichenzhao18@gmail.com]
-   @author      Qin Zhaobo          [Bienvenueqin@gmail.com]
- **/
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 package cn.m1.hebut.jSeduite.technical.breaktime.admin;
 
-
 import cn.m1.hebut.jSeduite.technical.breaktime.BreakTime;
 import cn.m1.hebut.jSeduite.technical.breaktime.BreakTimeException;
-import fr.unice.i3s.modalis.jSeduite.libraries.mysql.*;
+import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DALException;
+import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DalResultSet;
+import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DataAccessLayer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -35,8 +18,13 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
-
- /**
+/**
+ *
+ * @author Administrator
+ */
+@WebService()
+public class BreakManagerAdmin {
+   /**
      *Create a break
      * @param promo_id,start_time,end_time,break type,week day
      * @throws BreakTimeAdminException
@@ -78,7 +66,7 @@ import javax.jws.WebService;
           dal.executeVoid(sqlForLnk);
         }
 
-            
+
     }
 
     /**
@@ -143,7 +131,7 @@ import javax.jws.WebService;
       }
      }
 
-    
+
     /**
      * delete a break
      * @param id expected break_id
@@ -215,6 +203,5 @@ import javax.jws.WebService;
           return promolist;
 
     }
-    
 
 }
