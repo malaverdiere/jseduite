@@ -32,7 +32,7 @@ public class BreakManagerAdmin {
     @WebMethod(operationName = "create")
     @SuppressWarnings("empty-statement")
     public void create(@WebParam(name = "promo")
-    String promo, @WebParam(name = "start")
+    List<String> promo, @WebParam(name = "start")
     String start, @WebParam(name = "end")
     String end, @WebParam(name = "kind")
     String kind, @WebParam(name = "day")
@@ -58,12 +58,14 @@ public class BreakManagerAdmin {
         int breakCount=Integer.parseInt(rset.getValue("max"));
         if(!(promo==null))//if the promo is null not insert into lnk table
         {
-        sql="select promos_id from promos where name='"+promo+"';";
+        for(int i=0;i<promo.size();i++){
+        sql="select promos_id from promos where name='"+promo.get(i)+"';";
         rset= dal.extractDataSet(sql);
         int promoid=Integer.parseInt(rset.getValue("promos_id"));
         String sqlForLnk="INSERT INTO `break_time_promos_lnk` VALUES('"+promoid+
                  "','"+breakCount+"');";
           dal.executeVoid(sqlForLnk);
+        }
         }
 
 
@@ -112,23 +114,27 @@ public class BreakManagerAdmin {
     @WebMethod(operationName = "update")
     public void update(@WebParam(name = "breakId")
     int breakId, @WebParam(name = "promo")
-    String promo,@WebParam(name = "start")
+    List<String> promo,@WebParam(name = "start")
     String start,@WebParam(name = "end")
     String end, @WebParam(name = "kind")
     String kind,@WebParam(name = "day")
     String day) throws DALException {
        DataAccessLayer dal=new DataAccessLayer();
-      if(!(promo==null))//if the promo is null not insert into lnk table
+       String sql;
+      if(promo!=null)//if the promo is null not insert into lnk table
       {
-          String sql="select promos_id from promos where name='"+promo+"';";
+          for(int i=0;i<promo.size();i++){
+          sql="select promos_id from promos where name='"+promo.get(i)+"';";
           DalResultSet rset= dal.extractDataSet(sql);
           int promoid=Integer.parseInt(rset.getValue("promos_id"));
            sql="insert into break_time_promos_lnk values('"+promoid+"','"+
                         breakId+"');";
-           dal.executeVoid(sql);
-           sql="update break_time set start='"+start+"',end='"+end+"',kind='" +
-                  kind+"',day='"+day+"' where break_id='"+breakId+"'";
+           dal.executeVoid(sql);}
+          
       }
+        sql="update break_time set start='"+start+"',end='"+end+"',kind='" +
+                  kind+"',day='"+day+"' where break_id='"+breakId+"'";
+        dal.executeVoid(sql);
      }
 
 
