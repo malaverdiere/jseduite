@@ -15,17 +15,6 @@
             <isset property="conf.dir"/>
         </condition>
     </target>
-    <target name="wsimport-client-check-BreakManagerAdminService" depends="wsimport-init">
-        <condition property="wsimport-client-BreakManagerAdminService.notRequired">
-            <available file="${build.generated.dir}/wsimport/client/cn/m1/hebut/jseduite/technical/breaktime/admin/BreakManagerAdminService.java"/>
-        </condition>
-    </target>
-    <target name="wsimport-client-BreakManagerAdminService" depends="wsimport-init,wsimport-client-check-BreakManagerAdminService" unless="wsimport-client-BreakManagerAdminService.notRequired">
-        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/BreakManagerAdminService/wsdl/localhost_8080/BreakManager/BreakManagerAdminService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/BreakManager/BreakManagerAdminService?wsdl" xnocompile="true"/>
-    </target>
-    <target name="wsimport-client-clean-BreakManagerAdminService" depends="-init-project">
-        <delete dir="${build.generated.dir}/wsimport/client/cn/m1/hebut/jseduite/technical/breaktime/admin"/>
-    </target>
     <target name="wsimport-client-check-BreakTimeManagerService" depends="wsimport-init">
         <condition property="wsimport-client-BreakTimeManagerService.notRequired">
             <available file="${build.generated.dir}/wsimport/client/cn/m1/hebut/jseduite/technical/breaktime/BreakTimeManagerService.java"/>
@@ -48,6 +37,17 @@
     <target name="wsimport-client-clean-AlarmManagerService" depends="-init-project">
         <delete dir="${build.generated.dir}/wsimport/client/cn/m1/hebut/jseduite/technical/alarms"/>
     </target>
+    <target name="wsimport-client-check-BreakManagerAdminService" depends="wsimport-init">
+        <condition property="wsimport-client-BreakManagerAdminService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/cn/m1/hebut/jseduite/technical/breaktime/admin/BreakManagerAdminService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-BreakManagerAdminService" depends="wsimport-init,wsimport-client-check-BreakManagerAdminService" unless="wsimport-client-BreakManagerAdminService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/BreakManagerAdminService/wsdl/localhost_8080/BreakManager/BreakManagerAdminService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/BreakManager/BreakManagerAdminService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-BreakManagerAdminService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/cn/m1/hebut/jseduite/technical/breaktime/admin"/>
+    </target>
     <target name="wsimport-client-check-AlarmAdminService" depends="wsimport-init">
         <condition property="wsimport-client-AlarmAdminService.notRequired">
             <available file="${build.generated.dir}/wsimport/client/cn/m1/hebut/jseduite/technical/alarms/admin/AlarmAdminService.java"/>
@@ -59,7 +59,7 @@
     <target name="wsimport-client-clean-AlarmAdminService" depends="-init-project">
         <delete dir="${build.generated.dir}/wsimport/client/cn/m1/hebut/jseduite/technical/alarms/admin"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-BreakManagerAdminService, wsimport-client-BreakTimeManagerService, wsimport-client-AlarmManagerService, wsimport-client-AlarmAdminService"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-BreakTimeManagerService, wsimport-client-AlarmManagerService, wsimport-client-BreakManagerAdminService, wsimport-client-AlarmAdminService"/>
     <target name="wsimport-client-compile" depends="-pre-pre-compile">
         <webproject2:javac srcdir="${build.generated.dir}/wsimport/client" classpath="${j2ee.platform.wsimport.classpath}:${javac.classpath}" destdir="${build.classes.dir}"/>
         <copy todir="${build.classes.dir}">

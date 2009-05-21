@@ -168,12 +168,8 @@ public class BreakAdminBean {
             if(promo.size()==0)
             {
                 port.create(null, start, end, kind, day);
-            }
-            for(int i=0;i<promo.size();i++)
-            {
-                String p=promo.get(i);
-               port.create(p, start, end, kind, day);
-            }
+            }      
+               port.create(promo, start, end, kind, day);
         } catch (Exception ex) {
           ex.getMessage();
         }
@@ -198,6 +194,7 @@ public class BreakAdminBean {
         editBreak=(BreakTime)allBreakModel.getRowData();
         return "edit";
     }
+
     public String editABreak(){
          try { // edit a break
            BreakManagerAdmin port = service.getBreakManagerAdminPort();
@@ -207,11 +204,8 @@ public class BreakAdminBean {
                port.update(editBreak.getId(),null, editBreak.getStart(),
                        editBreak.getEnd(), editBreak.getKind(), editBreak.getDay());
            }
-           for(int i=0;i<promo.size();i++)
-           {
-            port.update(editBreak.getId(), promo.get(i),editBreak.getStart(),
+            port.update(editBreak.getId(), promo,editBreak.getStart(),
                        editBreak.getEnd(), editBreak.getKind(), editBreak.getDay());
-           }
         } catch (Exception ex) {
             ex.getMessage();
         }

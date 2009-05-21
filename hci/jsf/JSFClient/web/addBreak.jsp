@@ -37,8 +37,8 @@
                     required="true" requiredMessage="the end can't be null"/>
                     <h:outputText value="Break Type:" />
                     <h:selectOneMenu value="#{BreakAdminBean.kind}">
-                        <f:selectItem itemValue="Short" itemLabel="Short"/>
-                        <f:selectItem itemValue="Long" itemLabel="Long"/>
+                        <f:selectItem itemValue="short" itemLabel="short"/>
+                        <f:selectItem itemValue="short" itemLabel="long"/>
                     </h:selectOneMenu>
                     <h:outputText value="Which Day?:" />
                     <h:selectOneMenu value="#{BreakAdminBean.day}">

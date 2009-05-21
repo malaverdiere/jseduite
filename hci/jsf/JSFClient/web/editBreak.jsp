@@ -36,13 +36,13 @@
                  <td></tr>
                 <tr>
                  <td><h:outputText value="kind: "/></td>
-                 <td> <h:selectOneMenu value="#{BreakAdminBean.editBreak.end}">
+                 <td> <h:selectOneMenu value="#{BreakAdminBean.editBreak.kind}">
                       <f:selectItem itemValue="short" itemLabel="short"/>
                       <f:selectItem itemValue="long" itemLabel="long"/>
-                   </h:selectOneMenu></td></tr>
+                      </h:selectOneMenu></td></tr>
                  <tr>
                  <td><h:outputText value="day: "/></td>
-                 <td><h:selectOneMenu value="#{BreakAdminBean.editBreak.end}">
+                 <td><h:selectOneMenu value="#{BreakAdminBean.editBreak.day}">
                        <f:selectItem itemValue="Monday" itemLabel="Monday"/>
                         <f:selectItem itemValue="Tuesday" itemLabel="Tuesday"/>
                         <f:selectItem itemValue="Wednesday" itemLabel="Wednesday"/>
