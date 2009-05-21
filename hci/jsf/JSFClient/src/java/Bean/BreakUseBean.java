@@ -40,9 +40,9 @@ import cn.m1.hebut.jseduite.technical.breaktime.admin.BreakManagerAdmin;
  * @author      Zhao Yichen         [yichenzhao18@gmail.com]
  */
 public class BreakUseBean {
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakManagerAdminService/localhost_8080/BreakManager/BreakManagerAdminService.wsdl")
+    //@WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakManagerAdminService/localhost_8080/BreakManager/BreakManagerAdminService.wsdl")
     private BreakManagerAdminService service_1;
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/AlarmManagerService/localhost_8080/jseduite/AlarmManager/AlarmManagerService.wsdl")
+    //@WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/AlarmManagerService/localhost_8080/jseduite/AlarmManager/AlarmManagerService.wsdl")
     private AlarmManagerService service_2;
     BreakTimeManagerService service = new BreakTimeManagerService();
     //////get break for today

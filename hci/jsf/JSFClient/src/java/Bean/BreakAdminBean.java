@@ -42,7 +42,7 @@ import cn.m1.hebut.jseduite.technical.alarms.admin.*;
  * @author      Zhao Yichen         [yichenzhao18@gmail.com]
  */
 public class BreakAdminBean {
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakTimeManagerService/localhost_8080/BreakManager/BreakTimeManagerService.wsdl")
+    //@WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakTimeManagerService/localhost_8080/BreakManager/BreakTimeManagerService.wsdl")
     private BreakTimeManagerService service_1;
     BreakManagerAdminService service = new BreakManagerAdminService();
      DataModel allBreakModel,promoModel;
