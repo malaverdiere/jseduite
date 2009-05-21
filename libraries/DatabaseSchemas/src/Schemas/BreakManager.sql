@@ -24,9 +24,9 @@
 DROP TABLE IF EXISTS `break_time_promos_lnk`;
 
 CREATE TABLE `break_time_promos_lnk` (
-    `break`         INT(11) NOT NULL REFERENCES `break_time`,
-    `binding_alarm` INT(11) NOT NULL REFERENCES `promos`,
-    PRIMARY KEY (`break`,`binding_alarm`));
+    `break_id` INT(11) NOT NULL REFERENCES `break_time`,
+    `promo_id` INT(11) NOT NULL REFERENCES `promos`,
+    PRIMARY KEY (`break_id`,`promo_id`));
 
 DROP TABLE IF EXISTS `break_time`;
 
