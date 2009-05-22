@@ -42,10 +42,10 @@ import cn.m1.hebut.jseduite.technical.alarms.admin.*;
  * @author      Zhao Yichen         [yichenzhao18@gmail.com]
  */
 public class BreakAdminBean {
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakManagerAdminService/localhost_8080/BreakManager/BreakManagerAdminService.wsdl")
-    private BreakManagerAdminService service_1;
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakTimeManagerService/localhost_8080/BreakManager/BreakTimeManagerService.wsdl")
-    private BreakTimeManagerService service;
+   // @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakManagerAdminService/localhost_8080/BreakManager/BreakManagerAdminService.wsdl")
+    private BreakManagerAdminService service_1=new BreakManagerAdminService();
+   // @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakTimeManagerService/localhost_8080/BreakManager/BreakTimeManagerService.wsdl")
+    private BreakTimeManagerService service=new BreakTimeManagerService();
   
      DataModel allBreakModel,promoModel;
      ////////the properties for adding a break

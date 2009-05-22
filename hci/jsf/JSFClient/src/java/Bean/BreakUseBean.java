@@ -40,12 +40,12 @@ import cn.m1.hebut.jseduite.technical.breaktime.admin.BreakManagerAdmin;
  * @author      Zhao Yichen         [yichenzhao18@gmail.com]
  */
 public class BreakUseBean {
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakManagerAdminService/localhost_8080/BreakManager/BreakManagerAdminService.wsdl")
-    private BreakManagerAdminService service_2;
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/AlarmManagerService/localhost_8080/jseduite/AlarmManager/AlarmManagerService.wsdl")
-    private AlarmManagerService service_1;
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakTimeManagerService/localhost_8080/BreakManager/BreakTimeManagerService.wsdl")
-    private BreakTimeManagerService service;
+   //@WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakManagerAdminService/localhost_8080/BreakManager/BreakManagerAdminService.wsdl")
+    private BreakManagerAdminService service_2=new BreakManagerAdminService();
+   //@WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/AlarmManagerService/localhost_8080/jseduite/AlarmManager/AlarmManagerService.wsdl")
+    private AlarmManagerService service_1=new AlarmManagerService();
+    //@WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakTimeManagerService/localhost_8080/BreakManager/BreakTimeManagerService.wsdl")
+    private BreakTimeManagerService service=new BreakTimeManagerService();
     //////get break for today
     DataModel todayModel;
     ///////////get break by day
@@ -68,7 +68,8 @@ public class BreakUseBean {
         try { // get today's break
             BreakTimeManager port = service.getBreakTimeManagerPort();
             List<BreakTime> result = port.getBreakTimeForToday();
-            System.out.println("Result = "+result);
+           todayModel=new ListDataModel();
+           todayModel.setWrappedData(result);
         } catch (BreakTimeException_Exception ex) {
             Logger.getLogger(BreakUseBean.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -83,7 +84,7 @@ public class BreakUseBean {
             b=(BreakTime) todayModel.getRowData();
             List<Alarm> result = port.getAlarmByBinding(b.getId());
             alarmForToday=new ListDataModel();
-           alarmForToday.setWrappedData(result);
+            alarmForToday.setWrappedData(result);
         } catch (AlarmException_Exception ex) {
             Logger.getLogger(BreakUseBean.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -129,15 +130,14 @@ public class BreakUseBean {
   ///////////getter for allModel
     public DataModel getAllModel() {
 
-        try { // get all the breaks
-           BreakTimeManager port = service.getBreakTimeManagerPort();
+        try { // Call Web Service Operation
+            BreakTimeManager port = service.getBreakTimeManagerPort();
             List<BreakTime> result = port.getAllBreakTime();
-           allModel=new ListDataModel();
+            allModel=new ListDataModel();
            allModel.setWrappedData(result);
         } catch (BreakTimeException_Exception ex) {
-            Logger.getLogger(BreakUseBean.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-
+          Logger.getLogger(BreakUseBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return allModel;
     }
 

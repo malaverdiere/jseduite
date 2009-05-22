@@ -44,10 +44,10 @@ import javax.xml.ws.WebServiceRef;
  * @author      Zhao Yichen         [yichenzhao18@gmail.com]
  */
 public class AlarmAdminBean {
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakTimeManagerService/localhost_8080/BreakManager/BreakTimeManagerService.wsdl")
-    private BreakTimeManagerService service_1;
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/AlarmAdminService/localhost_8080/jseduite/AlarmManager/AlarmAdminService.wsdl")
-    private AlarmAdminService service;
+ // @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakTimeManagerService/localhost_8080/BreakManager/BreakTimeManagerService.wsdl")
+    private BreakTimeManagerService service_1=new BreakTimeManagerService();
+  // @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/AlarmAdminService/localhost_8080/jseduite/AlarmManager/AlarmAdminService.wsdl")
+    private AlarmAdminService service=new AlarmAdminService();
 
    DataModel allBreakModel,editModel,breakByAlarmModel;//delete nolnk
    DataModel allAlarmModel;
