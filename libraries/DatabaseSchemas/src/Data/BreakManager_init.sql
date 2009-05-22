@@ -22,4 +22,21 @@
 **/
 
 -- NEW DATA NEEDDED ...
+ INSERT INTO `break_time` VALUES (NULL,"8:45","8:55","short","Monday");
+ INSERT INTO `break_time` VALUES (NULL,"9:40","10:00","short","Monday");
+ INSERT INTO `break_time` VALUES (NULL,"10:45","10:55","short","Monday");
+ INSERT INTO `break_time` VALUES (NULL,"11:40","2:00","lunch","Monday");
+ INSERT INTO `break_time` VALUES (NULL,"14:45","14:55","short","Monday");
+ INSERT INTO `break_time` VALUES (NULL,"15:40","16:00","short","Monday");
+ INSERT INTO `break_time` VALUES (NULL,"16:45","16:55","short","Monday");
+ INSERT INTO `break_time` VALUES (NULL,"8:45","8:55","short","Friday");
+ INSERT INTO `break_time` VALUES (NULL,"9:40","10:00","short","Friday");
+ INSERT INTO `break_time` VALUES (NULL,"10:45","10:55","short","Friday");
+ INSERT INTO `break_time` VALUES (NULL,"11:40","2:00","lunch","Friday");
 
+
+ INSERT INTO `break_time_promos_lnk` values(1,1);
+ INSERT INTO `break_time_promos_lnk` values(1,2);
+ INSERT INTO `break_time_promos_lnk` values(2,2);
+ INSERT INTO `break_time_promos_lnk` values(2,3);
+ INSERT INTO `break_time_promos_lnk` values(3,4);
