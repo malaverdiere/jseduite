@@ -42,9 +42,11 @@ import cn.m1.hebut.jseduite.technical.alarms.admin.*;
  * @author      Zhao Yichen         [yichenzhao18@gmail.com]
  */
 public class BreakAdminBean {
-    //@WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakTimeManagerService/localhost_8080/BreakManager/BreakTimeManagerService.wsdl")
-    private BreakTimeManagerService service_1;
-    BreakManagerAdminService service = new BreakManagerAdminService();
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakManagerAdminService/localhost_8080/BreakManager/BreakManagerAdminService.wsdl")
+    private BreakManagerAdminService service_1;
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakTimeManagerService/localhost_8080/BreakManager/BreakTimeManagerService.wsdl")
+    private BreakTimeManagerService service;
+  
      DataModel allBreakModel,promoModel;
      ////////the properties for adding a break
       List<String> promo;
@@ -115,9 +117,10 @@ public class BreakAdminBean {
    // get all the promos from promos table
     public List<SelectItem> getPlist() {
         plist=new LinkedList<SelectItem>();
-        try {
-           BreakTimeManager port = service_1.getBreakTimeManagerPort();
-           List<java.lang.Object> result = port.getAllPromos();
+
+        try { // Call Web Service Operation
+            BreakTimeManager port = service.getBreakTimeManagerPort();
+            List<java.lang.Object> result = port.getAllPromos();
             Iterator i=result.iterator();
             while(i.hasNext())
             {
@@ -127,9 +130,8 @@ public class BreakAdminBean {
 
             }
         } catch (Exception ex) {
-           ex.getMessage();
+            // TODO handle custom exceptions here
         }
-
         return plist;
     }
     //get a list of promo by a selected break
@@ -143,8 +145,9 @@ public class BreakAdminBean {
         plistbybreak=new LinkedList<SelectItem>();
         BreakTime show=new BreakTime();
         show=(BreakTime)allBreakModel.getRowData();
-        try {
-            BreakManagerAdmin port = service.getBreakManagerAdminPort();
+
+        try { //get all the promos
+            BreakManagerAdmin port = service_1.getBreakManagerAdminPort();
             List<java.lang.Object> result = port.getPromosByBreak(show.getId());
             Iterator i=result.iterator();
             while(i.hasNext())
@@ -154,17 +157,17 @@ public class BreakAdminBean {
                 plistbybreak.add(si);
             }
         } catch (Exception ex) {
-            ex.getMessage();
+           ex.getMessage();
         }
-
         return plistbybreak;
     }
 
 
     //create a new break
     public String addNewBreak(){
+
       try { // Call Web Service Operation
-            BreakManagerAdmin port = service.getBreakManagerAdminPort();
+            BreakManagerAdmin port = service_1.getBreakManagerAdminPort();
             if(promo.size()==0)
             {
                 port.create(null, start, end, kind, day);
@@ -181,7 +184,7 @@ public class BreakAdminBean {
     public void deleteBreak(){
 
         try { // delete
-           BreakManagerAdmin port = service.getBreakManagerAdminPort();
+           BreakManagerAdmin port = service_1.getBreakManagerAdminPort();
            delBreak=(BreakTime)allBreakModel.getRowData();
             port.delete(delBreak.getId());
         } catch (Exception ex) {
@@ -197,7 +200,7 @@ public class BreakAdminBean {
 
     public String editABreak(){
          try { // edit a break
-           BreakManagerAdmin port = service.getBreakManagerAdminPort();
+           BreakManagerAdmin port = service_1.getBreakManagerAdminPort();
            port.deleteAllLnkByBreak(editBreak.getId());
            if(promo.size()==0)
            {
@@ -215,7 +218,7 @@ public class BreakAdminBean {
     public DataModel getAllBreakModel() {
 
         try { // Call Web Service Operation
-            BreakManagerAdmin port = service.getBreakManagerAdminPort();
+            BreakManagerAdmin port = service_1.getBreakManagerAdminPort();
             List<BreakTime> result = port.getAllBreaks();
              allBreakModel=new ListDataModel();
              allBreakModel.setWrappedData(result);

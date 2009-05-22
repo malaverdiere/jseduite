@@ -104,11 +104,12 @@ public class Break {
     }
     //get the break list
     public List<BreakTime> getBreakList() throws BreakTimeException_Exception{
+
         try { // Call Web Service Operation
-           BreakTimeManagerService service = new  BreakTimeManagerService();
-           BreakTimeManager port = service.getBreakTimeManagerPort();
-           List< BreakTime> result = port.getAllBreakTime();
-           return result;
+            BreakTimeManagerService service = new BreakTimeManagerService();
+            BreakTimeManager port = service.getBreakTimeManagerPort();
+            List<BreakTime> result = port.getAllBreakTime();
+             return result;
         } catch (BreakTimeException_Exception ex) {
            ex.getMessage();
         }

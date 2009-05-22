@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/BreakManager/BreakManagerAdminService?wsdl" uri="src/conf/xml-resources/web-service-references/BreakManagerAdminService/wsdl/localhost_8080/BreakManager/BreakManagerAdminService.wsdl"/>
+    <system systemId="http://localhost:8080/BreakManager/BreakManagerAdminService?xsd=1" uri="src/conf/xml-resources/web-service-references/BreakManagerAdminService/wsdl/localhost_8080/BreakManager/BreakManagerAdminService.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/BreakManager/BreakTimeManagerService?wsdl" uri="src/conf/xml-resources/web-service-references/BreakTimeManagerService/wsdl/localhost_8080/BreakManager/BreakTimeManagerService.wsdl"/>
     <system systemId="http://localhost:8080/BreakManager/BreakTimeManagerService?xsd=1" uri="src/conf/xml-resources/web-service-references/BreakTimeManagerService/wsdl/localhost_8080/BreakManager/BreakTimeManagerService.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/jseduite/AlarmManager/AlarmManagerService?wsdl" uri="src/conf/xml-resources/web-service-references/AlarmManagerService/wsdl/localhost_8080/jseduite/AlarmManager/AlarmManagerService.wsdl"/>
     <system systemId="http://localhost:8080/jseduite/AlarmManager/AlarmManagerService?xsd=1" uri="src/conf/xml-resources/web-service-references/AlarmManagerService/wsdl/localhost_8080/jseduite/AlarmManager/AlarmManagerService.xsd_1.xsd"/>
-    <system systemId="http://localhost:8080/BreakManager/BreakManagerAdminService?wsdl" uri="src/conf/xml-resources/web-service-references/BreakManagerAdminService/wsdl/localhost_8080/BreakManager/BreakManagerAdminService.wsdl"/>
-    <system systemId="http://localhost:8080/BreakManager/BreakManagerAdminService?xsd=1" uri="src/conf/xml-resources/web-service-references/BreakManagerAdminService/wsdl/localhost_8080/BreakManager/BreakManagerAdminService.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/jseduite/AlarmManager/AlarmAdminService?wsdl" uri="src/conf/xml-resources/web-service-references/AlarmAdminService/wsdl/localhost_8080/jseduite/AlarmManager/AlarmAdminService.wsdl"/>
     <system systemId="http://localhost:8080/jseduite/AlarmManager/AlarmAdminService?xsd=1" uri="src/conf/xml-resources/web-service-references/AlarmAdminService/wsdl/localhost_8080/jseduite/AlarmManager/AlarmAdminService.xsd_1.xsd"/>
 </catalog>

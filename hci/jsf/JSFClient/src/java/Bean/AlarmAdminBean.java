@@ -44,9 +44,9 @@ import javax.xml.ws.WebServiceRef;
  * @author      Zhao Yichen         [yichenzhao18@gmail.com]
  */
 public class AlarmAdminBean {
-    //@WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakTimeManagerService/localhost_8080/BreakManager/BreakTimeManagerService.wsdl")
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakTimeManagerService/localhost_8080/BreakManager/BreakTimeManagerService.wsdl")
     private BreakTimeManagerService service_1;
-    //@WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/AlarmAdminService/localhost_8080/jseduite/AlarmManager/AlarmAdminService.wsdl")
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/AlarmAdminService/localhost_8080/jseduite/AlarmManager/AlarmAdminService.wsdl")
     private AlarmAdminService service;
 
    DataModel allBreakModel,editModel,breakByAlarmModel;//delete nolnk
@@ -59,7 +59,7 @@ public class AlarmAdminBean {
         try {
             allBreakModel = new ListDataModel();
             allBreakModel.setWrappedData(breakTime.getbreak());
-        } catch (BreakTimeException_Exception ex) {
+        } catch (Exception ex) {
             Logger.getLogger(AlarmAdminBean.class.getName()).log(Level.SEVERE, null, ex);
         }
           return allBreakModel;
@@ -75,21 +75,20 @@ public class AlarmAdminBean {
         } catch (Exception ex) {
            ex.getMessage();
         }
-
         return allAlarmModel;
     }
 
     public DataModel getBreakByAlarmModel() {
+
         try { // get breaks by alarm
-            BreakTimeManager port = service_1.getBreakTimeManagerPort();
+           BreakTimeManager port = service_1.getBreakTimeManagerPort();
             currentAlarm=(Alarm)allAlarmModel.getRowData();
             List<BreakTime> result = port.getBreakByAlarm(currentAlarm.getAlarmId());
             breakByAlarmModel=new ListDataModel();
             breakByAlarmModel.setWrappedData(result);
         } catch (Exception ex) {
-            ex.getMessage();
+           ex.getMessage();
         }
-
         return breakByAlarmModel;
     }
 
@@ -179,11 +178,7 @@ public class AlarmAdminBean {
         editModel=new ListDataModel();
         try {
             editModel.setWrappedData(breakTime.listBreak(editAlarm.getAlarmId()));
-        } catch (BreakTimeException_Exception ex) {
-            Logger.getLogger(AlarmAdminBean.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (cn.m1.hebut.jseduite.technical.breaktime.DALException_Exception ex) {
-            Logger.getLogger(AlarmAdminBean.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception_Exception ex) {
+        } catch (Exception ex) {
             Logger.getLogger(AlarmAdminBean.class.getName()).log(Level.SEVERE, null, ex);
         }
         return editModel;

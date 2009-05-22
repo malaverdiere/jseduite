@@ -40,11 +40,12 @@ import cn.m1.hebut.jseduite.technical.breaktime.admin.BreakManagerAdmin;
  * @author      Zhao Yichen         [yichenzhao18@gmail.com]
  */
 public class BreakUseBean {
-    //@WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakManagerAdminService/localhost_8080/BreakManager/BreakManagerAdminService.wsdl")
-    private BreakManagerAdminService service_1;
-    //@WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/AlarmManagerService/localhost_8080/jseduite/AlarmManager/AlarmManagerService.wsdl")
-    private AlarmManagerService service_2;
-    BreakTimeManagerService service = new BreakTimeManagerService();
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakManagerAdminService/localhost_8080/BreakManager/BreakManagerAdminService.wsdl")
+    private BreakManagerAdminService service_2;
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/AlarmManagerService/localhost_8080/jseduite/AlarmManager/AlarmManagerService.wsdl")
+    private AlarmManagerService service_1;
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/client/BreakTimeManagerService/localhost_8080/BreakManager/BreakTimeManagerService.wsdl")
+    private BreakTimeManagerService service;
     //////get break for today
     DataModel todayModel;
     ///////////get break by day
@@ -64,24 +65,24 @@ public class BreakUseBean {
 
     public DataModel getTodayModel() {
 
-        try { // Call Web Service Operation
+        try { // get today's break
             BreakTimeManager port = service.getBreakTimeManagerPort();
             List<BreakTime> result = port.getBreakTimeForToday();
-            todayModel=new ListDataModel();
-            todayModel.setWrappedData(result);
+            System.out.println("Result = "+result);
         } catch (BreakTimeException_Exception ex) {
             Logger.getLogger(BreakUseBean.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
         return todayModel;
     }
 
     public DataModel getAlarmForToday() {
-        try { // Call Web Service Operation
-            AlarmManager port = service_2.getAlarmManagerPort();
-            BreakTime b=new BreakTime();
+
+        try { // get alarms by binding
+            AlarmManager port = service_1.getAlarmManagerPort();
+             BreakTime b=new BreakTime();
             b=(BreakTime) todayModel.getRowData();
             List<Alarm> result = port.getAlarmByBinding(b.getId());
-           alarmForToday=new ListDataModel();
+            alarmForToday=new ListDataModel();
            alarmForToday.setWrappedData(result);
         } catch (AlarmException_Exception ex) {
             Logger.getLogger(BreakUseBean.class.getName()).log(Level.SEVERE, null, ex);
@@ -112,13 +113,13 @@ public class BreakUseBean {
 
     public DataModel getAlarmByDay() {
 
-        try {
-            cn.m1.hebut.jseduite.technical.alarms.AlarmManager port = service_2.getAlarmManagerPort();
+        try { // Call Web Service Operation
+            AlarmManager port = service_1.getAlarmManagerPort();
              BreakTime b=new BreakTime();
              b=(BreakTime) dayModel.getRowData();
-            List<Alarm> result = port.getAlarmByBinding(b.getId());
-            alarmByDay=new ListDataModel();
-            alarmByDay.setWrappedData(result);
+             List<Alarm> result = port.getAlarmByBinding(b.getId());
+             alarmByDay=new ListDataModel();
+             alarmByDay.setWrappedData(result);
         } catch (AlarmException_Exception ex) {
             Logger.getLogger(BreakUseBean.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -142,12 +143,12 @@ public class BreakUseBean {
 
     public DataModel getAlarmForAll() {
 
-        try {
-           AlarmManager port = service_2.getAlarmManagerPort();
-           BreakTime b=new BreakTime();
-           b=(BreakTime) allModel.getRowData();
-           List<Alarm> result = port.getAlarmByBinding(b.getId());
-           alarmForAll=new ListDataModel();
+        try { // Call Web Service Operation
+            AlarmManager port = service_1.getAlarmManagerPort();
+            BreakTime b=new BreakTime();
+            b=(BreakTime) allModel.getRowData();
+            List<Alarm> result = port.getAlarmByBinding(b.getId());
+             alarmForAll=new ListDataModel();
            alarmForAll.setWrappedData(result);
         } catch (AlarmException_Exception ex) {
             Logger.getLogger(BreakUseBean.class.getName()).log(Level.SEVERE, null, ex);
@@ -180,7 +181,7 @@ public class BreakUseBean {
 
     public DataModel getAlarmByPromo() {
         try {
-            AlarmManager port = service_2.getAlarmManagerPort();
+            AlarmManager port = service_1.getAlarmManagerPort();
             BreakTime b=new BreakTime();
             b=(BreakTime)promoModel.getRowData();
            List<Alarm> result = port.getAlarmByBinding(b.getId());
@@ -194,11 +195,11 @@ public class BreakUseBean {
 
     public DataModel getPromoForAll() {
 
-        try { // get promos for allModel
-            BreakManagerAdmin port = service_1.getBreakManagerAdminPort();
+        try {  // get promos for allModel
+            BreakManagerAdmin port = service_2.getBreakManagerAdminPort();
             BreakTime b=(BreakTime)allModel.getRowData();
             List<java.lang.Object> result = port.getPromosByBreak(b.getId());
-            promoForAll=new ListDataModel();
+             promoForAll=new ListDataModel();
             promoForAll.setWrappedData(result);
         } catch (cn.m1.hebut.jseduite.technical.breaktime.admin.DALException_Exception ex) {
             Logger.getLogger(BreakUseBean.class.getName()).log(Level.SEVERE, null, ex);
@@ -209,7 +210,7 @@ public class BreakUseBean {
     public DataModel getPromoForDay() {
 
         try { // get promos for dayModel
-            BreakManagerAdmin port = service_1.getBreakManagerAdminPort();
+            BreakManagerAdmin port = service_2.getBreakManagerAdminPort();
             BreakTime b=(BreakTime)dayModel.getRowData();
             List<java.lang.Object> result = port.getPromosByBreak(b.getId());
             promoForDay=new ListDataModel();
@@ -222,7 +223,7 @@ public class BreakUseBean {
 
     public DataModel getPromoForPromo() {
           try { // get promos for promoModel
-            BreakManagerAdmin port = service_1.getBreakManagerAdminPort();
+            BreakManagerAdmin port = service_2.getBreakManagerAdminPort();
             BreakTime b=(BreakTime)promoModel.getRowData();
             List<java.lang.Object> result = port.getPromosByBreak(b.getId());
             promoForPromo=new ListDataModel();
@@ -235,7 +236,7 @@ public class BreakUseBean {
 
     public DataModel getPromoForToday() {
           try { // Call Web Service Operation
-            BreakManagerAdmin port = service_1.getBreakManagerAdminPort();
+            BreakManagerAdmin port = service_2.getBreakManagerAdminPort();
             BreakTime b=(BreakTime)todayModel.getRowData();
             List<java.lang.Object> result = port.getPromosByBreak(b.getId());
             promoForToday=new ListDataModel();
