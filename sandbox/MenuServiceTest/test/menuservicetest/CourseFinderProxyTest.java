@@ -32,7 +32,7 @@ public class CourseFinderProxyTest {
     }
 
     @Test
-    public void testFindByKindRegular() throws Exception {
+    public void testFindByKindOne() throws Exception {
        String unknown = genSym("kind");
        Course c = new Course();
        c.setKind(unknown); c.setName(genSym("name"));
@@ -40,12 +40,26 @@ public class CourseFinderProxyTest {
        Course[] set = this.proxy.findByKind(unknown);
        assertTrue("Bad set cardinality",set.length == 1);
     }
+    
+    @Test
+    public void testFindByKindRegular() throws Exception {
+       String unknown = genSym("kind");
+       Course c = new Course();
+       c.setKind(unknown);
+       int quantity = bag.nextInt(10)+2;
+       for(int i = 0; i < quantity ; i++) {
+         c.setName(genSym("findByKindRegular_name"));
+         crud.create(c);
+       }
+       Course[] set = this.proxy.findByKind(unknown);
+       assertTrue("Bad set cardinality",set.length == quantity);
+    }
 
     @Test
-    public void testFindByNameEmptySet() throws Exception {
+    public void testFindByNameNull() throws Exception {
        String unknown = genSym("name");
-       int size = this.proxy.findByName(unknown).length;
-       assertTrue("Bad set cardinality",size == 0);
+       Course c =  this.proxy.findByName(unknown);
+       assertNull("Should not return something",c);
     }
 
     @Test
@@ -54,8 +68,8 @@ public class CourseFinderProxyTest {
        Course c = new Course();
        c.setKind(genSym("kind")); c.setName(unknown);
        crud.create(c);
-       Course[] set = this.proxy.findByName(unknown);
-       assertTrue("Bad set cardinality",set.length == 1);
+       Course cPrime = this.proxy.findByName(unknown);
+       assertNotNull("Should retrieve something",cPrime);
     }
 
 

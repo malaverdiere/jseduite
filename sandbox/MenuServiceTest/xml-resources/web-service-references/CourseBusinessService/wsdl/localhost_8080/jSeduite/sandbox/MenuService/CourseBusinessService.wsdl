@@ -4,21 +4,21 @@
 <xsd:import namespace="http://restaurant.sanbox/" schemaLocation="http://localhost:8080/jSeduite/sandbox/MenuService/CourseBusinessService?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
-<message name="getAvailableKinds">
-<part name="parameters" element="tns:getAvailableKinds"></part>
+<message name="getAvailableCourseKinds">
+<part name="parameters" element="tns:getAvailableCourseKinds"></part>
 </message>
-<message name="getAvailableKindsResponse">
-<part name="parameters" element="tns:getAvailableKindsResponse"></part>
+<message name="getAvailableCourseKindsResponse">
+<part name="parameters" element="tns:getAvailableCourseKindsResponse"></part>
 </message>
 <portType name="CourseBusiness">
-<operation name="getAvailableKinds">
-<input message="tns:getAvailableKinds"></input>
-<output message="tns:getAvailableKindsResponse"></output>
+<operation name="getAvailableCourseKinds">
+<input message="tns:getAvailableCourseKinds"></input>
+<output message="tns:getAvailableCourseKindsResponse"></output>
 </operation>
 </portType>
 <binding name="CourseBusinessPortBinding" type="tns:CourseBusiness">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
-<operation name="getAvailableKinds">
+<operation name="getAvailableCourseKinds">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>

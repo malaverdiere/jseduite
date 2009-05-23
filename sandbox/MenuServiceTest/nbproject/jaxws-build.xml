@@ -38,7 +38,34 @@
     <target name="wsimport-client-clean-CourseFinderService" depends="-init-project">
         <delete dir="${build.generated.dir}/wsimport/client/sanbox/restaurant"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-CourseCRUDService, wsimport-client-CourseBusinessService, wsimport-client-CourseFinderService"/>
+    <target name="wsimport-client-MenuCRUDService" depends="wsimport-init">
+        <property name="wsdl-MenuCRUDService" location="xml-resources/web-service-references/MenuCRUDService/wsdl/localhost_8080/jSeduite/sandbox/MenuService/MenuCRUDService.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/client" wsdl="${wsdl-MenuCRUDService}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/sandbox/MenuService/MenuCRUDService?WSDL" xnocompile="true">
+            <produces dir="${build.generated.dir}/wsimport/client/sanbox/restaurant" includes="MenuCRUDService.java" casesensitive="no"/>
+        </wsimport>
+    </target>
+    <target name="wsimport-client-clean-MenuCRUDService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/sanbox/restaurant"/>
+    </target>
+    <target name="wsimport-client-MenuFinderService" depends="wsimport-init">
+        <property name="wsdl-MenuFinderService" location="xml-resources/web-service-references/MenuFinderService/wsdl/localhost_8080/jSeduite/sandbox/MenuService/MenuFinderService.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/client" wsdl="${wsdl-MenuFinderService}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/sandbox/MenuService/MenuFinderService?WSDL" xnocompile="true">
+            <produces dir="${build.generated.dir}/wsimport/client/sanbox/restaurant" includes="MenuFinderService.java" casesensitive="no"/>
+        </wsimport>
+    </target>
+    <target name="wsimport-client-clean-MenuFinderService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/sanbox/restaurant"/>
+    </target>
+    <target name="wsimport-client-MenuBusinessService" depends="wsimport-init">
+        <property name="wsdl-MenuBusinessService" location="xml-resources/web-service-references/MenuBusinessService/wsdl/localhost_8080/jSeduite/sandbox/MenuService/MenuBusinessService.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/client" wsdl="${wsdl-MenuBusinessService}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/sandbox/MenuService/MenuBusinessService?WSDL" xnocompile="true">
+            <produces dir="${build.generated.dir}/wsimport/client/sanbox/restaurant" includes="MenuBusinessService.java" casesensitive="no"/>
+        </wsimport>
+    </target>
+    <target name="wsimport-client-clean-MenuBusinessService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/sanbox/restaurant"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-CourseCRUDService, wsimport-client-CourseBusinessService, wsimport-client-CourseFinderService, wsimport-client-MenuCRUDService, wsimport-client-MenuFinderService, wsimport-client-MenuBusinessService"/>
     <target name="wsimport-client-compile-depend" if="do.depend.true">
         <j2seproject3:depend srcdir="${build.generated.dir}/wsimport/client" classpath="${libs.jaxws21.classpath}:${javac.classpath}" destdir="${build.classes.dir}"/>
     </target>

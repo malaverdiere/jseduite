@@ -4,51 +4,51 @@
 <xsd:import namespace="http://restaurant.sanbox/" schemaLocation="http://localhost:8080/jSeduite/sandbox/MenuService/CourseCRUDService?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
-<message name="delete">
-<part name="parameters" element="tns:delete"></part>
+<message name="createCourse">
+<part name="parameters" element="tns:createCourse"></part>
 </message>
-<message name="deleteResponse">
-<part name="parameters" element="tns:deleteResponse"></part>
+<message name="createCourseResponse">
+<part name="parameters" element="tns:createCourseResponse"></part>
 </message>
-<message name="read">
-<part name="parameters" element="tns:read"></part>
+<message name="readCourse">
+<part name="parameters" element="tns:readCourse"></part>
 </message>
-<message name="readResponse">
-<part name="parameters" element="tns:readResponse"></part>
+<message name="readCourseResponse">
+<part name="parameters" element="tns:readCourseResponse"></part>
 </message>
-<message name="create">
-<part name="parameters" element="tns:create"></part>
+<message name="updateCourse">
+<part name="parameters" element="tns:updateCourse"></part>
 </message>
-<message name="createResponse">
-<part name="parameters" element="tns:createResponse"></part>
+<message name="updateCourseResponse">
+<part name="parameters" element="tns:updateCourseResponse"></part>
 </message>
-<message name="update">
-<part name="parameters" element="tns:update"></part>
+<message name="deleteCourse">
+<part name="parameters" element="tns:deleteCourse"></part>
 </message>
-<message name="updateResponse">
-<part name="parameters" element="tns:updateResponse"></part>
+<message name="deleteCourseResponse">
+<part name="parameters" element="tns:deleteCourseResponse"></part>
 </message>
 <portType name="CourseCRUD">
-<operation name="delete">
-<input message="tns:delete"></input>
-<output message="tns:deleteResponse"></output>
+<operation name="createCourse">
+<input message="tns:createCourse"></input>
+<output message="tns:createCourseResponse"></output>
 </operation>
-<operation name="read">
-<input message="tns:read"></input>
-<output message="tns:readResponse"></output>
+<operation name="readCourse">
+<input message="tns:readCourse"></input>
+<output message="tns:readCourseResponse"></output>
 </operation>
-<operation name="create">
-<input message="tns:create"></input>
-<output message="tns:createResponse"></output>
+<operation name="updateCourse">
+<input message="tns:updateCourse"></input>
+<output message="tns:updateCourseResponse"></output>
 </operation>
-<operation name="update">
-<input message="tns:update"></input>
-<output message="tns:updateResponse"></output>
+<operation name="deleteCourse">
+<input message="tns:deleteCourse"></input>
+<output message="tns:deleteCourseResponse"></output>
 </operation>
 </portType>
 <binding name="CourseCRUDPortBinding" type="tns:CourseCRUD">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
-<operation name="delete">
+<operation name="createCourse">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -57,7 +57,7 @@
 <soap:body use="literal"></soap:body>
 </output>
 </operation>
-<operation name="read">
+<operation name="readCourse">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -66,7 +66,7 @@
 <soap:body use="literal"></soap:body>
 </output>
 </operation>
-<operation name="create">
+<operation name="updateCourse">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -75,7 +75,7 @@
 <soap:body use="literal"></soap:body>
 </output>
 </operation>
-<operation name="update">
+<operation name="deleteCourse">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>

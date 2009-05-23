@@ -2,7 +2,6 @@ package sanbox.restaurant;
 import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DalResultSet;
 public class Course {
     
-    private Integer id;
     private String kind;
     private String name;
 
@@ -13,22 +12,8 @@ public class Course {
         this.setName(n);
     }
 
-    public Course(Integer i, String k, String n) {
-        this(k,n);
-        this.setId(id);
-    }
-
     public Course(DalResultSet tuple) {
-        this(new Integer(tuple.getValue("id")), tuple.getValue("kind"),
-                tuple.getValue("name"));
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+        this(tuple.getValue("kind"), tuple.getValue("name"));
     }
 
     public String getKind() {

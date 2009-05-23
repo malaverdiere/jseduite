@@ -4,31 +4,31 @@
 <xsd:import namespace="http://restaurant.sanbox/" schemaLocation="http://localhost:8080/jSeduite/sandbox/MenuService/CourseFinderService?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
-<message name="findByKind">
-<part name="parameters" element="tns:findByKind"></part>
+<message name="findCoursesByKind">
+<part name="parameters" element="tns:findCoursesByKind"></part>
 </message>
-<message name="findByKindResponse">
-<part name="parameters" element="tns:findByKindResponse"></part>
+<message name="findCoursesByKindResponse">
+<part name="parameters" element="tns:findCoursesByKindResponse"></part>
 </message>
-<message name="findByName">
-<part name="parameters" element="tns:findByName"></part>
+<message name="findCourseByName">
+<part name="parameters" element="tns:findCourseByName"></part>
 </message>
-<message name="findByNameResponse">
-<part name="parameters" element="tns:findByNameResponse"></part>
+<message name="findCourseByNameResponse">
+<part name="parameters" element="tns:findCourseByNameResponse"></part>
 </message>
 <portType name="CourseFinder">
-<operation name="findByKind">
-<input message="tns:findByKind"></input>
-<output message="tns:findByKindResponse"></output>
+<operation name="findCoursesByKind">
+<input message="tns:findCoursesByKind"></input>
+<output message="tns:findCoursesByKindResponse"></output>
 </operation>
-<operation name="findByName">
-<input message="tns:findByName"></input>
-<output message="tns:findByNameResponse"></output>
+<operation name="findCourseByName">
+<input message="tns:findCourseByName"></input>
+<output message="tns:findCourseByNameResponse"></output>
 </operation>
 </portType>
 <binding name="CourseFinderPortBinding" type="tns:CourseFinder">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
-<operation name="findByKind">
+<operation name="findCoursesByKind">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -37,7 +37,7 @@
 <soap:body use="literal"></soap:body>
 </output>
 </operation>
-<operation name="findByName">
+<operation name="findCourseByName">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>

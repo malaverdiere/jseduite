@@ -1,12 +1,13 @@
 package menuservicetest;
 import sanbox.restaurant.*;
+import java.util.List;
 
 public class CourseBusinessProxy {
 
     public String[] getAvailableKinds() throws Exception {
         CourseBusinessService service = new CourseBusinessService();
         CourseBusiness port = service.getCourseBusinessPort();
-        java.util.List<java.lang.String> result = port.getAvailableKinds();
+        List<String> result = port.getAvailableCourseKinds();
         return result.toArray(new String[result.size()]);
     }
     

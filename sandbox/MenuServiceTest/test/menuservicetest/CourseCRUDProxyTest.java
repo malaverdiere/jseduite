@@ -8,43 +8,45 @@ import sanbox.restaurant.Course;
 
 public class CourseCRUDProxyTest {
 
+    /** Global Attributes for this test suite **/
+    private CourseCRUDProxy proxy = new CourseCRUDProxy();
+    private Course typical;
+    private Random bag = new Random();
+
+    public CourseCRUDProxyTest() {
+        bag.setSeed(System.currentTimeMillis());
+        this.typical = new Course();
+        this.typical.setKind("starter");
+        this.typical.setName("salad");
+    }
+
+    public static boolean courseEquality(Course c1, Course c2) {
+        boolean nameEquality = c1.getName().equals(c2.getName());
+        boolean kindEquality = c1.getKind().equals(c2.getKind());
+        return nameEquality && kindEquality ;
+    }
+
     /** Helper Code about 'Course' **/
 
     private boolean isEqualsTo(Course c1, Course c2) {
-        return c1.getId() == c2.getId()
-               && c1.getKind().equals(c2.getKind())
-               && c1.getName().equals(c2.getName());
+       return courseEquality(c1, c2);
     }
     
     private void makeSlightlyDifferent(Course c) {
-        Random bag = new Random();
-        bag.setSeed(System.currentTimeMillis());
-        c.setName(c.getName() + "_" + bag.nextInt());
+        c.setName(nextRef(c.getName()));
     }
 
     private Course quasiClone(Course c) {
         Course cPrime = new Course();
-        cPrime.setId(c.getId());
         cPrime.setKind(c.getKind());
         cPrime.setName(c.getName());
         makeSlightlyDifferent(cPrime);
         return cPrime;
     }
 
-    private int nextRef(int ref) {
-        return ref + 1;
+    private String nextRef(String ref) {
+        return ref + "_" + Math.abs(bag.nextInt());
     }
-
-    /** Global Attributes for this test suite **/
-    private CourseCRUDProxy proxy = new CourseCRUDProxy();
-    private Course typical;
-    
-    public CourseCRUDProxyTest() {
-        this.typical = new Course();
-        this.typical.setKind("starter");
-        this.typical.setName("salad");
-    }
-
 
     /** Test Implementation **/
 
@@ -56,7 +58,7 @@ public class CourseCRUDProxyTest {
     @Test(expected=RuntimeException.class)
     public void testReCreation()  throws Exception {
         Course c = this.quasiClone(typical);
-        int ref = proxy.create(c);
+        String ref = proxy.create(c);
         Course cPrime = proxy.read(ref);
         proxy.create(cPrime);
     }
@@ -64,9 +66,8 @@ public class CourseCRUDProxyTest {
     @Test
     public void testEffectiveCreation() throws Exception {
         Course c = this.quasiClone(typical);
-        int ref = proxy.create(c);
+        String ref = proxy.create(c);
         Course cPrime = proxy.read(ref);
-        c.setId(cPrime.getId());
         assertTrue("Creation is not effective !", isEqualsTo(c, cPrime));
     }
 
@@ -78,7 +79,7 @@ public class CourseCRUDProxyTest {
     @Test(expected=RuntimeException.class)
     public void testUnExistingRefRead() throws Exception {
         Course c = this.quasiClone(typical);
-        int r = proxy.create(c);
+        String r = proxy.create(c);
         proxy.read(nextRef(r));
     }
 
@@ -88,15 +89,16 @@ public class CourseCRUDProxyTest {
     }
 
     @Test(expected=RuntimeException.class)
-    public void testTransientUpdate() throws Exception {
+    public void testUnreferencedUpdate() throws Exception {
         Course c = this.quasiClone(typical);
+        c.setName(null);
         this.proxy.update(c);
     }
 
     @Test
     public void testEffectiveUpdate() throws Exception {
         Course original = this.quasiClone(typical);
-        int r = proxy.create(original);
+        String r = proxy.create(original);
         Course c1 = proxy.read(r);
         c1.setKind("main");
         proxy.update(c1);
@@ -110,18 +112,18 @@ public class CourseCRUDProxyTest {
     }
 
     @Test(expected=RuntimeException.class)
-    public void testTransientDelete() throws Exception {
+    public void testUnreferencedtDelete() throws Exception {
         Course c = this.quasiClone(typical);
+        c.setName(null);
         this.proxy.delete(c);
     }
 
     @Test(expected=RuntimeException.class)
     public void testEffectiveDelete() throws Exception {
         Course c = this.quasiClone(typical);
-        int r = proxy.create(c);
+        String r = proxy.create(c);
         Course cPrime = proxy.read(r);
         proxy.delete(cPrime);
         proxy.read(r);
     }
-
 }

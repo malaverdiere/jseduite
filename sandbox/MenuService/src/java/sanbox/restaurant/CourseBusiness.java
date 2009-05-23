@@ -7,8 +7,8 @@ import fr.unice.i3s.modalis.jSeduite.libraries.mysql.*;
 @WebService()
 public class CourseBusiness {
 
-    @WebMethod(operationName="getAvailableKinds")
-    public String[] getAvailableKinds() {
+    @WebMethod(operationName="getAvailableCourseKinds")
+    public String[] getAvailableCourseKinds() {
         DataAccessLayer dal = new DataAccessLayer();
         try {
             String sql = "SELECT DISTINCT `kind` FROM `course`;";

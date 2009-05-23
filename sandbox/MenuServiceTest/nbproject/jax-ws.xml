@@ -74,6 +74,78 @@
         </wsimport-option>
       </wsimport-options>
     </client>
+    <client name="MenuCRUDService">
+      <wsdl-url>http://localhost:8080/jSeduite/sandbox/MenuService/MenuCRUDService?WSDL</wsdl-url>
+      <local-wsdl-file>localhost_8080/jSeduite/sandbox/MenuService/MenuCRUDService.wsdl</local-wsdl-file>
+      <package-name>sanbox.restaurant</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:8080/jSeduite/sandbox/MenuService/MenuCRUDService?WSDL</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="MenuFinderService">
+      <wsdl-url>http://localhost:8080/jSeduite/sandbox/MenuService/MenuFinderService?WSDL</wsdl-url>
+      <local-wsdl-file>localhost_8080/jSeduite/sandbox/MenuService/MenuFinderService.wsdl</local-wsdl-file>
+      <package-name>sanbox.restaurant</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:8080/jSeduite/sandbox/MenuService/MenuFinderService?WSDL</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="MenuBusinessService">
+      <wsdl-url>http://localhost:8080/jSeduite/sandbox/MenuService/MenuBusinessService?WSDL</wsdl-url>
+      <local-wsdl-file>localhost_8080/jSeduite/sandbox/MenuService/MenuBusinessService.wsdl</local-wsdl-file>
+      <package-name>sanbox.restaurant</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:8080/jSeduite/sandbox/MenuService/MenuBusinessService?WSDL</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
   </clients>
   <jsr109>false</jsr109>
 </jax-ws>

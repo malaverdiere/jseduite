@@ -7,7 +7,7 @@ import java.util.ArrayList;
 @WebService()
 public class CourseFinder {
 
-    public Course[] findByKind(String kind) {
+    public Course[] findCoursesByKind(String kind) {
         DataAccessLayer dal = new DataAccessLayer();
         try {
             String sql = "SELECT * FROM `course` WHERE `kind`= '"+kind+"';";
@@ -23,17 +23,14 @@ public class CourseFinder {
         }
     }
 
-    public Course[] findByName(String name) {
+    public Course findCourseByName(String name) {
         DataAccessLayer dal = new DataAccessLayer();
         try {
             String sql = "SELECT * FROM `course` WHERE `name`= '"+name+"';";
             DalResultSet rSet = dal.extractDataSet(sql);
-            ArrayList<Course> result = new ArrayList<Course>(rSet.size());
-            for(int i = 0; i < rSet.size(); i++){
-                result.add(new Course(rSet));
-                rSet.next();
-            }
-            return result.toArray(new Course[result.size()]);
+            if (rSet.size() == 0)
+                return null;
+            return new Course(rSet);
         } catch (Exception e) {
             throw new RuntimeException("SQL Exception: " + e.getMessage());
         }
