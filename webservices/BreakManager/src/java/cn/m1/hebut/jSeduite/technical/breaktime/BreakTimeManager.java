@@ -145,7 +145,7 @@ public class BreakTimeManager {
         DataAccessLayer dal = new DataAccessLayer();
         String sql ="select * from break_time where break_id in" +
                 "(select break_id from break_time_promos_lnk where promo_id in" +
-                "(select promos_id from promos where name='"+promo+"'));";
+                "(select id from promos where name='"+promo+"'));";
         try {
             ArrayList<BreakTime> result = new ArrayList<BreakTime>();
             DalResultSet rset = dal.extractDataSet(sql);
@@ -183,7 +183,7 @@ public class BreakTimeManager {
                "`break_time`, `promos`,`break_time_promos_lnk`";
               sql += "WHERE `break_time`.`break_id` = '"+breakId+"'";
               sql+="AND `break_time_promos_lnk`.`break_id`=`break_time`.`break_id` " +
-                "AND `promos`.`promos_id`=`break_time_promos_lnk`.`promo_id`;";
+                "AND `promos`.`id`=`break_time_promos_lnk`.`promo_id`;";
               DalResultSet rset2 = dal.extractDataSet(sql);
               result.add(new BreakTime(rset2));
               rset.next();

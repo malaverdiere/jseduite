@@ -30,7 +30,6 @@ public class BreakManagerAdmin {
      * @throws BreakTimeAdminException
      */
     @WebMethod(operationName = "create")
-    @SuppressWarnings("empty-statement")
     public void create(@WebParam(name = "promo")
     List<String> promo, @WebParam(name = "start")
     String start, @WebParam(name = "end")
@@ -59,9 +58,9 @@ public class BreakManagerAdmin {
         if(!(promo==null))//if the promo is null not insert into lnk table
         {
         for(int i=0;i<promo.size();i++){
-        sql="select promos_id from promos where name='"+promo.get(i)+"';";
+        sql="select id from promos where name='"+promo.get(i)+"';";
         rset= dal.extractDataSet(sql);
-        int promoid=Integer.parseInt(rset.getValue("promos_id"));
+        int promoid=Integer.parseInt(rset.getValue("id"));
         String sqlForLnk="INSERT INTO `break_time_promos_lnk` VALUES('"+promoid+
                  "','"+breakCount+"');";
           dal.executeVoid(sqlForLnk);
@@ -124,9 +123,9 @@ public class BreakManagerAdmin {
       if(promo!=null)//if the promo is null not insert into lnk table
       {
           for(int i=0;i<promo.size();i++){
-          sql="select promos_id from promos where name='"+promo.get(i)+"';";
+          sql="select id from promos where name='"+promo.get(i)+"';";
           DalResultSet rset= dal.extractDataSet(sql);
-          int promoid=Integer.parseInt(rset.getValue("promos_id"));
+          int promoid=Integer.parseInt(rset.getValue("id"));
            sql="insert into break_time_promos_lnk values('"+promoid+"','"+
                         breakId+"');";
            dal.executeVoid(sql);}
@@ -201,7 +200,7 @@ public class BreakManagerAdmin {
         if(rset.size()==0) return null;
         for(int i=0;i<rset.size();i++){
             int promoid=Integer.parseInt(rset.getValue("promo_id"));
-            sql="select `name` from `promos` where promos_id='"+promoid+"';";
+            sql="select `name` from `promos` where id='"+promoid+"';";
             DalResultSet rset2=dal.extractDataSet(sql);
             promolist.add(rset2.getValue("name"));
             rset.next();
