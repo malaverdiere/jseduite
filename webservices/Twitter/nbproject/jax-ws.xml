@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
+  <services>
+    <service name="TwitterWrapperAdmin">
+      <implementation-class>cn.m1.hebut.jSeduite.technical.twitter.admin.TwitterWrapperAdmin</implementation-class>
+    </service>
+    <service name="TwitterWrapper">
+      <implementation-class>cn.m1.hebut.jSeduite.technical.twitter.TwitterWrapper</implementation-class>
+    </service>
+  </services>
+  <clients/>
+</jax-ws>
