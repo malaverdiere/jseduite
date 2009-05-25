@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
-    <service name="CourseCRUD">
-      <implementation-class>sanbox.restaurant.CourseCRUD</implementation-class>
-    </service>
     <service name="CourseFinder">
-      <implementation-class>sanbox.restaurant.CourseFinder</implementation-class>
-    </service>
-    <service name="CourseBusiness">
-      <implementation-class>sanbox.restaurant.CourseBusiness</implementation-class>
-    </service>
-    <service name="MenuCRUD">
-      <implementation-class>sanbox.restaurant.MenuCRUD</implementation-class>
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.restaurant.CourseFinder</implementation-class>
     </service>
     <service name="MenuFinder">
-      <implementation-class>sanbox.restaurant.MenuFinder</implementation-class>
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.restaurant.MenuFinder</implementation-class>
+    </service>
+    <service name="CourseCRUD">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.restaurant.CourseCRUD</implementation-class>
     </service>
     <service name="MenuBusiness">
-      <implementation-class>sanbox.restaurant.MenuBusiness</implementation-class>
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.restaurant.MenuBusiness</implementation-class>
+    </service>
+    <service name="CourseBusiness">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.restaurant.CourseBusiness</implementation-class>
+    </service>
+    <service name="MenuCRUD">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.restaurant.MenuCRUD</implementation-class>
     </service>
   </services>
   <clients/>

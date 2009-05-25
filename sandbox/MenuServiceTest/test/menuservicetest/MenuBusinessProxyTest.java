@@ -1,5 +1,6 @@
 package menuservicetest;
 
+import helpers.*;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Random;
@@ -9,8 +10,8 @@ import org.junit.BeforeClass;
 import org.junit.AfterClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import sanbox.restaurant.Course;
-import sanbox.restaurant.Menu;
+import fr.unice.i3s.modalis.jseduite.technical.restaurant.Menu;
+import fr.unice.i3s.modalis.jseduite.technical.restaurant.Course;
 
 
 public class MenuBusinessProxyTest {
@@ -19,23 +20,12 @@ public class MenuBusinessProxyTest {
     private static CourseCRUDProxy courseCrud = new CourseCRUDProxy();
     private static MenuBusinessProxy proxy = new MenuBusinessProxy();
     private static Random bag = new Random();
-    
-    private static XMLGregorianCalendar toXmlCalendar(Date d) {
-        try {
-            GregorianCalendar calendar = new GregorianCalendar();
-            calendar.setTime(d);
-            DatatypeFactory factory = DatatypeFactory.newInstance();
-            return factory.newXMLGregorianCalendar(calendar);
-         } catch(Exception e) {
-             throw new RuntimeException(e.getMessage());
-         }
-    }
 
     private static Menu m;
     @BeforeClass
     public static void fill() throws Exception {
         m = new Menu();
-        m.setDate(toXmlCalendar(new Date()));
+        m.setDate(MenuHelper.toXmlCalendar(new Date()));
         Course c = new Course();
         c.setKind("today_starter_" + Math.abs(bag.nextInt()));
         c.setName("today_name_" + Math.abs(bag.nextInt()));
@@ -52,7 +42,7 @@ public class MenuBusinessProxyTest {
     @Test
     public void testGetTodayMenu() throws Exception {
         Menu today = proxy.getTodayMenu();
-        assertTrue("must be equals !",MenuCRUDProxyTest.isEqualsTo(m, today));
+        assertTrue("must be equals !",MenuHelper.isEqualsTo(m, today));
     }
 
 }

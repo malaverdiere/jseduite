@@ -1,7 +1,7 @@
 package menuservicetest;
 
 import org.junit.Test;
-import sanbox.restaurant.Course;
+import fr.unice.i3s.modalis.jseduite.technical.restaurant.Course;
 import static org.junit.Assert.*;
 import java.util.Random;
 

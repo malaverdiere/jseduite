@@ -1,14 +1,13 @@
 package menuservicetest;
 
+import helpers.*;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.Random;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import sanbox.restaurant.Menu;
-import sanbox.restaurant.Course;
+import fr.unice.i3s.modalis.jseduite.technical.restaurant.Menu;
+import fr.unice.i3s.modalis.jseduite.technical.restaurant.Course;
+
 
 public class MenuFinderProxyTest {
 
@@ -27,17 +26,6 @@ public class MenuFinderProxyTest {
         Date d = new Date(bag.nextLong());
         d.setYear(2000 + bag.nextInt(200));
         return d;
-    }
-
-    private XMLGregorianCalendar toXmlCalendar(Date d) {
-        try {
-            GregorianCalendar calendar = new GregorianCalendar();
-            calendar.setTime(d);
-            DatatypeFactory factory = DatatypeFactory.newInstance();
-            return factory.newXMLGregorianCalendar(calendar);
-         } catch(Exception e) {
-             throw new RuntimeException(e.getMessage());
-         }
     }
 
     /** Test implementation **/
@@ -61,7 +49,7 @@ public class MenuFinderProxyTest {
        c1.setKind("findByDate_" + Math.abs(bag.nextInt()));
        c1.setName("findByDate_name_" + Math.abs(bag.nextInt()));
        courseCrud.create(c1);
-       m.setDate(toXmlCalendar(d));
+       m.setDate(MenuHelper.toXmlCalendar(d));
        m.getCourses().add(c1);
        menuCrud.create(m);
 

@@ -1,5 +1,5 @@
 package menuservicetest;
-import sanbox.restaurant.*;
+import fr.unice.i3s.modalis.jseduite.technical.restaurant.*;
 import java.util.List;
 
 public class CourseBusinessProxy {

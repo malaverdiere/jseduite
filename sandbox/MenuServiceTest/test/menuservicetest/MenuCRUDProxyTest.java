@@ -1,14 +1,14 @@
 package menuservicetest;
 
-import java.util.Calendar;
+import helpers.*;
 import java.util.Random;
 import java.util.Date;
-import java.util.GregorianCalendar;
-import javax.xml.datatype.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import sanbox.restaurant.Menu;
-import sanbox.restaurant.Course;
+import fr.unice.i3s.modalis.jseduite.technical.restaurant.Menu;
+import fr.unice.i3s.modalis.jseduite.technical.restaurant.Course;
+import fr.unice.i3s.modalis.jseduite.technical.restaurant.RestaurantException_Exception;
+
 
 public class MenuCRUDProxyTest {
 
@@ -50,58 +50,10 @@ public class MenuCRUDProxyTest {
         d.setYear(2000 + bag.nextInt(200));
         return d;
     }
-
-    private XMLGregorianCalendar toXmlCalendar(Date d) {
-        try {
-            GregorianCalendar calendar = new GregorianCalendar();
-            calendar.setTime(d);
-            DatatypeFactory factory = DatatypeFactory.newInstance();
-            return factory.newXMLGregorianCalendar(calendar);
-         } catch(Exception e) {
-             throw new RuntimeException(e.getMessage());
-         }
-    }
-
-    private static Date toDate(XMLGregorianCalendar xml) {
-        return xml.toGregorianCalendar().getTime();
-    }
-
-
-    private static boolean dateEquality(Date d1, Date d2) {
-        GregorianCalendar c1 = new GregorianCalendar();
-        c1.setTime(d1);
-        GregorianCalendar c2 = new GregorianCalendar();
-        c2.setTime(d2);
-        boolean years = c1.get(Calendar.YEAR) == c2.get(Calendar.YEAR);
-        boolean months = c1.get(Calendar.MONTH) == c2.get(Calendar.MONTH);
-        boolean days = c1.get(Calendar.DAY_OF_MONTH) == c2.get(Calendar.DAY_OF_MONTH);
-        return years && months && days;
-    }
-
-    public static boolean isEqualsTo(Menu m1, Menu m2) {
-
-        if (! dateEquality(toDate(m1.getDate()),toDate(m2.getDate())))
-            return false;
-        if (m1.getCourses().size() != m2.getCourses().size())
-            return false;
-        Course[] c1 = m1.getCourses().toArray(new Course[m1.getCourses().size()]);
-        Course[] c2 = m2.getCourses().toArray(new Course[m2.getCourses().size()]);
-        for(int i = 0; i < c1.length; i++) { // Order is undefined
-            boolean ok = false;
-            for(int j = 0; j < c2.length; j++) {
-                if (CourseCRUDProxyTest.courseEquality(c1[i], c2[j])) {
-                    ok = true; break;
-                }
-            }
-            if (!ok)
-                return false;
-        }
-        return true;
-    }
-
+    
     private Menu quasiClone(Menu m) {
         Menu mPrime = new Menu();
-        mPrime.setDate(toXmlCalendar(getRandomDate()));
+        mPrime.setDate(MenuHelper.toXmlCalendar(getRandomDate()));
         for(Course c: m.getCourses())
             mPrime.getCourses().add(c);
         return mPrime;
@@ -109,19 +61,19 @@ public class MenuCRUDProxyTest {
 
     /** Test Implementation **/
 
-    @Test(expected=RuntimeException.class)
+    @Test(expected=RestaurantException_Exception.class)
     public void testNullCreation() throws Exception {
         proxy.create(null);
     }
 
-    @Test(expected=RuntimeException.class)
+    @Test(expected=RestaurantException_Exception.class)
     public void testNullList()  throws Exception {
         Menu m = new Menu();
-        m.setDate(toXmlCalendar(getRandomDate()));
+        m.setDate(MenuHelper.toXmlCalendar(getRandomDate()));
         proxy.create(m); 
     }
 
-    @Test(expected=RuntimeException.class)
+    @Test(expected=RestaurantException_Exception.class)
     public void testReCreation()  throws Exception {
         Menu m = this.quasiClone(typical);
         Date ref = proxy.create(m);
@@ -134,27 +86,27 @@ public class MenuCRUDProxyTest {
         Menu m = this.quasiClone(typical);
         Date ref = proxy.create(m);
         Menu mPrime = proxy.read(ref);
-        assertTrue("Creation is not effective !", isEqualsTo(m, mPrime));
+        assertTrue("Creation is not effective !", MenuHelper.isEqualsTo(m, mPrime));
     }
 
-    @Test(expected=RuntimeException.class)
+    @Test(expected=RestaurantException_Exception.class)
     public void testNullRead() throws Exception {
         this.proxy.read(null);
     }
 
-    @Test(expected=RuntimeException.class)
+    @Test(expected=RestaurantException_Exception.class)
     public void testUnExistingRefRead() throws Exception {
         Menu m = this.quasiClone(typical);
         Date r = proxy.create(m);
         proxy.read(getRandomDate()); // should me more deterministic ...
     }
 
-    @Test(expected=RuntimeException.class)
+    @Test(expected=RestaurantException_Exception.class)
     public void testNullUpdate() throws Exception {
         this.proxy.update(null);
     }
 
-    @Test(expected=RuntimeException.class)
+    @Test(expected=RestaurantException_Exception.class)
     public void testUnreferencedUpdate() throws Exception {
         Menu c = this.quasiClone(typical);
         c.setDate(null);
@@ -176,22 +128,22 @@ public class MenuCRUDProxyTest {
         m.getCourses().add(c);
         proxy.update(m);
         Menu mPrime = proxy.read(r);
-        assertTrue("Update is not effective !", isEqualsTo(m, mPrime));
+        assertTrue("Update is not effective !", MenuHelper.isEqualsTo(m, mPrime));
     }
 
-    @Test(expected=RuntimeException.class)
+    @Test(expected=RestaurantException_Exception.class)
     public void testNullDelete() throws Exception {
         this.proxy.delete(null);
     }
 
-    @Test(expected=RuntimeException.class)
-    public void testUnreferencedtDelete() throws Exception {
+    @Test(expected=RestaurantException_Exception.class)
+    public void testUnreferencedDelete() throws Exception {
         Menu m = this.quasiClone(typical);
         m.setDate(null);
         this.proxy.delete(m);
     }
 
-    @Test(expected=RuntimeException.class)
+    @Test(expected=RestaurantException_Exception.class)
     public void testEffectiveDelete() throws Exception {
         Menu m = this.quasiClone(typical);
         Date r = proxy.create(m);

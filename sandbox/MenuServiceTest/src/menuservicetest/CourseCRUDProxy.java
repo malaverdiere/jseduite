@@ -1,5 +1,5 @@
 package menuservicetest;
-import sanbox.restaurant.*;
+import fr.unice.i3s.modalis.jseduite.technical.restaurant.*;
 
 
 public class CourseCRUDProxy {
@@ -11,21 +11,21 @@ public class CourseCRUDProxy {
         return result;
     }
 
-    public Course read(String ref) {
+    public Course read(String ref) throws Exception {
         CourseCRUDService service = new CourseCRUDService();
         CourseCRUD port = service.getCourseCRUDPort();
         return port.readCourse(ref);
     }
 
    
-    public void update(Course c) {
+    public void update(Course c) throws Exception {
         CourseCRUDService service = new CourseCRUDService();
         CourseCRUD port = service.getCourseCRUDPort();
         port.updateCourse(c);
     }
 
     
-    public void delete(Course c) {
+    public void delete(Course c) throws Exception {
         CourseCRUDService service = new CourseCRUDService();
         CourseCRUD port = service.getCourseCRUDPort();
         port.deleteCourse(c);

@@ -5,7 +5,7 @@
     <client name="CourseCRUDService">
       <wsdl-url>http://localhost:8080/jSeduite/sandbox/MenuService/CourseCRUDService?WSDL</wsdl-url>
       <local-wsdl-file>localhost_8080/jSeduite/sandbox/MenuService/CourseCRUDService.wsdl</local-wsdl-file>
-      <package-name>sanbox.restaurant</package-name>
+      <package-name>fr.unice.i3s.modalis.jseduite.technical.restaurant</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
         <wsimport-option>
@@ -29,7 +29,7 @@
     <client name="CourseBusinessService">
       <wsdl-url>http://localhost:8080/jSeduite/sandbox/MenuService/CourseBusinessService?WSDL</wsdl-url>
       <local-wsdl-file>localhost_8080/jSeduite/sandbox/MenuService/CourseBusinessService.wsdl</local-wsdl-file>
-      <package-name>sanbox.restaurant</package-name>
+      <package-name>fr.unice.i3s.modalis.jseduite.technical.restaurant</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
         <wsimport-option>
@@ -53,7 +53,7 @@
     <client name="CourseFinderService">
       <wsdl-url>http://localhost:8080/jSeduite/sandbox/MenuService/CourseFinderService?WSDL</wsdl-url>
       <local-wsdl-file>localhost_8080/jSeduite/sandbox/MenuService/CourseFinderService.wsdl</local-wsdl-file>
-      <package-name>sanbox.restaurant</package-name>
+      <package-name>fr.unice.i3s.modalis.jseduite.technical.restaurant</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
         <wsimport-option>
@@ -77,7 +77,7 @@
     <client name="MenuCRUDService">
       <wsdl-url>http://localhost:8080/jSeduite/sandbox/MenuService/MenuCRUDService?WSDL</wsdl-url>
       <local-wsdl-file>localhost_8080/jSeduite/sandbox/MenuService/MenuCRUDService.wsdl</local-wsdl-file>
-      <package-name>sanbox.restaurant</package-name>
+      <package-name>fr.unice.i3s.modalis.jseduite.technical.restaurant</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
         <wsimport-option>
@@ -101,7 +101,7 @@
     <client name="MenuFinderService">
       <wsdl-url>http://localhost:8080/jSeduite/sandbox/MenuService/MenuFinderService?WSDL</wsdl-url>
       <local-wsdl-file>localhost_8080/jSeduite/sandbox/MenuService/MenuFinderService.wsdl</local-wsdl-file>
-      <package-name>sanbox.restaurant</package-name>
+      <package-name>fr.unice.i3s.modalis.jseduite.technical.restaurant</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
         <wsimport-option>
@@ -125,7 +125,7 @@
     <client name="MenuBusinessService">
       <wsdl-url>http://localhost:8080/jSeduite/sandbox/MenuService/MenuBusinessService?WSDL</wsdl-url>
       <local-wsdl-file>localhost_8080/jSeduite/sandbox/MenuService/MenuBusinessService.wsdl</local-wsdl-file>
-      <package-name>sanbox.restaurant</package-name>
+      <package-name>fr.unice.i3s.modalis.jseduite.technical.restaurant</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
         <wsimport-option>

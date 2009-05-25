@@ -2,7 +2,8 @@ package menuservicetest;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.xml.datatype.*;
-import sanbox.restaurant.*;
+import fr.unice.i3s.modalis.jseduite.technical.restaurant.*;
+import helpers.MenuHelper;
 
 public class MenuCRUDProxy {
 
@@ -16,10 +17,7 @@ public class MenuCRUDProxy {
     public Menu read(Date d) throws Exception {
         MenuCRUDService service = new MenuCRUDService();
         MenuCRUD port = service.getMenuCRUDPort();
-        GregorianCalendar calendar = new GregorianCalendar();
-        calendar.setTime(d);
-        DatatypeFactory factory = DatatypeFactory.newInstance();
-        return port.readMenu(factory.newXMLGregorianCalendar(calendar));
+        return port.readMenu(MenuHelper.toXmlCalendar(d));
     }
 
     public void update(Menu m) throws Exception {
