@@ -2,16 +2,6 @@
     /* Loads the NUSOAP library */
 	require_once('nusoap/nusoap.php');  
 
-    /**
-	 * Creates an instance of the SOAP client
-	 *
-     * @param	string	$_wsdl	the WSDL url
-	 * @return	instance of SOAP client
-	 * @access	public
-	 */
-    function initSoapClient($_wsdl) {
-        return new soapclient($_wsdl, true);
-    }
 
     /**
 	 * Calls the given method on the given SOAP client with the given parameters
@@ -62,11 +52,11 @@
      * @access	public
      */
     function getAllCoursesReferences() {
-        $client = initSoapClient("http://localhost:8080/jSeduite/sandbox/MenuService/CourseFinderService?wsdl");
+        $client = new soapclient('http://localhost:8080/jSeduite/sandbox/MenuService/CourseFinderService?wsdl');
         $method = "getAllCoursesReferences";
-        $params = array('kind' => 'name');
+        $params = array();
         $namespace = "http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/";
-        return simpleCall($client, $method, $params, $namespace);
+        return callWebService($client, $method, $params, $namespace);
     }
 
 
@@ -78,11 +68,26 @@
      * @access	public
      */
     function findCourseByName($_name) {
-        $client = initSoapClient("http://localhost:8080/jSeduite/sandbox/MenuService/CourseFinderService?wsdl");
+        $client = new soapclient('http://localhost:8080/jSeduite/sandbox/MenuService/CourseFinderService?wsdl');
         $method = "findCourseByName";
         $params = array('name' => $_name);
         $namespace = "http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/";
-        return simpleCall($client, $method, $params, $namespace);
+        return callWebService($client, $method, $params, $namespace);
+    }
+
+    /**
+     * Deletes the course matching the given name
+     *
+     * @param   string  $_name  the name of the course to delete
+     * @access	public
+     */
+    function deleteCourse($_name) {
+        $client = new soapclient('http://localhost:8080/jSeduite/sandbox/MenuService/CourseCRUDService?wsdl');
+        $method = "deleteCourse";
+        $params = findCourseByName($_name);
+        $params = array('c' => $params);
+        $namespace = "http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/";
+        return callWebService($client, $method, $params, $namespace);
     }
 
 
@@ -93,7 +98,6 @@
      */
     function displayAllCourses() {
         $references = getAllCoursesReferences();
-        $references = $references['return'];
 
         echo "<table>";
         
@@ -101,7 +105,6 @@
         for($i=0;$i<sizeof($references);$i++)
         {
             $course = findCourseByName($references[$i]);
-            $course = $course['return'];
             echo "<tr>";
             echo "<td>".$course['kind']."</td>";
             echo "<td>".$course['name']."</td>";
@@ -113,7 +116,7 @@
 
 
     /* Initialisations and calls */
-/*    $result = getAllCoursesReferences();
+    /*$result = deleteCourse("xhxhhc");
     //$result = findCourseByName("main_name_1671897227");
     echo "<pre>";
     print_r($result);

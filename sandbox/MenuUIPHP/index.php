@@ -5,10 +5,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
+        <title>PHP User Interface</title>
     </head>
     <body>
         <?php
+            displayAllCourses();
+            deleteCourse('desert_name_166929727');
+            echo "----------------------------<br/>";
             displayAllCourses();
         ?>
     </body>
