@@ -38,6 +38,11 @@ public class Period {
     private Date begin;
     private Date end;
 
+    /**
+     * Overloaded Constructor
+     *
+     * @param rset  should contain id, name, begin date and end date
+     */
     public Period(DalResultSet rset)
             throws Exception
     {

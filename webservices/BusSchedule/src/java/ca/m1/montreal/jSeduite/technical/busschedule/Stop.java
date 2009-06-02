@@ -37,6 +37,11 @@ public class Stop {
     private String direction;
 
 
+    /**
+     * Overloaded Constructor
+     *
+     * @param rset  should contain id, name and direction
+     */
     public Stop(DalResultSet rset)
             throws Exception
     {

@@ -51,7 +51,7 @@ public class Line {
     /**
      * Constructor using the Data Access Layer object
      *
-     * @param rset
+     * @param rset  should contain id, name and bus_steps
      */
     public Line(DalResultSet rset)
             throws Exception

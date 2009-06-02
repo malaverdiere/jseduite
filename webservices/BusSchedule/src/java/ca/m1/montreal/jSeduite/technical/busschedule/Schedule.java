@@ -39,18 +39,27 @@ public class Schedule {
 
     private int id;
     private Line schLine;
+    private Stop schStop;
     private Date schTime;
 
-
-    public Schedule(DalResultSet rset, Line pLine)
+    /**
+     * Overloaded Constructor
+     *
+     * @param rset  should contain id_schedule and horary
+     * @param pLine should be the line associated to the schedule
+     */
+    public Schedule(DalResultSet rset)
             throws Exception
     {
         this.id = Integer.parseInt(rset.getValue("id_schedule"));
-        this.schLine = pLine;
         SimpleDateFormat format = new SimpleDateFormat("H:m:s");
         this.schTime = format.parse(rset.getValue("horary"));
     }
 
+
+    /**
+     * Default Constructor
+     */
     public Schedule(){}
 
 
@@ -96,13 +105,19 @@ public class Schedule {
         this.schTime = schTime;
     }
 
-
-
-    public enum Day {
-    MONDAY, TUESDAY, WEDNESDAY,
-    THURSDAY, FRIDAY, SATURDAY, SUNDAY
+    /**
+     * @return the schStop
+     */
+    public Stop getSchStop() {
+        return schStop;
     }
 
+    /**
+     * @param schStop the schStop to set
+     */
+    public void setSchStop(Stop schStop) {
+        this.schStop = schStop;
+    }
     
 }
 
