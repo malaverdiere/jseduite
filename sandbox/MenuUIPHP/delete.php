@@ -24,8 +24,19 @@
     <table>
         <tr>
             <td><p>Name</p></td>
-            <td><input name="dName" type="text" size="30" /></td>
+            <td>
+                <select name="dName">
+                    <?php
+                        $names = $finderProxy->getAllCoursesReferences();
+
+                        for($i=0;$i<sizeof($names);$i++)
+                        {
+                            echo "<option>".$names[$i]."</option>";
+                        }
+                    ?>
+                </select>
+            </td>
         </tr>
     </table>
-    <input name="Submit" type="submit" value="Delete">
+    <input name="Submit" type="submit" value="Delete" />
 </form>

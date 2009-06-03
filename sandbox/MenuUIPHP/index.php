@@ -2,10 +2,11 @@
     /* Starts the session */
 	session_start();
 
-    require_once('jseduite_proxies.php');
+    require_once('proxy/courses_proxies.php');
 
     /* Proxies initialisation */
     $finderProxy = new CourseFinderProxy ();
+    $businessProxy = new CourseBusinessProxy ();
     $crudProxy = new CourseCRUDProxy();
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -44,7 +45,9 @@
                 $file=$_GET['page'];
 
                 if ( (isset($pageOK[$file])) )
+                {
                     include($pageOK[$file]);
+                }
             }
         ?>
     </body>

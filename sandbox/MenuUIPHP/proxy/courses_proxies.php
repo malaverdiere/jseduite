@@ -97,6 +97,30 @@
         }
     }
 
+        /**
+     * A course finder proxy object
+     *
+     */
+    class CourseBusinessProxy extends Proxy
+    {
+        // Default constructor
+        public function __construct () {
+            $this->client = new soapclient('http://localhost:8080/jSeduite/sandbox/MenuService/CourseBusinessService?wsdl');
+            $this->namespace = "http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/";
+        }
+
+        /**
+         * Gets all the available kinds
+         *
+         * @return	a list of the available course kinds
+         * @access	public
+         */
+        public function getAvailableCourseKinds ()
+        {
+            return $this->callWebService("getAvailableCourseKinds", array());
+        }
+    }
+
     /**
      * A course CRUD proxy object
      *

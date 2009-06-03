@@ -26,12 +26,23 @@
     <table>
         <tr>
             <td><p>Kind</p></td>
-            <td><input name="cKind" type="text" size="30" /></td>
+            <td>
+                <select name="cKind">
+                    <?php
+                        $kinds = $businessProxy->getAvailableCourseKinds();
+                        
+                        for($i=0;$i<sizeof($kinds);$i++)
+                        {
+                            echo "<option>".$kinds[$i]."</option>";
+                        }
+                    ?>
+                </select>
+            </td>
         </tr>
         <tr>
             <td><p>Name</p></td>
             <td><input name="cName" type="text" size="30" /></td>
         </tr>
     </table>
-    <input name="Submit" type="submit" value="Create">
+    <input name="Submit" type="submit" value="Create" />
 </form>

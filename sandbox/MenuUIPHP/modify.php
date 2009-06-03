@@ -23,14 +23,30 @@
     <table>
         <tr>
             <td><p>Kind</p></td>
-            <td><input name="uKind" type="text" size="30" value="<?php echo $kind; ?>" /></td>
+            <td>
+                <select name="uKind">
+                    <?php
+                        $kinds = $businessProxy->getAvailableCourseKinds();
+
+                        for($i=0;$i<sizeof($kinds);$i++)
+                        {
+                            echo "<option";
+                            if($kinds[$i] == $kind)
+                            {
+                                echo " selected";
+                            }
+                            echo ">".$kinds[$i]."</option>";
+                        }
+                    ?>
+                </select>
+            </td>
         </tr>
         <tr>
             <td><p>Name</p></td>
             <td><input name="uName" type="text" size="30" value="<?php echo $name; ?>" readonly="true"/></td>
         </tr>
     </table>
-    <input name="Submit" type="submit" value="Update">
+    <input name="Submit" type="submit" value="Update" />
 </form>
         <?php
 	}
@@ -62,10 +78,21 @@
     <table>
         <tr>
             <td><p>Name</p></td>
-            <td><input name="rName" type="text" size="30" /></td>
+            <td>
+                <select name="rName">
+                    <?php
+                        $names = $finderProxy->getAllCoursesReferences();
+
+                        for($i=0;$i<sizeof($names);$i++)
+                        {
+                            echo "<option>".$names[$i]."</option>";
+                        }
+                    ?>
+                </select>
+            </td>
         </tr>
     </table>
-    <input name="Submit" type="submit" value="Read">
+    <input name="Submit" type="submit" value="Read" />
 </form>
         <?php 
 
