@@ -74,22 +74,68 @@ public class BusSchedule {
     }
 
     /**
-     * <p>Get all Schedule associated to a stop.</p>
+     * <p>Get all Schedule associated to a stop at time = now.</p>
      * To specify a direction, use : <code>getSchedules</code>
      *
-     * @param idStop    id of the stop for which you need to retrieve schedules
-     * @return          The schedules associated to the stop.
+     * @param idStop    id of the stop for which you need to retrieve schedules.
+     * @param idLine    Line of the bus which you need to retrieve schedules.
+     * @param time      The Time now.
+     * @return          The schedules associated to the stop for this line at this stop now.
+     *
+     * @TODO : Vérifier si Fyren a pas fait de la marde parce que franchement il a pas tout pigé le fyfy ^^
      *
      * @exception BusScheduleException
      *            If the idStop doesn't exist.
      *
      */
     @WebMethod(operationName = "getSchedulesForStop")
-    public Schedule[] getSchedulesForStop(@WebParam(name = "stop") int idStop)
-        throws BusScheduleException {
+    public Schedule[] getSchedulesForStop(@WebParam(name = "stop") int idStop,
+            @WebParam(name = "line") int idLine,
+            @WebParam(name = "time") Date time)
+        throws BusScheduleException 
+    {
+        DataAccessLayer dal = new DataAccessLayer();
 
-        //TODO Write this operation
-        return null;
+        Date date = new Date();
+
+
+        String sql =
+                "SELECT `bus_schedules`.*" +
+                "FROM `bus_schedules`" +
+                "INNER JOIN `bus_period_lnk`" +
+                "ON `bus_period_lnk`.`schedule_id` = `bus_schedules`.`id`" +
+                "WHERE `bus_period_lnk`.`day` = DATE_FORMAT('"+date+"', '%W')" +
+                "AND `bus_period_lnk`.`period_id` =" +
+                "   (SELECT `bus_periods`.`id` " +
+                "   FROM `bus_periods` " +
+                "   WHERE `bus_periods`.`end` >= '"+date+"'" +
+                "   AND `bus_periods`.`begin` <= '"+date+"')" +
+                "AND `bus_schedules`.`line_steps_id` =" +
+                "   (SELECT `bus_line_steps_lnk`.`id`" +
+                "   FROM `bus_line_steps_lnk`" +
+                "   WHERE `bus_line_steps_lnk`.`line_id` = '"+String.valueOf(idLine)+"'" +
+                "   AND `bus_line_steps_lnk`.`stop_id` = '"+String.valueOf(idStop)+"'" +
+                "   )" +
+                "AND `bus_schedules`.`horary` > DATE_FORMAT('"+date+"', '%H:%i:%S') " +
+                "LIMIT 0,5";
+        try{
+            DalResultSet drs = dal.extractDataSet(sql);
+
+            if(drs.size() == 0)
+                throw new BusScheduleException("No schedules available.");
+
+
+            Schedule[] schedules = new Schedule[drs.size()];
+
+            for (int i = 0; i < drs.size(); i++) {
+                schedules[i] = new Schedule(drs);
+                drs.next();
+            }
+
+            return schedules;
+        }catch(Exception e){
+            throw new BusScheduleException(e.getMessage());
+        }
     }
 
     /**
@@ -97,6 +143,7 @@ public class BusSchedule {
      * To specify a direction, use : <code>getSchedulesAtTime</code>
      *
      * @param idStop      id of the stop for which you need to retrieve schedules
+     * @return Next Schedule for this Stop at this time for this period.
      *
      */
     @WebMethod(operationName = "getSchedulesForStopAtTime")
@@ -158,7 +205,7 @@ public class BusSchedule {
      * Get all stop for a specified Line
      *
      * @param idLine    Line for which you need to retrieve stops
-     *
+     * @return The stops associated to a specific Line.
      *
      */
     @WebMethod(operationName = "getAllStopsForLine")
@@ -197,7 +244,10 @@ public class BusSchedule {
     
 
     /**
-     * Web service operation
+     * Get all directions for a Line.
+     *
+     *@param idLine    Line for which you need to retrieve directions
+     *@return The Directions associated to the line.
      *
      */
     @WebMethod(operationName = "getDirectionForLine")
