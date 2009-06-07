@@ -39,7 +39,6 @@ public class Schedule {
 
     private int id;
     private Line schLine;
-    private Stop schStop;
     private Date schTime;
 
     /**
@@ -51,7 +50,7 @@ public class Schedule {
     public Schedule(DalResultSet rset)
             throws Exception
     {
-        this.id = Integer.parseInt(rset.getValue("id_schedule"));
+        this.id = Integer.parseInt(rset.getValue("id"));
         SimpleDateFormat format = new SimpleDateFormat("H:m:s");
         this.schTime = format.parse(rset.getValue("horary"));
     }
@@ -103,20 +102,6 @@ public class Schedule {
      */
     public void setSchTime(Date schTime) {
         this.schTime = schTime;
-    }
-
-    /**
-     * @return the schStop
-     */
-    public Stop getSchStop() {
-        return schStop;
-    }
-
-    /**
-     * @param schStop the schStop to set
-     */
-    public void setSchStop(Stop schStop) {
-        this.schStop = schStop;
     }
     
 }

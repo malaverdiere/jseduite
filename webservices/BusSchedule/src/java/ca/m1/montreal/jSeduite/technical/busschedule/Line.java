@@ -43,22 +43,23 @@ public class Line {
     private String name;
 
     /**
-     * Bus steps represents a serie seperated by comas
+     * Stop where the schedules have been mesured
+     *
      */
-    private String busSteps;
+    private int busSteps;
 
 
     /**
      * Constructor using the Data Access Layer object
      *
-     * @param rset  should contain id, name and bus_steps
+     * @param rset  should contain id, name and information about the stop
      */
     public Line(DalResultSet rset)
             throws Exception
     {
         this.id = Integer.parseInt(rset.getValue("id"));
         this.name = rset.getValue("name");
-        this.busSteps = rset.getValue("bus_steps");
+        this.busSteps = Integer.parseInt(rset.getValue("bus_steps"));
     }
 
 
@@ -84,20 +85,6 @@ public class Line {
     }
 
     /**
-     * @return the busSteps
-     */
-    public String getBusSteps() {
-        return busSteps;
-    }
-
-    /**
-     * @param busSteps the busSteps to set
-     */
-    public void setBusSteps(String busSteps) {
-        this.busSteps = busSteps;
-    }
-
-    /**
      * @return the id
      */
     public int getId() {
@@ -111,6 +98,19 @@ public class Line {
         this.id = id;
     }
 
+    /**
+     * @return the busSteps
+     */
+    public int getBusSteps() {
+        return busSteps;
+    }
+
+    /**
+     * @param busSteps the busSteps to set
+     */
+    public void setBusSteps(int busSteps) {
+        this.busSteps = busSteps;
+    }
 
 
 }

@@ -1,20 +1,20 @@
 /**
- * This file is part of jSeduite::BusSchedule
+ * This file is part of jSeduite::BusScheduleBusiness
  *
  * Copyright (C) 2008-  Sebastien Mosser
  *
- * jSeduite::BusSchedule is free software; you can redistribute it and/or modify
+ * jSeduite::BusScheduleBusiness is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * jSeduite::BusSchedule is distributed in the hope that it will be useful,
+ * jSeduite::BusScheduleBusiness is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with jSeduite::BusSchedule; if not, write to the Free Software
+ * along with jSeduite::BusScheduleBusiness; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  * @author      Main     Vincent Bonmalais          [vb.kouno@gmail.com]
@@ -39,12 +39,17 @@ import javax.jws.WebService;
  * @author yannick tahora
  */
 @WebService()
-public class BusSchedule {
+public class BusScheduleBusiness {
 
     /**
      * Get all bus lines in database
      *
-     * @return      All lines available in database
+     * @return      All lines available in database.
+     *
+     * @exception   BusScheduleException
+     *              If there is no lines in `bus_lines`
+     *              or connection fail.
+     *
      */
     @WebMethod(operationName = "getAllLines")
     public Line[] getAllLines()
@@ -74,82 +79,43 @@ public class BusSchedule {
     }
 
     /**
-     * <p>Get all Schedule associated to a stop at time = now.</p>
-     * To specify a direction, use : <code>getSchedules</code>
+     * Get X schedules (where X equals <code>number</code>) 
+     * for a specified Line and Time.
+     * This operation returns schedules according to the clock of the server.
      *
-     * @param idStop    id of the stop for which you need to retrieve schedules.
-     * @param idLine    Line of the bus which you need to retrieve schedules.
-     * @param time      The Time now.
-     * @return          The schedules associated to the stop for this line at this stop now.
+     * @param line      line containing the stop on which 
+     *                  the research will be executed
+     * @param number    maximum number of schedules returned
+     * 
+     * @return          The schedules associated to the stop.
      *
-     * @TODO : Vérifier si Fyren a pas fait de la marde parce que franchement il a pas tout pigé le fyfy ^^
-     *
-     * @exception BusScheduleException
-     *            If the idStop doesn't exist.
+     * @exception       BusScheduleException
+     *                  If the line does not exist.
      *
      */
-    @WebMethod(operationName = "getSchedulesForStop")
-    public Schedule[] getSchedulesForStop(@WebParam(name = "stop") int idStop,
-            @WebParam(name = "line") int idLine,
-            @WebParam(name = "time") Date time)
-        throws BusScheduleException 
-    {
-        DataAccessLayer dal = new DataAccessLayer();
+    @WebMethod(operationName = "getSchedulesForLine")
+    public Schedule[] getSchedulesForLine(@WebParam(name = "line") Line line,
+            @WebParam(name = "number") int number)
+        throws BusScheduleException {
 
-        Date date = new Date();
-
-
-        String sql =
-                "SELECT `bus_schedules`.*" +
-                "FROM `bus_schedules`" +
-                "INNER JOIN `bus_period_lnk`" +
-                "ON `bus_period_lnk`.`schedule_id` = `bus_schedules`.`id`" +
-                "WHERE `bus_period_lnk`.`day` = DATE_FORMAT('"+date+"', '%W')" +
-                "AND `bus_period_lnk`.`period_id` =" +
-                "   (SELECT `bus_periods`.`id` " +
-                "   FROM `bus_periods` " +
-                "   WHERE `bus_periods`.`end` >= '"+date+"'" +
-                "   AND `bus_periods`.`begin` <= '"+date+"')" +
-                "AND `bus_schedules`.`line_steps_id` =" +
-                "   (SELECT `bus_line_steps_lnk`.`id`" +
-                "   FROM `bus_line_steps_lnk`" +
-                "   WHERE `bus_line_steps_lnk`.`line_id` = '"+String.valueOf(idLine)+"'" +
-                "   AND `bus_line_steps_lnk`.`stop_id` = '"+String.valueOf(idStop)+"'" +
-                "   )" +
-                "AND `bus_schedules`.`horary` > DATE_FORMAT('"+date+"', '%H:%i:%S') " +
-                "LIMIT 0,5";
-        try{
-            DalResultSet drs = dal.extractDataSet(sql);
-
-            if(drs.size() == 0)
-                throw new BusScheduleException("No schedules available.");
-
-
-            Schedule[] schedules = new Schedule[drs.size()];
-
-            for (int i = 0; i < drs.size(); i++) {
-                schedules[i] = new Schedule(drs);
-                drs.next();
-            }
-
-            return schedules;
-        }catch(Exception e){
-            throw new BusScheduleException(e.getMessage());
-        }
+        return this.getSchedulesForLineAtTime(line, new Date(System.currentTimeMillis()), number);
     }
 
     /**
-     * <p>Get all Schedule for a specified Stop and Time.</p>
-     * To specify a direction, use : <code>getSchedulesAtTime</code>
+     * Get X schedules (where X equals <code>number</code>)
+     * for a specified Line and Time.
      *
-     * @param idStop      id of the stop for which you need to retrieve schedules
-     * @return Next Schedule for this Stop at this time for this period.
+     * @param line      line containing the stop on which
+     *                  the research will be executed
+     * @param time      
+     * @param number    maximum number of schedules returned
      *
+     * @return          The schedules associated to the stop.
      */
-    @WebMethod(operationName = "getSchedulesForStopAtTime")
-    public Schedule[] getSchedulesForStopAtTime(@WebParam(name = "stop") int idStop,
-            @WebParam(name = "line") int idLine,
-            @WebParam(name = "time") Date time)
+    @WebMethod(operationName = "getSchedulesForLineAtTime")
+    public Schedule[] getSchedulesForLineAtTime(@WebParam(name = "line") Line line,
+            @WebParam(name = "time") Date time,
+            @WebParam(name = "number") int number)
             throws BusScheduleException
     {
         DataAccessLayer dal = new DataAccessLayer();
@@ -172,11 +138,11 @@ public class BusSchedule {
                 "AND `bus_schedules`.`line_steps_id` =" +
                 "   (SELECT `bus_line_steps_lnk`.`id`" +
                 "   FROM `bus_line_steps_lnk`" +
-                "   WHERE `bus_line_steps_lnk`.`line_id` = '"+String.valueOf(idLine)+"'" +
-                "   AND `bus_line_steps_lnk`.`stop_id` = '"+String.valueOf(idStop)+"'" +
+                "   WHERE `bus_line_steps_lnk`.`line_id` = '"+String.valueOf(line.getId())+"'" +
+                "   AND `bus_line_steps_lnk`.`stop_id` = '"+String.valueOf(line.getBusSteps())+"'" +
                 "   )" +
                 "AND `bus_schedules`.`horary` > DATE_FORMAT('"+frmtTime+"', '%H:%i:%S') " +
-                "LIMIT 0,5";
+                "LIMIT 0,"+String.valueOf(number);
 
 
         try{
@@ -190,6 +156,7 @@ public class BusSchedule {
 
             for (int i = 0; i < drs.size(); i++) {
                 schedules[i] = new Schedule(drs);
+                schedules[i].setSchLine(line);
                 drs.next();
             }
 
@@ -202,14 +169,18 @@ public class BusSchedule {
     }
 
     /**
-     * Get all stop for a specified Line
+     * Get all stops for a specified Line
      *
-     * @param idLine    Line for which you need to retrieve stops
-     * @return The stops associated to a specific Line.
+     * @param line      Line for which you need to retrieve stops
+     * @return          An array of stops which contains the stops
+     *                  on <code>line</code>
+     *
+     * @exception       BusScheduleException
+     *                  If line does not exist.
      *
      */
     @WebMethod(operationName = "getAllStopsForLine")
-    public Stop[] getStopsForLine(@WebParam(name = "line") int idLine) 
+    public Stop[] getStopsForLine(@WebParam(name = "line") Line line)
             throws BusScheduleException {
 
         DataAccessLayer dal = new DataAccessLayer();
@@ -218,14 +189,14 @@ public class BusSchedule {
                 "FROM `bus_stops`" +
                 "INNER JOIN `bus_line_steps_lnk`" +
                 "ON `bus_line_steps_lnk`.`stop_id` = `bus_stops`.`id`" +
-                "WHERE `bus_line_steps_lnk`.`line_id` = '" + Integer.toString(idLine) + "'";
+                "WHERE `bus_line_steps_lnk`.`line_id` = '" + Integer.toString(line.getId()) + "'";
 
         try{
             DalResultSet drs = dal.extractDataSet(sql);
 
             if(drs.size() == 0)
                 throw new BusScheduleException("No Stop in bus_stops" +
-                        " for line id : "+Integer.toString(idLine));
+                        " for line id : "+Integer.toString(line.getId()));
 
 
             Stop[] stops = new Stop[drs.size()];
@@ -244,14 +215,17 @@ public class BusSchedule {
     
 
     /**
-     * Get all directions for a Line.
+     * List all directions for a specified line.
      *
-     *@param idLine    Line for which you need to retrieve directions
-     *@return The Directions associated to the line.
+     * @param line  the line on which the research will be executed.
+     * @return      An array of strings which contains the directions.
      *
+     * @exception   BusScheduleException
+     *              If line does not exist OR if there is no stops
+     *              associated with the specified line.
      */
     @WebMethod(operationName = "getDirectionForLine")
-    public String[] getDirectionForLine(@WebParam(name = "idLine") int idLine)
+    public String[] getDirectionForLine(@WebParam(name = "line") Line line)
             throws BusScheduleException {
 
         DataAccessLayer dal = new DataAccessLayer();
@@ -260,14 +234,14 @@ public class BusSchedule {
                 "FROM `bus_stops`" +
                 "INNER JOIN `bus_line_steps_lnk`" +
                 "ON `bus_line_steps_lnk`.`stop_id` = `bus_stops`.`id`" +
-                "WHERE `bus_line_steps_lnk`.`line_id` = '" + Integer.toString(idLine) + "';";
+                "WHERE `bus_line_steps_lnk`.`line_id` = '" + Integer.toString(line.getId()) + "'";
 
         try{
             DalResultSet drs = dal.extractDataSet(sql);
 
             if(drs.size() == 0)
-                throw new BusScheduleException("No Stop in" +
-                        " bus_stops for line id : "+Integer.toString(idLine));
+                throw new BusScheduleException("No direction found " +
+                        "for this line : " +Integer.toString(line.getId()));
 
 
             String[] directions = new String[drs.size()];

@@ -84,5 +84,19 @@ public class Stop {
     public void setDirection(String direction) {
         this.direction = direction;
     }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
     
 }
