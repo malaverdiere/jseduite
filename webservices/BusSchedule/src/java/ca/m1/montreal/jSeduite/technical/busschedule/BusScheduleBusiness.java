@@ -173,7 +173,7 @@ public class BusScheduleBusiness {
      *
      * @param line      Line for which you need to retrieve stops
      * @return          An array of stops which contains the stops
-     *                  on <code>line</code>
+     *                  on <code>line</code>.
      *
      * @exception       BusScheduleException
      *                  If line does not exist.
