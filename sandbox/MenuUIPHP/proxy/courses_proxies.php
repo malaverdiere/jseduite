@@ -98,7 +98,7 @@
     }
 
         /**
-     * A course finder proxy object
+     * A course business proxy object
      *
      */
     class CourseBusinessProxy extends Proxy

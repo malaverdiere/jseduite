@@ -16,20 +16,20 @@
 
         //Creates the course
         $course = new Course(array('kind' => $cKind, 'name' => $cName));
-        $crudProxy->create($course->getStructure());
+        $courseCrudProxy->create($course->getStructure());
 	}
 ?>
 
 <h2>Create a course</h2>
 
-<form name="creation" method="post" action="index.php?page=create&action=create">
+<form name="creation" method="post" action="index.php?page=ccreate&action=create">
     <table>
         <tr>
             <td><p>Kind</p></td>
             <td>
                 <select name="cKind">
                     <?php
-                        $kinds = $businessProxy->getAvailableCourseKinds();
+                        $kinds = $courseBusinessProxy->getAvailableCourseKinds();
                         
                         for($i=0;$i<sizeof($kinds);$i++)
                         {

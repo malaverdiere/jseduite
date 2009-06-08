@@ -12,21 +12,21 @@
 		$rName = $_POST['rName'];
 
         //Reads the course
-        $courseRes = $crudProxy->read(refMaker($rName));
+        $courseRes = $courseCrudProxy->read(refMaker($rName));
         $name = $courseRes['name'];
         $kind = $courseRes['kind'];
 
         ?>
 <h2>Update a course</h2>
 
-<form name="update" method="post" action="index.php?page=modify&action=update">
+<form name="update" method="post" action="index.php?page=cmodify&action=update">
     <table>
         <tr>
             <td><p>Kind</p></td>
             <td>
                 <select name="uKind">
                     <?php
-                        $kinds = $businessProxy->getAvailableCourseKinds();
+                        $kinds = $courseBusinessProxy->getAvailableCourseKinds();
 
                         for($i=0;$i<sizeof($kinds);$i++)
                         {
@@ -68,20 +68,20 @@
             $course = new Course($courseRes);
             $course->setKind($uKind);*/
             $course = new Course(array('kind' => $uKind, 'name' => $uName));
-            $crudProxy->update($course->getStructure());
+            $courseCrudProxy->update($course->getStructure());
         }
 
         ?>
 <h2>Read a course</h2>
 
-<form name="read" method="post" action="index.php?page=modify&action=read">
+<form name="read" method="post" action="index.php?page=cmodify&action=read">
     <table>
         <tr>
             <td><p>Name</p></td>
             <td>
                 <select name="rName">
                     <?php
-                        $names = $finderProxy->getAllCoursesReferences();
+                        $names = $courseFinderProxy->getAllCoursesReferences();
 
                         for($i=0;$i<sizeof($names);$i++)
                         {
