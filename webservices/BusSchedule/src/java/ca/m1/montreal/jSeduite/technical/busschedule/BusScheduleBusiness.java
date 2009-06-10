@@ -125,17 +125,17 @@ public class BusScheduleBusiness {
 
 
         String sql =
-                "SELECT `bus_schedules`.*" +
-                "FROM `bus_schedules`" +
-                "INNER JOIN `bus_period_lnk`" +
-                "ON `bus_period_lnk`.`schedule_id` = `bus_schedules`.`id`" +
-                "WHERE `bus_period_lnk`.`day` = DATE_FORMAT('"+frmtTime+"', '%W')" +
-                "AND `bus_period_lnk`.`period_id` =" +
+                "SELECT `bus_schedules`.* " +
+                "FROM `bus_schedules` " +
+                "INNER JOIN `bus_period_lnk` " +
+                "ON `bus_period_lnk`.`schedule_id` = `bus_schedules`.`id` " +
+                "WHERE `bus_period_lnk`.`day` = DATE_FORMAT('"+frmtTime+"', '%W') " +
+                "AND `bus_period_lnk`.`period_id` = " +
                 "   (SELECT `bus_periods`.`id` " +
                 "   FROM `bus_periods` " +
                 "   WHERE `bus_periods`.`end` >= '"+frmtTime+"'" +
                 "   AND `bus_periods`.`begin` <= '"+frmtTime+"')" +
-                "AND `bus_schedules`.`line_steps_id` =" +
+                "AND `bus_schedules`.`line_steps_id` = " +
                 "   (SELECT `bus_line_steps_lnk`.`id`" +
                 "   FROM `bus_line_steps_lnk`" +
                 "   WHERE `bus_line_steps_lnk`.`line_id` = '"+String.valueOf(line.getId())+"'" +
@@ -156,7 +156,6 @@ public class BusScheduleBusiness {
 
             for (int i = 0; i < drs.size(); i++) {
                 schedules[i] = new Schedule(drs);
-                schedules[i].setSchLine(line);
                 drs.next();
             }
 

@@ -24,6 +24,9 @@
 
 package ca.m1.montreal.jSeduite.technical.busschedule;
 
+import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DalResultSet;
+import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DataAccessLayer;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -47,7 +50,7 @@ public class BusScheduleFinder {
     /**
      * Singleton Pattern created by Bill Pugh.
      *
-     * @see http://en.wikipedia.org/wiki/Singleton_pattern
+     * @see <a href="http://en.wikipedia.org/wiki/Singleton_pattern">Singleton Pattern</a>
      * @see BusScheduleFinder#getInstance()
      */
     private static class BusScheduleFinderHolder
@@ -67,14 +70,48 @@ public class BusScheduleFinder {
     }
 
     /**
+     * Get line associated to id.
+     *
+     * @param id        id of the line
+     * @return          unique line associated to id
+     */
+    public Line findLineByID(int id) {
+        DataAccessLayer dal = new DataAccessLayer();
+        try {
+            String sql = "SELECT * FROM `bus_lines` WHERE `id`= '%"+id+"%';";
+            DalResultSet drs = dal.extractDataSet(sql);
+
+            if(drs.size() == 0)
+                return null;
+            return new Line(drs);
+        } catch (Exception e) {
+            throw new RuntimeException("SQL Exception: " + e.getMessage());
+        }
+    }
+
+    /**
      * Get lines containing <code>name</code> whithin their names.
      *
      * @param name      name of the line
      * @return          All lines containing <code>name</code>.
      */
     public Line[] findLineByName(String name) {
-        //TODO write your implementation code here:
-        return null;
+        DataAccessLayer dal = new DataAccessLayer();
+        try {
+            String sql = "SELECT * FROM `bus_lines` WHERE `name`= '%"+name+"%';";
+            DalResultSet drs = dal.extractDataSet(sql);
+
+            Line[] lines = new Line[drs.size()];
+
+            for (int i = 0; i < drs.size(); i++) {
+                lines[i] = new Line(drs);
+                drs.next();
+            }
+
+            return lines;
+        } catch (Exception e) {
+            throw new RuntimeException("SQL Exception: " + e.getMessage());
+        }
     }
 
     /**
@@ -84,8 +121,42 @@ public class BusScheduleFinder {
      * @return          All lines with <code>busStep</code>
      */
     public Line[] findLineByBusStep(String busStep) {
-        //TODO write your implementation code here:
-        return null;
+        DataAccessLayer dal = new DataAccessLayer();
+        try {
+            String sql = "SELECT * FROM `bus_lines` WHERE `bus_steps`= '"+busStep+"';";
+            DalResultSet drs = dal.extractDataSet(sql);
+
+            Line[] lines = new Line[drs.size()];
+
+            for (int i = 0; i < drs.size(); i++) {
+                lines[i] = new Line(drs);
+                drs.next();
+            }
+
+            return lines;
+        } catch (Exception e) {
+            throw new RuntimeException("SQL Exception: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Get stop associated to id.
+     *
+     * @param id        id of the line
+     * @return          unique line associated to id
+     */
+    public Stop findStopByID(int id) {
+        DataAccessLayer dal = new DataAccessLayer();
+        try {
+            String sql = "SELECT * FROM `bus_stops` WHERE `id`= '%"+id+"%';";
+            DalResultSet drs = dal.extractDataSet(sql);
+
+            if(drs.size() == 0)
+                return null;
+            return new Stop(drs);
+        } catch (Exception e) {
+            throw new RuntimeException("SQL Exception: " + e.getMessage());
+        }
     }
 
     /**
@@ -95,8 +166,22 @@ public class BusScheduleFinder {
      * @return              All stops switch the direction.
      */
     public Stop[] findStopByDirection(String direction) {
-        //TODO write your implementation code here:
-        return null;
+        DataAccessLayer dal = new DataAccessLayer();
+        try {
+            String sql = "SELECT * FROM `bus_stops` WHERE `direction`= '"+direction+"';";
+            DalResultSet drs = dal.extractDataSet(sql);
+
+            Stop[] stops = new Stop[drs.size()];
+
+            for (int i = 0; i < drs.size(); i++) {
+                stops[i] = new Stop(drs);
+                drs.next();
+            }
+
+            return stops;
+        } catch (Exception e) {
+            throw new RuntimeException("SQL Exception: " + e.getMessage());
+        }
     }
 
     /**
@@ -107,8 +192,42 @@ public class BusScheduleFinder {
      *
      */
     public Stop[] findStopByName(String name) {
-        //TODO write your implementation code here:
-        return null;
+        DataAccessLayer dal = new DataAccessLayer();
+        try {
+            String sql = "SELECT * FROM `bus_stops` WHERE `name`= '"+name+"';";
+            DalResultSet drs = dal.extractDataSet(sql);
+
+            Stop[] stops = new Stop[drs.size()];
+
+            for (int i = 0; i < drs.size(); i++) {
+                stops[i] = new Stop(drs);
+                drs.next();
+            }
+
+            return stops;
+        } catch (Exception e) {
+            throw new RuntimeException("SQL Exception: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Get period associated to id.
+     *
+     * @param id        id of the period
+     * @return          unique period associated to id
+     */
+    public Period findPeriodByID(int id) {
+        DataAccessLayer dal = new DataAccessLayer();
+        try {
+            String sql = "SELECT * FROM `bus_period` WHERE `id`= '%"+id+"%';";
+            DalResultSet drs = dal.extractDataSet(sql);
+
+            if(drs.size() == 0)
+                return null;
+            return new Period(drs);
+        } catch (Exception e) {
+            throw new RuntimeException("SQL Exception: " + e.getMessage());
+        }
     }
 
     /**
@@ -118,34 +237,81 @@ public class BusScheduleFinder {
      * @return          All periods containing <code>name</code>.
      */
     public Period[] findPeriodByName(String name) {
-        //TODO write your implementation code here:
-        return null;
+        DataAccessLayer dal = new DataAccessLayer();
+        try {
+            String sql = "SELECT * FROM `bus_periods` WHERE `name`= '"+name+"';";
+            DalResultSet drs = dal.extractDataSet(sql);
+
+            Period[] periods = new Period[drs.size()];
+
+            for (int i = 0; i < drs.size(); i++) {
+                periods[i] = new Period(drs);
+                drs.next();
+            }
+
+            return periods;
+        } catch (Exception e) {
+            throw new RuntimeException("SQL Exception: " + e.getMessage());
+        }
     }
 
     /**
-     * Get Period by begin date. The finder will return every period before
-     * the specified date (<code>beginDate</code>)
+     * Get Period by date. The finder will return every periods within
+     * the specified dates (<code>beginDate</code> and <code>endDate</code>)
      *
      * @param beginDate     beginning date of the period
-     * @return              All periods with begin date older than
+     * @param endDate       ending date of the period
+     * @return              All periods with begin date equals to
      *                      <code>beginDate</code>
+     *                      and with end date equals to
+     *                      <code>endDate</code>
      */
-    public Period[] findPeriodByBeginDate(Date beginDate) {
-        //TODO write your implementation code here:
-        return null;
+    public Period[] findPeriodByDate(Date beginDate, Date endDate) {
+        DataAccessLayer dal = new DataAccessLayer();
+
+        // Format beginDate to yyyy-MM-dd
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String formatedBeginDate = format.format(beginDate);
+        String formatedEndDate = format.format(beginDate);
+
+        try {
+            String sql = "SELECT * FROM `bus_periods` " +
+                    "WHERE `begin` = '"+formatedBeginDate+"'" +
+                    "AND `end` = '"+formatedEndDate+"';";
+
+            DalResultSet drs = dal.extractDataSet(sql);
+
+            Period[] periods = new Period[drs.size()];
+
+            for (int i = 0; i < drs.size(); i++) {
+                periods[i] = new Period(drs);
+                drs.next();
+            }
+
+            return periods;
+        } catch (Exception e) {
+            throw new RuntimeException("SQL Exception: " + e.getMessage());
+        }
     }
 
     /**
-     * Get Period by ending date. The finder will return every period after
-     * the specified date (<code>endDate</code>)
+     * Get schedule associated to id.
      *
-     * @param beginDate     ending date of the period
-     * @return              All periods with ending date older than
-     *                      <code>endDate</code>
+     * @param id        id of the schedule
+     * @return          unique schedule associated to id
      */
-    public Period[] findPeriodByEndDate(Date endDate) {
-        //TODO write your implementation code here:
-        return null;
+    public Schedule findScheduleByID(int id) {
+        DataAccessLayer dal = new DataAccessLayer();
+        try {
+            String sql = "SELECT * FROM `bus_schedules` WHERE `id`= '%"+id+"%';";
+            DalResultSet drs = dal.extractDataSet(sql);
+
+            if(drs.size() == 0)
+                return null;
+            return new Schedule(drs);
+        } catch (Exception e) {
+            throw new RuntimeException("SQL Exception: " + e.getMessage());
+        }
     }
 
     /** 
@@ -157,8 +323,27 @@ public class BusScheduleFinder {
      * @return              Schedules with the specified <code>horary</code>
      */
     public Schedule[] findScheduleByHorary(Date horary) {
-        //TODO write your implementation code here:
-        return null;
+        DataAccessLayer dal = new DataAccessLayer();
+
+        // Format horary to H:m:s
+        SimpleDateFormat format = new SimpleDateFormat("H:m:s");
+        String formatedDate = format.format(horary);
+
+        try {
+            String sql = "SELECT * FROM `bus_schedules` WHERE `horary`= '"+formatedDate+"';";
+            DalResultSet drs = dal.extractDataSet(sql);
+
+            Schedule[] schedules = new Schedule[drs.size()];
+
+            for (int i = 0; i < drs.size(); i++) {
+                schedules[i] = new Schedule(drs);
+                drs.next();
+            }
+
+            return schedules;
+        } catch (Exception e) {
+            throw new RuntimeException("SQL Exception: " + e.getMessage());
+        }
     }
 
     /**
@@ -169,8 +354,22 @@ public class BusScheduleFinder {
      * @return
      */
     public Schedule[] findScheduleByLineStep(String lineStep) {
-        //TODO write your implementation code here:
-        return null;
+        DataAccessLayer dal = new DataAccessLayer();
+        try {
+            String sql = "SELECT * FROM `bus_schedules` WHERE `line_steps_id`= '"+lineStep+"';";
+            DalResultSet drs = dal.extractDataSet(sql);
+
+            Schedule[] schedules = new Schedule[drs.size()];
+
+            for (int i = 0; i < drs.size(); i++) {
+                schedules[i] = new Schedule(drs);
+                drs.next();
+            }
+
+            return schedules;
+        } catch (Exception e) {
+            throw new RuntimeException("SQL Exception: " + e.getMessage());
+        }
     }
 
 }

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
+    <service name="LineCRUD">
+      <implementation-class>ca.m1.montreal.jSeduite.technical.busschedule.LineCRUD</implementation-class>
+    </service>
     <service name="BusScheduleBusiness">
       <implementation-class>ca.m1.montreal.jSeduite.technical.busschedule.BusScheduleBusiness</implementation-class>
     </service>
-    <service name="LineCRUD">
-      <implementation-class>ca.m1.montreal.jSeduite.technical.busschedule.LineCRUD</implementation-class>
+    <service name="PeriodCRUD">
+      <implementation-class>ca.m1.montreal.jSeduite.technical.busschedule.PeriodCRUD</implementation-class>
     </service>
   </services>
   <clients/>

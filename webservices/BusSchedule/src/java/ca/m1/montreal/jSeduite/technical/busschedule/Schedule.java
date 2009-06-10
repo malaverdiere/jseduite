@@ -38,7 +38,7 @@ public class Schedule {
 
 
     private int id;
-    private Line schLine;
+    private int idLine;
     private Date schTime;
 
     /**
@@ -51,6 +51,7 @@ public class Schedule {
             throws Exception
     {
         this.id = Integer.parseInt(rset.getValue("id"));
+        this.idLine = Integer.parseInt(rset.getValue("line_steps_id"));
         SimpleDateFormat format = new SimpleDateFormat("H:m:s");
         this.schTime = format.parse(rset.getValue("horary"));
     }
@@ -62,19 +63,6 @@ public class Schedule {
     public Schedule(){}
 
 
-    /**
-     * @return the schLine
-     */
-    public Line getSchLine() {
-        return schLine;
-    }
-
-    /**
-     * @param schLine the schLine to set
-     */
-    public void setSchLine(Line schLine) {
-        this.schLine = schLine;
-    }
 
     /**
      * @return the id
@@ -102,6 +90,20 @@ public class Schedule {
      */
     public void setSchTime(Date schTime) {
         this.schTime = schTime;
+    }
+
+    /**
+     * @return the idLine
+     */
+    public int getIdLine() {
+        return idLine;
+    }
+
+    /**
+     * @param idLine the idLine to set
+     */
+    public void setIdLine(int idLine) {
+        this.idLine = idLine;
     }
     
 }
