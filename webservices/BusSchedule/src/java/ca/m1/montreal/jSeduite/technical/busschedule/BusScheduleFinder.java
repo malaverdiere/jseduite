@@ -210,6 +210,12 @@ public class BusScheduleFinder {
         }
     }
 
+    public Stop findUniqueStop(String name, String direction) {
+        Stop ustop = new Stop();
+        //TODO : Write the operations
+        return ustop;
+    }
+
     /**
      * Get period associated to id.
      *
@@ -370,6 +376,18 @@ public class BusScheduleFinder {
         } catch (Exception e) {
             throw new RuntimeException("SQL Exception: " + e.getMessage());
         }
+    }
+
+    public Schedule findUniqueSchedule (int line_steps_id, Date horary) {
+        Schedule uSchedule = new Schedule();
+        //TODO Write the operations here
+        return uSchedule;
+    }
+
+    public int findUniqueLineStep (int line_id, int stop_id) {
+        int lineStep_id = 0;
+        //TODO Write the operations here.
+        return lineStep_id;
     }
 
 }
