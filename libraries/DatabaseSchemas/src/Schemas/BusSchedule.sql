@@ -38,7 +38,7 @@ DROP TABLE IF EXISTS `jSeduite`.`bus_lines` ;
 CREATE  TABLE IF NOT EXISTS `jSeduite`.`bus_lines` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `name` TEXT NOT NULL ,
-  `bus_steps` TEXT NOT NULL ,
+  `bus_steps` TEXT,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
