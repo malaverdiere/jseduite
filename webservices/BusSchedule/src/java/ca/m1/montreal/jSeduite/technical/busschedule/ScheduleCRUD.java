@@ -22,60 +22,83 @@
  *
  **/
 
-
 package ca.m1.montreal.jSeduite.technical.busschedule;
 
+import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DalResultSet;
 import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DataAccessLayer;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
 /**
- * A web service to manipulate lines
+ * A web service to manipulate schedules
  *
  * @author vincent bonmalais
  * @author yannick tahora
- * 
+ *
  */
 @WebService()
-public class LineCRUD {
+public class ScheduleCRUD {
 
     private BusScheduleFinder finder = BusScheduleFinder.getInstance();
 
+
+    /**
+    * Format Date to a String (yyyy-MM-dd)
+    *
+    * @param d     Date which will be processed
+    * @return      the formatted date
+    */
+   public static String toSql(Date d)
+   {
+       SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+       return format.format(d);
+   }
+
+
     /** Create CRUD pattern operation
-     * @param line the trasient line to transform in a persistent one
-     * @return the line reference (i.e. its id)
+     * @param horary will only take the hour of the date.
+     * @return the schedule reference (i.e. its id)
      * @throws BusScheduleException: null object, still persistent
      */
-        @WebMethod(operationName = "createLine")
-    public int createLine(@WebParam(name = "line") Line line)
+    @WebMethod(operationName = "createSchedule")
+    public int createSchedule(   @WebParam(name = "horary") Date horary,
+                                 @WebParam (name = "line_step_id") int lineStepId)
         throws BusScheduleException {
-      if (null == line)
+      if (null == horary)
           throw new BusScheduleException("Null creation !");
-      if (null != finder.findLineByName(line.getName()))
-          throw new BusScheduleException("Re-Creation !");
+      if (null != finder.findUniqueSchedule(lineStepId, horary))
+              throw new BusScheduleException("Re-Creation !");
       DataAccessLayer dal = new DataAccessLayer();
       try{
-            String sql = "INSERT INTO `bus_lines` (`name`) VALUES (";
-            sql += "'"+line.getName()+"');";
-            dal.executeVoid(sql);
-            return line.getId();
+            String sql = "INSERT INTO `bus_schedules` (`line_step_id`, `horary`) VALUES (";
+                   sql += "'"+lineStepId+"','"+toSql(horary)+"');";
+                   sql += "SELECT * from `bus_schedules` WHERE `id` = LAST_INSERT_ID();";
+                   
+                   DalResultSet drs = dal.extractDataSet(sql);
+                   
+                   Schedule createdSchedule = new Schedule(drs);
+                   
+                   return createdSchedule.getId();
+                   
       } catch (Exception e) {
         throw new BusScheduleException("SQL Exception : " + e.getMessage());
         }
       }
-     
-     /** Read CRUD pattern operation 
-     * @param ref an existing reference (i.e. id) to a persistent line
-     * @return the expected line
+
+     /** Read CRUD pattern operation
+     * @param ref an existing reference (i.e. id) to a persistent schedule
+     * @return the expected schedule
      * @throws BusScheduleException: null ref or not binded to persistent object
      */
-        @WebMethod(operationName = "readLine")
-    public Line readLine(@WebParam(name = "ref") int ref)
+        @WebMethod(operationName = "readSchedule")
+    public Schedule readSchedule(@WebParam(name = "ref") int ref)
             throws BusScheduleException {
        if(0 > ref)
            throw new BusScheduleException("Null read !");
-        Line found = finder.findLineByID(ref);
+        Schedule found = finder.findScheduleByID(ref);
         if (null == found)
            throw new BusScheduleException("UnexistingRefRead: " + ref);
        return found;
@@ -83,18 +106,18 @@ public class LineCRUD {
 
 
     /** Update CRUD pattern operation
-     * @param line the persistent line to update
+     * @param schedule the persistent schedule to update
      * @throws BusScheduleException null object, non persistent object
      */
-        @WebMethod(operationName = "updateLine")
-    public void updateLine(@WebParam(name = "line") Line line)
+        @WebMethod(operationName = "updateSchedule")
+    public void updateSchedule(@WebParam(name = "schedule") Schedule schedule)
             throws BusScheduleException {
-        if (null == line)
+        if (null == schedule)
             throw new BusScheduleException("Null update !");
-        if (null == finder.findLineByID(line.getId()))
+        if (null == finder.findScheduleByID(schedule.getId()))
             throw new BusScheduleException("Unreferenced update !");
-        String sql = "UPDATE `bus_lines` SET `bus_steps` = '"+line.getBusSteps()+"', `name` = '"+line.getName()+"'";
-        sql += "WHERE `id` = '" + line.getId()+"';";
+        String sql = "UPDATE `bus_schedules` SET `line_steps_id` = '"+schedule.getIdLine()+"', `horary` = '"+schedule.getSchTime()+"' ";
+        sql += "WHERE `id` = '" + schedule.getId()+"';";
         DataAccessLayer dal = new DataAccessLayer();
         try {
             dal.executeVoid(sql);
@@ -105,17 +128,17 @@ public class LineCRUD {
 
 
         /**  Delete CRUD pattern operation
-        * @param line the persistent line to delete
+        * @param schedule the persistent schedule to delete
         * @throws BusScheduleException null object, non persistent object
         */
-        @WebMethod(operationName = "deleteLine")
-    public void deleteLine(@WebParam(name = "line") Line line)
+        @WebMethod(operationName = "deleteSchedule")
+    public void deleteSchedule(@WebParam(name = "schedule") Schedule schedule)
             throws BusScheduleException {
-        if (null == line)
+        if (null == schedule)
             throw new BusScheduleException("Null delete !");
-        if (null == finder.findLineByID(line.getId()))
+        if (null == finder.findScheduleByID(schedule.getId()))
             throw new BusScheduleException("Unreferenced delete !");
-        String sql = "DELETE FROM `bus_lines` WHERE `id` = '" + line.getId()+"';";
+        String sql = "DELETE FROM `bus_schedules` WHERE `id` = '" + schedule.getId()+"';";
         DataAccessLayer dal = new DataAccessLayer();
         try {
             dal.executeVoid(sql);
@@ -123,4 +146,6 @@ public class LineCRUD {
            throw new BusScheduleException("SQLException: " + e.getMessage());
        }
     }
+
+
 }

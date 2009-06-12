@@ -21,8 +21,6 @@
  * @author      Main     Yannick Tahora             [ytahora@gmail.com]
  *
  **/
-
-
 package ca.m1.montreal.jSeduite.technical.busschedule;
 
 import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DataAccessLayer;
@@ -31,51 +29,51 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 
 /**
- * A web service to manipulate lines
+ * A web service to manipulate Stops
  *
  * @author vincent bonmalais
  * @author yannick tahora
  * 
  */
 @WebService()
-public class LineCRUD {
+public class StopCRUD {
 
-    private BusScheduleFinder finder = BusScheduleFinder.getInstance();
+     private BusScheduleFinder finder = BusScheduleFinder.getInstance();
 
     /** Create CRUD pattern operation
-     * @param line the trasient line to transform in a persistent one
-     * @return the line reference (i.e. its id)
+     * @param stop the trasient stop to transform in a persistent one
+     * @return the stop reference (i.e. its id)
      * @throws BusScheduleException: null object, still persistent
      */
-        @WebMethod(operationName = "createLine")
-    public int createLine(@WebParam(name = "line") Line line)
+    @WebMethod(operationName = "createStop")
+    public int createStop(@WebParam(name = "stop") Stop stop)
         throws BusScheduleException {
-      if (null == line)
+      if (null == stop)
           throw new BusScheduleException("Null creation !");
-      if (null != finder.findLineByName(line.getName()))
+      if (null != finder.findUniqueStop(stop.getName(), stop.getDirection()))
           throw new BusScheduleException("Re-Creation !");
       DataAccessLayer dal = new DataAccessLayer();
       try{
-            String sql = "INSERT INTO `bus_lines` (`name`) VALUES (";
-            sql += "'"+line.getName()+"');";
+            String sql = "INSERT INTO `bus_stop` (`name`, `direction`) VALUES (";
+            sql += "'"+stop.getName()+"','"+stop.getDirection()+"');";
             dal.executeVoid(sql);
-            return line.getId();
+            return stop.getId();
       } catch (Exception e) {
         throw new BusScheduleException("SQL Exception : " + e.getMessage());
         }
       }
-     
-     /** Read CRUD pattern operation 
-     * @param ref an existing reference (i.e. id) to a persistent line
-     * @return the expected line
+
+     /** Read CRUD pattern operation
+     * @param ref an existing reference (i.e. id) to a persistent stop
+     * @return the expected stop
      * @throws BusScheduleException: null ref or not binded to persistent object
      */
-        @WebMethod(operationName = "readLine")
-    public Line readLine(@WebParam(name = "ref") int ref)
+        @WebMethod(operationName = "readStop")
+    public Stop readStop(@WebParam(name = "ref") int ref)
             throws BusScheduleException {
        if(0 > ref)
            throw new BusScheduleException("Null read !");
-        Line found = finder.findLineByID(ref);
+        Stop found = finder.findStopByID(ref);
         if (null == found)
            throw new BusScheduleException("UnexistingRefRead: " + ref);
        return found;
@@ -83,18 +81,18 @@ public class LineCRUD {
 
 
     /** Update CRUD pattern operation
-     * @param line the persistent line to update
+     * @param stop the persistent stop to update
      * @throws BusScheduleException null object, non persistent object
      */
-        @WebMethod(operationName = "updateLine")
-    public void updateLine(@WebParam(name = "line") Line line)
+        @WebMethod(operationName = "updateStop")
+    public void updateStop(@WebParam(name = "stop") Stop stop)
             throws BusScheduleException {
-        if (null == line)
+        if (null == stop)
             throw new BusScheduleException("Null update !");
-        if (null == finder.findLineByID(line.getId()))
+        if (null == stop.getName())
             throw new BusScheduleException("Unreferenced update !");
-        String sql = "UPDATE `bus_lines` SET `bus_steps` = '"+line.getBusSteps()+"', `name` = '"+line.getName()+"'";
-        sql += "WHERE `id` = '" + line.getId()+"';";
+        String sql = "UPDATE `bus_stop` SET `bus_direction` = '"+stop.getDirection()+"' ";
+        sql += "WHERE `id` = '" + stop.getId()+"';";
         DataAccessLayer dal = new DataAccessLayer();
         try {
             dal.executeVoid(sql);
@@ -105,17 +103,17 @@ public class LineCRUD {
 
 
         /**  Delete CRUD pattern operation
-        * @param line the persistent line to delete
+        * @param stop the persistent stop to delete
         * @throws BusScheduleException null object, non persistent object
         */
-        @WebMethod(operationName = "deleteLine")
-    public void deleteLine(@WebParam(name = "line") Line line)
+        @WebMethod(operationName = "deleteStop")
+    public void deleteStop(@WebParam(name = "stop") Stop stop)
             throws BusScheduleException {
-        if (null == line)
+        if (null == stop)
             throw new BusScheduleException("Null delete !");
-        if (null == finder.findLineByID(line.getId()))
+        if (null == stop.getName())
             throw new BusScheduleException("Unreferenced delete !");
-        String sql = "DELETE FROM `bus_lines` WHERE `id` = '" + line.getId()+"';";
+        String sql = "DELETE FROM `bus_stop` WHERE `id` = '" + stop.getId()+"';";
         DataAccessLayer dal = new DataAccessLayer();
         try {
             dal.executeVoid(sql);
@@ -123,4 +121,5 @@ public class LineCRUD {
            throw new BusScheduleException("SQLException: " + e.getMessage());
        }
     }
+
 }

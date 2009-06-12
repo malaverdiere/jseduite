@@ -384,10 +384,17 @@ public class BusScheduleFinder {
         return uSchedule;
     }
 
+    public int findLineStepById (int id) {
+        //TODO Write the operations here.
+        return id;
+
+    }
+
     public int findUniqueLineStep (int line_id, int stop_id) {
         int lineStep_id = 0;
         //TODO Write the operations here.
         return lineStep_id;
     }
+    
 
 }
