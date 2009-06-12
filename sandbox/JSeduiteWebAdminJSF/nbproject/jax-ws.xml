@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
+  <services>
+    <service name="NewWebServiceFromWSDL">
+      <implementation-class>ManagedBean.NewWebServiceFromWSDL</implementation-class>
+      <wsdl-url>http://localhost:8080/jSeduite/sandbox/MenuService/CourseFinderService?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8080/jSeduite/sandbox/MenuService/CourseFinderService.wsdl</local-wsdl-file>
+      <service-name>CourseFinderService</service-name>
+      <port-name>CourseFinderPort</port-name>
+      <package-name>fr.unice.i3s.modalis.jseduite.technical.restaurant</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <use-provider>false</use-provider>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </service>
+  </services>
+  <clients>
+  </clients>
+</jax-ws>
