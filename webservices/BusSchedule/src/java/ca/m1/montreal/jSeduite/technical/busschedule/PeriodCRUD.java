@@ -43,7 +43,7 @@ import javax.jws.WebService;
 @WebService()
 public class PeriodCRUD {
 
-    private BusScheduleFinder finder = BusScheduleFinder.getInstance();
+    private BusScheduleFinder finder = new BusScheduleFinder();
 
 
     /**
@@ -74,18 +74,22 @@ public class PeriodCRUD {
 
         DataAccessLayer dal = new DataAccessLayer();
         try {
+            // Insert Period
             String sql = "INSERT INTO `bus_periods` (`begin`,`end`,`name`) " +
                     "VALUES ('"+toSql(p.getBegin())+"'," +
                     "       '"+toSql(p.getEnd())+"'," +
-                    "       '"+p.getName()+"');" +
-                    "SELECT * FROM `bus_periods` " +
+                    "       '"+p.getName()+"');";
+
+            dal.executeVoid(sql);
+
+            // Retrieve the inserted id
+            sql =   "SELECT * FROM `bus_periods` " +
                     "WHERE `id` = LAST_INSERT_ID();";
 
-             DalResultSet drs = dal.extractDataSet(sql);
+            DalResultSet drs = dal.extractDataSet(sql);
 
-             Period createdPeriod = new Period(drs);
-
-             return createdPeriod.getId();
+            Period createdPeriod = new Period(drs);
+            return createdPeriod.getId();
         } catch (Exception e) {
             throw new RuntimeException("SQL Exception: " + e.getMessage());
         }

@@ -28,46 +28,26 @@ import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DalResultSet;
 import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DataAccessLayer;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Hashtable;
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebService;
 
 /**
  * Object finder for BusSchedule.
- * This class is a singleton and follow the principle of singleton pattern
- * as Bill Pugh has written it.
- *
  *
  * @author vincent bonmalais
  * @author yannick tahora
  * @see BusScheduleFinderHolder
  */
+@WebService()
 public class BusScheduleFinder {
 
     /**
-     * Private default constructor
+     * Default constructor
      */
-    private BusScheduleFinder() {}
+    public BusScheduleFinder() {}
 
-
-    /**
-     * Singleton Pattern created by Bill Pugh.
-     *
-     * @see <a href="http://en.wikipedia.org/wiki/Singleton_pattern">Singleton Pattern</a>
-     * @see BusScheduleFinder#getInstance()
-     */
-    private static class BusScheduleFinderHolder
-    {
-        private static final BusScheduleFinder INSTANCE = new BusScheduleFinder();
-    }
-
-    /**
-     * Instance accessor
-     *
-     * @return      an instance of <code>BusScheduleFinder</code>
-     * @see BusScheduleFinderHolder
-     */
-    public static BusScheduleFinder getInstance()
-    {
-        return BusScheduleFinderHolder.INSTANCE;
-    }
 
     /**
      * Get line associated to id.
@@ -75,10 +55,11 @@ public class BusScheduleFinder {
      * @param id        id of the line
      * @return          unique line associated to id
      */
-    public Line findLineByID(int id) {
+    @WebMethod(operationName = "fineLineByID")
+    public Line findLineByID(@WebParam(name = "id") int id) {
         DataAccessLayer dal = new DataAccessLayer();
         try {
-            String sql = "SELECT * FROM `bus_lines` WHERE `id`= '%"+id+"%';";
+            String sql = "SELECT * FROM `bus_lines` WHERE `id`= '"+id+"';";
             DalResultSet drs = dal.extractDataSet(sql);
 
             if(drs.size() == 0)
@@ -95,7 +76,8 @@ public class BusScheduleFinder {
      * @param name      name of the line
      * @return          All lines containing <code>name</code>.
      */
-    public Line[] findLineByName(String name) {
+    @WebMethod(operationName="findLineByName")
+    public Line[] findLineByName(@WebParam(name="name") String name) {
         DataAccessLayer dal = new DataAccessLayer();
         try {
             String sql = "SELECT * FROM `bus_lines` WHERE `name`= '%"+name+"%';";
@@ -120,7 +102,8 @@ public class BusScheduleFinder {
      * @param busStep   id of the stop associated to the line
      * @return          All lines with <code>busStep</code>
      */
-    public Line[] findLineByBusStep(String busStep) {
+    @WebMethod(operationName="findLineByBusStep")
+    public Line[] findLineByBusStep(@WebParam(name="busStep") String busStep) {
         DataAccessLayer dal = new DataAccessLayer();
         try {
             String sql = "SELECT * FROM `bus_lines` WHERE `bus_steps`= '"+busStep+"';";
@@ -145,10 +128,11 @@ public class BusScheduleFinder {
      * @param id        id of the line
      * @return          unique line associated to id
      */
-    public Stop findStopByID(int id) {
+    @WebMethod(operationName="findStopByID")
+    public Stop findStopByID(@WebParam(name="id") int id) {
         DataAccessLayer dal = new DataAccessLayer();
         try {
-            String sql = "SELECT * FROM `bus_stops` WHERE `id`= '%"+id+"%';";
+            String sql = "SELECT * FROM `bus_stops` WHERE `id`= '"+id+"';";
             DalResultSet drs = dal.extractDataSet(sql);
 
             if(drs.size() == 0)
@@ -165,7 +149,8 @@ public class BusScheduleFinder {
      * @param direction     stop name (terminus)
      * @return              All stops switch the direction.
      */
-    public Stop[] findStopByDirection(String direction) {
+    @WebMethod(operationName="findStopByDirection")
+    public Stop[] findStopByDirection(@WebParam(name = "direction") String direction) {
         DataAccessLayer dal = new DataAccessLayer();
         try {
             String sql = "SELECT * FROM `bus_stops` WHERE `direction`= '"+direction+"';";
@@ -191,7 +176,8 @@ public class BusScheduleFinder {
      * @return         All stops containing <code>name</code>.
      *
      */
-    public Stop[] findStopByName(String name) {
+    @WebMethod(operationName="findStopByName")
+    public Stop[] findStopByName(@WebParam(name = "name") String name) {
         DataAccessLayer dal = new DataAccessLayer();
         try {
             String sql = "SELECT * FROM `bus_stops` WHERE `name`= '"+name+"';";
@@ -210,10 +196,36 @@ public class BusScheduleFinder {
         }
     }
 
-    public Stop findUniqueStop(String name, String direction) {
-        Stop ustop = new Stop();
-        //TODO : Write the operations
-        return ustop;
+    /**
+     * Get unique stop for the specified parameters.
+     *
+     * @param direction     direction for the line
+     * @param name          name of the stop
+     *
+     * @return  The Stop object with his id, name and direction.
+     *
+     */
+    @WebMethod(operationName="findUniqueStop")
+    public Stop findUniqueStop(@WebParam(name = "name") String name,
+            @WebParam(name = "direction") String direction) {
+        try
+        {
+            DataAccessLayer dal = new DataAccessLayer();
+
+            String sql = "SELECT * FROM bus_stops" +
+                    "WHERE `name` = '"+ name +"' " +
+                    "AND `direction` = '"+ direction +"'";
+
+            DalResultSet drs = dal.extractDataSet(sql);
+
+            if(drs.size() == 0)
+                return null;
+            return new Stop(drs);
+        }
+        catch(Exception e)
+        {
+            throw new RuntimeException("SQL Exception: " + e.getMessage());
+        }
     }
 
     /**
@@ -222,10 +234,11 @@ public class BusScheduleFinder {
      * @param id        id of the period
      * @return          unique period associated to id
      */
-    public Period findPeriodByID(int id) {
+    @WebMethod(operationName="findPeriodByID")
+    public Period findPeriodByID(@WebParam(name = "id") int id) {
         DataAccessLayer dal = new DataAccessLayer();
         try {
-            String sql = "SELECT * FROM `bus_period` WHERE `id`= '%"+id+"%';";
+            String sql = "SELECT * FROM `bus_period` WHERE `id`= '"+id+"';";
             DalResultSet drs = dal.extractDataSet(sql);
 
             if(drs.size() == 0)
@@ -242,7 +255,8 @@ public class BusScheduleFinder {
      * @param name      name of the period
      * @return          All periods containing <code>name</code>.
      */
-    public Period[] findPeriodByName(String name) {
+    @WebMethod(operationName="findPeriodByName")
+    public Period[] findPeriodByName(@WebParam(name = "name") String name) {
         DataAccessLayer dal = new DataAccessLayer();
         try {
             String sql = "SELECT * FROM `bus_periods` WHERE `name`= '"+name+"';";
@@ -272,7 +286,9 @@ public class BusScheduleFinder {
      *                      and with end date equals to
      *                      <code>endDate</code>
      */
-    public Period[] findPeriodByDate(Date beginDate, Date endDate) {
+    @WebMethod(operationName="findPeriodByDate")
+    public Period[] findPeriodByDate(@WebParam(name="beginDate") Date beginDate,
+            @WebParam(name = "endDate") Date endDate) {
         DataAccessLayer dal = new DataAccessLayer();
 
         // Format beginDate to yyyy-MM-dd
@@ -306,10 +322,11 @@ public class BusScheduleFinder {
      * @param id        id of the schedule
      * @return          unique schedule associated to id
      */
-    public Schedule findScheduleByID(int id) {
+    @WebMethod(operationName="findScheduleByID")
+    public Schedule findScheduleByID(@WebParam(name = "id") int id) {
         DataAccessLayer dal = new DataAccessLayer();
         try {
-            String sql = "SELECT * FROM `bus_schedules` WHERE `id`= '%"+id+"%';";
+            String sql = "SELECT * FROM `bus_schedules` WHERE `id`= '"+id+"';";
             DalResultSet drs = dal.extractDataSet(sql);
 
             if(drs.size() == 0)
@@ -328,7 +345,8 @@ public class BusScheduleFinder {
      *                      the rest of the date will not be processed.
      * @return              Schedules with the specified <code>horary</code>
      */
-    public Schedule[] findScheduleByHorary(Date horary) {
+    @WebMethod(operationName="findScheduleByHorary")
+    public Schedule[] findScheduleByHorary(@WebParam(name = "horary") Date horary) {
         DataAccessLayer dal = new DataAccessLayer();
 
         // Format horary to H:m:s
@@ -353,13 +371,14 @@ public class BusScheduleFinder {
     }
 
     /**
-     * Get schedules with line step (a stop id)
+     * Get schedules with line step (association of a stop and line)
      * equals to <code>lineStep</code>
      *
      * @param lineStep  id of a stop
      * @return
      */
-    public Schedule[] findScheduleByLineStep(String lineStep) {
+    @WebMethod(operationName="findScheduleByLineStep")
+    public Schedule[] findScheduleByLineStep(@WebParam(name = "lineStep") String lineStep) {
         DataAccessLayer dal = new DataAccessLayer();
         try {
             String sql = "SELECT * FROM `bus_schedules` WHERE `line_steps_id`= '"+lineStep+"';";
@@ -378,22 +397,104 @@ public class BusScheduleFinder {
         }
     }
 
-    public Schedule findUniqueSchedule (int line_steps_id, Date horary) {
-        Schedule uSchedule = new Schedule();
-        //TODO Write the operations here
-        return uSchedule;
+    /**
+     * Get a unique line step id for the specified parameters.
+     *
+     * @param line_id      id of a line
+     * @param stop_id      id of a stop
+     * @return  A hashtable containing the id of line step,
+     *          the id of the line and the id of the stop.
+     */
+    @WebMethod(operationName="findLineStepByID")
+    public Hashtable<String, Integer> findLineStepByID (
+            @WebParam(name = "id") int id) {
+        try
+        {
+            DataAccessLayer dal = new DataAccessLayer();
+
+            String sql = "SELECT * FROM `bus_line_steps_lnk` " +
+                    "WHERE `id` = '"+ id +"'";
+
+            DalResultSet drs = dal.extractDataSet(sql);
+
+            if(drs.size() == 0)
+                return null;
+
+            Hashtable<String, Integer> results = new Hashtable<String, Integer>();
+            results.put("id", id);
+            results.put("line_id", Integer.parseInt(drs.getValue("line_id")));
+            results.put("stop_id", Integer.parseInt(drs.getValue("stop_id")));
+            return results;
+        }
+        catch(Exception e)
+        {
+            throw new RuntimeException("SQL Exception: " + e.getMessage());
+        }
     }
 
-    public int findLineStepById (int id) {
-        //TODO Write the operations here.
-        return id;
+    /**
+     * Get unique schedule for the specified parameters.
+     *
+     * @param line_steps_id     id of a stop
+     * @param horary            date associated to a schedule.
+     *                          Only the "HH:mm:yy" part is important,
+     *                          the rest of the date will not be processed.
+     * @return  Schedule associated to <code>line_steps_id</code> and
+     *          <code>horary</code>
+     *          Can return null if the schedule do not exist.
+     */
+    @WebMethod(operationName="findUniqueSchedule")
+    public Schedule findUniqueSchedule (@WebParam(name = "line_step_id") int line_steps_id,
+            @WebParam(name = "horary") Date horary) {
+        try
+        {
+            DataAccessLayer dal = new DataAccessLayer();
 
+            String sql = "SELECT * FROM `bus_schedules` " +
+                    "WHERE `line_steps_id` = '"+ line_steps_id +"' " +
+                    "AND `horary` = '"+ horary +"'";
+
+            DalResultSet drs = dal.extractDataSet(sql);
+
+            if(drs.size() == 0)
+                return null;
+            return new Schedule(drs);
+        }
+        catch(Exception e)
+        {
+            throw new RuntimeException("SQL Exception: " + e.getMessage());
+        }
     }
 
-    public int findUniqueLineStep (int line_id, int stop_id) {
-        int lineStep_id = 0;
-        //TODO Write the operations here.
-        return lineStep_id;
+
+    /**
+     * Get a unique line step id for the specified parameters.
+     *
+     * @param line_id      id of a line
+     * @param stop_id      id of a stop
+     * @return  a line step id
+     */
+    @WebMethod(operationName="findUniqueLineStep")
+    public int findUniqueLineStep (@WebParam(name = "line_id") int line_id,
+            @WebParam(name = "stop_id") int stop_id) {
+        try
+        {
+            DataAccessLayer dal = new DataAccessLayer();
+
+            String sql = "SELECT * FROM `bus_line_steps_lnk` " +
+                    "WHERE `line_id` = '"+ line_id +"' " +
+                    "AND `stop_id` = '"+ stop_id +"'";
+
+            DalResultSet drs = dal.extractDataSet(sql);
+
+            if(drs.size() == 0)
+                return 0;
+            return Integer.parseInt(drs.getValue("id"));
+        }
+        catch(Exception e)
+        {
+            throw new RuntimeException("SQL Exception: " + e.getMessage());
+        }
     }
     
 

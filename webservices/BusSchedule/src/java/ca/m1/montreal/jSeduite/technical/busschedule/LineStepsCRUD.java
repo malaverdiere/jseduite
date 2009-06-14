@@ -27,6 +27,7 @@ package ca.m1.montreal.jSeduite.technical.busschedule;
 
 import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DalResultSet;
 import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DataAccessLayer;
+import java.util.Hashtable;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
@@ -43,7 +44,7 @@ import javax.jws.WebService;
 @WebService()
 public class LineStepsCRUD {
 
-    private BusScheduleFinder finder = BusScheduleFinder.getInstance();
+    private BusScheduleFinder finder = new BusScheduleFinder();
 
      /** Create CRUD pattern operation
      * @param LineStep id composed of one lineId, and one stopId
@@ -72,20 +73,25 @@ public class LineStepsCRUD {
         }
       }
 
-     /** Read CRUD pattern operation
+    /**
+     * Read CRUD pattern operation
      * @param ref an existing reference (i.e. id) to a persistent lineStep
-     * @return the id of the expected lineStep
+     *
+     * @return ID of line step, line and stop.
+     *
      * @throws BusScheduleException: null ref or not binded to persistent object
      */
     @WebMethod(operationName = "readLineStep")
-    public int readLineStep(@WebParam(name = "ref") int ref)
-            throws BusScheduleException {
-       if(0 > ref)
-           throw new BusScheduleException("Null read !");
-        int found = finder.findLineStepById(ref);
-        if (0 > found)
-           throw new BusScheduleException("UnexistingRefRead: " + ref);
-       return found;
+    public Hashtable<String, Integer> readLineStep(@WebParam(name = "id") int id)
+       throws BusScheduleException {
+
+        if(0 > id)
+           throw new BusScheduleException("Null read!");
+
+        Hashtable<String, Integer> found = finder.findLineStepByID(id);
+        if (0 == found.size())
+           throw new BusScheduleException("UnexistingRefRead: ");
+        return found;
     }
 
     /** Update CRUD pattern operation
@@ -99,7 +105,7 @@ public class LineStepsCRUD {
             throws BusScheduleException {
         if (0 > lineId || 0 > stopId)
             throw new BusScheduleException("Null update !");
-        if (0 > finder.findLineStepById(id))
+        if (0 > id)
             throw new BusScheduleException("Unreferenced update !");
         String sql = "UPDATE `bus_line_steps_lnk` SET `line_id` = '"+lineId+"', `stop_id` = '"+stopId+"'  ";
         sql += "WHERE `id` = '" +id+"';";
@@ -120,8 +126,6 @@ public class LineStepsCRUD {
             throws BusScheduleException {
         if (0 > id)
             throw new BusScheduleException("Null delete !");
-        if (0 > finder.findLineStepById(id))
-            throw new BusScheduleException("Unreferenced delete !");
         String sql = "DELETE FROM `bus_line_steps_lnk` WHERE `id` = '" +id+"';";
         DataAccessLayer dal = new DataAccessLayer();
         try {

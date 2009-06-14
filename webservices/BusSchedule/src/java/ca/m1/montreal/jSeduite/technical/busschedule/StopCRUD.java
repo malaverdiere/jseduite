@@ -38,7 +38,7 @@ import javax.jws.WebService;
 @WebService()
 public class StopCRUD {
 
-     private BusScheduleFinder finder = BusScheduleFinder.getInstance();
+     private BusScheduleFinder finder = new BusScheduleFinder();
 
     /** Create CRUD pattern operation
      * @param stop the trasient stop to transform in a persistent one

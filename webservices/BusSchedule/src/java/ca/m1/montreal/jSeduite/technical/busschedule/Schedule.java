@@ -38,8 +38,8 @@ public class Schedule {
 
 
     private int id;
-    private int idLine;
-    private Date schTime;
+    private int idLineSteps; //TODO rename this attribute to `idLineSteps`
+    private Date horary; //TODO rename this attribute to `horary`
 
     /**
      * Overloaded Constructor
@@ -51,9 +51,9 @@ public class Schedule {
             throws Exception
     {
         this.id = Integer.parseInt(rset.getValue("id"));
-        this.idLine = Integer.parseInt(rset.getValue("line_steps_id"));
+        this.idLineSteps = Integer.parseInt(rset.getValue("line_steps_id"));
         SimpleDateFormat format = new SimpleDateFormat("H:m:s");
-        this.schTime = format.parse(rset.getValue("horary"));
+        this.horary = format.parse(rset.getValue("horary"));
     }
 
 
@@ -79,31 +79,31 @@ public class Schedule {
     }
 
     /**
-     * @return the schTime
+     * @return the horary
      */
-    public Date getSchTime() {
-        return schTime;
+    public Date getHorary() {
+        return horary;
     }
 
     /**
-     * @param schTime the schTime to set
+     * @param horary the horary to set
      */
-    public void setSchTime(Date schTime) {
-        this.schTime = schTime;
+    public void setHorary(Date horary) {
+        this.horary = horary;
     }
 
     /**
-     * @return the idLine
+     * @return the idLineSteps
      */
-    public int getIdLine() {
-        return idLine;
+    public int getIdLineSteps() {
+        return idLineSteps;
     }
 
     /**
-     * @param idLine the idLine to set
+     * @param idLineSteps the idLineSteps to set
      */
-    public void setIdLine(int idLine) {
-        this.idLine = idLine;
+    public void setIdLineSteps(int idLineSteps) {
+        this.idLineSteps = idLineSteps;
     }
     
 }

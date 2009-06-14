@@ -40,7 +40,7 @@ import javax.jws.WebService;
 @WebService()
 public class LineCRUD {
 
-    private BusScheduleFinder finder = BusScheduleFinder.getInstance();
+    private BusScheduleFinder finder = new BusScheduleFinder();
 
     /** Create CRUD pattern operation
      * @param line the trasient line to transform in a persistent one

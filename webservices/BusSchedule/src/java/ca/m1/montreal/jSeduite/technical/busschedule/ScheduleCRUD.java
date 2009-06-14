@@ -42,7 +42,7 @@ import javax.jws.WebService;
 @WebService()
 public class ScheduleCRUD {
 
-    private BusScheduleFinder finder = BusScheduleFinder.getInstance();
+    private BusScheduleFinder finder = new BusScheduleFinder();
 
 
     /**
@@ -116,7 +116,7 @@ public class ScheduleCRUD {
             throw new BusScheduleException("Null update !");
         if (null == finder.findScheduleByID(schedule.getId()))
             throw new BusScheduleException("Unreferenced update !");
-        String sql = "UPDATE `bus_schedules` SET `line_steps_id` = '"+schedule.getIdLine()+"', `horary` = '"+schedule.getSchTime()+"' ";
+        String sql = "UPDATE `bus_schedules` SET `line_steps_id` = '"+schedule.getIdLineSteps()+"', `horary` = '"+schedule.getHorary()+"' ";
         sql += "WHERE `id` = '" + schedule.getId()+"';";
         DataAccessLayer dal = new DataAccessLayer();
         try {
