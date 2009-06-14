@@ -400,13 +400,11 @@ public class BusScheduleFinder {
     /**
      * Get a unique line step id for the specified parameters.
      *
-     * @param line_id      id of a line
-     * @param stop_id      id of a stop
-     * @return  A hashtable containing the id of line step,
-     *          the id of the line and the id of the stop.
+     * @param id      id of a line step
+     * @return  A line Step 
      */
     @WebMethod(operationName="findLineStepByID")
-    public Hashtable<String, Integer> findLineStepByID (
+    public LineSteps findLineStepByID (
             @WebParam(name = "id") int id) {
         try
         {
@@ -420,11 +418,8 @@ public class BusScheduleFinder {
             if(drs.size() == 0)
                 return null;
 
-            Hashtable<String, Integer> results = new Hashtable<String, Integer>();
-            results.put("id", id);
-            results.put("line_id", Integer.parseInt(drs.getValue("line_id")));
-            results.put("stop_id", Integer.parseInt(drs.getValue("stop_id")));
-            return results;
+            LineSteps ls = new LineSteps(drs);
+            return ls;
         }
         catch(Exception e)
         {
@@ -475,7 +470,7 @@ public class BusScheduleFinder {
      * @return  a line step id
      */
     @WebMethod(operationName="findUniqueLineStep")
-    public int findUniqueLineStep (@WebParam(name = "line_id") int line_id,
+    public LineSteps findUniqueLineStep (@WebParam(name = "line_id") int line_id,
             @WebParam(name = "stop_id") int stop_id) {
         try
         {
@@ -488,8 +483,74 @@ public class BusScheduleFinder {
             DalResultSet drs = dal.extractDataSet(sql);
 
             if(drs.size() == 0)
-                return 0;
-            return Integer.parseInt(drs.getValue("id"));
+                return null;
+            return new LineSteps(drs);
+        }
+        catch(Exception e)
+        {
+            throw new RuntimeException("SQL Exception: " + e.getMessage());
+        }
+    }
+
+
+    /**
+     * Get a unique PeriodLink for the specified paramaters
+     *
+     * @param pl    period link on which the research will be executed.
+     *              Should contains the period id, schedule id and day.
+     *
+     * @return The period link completed with his id
+     */
+    @WebMethod(operationName = "findUniquePeriodLink")
+    public PeriodLink findUniquePeriodLink(
+            @WebParam(name = "periodLink") PeriodLink pl)
+    {
+        try
+        {
+            DataAccessLayer dal = new DataAccessLayer();
+
+            String sql = "SELECT * FROM `bus_period_lnk` " +
+                    "WHERE `period_id` = '"+ pl.getPeriod() +"' " +
+                    "AND `schedule_id` = '"+ pl.getSchedule() +"' " +
+                    "AND `day` = '"+ pl.getDay() +"'";
+
+            DalResultSet drs = dal.extractDataSet(sql);
+
+            if(drs.size() == 0)
+                return null;
+
+            return new PeriodLink(drs);
+        }
+        catch(Exception e)
+        {
+            throw new RuntimeException("SQL Exception: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Get Period Link by ID
+     *
+     * @param id    id of the period link
+     *
+     * @return The specified Period Link
+     */
+    @WebMethod(operationName = "findPeriodLinkByID")
+    public PeriodLink findPeriodLinkByID(@WebParam(name = "id")
+    int id) {
+
+        try
+        {
+            DataAccessLayer dal = new DataAccessLayer();
+
+            String sql = "SELECT * FROM `bus_period_lnk` " +
+                    "WHERE `id` = '"+ id +"'";
+
+            DalResultSet drs = dal.extractDataSet(sql);
+
+            if(drs.size() == 0)
+                return null;
+
+            return new PeriodLink(drs);
         }
         catch(Exception e)
         {

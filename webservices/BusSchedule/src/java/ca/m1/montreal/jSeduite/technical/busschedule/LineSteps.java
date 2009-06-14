@@ -26,42 +26,23 @@ package ca.m1.montreal.jSeduite.technical.busschedule;
 
 import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DalResultSet;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-
 /**
  *
- * @author vincent bonmalais
+ * @author vincentbonmalais
  */
-public class Schedule {
-
-
+public class LineSteps {
     private int id;
-    private int idLineSteps; //TODO rename this attribute to `idLineSteps`
-    private Date horary; //TODO rename this attribute to `horary`
+    private int lineId;
+    private int stopId;
 
-    /**
-     * Overloaded Constructor
-     *
-     * @param rset  should contain id_schedule and horary
-     */
-    public Schedule(DalResultSet rset)
-            throws Exception
+    public LineSteps() {}
+
+    public LineSteps(DalResultSet drs)
     {
-        this.id = Integer.parseInt(rset.getValue("id"));
-        this.idLineSteps = Integer.parseInt(rset.getValue("line_steps_id"));
-        SimpleDateFormat format = new SimpleDateFormat("H:m:s");
-        this.horary = format.parse(rset.getValue("horary"));
+        this.id = Integer.parseInt(drs.getValue("id"));
+        this.lineId = Integer.parseInt(drs.getValue("line_id"));
+        this.stopId = Integer.parseInt(drs.getValue("stop_id"));
     }
-
-
-    /**
-     * Default Constructor
-     */
-    public Schedule(){}
-
-
 
     /**
      * @return the id
@@ -78,32 +59,32 @@ public class Schedule {
     }
 
     /**
-     * @return the horary
+     * @return the lineId
      */
-    public Date getHorary() {
-        return horary;
+    public int getLineId() {
+        return lineId;
     }
 
     /**
-     * @param horary the horary to set
+     * @param lineId the lineId to set
      */
-    public void setHorary(Date horary) {
-        this.horary = horary;
+    public void setLineId(int lineId) {
+        this.lineId = lineId;
     }
 
     /**
-     * @return the idLineSteps
+     * @return the stopId
      */
-    public int getIdLineSteps() {
-        return idLineSteps;
+    public int getStopId() {
+        return stopId;
     }
 
     /**
-     * @param idLineSteps the idLineSteps to set
+     * @param stopId the stopId to set
      */
-    public void setIdLineSteps(int idLineSteps) {
-        this.idLineSteps = idLineSteps;
+    public void setStopId(int stopId) {
+        this.stopId = stopId;
     }
-    
+
+
 }
-

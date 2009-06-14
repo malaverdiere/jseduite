@@ -26,42 +26,27 @@ package ca.m1.montreal.jSeduite.technical.busschedule;
 
 import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DalResultSet;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-
 /**
  *
- * @author vincent bonmalais
+ * @author vincentbonmalais
  */
-public class Schedule {
-
+public class PeriodLink {
 
     private int id;
-    private int idLineSteps; //TODO rename this attribute to `idLineSteps`
-    private Date horary; //TODO rename this attribute to `horary`
+    private int period;
+    private int schedule;
+    private Day day;
 
-    /**
-     * Overloaded Constructor
-     *
-     * @param rset  should contain id_schedule and horary
-     */
-    public Schedule(DalResultSet rset)
+    public PeriodLink (){}
+    
+    public PeriodLink (DalResultSet drs)
             throws Exception
     {
-        this.id = Integer.parseInt(rset.getValue("id"));
-        this.idLineSteps = Integer.parseInt(rset.getValue("line_steps_id"));
-        SimpleDateFormat format = new SimpleDateFormat("H:m:s");
-        this.horary = format.parse(rset.getValue("horary"));
+        this.id = Integer.parseInt(drs.getValue("id"));
+        this.period = Integer.parseInt(drs.getValue("period_id"));
+        this.schedule = Integer.parseInt(drs.getValue("schedule_id"));
+        this.day = Day.valueOf(drs.getValue("day"));
     }
-
-
-    /**
-     * Default Constructor
-     */
-    public Schedule(){}
-
-
 
     /**
      * @return the id
@@ -78,32 +63,46 @@ public class Schedule {
     }
 
     /**
-     * @return the horary
+     * @return the period
      */
-    public Date getHorary() {
-        return horary;
+    public int getPeriod() {
+        return period;
     }
 
     /**
-     * @param horary the horary to set
+     * @param period the period to set
      */
-    public void setHorary(Date horary) {
-        this.horary = horary;
+    public void setPeriod(int period) {
+        this.period = period;
     }
 
     /**
-     * @return the idLineSteps
+     * @return the schedule
      */
-    public int getIdLineSteps() {
-        return idLineSteps;
+    public int getSchedule() {
+        return schedule;
     }
 
     /**
-     * @param idLineSteps the idLineSteps to set
+     * @param schedule the schedule to set
      */
-    public void setIdLineSteps(int idLineSteps) {
-        this.idLineSteps = idLineSteps;
+    public void setSchedule(int schedule) {
+        this.schedule = schedule;
     }
-    
+
+    /**
+     * @return the day
+     */
+    public Day getDay() {
+        return day;
+    }
+
+    /**
+     * @param day the day to set
+     */
+    public void setDay(Day day) {
+        this.day = day;
+    }
+
+
 }
-

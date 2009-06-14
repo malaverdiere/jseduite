@@ -59,9 +59,11 @@ public class ScheduleCRUD {
 
 
     /** Create CRUD pattern operation
-     * @param horary will only take the hour of the date.
+     * @param horary            will only take the hour of the date.
+     * @param line_step_id      
      * @return the schedule reference (i.e. its id)
-     * @throws BusScheduleException: null object, still persistent
+     * @throws BusScheduleException
+     *          null object, still persistent
      */
     @WebMethod(operationName = "createSchedule")
     public int createSchedule(   @WebParam(name = "horary") Date horary,
@@ -91,7 +93,8 @@ public class ScheduleCRUD {
      /** Read CRUD pattern operation
      * @param ref an existing reference (i.e. id) to a persistent schedule
      * @return the expected schedule
-     * @throws BusScheduleException: null ref or not binded to persistent object
+     * @throws BusScheduleException
+      *        null ref or not binded to persistent object
      */
         @WebMethod(operationName = "readSchedule")
     public Schedule readSchedule(@WebParam(name = "ref") int ref)

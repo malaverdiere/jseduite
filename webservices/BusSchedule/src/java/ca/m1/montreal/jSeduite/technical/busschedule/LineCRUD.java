@@ -45,7 +45,8 @@ public class LineCRUD {
     /** Create CRUD pattern operation
      * @param line the trasient line to transform in a persistent one
      * @return the line reference (i.e. its id)
-     * @throws BusScheduleException: null object, still persistent
+     * @throws BusScheduleException
+     *          null object, still persistent
      */
         @WebMethod(operationName = "createLine")
     public int createLine(@WebParam(name = "line") Line line)
@@ -68,7 +69,8 @@ public class LineCRUD {
      /** Read CRUD pattern operation 
      * @param ref an existing reference (i.e. id) to a persistent line
      * @return the expected line
-     * @throws BusScheduleException: null ref or not binded to persistent object
+     * @throws BusScheduleException
+      *         null ref or not binded to persistent object
      */
         @WebMethod(operationName = "readLine")
     public Line readLine(@WebParam(name = "ref") int ref)

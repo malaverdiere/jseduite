@@ -43,7 +43,8 @@ public class StopCRUD {
     /** Create CRUD pattern operation
      * @param stop the trasient stop to transform in a persistent one
      * @return the stop reference (i.e. its id)
-     * @throws BusScheduleException: null object, still persistent
+     * @throws BusScheduleException
+     *          null object, still persistent
      */
     @WebMethod(operationName = "createStop")
     public int createStop(@WebParam(name = "stop") Stop stop)
@@ -66,7 +67,8 @@ public class StopCRUD {
      /** Read CRUD pattern operation
      * @param ref an existing reference (i.e. id) to a persistent stop
      * @return the expected stop
-     * @throws BusScheduleException: null ref or not binded to persistent object
+     * @throws BusScheduleException
+      *         null ref or not binded to persistent object
      */
         @WebMethod(operationName = "readStop")
     public Stop readStop(@WebParam(name = "ref") int ref)
