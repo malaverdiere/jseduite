@@ -4,6 +4,12 @@
     <service name="BreakingNews">
       <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.news.breaking.BreakingNews</implementation-class>
     </service>
+    <service name="BreakingNewsCRUD">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.news.breaking.BreakingNewsCRUD</implementation-class>
+    </service>
+    <service name="BreakingNewsFinder">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.news.breaking.BreakingNewsFinder</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>
