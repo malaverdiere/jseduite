@@ -75,11 +75,11 @@ public class BreakingNewsCRUD {
         sql += "(`author`, `stamp`, `content`) VALUES (";
         sql += "'"+b.getAuthor()+"','"+sqlDate+"','"+b.getContent()+"');";
 
-        String idGetter = "SELECT max(`id`) FROM `breaking_news`";
+        String idGetter = "SELECT max(`id`) AS `id` FROM `breaking_news`";
 
         try {
             dal.executeVoid(sql);
-            return Integer.parseInt(dal.extractScalar(idGetter, "`id`"));
+            return Integer.parseInt(dal.extractScalar(idGetter, "id"));
         } catch (Exception e) {
             throw new BreakingNewsException("SQL Exception: " + e.getMessage());
         }
@@ -119,7 +119,7 @@ public class BreakingNewsCRUD {
         String sql = "UPDATE `breaking_news`";
         sql += "SET `author` = '"+b.getAuthor()+"', ";
         sql += "`stamp` = '"+toSql(b.getStamp())+"', ";
-        sql += "`content` = '"+b.getContent()+"', ";
+        sql += "`content` = '"+b.getContent()+"' ";
         sql += "WHERE `id` = '" + b.getId()+"';";
         DataAccessLayer dal = new DataAccessLayer();
         try {
