@@ -60,4 +60,27 @@ public class BreakingNewsFinder {
         }
     }
 
+    /**
+     * Extract all persistent references for the Break New business object
+     * @return all existing breaking news references
+     * @throws BreakingNewsException
+     */
+    @WebMethod(operationName="getAllBreakingNewsReferences")
+    public int[] getAllBreakingNewsReferences() throws BreakingNewsException {
+        DataAccessLayer dal = new DataAccessLayer();
+        try {
+            String sql = "SELECT `id` FROM `breaking_news`;";
+            String[] results = dal.extractScalarSet(sql, "id");
+            int[] ids = new int[results.length];
+
+            for(int i=0; i<results.length; i++) {
+                ids[i] = Integer.parseInt(results[i]);
+            }
+
+            return ids;
+        } catch (Exception e) {
+            throw new BreakingNewsException("SQL Exception: " + e.getMessage());
+        }
+    }
+
 }
