@@ -10,7 +10,7 @@
     - dist
     - cleanup
 -->
-<project name="CachedFeedReader-impl" default="default" basedir="..">
+<project name="CachedFeedReader_OLD-impl" default="default" basedir="..">
     <target name="default" depends="dist_se" description="Build whole project."/>
     <!-- 
         ======================

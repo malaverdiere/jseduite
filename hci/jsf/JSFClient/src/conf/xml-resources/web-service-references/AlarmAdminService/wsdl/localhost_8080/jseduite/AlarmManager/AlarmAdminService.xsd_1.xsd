@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-749-SNAPSHOT. --><xs:schema xmlns:tns="http://admin.alarms.technical.jSeduite.hebut.m1.cn/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://admin.alarms.technical.jSeduite.hebut.m1.cn/">
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-417-SNAPSHOT. --><xs:schema xmlns:tns="http://admin.alarms.technical.jSeduite.hebut.m1.cn/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://admin.alarms.technical.jSeduite.hebut.m1.cn/">
 
 <xs:element name="AlarmsAdminException" type="tns:AlarmsAdminException"></xs:element>
 
@@ -16,10 +16,6 @@
 
 <xs:element name="deleteAlarmResponse" type="tns:deleteAlarmResponse"></xs:element>
 
-<xs:element name="getNoLnkAlarm" type="tns:getNoLnkAlarm"></xs:element>
-
-<xs:element name="getNoLnkAlarmResponse" type="tns:getNoLnkAlarmResponse"></xs:element>
-
 <xs:element name="readAlarm" type="tns:readAlarm"></xs:element>
 
 <xs:element name="readAlarmResponse" type="tns:readAlarmResponse"></xs:element>
@@ -32,13 +28,13 @@
 
 <xs:element name="updateAlarmsResponse" type="tns:updateAlarmsResponse"></xs:element>
 
-<xs:complexType name="deleteAlarmLnk">
+<xs:complexType name="deleteAlarm">
 <xs:sequence>
 <xs:element name="alarmId" type="xs:int"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="deleteAlarmLnkResponse">
+<xs:complexType name="deleteAlarmResponse">
 <xs:sequence></xs:sequence>
 </xs:complexType>
 
@@ -48,21 +44,14 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="getNoLnkAlarm">
-<xs:sequence></xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="getNoLnkAlarmResponse">
+<xs:complexType name="deleteAlarmLnk">
 <xs:sequence>
-<xs:element name="return" type="tns:alarm" minOccurs="0" maxOccurs="unbounded"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="alarm">
-<xs:sequence>
-<xs:element name="alarmContent" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="alarmId" type="xs:int"></xs:element>
 </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteAlarmLnkResponse">
+<xs:sequence></xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="readAlarm">
@@ -77,31 +66,29 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="alarm">
+<xs:sequence>
+<xs:element name="alarmContent" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="alarmId" type="xs:int"></xs:element>
+<xs:element name="position" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="AlarmsAdminException">
 <xs:sequence>
 <xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="updateAlarms">
+<xs:complexType name="createAlarm">
 <xs:sequence>
-<xs:element name="alarmId" type="xs:int"></xs:element>
-<xs:element name="content" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="breakId" type="xs:int"></xs:element>
+<xs:element name="content" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="position" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="updateAlarmsResponse">
-<xs:sequence></xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="deleteAlarm">
-<xs:sequence>
-<xs:element name="alarmId" type="xs:int"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="deleteAlarmResponse">
+<xs:complexType name="createAlarmResponse">
 <xs:sequence></xs:sequence>
 </xs:complexType>
 
@@ -115,14 +102,16 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="createAlarm">
+<xs:complexType name="updateAlarms">
 <xs:sequence>
-<xs:element name="breakId" type="xs:int"></xs:element>
+<xs:element name="alarmId" type="xs:int"></xs:element>
 <xs:element name="content" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="position" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="breakId" type="xs:int"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="createAlarmResponse">
+<xs:complexType name="updateAlarmsResponse">
 <xs:sequence></xs:sequence>
 </xs:complexType>
 </xs:schema>

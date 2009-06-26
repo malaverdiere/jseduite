@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-749-SNAPSHOT. --><xs:schema xmlns:tns="http://admin.breaktime.technical.jSeduite.hebut.m1.cn/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://admin.breaktime.technical.jSeduite.hebut.m1.cn/">
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-417-SNAPSHOT. --><xs:schema xmlns:tns="http://admin.breaktime.technical.jSeduite.hebut.m1.cn/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://admin.breaktime.technical.jSeduite.hebut.m1.cn/">
 
 <xs:element name="BreakTimeAdminException" type="tns:BreakTimeAdminException"></xs:element>
 
@@ -34,17 +34,27 @@
 
 <xs:element name="updateResponse" type="tns:updateResponse"></xs:element>
 
-<xs:complexType name="delete">
-<xs:sequence>
-<xs:element name="id" type="xs:int"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="deleteResponse">
+<xs:complexType name="getAllBreaks">
 <xs:sequence></xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="BreakTimeAdminException">
+<xs:complexType name="getAllBreaksResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:breakTime" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="breakTime">
+<xs:sequence>
+<xs:element name="day" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="end" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="id" type="xs:int"></xs:element>
+<xs:element name="kind" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="start" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="BreakTimeException">
 <xs:sequence>
 <xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
@@ -68,27 +78,7 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="breakTime">
-<xs:sequence>
-<xs:element name="day" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="end" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="id" type="xs:int"></xs:element>
-<xs:element name="kind" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="start" type="xs:string" minOccurs="0"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="getAllBreaks">
-<xs:sequence></xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="getAllBreaksResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:breakTime" minOccurs="0" maxOccurs="unbounded"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="BreakTimeException">
+<xs:complexType name="BreakTimeAdminException">
 <xs:sequence>
 <xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
@@ -106,9 +96,24 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="update">
+<xs:sequence>
+<xs:element name="breakId" type="xs:int"></xs:element>
+<xs:element name="promo" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element name="start" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="end" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="kind" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="day" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateResponse">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="create">
 <xs:sequence>
-<xs:element name="promo" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="promo" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
 <xs:element name="start" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="end" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="kind" type="xs:string" minOccurs="0"></xs:element>
@@ -130,14 +135,13 @@
 <xs:sequence></xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="update">
+<xs:complexType name="delete">
 <xs:sequence>
-<xs:element name="breakId" type="xs:int"></xs:element>
-<xs:element name="promo" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="id" type="xs:int"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="updateResponse">
+<xs:complexType name="deleteResponse">
 <xs:sequence></xs:sequence>
 </xs:complexType>
 </xs:schema>

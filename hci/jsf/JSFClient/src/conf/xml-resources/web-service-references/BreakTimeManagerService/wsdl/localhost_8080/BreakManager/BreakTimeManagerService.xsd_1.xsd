@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-749-SNAPSHOT. --><xs:schema xmlns:tns="http://breaktime.technical.jSeduite.hebut.m1.cn/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://breaktime.technical.jSeduite.hebut.m1.cn/">
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-417-SNAPSHOT. --><xs:schema xmlns:tns="http://breaktime.technical.jSeduite.hebut.m1.cn/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://breaktime.technical.jSeduite.hebut.m1.cn/">
 
 <xs:element name="BreakTimeException" type="tns:BreakTimeException"></xs:element>
 
@@ -30,15 +30,13 @@
 
 <xs:element name="getBreakTimeForTodayResponse" type="tns:getBreakTimeForTodayResponse"></xs:element>
 
-<xs:complexType name="getBreakByAlarm">
-<xs:sequence>
-<xs:element name="alarmId" type="xs:int"></xs:element>
-</xs:sequence>
+<xs:complexType name="getAllBreakTime">
+<xs:sequence></xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="getBreakByAlarmResponse">
+<xs:complexType name="getAllBreakTimeResponse">
 <xs:sequence>
-<xs:element name="return" type="tns:breakTime" minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element name="return" type="tns:breakTime" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
@@ -52,33 +50,21 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="DALException">
-<xs:sequence>
-<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="Exception">
-<xs:sequence>
-<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="getBreakByPromo">
-<xs:sequence>
-<xs:element name="promo" type="xs:string" minOccurs="0"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="getBreakByPromoResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:breakTime" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="BreakTimeException">
 <xs:sequence>
 <xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBreakTimeByDay">
+<xs:sequence>
+<xs:element name="day" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBreakTimeByDayResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:breakTime" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
@@ -102,23 +88,37 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="getAllBreakTime">
-<xs:sequence></xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="getAllBreakTimeResponse">
+<xs:complexType name="DALException">
 <xs:sequence>
-<xs:element name="return" type="tns:breakTime" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="getBreakTimeByDay">
+<xs:complexType name="getBreakByAlarm">
 <xs:sequence>
-<xs:element name="day" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="alarmId" type="xs:int"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="getBreakTimeByDayResponse">
+<xs:complexType name="getBreakByAlarmResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:breakTime" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBreakByPromo">
+<xs:sequence>
+<xs:element name="promo" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBreakByPromoResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:breakTime" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 </xs:sequence>
