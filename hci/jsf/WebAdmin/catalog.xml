@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/jSeduite/BreakingNews/BreakingNewsCRUDService?wsdl" uri="src/conf/xml-resources/web-service-references/BreakingNewsCRUDService/wsdl/localhost_8080/jSeduite/BreakingNews/BreakingNewsCRUDService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/BreakingNews/BreakingNewsCRUDService?xsd=1" uri="src/conf/xml-resources/web-service-references/BreakingNewsCRUDService/wsdl/localhost_8080/jSeduite/BreakingNews/BreakingNewsCRUDService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/jSeduite/BreakingNews/BreakingNewsFinderService?wsdl" uri="src/conf/xml-resources/web-service-references/BreakingNewsFinderService/wsdl/localhost_8080/jSeduite/BreakingNews/BreakingNewsFinderService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/BreakingNews/BreakingNewsFinderService?xsd=1" uri="src/conf/xml-resources/web-service-references/BreakingNewsFinderService/wsdl/localhost_8080/jSeduite/BreakingNews/BreakingNewsFinderService.xsd_1.xsd"/>
+</catalog>
