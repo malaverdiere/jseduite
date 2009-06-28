@@ -28,7 +28,6 @@ import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DalResultSet;
 import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DataAccessLayer;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Hashtable;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
@@ -298,7 +297,7 @@ public class BusScheduleFinder {
 
         try {
             String sql = "SELECT * FROM `bus_periods` " +
-                    "WHERE `begin` = '"+formatedBeginDate+"'" +
+                    "WHERE `begin` = '"+formatedBeginDate+"' " +
                     "AND `end` = '"+formatedEndDate+"';";
 
             DalResultSet drs = dal.extractDataSet(sql);

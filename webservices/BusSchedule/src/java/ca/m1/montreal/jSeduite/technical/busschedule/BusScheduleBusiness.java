@@ -133,8 +133,8 @@ public class BusScheduleBusiness {
                 "AND `bus_period_lnk`.`period_id` = " +
                 "   (SELECT `bus_periods`.`id` " +
                 "   FROM `bus_periods` " +
-                "   WHERE `bus_periods`.`end` >= '"+frmtTime+"'" +
-                "   AND `bus_periods`.`begin` <= '"+frmtTime+"')" +
+                "   WHERE `bus_periods`.`end` >= '"+frmtTime+"' " +
+                "   AND `bus_periods`.`begin` <= '"+frmtTime+"') " +
                 "AND `bus_schedules`.`line_steps_id` = " +
                 "   (SELECT `bus_line_steps_lnk`.`id`" +
                 "   FROM `bus_line_steps_lnk`" +
@@ -184,10 +184,10 @@ public class BusScheduleBusiness {
 
         DataAccessLayer dal = new DataAccessLayer();
         String sql =
-                "SELECT `bus_stops`.*" +
-                "FROM `bus_stops`" +
-                "INNER JOIN `bus_line_steps_lnk`" +
-                "ON `bus_line_steps_lnk`.`stop_id` = `bus_stops`.`id`" +
+                "SELECT `bus_stops`.* " +
+                "FROM `bus_stops` " +
+                "INNER JOIN `bus_line_steps_lnk` " +
+                "ON `bus_line_steps_lnk`.`stop_id` = `bus_stops`.`id` " +
                 "WHERE `bus_line_steps_lnk`.`line_id` = '" + Integer.toString(line.getId()) + "'";
 
         try{
@@ -229,10 +229,10 @@ public class BusScheduleBusiness {
 
         DataAccessLayer dal = new DataAccessLayer();
         String sql = 
-                "SELECT DISTINCT `bus_stops`.`direction`" +
-                "FROM `bus_stops`" +
-                "INNER JOIN `bus_line_steps_lnk`" +
-                "ON `bus_line_steps_lnk`.`stop_id` = `bus_stops`.`id`" +
+                "SELECT DISTINCT `bus_stops`.`direction` " +
+                "FROM `bus_stops` " +
+                "INNER JOIN `bus_line_steps_lnk` " +
+                "ON `bus_line_steps_lnk`.`stop_id` = `bus_stops`.`id` " +
                 "WHERE `bus_line_steps_lnk`.`line_id` = '" + Integer.toString(line.getId()) + "'";
 
         try{
