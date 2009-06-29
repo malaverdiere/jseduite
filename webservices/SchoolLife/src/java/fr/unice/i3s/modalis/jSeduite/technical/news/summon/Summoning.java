@@ -18,6 +18,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  * @author      Main Sébastien Mosser          [mosser@polytech.unice.fr]
+ * @contributor 2009 Steve Colombié            [colombie@polytech.unice.fr]
  * 
  **/
 
@@ -29,6 +30,7 @@ import java.text.SimpleDateFormat;
 
 public class Summoning {
 
+    private int id;
     private String student;
     private String promo;
     private Date date;
@@ -44,11 +46,21 @@ public class Summoning {
         this.level = rset.getValue("level");
         this.owner = rset.getValue("owner");
         this.promo = rset.getValue("promo");
+        this.id = Integer.parseInt(rset.getValue("id"));
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getPromo() {
         return promo;
     }
+
 
     public void setPromo(String promo) {
         this.promo = promo;

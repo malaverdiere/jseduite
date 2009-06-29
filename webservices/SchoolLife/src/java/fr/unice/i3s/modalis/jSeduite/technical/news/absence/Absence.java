@@ -18,6 +18,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  * @author      Main Sébastien Mosser          [mosser@polytech.unice.fr]
+ * @contributor 2009 Steve Colombié            [colombie@polytech.unice.fr]
  *
  **/
 package fr.unice.i3s.modalis.jSeduite.technical.news.absence;
@@ -31,6 +32,7 @@ import java.text.SimpleDateFormat;
  */
 public class Absence {
 
+    private int id;
     private String teacher;
     private String reason;
     private Date from;
@@ -44,6 +46,15 @@ public class Absence {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd H:m:s");
         this.from = format.parse(rset.getValue("from"));
         this.until = format.parse(rset.getValue("until"));
+        this.id = Integer.parseInt(rset.getValue("id"));
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Date getFrom() {

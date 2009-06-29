@@ -18,6 +18,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  * @author      Main Sébastien Mosser          [mosser@polytech.unice.fr]
+ * @contributor 2009 Steve Colombié            [colombie@polytech.unice.fr]
  **/
 package fr.unice.i3s.modalis.jSeduite.technical.news.internal;
 
@@ -31,6 +32,7 @@ import java.text.SimpleDateFormat;
  */
 public class News {
 
+    private int id;
     private String author;
     private String target;
     private String content;
@@ -48,6 +50,7 @@ public class News {
         this.end = format.parse(rset.getValue("start"));
         this.start  = format.parse(rset.getValue("end"));
         this.title  = rset.getValue("title");
+        this.id = Integer.parseInt(rset.getValue("id"));
     }
     
     public News(String author, String category, String content, Date start,
@@ -58,6 +61,26 @@ public class News {
         this.start = start;
         this.end = end;
         this.title = title;
+        this.id = 0;
+    }
+
+    public News(int id, String author, String category, String content,
+            Date start, Date end, String title) {
+        this.author = author;
+        this.target = category;
+        this.content = content;
+        this.start = start;
+        this.end = end;
+        this.title = title;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getAuthor() {

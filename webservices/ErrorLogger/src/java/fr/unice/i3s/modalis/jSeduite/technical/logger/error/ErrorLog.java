@@ -21,6 +21,7 @@
  * @contributor 2008 Clémentine Delerce-Mauris [delercm@polytech.unice.fr]
  * @contributor 2008 Lionel Palacin            [lionel.palacin@gmail.com]
  * @contributor 2008 Stéphane Martarello       [stephane.martarello@gmail.com]
+ * @contributor 2009 Steve Colombié            [colombie@polytech.unice.fr]
  *
  **/
 
@@ -34,6 +35,7 @@ import java.text.SimpleDateFormat;
  */
 public class ErrorLog {
 
+    private int id;
     private Date stamp;
     private String trigger;
     private String level;
@@ -46,6 +48,16 @@ public class ErrorLog {
         this.trigger = trigger;
         this.level = level;
         this.message = message;
+        this.id = 0;
+    }
+
+    public ErrorLog(int id, Date stamp, String trigger, String level,
+            String message) {
+        this.stamp = stamp;
+        this.trigger = trigger;
+        this.level = level;
+        this.message = message;
+        this.id = id;
     }
 
     public ErrorLog(DalResultSet result) throws Exception {
@@ -54,6 +66,15 @@ public class ErrorLog {
         this.trigger = result.getValue("trigger");
         this.level = result.getValue("level");
         this.message = result.getValue("message");
+        this.id = Integer.parseInt(result.getValue("id"));
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getLevel() {

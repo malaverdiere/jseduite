@@ -18,6 +18,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  * @author      Main Sébastien Mosser          [mosser@polytech.unice.fr]
+ * @contributor 2009 Steve Colombié            [colombie@polytech.unice.fr]
  *
  **/
 
@@ -31,6 +32,7 @@ import java.util.*;
  */
 public class PictureAlbum {
 
+    private int id;
     private String name;
     private String repository;
     private String user;
@@ -48,6 +50,18 @@ public class PictureAlbum {
         this.validFrom = validFrom;
         this.duration = duration;
         this.name = name;
+        this.id = 0;
+    }
+
+    public PictureAlbum(int id, String repository, String user, String album,
+            Date validFrom, int duration, String name) {
+        this.repository = repository;
+        this.user = user;
+        this.album = album;
+        this.validFrom = validFrom;
+        this.duration = duration;
+        this.name = name;
+        this.id = id;
     }
 
     public PictureAlbum(DalResultSet dataSet) throws Exception {
@@ -58,6 +72,15 @@ public class PictureAlbum {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         this.validFrom = format.parse(dataSet.getValue("start"));
         this.duration = Integer.parseInt(dataSet.getValue("duration"));
+        this.id = Integer.parseInt(dataSet.getValue("id"));
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
