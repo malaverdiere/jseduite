@@ -37,29 +37,7 @@
     <target name="wsimport-client-clean-BreakingNewsFinderService" depends="-init-project">
         <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/news/breaking"/>
     </target>
-    <target name="wsimport-client-check-BreakingNewsCRUDService_1" depends="wsimport-init">
-        <condition property="wsimport-client-BreakingNewsCRUDService_1.notRequired">
-            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/news/breaking/BreakingNewsCRUDService_1.java"/>
-        </condition>
-    </target>
-    <target name="wsimport-client-BreakingNewsCRUDService_1" depends="wsimport-init,wsimport-client-check-BreakingNewsCRUDService_1" unless="wsimport-client-BreakingNewsCRUDService_1.notRequired">
-        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/BreakingNewsCRUDService_1/wsdl/localhost_8080/jSeduite/BreakingNews/BreakingNewsCRUDService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/BreakingNews/BreakingNewsCRUDService?wsdl" xnocompile="true"/>
-    </target>
-    <target name="wsimport-client-clean-BreakingNewsCRUDService_1" depends="-init-project">
-        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/news/breaking"/>
-    </target>
-    <target name="wsimport-client-check-BreakingNewsFinderService_1" depends="wsimport-init">
-        <condition property="wsimport-client-BreakingNewsFinderService_1.notRequired">
-            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/news/breaking/BreakingNewsFinderService_1.java"/>
-        </condition>
-    </target>
-    <target name="wsimport-client-BreakingNewsFinderService_1" depends="wsimport-init,wsimport-client-check-BreakingNewsFinderService_1" unless="wsimport-client-BreakingNewsFinderService_1.notRequired">
-        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/BreakingNewsFinderService_1/wsdl/localhost_8080/jSeduite/BreakingNews/BreakingNewsFinderService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/BreakingNews/BreakingNewsFinderService?wsdl" xnocompile="true"/>
-    </target>
-    <target name="wsimport-client-clean-BreakingNewsFinderService_1" depends="-init-project">
-        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/news/breaking"/>
-    </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-BreakingNewsCRUDService, wsimport-client-BreakingNewsFinderService, wsimport-client-BreakingNewsCRUDService_1, wsimport-client-BreakingNewsFinderService_1"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-BreakingNewsCRUDService, wsimport-client-BreakingNewsFinderService"/>
     <target name="wsimport-client-compile" depends="-pre-pre-compile">
         <webproject2:javac srcdir="${build.generated.dir}/wsimport/client" classpath="${j2ee.platform.wsimport.classpath}:${javac.classpath}" destdir="${build.classes.dir}"/>
         <copy todir="${build.classes.dir}">
