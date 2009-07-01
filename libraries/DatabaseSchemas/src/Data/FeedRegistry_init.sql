@@ -54,9 +54,9 @@ INSERT INTO `feed_registry` VALUES ('www.antibes.maville.com',2,
     'Antibes_derniere_minute', '/flux/rss/dma.php?xtor=RSS-18&code=at');
 INSERT INTO `cache` VALUES ('Antibes_derniere_minute',CURRENT_TIMESTAMP(), '');
 
-INSERT INTO `feed_registry` VALUES ('programme-tv.krinein.com',3,'tv-krinien.com',
-    '/programmes.rss');
-INSERT INTO `cache` VALUES ('tv-krinien.com',CURRENT_TIMESTAMP(), '');
+INSERT INTO `feed_registry` VALUES ('www.tele7.fr',3,'tele7',
+    '/tv/flux_rss/cesoir_meschaines');
+INSERT INTO `cache` VALUES ('tele7',CURRENT_TIMESTAMP(), '');
 
 INSERT INTO `feed_registry` VALUES ('www.my-meteo.fr',1,'Meteo_Nice',
     '/meteo+rss+nice.html');

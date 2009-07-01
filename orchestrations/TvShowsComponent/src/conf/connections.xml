@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/TvShows" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/TvShows" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/CachedFeedReader" version="1.0">
+<service-assembly>
+<identification>
+<name>TVShowsComponent</name>
+<description>Represents the Service Assembly of TVShowsComponent</description>
+</identification>
+<connections>
+<connection>
+<consumer endpoint-name="TvShowsPort" service-name="ns1:TvShowsService"/>
+<provider endpoint-name="TvShowsPortTypeRole_myRole" service-name="ns2:ext"/>
+</connection>
+<connection>
+<consumer endpoint-name="CachedFeedReaderPortTypeRole_partnerRole" service-name="ns2:cachedReader"/>
+<provider endpoint-name="CachedFeedReaderPort" service-name="ns3:CachedFeedReaderService"/>
+</connection>
+</connections>
+</service-assembly>
+</jbi>
