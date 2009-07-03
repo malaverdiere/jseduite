@@ -47,8 +47,8 @@ public class News {
         this.author = rset.getValue("author");
         this.target = rset.getValue("target");
         this.content =  rset.getValue("content");
-        this.end = format.parse(rset.getValue("start"));
-        this.start  = format.parse(rset.getValue("end"));
+        this.start = format.parse(rset.getValue("start"));
+        this.end  = format.parse(rset.getValue("end"));
         this.title  = rset.getValue("title");
         this.id = Integer.parseInt(rset.getValue("id"));
     }

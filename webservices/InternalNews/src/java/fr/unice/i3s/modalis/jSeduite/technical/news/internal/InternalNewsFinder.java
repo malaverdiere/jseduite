@@ -80,4 +80,44 @@ public class InternalNewsFinder {
             throw new InternalNewsException("SQL Exception: " + e.getMessage());
         }
     }
+
+    /**
+     * FindById operation
+     * @param id the element id you're looking for
+     * @return null if no persistent object, such an object if exists
+     */
+    @WebMethod(operationName = "findTargetById")
+    public String findTargetById(@WebParam(name = "id") int id)
+            throws InternalNewsException {
+
+        String sql = "SELECT * FROM `internal_news_target`";
+        sql += "WHERE `id` = '" + id + "';";
+
+        DataAccessLayer dal = new DataAccessLayer();
+        try {
+            DalResultSet rSet = dal.extractDataSet(sql);
+
+            if (rSet.size() == 0) {
+                return null;
+            }
+
+            return rSet.getValue("name");
+        } catch(Exception e) {
+            throw new InternalNewsException("SQL Exception: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getTargetsIds")
+    public String[] getTargetsIds() throws InternalNewsException {
+        DataAccessLayer dal = new DataAccessLayer();
+        String sql = "SELECT * FROM `internal_news_target`;";
+        try {
+            return dal.extractScalarSet(sql, "id");
+        } catch(Exception e) {
+            throw new InternalNewsException(e.getMessage());
+        }
+    }
 }

@@ -6,12 +6,15 @@ import fr.unice.i3s.modalis.jseduite.technical.news.internal.InternalNewsCRUDSer
 import fr.unice.i3s.modalis.jseduite.technical.news.internal.InternalNewsFinder;
 import fr.unice.i3s.modalis.jseduite.technical.news.internal.InternalNewsFinderService;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import javax.faces.model.SelectItem;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.ws.WebServiceRef;
+import webadmin.internalnews.comparators.*;
 
 /**
  *
@@ -38,20 +41,17 @@ public class InternalNewsManagedBean {
     //The start date
     private Date startDate = new Date();
 
-    //The start time
-    private Date startTime = new Date();
-
     //The end date
     private Date endDate = new Date();
-
-    //The end time
-    private Date endTime = new Date();
 
     //The current ID
     private int id = 0;
 
     //The sorting method
     private int sort;
+
+    // The targets
+    private List<SelectItem> targets;
 
     /**
      * Date -> XMLCalendar converter
@@ -135,22 +135,6 @@ public class InternalNewsManagedBean {
     }
 
     /**
-     * Get the start time
-     * @return the start time
-     */
-    public Date getStartTime() {
-        return startTime;
-    }
-
-    /**
-     * Set the start time
-     * @param time the start time
-     */
-    public void setStartTime(Date time) {
-        this.startTime = time;
-    }
-
-    /**
      * Get the end date
      * @return the end date
      */
@@ -164,22 +148,6 @@ public class InternalNewsManagedBean {
      */
     public void setEndDate(Date date) {
         this.endDate = date;
-    }
-
-    /**
-     * Get the end time
-     * @return the end time
-     */
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    /**
-     * Set the end time
-     * @param time the end time
-     */
-    public void setEndTime(Date time) {
-        this.endTime = time;
     }
 
     /**
@@ -224,12 +192,12 @@ public class InternalNewsManagedBean {
         internalNews = new ArrayList<News>();
 
         try {
-            //Get the breaking news ids
+            //Get the internal news ids
             this.finderService = new InternalNewsFinderService();
             InternalNewsFinder finderPort = finderService.getInternalNewsFinderPort();
             List<Integer> internalNewsIds = finderPort.getAllInternalNewsReferences();
 
-            //Get the breaking news
+            //Get the internal news
             this.crudService = new InternalNewsCRUDService();
             InternalNewsCRUD crudPort = crudService.getInternalNewsCRUDPort();
 
@@ -243,28 +211,76 @@ public class InternalNewsManagedBean {
         }
 
         // Sorting the values
-/*        switch(sort) {
-            case BreakingNewsSorter.sortByDate:
-                Collections.sort(breakingNews, new BreakingNewsDateComparator());
+        switch(sort) {
+            case InternalNewsSorter.sortByTarget:
+                Collections.sort(internalNews, new InternalNewsTargetComparator());
                 break;
 
-            case BreakingNewsSorter.sortByAuthor:
-                Collections.sort(breakingNews, new BreakingNewsAuthorComparator());
+            case InternalNewsSorter.sortByAuthor:
+                Collections.sort(internalNews, new InternalNewsAuthorComparator());
                 break;
 
-            case BreakingNewsSorter.sortByAuthorDesc:
-                Collections.sort(breakingNews, new BreakingNewsAuthorComparatorDesc());
+            case InternalNewsSorter.sortByStart:
+                Collections.sort(internalNews, new InternalNewsStartComparator());
                 break;
 
-            case BreakingNewsSorter.sortByDateDesc:
+            case InternalNewsSorter.sortByEnd:
+                Collections.sort(internalNews, new InternalNewsEndComparator());
+                break;
+
+            case InternalNewsSorter.sortByTitle:
+                Collections.sort(internalNews, new InternalNewsTitleComparator());
+                break;
+
+            case InternalNewsSorter.sortByTargetDesc:
+                Collections.sort(internalNews, new InternalNewsTargetComparatorDesc());
+                break;
+
+            case InternalNewsSorter.sortByAuthorDesc:
+                Collections.sort(internalNews, new InternalNewsAuthorComparatorDesc());
+                break;
+
+            case InternalNewsSorter.sortByEndDesc:
+                Collections.sort(internalNews, new InternalNewsEndComparatorDesc());
+                break;
+
+            case InternalNewsSorter.sortByTitleDesc:
+                Collections.sort(internalNews, new InternalNewsTitleComparatorDesc());
+                break;
+            case InternalNewsSorter.sortByStartDesc:
             default:
-                Collections.sort(breakingNews, new BreakingNewsDateComparatorDesc());
+                Collections.sort(internalNews, new InternalNewsStartComparatorDesc());
                 break;
         }
-*/
+
         internalNewsCard = internalNews.size();
 
         return internalNews;
+    }
+
+    /**
+     * Get the targets
+     * @return the list of targets
+     */
+    public List<SelectItem> getTargets() {
+        List<String> targetsBuf;
+        targets = new ArrayList<SelectItem>();
+
+        try {
+            this.finderService = new InternalNewsFinderService();
+            InternalNewsFinder finderPort = finderService.getInternalNewsFinderPort();
+            targetsBuf = finderPort.getTargetsIds();
+
+            for (String tid : targetsBuf) {
+                SelectItem item = new SelectItem(tid, finderPort.findTargetById(Integer.parseInt(tid)));
+                targets.add(item);
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return targets;
     }
 
 
@@ -277,11 +293,6 @@ public class InternalNewsManagedBean {
 
             this.crudService = new InternalNewsCRUDService();
             InternalNewsCRUD crud = crudService.getInternalNewsCRUDPort();
-
-            startDate.setHours(startTime.getHours());
-            startDate.setMinutes(startTime.getMinutes());
-            endDate.setHours(endTime.getHours());
-            endDate.setMinutes(endTime.getMinutes());
 
             cNews.setStart(toXmlCalendar(startDate));
             cNews.setEnd(toXmlCalendar(endDate));
@@ -338,10 +349,7 @@ public class InternalNewsManagedBean {
             uNews = crud.readInternalNews(id);
 
             startDate = uNews.getStart().toGregorianCalendar().getTime();
-            startTime = startDate;
-
             endDate = uNews.getEnd().toGregorianCalendar().getTime();
-            endTime = endDate;
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -358,12 +366,6 @@ public class InternalNewsManagedBean {
         try {
             this.crudService = new InternalNewsCRUDService();
            InternalNewsCRUD crud = crudService.getInternalNewsCRUDPort();
-
-            startDate.setHours(startTime.getHours());
-            startDate.setMinutes(startTime.getMinutes());
-
-            endDate.setHours(endTime.getHours());
-            endDate.setMinutes(endTime.getMinutes());
 
             uNews.setStart(toXmlCalendar(startDate));
             uNews.setEnd(toXmlCalendar(endDate));

@@ -19,6 +19,18 @@
 <message name="getAllInternalNewsReferencesResponse">
 <part name="parameters" element="tns:getAllInternalNewsReferencesResponse"></part>
 </message>
+<message name="findTargetById">
+<part name="parameters" element="tns:findTargetById"></part>
+</message>
+<message name="findTargetByIdResponse">
+<part name="parameters" element="tns:findTargetByIdResponse"></part>
+</message>
+<message name="getTargetsIds">
+<part name="parameters" element="tns:getTargetsIds"></part>
+</message>
+<message name="getTargetsIdsResponse">
+<part name="parameters" element="tns:getTargetsIdsResponse"></part>
+</message>
 <portType name="InternalNewsFinder">
 <operation name="findInternalNewsById">
 <input message="tns:findInternalNewsById"></input>
@@ -28,6 +40,16 @@
 <operation name="getAllInternalNewsReferences">
 <input message="tns:getAllInternalNewsReferences"></input>
 <output message="tns:getAllInternalNewsReferencesResponse"></output>
+<fault message="tns:InternalNewsException" name="InternalNewsException"></fault>
+</operation>
+<operation name="findTargetById">
+<input message="tns:findTargetById"></input>
+<output message="tns:findTargetByIdResponse"></output>
+<fault message="tns:InternalNewsException" name="InternalNewsException"></fault>
+</operation>
+<operation name="getTargetsIds">
+<input message="tns:getTargetsIds"></input>
+<output message="tns:getTargetsIdsResponse"></output>
 <fault message="tns:InternalNewsException" name="InternalNewsException"></fault>
 </operation>
 </portType>
@@ -46,6 +68,30 @@
 </fault>
 </operation>
 <operation name="getAllInternalNewsReferences">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal"></soap:body>
+</input>
+<output>
+<soap:body use="literal"></soap:body>
+</output>
+<fault name="InternalNewsException">
+<soap:fault name="InternalNewsException" use="literal"></soap:fault>
+</fault>
+</operation>
+<operation name="findTargetById">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal"></soap:body>
+</input>
+<output>
+<soap:body use="literal"></soap:body>
+</output>
+<fault name="InternalNewsException">
+<soap:fault name="InternalNewsException" use="literal"></soap:fault>
+</fault>
+</operation>
+<operation name="getTargetsIds">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>

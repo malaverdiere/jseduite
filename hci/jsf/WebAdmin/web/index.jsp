@@ -23,9 +23,14 @@
             <title><h:outputText value="#{bundle.TITLE}" /></title>
         </head>
         <body>
-            <h:outputLink value="breakingnews/listing.jsf">
-                <h:outputText value="#{bundle.BREAKINGNEWS}"/>
-            </h:outputLink>
+            <h:panelGrid columns="1">
+                <h:outputLink value="breakingnews/listing.jsf">
+                    <h:outputText value="#{bundle.BREAKINGNEWS}"/>
+                </h:outputLink>
+                <h:outputLink value="internalnews/listing.jsf">
+                    <h:outputText value="#{bundle.INTERNALNEWS}"/>
+                </h:outputLink>
+            </h:panelGrid>
         </body>
     </html>
 </f:view>
