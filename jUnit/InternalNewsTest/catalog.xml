@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/jSeduite/InternalNews/InternalNewsCRUDService?wsdl" uri="xml-resources/web-service-references/InternalNewsCRUDService/wsdl/localhost_8080/jSeduite/InternalNews/InternalNewsCRUDService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/InternalNews/InternalNewsCRUDService?xsd=1" uri="xml-resources/web-service-references/InternalNewsCRUDService/wsdl/localhost_8080/jSeduite/InternalNews/InternalNewsCRUDService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/jSeduite/InternalNews/InternalNewsService?wsdl" uri="xml-resources/web-service-references/InternalNewsService/wsdl/localhost_8080/jSeduite/InternalNews/InternalNewsService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/InternalNews/InternalNewsService?xsd=1" uri="xml-resources/web-service-references/InternalNewsService/wsdl/localhost_8080/jSeduite/InternalNews/InternalNewsService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/jSeduite/InternalNews/InternalNewsFinderService?wsdl" uri="xml-resources/web-service-references/InternalNewsFinderService/wsdl/localhost_8080/jSeduite/InternalNews/InternalNewsFinderService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/InternalNews/InternalNewsFinderService?xsd=1" uri="xml-resources/web-service-references/InternalNewsFinderService/wsdl/localhost_8080/jSeduite/InternalNews/InternalNewsFinderService.xsd_1.xsd"/>
+</catalog>

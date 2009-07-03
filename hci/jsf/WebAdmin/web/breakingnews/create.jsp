@@ -16,61 +16,51 @@
 <f:view>
     <html>
         <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title><h:outputText value="Breaking News" /></title>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <link rel='stylesheet' type='text/css' href='<%=request.getContextPath()%>/resources/stylesheet.css' />
+
+            <title><h:outputText value="#{bundle.BREAKINGNEWS}" /></title>
         </head>
         <body>
-            <h1><h:outputText value="Create a break new" /></h1>
+            <h1><h:outputText value="#{bundle.BREAKINGNEWS_CREATE}" /></h1>
 
             <h:form>
-                <table>
-                    <tr>
-                        <td>
-                    <h:outputText value="Author"/>
-                        </td>
-                        <td>
-                    <h:inputText id="author" value="#{BreakingNewsManagedBean.cBreakNew.author}" required="true" requiredMessage="author required"/>
-                    <h:message for="author"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                    <h:outputText value="Year"/>
-                        </td>
-                        <td>
-                    <h:inputText id="Year" value="#{BreakingNewsManagedBean.date.year}" required="true" requiredMessage="Année obligatoire !"/>
-                    <h:message for="Year"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                    <h:outputText value="Month"/>
-                        </td>
-                        <td>
-                    <h:inputText id="Month" value="#{BreakingNewsManagedBean.date.month}" required="true" requiredMessage="Mois obligatoire !"/>
-                    <h:message for="Month"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                    <h:outputText value="Day"/>
-                        </td>
-                        <td>
-                    <h:inputText id="Day" value="#{BreakingNewsManagedBean.date.day}" required="true" requiredMessage="Jour obligatoire !"/>
-                    <h:message for="Day"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                    <h:outputText value="Content"/>
-                        </td>
-                        <td>
-                    <h:inputTextarea id="content" rows="5" value="#{BreakingNewsManagedBean.cBreakNew.content}" required="true" requiredMessage="content required"/>
-                    <h:message for="author"/>
-                        </td>
-                    </tr>
-                </table>
-                <h:commandButton value="Create" action="#{BreakingNewsManagedBean.create}"/>
+                <h:panelGrid columns="2" >
+                    <h:outputText value="#{bundle.BREAKINGNEWS_AUTHOR}"/>
+                    <h:panelGroup>
+                        <h:inputText id="author" value="#{BreakingNewsManagedBean.cBreakNew.author}" required="true" requiredMessage="#{bundle.BREAKINGNEWS_AUTHOR_REQUIRED}">
+                            <f:validateLength maximum="50" />
+                        </h:inputText>
+                        <h:message for="author" errorClass="errorMessage"/>
+                    </h:panelGroup>
+
+                    <h:outputText value="#{bundle.BREAKINGNEWS_DATE}"/>
+                    <h:panelGroup>
+                        <h:inputText id="date" value="#{BreakingNewsManagedBean.date}" required="true" requiredMessage="#{bundle.BREAKINGNEWS_DATE_REQUIRED}">
+                            <f:convertDateTime type="date" pattern="#{bundle.FORM_DATE_PATTERN}"/>
+                       </h:inputText>
+                        <h:message for="date" errorClass="errorMessage"/>
+                    </h:panelGroup>
+
+                    <h:outputText value="#{bundle.BREAKINGNEWS_TIME}"/>
+                    <h:panelGroup>
+                        <h:inputText id="time" value="#{BreakingNewsManagedBean.time}" required="true" requiredMessage="#{bundle.BREAKINGNEWS_TIME_REQUIRED}">
+                            <f:convertDateTime type="time" pattern="HH:mm"/>
+                       </h:inputText>
+                        <h:message for="time" errorClass="errorMessage"/>
+                    </h:panelGroup>
+
+                    <h:outputText value="#{bundle.BREAKINGNEWS_CONTENT}"/>
+                    <h:panelGroup>
+                        <h:inputTextarea id="content" rows="5" value="#{BreakingNewsManagedBean.cBreakNew.content}" required="true" requiredMessage="#{bundle.BREAKINGNEWS_CONTENT_REQUIRED}">
+                            <f:validateLength maximum="255" />
+                        </h:inputTextarea>
+                        <h:message for="content" errorClass="errorMessage"/>
+                    </h:panelGroup>
+                </h:panelGrid>
+                
+                <h:commandButton value="#{bundle.FORM_OK}" action="#{BreakingNewsManagedBean.create}"/>
+                <h:commandButton value="#{bundle.FORM_CANCEL}" action="#{BreakingNewsManagedBean.cancel}" immediate="true"/>
             </h:form>
         </body>
     </html>

@@ -9,13 +9,29 @@
     <managed-bean>
         <managed-bean-name>BreakingNewsManagedBean</managed-bean-name>
         <managed-bean-class>webadmin.breakingnews.BreakingNewsManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>BreakingNewsSorter</managed-bean-name>
+        <managed-bean-class>webadmin.breakingnews.BreakingNewsSorter</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>DataTablePager</managed-bean-name>
+        <managed-bean-class>webadmin.util.DataTablePager</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     <navigation-rule>
         <from-view-id>/breakingnews/create.jsp</from-view-id>
         <navigation-case>
             <from-outcome>created</from-outcome>
             <to-view-id>/breakingnews/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/breakingnews/listing.jsp</to-view-id>
+            <redirect/>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -23,6 +39,11 @@
         <navigation-case>
             <from-outcome>update</from-outcome>
             <to-view-id>/breakingnews/update.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>sorted</from-outcome>
+            <to-view-id>/breakingnews/listing.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -30,6 +51,27 @@
         <navigation-case>
             <from-outcome>updated</from-outcome>
             <to-view-id>/breakingnews/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/breakingnews/listing.jsp</to-view-id>
+            <redirect/>
         </navigation-case>
     </navigation-rule>
+    <application>
+        <locale-config>
+            <default-locale>fr_FR</default-locale>
+            <supported-locale>en_US</supported-locale>
+        </locale-config>
+        <resource-bundle>
+            <base-name>webadmin.ApplicationMessages</base-name>
+            <var>bundle</var>
+        </resource-bundle>
+        <message-bundle>webadmin.JSFMessages</message-bundle>
+    </application>
+    <converter>
+        <converter-id>XMLGregorianCalendarConverter</converter-id>
+        <converter-class>webadmin.converters.XMLGregorianCalendarConverter</converter-class>
+    </converter>
 </faces-config>

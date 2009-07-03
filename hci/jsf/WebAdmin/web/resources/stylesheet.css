@@ -5,6 +5,7 @@
 
 /* Style rules to make Java Server faces Standarad data tables look better */
 
+
 .list-header {
   background-color: #eeeeee;
   font-size: larger;
@@ -19,11 +20,20 @@
   background-color: white;
 }
 
-.list-row-even { 
+.list-row-even {
+  background-color: #FFFFFF;
+}
+
+.list-row-even:hover {
+  background-color: orange;
 }
 
 .list-row-odd { 
-  background-color: #eeeeee;
+  background-color: #CECECE;
+}
+
+.list-row-odd:hover {
+  background-color: orange;
 }
 
 /* Style rules for message severity levels */

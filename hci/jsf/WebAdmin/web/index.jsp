@@ -19,13 +19,13 @@
 <f:view>
     <html>
         <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title><h:outputText value="jSeduite Web Admin" /></title>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title><h:outputText value="#{bundle.TITLE}" /></title>
         </head>
         <body>
-             <h:outputLink value="breakingnews/listing.jsf">
-                 <h:outputText value="Breaking News listing"/>
-             </h:outputLink>
+            <h:outputLink value="breakingnews/listing.jsf">
+                <h:outputText value="#{bundle.BREAKINGNEWS}"/>
+            </h:outputLink>
         </body>
     </html>
 </f:view>

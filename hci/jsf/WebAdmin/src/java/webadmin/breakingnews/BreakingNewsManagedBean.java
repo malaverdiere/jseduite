@@ -7,12 +7,17 @@ import fr.unice.i3s.modalis.jseduite.technical.news.breaking.BreakingNewsCRUDSer
 import fr.unice.i3s.modalis.jseduite.technical.news.breaking.BreakingNewsFinder;
 import fr.unice.i3s.modalis.jseduite.technical.news.breaking.BreakingNewsFinderService;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.ws.WebServiceRef;
+import webadmin.breakingnews.comparators.BreakingNewsAuthorComparator;
+import webadmin.breakingnews.comparators.BreakingNewsAuthorComparatorDesc;
+import webadmin.breakingnews.comparators.BreakingNewsDateComparator;
+import webadmin.breakingnews.comparators.BreakingNewsDateComparatorDesc;
 
 /**
  *
@@ -29,14 +34,32 @@ public class BreakingNewsManagedBean {
     //The list of the breaking news
     private ArrayList<BreakNew> breakingNews;
 
+    // The list cardinality
+    private int breakingNewsCard;
+
     //The transient break new
     private BreakNew cBreakNew = new BreakNew();
     private BreakNew uBreakNew = new BreakNew();
 
     //The date
-    public static XMLGregorianCalendar toXmlCalendar() {
+    private Date date = new Date();
+
+    //The time
+    private Date time = new Date();
+
+    //The current ID
+    private int id = 0;
+
+    //The sorting method
+    private int sort;
+
+    /**
+     * Date -> XMLCalendar converter
+     * @param d the date
+     * @return the date into an XMLGregorianCalendar format
+     */
+    public static XMLGregorianCalendar toXmlCalendar(Date d) {
         try {
-            Date d = new Date();
             GregorianCalendar calendar = new GregorianCalendar();
             calendar.setTime(d);
             DatatypeFactory factory = DatatypeFactory.newInstance();
@@ -46,10 +69,21 @@ public class BreakingNewsManagedBean {
             return null;
         }
     }
-    private XMLGregorianCalendar date = toXmlCalendar();
 
-    //The current ID
-    String id = "";
+    /**
+     * Constructor
+     */
+    public BreakingNewsManagedBean () {
+
+    }
+
+    /**
+     * Get the breaking news cardinality
+     * @return the breaking news cardinality
+     */
+    public int getBreakingNewsCard() {
+        return breakingNewsCard;
+    }
 
     /**
      * Get the created break new
@@ -83,11 +117,12 @@ public class BreakingNewsManagedBean {
         this.uBreakNew = b;
     }
 
+
     /**
      * Get the date
      * @return the date
      */
-    public XMLGregorianCalendar getDate() {
+    public Date getDate() {
         return date;
     }
 
@@ -95,15 +130,31 @@ public class BreakingNewsManagedBean {
      * Set the date
      * @param date the date
      */
-    public void setDate(XMLGregorianCalendar date) {
+    public void setDate(Date date) {
         this.date = date;
+    }
+
+    /**
+     * Get the time
+     * @return the time
+     */
+    public Date getTime() {
+        return time;
+    }
+
+    /**
+     * Set the time
+     * @param time the time
+     */
+    public void setTime(Date time) {
+        this.time = time;
     }
 
     /**
      * Get the identifier
      * @return the identifer
      */
-    public String getId() {
+    public int getId() {
         return this.id;
 
     }
@@ -112,13 +163,30 @@ public class BreakingNewsManagedBean {
      * Set the identifier
      * @param i the identifier
      */
-    public void setId(String i) {
+    public void setId(int i) {
         this.id = i;
     }
 
     /**
+     * Get the sort method
+     * @return the sort method
+     */
+    public int getSort() {
+        return this.sort;
+
+    }
+
+    /**
+     * Set the sort method
+     * @param i the sort method
+     */
+    public void setSort(int s) {
+        this.sort = s;
+    }
+
+    /**
      * Get the breaking news
-     * @return a list of the breakingfg news
+     * @return a list of the breaking news
      */
     public ArrayList<BreakNew> getBreakingNews() {
         breakingNews = new ArrayList<BreakNew>();
@@ -142,6 +210,28 @@ public class BreakingNewsManagedBean {
             e.printStackTrace();
         }
 
+        // Sorting the values
+        switch(sort) {
+            case BreakingNewsSorter.sortByDate:
+                Collections.sort(breakingNews, new BreakingNewsDateComparator());
+                break;
+
+            case BreakingNewsSorter.sortByAuthor:
+                Collections.sort(breakingNews, new BreakingNewsAuthorComparator());
+                break;
+
+            case BreakingNewsSorter.sortByAuthorDesc:
+                Collections.sort(breakingNews, new BreakingNewsAuthorComparatorDesc());
+                break;
+                
+            case BreakingNewsSorter.sortByDateDesc:
+            default:
+                Collections.sort(breakingNews, new BreakingNewsDateComparatorDesc());
+                break;
+        }
+
+        breakingNewsCard = breakingNews.size();
+
         return breakingNews;
     }
 
@@ -151,15 +241,14 @@ public class BreakingNewsManagedBean {
      * @return a string indicating the break news is created
      */
     public String create() {
-        date = toXmlCalendar();
-
         try {
 
             this.crudService = new BreakingNewsCRUDService();
             BreakingNewsCRUD crud = crudService.getBreakingNewsCRUDPort();
 
-            date.setTime(1,1,1);
-            cBreakNew.setStamp(date);
+            date.setHours(time.getHours());
+            date.setMinutes(time.getMinutes());
+            cBreakNew.setStamp(toXmlCalendar(date));
 
             crud.createBreakingNews(cBreakNew);
 
@@ -173,6 +262,14 @@ public class BreakingNewsManagedBean {
         return "created";
     }
 
+    /**
+     * Cancel modifications
+     * @return a string indicating modification/creation is canceled
+     */
+    public String cancel() {
+        return "cancel";
+    }
+
 
     /**
      * Delete the break new corresponding with the identifier
@@ -183,7 +280,7 @@ public class BreakingNewsManagedBean {
             this.crudService = new BreakingNewsCRUDService();
             BreakingNewsCRUD crud = crudService.getBreakingNewsCRUDPort();
 
-            BreakNew breakNewToDelete = crud.readBreakingNews(Integer.parseInt(id));
+            BreakNew breakNewToDelete = crud.readBreakingNews(id);
             crud.deleteBreakingNews(breakNewToDelete);
 
         }
@@ -202,9 +299,10 @@ public class BreakingNewsManagedBean {
             this.crudService = new BreakingNewsCRUDService();
             BreakingNewsCRUD crud = crudService.getBreakingNewsCRUDPort();
 
-            uBreakNew = crud.readBreakingNews(Integer.parseInt(id));
+            uBreakNew = crud.readBreakingNews(id);
 
-            date = uBreakNew.getStamp();
+            date = uBreakNew.getStamp().toGregorianCalendar().getTime();
+            time = date;
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -219,11 +317,13 @@ public class BreakingNewsManagedBean {
      */
     public String update() {
         try {
-
             this.crudService = new BreakingNewsCRUDService();
             BreakingNewsCRUD crud = crudService.getBreakingNewsCRUDPort();
 
-            uBreakNew.setStamp(date);
+            date.setHours(time.getHours());
+            date.setMinutes(time.getMinutes());
+
+            uBreakNew.setStamp(toXmlCalendar(date));
             crud.updateBreakingNews(uBreakNew);
 
         }
@@ -232,5 +332,13 @@ public class BreakingNewsManagedBean {
         }
 
         return "updated";
+    }
+
+    /**
+     * Set the sort method
+     * @return a string indicating the breaking news are ready to be sorted
+     */
+    public String sortBy() {
+        return "sorted";
     }
 }

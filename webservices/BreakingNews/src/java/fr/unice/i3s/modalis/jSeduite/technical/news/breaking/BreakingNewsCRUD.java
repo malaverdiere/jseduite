@@ -48,7 +48,7 @@ public class BreakingNewsCRUD {
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(date);
         String d = "" + cal.get(Calendar.YEAR);
-        d += "-" + cal.get(Calendar.MONTH);
+        d += "-" + (cal.get(Calendar.MONTH)+1);
         d += "-" + cal.get(Calendar.DAY_OF_MONTH);
         d += " " + cal.get(Calendar.HOUR_OF_DAY);
         d += ":" + cal.get(Calendar.MINUTE);
