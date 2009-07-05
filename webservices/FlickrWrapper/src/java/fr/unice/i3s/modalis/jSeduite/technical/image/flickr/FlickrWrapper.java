@@ -40,24 +40,25 @@ public class FlickrWrapper {
 
     private static final String HOST = "api.flickr.com";
     private static final String REST_SERVICE = "/services/rest/";
-    private static final String API_KEY = "83416fd662f08086b84f91fc89b12fbf";
     
     /** Retrieve the content of a given flickr Web Album
      * @param album album's id (see flickr link)
+     * @param key the Flickr API Key
+     *   => http://www.flickr.com/services/api/misc.api_keys.html
      * @return an array of URL
      */
     @WebMethod(operationName = "getAlbumContent")
-    public URL[] getAlbumContent(@WebParam(name = "album") String album)
+    public URL[] getAlbumContent(@WebParam(name = "album") String album,
+            @WebParam(name="key") String key)
             throws FlickrWrapperException {
         try {
-            String address = buildAddressPrefix("photosets.getPhotos");
+            String address = buildAddressPrefix("photosets.getPhotos",key);
             address += "&photoset_id=" + album;
             return this.transform("photoset",address);
         } catch (Exception ex) {
             throw new FlickrWrapperException(ex.getMessage());
         }
     }
-
 
     /** Retrieve some pictures from a flickr folksonomy
      * @param tag the expected tags
@@ -66,10 +67,11 @@ public class FlickrWrapper {
      */
     @WebMethod(operationName = "getFolksonomyContent")
     public URL[] getFolksonomyContent(@WebParam(name = "tags") String tags,
-            @WebParam(name = "count") int count)
+            @WebParam(name = "count") int count,
+            @WebParam(name="key") String key)
             throws FlickrWrapperException {
         try {
-            String address = buildAddressPrefix("photos.search");
+            String address = buildAddressPrefix("photos.search",key);
             address += "&tags=" + tags + "&per_page="+count;
             return this.transform("photos",address);
         } catch (Exception e){
@@ -81,9 +83,9 @@ public class FlickrWrapper {
      * @param operationName the name of the expected operation
      * @return a string containing the address prefix following Flickr's convention
      */
-    private String buildAddressPrefix(String operationName) {
+    private String buildAddressPrefix(String operationName, String key) {
         String tmp = "http://" + HOST + REST_SERVICE + "?method=flickr.";
-        tmp += operationName + "&api_key=" + API_KEY;
+        tmp += operationName + "&api_key=" + key;
         return tmp;
     }
 
