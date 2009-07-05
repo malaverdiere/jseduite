@@ -1,8 +1,0 @@
-<soapenv:Envelope xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cac="http://modalis.i3s.unice.fr/jSeduite/schema/CachedFeedReader">
-  <soapenv:Body>
-    <cac:CachedFeedReaderRequest>
-      <cac:name>tv-krinien.com</cac:name>
-      <cac:validity>10</cac:validity>
-    </cac:CachedFeedReaderRequest>
-  </soapenv:Body>
-</soapenv:Envelope>

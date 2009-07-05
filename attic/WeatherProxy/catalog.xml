@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="http://api.wxbug.net/weatherservice.asmx?WSDL" uri="src/Partners/api.wxbug.net/weatherservice.asmx.wsdl"/>
-    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/weatherservice.asmx.wsdl" uri="src/Partners/weatherservice.asmx.wsdl"/>
-    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/PartnerKeysService.wsdl" uri="src/Partners/PartnerKeysService.wsdl"/>
-    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/PartnerKeysService.xsd" uri="src/Partners/PartnerKeysService.xsd"/>
-</catalog>
