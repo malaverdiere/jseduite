@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="http://flickr.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns2="http://picasa.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns3="http://partners.registry.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns4="http://helper.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns5="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/ImageScraper" xmlns:ns6="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/ImageScraper" xmlns:xlink="http://www.w3.org/2000/xlink">
+<endpoints>
+<endpoint endpoint-name="FlickrWrapperPort" interface-name="ns1:FlickrWrapper" name="endpoint1" service-name="ns1:FlickrWrapperService"/>
+<endpoint endpoint-name="PicasaWrapperPort" interface-name="ns2:PicasaWrapper" name="endpoint2" service-name="ns2:PicasaWrapperService"/>
+<endpoint endpoint-name="PartnerKeysPort" interface-name="ns3:PartnerKeys" name="endpoint3" service-name="ns3:PartnerKeysService"/>
+<endpoint endpoint-name="PictureSetPort" interface-name="ns4:PictureSet" name="endpoint4" service-name="ns4:PictureSetService"/>
+<endpoint endpoint-name="ImageScraperPort" interface-name="ns5:ImageScraperPortType" name="endpoint5" service-name="ns5:ImageScraperService"/>
+<endpoint display-name="ext" endpoint-name="ImageScraperPortTypeRole_myRole" file-path="ImageScraper.bpel" interface-name="ns5:ImageScraperPortType" name="endpoint6" process-name="ImageScraper" service-name="ns6:ext"/>
+<endpoint display-name="key_registry" endpoint-name="key_registryRole_partnerRole" file-path="ImageScraper.bpel" interface-name="ns3:PartnerKeys" name="endpoint7" process-name="ImageScraper" service-name="ns6:key_registry"/>
+<endpoint display-name="picasa" endpoint-name="PicasaWrapperRole_partnerRole" file-path="ImageScraper.bpel" interface-name="ns2:PicasaWrapper" name="endpoint8" process-name="ImageScraper" service-name="ns6:picasa"/>
+<endpoint display-name="flickr" endpoint-name="FlickrWrapperRole_partnerRole" file-path="ImageScraper.bpel" interface-name="ns1:FlickrWrapper" name="endpoint9" process-name="ImageScraper" service-name="ns6:flickr"/>
+<endpoint display-name="helper" endpoint-name="PictureSetRole_partnerRole" file-path="ImageScraper.bpel" interface-name="ns4:PictureSet" name="endpoint10" process-name="ImageScraper" service-name="ns6:helper"/>
+</endpoints>
+<service-units>
+<service-engine-service-unit artifacts-zip="ImageScraper.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="ImageScraperComponent-ImageScraper" unit-name="ImageScraper" unknown="false" x="147" y="97">
+<provides endpoint="endpoint6"/>
+<consumes endpoint="endpoint7"/>
+<consumes endpoint="endpoint8"/>
+<consumes endpoint="endpoint9"/>
+<consumes endpoint="endpoint10"/>
+</service-engine-service-unit>
+<binding-component-service-unit artifacts-zip="sun-http-binding.jar" component-name="sun-http-binding" description="Represents this Service Unit" name="ImageScraperComponent-sun-http-binding" unit-name="sun-http-binding">
+<ports>
+<port x="67" y="201">
+<link xlink:href="../jbiServiceUnits/ImageScraper/ImageScraper.wsdl#xpointer(/definitions/service[@name='ImageScraperService']/port[@name='ImageScraperPort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint5"/>
+<provides endpoint="endpoint5"/>
+</port>
+<port x="67" y="353">
+<link xlink:href="../jbiServiceUnits/ImageScraper/Partners/FlickrWrapperService.wsdl#xpointer(/definitions/service[@name='FlickrWrapperService']/port[@name='FlickrWrapperPort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint1"/>
+<provides endpoint="endpoint1"/>
+</port>
+<port x="67" y="124">
+<link xlink:href="../jbiServiceUnits/ImageScraper/Partners/PartnerKeysService.wsdl#xpointer(/definitions/service[@name='PartnerKeysService']/port[@name='PartnerKeysPort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint3"/>
+<provides endpoint="endpoint3"/>
+</port>
+<port x="67" y="47">
+<link xlink:href="../jbiServiceUnits/ImageScraper/Partners/PicasaWrapperService.wsdl#xpointer(/definitions/service[@name='PicasaWrapperService']/port[@name='PicasaWrapperPort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint2"/>
+<provides endpoint="endpoint2"/>
+</port>
+<port x="67" y="448">
+<link xlink:href="../jbiServiceUnits/ImageScraper/Partners/PictureSetService.wsdl#xpointer(/definitions/service[@name='PictureSetService']/port[@name='PictureSetPort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint4"/>
+<provides endpoint="endpoint4"/>
+</port>
+</ports>
+</binding-component-service-unit>
+</service-units>
+<connections>
+<connection consumer="endpoint5" provider="endpoint6" state="unchanged"/>
+<connection consumer="endpoint10" provider="endpoint4" state="unchanged"/>
+<connection consumer="endpoint7" provider="endpoint3" state="unchanged"/>
+<connection consumer="endpoint8" provider="endpoint2" state="unchanged"/>
+<connection consumer="endpoint9" provider="endpoint1" state="unchanged"/>
+</connections>
+<porttypes>
+<link xlink:href="../jbiServiceUnits/ImageScraper/ImageScraper.wsdl#xpointer(/definitions/portType[@name='ImageScraperPortType'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/ImageScraper/Partners/FlickrWrapperService.wsdl#xpointer(/definitions/portType[@name='FlickrWrapper'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/ImageScraper/Partners/PartnerKeysService.wsdl#xpointer(/definitions/portType[@name='PartnerKeys'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/ImageScraper/Partners/PicasaWrapperService.wsdl#xpointer(/definitions/portType[@name='PicasaWrapper'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/ImageScraper/Partners/PictureSetService.wsdl#xpointer(/definitions/portType[@name='PictureSet'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/FlickrWrapperService.wsdl#xpointer(/definitions/portType[@name='FlickrWrapper'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/PartnerKeysService.wsdl#xpointer(/definitions/portType[@name='PartnerKeys'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/PicasaWrapperService.wsdl#xpointer(/definitions/portType[@name='PicasaWrapper'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/PictureSetService.wsdl#xpointer(/definitions/portType[@name='PictureSet'])" xlink:type="simple"/>
+</porttypes>
+<bindings>
+<link xlink:href="../jbiServiceUnits/ImageScraper/ImageScraper.wsdl#xpointer(/definitions/binding[@name='ImageScraperBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/ImageScraper/Partners/FlickrWrapperService.wsdl#xpointer(/definitions/binding[@name='FlickrWrapperPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/ImageScraper/Partners/PartnerKeysService.wsdl#xpointer(/definitions/binding[@name='PartnerKeysPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/ImageScraper/Partners/PicasaWrapperService.wsdl#xpointer(/definitions/binding[@name='PicasaWrapperPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/ImageScraper/Partners/PictureSetService.wsdl#xpointer(/definitions/binding[@name='PictureSetPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/FlickrWrapperService.wsdl#xpointer(/definitions/binding[@name='FlickrWrapperPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/PartnerKeysService.wsdl#xpointer(/definitions/binding[@name='PartnerKeysPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/PicasaWrapperService.wsdl#xpointer(/definitions/binding[@name='PicasaWrapperPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/PictureSetService.wsdl#xpointer(/definitions/binding[@name='PictureSetPortBinding'])" xlink:type="simple"/>
+</bindings>
+<services>
+<link xlink:href="../jbiServiceUnits/ImageScraper/ImageScraper.wsdl#xpointer(/definitions/service[@name='ImageScraperService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/ImageScraper/Partners/FlickrWrapperService.wsdl#xpointer(/definitions/service[@name='FlickrWrapperService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/ImageScraper/Partners/PartnerKeysService.wsdl#xpointer(/definitions/service[@name='PartnerKeysService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/ImageScraper/Partners/PicasaWrapperService.wsdl#xpointer(/definitions/service[@name='PicasaWrapperService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/ImageScraper/Partners/PictureSetService.wsdl#xpointer(/definitions/service[@name='PictureSetService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/FlickrWrapperService.wsdl#xpointer(/definitions/service[@name='FlickrWrapperService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/PartnerKeysService.wsdl#xpointer(/definitions/service[@name='PartnerKeysService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/PicasaWrapperService.wsdl#xpointer(/definitions/service[@name='PicasaWrapperService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/ImageScraper/src/Partners/PictureSetService.wsdl#xpointer(/definitions/service[@name='PictureSetService'])" xlink:type="simple"/>
+</services>
+<regions>
+        <region name="WSDL Endpoints" width="150"/>
+        <region name="JBI Modules" width="500"/>
+        <region name="External Modules" width="200"/>
+    </regions>
+</casa>

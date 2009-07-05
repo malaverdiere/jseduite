@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/ImageScraper" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/ImageScraper" xmlns:ns3="http://helper.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns4="http://partners.registry.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns5="http://picasa.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns6="http://flickr.image.technical.jSeduite.modalis.i3s.unice.fr/" version="1.0">
+<service-assembly>
+<identification>
+<name>ImageScraperComponent</name>
+<description>Represents the Service Assembly of ImageScraperComponent</description>
+</identification>
+<connections>
+<connection>
+<consumer endpoint-name="ImageScraperPort" service-name="ns1:ImageScraperService"/>
+<provider endpoint-name="ImageScraperPortTypeRole_myRole" service-name="ns2:ext"/>
+</connection>
+<connection>
+<consumer endpoint-name="PictureSetRole_partnerRole" service-name="ns2:helper"/>
+<provider endpoint-name="PictureSetPort" service-name="ns3:PictureSetService"/>
+</connection>
+<connection>
+<consumer endpoint-name="key_registryRole_partnerRole" service-name="ns2:key_registry"/>
+<provider endpoint-name="PartnerKeysPort" service-name="ns4:PartnerKeysService"/>
+</connection>
+<connection>
+<consumer endpoint-name="PicasaWrapperRole_partnerRole" service-name="ns2:picasa"/>
+<provider endpoint-name="PicasaWrapperPort" service-name="ns5:PicasaWrapperService"/>
+</connection>
+<connection>
+<consumer endpoint-name="FlickrWrapperRole_partnerRole" service-name="ns2:flickr"/>
+<provider endpoint-name="FlickrWrapperPort" service-name="ns6:FlickrWrapperService"/>
+</connection>
+</connections>
+</service-assembly>
+</jbi>
