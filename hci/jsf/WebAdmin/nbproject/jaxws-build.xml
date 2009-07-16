@@ -59,7 +59,29 @@
     <target name="wsimport-client-clean-InternalNewsFinderService" depends="-init-project">
         <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/news/internal"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-BreakingNewsCRUDService, wsimport-client-BreakingNewsFinderService, wsimport-client-InternalNewsCRUDService, wsimport-client-InternalNewsFinderService"/>
+    <target name="wsimport-client-check-PictureAlbumRegistryCRUDService" depends="wsimport-init">
+        <condition property="wsimport-client-PictureAlbumRegistryCRUDService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/image/registry/PictureAlbumRegistryCRUDService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-PictureAlbumRegistryCRUDService" depends="wsimport-init,wsimport-client-check-PictureAlbumRegistryCRUDService" unless="wsimport-client-PictureAlbumRegistryCRUDService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/PictureAlbumRegistryCRUDService/wsdl/localhost_8080/jSeduite/PictureAlbumRegistry/PictureAlbumRegistryCRUDService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/PictureAlbumRegistry/PictureAlbumRegistryCRUDService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-PictureAlbumRegistryCRUDService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/image/registry"/>
+    </target>
+    <target name="wsimport-client-check-PictureAlbumRegistryFinderService" depends="wsimport-init">
+        <condition property="wsimport-client-PictureAlbumRegistryFinderService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/image/registry/PictureAlbumRegistryFinderService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-PictureAlbumRegistryFinderService" depends="wsimport-init,wsimport-client-check-PictureAlbumRegistryFinderService" unless="wsimport-client-PictureAlbumRegistryFinderService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/PictureAlbumRegistryFinderService/wsdl/localhost_8080/jSeduite/PictureAlbumRegistry/PictureAlbumRegistryFinderService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/PictureAlbumRegistry/PictureAlbumRegistryFinderService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-PictureAlbumRegistryFinderService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/image/registry"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-BreakingNewsCRUDService, wsimport-client-BreakingNewsFinderService, wsimport-client-InternalNewsCRUDService, wsimport-client-InternalNewsFinderService, wsimport-client-PictureAlbumRegistryCRUDService, wsimport-client-PictureAlbumRegistryFinderService"/>
     <target name="wsimport-client-compile" depends="-pre-pre-compile">
         <webproject2:javac srcdir="${build.generated.dir}/wsimport/client" classpath="${j2ee.platform.wsimport.classpath}:${javac.classpath}" destdir="${build.classes.dir}"/>
         <copy todir="${build.classes.dir}">

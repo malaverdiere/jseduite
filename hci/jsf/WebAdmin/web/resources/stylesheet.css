@@ -1,13 +1,165 @@
-/*
- * After modifying this style sheet, refresh the page being designed to see the effect of the modification.
- * Click the Refresh button in the Visual Designer toolbar to refresh the page.
- */ 
+/** COLORS **
+dark blue   #142071
+blue        #1C2C9C
+light blue  #2339C8
+dark green  #3CA81E
+green       #4BD326
+light green #6DDF4D
+white       #FFFFFD
+**/
+
+.body {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    background-image: url('./images/background.jpg');
+    font-family: Calibri,Arial,Tahoma,sans-serif;
+}
+
+.header {
+    height: 183px;
+    padding-left: 49px;
+    padding-right: 49px;
+    background-image: url('./images/header.jpg');
+}
+
+.header h1 {
+    display: none;
+}
+
+.menu {
+    float: left;
+    width: 120px;
+    max-width: 120px;
+    min-height: 500px;
+    margin-left: 49px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 20px;
+    overflow: hidden;
+    font-size: small;
+}
+
+.menuCategory {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #3CA81E;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.menuTitle {
+    display: block;
+    color: #142071;
+    font-weight: bold;
+    font-size: larger;
+    border-bottom: 1px solid #3CA81E;
+}
+
+.menuItem {
+    display: block;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: #2339C8;
+}
+
+a:hover {
+    color: #1C2C9C;
+}
+
+.create {
+    padding-left: 20px;
+    background-image: url('./images/add.png');
+    background-position: left;
+    background-repeat: no-repeat;
+}
+
+.content {
+    float: right;
+    width: 680px;
+    padding-left: 35px;
+    padding-right: 35px;
+    min-height: 500px;
+    margin-right: 49px;
+}
+
+.content h1 {
+    color: #078d00;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-top: #078d00 2px solid;
+    border-bottom: #078d00 2px solid;
+}
+
+.content img {
+    border: none;
+    vertical-align: middle;
+}
+
+.content form a {
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+}
+
+.content form a.update {
+    background-image: url('./images/update.png');
+    margin: 5px;
+}
+
+.content form a.delete {
+    background-image: url('./images/delete.png');
+    margin: 5px;
+}
+
+.content form a.sort {
+    display: inline;
+}
+
+.content tfoot {
+    text-align: center;
+    color: #1C2C9C;
+}
+
+.content form a.pager {
+    display: inline;
+}
+
+.content table {
+    width: 100%;
+}
+
+.content table span {
+    white-space: nowrap;
+}
+
+.footer {
+    height: 35px;
+    padding-left: 49px;
+    padding-right: 49px;
+    padding-top: 4px;
+    background-image: url('./images/footer.jpg');
+    text-align: center;
+    clear: both;
+}
+
+.footer span {
+    color:white;
+    font-weight: bold;
+}
+
 
 /* Style rules to make Java Server faces Standarad data tables look better */
 
 
 .list-header {
-  background-color: #eeeeee;
+  background-color: #4BD326;
   font-size: larger;
   font-weight: bold;
 }
@@ -25,36 +177,42 @@
 }
 
 .list-row-even:hover {
-  background-color: orange;
+  background-color: #2339C8;
+  color: #FFFFFF;
 }
 
 .list-row-odd { 
-  background-color: #CECECE;
+  background-color: #c2ffc6;
 }
 
 .list-row-odd:hover {
-  background-color: orange;
+  background-color: #2339C8;
+  color: #FFFFFF;
 }
 
 /* Style rules for message severity levels */
 
 .infoMessage {
   color: black;
+  margin-left: 15px;
 }
 
 .warnMessage {
   color: orange;
   font-weight: bold;
+  margin-left: 15px;
 }
 
 .errorMessage {
   color: red;
   font-weight: bold;
+  margin-left: 15px;
 }
 
 .fatalMessage {
   color: red;
   font-style: italic;
   font-weight: bold;
+  margin-left: 15px;
 }
 

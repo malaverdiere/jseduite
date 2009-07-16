@@ -20,17 +20,28 @@
     <html>
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <link rel='stylesheet' type='text/css' href='<%=request.getContextPath()%>/resources/stylesheet.css' />
             <title><h:outputText value="#{bundle.TITLE}" /></title>
         </head>
         <body>
-            <h:panelGrid columns="1">
-                <h:outputLink value="breakingnews/listing.jsf">
-                    <h:outputText value="#{bundle.BREAKINGNEWS}"/>
-                </h:outputLink>
-                <h:outputLink value="internalnews/listing.jsf">
-                    <h:outputText value="#{bundle.INTERNALNEWS}"/>
-                </h:outputLink>
-            </h:panelGrid>
+            <div class="body">
+                <div class="header">
+                    <%@include file="layout/header.jsp" %>
+                </div>
+
+                <div class="center">
+                    <div class="menu">
+                        <%@include file="layout/menu.jsp" %>
+                    </div>
+                    <div class="content">
+                        <h:outputText value="Link to every services + images"/>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <%@include file="layout/footer.jsp" %>
+                </div>
+            </div>
         </body>
     </html>
 </f:view>

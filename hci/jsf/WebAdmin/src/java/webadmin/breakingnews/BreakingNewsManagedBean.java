@@ -51,7 +51,7 @@ public class BreakingNewsManagedBean {
     private int id = 0;
 
     //The sorting method
-    private int sort;
+    private int sort = BreakingNewsSorter.sortByDateDesc;
 
     /**
      * Date -> XMLCalendar converter

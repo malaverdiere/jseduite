@@ -17,6 +17,11 @@
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     <managed-bean>
+        <managed-bean-name>PictureAlbumManagedBean</managed-bean-name>
+        <managed-bean-class>webadmin.picturealbum.PictureAlbumManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
         <managed-bean-name>BreakingNewsSorter</managed-bean-name>
         <managed-bean-class>webadmin.breakingnews.BreakingNewsSorter</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
@@ -24,6 +29,11 @@
     <managed-bean>
         <managed-bean-name>InternalNewsSorter</managed-bean-name>
         <managed-bean-class>webadmin.internalnews.InternalNewsSorter</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>PictureAlbumSorter</managed-bean-name>
+        <managed-bean-class>webadmin.picturealbum.PictureAlbumSorter</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     <managed-bean>
@@ -127,6 +137,47 @@
         <navigation-case>
             <from-outcome>cancel</from-outcome>
             <to-view-id>/internalnews/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+    <navigation-rule>
+        <from-view-id>/picturealbum/create.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>created</from-outcome>
+            <to-view-id>/picturealbum/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/picturealbum/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/picturealbum/listing.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>sorted</from-outcome>
+            <to-view-id>/picturealbum/listing.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>update</from-outcome>
+            <to-view-id>/picturealbum/update.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/picturealbum/update.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>updated</from-outcome>
+            <to-view-id>/picturealbum/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/picturealbum/listing.jsp</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>

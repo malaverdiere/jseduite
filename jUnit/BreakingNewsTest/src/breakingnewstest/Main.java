@@ -103,7 +103,7 @@ public class Main {
             BreakNew bn1 = crud.read(lastId-1);
             crud.delete(bn1);
 
-            System.out.print("\n====\nUPDATE\n====\n");
+            System.out.print("\n====\nDELETE\n====\n");
             System.out.print("News "+(lastId-1)+" deleted.\n");
         }
     }
