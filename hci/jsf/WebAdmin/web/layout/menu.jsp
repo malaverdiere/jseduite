@@ -40,9 +40,9 @@
     <h:panelGroup styleClass="menuCategory">
         <h:outputText value="#{bundle.MENU_SCHOOLLIFE}" styleClass="menuTitle"/>
         <h:panelGroup styleClass="menuItem">
-<%--            <h:outputLink value="#{request.contextPath}/promotions/listing.jsf">--%>
-                <h:outputText value="#{bundle.PROMOTIONS}"/>
-<%--            </h:outputLink>--%>
+            <h:outputLink value="#{request.contextPath}/promotions/listing.jsf">
+                <h:outputText value="#{bundle.PROMOTION}"/>
+            </h:outputLink>
         </h:panelGroup>
         <h:panelGroup styleClass="menuItem">
 <%--            <h:outputLink value="#{request.contextPath}/teacherabsences/listing.jsf">--%>
@@ -53,6 +53,20 @@
         <h:panelGroup styleClass="menuItem">
 <%--            <h:outputLink value="#{request.contextPath}/summonings/listing.jsf">--%>
                 <h:outputText value="#{bundle.SUMMONINGS}"/>
+<%--            </h:outputLink>--%>
+        </h:panelGroup>
+    </h:panelGroup>
+
+    <h:panelGroup styleClass="menuCategory">
+        <h:outputText value="#{bundle.MENU_BREAKS}" styleClass="menuTitle"/>
+        <h:panelGroup styleClass="menuItem">
+<%--            <h:outputLink value="#{request.contextPath}/breaks/listing.jsf">--%>
+                <h:outputText value="#{bundle.BREAK}"/>
+<%--            </h:outputLink>--%>
+        </h:panelGroup>
+        <h:panelGroup styleClass="menuItem">
+<%--            <h:outputLink value="#{request.contextPath}/alarms/listing.jsf">--%>
+                <h:outputText value="#{bundle.ALARM}"/>
 <%--            </h:outputLink>--%>
         </h:panelGroup>
     </h:panelGroup>

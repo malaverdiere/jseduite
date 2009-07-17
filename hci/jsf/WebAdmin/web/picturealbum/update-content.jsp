@@ -8,7 +8,7 @@
 <%@taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
 
 <f:subview id="content">
-    <h1><h:outputText value="#{bundle.PICTUREALBUM_CREATE}" /></h1>
+    <h1><h:outputText value="#{bundle.PICTUREALBUM_UPDATE}" /></h1>
 
     <h:form>
         <h:panelGrid columns="2" >

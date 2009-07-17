@@ -7,6 +7,12 @@
     <service name="TeacherAbsences">
       <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.news.absence.TeacherAbsences</implementation-class>
     </service>
+    <service name="PromoCRUD">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.promos.PromoCRUD</implementation-class>
+    </service>
+    <service name="PromoFinder">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.promos.PromoFinder</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>

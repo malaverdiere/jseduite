@@ -81,7 +81,29 @@
     <target name="wsimport-client-clean-PictureAlbumRegistryFinderService" depends="-init-project">
         <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/image/registry"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-BreakingNewsCRUDService, wsimport-client-BreakingNewsFinderService, wsimport-client-InternalNewsCRUDService, wsimport-client-InternalNewsFinderService, wsimport-client-PictureAlbumRegistryCRUDService, wsimport-client-PictureAlbumRegistryFinderService"/>
+    <target name="wsimport-client-check-PromoCRUDService" depends="wsimport-init">
+        <condition property="wsimport-client-PromoCRUDService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/promos/PromoCRUDService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-PromoCRUDService" depends="wsimport-init,wsimport-client-check-PromoCRUDService" unless="wsimport-client-PromoCRUDService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/PromoCRUDService/wsdl/localhost_8080/jSeduite/SchoolLife/PromoCRUDService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/SchoolLife/PromoCRUDService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-PromoCRUDService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/promos"/>
+    </target>
+    <target name="wsimport-client-check-PromoFinderService" depends="wsimport-init">
+        <condition property="wsimport-client-PromoFinderService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/promos/PromoFinderService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-PromoFinderService" depends="wsimport-init,wsimport-client-check-PromoFinderService" unless="wsimport-client-PromoFinderService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/PromoFinderService/wsdl/localhost_8080/jSeduite/SchoolLife/PromoFinderService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/SchoolLife/PromoFinderService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-PromoFinderService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/promos"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-BreakingNewsCRUDService, wsimport-client-BreakingNewsFinderService, wsimport-client-InternalNewsCRUDService, wsimport-client-InternalNewsFinderService, wsimport-client-PictureAlbumRegistryCRUDService, wsimport-client-PictureAlbumRegistryFinderService, wsimport-client-PromoCRUDService, wsimport-client-PromoFinderService"/>
     <target name="wsimport-client-compile" depends="-pre-pre-compile">
         <webproject2:javac srcdir="${build.generated.dir}/wsimport/client" classpath="${j2ee.platform.wsimport.classpath}:${javac.classpath}" destdir="${build.classes.dir}"/>
         <copy todir="${build.classes.dir}">

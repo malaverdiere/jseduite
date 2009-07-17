@@ -6,6 +6,8 @@
     xmlns="http://java.sun.com/xml/ns/javaee"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd">
+
+    <!--MANAGED BEANS-->
     <managed-bean>
         <managed-bean-name>BreakingNewsManagedBean</managed-bean-name>
         <managed-bean-class>webadmin.breakingnews.BreakingNewsManagedBean</managed-bean-class>
@@ -19,6 +21,11 @@
     <managed-bean>
         <managed-bean-name>PictureAlbumManagedBean</managed-bean-name>
         <managed-bean-class>webadmin.picturealbum.PictureAlbumManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>PromotionManagedBean</managed-bean-name>
+        <managed-bean-class>webadmin.promotions.PromotionManagedBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     <managed-bean>
@@ -37,10 +44,44 @@
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     <managed-bean>
+        <managed-bean-name>PromotionSorter</managed-bean-name>
+        <managed-bean-class>webadmin.promotions.PromotionSorter</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
         <managed-bean-name>DataTablePager</managed-bean-name>
         <managed-bean-class>webadmin.util.DataTablePager</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+
+    <!--INTERNATIONALIZATION-->
+    <application>
+        <locale-config>
+            <default-locale>fr_FR</default-locale>
+            <supported-locale>en_US</supported-locale>
+        </locale-config>
+        <resource-bundle>
+            <base-name>webadmin.ApplicationMessages</base-name>
+            <var>bundle</var>
+        </resource-bundle>
+        <message-bundle>webadmin.JSFMessages</message-bundle>
+    </application>
+
+    <!--CONVERTERS-->
+    <converter>
+        <converter-id>XMLGregorianCalendarConverter</converter-id>
+        <converter-class>webadmin.converters.XMLGregorianCalendarConverter</converter-class>
+    </converter>
+    <converter>
+        <converter-id>XMLGregorianCalendarDateConverter</converter-id>
+        <converter-class>webadmin.converters.XMLGregorianCalendarDateConverter</converter-class>
+    </converter>
+    <converter>
+        <converter-id>TargetConverter</converter-id>
+        <converter-class>webadmin.converters.TargetConverter</converter-class>
+    </converter>
+
+    <!--BREAKING NEWS-->
     <navigation-rule>
         <from-view-id>/breakingnews/create.jsp</from-view-id>
         <navigation-case>
@@ -79,29 +120,8 @@
             <redirect/>
         </navigation-case>
     </navigation-rule>
-    <application>
-        <locale-config>
-            <default-locale>fr_FR</default-locale>
-            <supported-locale>en_US</supported-locale>
-        </locale-config>
-        <resource-bundle>
-            <base-name>webadmin.ApplicationMessages</base-name>
-            <var>bundle</var>
-        </resource-bundle>
-        <message-bundle>webadmin.JSFMessages</message-bundle>
-    </application>
-    <converter>
-        <converter-id>XMLGregorianCalendarConverter</converter-id>
-        <converter-class>webadmin.converters.XMLGregorianCalendarConverter</converter-class>
-    </converter>
-    <converter>
-        <converter-id>XMLGregorianCalendarDateConverter</converter-id>
-        <converter-class>webadmin.converters.XMLGregorianCalendarDateConverter</converter-class>
-    </converter>
-    <converter>
-        <converter-id>TargetConverter</converter-id>
-        <converter-class>webadmin.converters.TargetConverter</converter-class>
-    </converter>
+
+    <!--INTERNAL NEWS-->
     <navigation-rule>
         <from-view-id>/internalnews/create.jsp</from-view-id>
         <navigation-case>
@@ -141,8 +161,7 @@
         </navigation-case>
     </navigation-rule>
 
-
-
+    <!--PICTURE ALBUM-->
     <navigation-rule>
         <from-view-id>/picturealbum/create.jsp</from-view-id>
         <navigation-case>
@@ -178,6 +197,46 @@
         <navigation-case>
             <from-outcome>cancel</from-outcome>
             <to-view-id>/picturealbum/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <!--PROMOTIONS-->
+    <navigation-rule>
+        <from-view-id>/promotions/create.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>created</from-outcome>
+            <to-view-id>/promotions/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/promotions/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/promotions/listing.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>sorted</from-outcome>
+            <to-view-id>/promotions/listing.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>update</from-outcome>
+            <to-view-id>/promotions/update.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/promotions/update.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>updated</from-outcome>
+            <to-view-id>/promotions/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/promotions/listing.jsp</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>
