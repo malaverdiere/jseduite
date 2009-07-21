@@ -29,6 +29,11 @@
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     <managed-bean>
+        <managed-bean-name>BreakTimeManagedBean</managed-bean-name>
+        <managed-bean-class>webadmin.breaktime.BreakTimeManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
         <managed-bean-name>BreakingNewsSorter</managed-bean-name>
         <managed-bean-class>webadmin.breakingnews.BreakingNewsSorter</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
@@ -77,8 +82,20 @@
         <converter-class>webadmin.converters.XMLGregorianCalendarDateConverter</converter-class>
     </converter>
     <converter>
+        <converter-id>XMLGregorianCalendarTimeConverter</converter-id>
+        <converter-class>webadmin.converters.XMLGregorianCalendarTimeConverter</converter-class>
+    </converter>
+    <converter>
         <converter-id>TargetConverter</converter-id>
         <converter-class>webadmin.converters.TargetConverter</converter-class>
+    </converter>
+    <converter>
+        <converter-id>DayListConverter</converter-id>
+        <converter-class>webadmin.converters.DayListConverter</converter-class>
+    </converter>
+    <converter>
+        <converter-id>PromoListConverter</converter-id>
+        <converter-class>webadmin.converters.PromoListConverter</converter-class>
     </converter>
 
     <!--BREAKING NEWS-->
@@ -237,6 +254,46 @@
         <navigation-case>
             <from-outcome>cancel</from-outcome>
             <to-view-id>/promotions/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <!--BREAK TIME-->
+    <navigation-rule>
+        <from-view-id>/breaktime/create.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>created</from-outcome>
+            <to-view-id>/breaktime/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/breaktime/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/breaktime/listing.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>sorted</from-outcome>
+            <to-view-id>/breaktime/listing.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>update</from-outcome>
+            <to-view-id>/breaktime/update.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/breaktime/update.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>updated</from-outcome>
+            <to-view-id>/breaktime/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/breaktime/listing.jsp</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>

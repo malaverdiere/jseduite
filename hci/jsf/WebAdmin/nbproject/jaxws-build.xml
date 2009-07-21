@@ -103,7 +103,29 @@
     <target name="wsimport-client-clean-PromoFinderService" depends="-init-project">
         <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/promos"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-BreakingNewsCRUDService, wsimport-client-BreakingNewsFinderService, wsimport-client-InternalNewsCRUDService, wsimport-client-InternalNewsFinderService, wsimport-client-PictureAlbumRegistryCRUDService, wsimport-client-PictureAlbumRegistryFinderService, wsimport-client-PromoCRUDService, wsimport-client-PromoFinderService"/>
+    <target name="wsimport-client-check-BreakTimeFinderService" depends="wsimport-init">
+        <condition property="wsimport-client-BreakTimeFinderService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/breaktime/BreakTimeFinderService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-BreakTimeFinderService" depends="wsimport-init,wsimport-client-check-BreakTimeFinderService" unless="wsimport-client-BreakTimeFinderService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/BreakTimeFinderService/wsdl/localhost_8080/jSeduite/SchoolLife/BreakTimeFinderService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/SchoolLife/BreakTimeFinderService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-BreakTimeFinderService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/breaktime"/>
+    </target>
+    <target name="wsimport-client-check-BreakTimeCRUDService" depends="wsimport-init">
+        <condition property="wsimport-client-BreakTimeCRUDService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/breaktime/BreakTimeCRUDService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-BreakTimeCRUDService" depends="wsimport-init,wsimport-client-check-BreakTimeCRUDService" unless="wsimport-client-BreakTimeCRUDService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/BreakTimeCRUDService/wsdl/localhost_8080/jSeduite/SchoolLife/BreakTimeCRUDService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/SchoolLife/BreakTimeCRUDService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-BreakTimeCRUDService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/breaktime"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-BreakingNewsCRUDService, wsimport-client-BreakingNewsFinderService, wsimport-client-InternalNewsCRUDService, wsimport-client-InternalNewsFinderService, wsimport-client-PictureAlbumRegistryCRUDService, wsimport-client-PictureAlbumRegistryFinderService, wsimport-client-PromoCRUDService, wsimport-client-PromoFinderService, wsimport-client-BreakTimeFinderService, wsimport-client-BreakTimeCRUDService"/>
     <target name="wsimport-client-compile" depends="-pre-pre-compile">
         <webproject2:javac srcdir="${build.generated.dir}/wsimport/client" classpath="${j2ee.platform.wsimport.classpath}:${javac.classpath}" destdir="${build.classes.dir}"/>
         <copy todir="${build.classes.dir}">

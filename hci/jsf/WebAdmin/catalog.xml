@@ -18,4 +18,10 @@
     <system systemId="http://localhost:8080/jSeduite/SchoolLife/PromoCRUDService?xsd=1" uri="src/conf/xml-resources/web-service-references/PromoCRUDService/wsdl/localhost_8080/jSeduite/SchoolLife/PromoCRUDService.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/jSeduite/SchoolLife/PromoFinderService?wsdl" uri="src/conf/xml-resources/web-service-references/PromoFinderService/wsdl/localhost_8080/jSeduite/SchoolLife/PromoFinderService.wsdl"/>
     <system systemId="http://localhost:8080/jSeduite/SchoolLife/PromoFinderService?xsd=1" uri="src/conf/xml-resources/web-service-references/PromoFinderService/wsdl/localhost_8080/jSeduite/SchoolLife/PromoFinderService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/jSeduite/BreakingNews/BreakingNewsService?wsdl" uri="src/conf/xml-resources/web-service-references/BreakingNewsService/wsdl/localhost_8080/jSeduite/BreakingNews/BreakingNewsService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/BreakingNews/BreakingNewsService?xsd=1" uri="src/conf/xml-resources/web-service-references/BreakingNewsService/wsdl/localhost_8080/jSeduite/BreakingNews/BreakingNewsService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/jSeduite/SchoolLife/BreakTimeFinderService?wsdl" uri="src/conf/xml-resources/web-service-references/BreakTimeFinderService/wsdl/localhost_8080/jSeduite/SchoolLife/BreakTimeFinderService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/SchoolLife/BreakTimeFinderService?xsd=1" uri="src/conf/xml-resources/web-service-references/BreakTimeFinderService/wsdl/localhost_8080/jSeduite/SchoolLife/BreakTimeFinderService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/jSeduite/SchoolLife/BreakTimeCRUDService?wsdl" uri="src/conf/xml-resources/web-service-references/BreakTimeCRUDService/wsdl/localhost_8080/jSeduite/SchoolLife/BreakTimeCRUDService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/SchoolLife/BreakTimeCRUDService?xsd=1" uri="src/conf/xml-resources/web-service-references/BreakTimeCRUDService/wsdl/localhost_8080/jSeduite/SchoolLife/BreakTimeCRUDService.xsd_1.xsd"/>
 </catalog>

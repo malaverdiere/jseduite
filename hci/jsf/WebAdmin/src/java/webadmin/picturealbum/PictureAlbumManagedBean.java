@@ -9,13 +9,11 @@ import fr.unice.i3s.modalis.jseduite.technical.image.registry.PictureAlbumRegist
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 import javax.faces.model.SelectItem;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.ws.WebServiceRef;
 import webadmin.picturealbum.comparators.*;
+import webadmin.util.DateFormat;
 
 /**
  *
@@ -51,22 +49,6 @@ public class PictureAlbumManagedBean {
     // The repositories
     private List<SelectItem> repositories;
 
-    /**
-     * Date -> XMLCalendar converter
-     * @param d the date
-     * @return the date into an XMLGregorianCalendar format
-     */
-    public static XMLGregorianCalendar toXmlCalendar(Date d) {
-        try {
-            GregorianCalendar calendar = new GregorianCalendar();
-            calendar.setTime(d);
-            DatatypeFactory factory = DatatypeFactory.newInstance();
-            return factory.newXMLGregorianCalendar(calendar);
-        }
-        catch(Exception e) {
-            return null;
-        }
-    }
 
     /**
      * Constructor
@@ -252,7 +234,7 @@ public class PictureAlbumManagedBean {
             this.crudService = new PictureAlbumRegistryCRUDService();
             PictureAlbumRegistryCRUD crud = crudService.getPictureAlbumRegistryCRUDPort();
 
-            cPictureAlbum.setValidFrom(toXmlCalendar(date));
+            cPictureAlbum.setValidFrom(DateFormat.toXmlCalendar(date));
 
             crud.createPictureAlbum(cPictureAlbum);
 
@@ -263,6 +245,8 @@ public class PictureAlbumManagedBean {
             e.printStackTrace();
         }
 
+        date = new Date();
+
         return "created";
     }
 
@@ -271,6 +255,7 @@ public class PictureAlbumManagedBean {
      * @return a string indicating modification/creation is canceled
      */
     public String cancel() {
+        date = new Date();
         return "cancel";
     }
 
@@ -311,6 +296,8 @@ public class PictureAlbumManagedBean {
             e.printStackTrace();
         }
 
+        date = new Date();
+
         return "update";
     }
 
@@ -323,7 +310,7 @@ public class PictureAlbumManagedBean {
             this.crudService = new PictureAlbumRegistryCRUDService();
             PictureAlbumRegistryCRUD crud = crudService.getPictureAlbumRegistryCRUDPort();
 
-            uPictureAlbum.setValidFrom(toXmlCalendar(date));
+            uPictureAlbum.setValidFrom(DateFormat.toXmlCalendar(date));
 
             crud.updatePictureAlbum(uPictureAlbum);
 
@@ -331,6 +318,8 @@ public class PictureAlbumManagedBean {
         catch (Exception e) {
             e.printStackTrace();
         }
+
+        date = new Date();
 
         return "updated";
     }

@@ -9,15 +9,13 @@ import fr.unice.i3s.modalis.jseduite.technical.news.breaking.BreakingNewsFinderS
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.ws.WebServiceRef;
 import webadmin.breakingnews.comparators.BreakingNewsAuthorComparator;
 import webadmin.breakingnews.comparators.BreakingNewsAuthorComparatorDesc;
 import webadmin.breakingnews.comparators.BreakingNewsDateComparator;
 import webadmin.breakingnews.comparators.BreakingNewsDateComparatorDesc;
+import webadmin.util.DateFormat;
 
 /**
  *
@@ -52,23 +50,6 @@ public class BreakingNewsManagedBean {
 
     //The sorting method
     private int sort = BreakingNewsSorter.sortByDateDesc;
-
-    /**
-     * Date -> XMLCalendar converter
-     * @param d the date
-     * @return the date into an XMLGregorianCalendar format
-     */
-    public static XMLGregorianCalendar toXmlCalendar(Date d) {
-        try {
-            GregorianCalendar calendar = new GregorianCalendar();
-            calendar.setTime(d);
-            DatatypeFactory factory = DatatypeFactory.newInstance();
-            return factory.newXMLGregorianCalendar(calendar);
-        }
-        catch(Exception e) {
-            return null;
-        }
-    }
 
     /**
      * Constructor
@@ -248,7 +229,7 @@ public class BreakingNewsManagedBean {
 
             date.setHours(time.getHours());
             date.setMinutes(time.getMinutes());
-            cBreakNew.setStamp(toXmlCalendar(date));
+            cBreakNew.setStamp(DateFormat.toXmlCalendar(date));
 
             crud.createBreakingNews(cBreakNew);
 
@@ -259,6 +240,9 @@ public class BreakingNewsManagedBean {
             e.printStackTrace();
         }
 
+        date = new Date();
+        time = new Date();
+
         return "created";
     }
 
@@ -267,6 +251,9 @@ public class BreakingNewsManagedBean {
      * @return a string indicating modification/creation is canceled
      */
     public String cancel() {
+        date = new Date();
+        time = new Date();
+
         return "cancel";
     }
 
@@ -308,6 +295,9 @@ public class BreakingNewsManagedBean {
             e.printStackTrace();
         }
 
+        date = new Date();
+        time = new Date();
+
         return "update";
     }
 
@@ -323,13 +313,16 @@ public class BreakingNewsManagedBean {
             date.setHours(time.getHours());
             date.setMinutes(time.getMinutes());
 
-            uBreakNew.setStamp(toXmlCalendar(date));
+            uBreakNew.setStamp(DateFormat.toXmlCalendar(date));
             crud.updateBreakingNews(uBreakNew);
 
         }
         catch (Exception e) {
             e.printStackTrace();
         }
+
+        date = new Date();
+        time = new Date();
 
         return "updated";
     }

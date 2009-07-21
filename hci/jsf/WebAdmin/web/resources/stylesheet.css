@@ -176,18 +176,34 @@ a:hover {
   background-color: #FFFFFF;
 }
 
+.list-row-even .invisible {
+  color: #FFFFFF;
+}
+
 .list-row-even:hover {
   background-color: #2339C8;
   color: #FFFFFF;
+}
+
+.list-row-even:hover .invisible {
+  color: #2339C8;
 }
 
 .list-row-odd { 
   background-color: #c2ffc6;
 }
 
+.list-row-odd .invisible {
+  color: #c2ffc6;
+}
+
 .list-row-odd:hover {
   background-color: #2339C8;
   color: #FFFFFF;
+}
+
+.list-row-odd:hover .invisible {
+  color: #2339C8;
 }
 
 /* Style rules for message severity levels */
@@ -216,3 +232,24 @@ a:hover {
   margin-left: 15px;
 }
 
+/* Styles rules for some data */
+.bold {
+    font-size: large;
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.alignCenter {
+    text-align: center;
+}
+
+.checkboxes {
+    display: block;
+    border-top: 1px solid #3CA81E;
+    border-bottom: 1px solid #3CA81E;
+    max-height: 140px;
+    overflow: scroll;
+}

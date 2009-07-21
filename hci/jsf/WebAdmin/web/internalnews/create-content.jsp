@@ -1,7 +1,7 @@
 <%-- 
     Document   : create-content
     Created on : 8 juil. 2009, 10:38:05
-    Author     : Squallco
+    Author     : Steve Colombié
 --%>
 
 <%@taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
@@ -28,7 +28,7 @@
 
             <h:outputText value="#{bundle.INTERNALNEWS_START}"/>
             <h:panelGroup>
-                <h:inputText id="start" value="#{InternalNewsManagedBean.startDate}" required="true" requiredMessage="#{bundle.BREAKINGNEWS_START_REQUIRED}">
+                <h:inputText id="start" value="#{InternalNewsManagedBean.startDate}" required="true" requiredMessage="#{bundle.INTERNALNEWS_START_REQUIRED}">
                     <f:convertDateTime type="date" pattern="#{bundle.FORM_DATE_PATTERN}"/>
                </h:inputText>
                 <h:message for="start" errorClass="errorMessage"/>
@@ -36,7 +36,7 @@
 
             <h:outputText value="#{bundle.INTERNALNEWS_END}"/>
             <h:panelGroup>
-                <h:inputText id="end" value="#{InternalNewsManagedBean.endDate}" required="true" requiredMessage="#{bundle.BREAKINGNEWS_END_REQUIRED}">
+                <h:inputText id="end" value="#{InternalNewsManagedBean.endDate}" required="true" requiredMessage="#{bundle.INTERNALNEWS_END_REQUIRED}">
                     <f:convertDateTime type="time" pattern="#{bundle.FORM_DATE_PATTERN}"/>
                </h:inputText>
                 <h:message for="end" errorClass="errorMessage"/>
@@ -50,9 +50,9 @@
                 <h:message for="title" errorClass="errorMessage"/>
             </h:panelGroup>
 
-            <h:outputText value="#{bundle.BREAKINGNEWS_CONTENT}"/>
+            <h:outputText value="#{bundle.INTERNALNEWS_CONTENT}"/>
             <h:panelGroup>
-                <h:inputTextarea id="content" rows="5" value="#{InternalNewsManagedBean.cNews.content}" required="true" requiredMessage="#{bundle.BREAKINGNEWS_CONTENT_REQUIRED}"/>
+                <h:inputTextarea id="content" rows="5" value="#{InternalNewsManagedBean.cNews.content}" required="true" requiredMessage="#{bundle.INTERNALNEWS_CONTENT_REQUIRED}"/>
                 <h:message for="content" errorClass="errorMessage"/>
             </h:panelGroup>
         </h:panelGrid>

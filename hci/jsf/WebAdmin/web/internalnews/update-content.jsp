@@ -8,7 +8,7 @@
 <%@taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
 
 <f:subview id="content">
-    <h1><h:outputText value="#{bundle.BREAKINGNEWS_UPDATE}" /></h1>
+    <h1><h:outputText value="#{bundle.INTERNALNEWS_UPDATE}" /></h1>
 
     <h:form>
         <h:panelGrid columns="2" >
@@ -28,7 +28,7 @@
 
             <h:outputText value="#{bundle.INTERNALNEWS_START}"/>
             <h:panelGroup>
-                <h:inputText id="start" value="#{InternalNewsManagedBean.startDate}" required="true" requiredMessage="#{bundle.BREAKINGNEWS_START_REQUIRED}">
+                <h:inputText id="start" value="#{InternalNewsManagedBean.startDate}" required="true" requiredMessage="#{bundle.INTERNALNEWS_START_REQUIRED}">
                     <f:convertDateTime type="date" pattern="#{bundle.FORM_DATE_PATTERN}"/>
                </h:inputText>
                 <h:message for="start" errorClass="errorMessage"/>
@@ -36,7 +36,7 @@
 
             <h:outputText value="#{bundle.INTERNALNEWS_END}"/>
             <h:panelGroup>
-                <h:inputText id="end" value="#{InternalNewsManagedBean.endDate}" required="true" requiredMessage="#{bundle.BREAKINGNEWS_END_REQUIRED}">
+                <h:inputText id="end" value="#{InternalNewsManagedBean.endDate}" required="true" requiredMessage="#{bundle.INTERNALNEWS_END_REQUIRED}">
                     <f:convertDateTime type="time" pattern="#{bundle.FORM_DATE_PATTERN}"/>
                </h:inputText>
                 <h:message for="end" errorClass="errorMessage"/>
@@ -50,9 +50,9 @@
                 <h:message for="title" errorClass="errorMessage"/>
             </h:panelGroup>
 
-            <h:outputText value="#{bundle.BREAKINGNEWS_CONTENT}"/>
+            <h:outputText value="#{bundle.INTERNALNEWS_CONTENT}"/>
             <h:panelGroup>
-                <h:inputTextarea id="content" rows="5" value="#{InternalNewsManagedBean.uNews.content}" required="true" requiredMessage="#{bundle.BREAKINGNEWS_CONTENT_REQUIRED}"/>
+                <h:inputTextarea id="content" rows="5" value="#{InternalNewsManagedBean.uNews.content}" required="true" requiredMessage="#{bundle.INTERNALNEWS_CONTENT_REQUIRED}"/>
                 <h:message for="content" errorClass="errorMessage"/>
             </h:panelGroup>
         </h:panelGrid>

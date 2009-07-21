@@ -13,6 +13,13 @@
     <service name="PromoFinder">
       <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.promos.PromoFinder</implementation-class>
     </service>
+    <service name="BreakTimeFinder">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.breaktime.BreakTimeFinder</implementation-class>
+    </service>
+    <service name="BreakTimeCRUD">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.breaktime.BreakTimeCRUD</implementation-class>
+    </service>
   </services>
-  <clients/>
+  <clients>
+  </clients>
 </jax-ws>

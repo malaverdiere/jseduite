@@ -8,13 +8,11 @@ import fr.unice.i3s.modalis.jseduite.technical.news.internal.InternalNewsFinderS
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 import javax.faces.model.SelectItem;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.ws.WebServiceRef;
 import webadmin.internalnews.comparators.*;
+import webadmin.util.DateFormat;
 
 /**
  *
@@ -52,23 +50,6 @@ public class InternalNewsManagedBean {
 
     // The targets
     private List<SelectItem> targets;
-
-    /**
-     * Date -> XMLCalendar converter
-     * @param d the date
-     * @return the date into an XMLGregorianCalendar format
-     */
-    public static XMLGregorianCalendar toXmlCalendar(Date d) {
-        try {
-            GregorianCalendar calendar = new GregorianCalendar();
-            calendar.setTime(d);
-            DatatypeFactory factory = DatatypeFactory.newInstance();
-            return factory.newXMLGregorianCalendar(calendar);
-        }
-        catch(Exception e) {
-            return null;
-        }
-    }
 
     /**
      * Constructor
@@ -294,8 +275,8 @@ public class InternalNewsManagedBean {
             this.crudService = new InternalNewsCRUDService();
             InternalNewsCRUD crud = crudService.getInternalNewsCRUDPort();
 
-            cNews.setStart(toXmlCalendar(startDate));
-            cNews.setEnd(toXmlCalendar(endDate));
+            cNews.setStart(DateFormat.toXmlCalendar(startDate));
+            cNews.setEnd(DateFormat.toXmlCalendar(endDate));
 
             crud.createInternalNews(cNews);
 
@@ -306,6 +287,9 @@ public class InternalNewsManagedBean {
             e.printStackTrace();
         }
 
+        startDate = new Date(0);
+        endDate = new Date(0);
+
         return "created";
     }
 
@@ -314,6 +298,8 @@ public class InternalNewsManagedBean {
      * @return a string indicating modification/creation is canceled
      */
     public String cancel() {
+        startDate = new Date(0);
+        endDate = new Date(0);
         return "cancel";
     }
 
@@ -355,6 +341,9 @@ public class InternalNewsManagedBean {
             e.printStackTrace();
         }
 
+        startDate = new Date(0);
+        endDate = new Date(0);
+
         return "update";
     }
 
@@ -367,8 +356,8 @@ public class InternalNewsManagedBean {
             this.crudService = new InternalNewsCRUDService();
            InternalNewsCRUD crud = crudService.getInternalNewsCRUDPort();
 
-            uNews.setStart(toXmlCalendar(startDate));
-            uNews.setEnd(toXmlCalendar(endDate));
+            uNews.setStart(DateFormat.toXmlCalendar(startDate));
+            uNews.setEnd(DateFormat.toXmlCalendar(endDate));
 
             crud.updateInternalNews(uNews);
 
@@ -376,6 +365,9 @@ public class InternalNewsManagedBean {
         catch (Exception e) {
             e.printStackTrace();
         }
+
+        startDate = new Date(0);
+        endDate = new Date(0);
 
         return "updated";
     }
