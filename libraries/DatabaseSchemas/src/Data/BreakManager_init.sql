@@ -1,42 +1,42 @@
-/** This file is part of jSeduite::Database Schemas
- *
- * Copyright (C) 2008-  Sebastien Mosser
- *
- * jSeduite::DatabaseSchema is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * jSeduite::DatabaseSchema is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with jSeduite::DatabaseSchema; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
- *
- * @author      Main Zhao Yichen      [yichenzhao18@gmail.com]
- * @author      Main Qin Zhaobo       [Bienvenueqin@gmail.com]
- * @contributor 2009 Mosser Sebastien [mosser@polytech.unice.fr]
-**/
+INSERT INTO `break_time` VALUES (NULL,'10:30','10:45','templier','short');
+INSERT INTO `break_time` VALUES (NULL,'12:45','14:00','templier','long');
+INSERT INTO `break_time` VALUES (NULL,'16:00','16:15','templier','short');
 
--- NEW DATA NEEDDED ...
- INSERT INTO `break_time` VALUES (NULL,"8:45","8:55","short","Monday");
- INSERT INTO `break_time` VALUES (NULL,"9:40","10:00","short","Monday");
- INSERT INTO `break_time` VALUES (NULL,"10:45","10:55","short","Monday");
- INSERT INTO `break_time` VALUES (NULL,"11:40","2:00","lunch","Monday");
- INSERT INTO `break_time` VALUES (NULL,"14:45","14:55","short","Monday");
- INSERT INTO `break_time` VALUES (NULL,"15:40","16:00","short","Monday");
- INSERT INTO `break_time` VALUES (NULL,"16:45","16:55","short","Monday");
- INSERT INTO `break_time` VALUES (NULL,"8:45","8:55","short","Friday");
- INSERT INTO `break_time` VALUES (NULL,"9:40","10:00","short","Friday");
- INSERT INTO `break_time` VALUES (NULL,"10:45","10:55","short","Friday");
- INSERT INTO `break_time` VALUES (NULL,"11:40","2:00","lunch","Friday");
+INSERT INTO `break_time_promotions` VALUES (1,3);
+INSERT INTO `break_time_promotions` VALUES (1,4);
+INSERT INTO `break_time_promotions` VALUES (1,5);
+INSERT INTO `break_time_promotions` VALUES (1,9);
+INSERT INTO `break_time_promotions` VALUES (1,10);
+INSERT INTO `break_time_promotions` VALUES (1,11);
 
+INSERT INTO `break_time_promotions` VALUES (2,3);
+INSERT INTO `break_time_promotions` VALUES (2,4);
+INSERT INTO `break_time_promotions` VALUES (2,5);
+INSERT INTO `break_time_promotions` VALUES (2,9);
+INSERT INTO `break_time_promotions` VALUES (2,10);
+INSERT INTO `break_time_promotions` VALUES (2,11);
 
- INSERT INTO `break_time_promos_lnk` values(1,1);
- INSERT INTO `break_time_promos_lnk` values(1,2);
- INSERT INTO `break_time_promos_lnk` values(2,2);
- INSERT INTO `break_time_promos_lnk` values(2,3);
- INSERT INTO `break_time_promos_lnk` values(3,4);
+INSERT INTO `break_time_promotions` VALUES (3,3);
+INSERT INTO `break_time_promotions` VALUES (3,4);
+INSERT INTO `break_time_promotions` VALUES (3,5);
+INSERT INTO `break_time_promotions` VALUES (3,9);
+INSERT INTO `break_time_promotions` VALUES (3,10);
+INSERT INTO `break_time_promotions` VALUES (3,11);
+
+INSERT INTO `break_time_days` VALUES (1, 'monday');
+INSERT INTO `break_time_days` VALUES (1, 'tuesday');
+INSERT INTO `break_time_days` VALUES (1, 'wednesday');
+INSERT INTO `break_time_days` VALUES (1, 'thursday');
+INSERT INTO `break_time_days` VALUES (1, 'friday');
+
+INSERT INTO `break_time_days` VALUES (2, 'monday');
+INSERT INTO `break_time_days` VALUES (2, 'tuesday');
+INSERT INTO `break_time_days` VALUES (2, 'wednesday');
+INSERT INTO `break_time_days` VALUES (2, 'thursday');
+INSERT INTO `break_time_days` VALUES (2, 'friday');
+
+INSERT INTO `break_time_days` VALUES (3, 'monday');
+INSERT INTO `break_time_days` VALUES (3, 'tuesday');
+INSERT INTO `break_time_days` VALUES (3, 'wednesday');
+INSERT INTO `break_time_days` VALUES (3, 'thursday');
+INSERT INTO `break_time_days` VALUES (3, 'friday');

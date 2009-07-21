@@ -16,25 +16,36 @@
  * along with jSeduite::DatabaseSchema; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
- * @author      Main Zhao Yichen      [yichenzhao18@gmail.com]
- * @author      Main Qin Zhaobo       [Bienvenueqin@gmail.com]
- * @contributor 2009 Mosser Sebastien [mosser@polytech.unice.fr]
+ * @author      Main Steve Colombié      [colombie@polytech.unice.fr]
 **/
 
-DROP TABLE IF EXISTS `break_time_promos_lnk`;
+DROP TABLE IF EXISTS `break_time`;
+CREATE TABLE `break_time` (
+    `id`        INT(11)         NOT NULL AUTO_INCREMENT,
+    `start`     TIME            NOT NULL,
+    `end`       TIME            NOT NULL,
+    `building`  VARCHAR(10)     NOT NULL ,
+    `kind`      VARCHAR(10)     NOT NULL,
+    PRIMARY KEY  (`id`));
 
-CREATE TABLE `break_time_promos_lnk` (
-    `break_id` INT(11) NOT NULL REFERENCES `break_time`,
-    `promo_id` INT(11) NOT NULL REFERENCES `promos`,
+
+DROP TABLE IF EXISTS `break_time_promotions`;
+CREATE TABLE `break_time_promotions` (
+    `break_id`  INT(11)         NOT NULL
+                                REFERENCES `break_time` (`id` )
+                                ON DELETE CASCADE
+                                ON UPDATE CASCADE,
+    `promo_id`  INT(11)         NOT NULL
+                                REFERENCES `promos` (`id` )
+                                ON DELETE CASCADE
+                                ON UPDATE CASCADE,
     PRIMARY KEY (`break_id`,`promo_id`));
 
-DROP TABLE IF EXISTS `break_time`;
-
-CREATE TABLE `break_time` (
-    `break_id`  INT(11)     NOT NULL AUTO_INCREMENT ,
-    `start`     VARCHAR(20) NOT NULL ,
-    `end`       VARCHAR(20) NOT NULL ,
-    `kind`      VARCHAR(10) NOT NULL ,
-    `day`       VARCHAR(10) NOT NULL,
-    PRIMARY KEY (`break_id`));
-
+DROP TABLE IF EXISTS `break_time_days`;
+CREATE TABLE `break_time_days`(
+    `break_id`  INT(11)         NOT NULL
+                                REFERENCES `break_time` (`id` )
+                                ON DELETE CASCADE
+                                ON UPDATE CASCADE,
+    `day` ENUM('monday','tuesday','wednesday','thursday','friday','saturday','sunday') NOT NULL ,
+    PRIMARY KEY (`break_id`,`day`));
