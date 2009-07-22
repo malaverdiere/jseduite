@@ -97,6 +97,10 @@
         <converter-id>PromoListConverter</converter-id>
         <converter-class>webadmin.converters.PromoListConverter</converter-class>
     </converter>
+    <converter>
+        <converter-id>BuildingConverter</converter-id>
+        <converter-class>webadmin.converters.BuildingConverter</converter-class>
+    </converter>
 
     <!--BREAKING NEWS-->
     <navigation-rule>

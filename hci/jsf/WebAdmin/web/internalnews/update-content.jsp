@@ -26,7 +26,7 @@
                 <h:message for="author" errorClass="errorMessage"/>
             </h:panelGroup>
 
-            <h:outputText value="#{bundle.INTERNALNEWS_START}"/>
+            <h:outputText value="#{bundle.INTERNALNEWS_START_FORM}"/>
             <h:panelGroup>
                 <h:inputText id="start" value="#{InternalNewsManagedBean.startDate}" required="true" requiredMessage="#{bundle.INTERNALNEWS_START_REQUIRED}">
                     <f:convertDateTime type="date" pattern="#{bundle.FORM_DATE_PATTERN}"/>
@@ -34,7 +34,7 @@
                 <h:message for="start" errorClass="errorMessage"/>
             </h:panelGroup>
 
-            <h:outputText value="#{bundle.INTERNALNEWS_END}"/>
+            <h:outputText value="#{bundle.INTERNALNEWS_END_FORM}"/>
             <h:panelGroup>
                 <h:inputText id="end" value="#{InternalNewsManagedBean.endDate}" required="true" requiredMessage="#{bundle.INTERNALNEWS_END_REQUIRED}">
                     <f:convertDateTime type="time" pattern="#{bundle.FORM_DATE_PATTERN}"/>

@@ -7,21 +7,15 @@
 <%@taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
 <%@taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
 
+
 <f:subview id="content">
     <h1><h:outputText value="#{bundle.PICTUREALBUM_CREATE}" /></h1>
 
-    <h:form>
+    <h:form id="form">
+        <h:outputText value="#{bundle.PICTUREALBUM_HOSTER}" styleClass="subtitle"/>
         <h:panelGrid columns="2" >
-            <h:outputText value="#{bundle.PICTUREALBUM_NAME}"/>
-            <h:panelGroup>
-                <h:inputText id="name" value="#{PictureAlbumManagedBean.cPictureAlbum.name}" required="true" requiredMessage="#{bundle.PICTUREALBUM_NAME_REQUIRED}">
-                    <f:validateLength maximum="255" />
-                </h:inputText>
-                <h:message for="name" errorClass="errorMessage"/>
-            </h:panelGroup>
-
             <h:outputText value="#{bundle.PICTUREALBUM_REPOSITORY}"/>
-            <h:selectOneMenu id="repository" value="#{PictureAlbumManagedBean.cPictureAlbum.repository}">
+            <h:selectOneMenu id="repository" value="#{PictureAlbumManagedBean.cPictureAlbum.repository}" onchange="flickrDetection()">
                 <f:selectItems value="#{PictureAlbumManagedBean.repositories}" />
                 <h:message for="repository" errorClass="errorMessage"/>
             </h:selectOneMenu>
@@ -40,6 +34,17 @@
                     <f:validateLength maximum="255" />
                 </h:inputText>
                 <h:message for="album" errorClass="errorMessage"/>
+            </h:panelGroup>
+        </h:panelGrid>
+
+        <h:outputText value="#{bundle.PICTUREALBUM_LOCAL}" styleClass="subtitle"/>
+        <h:panelGrid columns="2" >
+            <h:outputText value="#{bundle.PICTUREALBUM_NAME}"/>
+            <h:panelGroup>
+                <h:inputText id="name" value="#{PictureAlbumManagedBean.cPictureAlbum.name}" required="true" requiredMessage="#{bundle.PICTUREALBUM_NAME_REQUIRED}">
+                    <f:validateLength maximum="255" />
+                </h:inputText>
+                <h:message for="name" errorClass="errorMessage"/>
             </h:panelGroup>
 
             <h:outputText value="#{bundle.PICTUREALBUM_START}"/>

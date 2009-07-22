@@ -109,7 +109,10 @@
                     </h:panelGroup>
                 </h:form>
             </f:facet>
-            <h:outputText value="#{iterator.title}<br/>#{iterator.content}" escape="false"/>
+            <h:panelGrid columns="1">
+                <h:outputText value="#{iterator.title}" styleClass="bold"/>
+                <h:outputText value="#{iterator.content}"/>
+            </h:panelGrid>
         </h:column>
         <h:column>
             <h:form>

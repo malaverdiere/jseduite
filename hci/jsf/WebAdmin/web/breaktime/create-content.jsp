@@ -41,20 +41,16 @@
             </h:selectManyCheckbox>
 
             <h:outputText value="#{bundle.BREAKTIME_BUILDING}"/>
-            <h:panelGroup>
-                <h:inputText id="building" value="#{BreakTimeManagedBean.cBreakTime.building}" required="true" requiredMessage="#{bundle.BREAKTIME_BUILDING_REQUIRED}">
-                    <f:validateLength maximum="10" />
-                </h:inputText>
+            <h:selectOneMenu id="building" value="#{BreakTimeManagedBean.cBreakTime.building}">
+                <f:selectItems value="#{BreakTimeManagedBean.buildings}" />
                 <h:message for="building" errorClass="errorMessage"/>
-            </h:panelGroup>
+            </h:selectOneMenu>
 
             <h:outputText value="#{bundle.BREAKTIME_KIND}"/>
-            <h:panelGroup>
-                <h:inputText id="kind" value="#{BreakTimeManagedBean.cBreakTime.kind}" required="true" requiredMessage="#{bundle.BREAKTIME_KIND_REQUIRED}">
-                    <f:validateLength maximum="10" />
-                </h:inputText>
+            <h:selectOneMenu id="kind" value="#{BreakTimeManagedBean.cBreakTime.kind}">
+                <f:selectItems value="#{BreakTimeManagedBean.kinds}" />
                 <h:message for="kind" errorClass="errorMessage"/>
-            </h:panelGroup>
+            </h:selectOneMenu>
 
         </h:panelGrid>
 

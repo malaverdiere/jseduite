@@ -287,8 +287,8 @@ public class InternalNewsManagedBean {
             e.printStackTrace();
         }
 
-        startDate = new Date(0);
-        endDate = new Date(0);
+        startDate = new Date();
+        endDate = new Date();
 
         return "created";
     }
@@ -298,8 +298,8 @@ public class InternalNewsManagedBean {
      * @return a string indicating modification/creation is canceled
      */
     public String cancel() {
-        startDate = new Date(0);
-        endDate = new Date(0);
+        startDate = new Date();
+        endDate = new Date();
         return "cancel";
     }
 
@@ -341,9 +341,6 @@ public class InternalNewsManagedBean {
             e.printStackTrace();
         }
 
-        startDate = new Date(0);
-        endDate = new Date(0);
-
         return "update";
     }
 
@@ -366,8 +363,8 @@ public class InternalNewsManagedBean {
             e.printStackTrace();
         }
 
-        startDate = new Date(0);
-        endDate = new Date(0);
+        startDate = new Date();
+        endDate = new Date();
 
         return "updated";
     }

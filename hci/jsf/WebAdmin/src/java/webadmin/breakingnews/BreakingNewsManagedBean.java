@@ -295,9 +295,6 @@ public class BreakingNewsManagedBean {
             e.printStackTrace();
         }
 
-        date = new Date();
-        time = new Date();
-
         return "update";
     }
 

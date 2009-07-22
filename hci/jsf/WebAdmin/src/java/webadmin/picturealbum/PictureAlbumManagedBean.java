@@ -296,8 +296,6 @@ public class PictureAlbumManagedBean {
             e.printStackTrace();
         }
 
-        date = new Date();
-
         return "update";
     }
 

@@ -46,10 +46,10 @@ public class BreakTimeManagedBean {
     private BreakTime uBreakTime = new BreakTime();
 
     //The start date
-    private Date startDate = new Date(0);
+    private Date startDate = new Date(0, 0, 0, 8, 0);
 
     //The end date
-    private Date endDate = new Date(0);
+    private Date endDate = new Date(0, 0, 0, 18, 0);
 
     //The current ID
     private int id = 0;
@@ -68,6 +68,12 @@ public class BreakTimeManagedBean {
 
     // Selected promotions
     private Integer[] selectedPromos;
+
+    // The buildings
+    private List<SelectItem> buildings;
+
+    // The kinds
+    private List<SelectItem> kinds;
 
 
     /**
@@ -301,6 +307,38 @@ public class BreakTimeManagedBean {
     }
 
     /**
+     * Get the buildings
+     * @return the list of buildings
+     */
+    public List<SelectItem> getBuildings() {
+        buildings = new ArrayList<SelectItem>();
+
+        SelectItem item = new SelectItem("lucioles", "Lucioles");
+        buildings.add(item);
+
+        item = new SelectItem("templiers", "Templiers");
+        buildings.add(item);
+
+        return buildings;
+    }
+
+    /**
+     * Get the kinds
+     * @return the list of kinds
+     */
+    public List<SelectItem> getKinds() {
+        kinds = new ArrayList<SelectItem>();
+
+        SelectItem item = new SelectItem("short", Bundle.get("BREAKTIME_KIND_SHORT"));
+        kinds.add(item);
+
+        item = new SelectItem("long", Bundle.get("BREAKTIME_KIND_LONG"));
+        kinds.add(item);
+
+        return kinds;
+    }
+
+    /**
      * Create a break time
      * @return a string indicating the break time is created
      */
@@ -339,8 +377,8 @@ public class BreakTimeManagedBean {
         cBreakTime = new BreakTime();
         selectedDays = null;
         selectedPromos = null;
-        startDate = new Date(0);
-        endDate = new Date(0);
+        startDate = new Date(0, 0, 0, 8, 0);
+        endDate = new Date(0, 0, 0, 18, 0);
 
         return "created";
     }
@@ -352,8 +390,8 @@ public class BreakTimeManagedBean {
     public String cancel() {
         selectedDays = null;
         selectedPromos = null;
-        startDate = new Date(0);
-        endDate = new Date(0);
+        startDate = new Date(0, 0, 0, 8, 0);
+        endDate = new Date(0, 0, 0, 18, 0);
 
         return "cancel";
     }
@@ -450,8 +488,8 @@ public class BreakTimeManagedBean {
 
         selectedDays = null;
         selectedPromos = null;
-        startDate = new Date(0);
-        endDate = new Date(0);
+        startDate = new Date(0, 0, 0, 8, 0);
+        endDate = new Date(0, 0, 0, 18, 0);
 
         return "updated";
     }

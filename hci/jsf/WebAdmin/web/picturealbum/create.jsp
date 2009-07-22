@@ -20,8 +20,22 @@
             <link rel='stylesheet' type='text/css' href='<%=request.getContextPath()%>/resources/stylesheet.css' />
 
             <title><h:outputText value="#{bundle.PICTUREALBUM}" /></title>
+
+            <script type='text/javascript' language = 'Javascript'>
+                function flickrDetection()
+                {
+                   if (document.getElementById("content:form:repository").options[document.getElementById("content:form:repository").selectedIndex].value == "flickr")
+                   {
+                      document.getElementById('content:form:user').disabled=true;
+                   }
+                   else
+                   {
+                      document.getElementById('content:form:user').disabled=false;
+                   }
+                }
+            </script>
         </head>
-        <body>
+        <body onload="flickrDetection()">
             <div class="body">
                 <div class="header">
                     <%@include file="../layout/header.jsp" %>

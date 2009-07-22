@@ -18,25 +18,24 @@
             <f:facet name="header">
                 <h:outputText value="#{bundle.BREAKTIME_BUILDING}"/>
             </f:facet>
-            <h:outputText value="#{iterator.building}"/>
+            <h:outputText value="#{iterator.building}">
+                <f:converter converterId="BuildingConverter"/>
+            </h:outputText>
         </h:column>
 
         <h:column>
             <f:facet name="header">
                 <h:outputText value="#{bundle.BREAKTIME_TIME}"/>
             </f:facet>
-            <h:panelGrid columns="1" styleClass="alignCenter">
-                <h:panelGroup>
-                    <h:outputText value="#{iterator.start}">
-                        <f:converter converterId="XMLGregorianCalendarTimeConverter" />
-                    </h:outputText>
-                    <h:outputText value=" - "/>
-                    <h:outputText value="#{iterator.end}">
-                        <f:converter converterId="XMLGregorianCalendarTimeConverter" />
-                    </h:outputText>
-                </h:panelGroup>
-                <h:outputText value="(#{iterator.kind})"/>
-            </h:panelGrid>
+            <h:panelGroup styleClass="alignCenter">
+                <h:outputText value="#{iterator.start}">
+                    <f:converter converterId="XMLGregorianCalendarTimeConverter" />
+                </h:outputText>
+                <h:outputText value=" - "/>
+                <h:outputText value="#{iterator.end}">
+                    <f:converter converterId="XMLGregorianCalendarTimeConverter" />
+                </h:outputText>
+            </h:panelGroup>
         </h:column>
 
         <h:column>
