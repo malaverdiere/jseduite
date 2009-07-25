@@ -25,6 +25,12 @@
     <service name="StopCRUD">
       <implementation-class>ca.m1.montreal.jSeduite.technical.busschedule.StopCRUD</implementation-class>
     </service>
+    <service name="BusScheduleFinder">
+      <implementation-class>ca.m1.montreal.jSeduite.technical.busschedule.BusScheduleFinder</implementation-class>
+    </service>
+    <service name="PeriodLinkCRUD">
+      <implementation-class>ca.m1.montreal.jSeduite.technical.busschedule.PeriodLinkCRUD</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>

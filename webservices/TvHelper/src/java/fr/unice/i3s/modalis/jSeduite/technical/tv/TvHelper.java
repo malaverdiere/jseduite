@@ -36,10 +36,14 @@ public class TvHelper {
 
     /** Extract information from a tv show title in a more easiest way than
      * using BPEL natives constructions
+     *  Detected Pattern : CHANNEL '-' HH:MM ':' TITLE
      */
     @WebMethod(operationName = "extract")
     public String[] extract(@WebParam(name = "complexString") String complexString) {
+        String[] result = new String[3];
+        return result;
 
+/**
         String[] extracted = complexString.split("-");
         
         String start = extracted[extracted.length - 1];
@@ -54,6 +58,7 @@ public class TvHelper {
         result[1] = channel.trim();
         result[2] = start.trim();
         return result;
+ **/
     }
 
 }
