@@ -1,7 +1,0 @@
-<soapenv:Envelope xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pic="http://modalis.i3s.unice.fr/jSeduite/schema/PictureAlbum">
-  <soapenv:Body>
-    <pic:PictureAlbumRequest>
-      <pic:maxSize>10</pic:maxSize>
-    </pic:PictureAlbumRequest>
-  </soapenv:Body>
-</soapenv:Envelope>
