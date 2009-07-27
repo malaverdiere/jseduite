@@ -40,6 +40,7 @@ CREATE TABLE `internal_news` (
 DROP VIEW IF EXISTS `current_internal_news`;
 CREATE VIEW `current_internal_news` AS
     SELECT
+        `internal_news`.`id`,
         `internal_news`.`author`,  `internal_news`.`start`,
         `internal_news`.`end`,     `internal_news`.`title`,
         `internal_news`.`content`, `internal_news_target`.`name` AS `target`
