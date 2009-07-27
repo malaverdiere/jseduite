@@ -125,7 +125,29 @@
     <target name="wsimport-client-clean-BreakTimeCRUDService" depends="-init-project">
         <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/breaktime"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-BreakingNewsCRUDService, wsimport-client-BreakingNewsFinderService, wsimport-client-InternalNewsCRUDService, wsimport-client-InternalNewsFinderService, wsimport-client-PictureAlbumRegistryCRUDService, wsimport-client-PictureAlbumRegistryFinderService, wsimport-client-PromoCRUDService, wsimport-client-PromoFinderService, wsimport-client-BreakTimeFinderService, wsimport-client-BreakTimeCRUDService"/>
+    <target name="wsimport-client-check-AlarmFinderService" depends="wsimport-init">
+        <condition property="wsimport-client-AlarmFinderService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/alarms/AlarmFinderService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-AlarmFinderService" depends="wsimport-init,wsimport-client-check-AlarmFinderService" unless="wsimport-client-AlarmFinderService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/AlarmFinderService/wsdl/localhost_8080/jSeduite/SchoolLife/AlarmFinderService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/SchoolLife/AlarmFinderService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-AlarmFinderService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/alarms"/>
+    </target>
+    <target name="wsimport-client-check-AlarmCRUDService" depends="wsimport-init">
+        <condition property="wsimport-client-AlarmCRUDService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/alarms/AlarmCRUDService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-AlarmCRUDService" depends="wsimport-init,wsimport-client-check-AlarmCRUDService" unless="wsimport-client-AlarmCRUDService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/AlarmCRUDService/wsdl/localhost_8080/jSeduite/SchoolLife/AlarmCRUDService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/SchoolLife/AlarmCRUDService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-AlarmCRUDService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/alarms"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-BreakingNewsCRUDService, wsimport-client-BreakingNewsFinderService, wsimport-client-InternalNewsCRUDService, wsimport-client-InternalNewsFinderService, wsimport-client-PictureAlbumRegistryCRUDService, wsimport-client-PictureAlbumRegistryFinderService, wsimport-client-PromoCRUDService, wsimport-client-PromoFinderService, wsimport-client-BreakTimeFinderService, wsimport-client-BreakTimeCRUDService, wsimport-client-AlarmFinderService, wsimport-client-AlarmCRUDService"/>
     <target name="wsimport-client-compile" depends="-pre-pre-compile">
         <webproject2:javac srcdir="${build.generated.dir}/wsimport/client" classpath="${j2ee.platform.wsimport.classpath}:${javac.classpath}" destdir="${build.classes.dir}"/>
         <copy todir="${build.classes.dir}">

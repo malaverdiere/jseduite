@@ -65,7 +65,7 @@ public class BreakTimeCRUD {
         String sqlStart = toSql(b.getStart());
         String sqlEnd = toSql(b.getEnd());
 
-        String sql_bt = "INSERT INTO `break_time`";
+        String sql_bt = "INSERT INTO `break_time` ";
         sql_bt += "(`start`, `end`, `building`, `kind`) VALUES (";
         sql_bt += "'"+sqlStart+"','"+sqlEnd+"','"+b.getBuilding()+"','"+b.getKind()+"');";
 
@@ -159,17 +159,10 @@ public class BreakTimeCRUD {
         String sql = "DELETE FROM `break_time`";
         sql += "WHERE `id` = '" + b.getId()+"';";
 
-        String sql_promos = "DELETE FROM `break_time_promotions`";
-        sql_promos += "WHERE `break_id` = '" + b.getId()+"';";
-
-        String sql_days = "DELETE FROM `break_time_days`";
-        sql_days += "WHERE `break_id` = '" + b.getId()+"';";
         DataAccessLayer dal = new DataAccessLayer();
         try {
             dal.executeVoid(sql);
-            dal.executeVoid(sql_promos);
-            dal.executeVoid(sql_days);
-        } catch(Exception e) {
+         } catch(Exception e) {
            throw new BreakTimeException("SQLException: " + e.getMessage());
        }
     }

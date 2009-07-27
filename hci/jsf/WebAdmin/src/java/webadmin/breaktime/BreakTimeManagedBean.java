@@ -54,9 +54,6 @@ public class BreakTimeManagedBean {
     //The current ID
     private int id = 0;
 
-    //The sorting method
-    private int sort;
-
     // Days
     private List<SelectItem> days;
 
@@ -174,23 +171,6 @@ public class BreakTimeManagedBean {
     }
 
     /**
-     * Get the sort method
-     * @return the sort method
-     */
-    public int getSort() {
-        return this.sort;
-
-    }
-
-    /**
-     * Set the sort method
-     * @param i the sort method
-     */
-    public void setSort(int s) {
-        this.sort = s;
-    }
-
-    /**
      * Get the break times
      * @return a list of the break times
      */
@@ -198,12 +178,12 @@ public class BreakTimeManagedBean {
         breakTimes = new ArrayList<BreakTime>();
 
         try {
-            //Get the internal BreakTime ids
+            //Get the break times ids
             this.finderService = new BreakTimeFinderService();
             BreakTimeFinder finderPort = finderService.getBreakTimeFinderPort();
             List<Integer> breakTimeIds = finderPort.getAllBreakTimeReferences();
 
-            //Get the internal BreakTime
+            //Get the break times
             this.crudService = new BreakTimeCRUDService();
             BreakTimeCRUD crudPort = crudService.getBreakTimeCRUDPort();
 

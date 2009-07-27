@@ -19,6 +19,8 @@
  * @author      Main Steve Colombié      [colombie@polytech.unice.fr]
 **/
 
+DROP TABLE IF EXISTS `break_time_promotions`;
+DROP TABLE IF EXISTS `break_time_days`;
 DROP TABLE IF EXISTS `break_time`;
 CREATE TABLE `break_time` (
     `id`        INT(11)         NOT NULL AUTO_INCREMENT,
@@ -29,23 +31,32 @@ CREATE TABLE `break_time` (
     PRIMARY KEY  (`id`));
 
 
-DROP TABLE IF EXISTS `break_time_promotions`;
-CREATE TABLE `break_time_promotions` (
-    `break_id`  INT(11)         NOT NULL
-                                REFERENCES `break_time` (`id` )
-                                ON DELETE CASCADE
-                                ON UPDATE CASCADE,
-    `promo_id`  INT(11)         NOT NULL
-                                REFERENCES `promos` (`id` )
-                                ON DELETE CASCADE
-                                ON UPDATE CASCADE,
-    PRIMARY KEY (`break_id`,`promo_id`));
 
-DROP TABLE IF EXISTS `break_time_days`;
+CREATE TABLE `break_time_promotions` (
+    `break_id`  INT(11)         NOT NULL,
+    `promo_id`  INT(11)         NOT NULL,
+    PRIMARY KEY (`break_id`,`promo_id`),
+
+    CONSTRAINT `fk_break_id_BM`
+    FOREIGN KEY (`break_id` )
+    REFERENCES `break_time` (`id` )
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+
+    CONSTRAINT `fk_alarm_id`
+    FOREIGN KEY (`promo_id` )
+    REFERENCES `promos` (`id` )
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+
 CREATE TABLE `break_time_days`(
-    `break_id`  INT(11)         NOT NULL
-                                REFERENCES `break_time` (`id` )
-                                ON DELETE CASCADE
-                                ON UPDATE CASCADE,
+    `break_id`  INT(11)         NOT NULL,
     `day` ENUM('monday','tuesday','wednesday','thursday','friday','saturday','sunday') NOT NULL ,
-    PRIMARY KEY (`break_id`,`day`));
+    PRIMARY KEY (`break_id`,`day`),
+
+    CONSTRAINT `fk_break_id_BMD`
+    FOREIGN KEY (`break_id` )
+    REFERENCES `break_time` (`id` )
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);

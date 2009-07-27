@@ -51,9 +51,9 @@
             </h:outputLink>
         </h:panelGroup>
         <h:panelGroup styleClass="menuItem">
-<%--            <h:outputLink value="#{request.contextPath}/alarms/listing.jsf">--%>
+            <h:outputLink value="#{request.contextPath}/alarms/listing.jsf">
                 <h:outputText value="#{bundle.ALARM}"/>
-<%--            </h:outputLink>--%>
+            </h:outputLink>
         </h:panelGroup>
 
         <h:panelGroup styleClass="menuItem">

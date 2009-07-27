@@ -48,7 +48,7 @@ public class PromoCRUD {
 
         DataAccessLayer dal = new DataAccessLayer();
 
-        String sql = "INSERT INTO `promos`";
+        String sql = "INSERT INTO `promos` ";
         sql += "(`id`, `code`, `name`) VALUES (";
         sql += "'"+p.getId()+"','"+p.getCode()+"','"+p.getName()+"');";
 

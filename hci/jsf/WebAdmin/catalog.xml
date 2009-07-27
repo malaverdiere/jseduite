@@ -24,4 +24,8 @@
     <system systemId="http://localhost:8080/jSeduite/SchoolLife/BreakTimeFinderService?xsd=1" uri="src/conf/xml-resources/web-service-references/BreakTimeFinderService/wsdl/localhost_8080/jSeduite/SchoolLife/BreakTimeFinderService.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/jSeduite/SchoolLife/BreakTimeCRUDService?wsdl" uri="src/conf/xml-resources/web-service-references/BreakTimeCRUDService/wsdl/localhost_8080/jSeduite/SchoolLife/BreakTimeCRUDService.wsdl"/>
     <system systemId="http://localhost:8080/jSeduite/SchoolLife/BreakTimeCRUDService?xsd=1" uri="src/conf/xml-resources/web-service-references/BreakTimeCRUDService/wsdl/localhost_8080/jSeduite/SchoolLife/BreakTimeCRUDService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/jSeduite/SchoolLife/AlarmCRUDService?wsdl" uri="src/conf/xml-resources/web-service-references/AlarmCRUDService/wsdl/localhost_8080/jSeduite/SchoolLife/AlarmCRUDService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/SchoolLife/AlarmCRUDService?xsd=1" uri="src/conf/xml-resources/web-service-references/AlarmCRUDService/wsdl/localhost_8080/jSeduite/SchoolLife/AlarmCRUDService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/jSeduite/SchoolLife/AlarmFinderService?wsdl" uri="src/conf/xml-resources/web-service-references/AlarmFinderService/wsdl/localhost_8080/jSeduite/SchoolLife/AlarmFinderService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/SchoolLife/AlarmFinderService?xsd=1" uri="src/conf/xml-resources/web-service-references/AlarmFinderService/wsdl/localhost_8080/jSeduite/SchoolLife/AlarmFinderService.xsd_1.xsd"/>
 </catalog>

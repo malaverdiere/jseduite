@@ -24,13 +24,13 @@
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>
-    <target name="wsgen-PromoCRUD" depends="wsgen-init">
-        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="fr.unice.i3s.modalis.jSeduite.technical.promos.PromoCRUD">
+    <target name="wsgen-PromoFinder" depends="wsgen-init">
+        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="fr.unice.i3s.modalis.jSeduite.technical.promos.PromoFinder">
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>
-    <target name="wsgen-PromoFinder" depends="wsgen-init">
-        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="fr.unice.i3s.modalis.jSeduite.technical.promos.PromoFinder">
+    <target name="wsgen-PromoCRUD" depends="wsgen-init">
+        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="fr.unice.i3s.modalis.jSeduite.technical.promos.PromoCRUD">
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>
@@ -44,7 +44,17 @@
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>
-    <target name="wsgen-service-compile" depends="wsgen-StudentSummon, wsgen-TeacherAbsences, wsgen-PromoCRUD, wsgen-PromoFinder, wsgen-BreakTimeFinder, wsgen-BreakTimeCRUD">
+    <target name="wsgen-AlarmFinder" depends="wsgen-init">
+        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="fr.unice.i3s.modalis.jSeduite.technical.alarms.AlarmFinder">
+            <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
+        </wsgen>
+    </target>
+    <target name="wsgen-AlarmCRUD" depends="wsgen-init">
+        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="fr.unice.i3s.modalis.jSeduite.technical.alarms.AlarmCRUD">
+            <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
+        </wsgen>
+    </target>
+    <target name="wsgen-service-compile" depends="wsgen-StudentSummon, wsgen-TeacherAbsences, wsgen-PromoFinder, wsgen-PromoCRUD, wsgen-BreakTimeFinder, wsgen-BreakTimeCRUD, wsgen-AlarmFinder, wsgen-AlarmCRUD">
         <webproject2:javac srcdir="${build.generated.dir}/wsgen/service" classpath="${j2ee.platform.wsimport.classpath}:${javac.classpath}" destdir="${build.classes.dir}"/>
     </target>
 </project>

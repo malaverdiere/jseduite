@@ -262,3 +262,7 @@ a:hover {
     max-height: 140px;
     overflow: scroll;
 }
+
+.alarmsTab td {
+    width: 16px;
+}

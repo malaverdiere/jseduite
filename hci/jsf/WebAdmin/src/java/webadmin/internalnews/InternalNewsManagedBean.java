@@ -46,7 +46,7 @@ public class InternalNewsManagedBean {
     private int id = 0;
 
     //The sorting method
-    private int sort;
+    private int sort = InternalNewsSorter.sortByStartDesc;
 
     // The targets
     private List<SelectItem> targets;

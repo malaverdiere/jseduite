@@ -34,6 +34,11 @@
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     <managed-bean>
+        <managed-bean-name>AlarmManagedBean</managed-bean-name>
+        <managed-bean-class>webadmin.alarms.AlarmManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
         <managed-bean-name>BreakingNewsSorter</managed-bean-name>
         <managed-bean-class>webadmin.breakingnews.BreakingNewsSorter</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
@@ -101,6 +106,19 @@
         <converter-id>BuildingConverter</converter-id>
         <converter-class>webadmin.converters.BuildingConverter</converter-class>
     </converter>
+    <converter>
+        <converter-id>AlarmStartConverter</converter-id>
+        <converter-class>webadmin.converters.AlarmStartConverter</converter-class>
+    </converter>
+    <converter>
+        <converter-id>AlarmAlmostEndConverter</converter-id>
+        <converter-class>webadmin.converters.AlarmAlmostEndConverter</converter-class>
+    </converter>
+    <converter>
+        <converter-id>AlarmEndConverter</converter-id>
+        <converter-class>webadmin.converters.AlarmEndConverter</converter-class>
+    </converter>
+
 
     <!--BREAKING NEWS-->
     <navigation-rule>
@@ -298,6 +316,46 @@
         <navigation-case>
             <from-outcome>cancel</from-outcome>
             <to-view-id>/breaktime/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <!--ALARM-->
+    <navigation-rule>
+        <from-view-id>/alarms/create.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>created</from-outcome>
+            <to-view-id>/alarms/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/alarms/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/alarms/listing.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>sorted</from-outcome>
+            <to-view-id>/alarms/listing.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>update</from-outcome>
+            <to-view-id>/alarms/update.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/alarms/update.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>updated</from-outcome>
+            <to-view-id>/alarms/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/alarms/listing.jsp</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>

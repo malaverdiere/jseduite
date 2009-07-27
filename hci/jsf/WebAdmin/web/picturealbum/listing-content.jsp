@@ -50,7 +50,7 @@
                 </h:form>
             </f:facet>
             <h:outputText value="#{iterator.validFrom}">
-                <f:converter converterId="XMLGregorianCalendarConverter" />
+                <f:converter converterId="XMLGregorianCalendarDateConverter" />
             </h:outputText>
         </h:column>
 

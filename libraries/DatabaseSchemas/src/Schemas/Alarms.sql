@@ -18,23 +18,28 @@
  *
  * @author      Main Steve Colombié      [colombie@polytech.unice.fr]
 **/
-
+DROP TABLE IF EXISTS `alarm_breaks`;
 DROP TABLE IF EXISTS `alarms`;
+
 CREATE TABLE `alarms` (
     `id`        INT(11)         NOT NULL AUTO_INCREMENT,
-    `kind`      VARCHAR(10)     NOT NULL,
+    `kind`      ENUM('start','almost_end','end') NOT NULL ,
     `message`   VARCHAR(255)    NOT NULL,
-    `sound`     VARCHAR(255)    NOT NULL,
+    `sound`     VARCHAR(255),
     PRIMARY KEY  (`id`));
 
-DROP TABLE IF EXISTS `alarm_breaks`;
+
 CREATE TABLE `alarm_breaks` (
-    `alarm_id`  INT(11)         NOT NULL
-                                REFERENCES `alarms` (`id` )
-                                ON DELETE CASCADE
-                                ON UPDATE CASCADE,
-    `break_id`  INT(11)         NOT NULL
-                                REFERENCES `break_time` (`id` )
-                                ON DELETE CASCADE
-                                ON UPDATE CASCADE,
-    PRIMARY KEY (`alarm_id`,`break_id`));
+    `alarm_id`  INT(11)         NOT NULL,
+    `break_id`  INT(11)         NOT NULL,
+    PRIMARY KEY (`alarm_id`,`break_id`),
+    CONSTRAINT `fk_alarm_id_A`
+    FOREIGN KEY (`alarm_id` )
+    REFERENCES `alarms` (`id` )
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    CONSTRAINT `fk_break_id_A`
+    FOREIGN KEY (`break_id` )
+    REFERENCES `break_time` (`id` )
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);

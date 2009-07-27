@@ -19,6 +19,12 @@
     <service name="BreakTimeCRUD">
       <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.breaktime.BreakTimeCRUD</implementation-class>
     </service>
+    <service name="AlarmFinder">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.alarms.AlarmFinder</implementation-class>
+    </service>
+    <service name="AlarmCRUD">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.alarms.AlarmCRUD</implementation-class>
+    </service>
   </services>
   <clients>
   </clients>

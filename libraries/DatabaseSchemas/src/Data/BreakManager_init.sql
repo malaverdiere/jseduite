@@ -1,6 +1,6 @@
-INSERT INTO `break_time` VALUES (NULL,'10:30','10:45','templier','short');
-INSERT INTO `break_time` VALUES (NULL,'12:45','14:00','templier','long');
-INSERT INTO `break_time` VALUES (NULL,'16:00','16:15','templier','short');
+INSERT INTO `break_time` VALUES (NULL,'10:30','10:45','templiers','short');
+INSERT INTO `break_time` VALUES (NULL,'12:45','14:00','templiers','long');
+INSERT INTO `break_time` VALUES (NULL,'16:00','16:15','templiers','short');
 
 INSERT INTO `break_time_promotions` VALUES (1,3);
 INSERT INTO `break_time_promotions` VALUES (1,4);
