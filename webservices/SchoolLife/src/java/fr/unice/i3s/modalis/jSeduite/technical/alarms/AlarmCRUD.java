@@ -47,8 +47,9 @@ public class AlarmCRUD {
         DataAccessLayer dal = new DataAccessLayer();
 
         String sql = "INSERT INTO `alarms` ";
-        sql += "(`kind`, `message`, `sound`) VALUES (";
-        sql += "'"+a.getKind()+"','"+a.getMessage()+"','"+a.getSound()+"');";
+        sql += "(`kind`, `message`, `sound`, `break_id`) VALUES (";
+        sql += "'"+a.getKind()+"','"+a.getMessage()+"','"+a.getSound()+"',";
+        sql += "'"+a.getBreakTime().getId()+"');";
 
         String idGetter = "SELECT max(`id`) AS `id` FROM `alarms`";
 
@@ -56,13 +57,6 @@ public class AlarmCRUD {
             /* Alarm creation */
             dal.executeVoid(sql);
             int id = Integer.parseInt(dal.extractScalar(idGetter, "id"));
-
-            String sql_bt = "INSERT INTO `alarm_breaks` ";
-            sql_bt += "(`alarm_id`, `break_id`) VALUES (";
-            sql_bt += "'"+id+"','"+a.getBreakTime().getId()+"');";
-
-            dal.executeVoid(sql_bt);
-
 
             return id;
         } catch (Exception e) {
@@ -107,6 +101,7 @@ public class AlarmCRUD {
         sql += "SET `kind` = '"+a.getKind()+"', ";
         sql += "`message` = '"+a.getMessage()+"' ";
         sql += "`sound` = '"+a.getSound()+"' ";
+        sql += "`break_id` = '"+a.getBreakTime().getId()+"' ";
         sql += "WHERE `id` = '" + a.getId()+"';";
         DataAccessLayer dal = new DataAccessLayer();
         try {

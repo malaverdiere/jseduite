@@ -47,9 +47,6 @@ public class AlarmFinder {
         String sql = "SELECT * FROM `alarms`";
         sql += "WHERE `id` = '" + id + "';";
 
-        String sql_bt = "SELECT * FROM `alarm_breaks`";
-        sql_bt += "WHERE `alarm_id` = '" + id + "';";
-
         DataAccessLayer dal = new DataAccessLayer();
         try {
             DalResultSet rSet = dal.extractDataSet(sql);
@@ -58,9 +55,7 @@ public class AlarmFinder {
                 return null;
             }
 
-            /* Break time extraction */
-            DalResultSet rSet_bt = dal.extractDataSet(sql_bt);
-            int breakId = Integer.parseInt(rSet_bt.getValue("break_id"));
+            int breakId = Integer.parseInt(rSet.getValue("break_id"));
             BreakTime breakTime = breakTimeFinder.findBreakTimeById(breakId);
 
             return new Alarm(rSet, breakTime);
@@ -79,13 +74,13 @@ public class AlarmFinder {
     public Alarm[] getAlarmsByBreakTimeId(@WebParam(name = "id") int id)
             throws AlarmException {
         DataAccessLayer dal = new DataAccessLayer();
-        String sql = "SELECT * FROM `alarm_breaks` ";
+        String sql = "SELECT * FROM `alarms` ";
         sql += "WHERE `break_id` = '"+id+"';";
         try {
             ArrayList<Alarm> result = new ArrayList<Alarm>();
             DalResultSet rset = dal.extractDataSet(sql);
              for (int i = 0; i < rset.size(); i++ ) {
-                result.add(findAlarmById(Integer.parseInt(rset.getValue("alarm_id"))));
+                result.add(findAlarmById(Integer.parseInt(rset.getValue("id"))));
                 rset.next();
             }
             return result.toArray(new Alarm[result.size()]);

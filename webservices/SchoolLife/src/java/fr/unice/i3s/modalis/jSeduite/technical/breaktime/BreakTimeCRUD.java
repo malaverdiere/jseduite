@@ -138,8 +138,53 @@ public class BreakTimeCRUD {
             throw new BreakTimeException("Unreferenced update !");
         }
 
-        this.deleteBreakTime(b); // Ouch ... An ugly shortcut (but simple)
-        this.createBreakTime(b); // => should be improved in next releases
+        String sql = "UPDATE `break_time`";
+        sql += "SET `start` = '"+toSql(b.getStart())+"', ";
+        sql += "`end` = '"+toSql(b.getEnd())+"', ";
+        sql += "`building` = '"+b.getBuilding()+"', ";
+        sql += "`kind` = '"+b.getKind()+"' ";
+        sql += "WHERE `id` = '" + b.getId()+"';";
+
+        String sql_promo_deletion = "DELETE FROM `break_time_promotions`";
+        sql_promo_deletion += " WHERE `break_id` = '" + b.getId()+"';";
+
+        String sql_day_deletion = "DELETE FROM `break_time_days`";
+        sql_day_deletion += " WHERE `break_id` = '" + b.getId()+"';";
+
+        DataAccessLayer dal = new DataAccessLayer();
+        try {
+            dal.executeVoid(sql_promo_deletion);
+            dal.executeVoid(sql_day_deletion);
+            dal.executeVoid(sql);
+
+            /* Promotions associations */
+            Promo[] promos = b.getPromos();
+            String sql_promos = "";
+
+            for(Promo promo : promos) {
+                sql_promos = "INSERT INTO `break_time_promotions`";
+                sql_promos += "(`break_id`, `promo_id`) VALUES (";
+                sql_promos += "'"+b.getId()+"','"+promo.getId()+"');";
+                dal.executeVoid(sql_promos);
+            }
+
+            /* Days associations */
+            String[] days = b.getDays();
+
+            String sql_days = "";
+
+            for(String day : days) {
+                sql_days = "INSERT INTO `break_time_days`";
+                sql_days += "(`break_id`, `day`) VALUES (";
+                sql_days += "'"+b.getId()+"','"+day+"');";
+
+                dal.executeVoid(sql_days);
+            }
+            
+            
+        } catch(Exception e) {
+           throw new BreakTimeException("SQLException: " + e.getMessage());
+       }
 
     }
 
