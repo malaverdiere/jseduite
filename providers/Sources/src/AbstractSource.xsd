@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information"
+    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information"
+    elementFormDefault="qualified" xmlns:ns0="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/">
+    <xsd:import schemaLocation="Partners/InternalNewsService.xsd" namespace="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/"/>
+    <xsd:import schemaLocation="Partners/TwitterWrapperService.xsd" namespace="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/"/>
+    <xsd:complexType name="Information">
+        <xsd:choice>
+            <xsd:element name="internalNews" type="ns0:news"/>
+            <xsd:element name="tweet" type="ns1:tweet"/>
+        </xsd:choice>
+        <xsd:attribute name="source" type="xsd:string"/>
+    </xsd:complexType>
+    <xsd:complexType name="SetOfInformation">
+        <xsd:sequence>
+            <xsd:element name="item" type="tns:Information" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="GetInformationIn">
+        <xsd:sequence>
+            <xsd:element name="identifier" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="GetInformationOut">
+        <xsd:sequence>
+            <xsd:element name="result" type="tns:SetOfInformation"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="GetInformationRequest" type="tns:GetInformationIn"/>
+    <xsd:element name="GetInformationResponse" type="tns:GetInformationOut"/>
+</xsd:schema>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/InternalNewsService.wsdl" uri="src/Partners/InternalNewsService.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/InternalNewsService.xsd" uri="src/Partners/InternalNewsService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/SourceManagerService.wsdl" uri="src/Partners/Helpers/SourceManagerService.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/SourceManagerService.xsd" uri="src/Partners/Helpers/SourceManagerService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/TwitterWrapperService.wsdl" uri="src/Partners/TwitterWrapperService.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/TwitterWrapperService.xsd" uri="src/Partners/TwitterWrapperService.xsd"/>
+</catalog>

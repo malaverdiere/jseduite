@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process
+    name="TwitterSource"
+    targetNamespace="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TwitterSource"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
+    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TwitterSource" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" location="TwitterSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/TwitterWrapperServiceWrapper" location="Partners/TwitterWrapperServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/TwitterWrapperService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" location="AbstractSource.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/SourceManagerServiceWrapper" location="Partners/Helpers/SourceManagerServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/Helpers/SourceManagerService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="sources" xmlns:tns="http://enterprise.netbeans.org/bpel/SourceManagerServiceWrapper" partnerLinkType="tns:SourceManagerLinkType" partnerRole="SourceManagerRole"/>
+        <partnerLink name="twitter" xmlns:tns="http://enterprise.netbeans.org/bpel/TwitterWrapperServiceWrapper" partnerLinkType="tns:TwitterWrapperLinkType" partnerRole="TwitterWrapperRole"/>
+        <partnerLink name="ext" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" partnerLinkType="tns:TwitterSource" myRole="TwitterSourcePortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="sourceName" type="xsd:string"/>
+        <variable name="identifier" type="xsd:string"/>
+        <variable name="info_star" type="ns0:SetOfInformation"/>
+    </variables>
+    <sequence>
+        <scope name="a0">
+            <variables>
+                <variable name="GetInfosIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" messageType="tns:GetInfosRequest"/>
+            </variables>
+            <sequence name="a0_core">
+                <receive name="a0_tech" createInstance="yes" partnerLink="ext" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" portType="tns:TwitterSourcePortType" variable="GetInfosIn"/>
+                <assign name="a0_post">
+                    <copy>
+                        <from>$GetInfosIn.in/ns0:identifier</from>
+                        <to variable="identifier"/>
+                    </copy>
+                    <copy>
+                        <from>'twitter'</from>
+                        <to variable="sourceName"/>
+                    </copy>
+                    <copy>
+                        <from>''</from>
+                        <to variable="info_star"/>
+                    </copy>
+                </assign>
+            </sequence>
+        </scope>
+        <scope name="aX">
+            <variables>
+                <variable name="GetInfosOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" messageType="tns:GetInfosResponse"/>
+            </variables>
+            <sequence name="aX_core">
+                <assign name="aX_pre">
+                    <copy>
+                        <from variable="info_star"></from>
+                        <to>$GetInfosOut.out/ns0:result</to>
+                    </copy>
+                </assign>
+                <reply name="aX_tech" partnerLink="ext" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" portType="tns:TwitterSourcePortType" variable="GetInfosOut"/>
+            </sequence>
+        </scope>
+    </sequence>
+</process>
