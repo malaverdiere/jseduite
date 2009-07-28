@@ -22,7 +22,18 @@
 -- Sources:
 INSERT INTO `sources`    VALUES ('internal_news','News Interne');
 INSERT INTO `parameters` VALUES (NULL, 'internal_news', 'target', 'all');
+INSERT INTO `sources`    VALUES ('twitter','Twitter');
+INSERT INTO `parameters` VALUES (NULL, 'twitter', 'username', '???');
+INSERT INTO `parameters` VALUES (NULL, 'twitter', 'password', '???');
 
--- Devices:
+-- Devices: hall_templiers
 INSERT INTO `devices` VALUES ('hall_templiers','Plasma du Hall des Templiers');
 INSERT INTO `device_subscription` VALUES ('hall_templiers', 'internal_news', 1);
+INSERT INTO `device_subscription` VALUES ('hall_templiers', 'twitter', 1);
+INSERT INTO `device_parametrization` VALUES ('hall_templiers',2,1,'polytechnsa');
+INSERT INTO `device_parametrization` VALUES ('hall_templiers',3,1,'???');
+
+-- Devices: prof_templiers
+INSERT INTO `devices` VALUES ('profs_templiers','Ecran du 4eme etage Templiers');
+INSERT INTO `device_subscription` VALUES ('profs_templiers', 'internal_news', 1);
+INSERT INTO `device_parametrization` VALUES ('profs_templiers',1,1,'profs');

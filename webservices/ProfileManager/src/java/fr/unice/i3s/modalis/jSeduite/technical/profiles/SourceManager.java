@@ -90,7 +90,8 @@ public class SourceManager {
                 aValue.setName(name);
                 sql = "SELECT `value` AS `v` FROM `device_parametrization`";
                 sql += " WHERE `param_id` = "+  paramIds.get(name) +" AND ";
-                sql += " `set_id` = " + (i+1) + ";";
+                sql += " `set_id` = " + (i+1);
+                sql += " AND `device_id` = '"+device+"';";
                 try {
                     aValue.setValue(dal.extractScalar(sql,"v"));
                 }catch (Exception e){

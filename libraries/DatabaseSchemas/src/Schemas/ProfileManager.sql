@@ -49,7 +49,8 @@ CREATE TABLE `device_subscription` (
 
 DROP TABLE IF EXISTS `device_parametrization`;
 CREATE TABLE `device_parametrization` (
-  `param_id`        INT             NOT NULL,
+  `device_id`       VARCHAR(50)     NOT NULL REFERENCES `devices`,
+  `param_id`        INT             NOT NULL REFERENCES `parameters`,
   `set_id`          INT             NOT NULL,
   `value`           VARCHAR(255)    NOT NULL,
   PRIMARY KEY (`param_id`, `set_id`));
