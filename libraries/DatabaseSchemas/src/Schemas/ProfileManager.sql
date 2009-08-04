@@ -53,7 +53,7 @@ CREATE TABLE `device_parametrization` (
   `param_id`        INT             NOT NULL REFERENCES `parameters`,
   `set_id`          INT             NOT NULL,
   `value`           VARCHAR(255)    NOT NULL,
-  PRIMARY KEY (`param_id`, `set_id`));
+  PRIMARY KEY (`device_id`,`param_id`, `set_id`));
 
 
 
