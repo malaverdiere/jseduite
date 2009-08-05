@@ -39,6 +39,13 @@
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     <managed-bean>
+        <managed-bean-name>DeviceManagedBean</managed-bean-name>
+        <managed-bean-class>webadmin.devices.DeviceManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <!--SORTERS-->
+    <managed-bean>
         <managed-bean-name>BreakingNewsSorter</managed-bean-name>
         <managed-bean-class>webadmin.breakingnews.BreakingNewsSorter</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
@@ -58,6 +65,8 @@
         <managed-bean-class>webadmin.promotions.PromotionSorter</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+
+    <!--PAGER-->
     <managed-bean>
         <managed-bean-name>DataTablePager</managed-bean-name>
         <managed-bean-class>webadmin.util.DataTablePager</managed-bean-class>
@@ -118,7 +127,6 @@
         <converter-id>AlarmEndConverter</converter-id>
         <converter-class>webadmin.converters.AlarmEndConverter</converter-class>
     </converter>
-
 
     <!--BREAKING NEWS-->
     <navigation-rule>
@@ -322,19 +330,6 @@
 
     <!--ALARM-->
     <navigation-rule>
-        <from-view-id>/alarms/create.jsp</from-view-id>
-        <navigation-case>
-            <from-outcome>created</from-outcome>
-            <to-view-id>/alarms/listing.jsp</to-view-id>
-            <redirect/>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>cancel</from-outcome>
-            <to-view-id>/alarms/listing.jsp</to-view-id>
-            <redirect/>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
         <from-view-id>/alarms/listing.jsp</from-view-id>
         <navigation-case>
             <from-outcome>sorted</from-outcome>
@@ -357,6 +352,54 @@
             <from-outcome>cancel</from-outcome>
             <to-view-id>/alarms/listing.jsp</to-view-id>
             <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <!--DEVICE-->
+    <navigation-rule>
+        <from-view-id>/devices/create.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>created</from-outcome>
+            <to-view-id>/devices/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/devices/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/devices/listing.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>sorted</from-outcome>
+            <to-view-id>/devices/listing.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>update</from-outcome>
+            <to-view-id>/devices/update.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/devices/update.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>updated</from-outcome>
+            <to-view-id>/devices/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/devices/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/devices/update.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>del</from-outcome>
+            <to-view-id>/devices/update.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

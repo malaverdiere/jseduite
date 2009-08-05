@@ -197,7 +197,7 @@ a:hover {
   color: #2339C8;
 }
 
-.list-row-odd { 
+.list-row-odd {
   background-color: #c2ffc6;
 }
 
@@ -265,4 +265,40 @@ a:hover {
 
 .alarmsTab td {
     width: 16px;
+}
+
+.call {
+    border: 1px solid #1C2C9C;
+    background-color: #EAEEFF;
+}
+
+.call .title {
+    color: #1C2C9C;
+    border-bottom: 1px solid #1C2C9C;
+    display: block;
+    float: left;
+    width: 95%;
+}
+
+.call .delete {
+    background-image: url('./images/delete.png');
+    float: right;
+    width: 16px;
+}
+
+.callAddition {
+    margin-top: 10px;
+    border: 1px solid #3CA81E;
+    background-color: #F3FFEA;
+}
+
+.callAddition .title {
+    color: #3CA81E;
+    display: block;
+    padding-left: 20px;
+    background-image: url('./images/add.png');
+    background-position: left;
+    background-repeat: no-repeat;
+    float: left;
+    width: 50%;
 }

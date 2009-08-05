@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : listing-content
     Created on : 24 juillet 2009
     Author     : Steve Colombié
@@ -92,11 +92,11 @@
                 <h:outputText value=" #{DataTablePager.currentPage} " />
                 <h:commandLink title="#{bundle.PAGE_NEXT}" action="#{DataTablePager.nextPage}" styleClass="pager">
                     <h:graphicImage value="../resources/images/next.png" alt="#{bundle.PAGE_NEXT}"/>
-                    <f:setPropertyActionListener target="#{DataTablePager.listCard}" value="#{AlarmManagedBean.alarmCard}" />
+                    <f:setPropertyActionListener target="#{DataTablePager.listCard}" value="#{AlarmManagedBean.alarmsCard}" />
                 </h:commandLink>
                 <h:commandLink title="#{bundle.PAGE_LAST}" action="#{DataTablePager.lastPage}" styleClass="pager">
                     <h:graphicImage value="../resources/images/last.png" alt="#{bundle.PAGE_LAST}"/>
-                    <f:setPropertyActionListener target="#{DataTablePager.listCard}" value="#{AlarmManagedBean.alarmCard}" />
+                    <f:setPropertyActionListener target="#{DataTablePager.listCard}" value="#{AlarmManagedBean.alarmsCard}" />
                 </h:commandLink>
                 <h:outputText value="#{bundle.FORM_ITEM_BY_PAGE} " />
                 <h:inputText value="#{DataTablePager.itemByPage}" size="2"/>

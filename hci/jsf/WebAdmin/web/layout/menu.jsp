@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : menu
     Created on : 6 juil. 2009, 14:15:00
     Author     : Steve Colombié
@@ -66,6 +66,15 @@
 <%--            <h:outputLink value="#{request.contextPath}/summonings/listing.jsf">--%>
                 <h:outputText value="#{bundle.SUMMONINGS}"/>
 <%--            </h:outputLink>--%>
+        </h:panelGroup>
+    </h:panelGroup>
+
+    <h:panelGroup styleClass="menuCategory">
+        <h:outputText value="#{bundle.MENU_ADMIN}" styleClass="menuTitle"/>
+        <h:panelGroup styleClass="menuItem">
+            <h:outputLink value="#{request.contextPath}/devices/listing.jsf">
+                <h:outputText value="#{bundle.DEVICES}"/>
+            </h:outputLink>
         </h:panelGroup>
     </h:panelGroup>
 

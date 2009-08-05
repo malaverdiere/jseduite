@@ -147,7 +147,73 @@
     <target name="wsimport-client-clean-AlarmCRUDService" depends="-init-project">
         <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/alarms"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-BreakingNewsCRUDService, wsimport-client-BreakingNewsFinderService, wsimport-client-InternalNewsCRUDService, wsimport-client-InternalNewsFinderService, wsimport-client-PictureAlbumRegistryCRUDService, wsimport-client-PictureAlbumRegistryFinderService, wsimport-client-PromoCRUDService, wsimport-client-PromoFinderService, wsimport-client-BreakTimeFinderService, wsimport-client-BreakTimeCRUDService, wsimport-client-AlarmFinderService, wsimport-client-AlarmCRUDService"/>
+    <target name="wsimport-client-check-DeviceCRUDService" depends="wsimport-init">
+        <condition property="wsimport-client-DeviceCRUDService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/profiles/devices/DeviceCRUDService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-DeviceCRUDService" depends="wsimport-init,wsimport-client-check-DeviceCRUDService" unless="wsimport-client-DeviceCRUDService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/DeviceCRUDService/wsdl/localhost_8080/jSeduite/ProfileManager/DeviceCRUDService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/ProfileManager/DeviceCRUDService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-DeviceCRUDService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/profiles/devices"/>
+    </target>
+    <target name="wsimport-client-check-DeviceFinderService" depends="wsimport-init">
+        <condition property="wsimport-client-DeviceFinderService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/profiles/devices/DeviceFinderService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-DeviceFinderService" depends="wsimport-init,wsimport-client-check-DeviceFinderService" unless="wsimport-client-DeviceFinderService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/DeviceFinderService/wsdl/localhost_8080/jSeduite/ProfileManager/DeviceFinderService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/ProfileManager/DeviceFinderService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-DeviceFinderService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/profiles/devices"/>
+    </target>
+    <target name="wsimport-client-check-SourceFinderService" depends="wsimport-init">
+        <condition property="wsimport-client-SourceFinderService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/profiles/sources/SourceFinderService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-SourceFinderService" depends="wsimport-init,wsimport-client-check-SourceFinderService" unless="wsimport-client-SourceFinderService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/SourceFinderService/wsdl/localhost_8080/jSeduite/ProfileManager/SourceFinderService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/ProfileManager/SourceFinderService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-SourceFinderService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/profiles/sources"/>
+    </target>
+    <target name="wsimport-client-check-SourceCRUDService" depends="wsimport-init">
+        <condition property="wsimport-client-SourceCRUDService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/profiles/sources/SourceCRUDService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-SourceCRUDService" depends="wsimport-init,wsimport-client-check-SourceCRUDService" unless="wsimport-client-SourceCRUDService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/SourceCRUDService/wsdl/localhost_8080/jSeduite/ProfileManager/SourceCRUDService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/ProfileManager/SourceCRUDService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-SourceCRUDService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/profiles/sources"/>
+    </target>
+    <target name="wsimport-client-check-ParamFinderService" depends="wsimport-init">
+        <condition property="wsimport-client-ParamFinderService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/profiles/params/ParamFinderService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-ParamFinderService" depends="wsimport-init,wsimport-client-check-ParamFinderService" unless="wsimport-client-ParamFinderService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ParamFinderService/wsdl/localhost_8080/jSeduite/ProfileManager/ParamFinderService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/ProfileManager/ParamFinderService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-ParamFinderService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/profiles/params"/>
+    </target>
+    <target name="wsimport-client-check-ParamCreatorService" depends="wsimport-init">
+        <condition property="wsimport-client-ParamCreatorService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/profiles/params/ParamCreatorService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-ParamCreatorService" depends="wsimport-init,wsimport-client-check-ParamCreatorService" unless="wsimport-client-ParamCreatorService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ParamCreatorService/wsdl/localhost_8080/jSeduite/ProfileManager/ParamCreatorService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/ProfileManager/ParamCreatorService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-ParamCreatorService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/profiles/params"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-BreakingNewsCRUDService, wsimport-client-BreakingNewsFinderService, wsimport-client-InternalNewsCRUDService, wsimport-client-InternalNewsFinderService, wsimport-client-PictureAlbumRegistryCRUDService, wsimport-client-PictureAlbumRegistryFinderService, wsimport-client-PromoCRUDService, wsimport-client-PromoFinderService, wsimport-client-BreakTimeFinderService, wsimport-client-BreakTimeCRUDService, wsimport-client-AlarmFinderService, wsimport-client-AlarmCRUDService, wsimport-client-DeviceCRUDService, wsimport-client-DeviceFinderService, wsimport-client-SourceFinderService, wsimport-client-SourceCRUDService, wsimport-client-ParamFinderService, wsimport-client-ParamCreatorService"/>
     <target name="wsimport-client-compile" depends="-pre-pre-compile">
         <webproject2:javac srcdir="${build.generated.dir}/wsimport/client" classpath="${j2ee.platform.wsimport.classpath}:${javac.classpath}" destdir="${build.classes.dir}"/>
         <copy todir="${build.classes.dir}">
