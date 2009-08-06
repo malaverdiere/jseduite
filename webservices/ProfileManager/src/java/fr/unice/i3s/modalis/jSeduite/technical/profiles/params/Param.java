@@ -31,6 +31,7 @@ public class Param {
     private String name;
     private String value;
     private String defaultValue;
+    private String prettyName;
 
     public Param() {
     }
@@ -41,14 +42,17 @@ public class Param {
         this.value = rset.getValue("value");
         this.setId = Integer.parseInt(rset.getValue("set_id"));
         this.defaultValue = rset.getValue("default_value");
+        this.prettyName = rset.getValue("pretty_name");
     }
 
-    public Param(String name, String defaultValue, int id) {
+    public Param(String name, String defaultValue, String prettyName, int id) {
         this.id = id;
         this.setId = 0;
         this.name = name;
         this.value = defaultValue;
         this.defaultValue = defaultValue;
+        this.prettyName = prettyName;
+
     }
 
     public String getName() {
@@ -89,6 +93,14 @@ public class Param {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getPrettyName() {
+        return prettyName;
+    }
+
+    public void setPrettyName(String prettyName) {
+        this.prettyName = prettyName;
     }
 
 

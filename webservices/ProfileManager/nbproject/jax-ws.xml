@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
-    <service name="SourceManager">
-      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.profiles.SourceManager</implementation-class>
-    </service>
-    <service name="DeviceCRUD">
-      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.profiles.devices.DeviceCRUD</implementation-class>
-    </service>
-    <service name="DeviceFinder">
-      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.profiles.devices.DeviceFinder</implementation-class>
+    <service name="ParamCreator">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.profiles.params.ParamCreator</implementation-class>
     </service>
     <service name="SourceFinder">
       <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.profiles.sources.SourceFinder</implementation-class>
@@ -19,8 +13,14 @@
     <service name="SourceCRUD">
       <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.profiles.sources.SourceCRUD</implementation-class>
     </service>
-    <service name="ParamCreator">
-      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.profiles.params.ParamCreator</implementation-class>
+    <service name="DeviceFinder">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.profiles.devices.DeviceFinder</implementation-class>
+    </service>
+    <service name="SourceManager">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.profiles.SourceManager</implementation-class>
+    </service>
+    <service name="DeviceCRUD">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.profiles.devices.DeviceCRUD</implementation-class>
     </service>
   </services>
   <clients/>

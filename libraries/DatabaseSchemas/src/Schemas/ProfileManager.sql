@@ -31,6 +31,7 @@ CREATE TABLE `parameters` (
   `source`          VARCHAR(50)     NOT NULL REFERENCES `sources`,
   `name`            VARCHAR(50)     NOT NULL,
   `default_value`   VARCHAR(255)    NOT NULL,
+  `pretty_name`     VARCHAR(255)    NOT NULL,
   PRIMARY KEY(`id`));
 
 

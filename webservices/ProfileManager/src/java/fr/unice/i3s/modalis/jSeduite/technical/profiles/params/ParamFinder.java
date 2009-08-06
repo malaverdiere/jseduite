@@ -70,7 +70,7 @@ public class ParamFinder {
             DalResultSet rset = dal.extractDataSet(sql);
 
             for (int i = 0; i < rset.size(); i++ ) {
-                result.add(new Param(rset.getValue("name"), rset.getValue("default_value"), Integer.parseInt(rset.getValue("id"))));
+                result.add(new Param(rset.getValue("name"), rset.getValue("default_value"), rset.getValue("pretty_name"), Integer.parseInt(rset.getValue("id"))));
                 rset.next();
             }
             return result.toArray(new Param[result.size()]);

@@ -21,33 +21,33 @@
 
 -- Sources:
 INSERT INTO `sources`    VALUES ('internal_news','News Interne');
-INSERT INTO `parameters` VALUES (NULL, 'internal_news', 'target', 'all');
+INSERT INTO `parameters` VALUES (NULL, 'internal_news', 'target', 'all', 'Cible');
 INSERT INTO `sources`    VALUES ('twitter','Twitter');
-INSERT INTO `parameters` VALUES (NULL, 'twitter', 'username', '???');
-INSERT INTO `parameters` VALUES (NULL, 'twitter', 'password', '???');
+INSERT INTO `parameters` VALUES (NULL, 'twitter', 'username', '???', 'Utilisateur');
+INSERT INTO `parameters` VALUES (NULL, 'twitter', 'password', '???', 'Mot de passe');
 INSERT INTO `sources`    VALUES ('picture_albums','Albums Photos');
-INSERT INTO `parameters` VALUES (NULL, 'picture_albums', 'treshold', '10');
+INSERT INTO `parameters` VALUES (NULL, 'picture_albums', 'treshold', '10', 'Seuil');
 INSERT INTO `sources`    VALUES ('image_scrapper','Folksonomie Image');
-INSERT INTO `parameters` VALUES (NULL, 'image_scrapper', 'tags', '??');
-INSERT INTO `parameters` VALUES (NULL, 'image_scrapper', 'treshold', '10');
+INSERT INTO `parameters` VALUES (NULL, 'image_scrapper', 'tags', '??', 'Tag');
+INSERT INTO `parameters` VALUES (NULL, 'image_scrapper', 'treshold', '10', 'Seuil');
 INSERT INTO `sources`    VALUES ('weather','Météo');
-INSERT INTO `parameters` VALUES (NULL, 'weather', 'cityCode', '??');
+INSERT INTO `parameters` VALUES (NULL, 'weather', 'cityCode', '??', 'Code de la ville');
 INSERT INTO `sources`    VALUES ('tv_shows','Programme Télé');
 INSERT INTO `sources`    VALUES ('feeds','Lecteur de Flux RSS');
-INSERT INTO `parameters` VALUES (NULL, 'feeds', 'feedName', '??');
-INSERT INTO `parameters` VALUES (NULL, 'feeds', 'cacheValidity', '??');
+INSERT INTO `parameters` VALUES (NULL, 'feeds', 'feedName', '??', 'Nom du flux');
+INSERT INTO `parameters` VALUES (NULL, 'feeds', 'cacheValidity', '??', 'Validité du cache');
 INSERT INTO `sources`    VALUES ('breaking_news','Nouvelles en continu');
 INSERT INTO `sources`    VALUES ('bus','Horaires des Bus');
-INSERT INTO `parameters` VALUES (NULL, 'bus', 'lineId', '??');
+INSERT INTO `parameters` VALUES (NULL, 'bus', 'lineId', '??', 'Ligne');
 INSERT INTO `sources`    VALUES ('icalendar','Lecteur de Calendrier');
-INSERT INTO `parameters` VALUES (NULL, 'icalendar', 'url', '??');
+INSERT INTO `parameters` VALUES (NULL, 'icalendar', 'url', '??', 'URL');
 INSERT INTO `sources`    VALUES ('absences_profs','Absence des enseignants');
 INSERT INTO `sources`    VALUES ('stud_summon','Convocation des étudiants');
-INSERT INTO `parameters` VALUES (NULL, 'stud_summon', 'promoId', 'all');
+INSERT INTO `parameters` VALUES (NULL, 'stud_summon', 'promoId', 'all', 'Promotion');
 INSERT INTO `sources`    VALUES ('absences_stud','Absences des étudiants');
-INSERT INTO `parameters` VALUES (NULL, 'absences_stud', 'promoId', 'all');
+INSERT INTO `parameters` VALUES (NULL, 'absences_stud', 'promoId', 'all', 'Promotion');
 INSERT INTO `sources`    VALUES ('hyperbousin','Hyperbousin Wrapper');
-INSERT INTO `parameters` VALUES (NULL, 'hyperbousin', 'promoId', 'all');
+INSERT INTO `parameters` VALUES (NULL, 'hyperbousin', 'promoId', 'all', 'Promotion');
 
 
 -- Devices: hall_templiers
