@@ -286,6 +286,10 @@ a:hover {
     width: 16px;
 }
 
+.call img {
+    cursor: pointer;
+}
+
 .callAddition {
     margin-top: 10px;
     border: 1px solid #3CA81E;

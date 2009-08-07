@@ -375,12 +375,15 @@ public class DeviceManagedBean {
     public String addition() {
         for(SourceData source : sources)
         {
+            source.setAnchor("");
+
             if(source.getSource().getNickname().equals(sourceAddition)){
                 try {
                     this.paramFinderService = new ParamFinderService();
                     ParamFinder paramFinder = paramFinderService.getParamFinderPort();
 
                     // Set default parameters
+                    source.setAnchor("anchor");
                     CallData call = new CallData((ArrayList<Param>) paramFinder.getParametersForSource(sourceAddition));
                     call.setSetId(source.getCalls().size()+1);
                     source.getCalls().add(call);
@@ -401,8 +404,12 @@ public class DeviceManagedBean {
     public String deletion() {
         for(SourceData source : sources)
         {
+            source.setAnchor("");
+
             if(source.getSource().getNickname().equals(sourceDeletion)) {
                 source.getCalls().remove(callDeletion-1);
+
+                source.setAnchor("anchor");
 
                 //setId Refactoring
                 for(int i=0; i<source.getCalls().size(); i++) {

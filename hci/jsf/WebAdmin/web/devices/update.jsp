@@ -52,10 +52,21 @@
                        document.getElementById(inputs[i].id.substring(0, inputs[i].id.indexOf("image", 0))+"inputtext").disabled=false;
                     }
                 }
+
+                function goAnchor()
+                {
+                    var inputs = document.getElementsByTagName("input");
+
+                    for(var i=0, n=inputs.length; i<n; i++) {
+                        if(inputs[i].value == "anchor") {
+                            window.location='#'+inputs[i].name.substring(0,inputs[i].name.indexOf("hiddenAnchor", 0))+'source';
+                        }
+                    }
+                }
         </script>
             <title><h:outputText value="#{bundle.DEVICES}" /></title>
         </head>
-        <body onload="setDefault()">
+        <body onload="setDefault(); goAnchor()">
             <div class="body">
                 <div class="header">
                     <%@include file="../layout/header.jsp" %>
