@@ -43,6 +43,26 @@
         <managed-bean-class>webadmin.devices.DeviceManagedBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>AbsenceManagedBean</managed-bean-name>
+        <managed-bean-class>webadmin.absences.AbsenceManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>CourseManagedBean</managed-bean-name>
+        <managed-bean-class>webadmin.courses.CourseManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>MenuManagedBean</managed-bean-name>
+        <managed-bean-class>webadmin.menus.MenuManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>PartnerKeysManagedBean</managed-bean-name>
+        <managed-bean-class>webadmin.partnerkeys.PartnerKeysManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
 
     <!--SORTERS-->
     <managed-bean>
@@ -63,6 +83,26 @@
     <managed-bean>
         <managed-bean-name>PromotionSorter</managed-bean-name>
         <managed-bean-class>webadmin.promotions.PromotionSorter</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>AbsenceSorter</managed-bean-name>
+        <managed-bean-class>webadmin.absences.AbsenceSorter</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>CourseSorter</managed-bean-name>
+        <managed-bean-class>webadmin.courses.CourseSorter</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>MenuSorter</managed-bean-name>
+        <managed-bean-class>webadmin.menus.MenuSorter</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>PartnerKeysSorter</managed-bean-name>
+        <managed-bean-class>webadmin.partnerkeys.PartnerKeysSorter</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 
@@ -126,6 +166,10 @@
     <converter>
         <converter-id>AlarmEndConverter</converter-id>
         <converter-class>webadmin.converters.AlarmEndConverter</converter-class>
+    </converter>
+    <converter>
+        <converter-id>CoursesConverter</converter-id>
+        <converter-class>webadmin.converters.CoursesConverter</converter-class>
     </converter>
 
     <!--BREAKING NEWS-->
@@ -248,6 +292,86 @@
         </navigation-case>
     </navigation-rule>
 
+    <!--COURSE-->
+    <navigation-rule>
+        <from-view-id>/courses/create.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>created</from-outcome>
+            <to-view-id>/courses/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/courses/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/courses/listing.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>sorted</from-outcome>
+            <to-view-id>/courses/listing.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>update</from-outcome>
+            <to-view-id>/courses/update.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/courses/update.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>updated</from-outcome>
+            <to-view-id>/courses/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/courses/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <!--MENU-->
+    <navigation-rule>
+        <from-view-id>/menus/create.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>created</from-outcome>
+            <to-view-id>/menus/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/menus/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/menus/listing.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>sorted</from-outcome>
+            <to-view-id>/menus/listing.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>update</from-outcome>
+            <to-view-id>/menus/update.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/menus/update.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>updated</from-outcome>
+            <to-view-id>/menus/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/menus/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
     <!--PROMOTIONS-->
     <navigation-rule>
         <from-view-id>/promotions/create.jsp</from-view-id>
@@ -355,6 +479,46 @@
         </navigation-case>
     </navigation-rule>
 
+    <!--TEACHER ABSENCES-->
+    <navigation-rule>
+        <from-view-id>/absences/create.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>created</from-outcome>
+            <to-view-id>/absences/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/absences/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/absences/listing.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>update</from-outcome>
+            <to-view-id>/absences/update.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>sorted</from-outcome>
+            <to-view-id>/absences/listing.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/absences/update.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>updated</from-outcome>
+            <to-view-id>/absences/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/absences/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
     <!--DEVICE-->
     <navigation-rule>
         <from-view-id>/devices/create.jsp</from-view-id>
@@ -402,4 +566,45 @@
             <to-view-id>/devices/update.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
+
+    <!--PARTNER KEYS-->
+    <navigation-rule>
+        <from-view-id>/partnerkeys/create.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>created</from-outcome>
+            <to-view-id>/partnerkeys/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/partnerkeys/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/partnerkeys/listing.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>update</from-outcome>
+            <to-view-id>/partnerkeys/update.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>sorted</from-outcome>
+            <to-view-id>/partnerkeys/listing.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/partnerkeys/update.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>updated</from-outcome>
+            <to-view-id>/partnerkeys/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/partnerkeys/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
 </faces-config>

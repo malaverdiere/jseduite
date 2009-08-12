@@ -213,7 +213,117 @@
     <target name="wsimport-client-clean-ParamCreatorService" depends="-init-project">
         <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/profiles/params"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-BreakingNewsCRUDService, wsimport-client-BreakingNewsFinderService, wsimport-client-InternalNewsCRUDService, wsimport-client-InternalNewsFinderService, wsimport-client-PictureAlbumRegistryCRUDService, wsimport-client-PictureAlbumRegistryFinderService, wsimport-client-PromoCRUDService, wsimport-client-PromoFinderService, wsimport-client-BreakTimeFinderService, wsimport-client-BreakTimeCRUDService, wsimport-client-AlarmFinderService, wsimport-client-AlarmCRUDService, wsimport-client-DeviceCRUDService, wsimport-client-DeviceFinderService, wsimport-client-SourceFinderService, wsimport-client-SourceCRUDService, wsimport-client-ParamFinderService, wsimport-client-ParamCreatorService"/>
+    <target name="wsimport-client-check-AbsenceCRUDService" depends="wsimport-init">
+        <condition property="wsimport-client-AbsenceCRUDService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/news/absence/AbsenceCRUDService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-AbsenceCRUDService" depends="wsimport-init,wsimport-client-check-AbsenceCRUDService" unless="wsimport-client-AbsenceCRUDService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/AbsenceCRUDService/wsdl/localhost_8080/jSeduite/SchoolLife/AbsenceCRUDService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/SchoolLife/AbsenceCRUDService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-AbsenceCRUDService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/news/absence"/>
+    </target>
+    <target name="wsimport-client-check-AbsenceFinderService" depends="wsimport-init">
+        <condition property="wsimport-client-AbsenceFinderService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/news/absence/AbsenceFinderService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-AbsenceFinderService" depends="wsimport-init,wsimport-client-check-AbsenceFinderService" unless="wsimport-client-AbsenceFinderService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/AbsenceFinderService/wsdl/localhost_8080/jSeduite/SchoolLife/AbsenceFinderService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/SchoolLife/AbsenceFinderService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-AbsenceFinderService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/news/absence"/>
+    </target>
+    <target name="wsimport-client-check-CourseCRUDService" depends="wsimport-init">
+        <condition property="wsimport-client-CourseCRUDService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/restaurant/CourseCRUDService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-CourseCRUDService" depends="wsimport-init,wsimport-client-check-CourseCRUDService" unless="wsimport-client-CourseCRUDService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/CourseCRUDService/wsdl/localhost_8080/jSeduite/MenuService/CourseCRUDService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/MenuService/CourseCRUDService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-CourseCRUDService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/restaurant"/>
+    </target>
+    <target name="wsimport-client-check-CourseBusinessService" depends="wsimport-init">
+        <condition property="wsimport-client-CourseBusinessService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/restaurant/CourseBusinessService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-CourseBusinessService" depends="wsimport-init,wsimport-client-check-CourseBusinessService" unless="wsimport-client-CourseBusinessService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/CourseBusinessService/wsdl/localhost_8080/jSeduite/MenuService/CourseBusinessService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/MenuService/CourseBusinessService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-CourseBusinessService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/restaurant"/>
+    </target>
+    <target name="wsimport-client-check-CourseFinderService" depends="wsimport-init">
+        <condition property="wsimport-client-CourseFinderService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/restaurant/CourseFinderService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-CourseFinderService" depends="wsimport-init,wsimport-client-check-CourseFinderService" unless="wsimport-client-CourseFinderService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/CourseFinderService/wsdl/localhost_8080/jSeduite/MenuService/CourseFinderService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/MenuService/CourseFinderService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-CourseFinderService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/restaurant"/>
+    </target>
+    <target name="wsimport-client-check-MenuFinderService" depends="wsimport-init">
+        <condition property="wsimport-client-MenuFinderService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/restaurant/MenuFinderService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-MenuFinderService" depends="wsimport-init,wsimport-client-check-MenuFinderService" unless="wsimport-client-MenuFinderService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/MenuFinderService/wsdl/localhost_8080/jSeduite/MenuService/MenuFinderService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/MenuService/MenuFinderService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-MenuFinderService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/restaurant"/>
+    </target>
+    <target name="wsimport-client-check-MenuBusinessService" depends="wsimport-init">
+        <condition property="wsimport-client-MenuBusinessService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/restaurant/MenuBusinessService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-MenuBusinessService" depends="wsimport-init,wsimport-client-check-MenuBusinessService" unless="wsimport-client-MenuBusinessService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/MenuBusinessService/wsdl/localhost_8080/jSeduite/MenuService/MenuBusinessService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/MenuService/MenuBusinessService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-MenuBusinessService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/restaurant"/>
+    </target>
+    <target name="wsimport-client-check-MenuCRUDService" depends="wsimport-init">
+        <condition property="wsimport-client-MenuCRUDService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/restaurant/MenuCRUDService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-MenuCRUDService" depends="wsimport-init,wsimport-client-check-MenuCRUDService" unless="wsimport-client-MenuCRUDService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/MenuCRUDService/wsdl/localhost_8080/jSeduite/MenuService/MenuCRUDService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/MenuService/MenuCRUDService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-MenuCRUDService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/restaurant"/>
+    </target>
+    <target name="wsimport-client-check-PartnerKeysFinderService" depends="wsimport-init">
+        <condition property="wsimport-client-PartnerKeysFinderService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/registry/partners/PartnerKeysFinderService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-PartnerKeysFinderService" depends="wsimport-init,wsimport-client-check-PartnerKeysFinderService" unless="wsimport-client-PartnerKeysFinderService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/PartnerKeysFinderService/wsdl/localhost_8080/jSeduite/PartnerKeys/PartnerKeysFinderService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/PartnerKeys/PartnerKeysFinderService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-PartnerKeysFinderService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/registry/partners"/>
+    </target>
+    <target name="wsimport-client-check-PartnerKeysCRUDService" depends="wsimport-init">
+        <condition property="wsimport-client-PartnerKeysCRUDService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/registry/partners/PartnerKeysCRUDService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-PartnerKeysCRUDService" depends="wsimport-init,wsimport-client-check-PartnerKeysCRUDService" unless="wsimport-client-PartnerKeysCRUDService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/PartnerKeysCRUDService/wsdl/localhost_8080/jSeduite/PartnerKeys/PartnerKeysCRUDService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/PartnerKeys/PartnerKeysCRUDService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-PartnerKeysCRUDService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/registry/partners"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-BreakingNewsCRUDService, wsimport-client-BreakingNewsFinderService, wsimport-client-InternalNewsCRUDService, wsimport-client-InternalNewsFinderService, wsimport-client-PictureAlbumRegistryCRUDService, wsimport-client-PictureAlbumRegistryFinderService, wsimport-client-PromoCRUDService, wsimport-client-PromoFinderService, wsimport-client-BreakTimeFinderService, wsimport-client-BreakTimeCRUDService, wsimport-client-AlarmFinderService, wsimport-client-AlarmCRUDService, wsimport-client-DeviceCRUDService, wsimport-client-DeviceFinderService, wsimport-client-SourceFinderService, wsimport-client-SourceCRUDService, wsimport-client-ParamFinderService, wsimport-client-ParamCreatorService, wsimport-client-AbsenceCRUDService, wsimport-client-AbsenceFinderService, wsimport-client-CourseCRUDService, wsimport-client-CourseBusinessService, wsimport-client-CourseFinderService, wsimport-client-MenuFinderService, wsimport-client-MenuBusinessService, wsimport-client-MenuCRUDService, wsimport-client-PartnerKeysFinderService, wsimport-client-PartnerKeysCRUDService"/>
     <target name="wsimport-client-compile" depends="-pre-pre-compile">
         <webproject2:javac srcdir="${build.generated.dir}/wsimport/client" classpath="${j2ee.platform.wsimport.classpath}:${javac.classpath}" destdir="${build.classes.dir}"/>
         <copy todir="${build.classes.dir}">

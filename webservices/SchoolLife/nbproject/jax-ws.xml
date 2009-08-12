@@ -25,6 +25,12 @@
     <service name="AlarmCRUD">
       <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.alarms.AlarmCRUD</implementation-class>
     </service>
+    <service name="AbsenceCRUD">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.news.absence.AbsenceCRUD</implementation-class>
+    </service>
+    <service name="AbsenceFinder">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.news.absence.AbsenceFinder</implementation-class>
+    </service>
   </services>
   <clients>
   </clients>

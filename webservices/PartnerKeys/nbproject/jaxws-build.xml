@@ -19,7 +19,17 @@
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>
-    <target name="wsgen-service-compile" depends="wsgen-PartnerKeys">
+    <target name="wsgen-PartnerKeysFinder" depends="wsgen-init">
+        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="fr.unice.i3s.modalis.jSeduite.technical.registry.partners.PartnerKeysFinder">
+            <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
+        </wsgen>
+    </target>
+    <target name="wsgen-PartnerKeysCRUD" depends="wsgen-init">
+        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="fr.unice.i3s.modalis.jSeduite.technical.registry.partners.PartnerKeysCRUD">
+            <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
+        </wsgen>
+    </target>
+    <target name="wsgen-service-compile" depends="wsgen-PartnerKeys, wsgen-PartnerKeysFinder, wsgen-PartnerKeysCRUD">
         <webproject2:javac srcdir="${build.generated.dir}/wsgen/service" classpath="${j2ee.platform.wsimport.classpath}:${javac.classpath}" destdir="${build.classes.dir}"/>
     </target>
 </project>

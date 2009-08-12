@@ -1,7 +1,7 @@
 <%--
     Document   : update
     Created on : 26 juin 2009, 09:37:46
-    Author     : Squallco
+    Author     : Steve Colombié
 --%>
 
 <%@page contentType="text/html"%>

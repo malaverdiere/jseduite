@@ -49,9 +49,11 @@
                     </h:panelGroup>
                 </h:form>
             </f:facet>
-            <h:outputText value="#{iterator.validFrom}">
-                <f:converter converterId="XMLGregorianCalendarDateConverter" />
-            </h:outputText>
+            <h:panelGroup styleClass="alignCenter">
+                <h:outputText value="#{iterator.validFrom}">
+                    <f:converter converterId="XMLGregorianCalendarDateConverter" />
+                </h:outputText>
+            </h:panelGroup>
         </h:column>
 
         <h:column>

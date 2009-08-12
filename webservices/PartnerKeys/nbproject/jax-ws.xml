@@ -4,6 +4,12 @@
     <service name="PartnerKeys">
       <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.registry.partners.PartnerKeys</implementation-class>
     </service>
+    <service name="PartnerKeysFinder">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.registry.partners.PartnerKeysFinder</implementation-class>
+    </service>
+    <service name="PartnerKeysCRUD">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.registry.partners.PartnerKeysCRUD</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>
