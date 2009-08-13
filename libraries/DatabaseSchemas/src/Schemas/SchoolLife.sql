@@ -48,7 +48,7 @@ CREATE VIEW `valid_summonings` AS
     SELECT
         `summonings`.`student`, `summonings`.`owner`, `promos`.`code` AS `p_code`,
         `promos`.`name` AS `promo`, `summonings`.`stamp` AS `date`,
-        `summon_levels`.`name` AS `level`
+        `summon_levels`.`name` AS `level`, `summonings`.`id`
     FROM
         `summonings`, `summon_levels`, `promos`
     WHERE
