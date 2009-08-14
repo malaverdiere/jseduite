@@ -186,15 +186,15 @@
                         <from>1.0</from>
                         <to variable="i"/>
                     </copy>
-                    <copy>
-                        <from>''</from>
-                        <to variable="raw_star"/>
-                    </copy>
                 </assign>
                 <while name="policy_set_star_loop">
                     <condition>$i &lt;= count($paramSpace/sets)</condition>
                     <sequence name="policy_set_star_loop_core">
                         <assign name="policy_set_star_loop_feed">
+                            <copy>
+                                <from>''</from>
+                                <to variable="raw_star"/>
+                            </copy>
                             <copy>
                                 <from>$paramSpace/sets[$i]</from>
                                 <to variable="set"/>
