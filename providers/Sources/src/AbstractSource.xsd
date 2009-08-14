@@ -10,6 +10,7 @@
         <xsd:choice>
             <xsd:element name="internalNews" type="ns0:news"/>
             <xsd:element name="tweet" type="ns1:tweet"/>
+            <xsd:element name="any" type="xsd:anyType"/>
         </xsd:choice>
         <xsd:attribute name="source" type="xsd:string"/>
     </xsd:complexType>
@@ -26,6 +27,11 @@
     <xsd:complexType name="GetInformationOut">
         <xsd:sequence>
             <xsd:element name="result" type="tns:SetOfInformation"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="SetOfAnyType">
+        <xsd:sequence>
+            <xsd:element name="item" minOccurs="0" maxOccurs="unbounded" type="xsd:anyType"/>
         </xsd:sequence>
     </xsd:complexType>
     <xsd:element name="GetInformationRequest" type="tns:GetInformationIn"/>
