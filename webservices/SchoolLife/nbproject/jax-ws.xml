@@ -31,6 +31,12 @@
     <service name="AbsenceFinder">
       <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.news.absence.AbsenceFinder</implementation-class>
     </service>
+    <service name="SummoningFinder">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.news.summon.SummoningFinder</implementation-class>
+    </service>
+    <service name="SummoningCRUD">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.news.summon.SummoningCRUD</implementation-class>
+    </service>
   </services>
   <clients>
   </clients>

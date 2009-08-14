@@ -40,16 +40,16 @@ public class StudentSummon {
      * @throws StudentsSummonException
      */
     @WebMethod(operationName = "getSummoned")
-    public Summoning[] getSummoned() throws StudentsSummonException {
+    public ValidSummoning[] getSummoned() throws StudentsSummonException {
         DataAccessLayer dal = new DataAccessLayer();
         String sql = "SELECT * from `valid_summonings`;";
         try {
-            ArrayList<Summoning> result = new ArrayList<Summoning>();
+            ArrayList<ValidSummoning> result = new ArrayList<ValidSummoning>();
             DalResultSet rset = dal.extractDataSet(sql);
             for(int i = 0; i < rset.size(); i++) {
-                result.add(new Summoning(rset));
+                result.add(new ValidSummoning(rset));
             }
-            return result.toArray(new Summoning[result.size()]);
+            return result.toArray(new ValidSummoning[result.size()]);
         }catch(Exception e){
             throw new StudentsSummonException(e.getMessage());
         }
@@ -61,18 +61,18 @@ public class StudentSummon {
      * @throws StudentsSummonException
      */
     @WebMethod(operationName = "getSummonedByCode")
-    public Summoning[] getSummonedbyCode(@WebParam(name="code") String code)
+    public ValidSummoning[] getSummonedbyCode(@WebParam(name="code") String code)
             throws StudentsSummonException {
         DataAccessLayer dal = new DataAccessLayer();
         String sql = "SELECT * from `valid_summonings` WHERE `p_code` = '"
                 + code + "';";
         try {
-            ArrayList<Summoning> result = new ArrayList<Summoning>();
+            ArrayList<ValidSummoning> result = new ArrayList<ValidSummoning>();
             DalResultSet rset = dal.extractDataSet(sql);
             for(int i = 0; i < rset.size(); i++) {
-                result.add(new Summoning(rset));
+                result.add(new ValidSummoning(rset));
             }
-            return result.toArray(new Summoning[result.size()]);
+            return result.toArray(new ValidSummoning[result.size()]);
         }catch(Exception e){
             throw new StudentsSummonException(e.getMessage());
         }

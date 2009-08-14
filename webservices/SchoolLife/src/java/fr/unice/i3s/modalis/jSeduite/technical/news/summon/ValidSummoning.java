@@ -17,43 +17,35 @@
  * along with jSeduite:SchoolLife; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
- * @author      Main Steve Colombié            [colombie@polytech.unice.fr]
- *
+ * @author      Main Sébastien Mosser          [mosser@polytech.unice.fr]
+ * @contributor 2009 Steve Colombié            [colombie@polytech.unice.fr]
+ * 
  **/
 
 package fr.unice.i3s.modalis.jSeduite.technical.news.summon;
 
 import fr.unice.i3s.modalis.jSeduite.libraries.mysql.*;
-import fr.unice.i3s.modalis.jSeduite.technical.promos.Promo;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-public class Summoning {
+public class ValidSummoning {
 
     private int id;
     private String student;
-    private Promo promo;
+    private String promo;
     private Date date;
     private String owner;
-    private int level;
-    private boolean valid;
+    private String level;
 
-    public Summoning() {}
+    public ValidSummoning() {}
 
-    public Summoning(DalResultSet rset, Promo promo) throws Exception {
+    public ValidSummoning(DalResultSet rset) throws Exception {
         this.student = rset.getValue("student");
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd H:m:s");
-        this.date = format.parse(rset.getValue("stamp"));
-        this.level = Integer.parseInt(rset.getValue("level"));
+        this.date = format.parse(rset.getValue("date"));
+        this.level = rset.getValue("level");
         this.owner = rset.getValue("owner");
-        this.promo = promo;
-
-        if(Integer.parseInt(rset.getValue("valid")) == 1) {
-            this.valid = true;
-        }
-        else {
-            this.valid = false;
-        }
+        this.promo = rset.getValue("promo");
         this.id = Integer.parseInt(rset.getValue("id"));
     }
 
@@ -65,15 +57,15 @@ public class Summoning {
         this.id = id;
     }
 
-    public Promo getPromo() {
+    public String getPromo() {
         return promo;
     }
 
 
-    public void setPromo(Promo promo) {
+    public void setPromo(String promo) {
         this.promo = promo;
     }
-
+    
     public Date getDate() {
         return date;
     }
@@ -82,11 +74,11 @@ public class Summoning {
         this.date = date;
     }
 
-    public int getLevel() {
+    public String getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
+    public void setLevel(String level) {
         this.level = level;
     }
 
@@ -104,14 +96,6 @@ public class Summoning {
 
     public void setStudent(String student) {
         this.student = student;
-    }
-
-    public boolean getValid() {
-        return valid;
-    }
-
-    public void setValid(boolean valid) {
-        this.valid = valid;
     }
 
 
