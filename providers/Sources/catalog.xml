@@ -6,4 +6,6 @@
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/SourceManagerService.xsd" uri="src/Partners/Helpers/SourceManagerService.xsd"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/TwitterWrapperService.wsdl" uri="src/Partners/TwitterWrapperService.wsdl"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/TwitterWrapperService.xsd" uri="src/Partners/TwitterWrapperService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/ErrorLoggerService.wsdl" uri="src/Partners/Helpers/ErrorLoggerService.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/ErrorLoggerService.xsd" uri="src/Partners/Helpers/ErrorLoggerService.xsd"/>
 </catalog>

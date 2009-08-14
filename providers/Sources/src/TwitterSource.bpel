@@ -9,7 +9,7 @@
     xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TwitterSource"
     xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" xmlns:ns1="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" 
     xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/TwitterSource"
-    xmlns:ns3="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/" >
+    xmlns:ns3="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns4="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" >
     <import namespace="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/Helpers/SourceManagerService.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" location="TwitterSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://enterprise.netbeans.org/bpel/SourceManagerServiceWrapper" location="Partners/Helpers/SourceManagerServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
@@ -19,8 +19,11 @@
     <import namespace="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/TwitterWrapperService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/TwitterSource" location="TwitterSource.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
     <import namespace="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/TwitterWrapperService.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/ErrorLoggerServiceWrapper" location="Partners/Helpers/ErrorLoggerServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/Helpers/ErrorLoggerService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <partnerLinks>
         <partnerLink name="sources" xmlns:tns="http://enterprise.netbeans.org/bpel/SourceManagerServiceWrapper" partnerLinkType="tns:SourceManagerLinkType" partnerRole="SourceManagerRole"/>
+        <partnerLink name="logger" xmlns:tns="http://enterprise.netbeans.org/bpel/ErrorLoggerServiceWrapper" partnerLinkType="tns:ErrorLoggerLinkType" partnerRole="ErrorLoggerRole"/>
         <partnerLink name="twitter" xmlns:tns="http://enterprise.netbeans.org/bpel/TwitterWrapperServiceWrapper" partnerLinkType="tns:TwitterWrapperLinkType" partnerRole="TwitterWrapperRole"/>
         <partnerLink name="ext" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" partnerLinkType="tns:TwitterSource" myRole="TwitterSourcePortTypeRole"/>
     </partnerLinks>
@@ -32,6 +35,50 @@
         <variable name="identifier" type="xsd:string"/>
         <variable name="infoCpt" type="xsd:int"/>
     </variables>
+    <faultHandlers>
+        <catchAll>
+            <sequence name="onError_policy">
+                <scope name="logError">
+                    <variables>
+                        <variable name="LogOut" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:logResponse"/>
+                        <variable name="LogIn" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:log"/>
+                    </variables>
+                    <sequence name="Sequence1">
+                        <assign name="logError_pre">
+                            <copy>
+                                <from variable="sourceName"></from>
+                                <to>$LogIn.parameters/trigger</to>
+                            </copy>
+                            <copy>
+                                <from>'Error when running process'</from>
+                                <to>$LogIn.parameters/message</to>
+                            </copy>
+                            <copy>
+                                <from>'ERROR'</from>
+                                <to>$LogIn.parameters/level</to>
+                            </copy>
+                        </assign>
+                        <invoke name="logError_tech" partnerLink="logger" operation="log" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:ErrorLogger" inputVariable="LogIn" outputVariable="LogOut"/>
+                    </sequence>
+                </scope>
+                <scope name="onError_reply">
+                    <variables>
+                            <variable name="GetInfosOut" messageType="ns4:GetInfosResponse"/>
+                        </variables>
+                        <sequence name="onError_core">
+                            <assign name="onError_pre">
+                                    <copy>
+                                            <from>''</from>
+                                                <to>$GetInfosOut.out/ns0:result</to>
+                                        </copy>
+                                </assign>
+                                <reply name="onError_tech" partnerLink="ext" operation="GetInfos" portType="ns4:TwitterSourcePortType" variable="GetInfosOut"/>
+                                <exit name="onError_post"/>
+                        </sequence>
+                </scope>
+            </sequence>
+        </catchAll>
+    </faultHandlers>
     <sequence>
 <scope name="a0">
             <variables>

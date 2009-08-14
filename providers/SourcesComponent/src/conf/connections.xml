@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/InternalNewsSource" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/InternalNewsSource" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" xmlns:ns4="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TwitterSource" xmlns:ns5="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns6="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns7="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/" version="1.0">
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AbstractSource" xmlns:ns10="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/AbstractSource" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/InternalNewsSource" xmlns:ns4="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/InternalNewsSource" xmlns:ns5="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" xmlns:ns6="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TwitterSource" xmlns:ns7="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns8="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns9="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/" version="1.0">
 <service-assembly>
 <identification>
 <name>SourcesComponent</name>
@@ -7,28 +7,44 @@
 </identification>
 <connections>
 <connection>
-<consumer endpoint-name="InternalNewsSourcePort" service-name="ns1:InternalNewsSourceService"/>
-<provider endpoint-name="InternalNewsSourcePortTypeRole_myRole" service-name="ns2:ext"/>
+<consumer endpoint-name="AbstractSourcePort" service-name="ns1:AbstractSourceService"/>
+<provider endpoint-name="AbstractSourcePortTypeRole_myRole" service-name="ns2:ext"/>
 </connection>
 <connection>
-<consumer endpoint-name="TwitterSourcePort" service-name="ns3:TwitterSourceService"/>
-<provider endpoint-name="TwitterSourcePortTypeRole_myRole" service-name="ns4:ext"/>
+<consumer endpoint-name="InternalNewsSourcePort" service-name="ns3:InternalNewsSourceService"/>
+<provider endpoint-name="InternalNewsSourcePortTypeRole_myRole" service-name="ns4:ext"/>
 </connection>
 <connection>
-<consumer endpoint-name="InternalNewsRole_partnerRole" service-name="ns2:internal"/>
-<provider endpoint-name="InternalNewsPort" service-name="ns5:InternalNewsService"/>
+<consumer endpoint-name="TwitterSourcePort" service-name="ns5:TwitterSourceService"/>
+<provider endpoint-name="TwitterSourcePortTypeRole_myRole" service-name="ns6:ext"/>
+</connection>
+<connection>
+<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns6:logger"/>
+<provider endpoint-name="ErrorLoggerPort" service-name="ns7:ErrorLoggerService"/>
 </connection>
 <connection>
 <consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns2:sources"/>
-<provider endpoint-name="SourceManagerPort" service-name="ns6:SourceManagerService"/>
+<provider endpoint-name="SourceManagerPort" service-name="ns8:SourceManagerService"/>
 </connection>
 <connection>
-<consumer endpoint-name="TwitterWrapperRole_partnerRole" service-name="ns4:twitter"/>
-<provider endpoint-name="TwitterWrapperPort" service-name="ns7:TwitterWrapperService"/>
+<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns6:sources"/>
+<provider endpoint-name="SourceManagerPort" service-name="ns8:SourceManagerService"/>
 </connection>
 <connection>
 <consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns4:sources"/>
-<provider endpoint-name="SourceManagerPort" service-name="ns6:SourceManagerService"/>
+<provider endpoint-name="SourceManagerPort" service-name="ns8:SourceManagerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="InternalNewsRole_partnerRole" service-name="ns4:internal"/>
+<provider endpoint-name="InternalNewsPort" service-name="ns9:InternalNewsService"/>
+</connection>
+<connection>
+<consumer endpoint-name="TwitterWrapperRole_partnerRole" service-name="ns6:twitter"/>
+<provider endpoint-name="TwitterWrapperPort" service-name="ns10:TwitterWrapperService"/>
+</connection>
+<connection>
+<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns2:logger"/>
+<provider endpoint-name="ErrorLoggerPort" service-name="ns7:ErrorLoggerService"/>
 </connection>
 </connections>
 </service-assembly>
