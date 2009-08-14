@@ -306,3 +306,12 @@ a:hover {
     float: left;
     width: 50%;
 }
+
+.trueValid {
+    font-style: inherit;
+}
+
+.falseValid {
+    color:  #B2B8B2;
+    font-style: italic;
+}

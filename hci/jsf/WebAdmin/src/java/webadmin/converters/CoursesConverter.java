@@ -1,6 +1,8 @@
 package webadmin.converters;
 
 import fr.unice.i3s.modalis.jseduite.technical.restaurant.Course;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -15,10 +17,25 @@ public class CoursesConverter implements Converter {
 
     public String getAsString(FacesContext context, UIComponent component, Object value) {
         List<Course> courses = (List<Course>) value;
+        HashMap<String, ArrayList<String>> mappedCourses = new HashMap<String, ArrayList<String>>();
         String result = "";
         
         for(Course course : courses) {
-            result += course.getName()+"<br/>";
+            mappedCourses.put(course.getKind(), new ArrayList<String>());
+        }
+
+        for(Course course : courses) {
+            mappedCourses.get(course.getKind()).add(course.getName());
+        }
+
+        for(String kind : mappedCourses.keySet()) {
+            result += "<b>"+kind+" : </b>";
+
+            for(String name : mappedCourses.get(kind)) {
+                result += name+", ";
+            }
+
+            result = result.substring(0, result.length()-2) + "<br/>";
         }
 
         return result.substring(0, result.length()-5);

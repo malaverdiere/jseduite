@@ -19,7 +19,7 @@
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
             <link rel='stylesheet' type='text/css' href='<%=request.getContextPath()%>/resources/stylesheet.css' />
 
-            <title><h:outputText value="#{bundle.BREAKINGNEWS}" /></title>
+            <title><h:outputText value="#{bundle.INTERNALNEWS}" /></title>
         </head>
         <body>
             <div class="body">

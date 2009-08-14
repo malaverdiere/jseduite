@@ -1,6 +1,6 @@
 <%--
-    Document   : create
-    Created on : 3 juillet 2009, 20:28:00
+    Document   : listing
+    Created on : 13 août 2009
     Author     : Steve Colombié
 --%>
 
@@ -10,6 +10,7 @@
 <%@taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
 <%@taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
 
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -18,8 +19,7 @@
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
             <link rel='stylesheet' type='text/css' href='<%=request.getContextPath()%>/resources/stylesheet.css' />
-
-            <title><h:outputText value="#{bundle.INTERNALNEWS}" /></title>
+            <title><h:outputText value="#{bundle.TITLE}" /></title>
         </head>
         <body>
             <div class="body">
@@ -30,7 +30,7 @@
                     <%@include file="../layout/menu.jsp" %>
                 </div>
                 <div class="content">
-                    <%@include file="./create-content.jsp" %>
+                    <%@include file="./listing-content.jsp" %>
                 </div>
                 <div class="footer">
                     <%@include file="../layout/footer.jsp" %>

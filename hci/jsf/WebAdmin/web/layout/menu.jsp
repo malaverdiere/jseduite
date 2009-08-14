@@ -71,9 +71,9 @@
         </h:panelGroup>
 
         <h:panelGroup styleClass="menuItem">
-<%--            <h:outputLink value="#{request.contextPath}/summonings/listing.jsf">--%>
+            <h:outputLink value="#{request.contextPath}/summonings/listing.jsf">
                 <h:outputText value="#{bundle.SUMMONINGS}"/>
-<%--            </h:outputLink>--%>
+            </h:outputLink>
         </h:panelGroup>
 
         <h:panelGroup styleClass="menuItem">

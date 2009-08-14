@@ -1,6 +1,6 @@
 <%--
     Document   : create
-    Created on : 3 juillet 2009, 20:28:00
+    Created on : 14 août 2009
     Author     : Steve Colombié
 --%>
 
@@ -19,7 +19,7 @@
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
             <link rel='stylesheet' type='text/css' href='<%=request.getContextPath()%>/resources/stylesheet.css' />
 
-            <title><h:outputText value="#{bundle.INTERNALNEWS}" /></title>
+            <title><h:outputText value="#{bundle.SUMMONINGS}" /></title>
         </head>
         <body>
             <div class="body">

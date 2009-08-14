@@ -674,5 +674,53 @@
         </wsimport-option>
       </wsimport-options>
     </client>
+    <client name="SummoningFinderService">
+      <wsdl-url>http://localhost:8080/jSeduite/SchoolLife/SummoningFinderService?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8080/jSeduite/SchoolLife/SummoningFinderService.wsdl</local-wsdl-file>
+      <package-name>fr.unice.i3s.modalis.jseduite.technical.news.summon</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:8080/jSeduite/SchoolLife/SummoningFinderService?wsdl</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="SummoningCRUDService">
+      <wsdl-url>http://localhost:8080/jSeduite/SchoolLife/SummoningCRUDService?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8080/jSeduite/SchoolLife/SummoningCRUDService.wsdl</local-wsdl-file>
+      <package-name>fr.unice.i3s.modalis.jseduite.technical.news.summon</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:8080/jSeduite/SchoolLife/SummoningCRUDService?wsdl</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
   </clients>
 </jax-ws>

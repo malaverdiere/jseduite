@@ -323,7 +323,29 @@
     <target name="wsimport-client-clean-PartnerKeysCRUDService" depends="-init-project">
         <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/registry/partners"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-BreakingNewsCRUDService, wsimport-client-BreakingNewsFinderService, wsimport-client-InternalNewsCRUDService, wsimport-client-InternalNewsFinderService, wsimport-client-PictureAlbumRegistryCRUDService, wsimport-client-PictureAlbumRegistryFinderService, wsimport-client-PromoCRUDService, wsimport-client-PromoFinderService, wsimport-client-BreakTimeFinderService, wsimport-client-BreakTimeCRUDService, wsimport-client-AlarmFinderService, wsimport-client-AlarmCRUDService, wsimport-client-DeviceCRUDService, wsimport-client-DeviceFinderService, wsimport-client-SourceFinderService, wsimport-client-SourceCRUDService, wsimport-client-ParamFinderService, wsimport-client-ParamCreatorService, wsimport-client-AbsenceCRUDService, wsimport-client-AbsenceFinderService, wsimport-client-CourseCRUDService, wsimport-client-CourseBusinessService, wsimport-client-CourseFinderService, wsimport-client-MenuFinderService, wsimport-client-MenuBusinessService, wsimport-client-MenuCRUDService, wsimport-client-PartnerKeysFinderService, wsimport-client-PartnerKeysCRUDService"/>
+    <target name="wsimport-client-check-SummoningFinderService" depends="wsimport-init">
+        <condition property="wsimport-client-SummoningFinderService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/news/summon/SummoningFinderService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-SummoningFinderService" depends="wsimport-init,wsimport-client-check-SummoningFinderService" unless="wsimport-client-SummoningFinderService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/SummoningFinderService/wsdl/localhost_8080/jSeduite/SchoolLife/SummoningFinderService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/SchoolLife/SummoningFinderService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-SummoningFinderService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/news/summon"/>
+    </target>
+    <target name="wsimport-client-check-SummoningCRUDService" depends="wsimport-init">
+        <condition property="wsimport-client-SummoningCRUDService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/news/summon/SummoningCRUDService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-SummoningCRUDService" depends="wsimport-init,wsimport-client-check-SummoningCRUDService" unless="wsimport-client-SummoningCRUDService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/SummoningCRUDService/wsdl/localhost_8080/jSeduite/SchoolLife/SummoningCRUDService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/SchoolLife/SummoningCRUDService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-SummoningCRUDService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/news/summon"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-BreakingNewsCRUDService, wsimport-client-BreakingNewsFinderService, wsimport-client-InternalNewsCRUDService, wsimport-client-InternalNewsFinderService, wsimport-client-PictureAlbumRegistryCRUDService, wsimport-client-PictureAlbumRegistryFinderService, wsimport-client-PromoCRUDService, wsimport-client-PromoFinderService, wsimport-client-BreakTimeFinderService, wsimport-client-BreakTimeCRUDService, wsimport-client-AlarmFinderService, wsimport-client-AlarmCRUDService, wsimport-client-DeviceCRUDService, wsimport-client-DeviceFinderService, wsimport-client-SourceFinderService, wsimport-client-SourceCRUDService, wsimport-client-ParamFinderService, wsimport-client-ParamCreatorService, wsimport-client-AbsenceCRUDService, wsimport-client-AbsenceFinderService, wsimport-client-CourseCRUDService, wsimport-client-CourseBusinessService, wsimport-client-CourseFinderService, wsimport-client-MenuFinderService, wsimport-client-MenuBusinessService, wsimport-client-MenuCRUDService, wsimport-client-PartnerKeysFinderService, wsimport-client-PartnerKeysCRUDService, wsimport-client-SummoningFinderService, wsimport-client-SummoningCRUDService"/>
     <target name="wsimport-client-compile" depends="-pre-pre-compile">
         <webproject2:javac srcdir="${build.generated.dir}/wsimport/client" classpath="${j2ee.platform.wsimport.classpath}:${javac.classpath}" destdir="${build.classes.dir}"/>
         <copy todir="${build.classes.dir}">
