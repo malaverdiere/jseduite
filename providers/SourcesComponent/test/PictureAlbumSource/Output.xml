@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <ns1:GetInformationResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/PictureAlbumSource" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+      <ns1:result>
+        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="picture_albums">
+          <ns2:album xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/PictureAlbums" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+            <ns0:repository>picasa</ns0:repository>
+            <ns0:name>Pot de départ PB</ns0:name>
+            <ns0:picture_star>
+              <ns0:item>http://lh5.ggpht.com/_LrMy0xX15tk/SZl50pHF0dI/AAAAAAAAChQ/1QlsnMtolKA/lyon%3B%20carla%3Bepu%20331.JPG</ns0:item>
+              <ns0:item>http://lh3.ggpht.com/_LrMy0xX15tk/SZl5z9Kiw0I/AAAAAAAAChA/S4l_vQEldOU/lyon%3B%20carla%3Bepu%20329.JPG</ns0:item>
+              <ns0:item>http://lh4.ggpht.com/_LrMy0xX15tk/SZl51WTVshI/AAAAAAAACho/pFrQQpup7uc/lyon%3B%20carla%3Bepu%20335.JPG</ns0:item>
+              <ns0:item>http://lh5.ggpht.com/_LrMy0xX15tk/SZl5zlWdl1I/AAAAAAAACg4/EwaJcpQy4qw/lyon%3B%20carla%3Bepu%20328.JPG</ns0:item>
+              <ns0:item>http://lh5.ggpht.com/_LrMy0xX15tk/SZl5sZjenMI/AAAAAAAACd0/_xQxbgNHbtM/lyon%3B%20carla%3Bepu%20304.JPG</ns0:item>
+              <ns0:item>http://lh4.ggpht.com/_LrMy0xX15tk/SZl5we7NPSI/AAAAAAAACfc/x3YtUWHi5Zw/lyon%3B%20carla%3Bepu%20317.JPG</ns0:item>
+              <ns0:item>http://lh3.ggpht.com/_LrMy0xX15tk/SZl50Ge1ygI/AAAAAAAAChI/f0doaqmgikY/lyon%3B%20carla%3Bepu%20330.JPG</ns0:item>
+              <ns0:item>http://lh5.ggpht.com/_LrMy0xX15tk/SZl5rBFzIeI/AAAAAAAACdU/wxEGf5ySmNA/lyon%3B%20carla%3Bepu%20298.JPG</ns0:item>
+              <ns0:item>http://lh5.ggpht.com/_LrMy0xX15tk/SZl5qzioWtI/AAAAAAAACdM/67aNPeA0rJU/lyon%3B%20carla%3Bepu%20297.JPG</ns0:item>
+              <ns0:item>http://lh3.ggpht.com/_LrMy0xX15tk/SZl5ul7zfeI/AAAAAAAACes/9VcQWWq1fto/lyon%3B%20carla%3Bepu%20311.JPG</ns0:item>
+            </ns0:picture_star>
+          </ns2:album>
+        </ns0:item>
+        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="picture_albums">
+          <ns2:album xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/PictureAlbums" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+            <ns0:repository>flickr</ns0:repository>
+            <ns0:name>Nuit de l'Info 2008</ns0:name>
+            <ns0:picture_star>
+              <ns0:item>http://farm4.static.flickr.com/3257/3083294196_2ccb5cae6a.jpg</ns0:item>
+              <ns0:item>http://farm4.static.flickr.com/3050/3083292568_8c8d1cacfe.jpg</ns0:item>
+              <ns0:item>http://farm4.static.flickr.com/3101/3083288512_e105534c81.jpg</ns0:item>
+              <ns0:item>http://farm4.static.flickr.com/3233/3082455161_1a745d2ba0.jpg</ns0:item>
+              <ns0:item>http://farm4.static.flickr.com/3213/3082461725_01745728fc.jpg</ns0:item>
+              <ns0:item>http://farm4.static.flickr.com/3198/3083293058_e5e117ee11.jpg</ns0:item>
+              <ns0:item>http://farm4.static.flickr.com/3289/3082462591_7a6eb7a4a0.jpg</ns0:item>
+              <ns0:item>http://farm4.static.flickr.com/3223/3082462035_71f2db8e82.jpg</ns0:item>
+              <ns0:item>http://farm4.static.flickr.com/3195/3083298800_bd746229b5.jpg</ns0:item>
+              <ns0:item>http://farm4.static.flickr.com/3055/3083296506_f9e07a1a91.jpg</ns0:item>
+            </ns0:picture_star>
+          </ns2:album>
+        </ns0:item>
+      </ns1:result>
+    </ns1:GetInformationResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

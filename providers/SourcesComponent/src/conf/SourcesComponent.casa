@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns10="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TwitterSource" xmlns:ns2="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" xmlns:ns4="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/InternalNewsSource" xmlns:ns5="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns6="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AbstractSource" xmlns:ns7="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns8="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/AbstractSource" xmlns:ns9="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/InternalNewsSource" xmlns:xlink="http://www.w3.org/2000/xlink">
+<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns10="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/AbstractSource" xmlns:ns11="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/InternalNewsSource" xmlns:ns12="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/PictureAlbumSource" xmlns:ns13="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TwitterSource" xmlns:ns2="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" xmlns:ns4="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/InternalNewsSource" xmlns:ns5="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns6="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AbstractSource" xmlns:ns7="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns8="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/PictureAlbums" xmlns:ns9="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/PictureAlbumSource" xmlns:xlink="http://www.w3.org/2000/xlink">
 <endpoints>
 <endpoint endpoint-name="InternalNewsPort" interface-name="ns1:InternalNews" name="endpoint1" service-name="ns1:InternalNewsService"/>
 <endpoint endpoint-name="SourceManagerPort" interface-name="ns2:SourceManager" name="endpoint2" service-name="ns2:SourceManagerService"/>
@@ -8,29 +8,39 @@
 <endpoint endpoint-name="TwitterWrapperPort" interface-name="ns5:TwitterWrapper" name="endpoint5" service-name="ns5:TwitterWrapperService"/>
 <endpoint endpoint-name="AbstractSourcePort" interface-name="ns6:AbstractSourcePortType" name="endpoint6" service-name="ns6:AbstractSourceService"/>
 <endpoint endpoint-name="ErrorLoggerPort" interface-name="ns7:ErrorLogger" name="endpoint7" service-name="ns7:ErrorLoggerService"/>
-<endpoint display-name="ext" endpoint-name="AbstractSourcePortTypeRole_myRole" file-path="AbstractSource.bpel" interface-name="ns6:AbstractSourcePortType" name="endpoint8" process-name="AbstractSource" service-name="ns8:ext"/>
-<endpoint display-name="ext" endpoint-name="InternalNewsSourcePortTypeRole_myRole" file-path="InternalNewsSource.bpel" interface-name="ns4:InternalNewsSourcePortType" name="endpoint9" process-name="InternalNewsSource" service-name="ns9:ext"/>
-<endpoint display-name="ext" endpoint-name="TwitterSourcePortTypeRole_myRole" file-path="TwitterSource.bpel" interface-name="ns3:TwitterSourcePortType" name="endpoint10" process-name="TwitterSource" service-name="ns10:ext"/>
-<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="AbstractSource.bpel" interface-name="ns2:SourceManager" name="endpoint11" process-name="AbstractSource" service-name="ns8:sources"/>
-<endpoint display-name="logger" endpoint-name="ErrorLoggerRole_partnerRole" file-path="AbstractSource.bpel" interface-name="ns7:ErrorLogger" name="endpoint12" process-name="AbstractSource" service-name="ns8:logger"/>
-<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="InternalNewsSource.bpel" interface-name="ns2:SourceManager" name="endpoint13" process-name="InternalNewsSource" service-name="ns9:sources"/>
-<endpoint display-name="internal" endpoint-name="InternalNewsRole_partnerRole" file-path="InternalNewsSource.bpel" interface-name="ns1:InternalNews" name="endpoint14" process-name="InternalNewsSource" service-name="ns9:internal"/>
-<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="TwitterSource.bpel" interface-name="ns2:SourceManager" name="endpoint15" process-name="TwitterSource" service-name="ns10:sources"/>
-<endpoint display-name="logger" endpoint-name="ErrorLoggerRole_partnerRole" file-path="TwitterSource.bpel" interface-name="ns7:ErrorLogger" name="endpoint16" process-name="TwitterSource" service-name="ns10:logger"/>
-<endpoint display-name="twitter" endpoint-name="TwitterWrapperRole_partnerRole" file-path="TwitterSource.bpel" interface-name="ns5:TwitterWrapper" name="endpoint17" process-name="TwitterSource" service-name="ns10:twitter"/>
+<endpoint endpoint-name="PictureAlbumsPort" interface-name="ns8:PictureAlbumsPortType" name="endpoint8" service-name="ns8:PictureAlbumsService"/>
+<endpoint endpoint-name="PictureAlbumSourcePort" interface-name="ns9:PictureAlbumSourcePortType" name="endpoint9" service-name="ns9:PictureAlbumSourceService"/>
+<endpoint display-name="ext" endpoint-name="AbstractSourcePortTypeRole_myRole" file-path="AbstractSource.bpel" interface-name="ns6:AbstractSourcePortType" name="endpoint10" process-name="AbstractSource" service-name="ns10:ext"/>
+<endpoint display-name="ext" endpoint-name="InternalNewsSourcePortTypeRole_myRole" file-path="InternalNewsSource.bpel" interface-name="ns4:InternalNewsSourcePortType" name="endpoint11" process-name="InternalNewsSource" service-name="ns11:ext"/>
+<endpoint display-name="ext" endpoint-name="PictureAlbumSourcePortTypeRole_myRole" file-path="PictureAlbumSource.bpel" interface-name="ns9:PictureAlbumSourcePortType" name="endpoint12" process-name="PictureAlbumSource" service-name="ns12:ext"/>
+<endpoint display-name="ext" endpoint-name="TwitterSourcePortTypeRole_myRole" file-path="TwitterSource.bpel" interface-name="ns3:TwitterSourcePortType" name="endpoint13" process-name="TwitterSource" service-name="ns13:ext"/>
+<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="AbstractSource.bpel" interface-name="ns2:SourceManager" name="endpoint14" process-name="AbstractSource" service-name="ns10:sources"/>
+<endpoint display-name="logger" endpoint-name="ErrorLoggerRole_partnerRole" file-path="AbstractSource.bpel" interface-name="ns7:ErrorLogger" name="endpoint15" process-name="AbstractSource" service-name="ns10:logger"/>
+<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="InternalNewsSource.bpel" interface-name="ns2:SourceManager" name="endpoint16" process-name="InternalNewsSource" service-name="ns11:sources"/>
+<endpoint display-name="internal" endpoint-name="InternalNewsRole_partnerRole" file-path="InternalNewsSource.bpel" interface-name="ns1:InternalNews" name="endpoint17" process-name="InternalNewsSource" service-name="ns11:internal"/>
+<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="PictureAlbumSource.bpel" interface-name="ns2:SourceManager" name="endpoint18" process-name="PictureAlbumSource" service-name="ns12:sources"/>
+<endpoint display-name="logger" endpoint-name="ErrorLoggerRole_partnerRole" file-path="PictureAlbumSource.bpel" interface-name="ns7:ErrorLogger" name="endpoint19" process-name="PictureAlbumSource" service-name="ns12:logger"/>
+<endpoint display-name="albums" endpoint-name="PictureAlbumsPortTypeRole_partnerRole" file-path="PictureAlbumSource.bpel" interface-name="ns8:PictureAlbumsPortType" name="endpoint20" process-name="PictureAlbumSource" service-name="ns12:albums"/>
+<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="TwitterSource.bpel" interface-name="ns2:SourceManager" name="endpoint21" process-name="TwitterSource" service-name="ns13:sources"/>
+<endpoint display-name="logger" endpoint-name="ErrorLoggerRole_partnerRole" file-path="TwitterSource.bpel" interface-name="ns7:ErrorLogger" name="endpoint22" process-name="TwitterSource" service-name="ns13:logger"/>
+<endpoint display-name="twitter" endpoint-name="TwitterWrapperRole_partnerRole" file-path="TwitterSource.bpel" interface-name="ns5:TwitterWrapper" name="endpoint23" process-name="TwitterSource" service-name="ns13:twitter"/>
 </endpoints>
 <service-units>
 <service-engine-service-unit artifacts-zip="Sources.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="SourcesComponent-Sources" unit-name="Sources" unknown="false" x="148" y="97">
-<provides endpoint="endpoint8"/>
-<provides endpoint="endpoint9"/>
 <provides endpoint="endpoint10"/>
-<consumes endpoint="endpoint11"/>
-<consumes endpoint="endpoint12"/>
-<consumes endpoint="endpoint13"/>
+<provides endpoint="endpoint11"/>
+<provides endpoint="endpoint12"/>
+<provides endpoint="endpoint13"/>
 <consumes endpoint="endpoint14"/>
 <consumes endpoint="endpoint15"/>
 <consumes endpoint="endpoint16"/>
 <consumes endpoint="endpoint17"/>
+<consumes endpoint="endpoint18"/>
+<consumes endpoint="endpoint19"/>
+<consumes endpoint="endpoint20"/>
+<consumes endpoint="endpoint21"/>
+<consumes endpoint="endpoint22"/>
+<consumes endpoint="endpoint23"/>
 </service-engine-service-unit>
 <binding-component-service-unit artifacts-zip="sun-http-binding.jar" component-name="sun-http-binding" description="Represents this Service Unit" name="SourcesComponent-sun-http-binding" unit-name="sun-http-binding">
 <ports>
@@ -49,6 +59,11 @@
 <consumes endpoint="endpoint1"/>
 <provides endpoint="endpoint1"/>
 </port>
+<port x="0" y="-1">
+<link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/PictureAlbums.wsdl#xpointer(/definitions/service[@name='PictureAlbumsService']/port[@name='PictureAlbumsPort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint8"/>
+<provides endpoint="endpoint8"/>
+</port>
 <port x="67" y="114">
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/TwitterWrapperService.wsdl#xpointer(/definitions/service[@name='TwitterWrapperService']/port[@name='TwitterWrapperPort'])" xlink:type="simple"/>
 <consumes endpoint="endpoint5"/>
@@ -64,6 +79,11 @@
 <consumes endpoint="endpoint4"/>
 <provides endpoint="endpoint4"/>
 </port>
+<port x="0" y="-1">
+<link xlink:href="../jbiServiceUnits/Sources/PictureAlbumSource.wsdl#xpointer(/definitions/service[@name='PictureAlbumSourceService']/port[@name='PictureAlbumSourcePort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint9"/>
+<provides endpoint="endpoint9"/>
+</port>
 <port x="67" y="191">
 <link xlink:href="../jbiServiceUnits/Sources/TwitterSource.wsdl#xpointer(/definitions/service[@name='TwitterSourceService']/port[@name='TwitterSourcePort'])" xlink:type="simple"/>
 <consumes endpoint="endpoint3"/>
@@ -73,54 +93,67 @@
 </binding-component-service-unit>
 </service-units>
 <connections>
-<connection consumer="endpoint6" provider="endpoint8" state="unchanged"/>
-<connection consumer="endpoint4" provider="endpoint9" state="unchanged"/>
-<connection consumer="endpoint3" provider="endpoint10" state="unchanged"/>
-<connection consumer="endpoint16" provider="endpoint7" state="unchanged"/>
-<connection consumer="endpoint11" provider="endpoint2" state="unchanged"/>
-<connection consumer="endpoint15" provider="endpoint2" state="unchanged"/>
-<connection consumer="endpoint13" provider="endpoint2" state="unchanged"/>
-<connection consumer="endpoint14" provider="endpoint1" state="unchanged"/>
-<connection consumer="endpoint17" provider="endpoint5" state="unchanged"/>
-<connection consumer="endpoint12" provider="endpoint7" state="unchanged"/>
+<connection consumer="endpoint9" provider="endpoint12" state="unchanged"/>
+<connection consumer="endpoint6" provider="endpoint10" state="unchanged"/>
+<connection consumer="endpoint4" provider="endpoint11" state="unchanged"/>
+<connection consumer="endpoint3" provider="endpoint13" state="unchanged"/>
+<connection consumer="endpoint20" provider="endpoint8" state="unchanged"/>
+<connection consumer="endpoint19" provider="endpoint7" state="unchanged"/>
+<connection consumer="endpoint18" provider="endpoint2" state="unchanged"/>
+<connection consumer="endpoint22" provider="endpoint7" state="unchanged"/>
+<connection consumer="endpoint14" provider="endpoint2" state="unchanged"/>
+<connection consumer="endpoint21" provider="endpoint2" state="unchanged"/>
+<connection consumer="endpoint16" provider="endpoint2" state="unchanged"/>
+<connection consumer="endpoint17" provider="endpoint1" state="unchanged"/>
+<connection consumer="endpoint23" provider="endpoint5" state="unchanged"/>
+<connection consumer="endpoint15" provider="endpoint7" state="unchanged"/>
 </connections>
 <porttypes>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/Helpers/ErrorLoggerService.wsdl#xpointer(/definitions/portType[@name='ErrorLogger'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/Helpers/SourceManagerService.wsdl#xpointer(/definitions/portType[@name='SourceManager'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/InternalNewsService.wsdl#xpointer(/definitions/portType[@name='InternalNews'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/PictureAlbums.wsdl#xpointer(/definitions/portType[@name='PictureAlbumsPortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/TwitterWrapperService.wsdl#xpointer(/definitions/portType[@name='TwitterWrapper'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/AbstractSource.wsdl#xpointer(/definitions/portType[@name='AbstractSourcePortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/InternalNewsSource.wsdl#xpointer(/definitions/portType[@name='InternalNewsSourcePortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/Helpers/ErrorLoggerService.wsdl#xpointer(/definitions/portType[@name='ErrorLogger'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/Helpers/SourceManagerService.wsdl#xpointer(/definitions/portType[@name='SourceManager'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/InternalNewsService.wsdl#xpointer(/definitions/portType[@name='InternalNews'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/Sources/Partners/PictureAlbums.wsdl#xpointer(/definitions/portType[@name='PictureAlbumsPortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/TwitterWrapperService.wsdl#xpointer(/definitions/portType[@name='TwitterWrapper'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/Sources/PictureAlbumSource.wsdl#xpointer(/definitions/portType[@name='PictureAlbumSourcePortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/TwitterSource.wsdl#xpointer(/definitions/portType[@name='TwitterSourcePortType'])" xlink:type="simple"/>
 </porttypes>
 <bindings>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/Helpers/ErrorLoggerService.wsdl#xpointer(/definitions/binding[@name='ErrorLoggerPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/Helpers/SourceManagerService.wsdl#xpointer(/definitions/binding[@name='SourceManagerPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/InternalNewsService.wsdl#xpointer(/definitions/binding[@name='InternalNewsPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/PictureAlbums.wsdl#xpointer(/definitions/binding[@name='PictureAlbumsBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/TwitterWrapperService.wsdl#xpointer(/definitions/binding[@name='TwitterWrapperPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/AbstractSource.wsdl#xpointer(/definitions/binding[@name='AbstractSourceBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/InternalNewsSource.wsdl#xpointer(/definitions/binding[@name='InternalNewsSourceBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/Helpers/ErrorLoggerService.wsdl#xpointer(/definitions/binding[@name='ErrorLoggerPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/Helpers/SourceManagerService.wsdl#xpointer(/definitions/binding[@name='SourceManagerPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/InternalNewsService.wsdl#xpointer(/definitions/binding[@name='InternalNewsPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/Sources/Partners/PictureAlbums.wsdl#xpointer(/definitions/binding[@name='PictureAlbumsBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/TwitterWrapperService.wsdl#xpointer(/definitions/binding[@name='TwitterWrapperPortBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/Sources/PictureAlbumSource.wsdl#xpointer(/definitions/binding[@name='PictureAlbumSourceBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/TwitterSource.wsdl#xpointer(/definitions/binding[@name='TwitterSourceBinding'])" xlink:type="simple"/>
 </bindings>
 <services>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/Helpers/ErrorLoggerService.wsdl#xpointer(/definitions/service[@name='ErrorLoggerService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/Helpers/SourceManagerService.wsdl#xpointer(/definitions/service[@name='SourceManagerService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/InternalNewsService.wsdl#xpointer(/definitions/service[@name='InternalNewsService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/PictureAlbums.wsdl#xpointer(/definitions/service[@name='PictureAlbumsService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/TwitterWrapperService.wsdl#xpointer(/definitions/service[@name='TwitterWrapperService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/AbstractSource.wsdl#xpointer(/definitions/service[@name='AbstractSourceService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/InternalNewsSource.wsdl#xpointer(/definitions/service[@name='InternalNewsSourceService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/Helpers/ErrorLoggerService.wsdl#xpointer(/definitions/service[@name='ErrorLoggerService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/Helpers/SourceManagerService.wsdl#xpointer(/definitions/service[@name='SourceManagerService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/InternalNewsService.wsdl#xpointer(/definitions/service[@name='InternalNewsService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/Sources/Partners/PictureAlbums.wsdl#xpointer(/definitions/service[@name='PictureAlbumsService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/TwitterWrapperService.wsdl#xpointer(/definitions/service[@name='TwitterWrapperService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/Sources/PictureAlbumSource.wsdl#xpointer(/definitions/service[@name='PictureAlbumSourceService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/TwitterSource.wsdl#xpointer(/definitions/service[@name='TwitterSourceService'])" xlink:type="simple"/>
 </services>
 <regions>

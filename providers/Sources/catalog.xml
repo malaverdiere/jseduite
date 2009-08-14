@@ -8,4 +8,7 @@
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/TwitterWrapperService.xsd" uri="src/Partners/TwitterWrapperService.xsd"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/ErrorLoggerService.wsdl" uri="src/Partners/Helpers/ErrorLoggerService.wsdl"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/ErrorLoggerService.xsd" uri="src/Partners/Helpers/ErrorLoggerService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/PictureAlbums.wsdl" uri="src/Partners/PictureAlbums.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/PictureAlbums.xsd" uri="src/Partners/PictureAlbums.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/PictureAlbumRegistryService.xsd" uri="src/Partners/PictureAlbumRegistryService.xsd"/>
 </catalog>
