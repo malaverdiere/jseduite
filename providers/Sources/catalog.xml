@@ -11,4 +11,6 @@
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/PictureAlbums.wsdl" uri="src/Partners/PictureAlbums.wsdl"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/PictureAlbums.xsd" uri="src/Partners/PictureAlbums.xsd"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/PictureAlbumRegistryService.xsd" uri="src/Partners/PictureAlbumRegistryService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/ImageScraper.wsdl" uri="src/Partners/ImageScraper.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/ImageScraper.xsd" uri="src/Partners/ImageScraper.xsd"/>
 </catalog>

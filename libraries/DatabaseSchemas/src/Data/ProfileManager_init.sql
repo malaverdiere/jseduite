@@ -28,9 +28,9 @@ INSERT INTO `parameters` VALUES (NULL, 'twitter', 'password', '???', 'Mot de pas
 INSERT INTO `parameters` VALUES (NULL, 'twitter', 'treshold', '10', 'Seuil');
 INSERT INTO `sources`    VALUES ('picture_albums','Albums Photos');
 INSERT INTO `parameters` VALUES (NULL, 'picture_albums', 'treshold', '10', 'Seuil');
-INSERT INTO `sources`    VALUES ('image_scrapper','Folksonomie Image');
-INSERT INTO `parameters` VALUES (NULL, 'image_scrapper', 'tags', '??', 'Tag');
-INSERT INTO `parameters` VALUES (NULL, 'image_scrapper', 'treshold', '10', 'Seuil');
+INSERT INTO `sources`    VALUES ('image_scraper','Folksonomie Image');
+INSERT INTO `parameters` VALUES (NULL, 'image_scraper', 'tags', '??', 'Tag');
+INSERT INTO `parameters` VALUES (NULL, 'image_scraper', 'treshold', '10', 'Seuil');
 INSERT INTO `sources`    VALUES ('weather','Météo');
 INSERT INTO `parameters` VALUES (NULL, 'weather', 'cityCode', '??', 'Code de la ville');
 INSERT INTO `sources`    VALUES ('tv_shows','Programme Télé');

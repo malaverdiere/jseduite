@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/PictureAlbumSource" xmlns:ns10="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns11="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns12="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns13="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/PictureAlbumSource" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AbstractSource" xmlns:ns4="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/AbstractSource" xmlns:ns5="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/InternalNewsSource" xmlns:ns6="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/InternalNewsSource" xmlns:ns7="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" xmlns:ns8="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TwitterSource" xmlns:ns9="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/PictureAlbums" version="1.0">
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/PictureAlbumSource" xmlns:ns10="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/ImageScraperSource" xmlns:ns11="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns12="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/ImageScraper" xmlns:ns13="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns14="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns15="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns16="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/PictureAlbums" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/PictureAlbumSource" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AbstractSource" xmlns:ns4="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/AbstractSource" xmlns:ns5="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/InternalNewsSource" xmlns:ns6="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/InternalNewsSource" xmlns:ns7="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" xmlns:ns8="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TwitterSource" xmlns:ns9="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/ImageScraperSource" version="1.0">
 <service-assembly>
 <identification>
 <name>SourcesComponent</name>
@@ -23,44 +23,60 @@
 <provider endpoint-name="TwitterSourcePortTypeRole_myRole" service-name="ns8:ext"/>
 </connection>
 <connection>
-<consumer endpoint-name="PictureAlbumsPortTypeRole_partnerRole" service-name="ns2:albums"/>
-<provider endpoint-name="PictureAlbumsPort" service-name="ns9:PictureAlbumsService"/>
+<consumer endpoint-name="ImageScraperSourcePort" service-name="ns9:ImageScraperSourceService"/>
+<provider endpoint-name="ImageScraperSourcePortTypeRole_myRole" service-name="ns10:ext"/>
 </connection>
 <connection>
-<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns2:logger"/>
-<provider endpoint-name="ErrorLoggerPort" service-name="ns10:ErrorLoggerService"/>
+<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns10:logger"/>
+<provider endpoint-name="ErrorLoggerPort" service-name="ns11:ErrorLoggerService"/>
 </connection>
 <connection>
-<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns2:sources"/>
-<provider endpoint-name="SourceManagerPort" service-name="ns11:SourceManagerService"/>
+<consumer endpoint-name="ImageScraperPortTypeRole_partnerRole" service-name="ns10:scraper"/>
+<provider endpoint-name="ImageScraperPort" service-name="ns12:ImageScraperService"/>
 </connection>
 <connection>
-<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns8:logger"/>
-<provider endpoint-name="ErrorLoggerPort" service-name="ns10:ErrorLoggerService"/>
-</connection>
-<connection>
-<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns4:sources"/>
-<provider endpoint-name="SourceManagerPort" service-name="ns11:SourceManagerService"/>
-</connection>
-<connection>
-<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns8:sources"/>
-<provider endpoint-name="SourceManagerPort" service-name="ns11:SourceManagerService"/>
-</connection>
-<connection>
-<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns6:sources"/>
-<provider endpoint-name="SourceManagerPort" service-name="ns11:SourceManagerService"/>
-</connection>
-<connection>
-<consumer endpoint-name="InternalNewsRole_partnerRole" service-name="ns6:internal"/>
-<provider endpoint-name="InternalNewsPort" service-name="ns12:InternalNewsService"/>
-</connection>
-<connection>
-<consumer endpoint-name="TwitterWrapperRole_partnerRole" service-name="ns8:twitter"/>
-<provider endpoint-name="TwitterWrapperPort" service-name="ns13:TwitterWrapperService"/>
+<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns10:sources"/>
+<provider endpoint-name="SourceManagerPort" service-name="ns13:SourceManagerService"/>
 </connection>
 <connection>
 <consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns4:logger"/>
-<provider endpoint-name="ErrorLoggerPort" service-name="ns10:ErrorLoggerService"/>
+<provider endpoint-name="ErrorLoggerPort" service-name="ns11:ErrorLoggerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="TwitterWrapperRole_partnerRole" service-name="ns8:twitter"/>
+<provider endpoint-name="TwitterWrapperPort" service-name="ns14:TwitterWrapperService"/>
+</connection>
+<connection>
+<consumer endpoint-name="InternalNewsRole_partnerRole" service-name="ns6:internal"/>
+<provider endpoint-name="InternalNewsPort" service-name="ns15:InternalNewsService"/>
+</connection>
+<connection>
+<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns6:sources"/>
+<provider endpoint-name="SourceManagerPort" service-name="ns13:SourceManagerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns8:sources"/>
+<provider endpoint-name="SourceManagerPort" service-name="ns13:SourceManagerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns4:sources"/>
+<provider endpoint-name="SourceManagerPort" service-name="ns13:SourceManagerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns8:logger"/>
+<provider endpoint-name="ErrorLoggerPort" service-name="ns11:ErrorLoggerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns2:sources"/>
+<provider endpoint-name="SourceManagerPort" service-name="ns13:SourceManagerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns2:logger"/>
+<provider endpoint-name="ErrorLoggerPort" service-name="ns11:ErrorLoggerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="PictureAlbumsPortTypeRole_partnerRole" service-name="ns2:albums"/>
+<provider endpoint-name="PictureAlbumsPort" service-name="ns16:PictureAlbumsService"/>
 </connection>
 </connections>
 </service-assembly>
