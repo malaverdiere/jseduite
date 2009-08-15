@@ -18,4 +18,6 @@
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/TvShows.wsdl" uri="src/Partners/TvShows.wsdl"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/TvShows.xsd" uri="src/Partners/TvShows.xsd"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/RssReaderService.xsd" uri="src/Partners/RssReaderService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/BreakingNewsService.wsdl" uri="src/Partners/BreakingNewsService.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/BreakingNewsService.xsd" uri="src/Partners/BreakingNewsService.xsd"/>
 </catalog>

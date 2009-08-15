@@ -34,6 +34,8 @@ INSERT INTO `parameters` VALUES (NULL, 'image_scraper', 'treshold', '10', 'Seuil
 INSERT INTO `sources`    VALUES ('weather','Météo');
 INSERT INTO `parameters` VALUES (NULL, 'weather', 'cityCode', '??', 'Code de la ville');
 INSERT INTO `sources`    VALUES ('tv_shows','Programme Télé');
+INSERT INTO `parameters` VALUES (NULL, 'tv_shows', 'provider', '', 'Fournisseur');
+INSERT INTO `parameters` VALUES (NULL, 'tv_shows', 'period', '0', 'Delai de validité');
 INSERT INTO `sources`    VALUES ('feeds','Lecteur de Flux RSS');
 INSERT INTO `parameters` VALUES (NULL, 'feeds', 'feedName', '??', 'Nom du flux');
 INSERT INTO `parameters` VALUES (NULL, 'feeds', 'cacheValidity', '??', 'Validité du cache');

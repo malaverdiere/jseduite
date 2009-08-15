@@ -2,22 +2,24 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information"
     xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information"
-    elementFormDefault="qualified" xmlns:ns0="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns7="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums" xmlns:ns5="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/ImageScraper" xmlns:ns12="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/WeatherProxy" xmlns:ns13="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows">
+    elementFormDefault="qualified" xmlns:ns0="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns7="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums" xmlns:ns5="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/ImageScraper" xmlns:ns12="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/WeatherProxy" xmlns:ns13="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" xmlns:ns8="http://breaking.news.technical.jSeduite.modalis.i3s.unice.fr/">
     <xsd:import schemaLocation="Partners/InternalNewsService.xsd" namespace="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/"/>
     <xsd:import schemaLocation="Partners/TwitterWrapperService.xsd" namespace="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/"/>
     <xsd:import schemaLocation="Partners/PictureAlbums.xsd" namespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums"/>
     <xsd:import schemaLocation="Partners/ImageScraper.xsd" namespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/ImageScraper"/>
     <xsd:import schemaLocation="Partners/WeatherProxy.xsd" namespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/WeatherProxy"/>
     <xsd:import schemaLocation="Partners/TvShows.xsd" namespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows"/>
+    <xsd:import schemaLocation="Partners/BreakingNewsService.xsd" namespace="http://breaking.news.technical.jSeduite.modalis.i3s.unice.fr/"/>
     <xsd:complexType name="Information">
         <xsd:choice>
             <xsd:element name="album" type="ns7:Album"/>
             <xsd:element name="internalNews" type="ns0:news"/>
             <xsd:element name="tweet" type="ns1:tweet"/>
             <xsd:element name="scrap" type="ns5:SetOfUrl"/>
-            <xsd:element name="any" type="xsd:anyType"/>
             <xsd:element name="weather" type="ns12:WeatherInformation"></xsd:element>
             <xsd:element name="shows" type="ns13:SetOfShow"></xsd:element>
+            <xsd:element name="breakNews" type="ns8:breakNew"></xsd:element>
+            <xsd:element name="any" type="xsd:anyType"/>
         </xsd:choice>
         <xsd:attribute name="source" type="xsd:string"/>
     </xsd:complexType>

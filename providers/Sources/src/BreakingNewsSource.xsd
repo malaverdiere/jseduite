@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information/BreakingNews"
+    xmlns:tns="http://xml.netbeans.org/schema/BreakingNewsSource"
+    elementFormDefault="qualified" xmlns:ns4="http://breaking.news.technical.jSeduite.modalis.i3s.unice.fr/">
+    <xsd:import schemaLocation="Partners/BreakingNewsService.xsd" namespace="http://breaking.news.technical.jSeduite.modalis.i3s.unice.fr/"/>
+    <xsd:complexType name="SetOfBreakNews">
+        <xsd:sequence>
+            <xsd:element name="item" type="ns4:breakNew" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
