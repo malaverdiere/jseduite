@@ -2,7 +2,7 @@
 
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information/TeacherAbsence"
-    xmlns:tns="http://xml.netbeans.org/schema/TeacherAbsenceSource.xsd"
+    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information/TeacherAbsence"
     elementFormDefault="qualified" xmlns:ns11="http://absence.news.technical.jSeduite.modalis.i3s.unice.fr/">
     <xsd:import schemaLocation="Partners/TeacherAbsencesService.xsd" namespace="http://absence.news.technical.jSeduite.modalis.i3s.unice.fr/"/>
     <xsd:complexType name="SetOfAbsence">

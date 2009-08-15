@@ -22,4 +22,6 @@
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/BreakingNewsService.xsd" uri="src/Partners/BreakingNewsService.xsd"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/TeacherAbsencesService.wsdl" uri="src/Partners/TeacherAbsencesService.wsdl"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/TeacherAbsencesService.xsd" uri="src/Partners/TeacherAbsencesService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/StudentSummonService.wsdl" uri="src/Partners/StudentSummonService.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/StudentSummonService.xsd" uri="src/Partners/StudentSummonService.xsd"/>
 </catalog>

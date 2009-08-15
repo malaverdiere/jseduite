@@ -2,7 +2,7 @@
 
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information/BreakingNews"
-    xmlns:tns="http://xml.netbeans.org/schema/BreakingNewsSource"
+    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information/BreakingNews"
     elementFormDefault="qualified" xmlns:ns4="http://breaking.news.technical.jSeduite.modalis.i3s.unice.fr/">
     <xsd:import schemaLocation="Partners/BreakingNewsService.xsd" namespace="http://breaking.news.technical.jSeduite.modalis.i3s.unice.fr/"/>
     <xsd:complexType name="SetOfBreakNews">
