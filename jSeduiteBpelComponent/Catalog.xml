@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system"><nextCatalog catalog="src/jbiServiceUnits/META-INF/CachedFeedReader/catalog.xml"/><nextCatalog catalog="src/jbiServiceUnits/META-INF/FeedReader/catalog.xml"/><nextCatalog catalog="src/jbiServiceUnits/META-INF/ImageScraper/catalog.xml"/><nextCatalog catalog="src/jbiServiceUnits/META-INF/PictureAlbums/catalog.xml"/><nextCatalog catalog="src/jbiServiceUnits/META-INF/Sources/catalog.xml"/><nextCatalog catalog="src/jbiServiceUnits/META-INF/TvShows/catalog.xml"/>
+    
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/weatherservice.asmx.wsdl" uri="src/jbiasa/weatherservice.asmx.wsdl"/>
+<nextCatalog catalog="src/jbiServiceUnits/META-INF/WeatherProxy/catalog.xml"/>
+    
+</catalog>

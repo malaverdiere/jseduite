@@ -956,9 +956,9 @@
   <wsdl:service name="WeatherBugWebServices">
     <wsdl:port name="WeatherBugWebServicesSoap" binding="tns:WeatherBugWebServicesSoap">
       <soap:address location="http://api.wxbug.net/webservice-v1.asmx" />
-    </wsdl:port>
+    </wsdl:port> <!--
     <wsdl:port name="WeatherBugWebServicesSoap12" binding="tns:WeatherBugWebServicesSoap12">
       <soap12:address location="http://api.wxbug.net/webservice-v1.asmx" />
-    </wsdl:port>
+    </wsdl:port> -->
   </wsdl:service>
 </wsdl:definitions>

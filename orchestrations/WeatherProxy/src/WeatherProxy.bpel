@@ -199,6 +199,10 @@
                                         <from>$forecastInfo/ns1:ShortTitle</from>
                                         <to>$simpl_forecastInfo/@day</to>
                                     </copy>
+                                    <copy>
+                                        <from>$forecastInfo/ns1:Image</from>
+                                        <to>$simpl_forecastInfo/ns0:icon</to>
+                                    </copy>
                                 </assign>
                                 <assign name="set_0_swell">
                                     <copy>

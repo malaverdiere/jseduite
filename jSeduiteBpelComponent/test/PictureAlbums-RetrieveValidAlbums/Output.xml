@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <ns1:RetrieveValidAlbumsResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/PictureAlbums" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums">
+      <ns1:result>
+        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums">
+          <ns0:repository>picasa</ns0:repository>
+          <ns0:name>Pot de départ PB</ns0:name>
+          <ns0:picture_star>
+            <ns0:item>http://lh3.ggpht.com/_LrMy0xX15tk/SZl5xlxf7sI/AAAAAAAACf8/e_elXORV-q0/lyon%3B%20carla%3Bepu%20321.JPG</ns0:item>
+            <ns0:item>http://lh4.ggpht.com/_LrMy0xX15tk/SZl5zMjmI4I/AAAAAAAACgo/wJAUACTSGCo/lyon%3B%20carla%3Bepu%20326.JPG</ns0:item>
+            <ns0:item>http://lh4.ggpht.com/_LrMy0xX15tk/SZl51FXWs1I/AAAAAAAAChg/ynSVlySvmk0/lyon%3B%20carla%3Bepu%20334.JPG</ns0:item>
+            <ns0:item>http://lh3.ggpht.com/_LrMy0xX15tk/SZl5z9Kiw0I/AAAAAAAAChA/S4l_vQEldOU/lyon%3B%20carla%3Bepu%20329.JPG</ns0:item>
+            <ns0:item>http://lh4.ggpht.com/_LrMy0xX15tk/SZl51WTVshI/AAAAAAAACho/pFrQQpup7uc/lyon%3B%20carla%3Bepu%20335.JPG</ns0:item>
+            <ns0:item>http://lh6.ggpht.com/_LrMy0xX15tk/SZl5165FwtI/AAAAAAAAChw/kxCHT-vqVyc/lyon%3B%20carla%3Bepu%20336.JPG</ns0:item>
+            <ns0:item>http://lh3.ggpht.com/_LrMy0xX15tk/SZl5vKb1ngI/AAAAAAAACe8/bsEC1FgkHSo/lyon%3B%20carla%3Bepu%20313.JPG</ns0:item>
+            <ns0:item>http://lh5.ggpht.com/_LrMy0xX15tk/SZl5s8XEacI/AAAAAAAACeE/Nzrn6ZCg3UI/lyon%3B%20carla%3Bepu%20306.JPG</ns0:item>
+            <ns0:item>http://lh5.ggpht.com/_LrMy0xX15tk/SZl5uALHorI/AAAAAAAACek/k2kwZwIyars/lyon%3B%20carla%3Bepu%20310.JPG</ns0:item>
+            <ns0:item>http://lh5.ggpht.com/_LrMy0xX15tk/SZl50pHF0dI/AAAAAAAAChQ/1QlsnMtolKA/lyon%3B%20carla%3Bepu%20331.JPG</ns0:item>
+          </ns0:picture_star>
+        </ns0:item>
+        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums">
+          <ns0:repository>flickr</ns0:repository>
+          <ns0:name>Nuit de l'Info 2008</ns0:name>
+          <ns0:picture_star>
+            <ns0:item>http://farm4.static.flickr.com/3020/3082451907_3611538eed.jpg</ns0:item>
+            <ns0:item>http://farm4.static.flickr.com/3263/3083294484_602f46ff1f.jpg</ns0:item>
+            <ns0:item>http://farm4.static.flickr.com/3070/3082459229_67c4f840d5.jpg</ns0:item>
+            <ns0:item>http://farm4.static.flickr.com/3136/3083289940_1d3fc19b8b.jpg</ns0:item>
+            <ns0:item>http://farm4.static.flickr.com/3177/3082454285_80f4d2233a.jpg</ns0:item>
+            <ns0:item>http://farm4.static.flickr.com/3195/3082454497_45fd1962e6.jpg</ns0:item>
+            <ns0:item>http://farm4.static.flickr.com/3289/3082462591_7a6eb7a4a0.jpg</ns0:item>
+            <ns0:item>http://farm4.static.flickr.com/3059/3083290520_cbdc27ff6a.jpg</ns0:item>
+            <ns0:item>http://farm4.static.flickr.com/3153/3083300196_e26f7d62e8.jpg</ns0:item>
+            <ns0:item>http://farm4.static.flickr.com/3248/3083290364_1fd9fe4fde.jpg</ns0:item>
+          </ns0:picture_star>
+        </ns0:item>
+      </ns1:result>
+    </ns1:RetrieveValidAlbumsResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
