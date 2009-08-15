@@ -13,4 +13,9 @@
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/PictureAlbumRegistryService.xsd" uri="src/Partners/PictureAlbumRegistryService.xsd"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/ImageScraper.wsdl" uri="src/Partners/ImageScraper.wsdl"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/ImageScraper.xsd" uri="src/Partners/ImageScraper.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/WeatherProxy.wsdl" uri="src/Partners/WeatherProxy.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/WeatherProxy.xsd" uri="src/Partners/WeatherProxy.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/TvShows.wsdl" uri="src/Partners/TvShows.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/TvShows.xsd" uri="src/Partners/TvShows.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/RssReaderService.xsd" uri="src/Partners/RssReaderService.xsd"/>
 </catalog>

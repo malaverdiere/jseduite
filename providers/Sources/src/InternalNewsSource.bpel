@@ -150,6 +150,10 @@
                                 <from>$paramSpace/sets[$i]</from>
                                 <to variable="set"/>
                             </copy>
+                            <copy>
+                                <from>''</from>
+                                <to variable="news_star"/>
+                            </copy>
                         </assign>
                         <scope name="a4">
                             <assign name="a4_tech">

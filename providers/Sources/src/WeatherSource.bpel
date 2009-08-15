@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process
+    name="WeatherSource"
+    targetNamespace="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/WeatherSource"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
+    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/WeatherSource"
+    xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" xmlns:ns1="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/"
+    xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/WeatherProxy" >
+    <import namespace="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/Helpers/SourceManagerService.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/WeatherSource" location="WeatherSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/SourceManagerServiceWrapper" location="Partners/Helpers/SourceManagerServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/Helpers/SourceManagerService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+        <import namespace="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" location="AbstractSource.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/ErrorLoggerServiceWrapper" location="Partners/Helpers/ErrorLoggerServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/Helpers/ErrorLoggerService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/WeatherProxy" location="Partners/WeatherProxy.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/WeatherProxy" location="Partners/WeatherProxy.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
+    <partnerLinks>
+        <partnerLink name="sources" xmlns:tns="http://enterprise.netbeans.org/bpel/SourceManagerServiceWrapper" partnerLinkType="tns:SourceManagerLinkType" partnerRole="SourceManagerRole"/>
+        <partnerLink name="logger" xmlns:tns="http://enterprise.netbeans.org/bpel/ErrorLoggerServiceWrapper" partnerLinkType="tns:ErrorLoggerLinkType" partnerRole="ErrorLoggerRole"/>
+        <partnerLink name="weather" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/WeatherProxy" partnerLinkType="tns:WeatherProxy" partnerRole="WeatherProxyPortTypeRole"/>
+        <partnerLink name="ext" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/WeatherSource" partnerLinkType="tns:WeatherSource" myRole="WeatherSourcePortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="paramSpace" type="ns1:parameterSpace"/>
+        <variable name="info_star" type="ns0:SetOfInformation"/>
+        <variable name="shouldCall" type="xsd:boolean"/>
+        <variable name="sourceName" type="xsd:string"/>
+        <variable name="identifier" type="xsd:string"/>
+        <variable name="infoCpt" type="xsd:int"/>
+    </variables>
+    <faultHandlers>
+        <catchAll>
+            <sequence name="onError_policy">
+                <scope name="logError">
+                    <variables>
+                        <variable name="LogOut" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:logResponse"/>
+                        <variable name="LogIn" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:log"/>
+                    </variables>
+                    <sequence name="logError">
+                        <assign name="logError_pre">
+                            <copy>
+                                <from variable="sourceName"></from>
+                                <to>$LogIn.parameters/trigger</to>
+                            </copy>
+                            <copy>
+                                <from>'Error when running process'</from>
+                                <to>$LogIn.parameters/message</to>
+                            </copy>
+                            <copy>
+                                <from>'ERROR'</from>
+                                <to>$LogIn.parameters/level</to>
+                            </copy>
+                        </assign>
+                        <invoke name="logError_tech" partnerLink="logger" operation="log" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:ErrorLogger" inputVariable="LogIn" outputVariable="LogOut"/>
+                    </sequence>
+                </scope>
+                <scope name="onError_reply">
+                    <variables>
+                        <variable name="GetInfosOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/WeatherSource" messageType="tns:GetInfosResponse"/>
+                    </variables>
+                        <sequence name="onError_core">
+                            <assign name="onError_pre">
+                                    <copy>
+                                            <from>''</from>
+                                                <to>$GetInfosOut.out/ns0:result</to>
+                                        </copy>
+                                </assign>
+                                <reply name="onError_tech" partnerLink="ext" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/WeatherSource" portType="tns:WeatherSourcePortType" variable="GetInfosOut"/>
+                                <exit name="onError_post"/>
+                        </sequence>
+                </scope>
+            </sequence>
+        </catchAll>
+    </faultHandlers>
+    <sequence>
+<scope name="a0">
+            <variables>
+                <variable name="GetInfosIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/WeatherSource" messageType="tns:GetInfosRequest"/>
+            </variables>
+            <sequence name="a0_core">
+                <receive name="a0_tech" createInstance="yes" partnerLink="ext" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/WeatherSource" portType="tns:WeatherSourcePortType" variable="GetInfosIn"/>
+                <assign name="a0_post">
+                    <copy>
+                        <from>'weather'</from>
+                        <to variable="sourceName"/>
+                    </copy>
+                    <copy>
+                        <from>''</from>
+                        <to variable="info_star"/>
+                    </copy>
+                    <copy>
+                        <from>$GetInfosIn.in/ns0:identifier</from>
+                        <to variable="identifier"/>
+                    </copy>
+                    <copy>
+                        <from>1.0</from>
+                        <to variable="infoCpt"/>
+                    </copy>
+                </assign>
+            </sequence>
+        </scope>
+        <scope name="a1">
+            <variables>
+                <variable name="ShouldCallOut" xmlns:tns="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:shouldCallResponse"/>
+                <variable name="ShouldCallIn" xmlns:tns="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:shouldCall"/>
+            </variables>
+            <sequence name="a1_core">
+                <assign name="a1_pre">
+                    <copy>
+                        <from variable="identifier"/>
+                        <to>$ShouldCallIn.parameters/device</to>
+                    </copy>
+                    <copy>
+                        <from variable="sourceName"/>
+                        <to>$ShouldCallIn.parameters/source</to>
+                    </copy>
+                </assign>
+                <invoke name="a1_tech" partnerLink="sources" operation="shouldCall" xmlns:tns="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:SourceManager" inputVariable="ShouldCallIn" outputVariable="ShouldCallOut"/>
+                <assign name="a1_post">
+                    <copy>
+                        <from>$ShouldCallOut.parameters/return</from>
+                        <to variable="shouldCall"/>
+                    </copy>
+                </assign>
+            </sequence>
+        </scope>
+        <if name="condition_on_not_shouldCall">
+            <condition>not($shouldCall)</condition>
+            <scope name="a2">
+                <variables>
+                    <variable name="GetInfosOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/WeatherSource" messageType="tns:GetInfosResponse"/>
+                </variables>
+                <sequence name="a2_core">
+                    <assign name="a2_pre">
+                        <copy>
+                            <from>''</from>
+                            <to>$GetInfosOut.out/ns0:result</to>
+                        </copy>
+                    </assign>
+                    <reply name="a2_tech" partnerLink="ext" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/WeatherSource" portType="tns:WeatherSourcePortType" variable="GetInfosOut"/>
+                    <exit name="a2_post"/>
+                </sequence>
+            </scope>
+            <else>
+                <empty name="nop1"/>
+            </else>
+        </if>
+        <scope name="a3">
+            <variables>
+                <variable name="GetParameterSpaceOut" xmlns:tns="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:getParameterSpaceResponse"/>
+                <variable name="GetParameterSpaceIn" xmlns:tns="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:getParameterSpace"/>
+            </variables>
+            <sequence name="a3_core">
+                <assign name="a3_pre">
+                    <copy>
+                        <from variable="identifier"/>
+                        <to>$GetParameterSpaceIn.parameters/device</to>
+                    </copy>
+                    <copy>
+                        <from variable="sourceName"/>
+                        <to>$GetParameterSpaceIn.parameters/source</to>
+                    </copy>
+                </assign>
+                <invoke name="a3_tech" partnerLink="sources" operation="getParameterSpace" xmlns:tns="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:SourceManager" inputVariable="GetParameterSpaceIn" outputVariable="GetParameterSpaceOut"/>
+                <assign name="a3_post">
+                    <copy>
+                        <from>$GetParameterSpaceOut.parameters/return</from>
+                        <to variable="paramSpace"/>
+                    </copy>
+                </assign>
+            </sequence>
+        </scope>
+
+
+
+        <!-- -->
+        <scope name="policy_set_star">
+            <variables>
+                <variable name="info" type="ns0:Information"/>
+                <variable name="cityCode" type="xsd:string"/>
+                <variable name="raw" type="ns2:WeatherInformation"/>
+                <variable name="set" type="ns1:parameterCallSet"/>
+                <variable name="i" type="xsd:integer"/>
+            </variables>
+            <sequence name="policy_set_star_core">
+                <assign name="policy_set_star_init">
+                    <copy>
+                        <from>1.0</from>
+                        <to variable="i"/>
+                    </copy>
+                </assign>
+                <while name="policy_set_star_loop">
+                    <condition>$i &lt;= count($paramSpace/sets)</condition>
+                    <sequence name="policy_set_star_loop_core">
+                        <assign name="policy_set_star_loop_feed">
+                            <copy>
+                                <from>$paramSpace/sets[$i]</from>
+                                <to variable="set"/>
+                            </copy>
+                        </assign>
+                        <flow name="read_parameters_flow">
+                            <documentation>This flow retrieves ALL the expected parameter from the current call set.
+To retrieve the value of a param named 'p', use the following XPath selector:
+"$set/values[name = 'target']/value"</documentation>
+                            <scope name="a40">
+                                <assign name="a40_tech">
+                                    <copy>
+                                        <from>$set/values[name = 'cityCode']/value</from>
+                                        <to variable="cityCode"/>
+                                    </copy>
+                                </assign>
+                            </scope>
+                        </flow>
+                        <scope name="a5">
+                            <variables>
+                                <variable name="GetWeatherOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/WeatherProxy" messageType="tns:GetWeatherResponse"/>
+                                <variable name="GetWeatherIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/WeatherProxy" messageType="tns:GetWeatherRequest"/>
+                            </variables>
+                            <sequence name="a5_core">
+                                <assign name="a5_pre">
+                                    <copy>
+                                        <from variable="cityCode"/>
+                                        <to>$GetWeatherIn.in/ns2:CityCode</to>
+                                    </copy>
+                                </assign>
+                                <invoke name="a5_tech" partnerLink="weather" operation="GetWeather" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/WeatherProxy" portType="tns:WeatherProxyPortType" inputVariable="GetWeatherIn" outputVariable="GetWeatherOut"/>
+                                <assign name="a5_post">
+                                    <copy>
+                                        <from>$GetWeatherOut.out/ns2:return</from>
+                                        <to variable="raw"/>
+                                    </copy>
+                                </assign>
+                            </sequence>
+                        </scope>
+                         <scope name="a6">
+                        <assign name="a6_tech">
+                            <copy>
+                                <from variable="sourceName"/>
+                                <to>$info/@source</to>
+                            </copy>
+                        </assign>
+                    </scope>
+                    <scope name="a7">
+                        <assign name="a7_tech">
+                            <copy>
+                                <from variable="raw"/>
+                                <to>$info/ns0:weather</to>
+                            </copy>
+                        </assign>
+                    </scope>
+                    <assign name="policy_set_star_loop_increment">
+                        <copy>
+                            <from variable="info"/>
+                            <to>$info_star/ns0:item[$infoCpt]</to>
+                        </copy>
+                        <copy>
+                            <from>1 + $infoCpt</from>
+                            <to variable="infoCpt"/>
+                        </copy>
+                        <copy>
+                            <from>1 + $i</from>
+                            <to variable="i"/>
+                        </copy>
+                    </assign>
+                    </sequence>
+                </while>
+            </sequence>
+        </scope>
+        <scope name="a9">
+            <variables>
+                <variable name="GetInfosOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/WeatherSource" messageType="tns:GetInfosResponse"/>
+            </variables>
+            <sequence name="a9_core">
+                <assign name="a9_pre">
+                    <copy>
+                        <from variable="info_star"/>
+                        <to>$GetInfosOut.out/ns0:result</to>
+                    </copy>
+                </assign>
+                <reply name="a9_tech" partnerLink="ext" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/WeatherSource" portType="tns:WeatherSourcePortType" variable="GetInfosOut"/>
+            </sequence>
+        </scope>
+   </sequence>
+</process>
