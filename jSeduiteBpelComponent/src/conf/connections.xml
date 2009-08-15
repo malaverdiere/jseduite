@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/PictureAlbumSource" xmlns:ns10="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TwitterSource" xmlns:ns11="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/ImageScraperSource" xmlns:ns12="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/ImageScraperSource" xmlns:ns13="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/FeedReader" xmlns:ns14="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/FeedReader" xmlns:ns15="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/WeatherProxy" xmlns:ns16="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/WeatherProxy" xmlns:ns17="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TvShowsSource" xmlns:ns18="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TvShowsSource" xmlns:ns19="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/CachedFeedReader" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/PictureAlbumSource" xmlns:ns20="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/CachedFeedReader/CachedFeedReader" xmlns:ns21="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/PictureAlbums" xmlns:ns22="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/PictureAlbums" xmlns:ns23="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/TvShows" xmlns:ns24="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/TvShows" xmlns:ns25="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/BreakingNewsSource" xmlns:ns26="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/BreakingNewsSource" xmlns:ns27="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AbstractSource" xmlns:ns28="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/AbstractSource" xmlns:ns29="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/ImageScraper" xmlns:ns30="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns31="http://breaking.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns32="http://api.wxbug.net/" xmlns:ns33="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns34="http://flickr.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns35="http://registry.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns36="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns37="http://registry.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns38="http://cache.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns39="http://picasa.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns4="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/ImageScraper" xmlns:ns40="http://partners.registry.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns41="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns42="http://helper.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns5="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/WeatherSource" xmlns:ns6="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/WeatherSource" xmlns:ns7="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/InternalNewsSource" xmlns:ns8="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/InternalNewsSource" xmlns:ns9="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" version="1.0">
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/PictureAlbumSource" xmlns:ns10="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TwitterSource" xmlns:ns11="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/ImageScraperSource" xmlns:ns12="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/ImageScraperSource" xmlns:ns13="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/FeedReader" xmlns:ns14="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/FeedReader" xmlns:ns15="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/WeatherProxy" xmlns:ns16="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/WeatherProxy" xmlns:ns17="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TvShowsSource" xmlns:ns18="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TvShowsSource" xmlns:ns19="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/CachedFeedReader" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/PictureAlbumSource" xmlns:ns20="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/CachedFeedReader/CachedFeedReader" xmlns:ns21="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/PictureAlbums" xmlns:ns22="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/PictureAlbums" xmlns:ns23="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/TvShows" xmlns:ns24="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/TvShows" xmlns:ns25="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TeacherAbsenceSource" xmlns:ns26="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TeacherAbsenceSource" xmlns:ns27="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/BreakingNewsSource" xmlns:ns28="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/BreakingNewsSource" xmlns:ns29="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AbstractSource" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/ImageScraper" xmlns:ns30="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/AbstractSource" xmlns:ns31="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns32="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns33="http://partners.registry.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns34="http://helper.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns35="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns36="http://picasa.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns37="http://cache.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns38="http://registry.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns39="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns4="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/ImageScraper" xmlns:ns40="http://registry.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns41="http://flickr.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns42="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns43="http://api.wxbug.net/" xmlns:ns44="http://breaking.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns45="http://absence.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns5="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/WeatherSource" xmlns:ns6="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/WeatherSource" xmlns:ns7="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/InternalNewsSource" xmlns:ns8="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/InternalNewsSource" xmlns:ns9="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" version="1.0">
 <service-assembly>
 <identification>
 <name>jSeduiteBpelComponent</name>
@@ -55,164 +55,180 @@
 <provider endpoint-name="TvShowsPortTypeRole_myRole" service-name="ns24:ext"/>
 </connection>
 <connection>
-<consumer endpoint-name="BreakingNewsSourcePort" service-name="ns25:BreakingNewsSourceService"/>
-<provider endpoint-name="BreakingNewsSourcePortTypeRole_myRole" service-name="ns26:ext"/>
+<consumer endpoint-name="TeacherAbsenceSourcePort" service-name="ns25:TeacherAbsenceSourceService"/>
+<provider endpoint-name="TeacherAbsenceSourcePortTypeRole_myRole" service-name="ns26:ext"/>
 </connection>
 <connection>
-<consumer endpoint-name="AbstractSourcePort" service-name="ns27:AbstractSourceService"/>
-<provider endpoint-name="AbstractSourcePortTypeRole_myRole" service-name="ns28:ext"/>
+<consumer endpoint-name="BreakingNewsSourcePort" service-name="ns27:BreakingNewsSourceService"/>
+<provider endpoint-name="BreakingNewsSourcePortTypeRole_myRole" service-name="ns28:ext"/>
 </connection>
 <connection>
-<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns26:logger"/>
-<provider endpoint-name="ErrorLoggerPort" service-name="ns29:ErrorLoggerService"/>
+<consumer endpoint-name="AbstractSourcePort" service-name="ns29:AbstractSourceService"/>
+<provider endpoint-name="AbstractSourcePortTypeRole_myRole" service-name="ns30:ext"/>
 </connection>
 <connection>
-<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns26:sources"/>
-<provider endpoint-name="SourceManagerPort" service-name="ns30:SourceManagerService"/>
+<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns18:logger"/>
+<provider endpoint-name="ErrorLoggerPort" service-name="ns31:ErrorLoggerService"/>
 </connection>
 <connection>
-<consumer endpoint-name="BreakingNewsRole_partnerRole" service-name="ns26:breakNews"/>
-<provider endpoint-name="BreakingNewsPort" service-name="ns31:BreakingNewsService"/>
-</connection>
-<connection>
-<consumer endpoint-name="WeatherBugWebServicesSoapRole_partnerRole" service-name="ns16:weatherBugService"/>
-<provider endpoint-name="WeatherBugWebServicesSoap" service-name="ns32:WeatherBugWebServices"/>
-</connection>
-<connection>
-<consumer endpoint-name="RssReaderRole_partnerRole" service-name="ns14:rssReader"/>
-<provider endpoint-name="RssReaderPort" service-name="ns33:RssReaderService"/>
-</connection>
-<connection>
-<consumer endpoint-name="FlickrWrapperRole_partnerRole" service-name="ns22:flickr"/>
-<provider endpoint-name="FlickrWrapperPort" service-name="ns34:FlickrWrapperService"/>
-</connection>
-<connection>
-<consumer endpoint-name="FlickrWrapperRole_partnerRole" service-name="ns4:flickr"/>
-<provider endpoint-name="FlickrWrapperPort" service-name="ns34:FlickrWrapperService"/>
-</connection>
-<connection>
-<consumer endpoint-name="PictureAlbumsPortTypeRole_partnerRole" service-name="ns2:albums"/>
-<provider endpoint-name="PictureAlbumsPortTypeRole_myRole" service-name="ns22:ext"/>
-</connection>
-<connection>
-<consumer endpoint-name="FeedRegistryRole_partnerRole" service-name="ns14:feedRegistry"/>
-<provider endpoint-name="FeedRegistryPort" service-name="ns35:FeedRegistryService"/>
-</connection>
-<connection>
-<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns28:logger"/>
-<provider endpoint-name="ErrorLoggerPort" service-name="ns29:ErrorLoggerService"/>
-</connection>
-<connection>
-<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns12:logger"/>
-<provider endpoint-name="ErrorLoggerPort" service-name="ns29:ErrorLoggerService"/>
-</connection>
-<connection>
-<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns2:logger"/>
-<provider endpoint-name="ErrorLoggerPort" service-name="ns29:ErrorLoggerService"/>
-</connection>
-<connection>
-<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns10:logger"/>
-<provider endpoint-name="ErrorLoggerPort" service-name="ns29:ErrorLoggerService"/>
-</connection>
-<connection>
-<consumer endpoint-name="ImageScraperPortTypeRole_partnerRole" service-name="ns12:scraper"/>
-<provider endpoint-name="ImageScraperPortTypeRole_myRole" service-name="ns4:ext"/>
-</connection>
-<connection>
-<consumer endpoint-name="InternalNewsRole_partnerRole" service-name="ns8:internal"/>
-<provider endpoint-name="InternalNewsPort" service-name="ns36:InternalNewsService"/>
-</connection>
-<connection>
-<consumer endpoint-name="FeedReaderPortTypeRole_partnerRole" service-name="ns20:feedReader"/>
-<provider endpoint-name="FeedReaderPortTypeRole_myRole" service-name="ns14:external"/>
-</connection>
-<connection>
-<consumer endpoint-name="PictureAlbumRegistryRole_partnerRole" service-name="ns22:registry"/>
-<provider endpoint-name="PictureAlbumRegistryPort" service-name="ns37:PictureAlbumRegistryService"/>
-</connection>
-<connection>
-<consumer endpoint-name="DataCacheRole_partnerRole" service-name="ns20:dataCache"/>
-<provider endpoint-name="DataCachePort" service-name="ns38:DataCacheService"/>
-</connection>
-<connection>
-<consumer endpoint-name="PicasaWrapperRole_partnerRole" service-name="ns22:picasa"/>
-<provider endpoint-name="PicasaWrapperPort" service-name="ns39:PicasaWrapperService"/>
-</connection>
-<connection>
-<consumer endpoint-name="PicasaWrapperRole_partnerRole" service-name="ns4:picasa"/>
-<provider endpoint-name="PicasaWrapperPort" service-name="ns39:PicasaWrapperService"/>
-</connection>
-<connection>
-<consumer endpoint-name="PartnerKeysRole_partnerRole" service-name="ns22:key_server"/>
-<provider endpoint-name="PartnerKeysPort" service-name="ns40:PartnerKeysService"/>
-</connection>
-<connection>
-<consumer endpoint-name="key_registryRole_partnerRole" service-name="ns4:key_registry"/>
-<provider endpoint-name="PartnerKeysPort" service-name="ns40:PartnerKeysService"/>
-</connection>
-<connection>
-<consumer endpoint-name="TwitterWrapperRole_partnerRole" service-name="ns10:twitter"/>
-<provider endpoint-name="TwitterWrapperPort" service-name="ns41:TwitterWrapperService"/>
-</connection>
-<connection>
-<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns28:sources"/>
-<provider endpoint-name="SourceManagerPort" service-name="ns30:SourceManagerService"/>
-</connection>
-<connection>
-<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns12:sources"/>
-<provider endpoint-name="SourceManagerPort" service-name="ns30:SourceManagerService"/>
-</connection>
-<connection>
-<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns8:sources"/>
-<provider endpoint-name="SourceManagerPort" service-name="ns30:SourceManagerService"/>
-</connection>
-<connection>
-<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns2:sources"/>
-<provider endpoint-name="SourceManagerPort" service-name="ns30:SourceManagerService"/>
-</connection>
-<connection>
-<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns10:sources"/>
-<provider endpoint-name="SourceManagerPort" service-name="ns30:SourceManagerService"/>
-</connection>
-<connection>
-<consumer endpoint-name="CachedFeedReaderPortTypeRole_partnerRole" service-name="ns24:cachedReader"/>
-<provider endpoint-name="CachedFeedReaderPortTypeRole_myRole" service-name="ns20:external"/>
-</connection>
-<connection>
-<consumer endpoint-name="PictureSetRole_partnerRole" service-name="ns22:helper"/>
-<provider endpoint-name="PictureSetPort" service-name="ns42:PictureSetService"/>
-</connection>
-<connection>
-<consumer endpoint-name="PictureSetRole_partnerRole" service-name="ns4:helper"/>
-<provider endpoint-name="PictureSetPort" service-name="ns42:PictureSetService"/>
-</connection>
-<connection>
-<consumer endpoint-name="PartnerKeysRole_partnerRole" service-name="ns16:partnerKeys"/>
-<provider endpoint-name="PartnerKeysPort" service-name="ns40:PartnerKeysService"/>
-</connection>
-<connection>
-<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns6:sources"/>
-<provider endpoint-name="SourceManagerPort" service-name="ns30:SourceManagerService"/>
-</connection>
-<connection>
-<consumer endpoint-name="WeatherProxyPortTypeRole_partnerRole" service-name="ns6:weather"/>
-<provider endpoint-name="WeatherProxyPortTypeRole_myRole" service-name="ns16:external"/>
-</connection>
-<connection>
-<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns6:logger"/>
-<provider endpoint-name="ErrorLoggerPort" service-name="ns29:ErrorLoggerService"/>
+<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns18:sources"/>
+<provider endpoint-name="SourceManagerPort" service-name="ns32:SourceManagerService"/>
 </connection>
 <connection>
 <consumer endpoint-name="TvShowsPortTypeRole_partnerRole" service-name="ns18:tv"/>
 <provider endpoint-name="TvShowsPortTypeRole_myRole" service-name="ns24:ext"/>
 </connection>
 <connection>
-<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns18:sources"/>
-<provider endpoint-name="SourceManagerPort" service-name="ns30:SourceManagerService"/>
+<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns6:logger"/>
+<provider endpoint-name="ErrorLoggerPort" service-name="ns31:ErrorLoggerService"/>
 </connection>
 <connection>
-<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns18:logger"/>
-<provider endpoint-name="ErrorLoggerPort" service-name="ns29:ErrorLoggerService"/>
+<consumer endpoint-name="WeatherProxyPortTypeRole_partnerRole" service-name="ns6:weather"/>
+<provider endpoint-name="WeatherProxyPortTypeRole_myRole" service-name="ns16:external"/>
+</connection>
+<connection>
+<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns6:sources"/>
+<provider endpoint-name="SourceManagerPort" service-name="ns32:SourceManagerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="PartnerKeysRole_partnerRole" service-name="ns16:partnerKeys"/>
+<provider endpoint-name="PartnerKeysPort" service-name="ns33:PartnerKeysService"/>
+</connection>
+<connection>
+<consumer endpoint-name="PictureSetRole_partnerRole" service-name="ns4:helper"/>
+<provider endpoint-name="PictureSetPort" service-name="ns34:PictureSetService"/>
+</connection>
+<connection>
+<consumer endpoint-name="PictureSetRole_partnerRole" service-name="ns22:helper"/>
+<provider endpoint-name="PictureSetPort" service-name="ns34:PictureSetService"/>
+</connection>
+<connection>
+<consumer endpoint-name="CachedFeedReaderPortTypeRole_partnerRole" service-name="ns24:cachedReader"/>
+<provider endpoint-name="CachedFeedReaderPortTypeRole_myRole" service-name="ns20:external"/>
+</connection>
+<connection>
+<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns10:sources"/>
+<provider endpoint-name="SourceManagerPort" service-name="ns32:SourceManagerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns2:sources"/>
+<provider endpoint-name="SourceManagerPort" service-name="ns32:SourceManagerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns8:sources"/>
+<provider endpoint-name="SourceManagerPort" service-name="ns32:SourceManagerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns12:sources"/>
+<provider endpoint-name="SourceManagerPort" service-name="ns32:SourceManagerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns30:sources"/>
+<provider endpoint-name="SourceManagerPort" service-name="ns32:SourceManagerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="TwitterWrapperRole_partnerRole" service-name="ns10:twitter"/>
+<provider endpoint-name="TwitterWrapperPort" service-name="ns35:TwitterWrapperService"/>
+</connection>
+<connection>
+<consumer endpoint-name="key_registryRole_partnerRole" service-name="ns4:key_registry"/>
+<provider endpoint-name="PartnerKeysPort" service-name="ns33:PartnerKeysService"/>
+</connection>
+<connection>
+<consumer endpoint-name="PartnerKeysRole_partnerRole" service-name="ns22:key_server"/>
+<provider endpoint-name="PartnerKeysPort" service-name="ns33:PartnerKeysService"/>
+</connection>
+<connection>
+<consumer endpoint-name="PicasaWrapperRole_partnerRole" service-name="ns4:picasa"/>
+<provider endpoint-name="PicasaWrapperPort" service-name="ns36:PicasaWrapperService"/>
+</connection>
+<connection>
+<consumer endpoint-name="PicasaWrapperRole_partnerRole" service-name="ns22:picasa"/>
+<provider endpoint-name="PicasaWrapperPort" service-name="ns36:PicasaWrapperService"/>
+</connection>
+<connection>
+<consumer endpoint-name="DataCacheRole_partnerRole" service-name="ns20:dataCache"/>
+<provider endpoint-name="DataCachePort" service-name="ns37:DataCacheService"/>
+</connection>
+<connection>
+<consumer endpoint-name="PictureAlbumRegistryRole_partnerRole" service-name="ns22:registry"/>
+<provider endpoint-name="PictureAlbumRegistryPort" service-name="ns38:PictureAlbumRegistryService"/>
+</connection>
+<connection>
+<consumer endpoint-name="FeedReaderPortTypeRole_partnerRole" service-name="ns20:feedReader"/>
+<provider endpoint-name="FeedReaderPortTypeRole_myRole" service-name="ns14:external"/>
+</connection>
+<connection>
+<consumer endpoint-name="InternalNewsRole_partnerRole" service-name="ns8:internal"/>
+<provider endpoint-name="InternalNewsPort" service-name="ns39:InternalNewsService"/>
+</connection>
+<connection>
+<consumer endpoint-name="ImageScraperPortTypeRole_partnerRole" service-name="ns12:scraper"/>
+<provider endpoint-name="ImageScraperPortTypeRole_myRole" service-name="ns4:ext"/>
+</connection>
+<connection>
+<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns10:logger"/>
+<provider endpoint-name="ErrorLoggerPort" service-name="ns31:ErrorLoggerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns2:logger"/>
+<provider endpoint-name="ErrorLoggerPort" service-name="ns31:ErrorLoggerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns12:logger"/>
+<provider endpoint-name="ErrorLoggerPort" service-name="ns31:ErrorLoggerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns30:logger"/>
+<provider endpoint-name="ErrorLoggerPort" service-name="ns31:ErrorLoggerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="FeedRegistryRole_partnerRole" service-name="ns14:feedRegistry"/>
+<provider endpoint-name="FeedRegistryPort" service-name="ns40:FeedRegistryService"/>
+</connection>
+<connection>
+<consumer endpoint-name="PictureAlbumsPortTypeRole_partnerRole" service-name="ns2:albums"/>
+<provider endpoint-name="PictureAlbumsPortTypeRole_myRole" service-name="ns22:ext"/>
+</connection>
+<connection>
+<consumer endpoint-name="FlickrWrapperRole_partnerRole" service-name="ns4:flickr"/>
+<provider endpoint-name="FlickrWrapperPort" service-name="ns41:FlickrWrapperService"/>
+</connection>
+<connection>
+<consumer endpoint-name="FlickrWrapperRole_partnerRole" service-name="ns22:flickr"/>
+<provider endpoint-name="FlickrWrapperPort" service-name="ns41:FlickrWrapperService"/>
+</connection>
+<connection>
+<consumer endpoint-name="RssReaderRole_partnerRole" service-name="ns14:rssReader"/>
+<provider endpoint-name="RssReaderPort" service-name="ns42:RssReaderService"/>
+</connection>
+<connection>
+<consumer endpoint-name="WeatherBugWebServicesSoapRole_partnerRole" service-name="ns16:weatherBugService"/>
+<provider endpoint-name="WeatherBugWebServicesSoap" service-name="ns43:WeatherBugWebServices"/>
+</connection>
+<connection>
+<consumer endpoint-name="BreakingNewsRole_partnerRole" service-name="ns28:breakNews"/>
+<provider endpoint-name="BreakingNewsPort" service-name="ns44:BreakingNewsService"/>
+</connection>
+<connection>
+<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns28:sources"/>
+<provider endpoint-name="SourceManagerPort" service-name="ns32:SourceManagerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns28:logger"/>
+<provider endpoint-name="ErrorLoggerPort" service-name="ns31:ErrorLoggerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="TeacherAbsencesRole_partnerRole" service-name="ns26:teachers"/>
+<provider endpoint-name="TeacherAbsencesPort" service-name="ns45:TeacherAbsencesService"/>
+</connection>
+<connection>
+<consumer endpoint-name="SourceManagerRole_partnerRole" service-name="ns26:sources"/>
+<provider endpoint-name="SourceManagerPort" service-name="ns32:SourceManagerService"/>
+</connection>
+<connection>
+<consumer endpoint-name="ErrorLoggerRole_partnerRole" service-name="ns26:logger"/>
+<provider endpoint-name="ErrorLoggerPort" service-name="ns31:ErrorLoggerService"/>
 </connection>
 </connections>
 </service-assembly>

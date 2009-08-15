@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns10="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns11="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns12="http://helper.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns13="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/PictureAlbumSource" xmlns:ns14="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/PictureAlbums" xmlns:ns15="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/TvShows" xmlns:ns16="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/ImageScraper" xmlns:ns17="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/InternalNewsSource" xmlns:ns18="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" xmlns:ns19="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/ImageScraperSource" xmlns:ns2="http://flickr.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns20="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/FeedReader" xmlns:ns21="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AbstractSource" xmlns:ns22="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/CachedFeedReader" xmlns:ns23="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/WeatherProxy" xmlns:ns24="http://api.wxbug.net/" xmlns:ns25="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/WeatherSource" xmlns:ns26="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TvShowsSource" xmlns:ns27="http://breaking.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns28="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/BreakingNewsSource" xmlns:ns29="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/WeatherProxy" xmlns:ns3="http://registry.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns30="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/AbstractSource" xmlns:ns31="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/BreakingNewsSource" xmlns:ns32="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/ImageScraperSource" xmlns:ns33="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/InternalNewsSource" xmlns:ns34="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/PictureAlbumSource" xmlns:ns35="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TvShowsSource" xmlns:ns36="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TwitterSource" xmlns:ns37="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/WeatherSource" xmlns:ns38="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/TvShows" xmlns:ns39="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/PictureAlbums" xmlns:ns4="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns40="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/ImageScraper" xmlns:ns41="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/FeedReader" xmlns:ns42="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/CachedFeedReader/CachedFeedReader" xmlns:ns5="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns6="http://registry.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns7="http://cache.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns8="http://picasa.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns9="http://partners.registry.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xlink="http://www.w3.org/2000/xlink">
+<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns10="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns11="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns12="http://helper.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns13="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/PictureAlbumSource" xmlns:ns14="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/PictureAlbums" xmlns:ns15="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/TvShows" xmlns:ns16="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/ImageScraper" xmlns:ns17="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/InternalNewsSource" xmlns:ns18="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" xmlns:ns19="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/ImageScraperSource" xmlns:ns2="http://flickr.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns20="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/FeedReader" xmlns:ns21="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AbstractSource" xmlns:ns22="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/CachedFeedReader" xmlns:ns23="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/WeatherProxy" xmlns:ns24="http://api.wxbug.net/" xmlns:ns25="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/WeatherSource" xmlns:ns26="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TvShowsSource" xmlns:ns27="http://breaking.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns28="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/BreakingNewsSource" xmlns:ns29="http://absence.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns3="http://registry.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns30="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TeacherAbsenceSource" xmlns:ns31="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/WeatherProxy" xmlns:ns32="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/AbstractSource" xmlns:ns33="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/BreakingNewsSource" xmlns:ns34="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/ImageScraperSource" xmlns:ns35="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/InternalNewsSource" xmlns:ns36="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/PictureAlbumSource" xmlns:ns37="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TeacherAbsenceSource" xmlns:ns38="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TvShowsSource" xmlns:ns39="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/TwitterSource" xmlns:ns4="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns40="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/WeatherSource" xmlns:ns41="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/TvShows" xmlns:ns42="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/PictureAlbums" xmlns:ns43="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/ImageScraper" xmlns:ns44="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/FeedReader" xmlns:ns45="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/CachedFeedReader/CachedFeedReader" xmlns:ns5="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns6="http://registry.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns7="http://cache.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns8="http://picasa.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns9="http://partners.registry.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xlink="http://www.w3.org/2000/xlink">
 <endpoints>
 <endpoint endpoint-name="RssReaderPort" interface-name="ns1:RssReader" name="endpoint1" service-name="ns1:RssReaderService"/>
 <endpoint endpoint-name="FlickrWrapperPort" interface-name="ns2:FlickrWrapper" name="endpoint2" service-name="ns2:FlickrWrapperService"/>
@@ -29,77 +29,81 @@
 <endpoint endpoint-name="TvShowsSourcePort" interface-name="ns26:TvShowsSourcePortType" name="endpoint26" service-name="ns26:TvShowsSourceService"/>
 <endpoint endpoint-name="BreakingNewsPort" interface-name="ns27:BreakingNews" name="endpoint27" service-name="ns27:BreakingNewsService"/>
 <endpoint endpoint-name="BreakingNewsSourcePort" interface-name="ns28:BreakingNewsSourcePortType" name="endpoint28" service-name="ns28:BreakingNewsSourceService"/>
-<endpoint display-name="external" endpoint-name="WeatherProxyPortTypeRole_myRole" file-path="WeatherProxy.bpel" interface-name="ns23:WeatherProxyPortType" name="endpoint29" process-name="WeatherProxy" service-name="ns29:external"/>
-<endpoint display-name="partnerKeys" endpoint-name="PartnerKeysRole_partnerRole" file-path="WeatherProxy.bpel" interface-name="ns9:PartnerKeys" name="endpoint30" process-name="WeatherProxy" service-name="ns29:partnerKeys"/>
-<endpoint display-name="weatherBugService" endpoint-name="WeatherBugWebServicesSoapRole_partnerRole" file-path="WeatherProxy.bpel" interface-name="ns24:WeatherBugWebServicesSoap" name="endpoint31" process-name="WeatherProxy" service-name="ns29:weatherBugService"/>
-<endpoint display-name="ext" endpoint-name="AbstractSourcePortTypeRole_myRole" file-path="AbstractSource.bpel" interface-name="ns21:AbstractSourcePortType" name="endpoint32" process-name="AbstractSource" service-name="ns30:ext"/>
-<endpoint display-name="ext" endpoint-name="BreakingNewsSourcePortTypeRole_myRole" file-path="BreakingNewsSource.bpel" interface-name="ns28:BreakingNewsSourcePortType" name="endpoint33" process-name="BreakingNewsSource" service-name="ns31:ext"/>
-<endpoint display-name="ext" endpoint-name="ImageScraperSourcePortTypeRole_myRole" file-path="ImageScraperSource.bpel" interface-name="ns19:ImageScraperSourcePortType" name="endpoint34" process-name="ImageScraperSource" service-name="ns32:ext"/>
-<endpoint display-name="ext" endpoint-name="InternalNewsSourcePortTypeRole_myRole" file-path="InternalNewsSource.bpel" interface-name="ns17:InternalNewsSourcePortType" name="endpoint35" process-name="InternalNewsSource" service-name="ns33:ext"/>
-<endpoint display-name="ext" endpoint-name="PictureAlbumSourcePortTypeRole_myRole" file-path="PictureAlbumSource.bpel" interface-name="ns13:PictureAlbumSourcePortType" name="endpoint36" process-name="PictureAlbumSource" service-name="ns34:ext"/>
-<endpoint display-name="ext" endpoint-name="TvShowsSourcePortTypeRole_myRole" file-path="TvShowsSource.bpel" interface-name="ns26:TvShowsSourcePortType" name="endpoint37" process-name="TvShowsSource" service-name="ns35:ext"/>
-<endpoint display-name="ext" endpoint-name="TwitterSourcePortTypeRole_myRole" file-path="TwitterSource.bpel" interface-name="ns18:TwitterSourcePortType" name="endpoint38" process-name="TwitterSource" service-name="ns36:ext"/>
-<endpoint display-name="ext" endpoint-name="WeatherSourcePortTypeRole_myRole" file-path="WeatherSource.bpel" interface-name="ns25:WeatherSourcePortType" name="endpoint39" process-name="WeatherSource" service-name="ns37:ext"/>
-<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="AbstractSource.bpel" interface-name="ns11:SourceManager" name="endpoint40" process-name="AbstractSource" service-name="ns30:sources"/>
-<endpoint display-name="logger" endpoint-name="ErrorLoggerRole_partnerRole" file-path="AbstractSource.bpel" interface-name="ns4:ErrorLogger" name="endpoint41" process-name="AbstractSource" service-name="ns30:logger"/>
-<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="BreakingNewsSource.bpel" interface-name="ns11:SourceManager" name="endpoint42" process-name="BreakingNewsSource" service-name="ns31:sources"/>
-<endpoint display-name="logger" endpoint-name="ErrorLoggerRole_partnerRole" file-path="BreakingNewsSource.bpel" interface-name="ns4:ErrorLogger" name="endpoint43" process-name="BreakingNewsSource" service-name="ns31:logger"/>
-<endpoint display-name="breakNews" endpoint-name="BreakingNewsRole_partnerRole" file-path="BreakingNewsSource.bpel" interface-name="ns27:BreakingNews" name="endpoint44" process-name="BreakingNewsSource" service-name="ns31:breakNews"/>
-<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="ImageScraperSource.bpel" interface-name="ns11:SourceManager" name="endpoint45" process-name="ImageScraperSource" service-name="ns32:sources"/>
-<endpoint display-name="logger" endpoint-name="ErrorLoggerRole_partnerRole" file-path="ImageScraperSource.bpel" interface-name="ns4:ErrorLogger" name="endpoint46" process-name="ImageScraperSource" service-name="ns32:logger"/>
-<endpoint display-name="scraper" endpoint-name="ImageScraperPortTypeRole_partnerRole" file-path="ImageScraperSource.bpel" interface-name="ns16:ImageScraperPortType" name="endpoint47" process-name="ImageScraperSource" service-name="ns32:scraper"/>
-<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="InternalNewsSource.bpel" interface-name="ns11:SourceManager" name="endpoint48" process-name="InternalNewsSource" service-name="ns33:sources"/>
-<endpoint display-name="internal" endpoint-name="InternalNewsRole_partnerRole" file-path="InternalNewsSource.bpel" interface-name="ns5:InternalNews" name="endpoint49" process-name="InternalNewsSource" service-name="ns33:internal"/>
-<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="PictureAlbumSource.bpel" interface-name="ns11:SourceManager" name="endpoint50" process-name="PictureAlbumSource" service-name="ns34:sources"/>
-<endpoint display-name="logger" endpoint-name="ErrorLoggerRole_partnerRole" file-path="PictureAlbumSource.bpel" interface-name="ns4:ErrorLogger" name="endpoint51" process-name="PictureAlbumSource" service-name="ns34:logger"/>
-<endpoint display-name="albums" endpoint-name="PictureAlbumsPortTypeRole_partnerRole" file-path="PictureAlbumSource.bpel" interface-name="ns14:PictureAlbumsPortType" name="endpoint52" process-name="PictureAlbumSource" service-name="ns34:albums"/>
-<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="TvShowsSource.bpel" interface-name="ns11:SourceManager" name="endpoint53" process-name="TvShowsSource" service-name="ns35:sources"/>
-<endpoint display-name="logger" endpoint-name="ErrorLoggerRole_partnerRole" file-path="TvShowsSource.bpel" interface-name="ns4:ErrorLogger" name="endpoint54" process-name="TvShowsSource" service-name="ns35:logger"/>
-<endpoint display-name="tv" endpoint-name="TvShowsPortTypeRole_partnerRole" file-path="TvShowsSource.bpel" interface-name="ns15:TvShowsPortType" name="endpoint55" process-name="TvShowsSource" service-name="ns35:tv"/>
-<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="TwitterSource.bpel" interface-name="ns11:SourceManager" name="endpoint56" process-name="TwitterSource" service-name="ns36:sources"/>
-<endpoint display-name="logger" endpoint-name="ErrorLoggerRole_partnerRole" file-path="TwitterSource.bpel" interface-name="ns4:ErrorLogger" name="endpoint57" process-name="TwitterSource" service-name="ns36:logger"/>
-<endpoint display-name="twitter" endpoint-name="TwitterWrapperRole_partnerRole" file-path="TwitterSource.bpel" interface-name="ns10:TwitterWrapper" name="endpoint58" process-name="TwitterSource" service-name="ns36:twitter"/>
-<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="WeatherSource.bpel" interface-name="ns11:SourceManager" name="endpoint59" process-name="WeatherSource" service-name="ns37:sources"/>
-<endpoint display-name="logger" endpoint-name="ErrorLoggerRole_partnerRole" file-path="WeatherSource.bpel" interface-name="ns4:ErrorLogger" name="endpoint60" process-name="WeatherSource" service-name="ns37:logger"/>
-<endpoint display-name="weather" endpoint-name="WeatherProxyPortTypeRole_partnerRole" file-path="WeatherSource.bpel" interface-name="ns23:WeatherProxyPortType" name="endpoint61" process-name="WeatherSource" service-name="ns37:weather"/>
-<endpoint display-name="ext" endpoint-name="TvShowsPortTypeRole_myRole" file-path="TvShows.bpel" interface-name="ns15:TvShowsPortType" name="endpoint62" process-name="TvShows" service-name="ns38:ext"/>
-<endpoint display-name="cachedReader" endpoint-name="CachedFeedReaderPortTypeRole_partnerRole" file-path="TvShows.bpel" interface-name="ns22:CachedFeedReaderPortType" name="endpoint63" process-name="TvShows" service-name="ns38:cachedReader"/>
-<endpoint display-name="ext" endpoint-name="PictureAlbumsPortTypeRole_myRole" file-path="PictureAlbums.bpel" interface-name="ns14:PictureAlbumsPortType" name="endpoint64" process-name="PictureAlbums" service-name="ns39:ext"/>
-<endpoint display-name="registry" endpoint-name="PictureAlbumRegistryRole_partnerRole" file-path="PictureAlbums.bpel" interface-name="ns6:PictureAlbumRegistry" name="endpoint65" process-name="PictureAlbums" service-name="ns39:registry"/>
-<endpoint display-name="key_server" endpoint-name="PartnerKeysRole_partnerRole" file-path="PictureAlbums.bpel" interface-name="ns9:PartnerKeys" name="endpoint66" process-name="PictureAlbums" service-name="ns39:key_server"/>
-<endpoint display-name="flickr" endpoint-name="FlickrWrapperRole_partnerRole" file-path="PictureAlbums.bpel" interface-name="ns2:FlickrWrapper" name="endpoint67" process-name="PictureAlbums" service-name="ns39:flickr"/>
-<endpoint display-name="picasa" endpoint-name="PicasaWrapperRole_partnerRole" file-path="PictureAlbums.bpel" interface-name="ns8:PicasaWrapper" name="endpoint68" process-name="PictureAlbums" service-name="ns39:picasa"/>
-<endpoint display-name="helper" endpoint-name="PictureSetRole_partnerRole" file-path="PictureAlbums.bpel" interface-name="ns12:PictureSet" name="endpoint69" process-name="PictureAlbums" service-name="ns39:helper"/>
-<endpoint display-name="ext" endpoint-name="ImageScraperPortTypeRole_myRole" file-path="ImageScraper.bpel" interface-name="ns16:ImageScraperPortType" name="endpoint70" process-name="ImageScraper" service-name="ns40:ext"/>
-<endpoint display-name="key_registry" endpoint-name="key_registryRole_partnerRole" file-path="ImageScraper.bpel" interface-name="ns9:PartnerKeys" name="endpoint71" process-name="ImageScraper" service-name="ns40:key_registry"/>
-<endpoint display-name="picasa" endpoint-name="PicasaWrapperRole_partnerRole" file-path="ImageScraper.bpel" interface-name="ns8:PicasaWrapper" name="endpoint72" process-name="ImageScraper" service-name="ns40:picasa"/>
-<endpoint display-name="flickr" endpoint-name="FlickrWrapperRole_partnerRole" file-path="ImageScraper.bpel" interface-name="ns2:FlickrWrapper" name="endpoint73" process-name="ImageScraper" service-name="ns40:flickr"/>
-<endpoint display-name="helper" endpoint-name="PictureSetRole_partnerRole" file-path="ImageScraper.bpel" interface-name="ns12:PictureSet" name="endpoint74" process-name="ImageScraper" service-name="ns40:helper"/>
-<endpoint display-name="external" endpoint-name="FeedReaderPortTypeRole_myRole" file-path="FeedReader.bpel" interface-name="ns20:FeedReaderPortType" name="endpoint75" process-name="FeedReader" service-name="ns41:external"/>
-<endpoint display-name="feedRegistry" endpoint-name="FeedRegistryRole_partnerRole" file-path="FeedReader.bpel" interface-name="ns3:FeedRegistry" name="endpoint76" process-name="FeedReader" service-name="ns41:feedRegistry"/>
-<endpoint display-name="rssReader" endpoint-name="RssReaderRole_partnerRole" file-path="FeedReader.bpel" interface-name="ns1:RssReader" name="endpoint77" process-name="FeedReader" service-name="ns41:rssReader"/>
-<endpoint display-name="external" endpoint-name="CachedFeedReaderPortTypeRole_myRole" file-path="CachedFeedReader.bpel" interface-name="ns22:CachedFeedReaderPortType" name="endpoint78" process-name="CachedFeedReader" service-name="ns42:external"/>
-<endpoint display-name="dataCache" endpoint-name="DataCacheRole_partnerRole" file-path="CachedFeedReader.bpel" interface-name="ns7:DataCache" name="endpoint79" process-name="CachedFeedReader" service-name="ns42:dataCache"/>
-<endpoint display-name="feedReader" endpoint-name="FeedReaderPortTypeRole_partnerRole" file-path="CachedFeedReader.bpel" interface-name="ns20:FeedReaderPortType" name="endpoint80" process-name="CachedFeedReader" service-name="ns42:feedReader"/>
+<endpoint endpoint-name="TeacherAbsencesPort" interface-name="ns29:TeacherAbsences" name="endpoint29" service-name="ns29:TeacherAbsencesService"/>
+<endpoint endpoint-name="TeacherAbsenceSourcePort" interface-name="ns30:TeacherAbsenceSourcePortType" name="endpoint30" service-name="ns30:TeacherAbsenceSourceService"/>
+<endpoint display-name="external" endpoint-name="WeatherProxyPortTypeRole_myRole" file-path="WeatherProxy.bpel" interface-name="ns23:WeatherProxyPortType" name="endpoint31" process-name="WeatherProxy" service-name="ns31:external"/>
+<endpoint display-name="partnerKeys" endpoint-name="PartnerKeysRole_partnerRole" file-path="WeatherProxy.bpel" interface-name="ns9:PartnerKeys" name="endpoint32" process-name="WeatherProxy" service-name="ns31:partnerKeys"/>
+<endpoint display-name="weatherBugService" endpoint-name="WeatherBugWebServicesSoapRole_partnerRole" file-path="WeatherProxy.bpel" interface-name="ns24:WeatherBugWebServicesSoap" name="endpoint33" process-name="WeatherProxy" service-name="ns31:weatherBugService"/>
+<endpoint display-name="ext" endpoint-name="AbstractSourcePortTypeRole_myRole" file-path="AbstractSource.bpel" interface-name="ns21:AbstractSourcePortType" name="endpoint34" process-name="AbstractSource" service-name="ns32:ext"/>
+<endpoint display-name="ext" endpoint-name="BreakingNewsSourcePortTypeRole_myRole" file-path="BreakingNewsSource.bpel" interface-name="ns28:BreakingNewsSourcePortType" name="endpoint35" process-name="BreakingNewsSource" service-name="ns33:ext"/>
+<endpoint display-name="ext" endpoint-name="ImageScraperSourcePortTypeRole_myRole" file-path="ImageScraperSource.bpel" interface-name="ns19:ImageScraperSourcePortType" name="endpoint36" process-name="ImageScraperSource" service-name="ns34:ext"/>
+<endpoint display-name="ext" endpoint-name="InternalNewsSourcePortTypeRole_myRole" file-path="InternalNewsSource.bpel" interface-name="ns17:InternalNewsSourcePortType" name="endpoint37" process-name="InternalNewsSource" service-name="ns35:ext"/>
+<endpoint display-name="ext" endpoint-name="PictureAlbumSourcePortTypeRole_myRole" file-path="PictureAlbumSource.bpel" interface-name="ns13:PictureAlbumSourcePortType" name="endpoint38" process-name="PictureAlbumSource" service-name="ns36:ext"/>
+<endpoint display-name="ext" endpoint-name="TeacherAbsenceSourcePortTypeRole_myRole" file-path="TeacherAbsenceSource.bpel" interface-name="ns30:TeacherAbsenceSourcePortType" name="endpoint39" process-name="TeacherAbsenceSource" service-name="ns37:ext"/>
+<endpoint display-name="ext" endpoint-name="TvShowsSourcePortTypeRole_myRole" file-path="TvShowsSource.bpel" interface-name="ns26:TvShowsSourcePortType" name="endpoint40" process-name="TvShowsSource" service-name="ns38:ext"/>
+<endpoint display-name="ext" endpoint-name="TwitterSourcePortTypeRole_myRole" file-path="TwitterSource.bpel" interface-name="ns18:TwitterSourcePortType" name="endpoint41" process-name="TwitterSource" service-name="ns39:ext"/>
+<endpoint display-name="ext" endpoint-name="WeatherSourcePortTypeRole_myRole" file-path="WeatherSource.bpel" interface-name="ns25:WeatherSourcePortType" name="endpoint42" process-name="WeatherSource" service-name="ns40:ext"/>
+<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="AbstractSource.bpel" interface-name="ns11:SourceManager" name="endpoint43" process-name="AbstractSource" service-name="ns32:sources"/>
+<endpoint display-name="logger" endpoint-name="ErrorLoggerRole_partnerRole" file-path="AbstractSource.bpel" interface-name="ns4:ErrorLogger" name="endpoint44" process-name="AbstractSource" service-name="ns32:logger"/>
+<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="BreakingNewsSource.bpel" interface-name="ns11:SourceManager" name="endpoint45" process-name="BreakingNewsSource" service-name="ns33:sources"/>
+<endpoint display-name="logger" endpoint-name="ErrorLoggerRole_partnerRole" file-path="BreakingNewsSource.bpel" interface-name="ns4:ErrorLogger" name="endpoint46" process-name="BreakingNewsSource" service-name="ns33:logger"/>
+<endpoint display-name="breakNews" endpoint-name="BreakingNewsRole_partnerRole" file-path="BreakingNewsSource.bpel" interface-name="ns27:BreakingNews" name="endpoint47" process-name="BreakingNewsSource" service-name="ns33:breakNews"/>
+<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="ImageScraperSource.bpel" interface-name="ns11:SourceManager" name="endpoint48" process-name="ImageScraperSource" service-name="ns34:sources"/>
+<endpoint display-name="logger" endpoint-name="ErrorLoggerRole_partnerRole" file-path="ImageScraperSource.bpel" interface-name="ns4:ErrorLogger" name="endpoint49" process-name="ImageScraperSource" service-name="ns34:logger"/>
+<endpoint display-name="scraper" endpoint-name="ImageScraperPortTypeRole_partnerRole" file-path="ImageScraperSource.bpel" interface-name="ns16:ImageScraperPortType" name="endpoint50" process-name="ImageScraperSource" service-name="ns34:scraper"/>
+<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="InternalNewsSource.bpel" interface-name="ns11:SourceManager" name="endpoint51" process-name="InternalNewsSource" service-name="ns35:sources"/>
+<endpoint display-name="internal" endpoint-name="InternalNewsRole_partnerRole" file-path="InternalNewsSource.bpel" interface-name="ns5:InternalNews" name="endpoint52" process-name="InternalNewsSource" service-name="ns35:internal"/>
+<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="PictureAlbumSource.bpel" interface-name="ns11:SourceManager" name="endpoint53" process-name="PictureAlbumSource" service-name="ns36:sources"/>
+<endpoint display-name="logger" endpoint-name="ErrorLoggerRole_partnerRole" file-path="PictureAlbumSource.bpel" interface-name="ns4:ErrorLogger" name="endpoint54" process-name="PictureAlbumSource" service-name="ns36:logger"/>
+<endpoint display-name="albums" endpoint-name="PictureAlbumsPortTypeRole_partnerRole" file-path="PictureAlbumSource.bpel" interface-name="ns14:PictureAlbumsPortType" name="endpoint55" process-name="PictureAlbumSource" service-name="ns36:albums"/>
+<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="TeacherAbsenceSource.bpel" interface-name="ns11:SourceManager" name="endpoint56" process-name="TeacherAbsenceSource" service-name="ns37:sources"/>
+<endpoint display-name="logger" endpoint-name="ErrorLoggerRole_partnerRole" file-path="TeacherAbsenceSource.bpel" interface-name="ns4:ErrorLogger" name="endpoint57" process-name="TeacherAbsenceSource" service-name="ns37:logger"/>
+<endpoint display-name="teachers" endpoint-name="TeacherAbsencesRole_partnerRole" file-path="TeacherAbsenceSource.bpel" interface-name="ns29:TeacherAbsences" name="endpoint58" process-name="TeacherAbsenceSource" service-name="ns37:teachers"/>
+<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="TvShowsSource.bpel" interface-name="ns11:SourceManager" name="endpoint59" process-name="TvShowsSource" service-name="ns38:sources"/>
+<endpoint display-name="logger" endpoint-name="ErrorLoggerRole_partnerRole" file-path="TvShowsSource.bpel" interface-name="ns4:ErrorLogger" name="endpoint60" process-name="TvShowsSource" service-name="ns38:logger"/>
+<endpoint display-name="tv" endpoint-name="TvShowsPortTypeRole_partnerRole" file-path="TvShowsSource.bpel" interface-name="ns15:TvShowsPortType" name="endpoint61" process-name="TvShowsSource" service-name="ns38:tv"/>
+<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="TwitterSource.bpel" interface-name="ns11:SourceManager" name="endpoint62" process-name="TwitterSource" service-name="ns39:sources"/>
+<endpoint display-name="logger" endpoint-name="ErrorLoggerRole_partnerRole" file-path="TwitterSource.bpel" interface-name="ns4:ErrorLogger" name="endpoint63" process-name="TwitterSource" service-name="ns39:logger"/>
+<endpoint display-name="twitter" endpoint-name="TwitterWrapperRole_partnerRole" file-path="TwitterSource.bpel" interface-name="ns10:TwitterWrapper" name="endpoint64" process-name="TwitterSource" service-name="ns39:twitter"/>
+<endpoint display-name="sources" endpoint-name="SourceManagerRole_partnerRole" file-path="WeatherSource.bpel" interface-name="ns11:SourceManager" name="endpoint65" process-name="WeatherSource" service-name="ns40:sources"/>
+<endpoint display-name="logger" endpoint-name="ErrorLoggerRole_partnerRole" file-path="WeatherSource.bpel" interface-name="ns4:ErrorLogger" name="endpoint66" process-name="WeatherSource" service-name="ns40:logger"/>
+<endpoint display-name="weather" endpoint-name="WeatherProxyPortTypeRole_partnerRole" file-path="WeatherSource.bpel" interface-name="ns23:WeatherProxyPortType" name="endpoint67" process-name="WeatherSource" service-name="ns40:weather"/>
+<endpoint display-name="ext" endpoint-name="TvShowsPortTypeRole_myRole" file-path="TvShows.bpel" interface-name="ns15:TvShowsPortType" name="endpoint68" process-name="TvShows" service-name="ns41:ext"/>
+<endpoint display-name="cachedReader" endpoint-name="CachedFeedReaderPortTypeRole_partnerRole" file-path="TvShows.bpel" interface-name="ns22:CachedFeedReaderPortType" name="endpoint69" process-name="TvShows" service-name="ns41:cachedReader"/>
+<endpoint display-name="ext" endpoint-name="PictureAlbumsPortTypeRole_myRole" file-path="PictureAlbums.bpel" interface-name="ns14:PictureAlbumsPortType" name="endpoint70" process-name="PictureAlbums" service-name="ns42:ext"/>
+<endpoint display-name="registry" endpoint-name="PictureAlbumRegistryRole_partnerRole" file-path="PictureAlbums.bpel" interface-name="ns6:PictureAlbumRegistry" name="endpoint71" process-name="PictureAlbums" service-name="ns42:registry"/>
+<endpoint display-name="key_server" endpoint-name="PartnerKeysRole_partnerRole" file-path="PictureAlbums.bpel" interface-name="ns9:PartnerKeys" name="endpoint72" process-name="PictureAlbums" service-name="ns42:key_server"/>
+<endpoint display-name="flickr" endpoint-name="FlickrWrapperRole_partnerRole" file-path="PictureAlbums.bpel" interface-name="ns2:FlickrWrapper" name="endpoint73" process-name="PictureAlbums" service-name="ns42:flickr"/>
+<endpoint display-name="picasa" endpoint-name="PicasaWrapperRole_partnerRole" file-path="PictureAlbums.bpel" interface-name="ns8:PicasaWrapper" name="endpoint74" process-name="PictureAlbums" service-name="ns42:picasa"/>
+<endpoint display-name="helper" endpoint-name="PictureSetRole_partnerRole" file-path="PictureAlbums.bpel" interface-name="ns12:PictureSet" name="endpoint75" process-name="PictureAlbums" service-name="ns42:helper"/>
+<endpoint display-name="ext" endpoint-name="ImageScraperPortTypeRole_myRole" file-path="ImageScraper.bpel" interface-name="ns16:ImageScraperPortType" name="endpoint76" process-name="ImageScraper" service-name="ns43:ext"/>
+<endpoint display-name="key_registry" endpoint-name="key_registryRole_partnerRole" file-path="ImageScraper.bpel" interface-name="ns9:PartnerKeys" name="endpoint77" process-name="ImageScraper" service-name="ns43:key_registry"/>
+<endpoint display-name="picasa" endpoint-name="PicasaWrapperRole_partnerRole" file-path="ImageScraper.bpel" interface-name="ns8:PicasaWrapper" name="endpoint78" process-name="ImageScraper" service-name="ns43:picasa"/>
+<endpoint display-name="flickr" endpoint-name="FlickrWrapperRole_partnerRole" file-path="ImageScraper.bpel" interface-name="ns2:FlickrWrapper" name="endpoint79" process-name="ImageScraper" service-name="ns43:flickr"/>
+<endpoint display-name="helper" endpoint-name="PictureSetRole_partnerRole" file-path="ImageScraper.bpel" interface-name="ns12:PictureSet" name="endpoint80" process-name="ImageScraper" service-name="ns43:helper"/>
+<endpoint display-name="external" endpoint-name="FeedReaderPortTypeRole_myRole" file-path="FeedReader.bpel" interface-name="ns20:FeedReaderPortType" name="endpoint81" process-name="FeedReader" service-name="ns44:external"/>
+<endpoint display-name="feedRegistry" endpoint-name="FeedRegistryRole_partnerRole" file-path="FeedReader.bpel" interface-name="ns3:FeedRegistry" name="endpoint82" process-name="FeedReader" service-name="ns44:feedRegistry"/>
+<endpoint display-name="rssReader" endpoint-name="RssReaderRole_partnerRole" file-path="FeedReader.bpel" interface-name="ns1:RssReader" name="endpoint83" process-name="FeedReader" service-name="ns44:rssReader"/>
+<endpoint display-name="external" endpoint-name="CachedFeedReaderPortTypeRole_myRole" file-path="CachedFeedReader.bpel" interface-name="ns22:CachedFeedReaderPortType" name="endpoint84" process-name="CachedFeedReader" service-name="ns45:external"/>
+<endpoint display-name="dataCache" endpoint-name="DataCacheRole_partnerRole" file-path="CachedFeedReader.bpel" interface-name="ns7:DataCache" name="endpoint85" process-name="CachedFeedReader" service-name="ns45:dataCache"/>
+<endpoint display-name="feedReader" endpoint-name="FeedReaderPortTypeRole_partnerRole" file-path="CachedFeedReader.bpel" interface-name="ns20:FeedReaderPortType" name="endpoint86" process-name="CachedFeedReader" service-name="ns45:feedReader"/>
 </endpoints>
 <service-units>
 <service-engine-service-unit artifacts-zip="WeatherProxy.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="jSeduiteBpelComponent-WeatherProxy" unit-name="WeatherProxy" unknown="false" x="146" y="97">
-<provides endpoint="endpoint29"/>
-<consumes endpoint="endpoint30"/>
-<consumes endpoint="endpoint31"/>
+<provides endpoint="endpoint31"/>
+<consumes endpoint="endpoint32"/>
+<consumes endpoint="endpoint33"/>
 </service-engine-service-unit>
 <service-engine-service-unit artifacts-zip="Sources.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="jSeduiteBpelComponent-Sources" unit-name="Sources" unknown="false" x="147" y="277">
-<provides endpoint="endpoint32"/>
-<provides endpoint="endpoint33"/>
 <provides endpoint="endpoint34"/>
 <provides endpoint="endpoint35"/>
 <provides endpoint="endpoint36"/>
 <provides endpoint="endpoint37"/>
 <provides endpoint="endpoint38"/>
 <provides endpoint="endpoint39"/>
-<consumes endpoint="endpoint40"/>
-<consumes endpoint="endpoint41"/>
-<consumes endpoint="endpoint42"/>
+<provides endpoint="endpoint40"/>
+<provides endpoint="endpoint41"/>
+<provides endpoint="endpoint42"/>
 <consumes endpoint="endpoint43"/>
 <consumes endpoint="endpoint44"/>
 <consumes endpoint="endpoint45"/>
@@ -119,35 +123,41 @@
 <consumes endpoint="endpoint59"/>
 <consumes endpoint="endpoint60"/>
 <consumes endpoint="endpoint61"/>
-</service-engine-service-unit>
-<service-engine-service-unit artifacts-zip="TvShows.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="jSeduiteBpelComponent-TvShows" unit-name="TvShows" unknown="false" x="161" y="1701">
-<provides endpoint="endpoint62"/>
+<consumes endpoint="endpoint62"/>
 <consumes endpoint="endpoint63"/>
-</service-engine-service-unit>
-<service-engine-service-unit artifacts-zip="PictureAlbums.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="jSeduiteBpelComponent-PictureAlbums" unit-name="PictureAlbums" unknown="false" x="143" y="1455">
-<provides endpoint="endpoint64"/>
+<consumes endpoint="endpoint64"/>
 <consumes endpoint="endpoint65"/>
 <consumes endpoint="endpoint66"/>
 <consumes endpoint="endpoint67"/>
-<consumes endpoint="endpoint68"/>
+</service-engine-service-unit>
+<service-engine-service-unit artifacts-zip="TvShows.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="jSeduiteBpelComponent-TvShows" unit-name="TvShows" unknown="false" x="161" y="1701">
+<provides endpoint="endpoint68"/>
 <consumes endpoint="endpoint69"/>
 </service-engine-service-unit>
-<service-engine-service-unit artifacts-zip="ImageScraper.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="jSeduiteBpelComponent-ImageScraper" unit-name="ImageScraper" unknown="false" x="147" y="1231">
+<service-engine-service-unit artifacts-zip="PictureAlbums.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="jSeduiteBpelComponent-PictureAlbums" unit-name="PictureAlbums" unknown="false" x="143" y="1455">
 <provides endpoint="endpoint70"/>
 <consumes endpoint="endpoint71"/>
 <consumes endpoint="endpoint72"/>
 <consumes endpoint="endpoint73"/>
 <consumes endpoint="endpoint74"/>
+<consumes endpoint="endpoint75"/>
 </service-engine-service-unit>
-<service-engine-service-unit artifacts-zip="FeedReader.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="jSeduiteBpelComponent-FeedReader" unit-name="FeedReader" unknown="false" x="153" y="1051">
-<provides endpoint="endpoint75"/>
-<consumes endpoint="endpoint76"/>
+<service-engine-service-unit artifacts-zip="ImageScraper.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="jSeduiteBpelComponent-ImageScraper" unit-name="ImageScraper" unknown="false" x="147" y="1231">
+<provides endpoint="endpoint76"/>
 <consumes endpoint="endpoint77"/>
-</service-engine-service-unit>
-<service-engine-service-unit artifacts-zip="CachedFeedReader.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="jSeduiteBpelComponent-CachedFeedReader" unit-name="CachedFeedReader" unknown="false" x="130" y="871">
-<provides endpoint="endpoint78"/>
+<consumes endpoint="endpoint78"/>
 <consumes endpoint="endpoint79"/>
 <consumes endpoint="endpoint80"/>
+</service-engine-service-unit>
+<service-engine-service-unit artifacts-zip="FeedReader.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="jSeduiteBpelComponent-FeedReader" unit-name="FeedReader" unknown="false" x="153" y="1051">
+<provides endpoint="endpoint81"/>
+<consumes endpoint="endpoint82"/>
+<consumes endpoint="endpoint83"/>
+</service-engine-service-unit>
+<service-engine-service-unit artifacts-zip="CachedFeedReader.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="jSeduiteBpelComponent-CachedFeedReader" unit-name="CachedFeedReader" unknown="false" x="130" y="871">
+<provides endpoint="endpoint84"/>
+<consumes endpoint="endpoint85"/>
+<consumes endpoint="endpoint86"/>
 </service-engine-service-unit>
 <binding-component-service-unit artifacts-zip="sun-http-binding.jar" component-name="sun-http-binding" description="Represents this Service Unit" name="jSeduiteBpelComponent-sun-http-binding" unit-name="sun-http-binding">
 <ports>
@@ -232,6 +242,11 @@
 <provides endpoint="endpoint14"/>
 </port>
 <port x="0" y="-1">
+<link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/TeacherAbsencesService.wsdl#xpointer(/definitions/service[@name='TeacherAbsencesService']/port[@name='TeacherAbsencesPort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint29"/>
+<provides endpoint="endpoint29"/>
+</port>
+<port x="0" y="-1">
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/TvShows.wsdl#xpointer(/definitions/service[@name='TvShowsService']/port[@name='TvShowsPort'])" xlink:type="simple"/>
 <consumes endpoint="endpoint15"/>
 <provides endpoint="endpoint15"/>
@@ -277,6 +292,11 @@
 <provides endpoint="endpoint13"/>
 </port>
 <port x="0" y="-1">
+<link xlink:href="../jbiServiceUnits/Sources/TeacherAbsenceSource.wsdl#xpointer(/definitions/service[@name='TeacherAbsenceSourceService']/port[@name='TeacherAbsenceSourcePort'])" xlink:type="simple"/>
+<consumes endpoint="endpoint30"/>
+<provides endpoint="endpoint30"/>
+</port>
+<port x="0" y="-1">
 <link xlink:href="../jbiServiceUnits/Sources/TvShowsSource.wsdl#xpointer(/definitions/service[@name='TvShowsSourceService']/port[@name='TvShowsSourcePort'])" xlink:type="simple"/>
 <consumes endpoint="endpoint26"/>
 <provides endpoint="endpoint26"/>
@@ -295,58 +315,62 @@
 </binding-component-service-unit>
 </service-units>
 <connections>
-<connection consumer="endpoint13" provider="endpoint36" state="unchanged"/>
-<connection consumer="endpoint16" provider="endpoint70" state="unchanged"/>
-<connection consumer="endpoint25" provider="endpoint39" state="unchanged"/>
-<connection consumer="endpoint17" provider="endpoint35" state="unchanged"/>
-<connection consumer="endpoint18" provider="endpoint38" state="unchanged"/>
-<connection consumer="endpoint19" provider="endpoint34" state="unchanged"/>
-<connection consumer="endpoint20" provider="endpoint75" state="unchanged"/>
-<connection consumer="endpoint23" provider="endpoint29" state="unchanged"/>
-<connection consumer="endpoint26" provider="endpoint37" state="unchanged"/>
-<connection consumer="endpoint22" provider="endpoint78" state="unchanged"/>
-<connection consumer="endpoint14" provider="endpoint64" state="unchanged"/>
-<connection consumer="endpoint15" provider="endpoint62" state="unchanged"/>
-<connection consumer="endpoint28" provider="endpoint33" state="unchanged"/>
-<connection consumer="endpoint21" provider="endpoint32" state="unchanged"/>
-<connection consumer="endpoint43" provider="endpoint4" state="unchanged"/>
-<connection consumer="endpoint42" provider="endpoint11" state="unchanged"/>
-<connection consumer="endpoint44" provider="endpoint27" state="unchanged"/>
-<connection consumer="endpoint31" provider="endpoint24" state="unchanged"/>
-<connection consumer="endpoint77" provider="endpoint1" state="unchanged"/>
-<connection consumer="endpoint67" provider="endpoint2" state="unchanged"/>
-<connection consumer="endpoint73" provider="endpoint2" state="unchanged"/>
-<connection consumer="endpoint52" provider="endpoint64" state="unchanged"/>
-<connection consumer="endpoint76" provider="endpoint3" state="unchanged"/>
-<connection consumer="endpoint41" provider="endpoint4" state="unchanged"/>
-<connection consumer="endpoint46" provider="endpoint4" state="unchanged"/>
-<connection consumer="endpoint51" provider="endpoint4" state="unchanged"/>
-<connection consumer="endpoint57" provider="endpoint4" state="unchanged"/>
-<connection consumer="endpoint47" provider="endpoint70" state="unchanged"/>
-<connection consumer="endpoint49" provider="endpoint5" state="unchanged"/>
-<connection consumer="endpoint80" provider="endpoint75" state="unchanged"/>
-<connection consumer="endpoint65" provider="endpoint6" state="unchanged"/>
-<connection consumer="endpoint79" provider="endpoint7" state="unchanged"/>
-<connection consumer="endpoint68" provider="endpoint8" state="unchanged"/>
-<connection consumer="endpoint72" provider="endpoint8" state="unchanged"/>
-<connection consumer="endpoint66" provider="endpoint9" state="unchanged"/>
-<connection consumer="endpoint71" provider="endpoint9" state="unchanged"/>
-<connection consumer="endpoint58" provider="endpoint10" state="unchanged"/>
-<connection consumer="endpoint40" provider="endpoint11" state="unchanged"/>
-<connection consumer="endpoint45" provider="endpoint11" state="unchanged"/>
-<connection consumer="endpoint48" provider="endpoint11" state="unchanged"/>
-<connection consumer="endpoint50" provider="endpoint11" state="unchanged"/>
-<connection consumer="endpoint56" provider="endpoint11" state="unchanged"/>
-<connection consumer="endpoint63" provider="endpoint78" state="unchanged"/>
-<connection consumer="endpoint69" provider="endpoint12" state="unchanged"/>
-<connection consumer="endpoint74" provider="endpoint12" state="unchanged"/>
-<connection consumer="endpoint30" provider="endpoint9" state="unchanged"/>
-<connection consumer="endpoint59" provider="endpoint11" state="unchanged"/>
-<connection consumer="endpoint61" provider="endpoint29" state="unchanged"/>
+<connection consumer="endpoint13" provider="endpoint38" state="unchanged"/>
+<connection consumer="endpoint16" provider="endpoint76" state="unchanged"/>
+<connection consumer="endpoint25" provider="endpoint42" state="unchanged"/>
+<connection consumer="endpoint17" provider="endpoint37" state="unchanged"/>
+<connection consumer="endpoint18" provider="endpoint41" state="unchanged"/>
+<connection consumer="endpoint19" provider="endpoint36" state="unchanged"/>
+<connection consumer="endpoint20" provider="endpoint81" state="unchanged"/>
+<connection consumer="endpoint23" provider="endpoint31" state="unchanged"/>
+<connection consumer="endpoint26" provider="endpoint40" state="unchanged"/>
+<connection consumer="endpoint22" provider="endpoint84" state="unchanged"/>
+<connection consumer="endpoint14" provider="endpoint70" state="unchanged"/>
+<connection consumer="endpoint15" provider="endpoint68" state="unchanged"/>
+<connection consumer="endpoint30" provider="endpoint39" state="unchanged"/>
+<connection consumer="endpoint28" provider="endpoint35" state="unchanged"/>
+<connection consumer="endpoint21" provider="endpoint34" state="unchanged"/>
 <connection consumer="endpoint60" provider="endpoint4" state="unchanged"/>
-<connection consumer="endpoint55" provider="endpoint62" state="unchanged"/>
+<connection consumer="endpoint59" provider="endpoint11" state="unchanged"/>
+<connection consumer="endpoint61" provider="endpoint68" state="unchanged"/>
+<connection consumer="endpoint66" provider="endpoint4" state="unchanged"/>
+<connection consumer="endpoint67" provider="endpoint31" state="unchanged"/>
+<connection consumer="endpoint65" provider="endpoint11" state="unchanged"/>
+<connection consumer="endpoint32" provider="endpoint9" state="unchanged"/>
+<connection consumer="endpoint80" provider="endpoint12" state="unchanged"/>
+<connection consumer="endpoint75" provider="endpoint12" state="unchanged"/>
+<connection consumer="endpoint69" provider="endpoint84" state="unchanged"/>
+<connection consumer="endpoint62" provider="endpoint11" state="unchanged"/>
 <connection consumer="endpoint53" provider="endpoint11" state="unchanged"/>
+<connection consumer="endpoint51" provider="endpoint11" state="unchanged"/>
+<connection consumer="endpoint48" provider="endpoint11" state="unchanged"/>
+<connection consumer="endpoint43" provider="endpoint11" state="unchanged"/>
+<connection consumer="endpoint64" provider="endpoint10" state="unchanged"/>
+<connection consumer="endpoint77" provider="endpoint9" state="unchanged"/>
+<connection consumer="endpoint72" provider="endpoint9" state="unchanged"/>
+<connection consumer="endpoint78" provider="endpoint8" state="unchanged"/>
+<connection consumer="endpoint74" provider="endpoint8" state="unchanged"/>
+<connection consumer="endpoint85" provider="endpoint7" state="unchanged"/>
+<connection consumer="endpoint71" provider="endpoint6" state="unchanged"/>
+<connection consumer="endpoint86" provider="endpoint81" state="unchanged"/>
+<connection consumer="endpoint52" provider="endpoint5" state="unchanged"/>
+<connection consumer="endpoint50" provider="endpoint76" state="unchanged"/>
+<connection consumer="endpoint63" provider="endpoint4" state="unchanged"/>
 <connection consumer="endpoint54" provider="endpoint4" state="unchanged"/>
+<connection consumer="endpoint49" provider="endpoint4" state="unchanged"/>
+<connection consumer="endpoint44" provider="endpoint4" state="unchanged"/>
+<connection consumer="endpoint82" provider="endpoint3" state="unchanged"/>
+<connection consumer="endpoint55" provider="endpoint70" state="unchanged"/>
+<connection consumer="endpoint79" provider="endpoint2" state="unchanged"/>
+<connection consumer="endpoint73" provider="endpoint2" state="unchanged"/>
+<connection consumer="endpoint83" provider="endpoint1" state="unchanged"/>
+<connection consumer="endpoint33" provider="endpoint24" state="unchanged"/>
+<connection consumer="endpoint47" provider="endpoint27" state="unchanged"/>
+<connection consumer="endpoint45" provider="endpoint11" state="unchanged"/>
+<connection consumer="endpoint46" provider="endpoint4" state="unchanged"/>
+<connection consumer="endpoint58" provider="endpoint29" state="unchanged"/>
+<connection consumer="endpoint56" provider="endpoint11" state="unchanged"/>
+<connection consumer="endpoint57" provider="endpoint4" state="unchanged"/>
 </connections>
 <porttypes>
 <link xlink:href="../jbiServiceUnits/CachedFeedReader/CachedFeedReader.wsdl#xpointer(/definitions/portType[@name='CachedFeedReaderPortType'])" xlink:type="simple"/>
@@ -379,6 +403,7 @@
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/ImageScraper.wsdl#xpointer(/definitions/portType[@name='ImageScraperPortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/InternalNewsService.wsdl#xpointer(/definitions/portType[@name='InternalNews'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/PictureAlbums.wsdl#xpointer(/definitions/portType[@name='PictureAlbumsPortType'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/TeacherAbsencesService.wsdl#xpointer(/definitions/portType[@name='TeacherAbsences'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/TvShows.wsdl#xpointer(/definitions/portType[@name='TvShowsPortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/TwitterWrapperService.wsdl#xpointer(/definitions/portType[@name='TwitterWrapper'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/WeatherProxy.wsdl#xpointer(/definitions/portType[@name='WeatherProxyPortType'])" xlink:type="simple"/>
@@ -400,10 +425,12 @@
 <link xlink:href="../jbiServiceUnits/Sources/Partners/ImageScraper.wsdl#xpointer(/definitions/portType[@name='ImageScraperPortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/InternalNewsService.wsdl#xpointer(/definitions/portType[@name='InternalNews'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/PictureAlbums.wsdl#xpointer(/definitions/portType[@name='PictureAlbumsPortType'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/Sources/Partners/TeacherAbsencesService.wsdl#xpointer(/definitions/portType[@name='TeacherAbsences'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/TvShows.wsdl#xpointer(/definitions/portType[@name='TvShowsPortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/TwitterWrapperService.wsdl#xpointer(/definitions/portType[@name='TwitterWrapper'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/WeatherProxy.wsdl#xpointer(/definitions/portType[@name='WeatherProxyPortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/PictureAlbumSource.wsdl#xpointer(/definitions/portType[@name='PictureAlbumSourcePortType'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/Sources/TeacherAbsenceSource.wsdl#xpointer(/definitions/portType[@name='TeacherAbsenceSourcePortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/TvShowsSource.wsdl#xpointer(/definitions/portType[@name='TvShowsSourcePortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/TwitterSource.wsdl#xpointer(/definitions/portType[@name='TwitterSourcePortType'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/WeatherSource.wsdl#xpointer(/definitions/portType[@name='WeatherSourcePortType'])" xlink:type="simple"/>
@@ -444,6 +471,7 @@
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/ImageScraper.wsdl#xpointer(/definitions/binding[@name='ImageScraperBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/InternalNewsService.wsdl#xpointer(/definitions/binding[@name='InternalNewsPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/PictureAlbums.wsdl#xpointer(/definitions/binding[@name='PictureAlbumsBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/TeacherAbsencesService.wsdl#xpointer(/definitions/binding[@name='TeacherAbsencesPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/TvShows.wsdl#xpointer(/definitions/binding[@name='TvShowsBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/TwitterWrapperService.wsdl#xpointer(/definitions/binding[@name='TwitterWrapperPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/WeatherProxy.wsdl#xpointer(/definitions/binding[@name='WeatherProxyBinding'])" xlink:type="simple"/>
@@ -466,10 +494,12 @@
 <link xlink:href="../jbiServiceUnits/Sources/Partners/ImageScraper.wsdl#xpointer(/definitions/binding[@name='ImageScraperBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/InternalNewsService.wsdl#xpointer(/definitions/binding[@name='InternalNewsPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/PictureAlbums.wsdl#xpointer(/definitions/binding[@name='PictureAlbumsBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/Sources/Partners/TeacherAbsencesService.wsdl#xpointer(/definitions/binding[@name='TeacherAbsencesPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/TvShows.wsdl#xpointer(/definitions/binding[@name='TvShowsBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/TwitterWrapperService.wsdl#xpointer(/definitions/binding[@name='TwitterWrapperPortBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/WeatherProxy.wsdl#xpointer(/definitions/binding[@name='WeatherProxyBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/PictureAlbumSource.wsdl#xpointer(/definitions/binding[@name='PictureAlbumSourceBinding'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/Sources/TeacherAbsenceSource.wsdl#xpointer(/definitions/binding[@name='TeacherAbsenceSourceBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/TvShowsSource.wsdl#xpointer(/definitions/binding[@name='TvShowsSourceBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/TwitterSource.wsdl#xpointer(/definitions/binding[@name='TwitterSourceBinding'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/WeatherSource.wsdl#xpointer(/definitions/binding[@name='WeatherSourceBinding'])" xlink:type="simple"/>
@@ -511,6 +541,7 @@
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/ImageScraper.wsdl#xpointer(/definitions/service[@name='ImageScraperService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/InternalNewsService.wsdl#xpointer(/definitions/service[@name='InternalNewsService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/PictureAlbums.wsdl#xpointer(/definitions/service[@name='PictureAlbumsService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/TeacherAbsencesService.wsdl#xpointer(/definitions/service[@name='TeacherAbsencesService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/TvShows.wsdl#xpointer(/definitions/service[@name='TvShowsService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/TwitterWrapperService.wsdl#xpointer(/definitions/service[@name='TwitterWrapperService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/META-INF/Sources/src/Partners/WeatherProxy.wsdl#xpointer(/definitions/service[@name='WeatherProxyService'])" xlink:type="simple"/>
@@ -532,10 +563,12 @@
 <link xlink:href="../jbiServiceUnits/Sources/Partners/ImageScraper.wsdl#xpointer(/definitions/service[@name='ImageScraperService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/InternalNewsService.wsdl#xpointer(/definitions/service[@name='InternalNewsService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/PictureAlbums.wsdl#xpointer(/definitions/service[@name='PictureAlbumsService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/Sources/Partners/TeacherAbsencesService.wsdl#xpointer(/definitions/service[@name='TeacherAbsencesService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/TvShows.wsdl#xpointer(/definitions/service[@name='TvShowsService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/TwitterWrapperService.wsdl#xpointer(/definitions/service[@name='TwitterWrapperService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/Partners/WeatherProxy.wsdl#xpointer(/definitions/service[@name='WeatherProxyService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/PictureAlbumSource.wsdl#xpointer(/definitions/service[@name='PictureAlbumSourceService'])" xlink:type="simple"/>
+<link xlink:href="../jbiServiceUnits/Sources/TeacherAbsenceSource.wsdl#xpointer(/definitions/service[@name='TeacherAbsenceSourceService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/TvShowsSource.wsdl#xpointer(/definitions/service[@name='TvShowsSourceService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/TwitterSource.wsdl#xpointer(/definitions/service[@name='TwitterSourceService'])" xlink:type="simple"/>
 <link xlink:href="../jbiServiceUnits/Sources/WeatherSource.wsdl#xpointer(/definitions/service[@name='WeatherSourceService'])" xlink:type="simple"/>

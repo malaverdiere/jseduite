@@ -20,4 +20,6 @@
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/RssReaderService.xsd" uri="src/Partners/RssReaderService.xsd"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/BreakingNewsService.wsdl" uri="src/Partners/BreakingNewsService.wsdl"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/BreakingNewsService.xsd" uri="src/Partners/BreakingNewsService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/TeacherAbsencesService.wsdl" uri="src/Partners/TeacherAbsencesService.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/TeacherAbsencesService.xsd" uri="src/Partners/TeacherAbsencesService.xsd"/>
 </catalog>
