@@ -85,7 +85,7 @@ public class TwitterWrapper {
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(date);
         String d = "" + cal.get(Calendar.YEAR);
-        d += "-" + this.prettyfy(cal.get(Calendar.MONTH));
+        d += "-" + this.prettyfy(cal.get(Calendar.MONTH)+1);
         d += "-" + this.prettyfy(cal.get(Calendar.DAY_OF_MONTH));
         d += " " + this.prettyfy(cal.get(Calendar.HOUR_OF_DAY));
         d += ":" + this.prettyfy(cal.get(Calendar.MINUTE));
