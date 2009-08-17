@@ -18,6 +18,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  * @author      Main Sébastien Mosser          [mosser@polytech.unice.fr]
+ * @contributor 2009 Steve Colombié            [colombie@polytech.unice.fr]
  *
  **/
 
@@ -48,6 +49,7 @@ public class StudentSummon {
             DalResultSet rset = dal.extractDataSet(sql);
             for(int i = 0; i < rset.size(); i++) {
                 result.add(new ValidSummoning(rset));
+                rset.next();
             }
             return result.toArray(new ValidSummoning[result.size()]);
         }catch(Exception e){

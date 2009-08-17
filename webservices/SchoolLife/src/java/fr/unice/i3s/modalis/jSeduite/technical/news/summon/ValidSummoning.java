@@ -97,6 +97,4 @@ public class ValidSummoning {
     public void setStudent(String student) {
         this.student = student;
     }
-
-
 }
