@@ -40,17 +40,14 @@ public class TvHelper {
      */
     @WebMethod(operationName = "extract")
     public String[] extract(@WebParam(name = "complexString") String complexString) {
-        String[] result = new String[3];
-        return result;
 
-/**
         String[] extracted = complexString.split("-");
         
-        String start = extracted[extracted.length - 1];
-        String channel = extracted[extracted.length - 2];
+        String channel = extracted[0];
+        String start = extracted[1];
 
         String title = "";
-        for(int i = 0; i < extracted.length - 2; i++ )
+        for(int i = 2; i < extracted.length ; i++ )
             title += extracted[i].trim() + " - ";
 
         String[] result = new String[3];
@@ -58,7 +55,7 @@ public class TvHelper {
         result[1] = channel.trim();
         result[2] = start.trim();
         return result;
- **/
+ 
     }
 
 }

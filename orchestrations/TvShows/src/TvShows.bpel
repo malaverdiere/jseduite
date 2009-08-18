@@ -12,8 +12,11 @@
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" location="TvShows.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/CachedFeedReader" location="Partners/CachedFeedReader.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
     <import namespace="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/RssReaderService.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/TvHelperServiceWrapper" location="Partners/TvHelperServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://tv.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/TvHelperService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <partnerLinks>
         <partnerLink name="cachedReader" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/CachedFeedReader" partnerLinkType="tns:CachedFeedReader" partnerRole="CachedFeedReaderPortTypeRole"/>
+        <partnerLink name="helper" xmlns:tns="http://enterprise.netbeans.org/bpel/TvHelperServiceWrapper" partnerLinkType="tns:TvHelperLinkType" partnerRole="TvHelperRole"/>
         <partnerLink name="ext" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/TvShows" partnerLinkType="tns:TvShows" myRole="TvShowsPortTypeRole"/>
     </partnerLinks>
     <variables>
@@ -59,7 +62,7 @@
                     <scope name="dv_1_2">
                         <assign name="dv_1_2_tech">
                             <copy>
-                                <from>'tele7'</from>
+                                <from>'voila_tv'</from>
                                 <to variable="provider"/>
                             </copy>
                         </assign>
@@ -156,31 +159,36 @@
                         </assign>
                         <flow name="flow_a40_a41_a42_a43_a5">
                             <scope name="a40">
-                                <assign name="a40_tech">
-                                    <copy>
-                                        <from>normalize-space(substring-before($raw/title, '-'))</from>
-                                        <to variable="channel"/>
-                                    </copy>
-                                </assign>
-                            </scope>
-                            <scope name="a41">
-                                <assign name="a41_tech">
-                                    <copy>
-                                        <from>normalize-space(substring-after(substring-after($raw/title, ':'), ':'))</from>
-                                        <to variable="title"/>
-                                    </copy>
-                                </assign>
+                                <variables>
+                                    <variable name="ExtractOut" messageType="ns3:extractResponse"/>
+                                    <variable name="ExtractIn" messageType="ns3:extract"/>
+                                </variables>
+                                <sequence name="a40_core">
+                                    <assign name="a40_pre">
+                                        <copy>
+                                            <from>$raw/title</from>
+                                            <to>$ExtractIn.parameters/complexString</to>
+                                        </copy>
+                                    </assign>
+                                    <invoke name="a40_tech" partnerLink="helper" operation="extract" portType="ns3:TvHelper" inputVariable="ExtractIn" outputVariable="ExtractOut"/>
+                                    <assign name="a40_post">
+                                        <copy>
+                                            <from>$ExtractOut.parameters/return[1]</from>
+                                            <to variable="title"/>
+                                        </copy>
+                                        <copy>
+                                            <from>$ExtractOut.parameters/return[3]</from>
+                                            <to variable="start"/>
+                                        </copy>
+                                        <copy>
+                                            <from>$ExtractOut.parameters/return[2]</from>
+                                            <to variable="channel"/>
+                                        </copy>
+                                    </assign>
+                                </sequence>
                             </scope>
                             <scope name="a42">
                                 <assign name="a42_tech">
-                                    <copy>
-                                        <from>concat(normalize-space(substring-before(substring-after($raw/title, '-'), ':')), ':', normalize-space(substring-before(substring-after($raw/title, ':'), ':')))</from>
-                                        <to variable="start"/>
-                                    </copy>
-                                </assign>
-                            </scope>
-                            <scope name="a43">
-                                <assign name="a43_tech">
                                     <copy>
                                         <from>normalize-space($raw/content)</from>
                                         <to>$show/ns0:summary</to>

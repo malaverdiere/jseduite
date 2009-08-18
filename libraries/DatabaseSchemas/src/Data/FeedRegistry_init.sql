@@ -133,3 +133,7 @@ INSERT INTO `cache` VALUES ('TV5_insolite',CURRENT_TIMESTAMP(), '');
 INSERT INTO `feed_registry` VALUES ('www.tv5.org',2,'TV5_animations',
     '/TV5Site/rss/actualites.php?rub=18');
 INSERT INTO `cache` VALUES ('TV5_animations',CURRENT_TIMESTAMP(), '');
+
+INSERT INTO `feed_registry` VALUES ('tv.voila.fr', 3, 'voila_tv',
+    '/rss/fluxRssProgrammeSoiree.xml');
+INSERT INTO `cache` VALUES ('voila_tv',CURRENT_TIMESTAMP(), '');
