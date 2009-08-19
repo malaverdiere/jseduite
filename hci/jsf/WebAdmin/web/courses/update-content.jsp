@@ -8,7 +8,7 @@
 <%@taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
 
 <f:subview id="content">
-    <h1><h:outputText value="#{bundle.BREAKINGNEWS_UPDATE}" /></h1>
+    <h1><h:outputText value="#{bundle.COURSE_UPDATE}" /></h1>
 
     <h:form id="form">
         <h:panelGrid columns="2" >

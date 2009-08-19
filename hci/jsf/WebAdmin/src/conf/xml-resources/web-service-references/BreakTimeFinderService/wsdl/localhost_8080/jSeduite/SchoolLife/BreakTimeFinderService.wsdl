@@ -4,35 +4,58 @@
 <xsd:import namespace="http://breaktime.technical.jSeduite.modalis.i3s.unice.fr/" schemaLocation="http://localhost:8080/jSeduite/SchoolLife/BreakTimeFinderService?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
-<message name="findBreakTimeById">
-<part name="parameters" element="tns:findBreakTimeById"></part>
-</message>
-<message name="findBreakTimeByIdResponse">
-<part name="parameters" element="tns:findBreakTimeByIdResponse"></part>
-</message>
-<message name="BreakTimeException">
-<part name="fault" element="tns:BreakTimeException"></part>
-</message>
 <message name="getAllBreakTimeReferences">
 <part name="parameters" element="tns:getAllBreakTimeReferences"></part>
 </message>
 <message name="getAllBreakTimeReferencesResponse">
 <part name="parameters" element="tns:getAllBreakTimeReferencesResponse"></part>
 </message>
+<message name="BreakTimeException">
+<part name="fault" element="tns:BreakTimeException"></part>
+</message>
+<message name="findBreakTimeById">
+<part name="parameters" element="tns:findBreakTimeById"></part>
+</message>
+<message name="findBreakTimeByIdResponse">
+<part name="parameters" element="tns:findBreakTimeByIdResponse"></part>
+</message>
+<message name="getAllBuildings">
+<part name="parameters" element="tns:getAllBuildings"></part>
+</message>
+<message name="getAllBuildingsResponse">
+<part name="parameters" element="tns:getAllBuildingsResponse"></part>
+</message>
 <portType name="BreakTimeFinder">
-<operation name="findBreakTimeById">
-<input message="tns:findBreakTimeById"></input>
-<output message="tns:findBreakTimeByIdResponse"></output>
-<fault message="tns:BreakTimeException" name="BreakTimeException"></fault>
-</operation>
 <operation name="getAllBreakTimeReferences">
 <input message="tns:getAllBreakTimeReferences"></input>
 <output message="tns:getAllBreakTimeReferencesResponse"></output>
 <fault message="tns:BreakTimeException" name="BreakTimeException"></fault>
 </operation>
+<operation name="findBreakTimeById">
+<input message="tns:findBreakTimeById"></input>
+<output message="tns:findBreakTimeByIdResponse"></output>
+<fault message="tns:BreakTimeException" name="BreakTimeException"></fault>
+</operation>
+<operation name="getAllBuildings">
+<input message="tns:getAllBuildings"></input>
+<output message="tns:getAllBuildingsResponse"></output>
+<fault message="tns:BreakTimeException" name="BreakTimeException"></fault>
+</operation>
 </portType>
 <binding name="BreakTimeFinderPortBinding" type="tns:BreakTimeFinder">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
+<operation name="getAllBreakTimeReferences">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal"></soap:body>
+</input>
+<output>
+<soap:body use="literal"></soap:body>
+</output>
+<fault name="BreakTimeException">
+<soap:fault name="BreakTimeException" use="literal"></soap:fault>
+</fault>
+</operation>
 <operation name="findBreakTimeById">
 <soap:operation soapAction=""></soap:operation>
 <input>
@@ -45,7 +68,7 @@
 <soap:fault name="BreakTimeException" use="literal"></soap:fault>
 </fault>
 </operation>
-<operation name="getAllBreakTimeReferences">
+<operation name="getAllBuildings">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>

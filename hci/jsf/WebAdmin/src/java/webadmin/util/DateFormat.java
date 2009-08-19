@@ -1,5 +1,6 @@
 package webadmin.util;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.xml.datatype.DatatypeFactory;
@@ -22,4 +23,22 @@ public abstract class DateFormat {
             return null;
         }
     }
+
+    /**
+     * A static method to transform a java Date into a valid SQL entry
+     * @param date the date to transform
+     * @return a string formatted as YYYY-MM-DD HH:MM
+     */
+    public static String toSql(Date date) {
+        GregorianCalendar cal = new GregorianCalendar();
+        cal.setTime(date);
+        String d = "" + cal.get(Calendar.YEAR);
+        d += "-" + (cal.get(Calendar.MONTH)+1);
+        d += "-" + cal.get(Calendar.DAY_OF_MONTH);
+        d += " " + cal.get(Calendar.HOUR_OF_DAY);
+        d += ":" + cal.get(Calendar.MINUTE);
+        d += ":" + cal.get(Calendar.SECOND);
+        return d;
+    }
+
 }

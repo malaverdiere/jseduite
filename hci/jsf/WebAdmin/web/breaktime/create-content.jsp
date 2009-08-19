@@ -10,7 +10,7 @@
 <f:subview id="content">
     <h1><h:outputText value="#{bundle.BREAKTIME_CREATE}" /></h1>
 
-    <h:form>
+    <h:form id="form">
         <h:panelGrid columns="2" >
             <h:outputText value="#{bundle.BREAKTIME_DAYS}"/>
             <h:selectManyCheckbox id="days" value="#{BreakTimeManagedBean.selectedDays}" required="true" requiredMessage="#{bundle.BREAKTIME_DAYS_REQUIRED}">
@@ -41,10 +41,17 @@
             </h:selectManyCheckbox>
 
             <h:outputText value="#{bundle.BREAKTIME_BUILDING}"/>
-            <h:selectOneMenu id="building" value="#{BreakTimeManagedBean.cBreakTime.building}">
-                <f:selectItems value="#{BreakTimeManagedBean.buildings}" />
-                <h:message for="building" errorClass="errorMessage"/>
-            </h:selectOneMenu>
+            <h:panelGroup>
+                <h:selectOneMenu id="buildings" value="#{BreakTimeManagedBean.cBreakTime.building}" onchange="otherDetection()">
+                    <f:selectItems value="#{BreakTimeManagedBean.buildings}" />
+                    <h:message for="buildings" errorClass="errorMessage"/>
+                </h:selectOneMenu>
+                <h:outputText value=" "/>
+                <h:inputText id="building" value="#{BreakTimeManagedBean.alterBuilding}" required="true" requiredMessage="#{bundle.BREAKTIME_BUILDING_REQUIRED}">
+                    <f:validateLength maximum="10" />
+                </h:inputText>
+               <h:message for="building" errorClass="errorMessage"/>
+            </h:panelGroup>
 
             <h:outputText value="#{bundle.BREAKTIME_KIND}"/>
             <h:selectOneMenu id="kind" value="#{BreakTimeManagedBean.cBreakTime.kind}">

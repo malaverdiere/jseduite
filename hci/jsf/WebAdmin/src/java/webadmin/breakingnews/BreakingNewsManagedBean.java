@@ -16,6 +16,7 @@ import webadmin.breakingnews.comparators.BreakingNewsAuthorComparatorDesc;
 import webadmin.breakingnews.comparators.BreakingNewsDateComparator;
 import webadmin.breakingnews.comparators.BreakingNewsDateComparatorDesc;
 import webadmin.util.DateFormat;
+import webadmin.util.SQLProtection;
 
 /**
  *
@@ -231,6 +232,10 @@ public class BreakingNewsManagedBean {
             date.setMinutes(time.getMinutes());
             cBreakNew.setStamp(DateFormat.toXmlCalendar(date));
 
+            // Escape characters traitement
+            cBreakNew.setAuthor(SQLProtection.format(cBreakNew.getAuthor()));
+            cBreakNew.setContent(SQLProtection.format(cBreakNew.getContent()));
+
             crud.createBreakingNews(cBreakNew);
 
             cBreakNew = new BreakNew();
@@ -309,8 +314,12 @@ public class BreakingNewsManagedBean {
 
             date.setHours(time.getHours());
             date.setMinutes(time.getMinutes());
-
             uBreakNew.setStamp(DateFormat.toXmlCalendar(date));
+
+            // Escape characters traitement
+            uBreakNew.setAuthor(SQLProtection.format(uBreakNew.getAuthor()));
+            uBreakNew.setContent(SQLProtection.format(uBreakNew.getContent()));
+
             crud.updateBreakingNews(uBreakNew);
 
         }

@@ -14,6 +14,7 @@ import javax.faces.model.SelectItem;
 import javax.xml.ws.WebServiceRef;
 import webadmin.picturealbum.comparators.*;
 import webadmin.util.DateFormat;
+import webadmin.util.SQLProtection;
 
 /**
  *
@@ -236,6 +237,11 @@ public class PictureAlbumManagedBean {
 
             cPictureAlbum.setValidFrom(DateFormat.toXmlCalendar(date));
 
+            // Escape characters traitement
+            cPictureAlbum.setUser(SQLProtection.format(cPictureAlbum.getUser()));
+            cPictureAlbum.setName(SQLProtection.format(cPictureAlbum.getName()));
+            cPictureAlbum.setAlbum(SQLProtection.format(cPictureAlbum.getAlbum()));
+
             crud.createPictureAlbum(cPictureAlbum);
 
             cPictureAlbum = new PictureAlbum();
@@ -309,6 +315,11 @@ public class PictureAlbumManagedBean {
             PictureAlbumRegistryCRUD crud = crudService.getPictureAlbumRegistryCRUDPort();
 
             uPictureAlbum.setValidFrom(DateFormat.toXmlCalendar(date));
+
+            // Escape characters traitement
+            uPictureAlbum.setUser(SQLProtection.format(uPictureAlbum.getUser()));
+            uPictureAlbum.setName(SQLProtection.format(uPictureAlbum.getName()));
+            uPictureAlbum.setAlbum(SQLProtection.format(uPictureAlbum.getAlbum()));
 
             crud.updatePictureAlbum(uPictureAlbum);
 

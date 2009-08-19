@@ -13,6 +13,7 @@ import javax.faces.model.SelectItem;
 import javax.xml.ws.WebServiceRef;
 import webadmin.internalnews.comparators.*;
 import webadmin.util.DateFormat;
+import webadmin.util.SQLProtection;
 
 /**
  *
@@ -278,6 +279,11 @@ public class InternalNewsManagedBean {
             cNews.setStart(DateFormat.toXmlCalendar(startDate));
             cNews.setEnd(DateFormat.toXmlCalendar(endDate));
 
+            // Escape characters traitement
+            cNews.setAuthor(SQLProtection.format(cNews.getAuthor()));
+            cNews.setTitle(SQLProtection.format(cNews.getTitle()));
+            cNews.setContent(SQLProtection.format(cNews.getContent()));
+
             crud.createInternalNews(cNews);
 
             cNews = new News();
@@ -355,6 +361,11 @@ public class InternalNewsManagedBean {
 
             uNews.setStart(DateFormat.toXmlCalendar(startDate));
             uNews.setEnd(DateFormat.toXmlCalendar(endDate));
+
+            // Escape characters traitement
+            uNews.setAuthor(SQLProtection.format(uNews.getAuthor()));
+            uNews.setTitle(SQLProtection.format(uNews.getTitle()));
+            uNews.setContent(SQLProtection.format(uNews.getContent()));
 
             crud.updateInternalNews(uNews);
 

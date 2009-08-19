@@ -4,20 +4,20 @@
 <xsd:import namespace="http://breaktime.technical.jSeduite.modalis.i3s.unice.fr/" schemaLocation="http://localhost:8080/jSeduite/SchoolLife/BreakTimeCRUDService?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
-<message name="createBreakTime">
-<part name="parameters" element="tns:createBreakTime"></part>
-</message>
-<message name="createBreakTimeResponse">
-<part name="parameters" element="tns:createBreakTimeResponse"></part>
-</message>
-<message name="BreakTimeException">
-<part name="fault" element="tns:BreakTimeException"></part>
-</message>
 <message name="readBreakTime">
 <part name="parameters" element="tns:readBreakTime"></part>
 </message>
 <message name="readBreakTimeResponse">
 <part name="parameters" element="tns:readBreakTimeResponse"></part>
+</message>
+<message name="BreakTimeException">
+<part name="fault" element="tns:BreakTimeException"></part>
+</message>
+<message name="createBreakTime">
+<part name="parameters" element="tns:createBreakTime"></part>
+</message>
+<message name="createBreakTimeResponse">
+<part name="parameters" element="tns:createBreakTimeResponse"></part>
 </message>
 <message name="deleteBreakTime">
 <part name="parameters" element="tns:deleteBreakTime"></part>
@@ -32,14 +32,14 @@
 <part name="parameters" element="tns:updateBreakTimeResponse"></part>
 </message>
 <portType name="BreakTimeCRUD">
-<operation name="createBreakTime">
-<input message="tns:createBreakTime"></input>
-<output message="tns:createBreakTimeResponse"></output>
-<fault message="tns:BreakTimeException" name="BreakTimeException"></fault>
-</operation>
 <operation name="readBreakTime">
 <input message="tns:readBreakTime"></input>
 <output message="tns:readBreakTimeResponse"></output>
+<fault message="tns:BreakTimeException" name="BreakTimeException"></fault>
+</operation>
+<operation name="createBreakTime">
+<input message="tns:createBreakTime"></input>
+<output message="tns:createBreakTimeResponse"></output>
 <fault message="tns:BreakTimeException" name="BreakTimeException"></fault>
 </operation>
 <operation name="deleteBreakTime">
@@ -55,7 +55,7 @@
 </portType>
 <binding name="BreakTimeCRUDPortBinding" type="tns:BreakTimeCRUD">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
-<operation name="createBreakTime">
+<operation name="readBreakTime">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -67,7 +67,7 @@
 <soap:fault name="BreakTimeException" use="literal"></soap:fault>
 </fault>
 </operation>
-<operation name="readBreakTime">
+<operation name="createBreakTime">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>

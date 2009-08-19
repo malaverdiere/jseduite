@@ -20,8 +20,24 @@
             <link rel='stylesheet' type='text/css' href='<%=request.getContextPath()%>/resources/stylesheet.css' />
 
             <title><h:outputText value="#{bundle.BREAKTIME}" /></title>
+
+            <script type='text/javascript' language = 'Javascript'>
+                function otherDetection()
+                {
+                    if (document.getElementById("content:form:buildings").options[document.getElementById("content:form:buildings").selectedIndex].value == "other")
+                    {
+                        document.getElementById('content:form:building').disabled=false;
+                        document.getElementById('content:form:building').style.display="inherit";
+                    }
+                    else
+                    {
+                        document.getElementById('content:form:building').disabled=true;
+                        document.getElementById('content:form:building').style.display="none";
+                    }
+                }
+            </script>
         </head>
-        <body>
+        <body onload="otherDetection()">
             <div class="body">
                 <div class="header">
                     <%@include file="../layout/header.jsp" %>

@@ -108,4 +108,20 @@ public class BreakTimeFinder {
             throw new BreakTimeException("SQL Exception: " + e.getMessage());
         }
     }
+
+    /**
+     * Get all the buildings
+     */
+    @WebMethod(operationName="getAllBuildings")
+    public String[] getAllBuildings() throws BreakTimeException {
+        DataAccessLayer dal = new DataAccessLayer();
+        try {
+            String sql = "SELECT DISTINCT `building` FROM `break_time`;";
+            String[] results = dal.extractScalarSet(sql, "building");
+
+            return results;
+        } catch (Exception e) {
+            throw new BreakTimeException("SQL Exception: " + e.getMessage());
+        }
+    }
 }

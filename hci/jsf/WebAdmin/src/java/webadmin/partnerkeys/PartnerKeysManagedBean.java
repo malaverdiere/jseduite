@@ -13,6 +13,7 @@ import java.util.List;
 import javax.xml.ws.WebServiceRef;
 import webadmin.partnerkeys.comparators.PartnerKeysKeyComparator;
 import webadmin.partnerkeys.comparators.PartnerKeysKeyComparatorDesc;
+import webadmin.util.SQLProtection;
 
 /**
  *
@@ -175,6 +176,10 @@ public class PartnerKeysManagedBean {
             this.crudService = new PartnerKeysCRUDService();
             PartnerKeysCRUD crud = crudService.getPartnerKeysCRUDPort();
 
+            // Escape characters traitement
+            cPartnerKey.setKey(SQLProtection.format(cPartnerKey.getKey()));
+            cPartnerKey.setValue(SQLProtection.format(cPartnerKey.getValue()));
+
             crud.createPartnerKey(cPartnerKey);
 
             cPartnerKey = new PartnerKey();
@@ -241,6 +246,10 @@ public class PartnerKeysManagedBean {
         try {
             this.crudService = new PartnerKeysCRUDService();
             PartnerKeysCRUD crud = crudService.getPartnerKeysCRUDPort();
+
+            // Escape characters traitement
+            uPartnerKey.setKey(SQLProtection.format(uPartnerKey.getKey()));
+            uPartnerKey.setValue(SQLProtection.format(uPartnerKey.getValue()));
 
             crud.updatePartnerKey(uPartnerKey);
 

@@ -16,7 +16,10 @@ import fr.unice.i3s.modalis.jseduite.technical.profiles.params.ParamFinderServic
 import fr.unice.i3s.modalis.jseduite.technical.profiles.params.ParamCreator;
 import fr.unice.i3s.modalis.jseduite.technical.profiles.params.ParamCreatorService;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import webadmin.devices.comparators.SourceNameComparator;
+import webadmin.util.SQLProtection;
 
 
 /**
@@ -232,6 +235,10 @@ public class DeviceManagedBean {
             this.crudService = new DeviceCRUDService();
             DeviceCRUD crud = crudService.getDeviceCRUDPort();
 
+            // Escape characters traitement
+            cDevice.setName(SQLProtection.format(cDevice.getName()));
+            cDevice.setLocation(SQLProtection.format(cDevice.getLocation()));
+
             crud.createDevice(cDevice);
         }
         catch (Exception e) {
@@ -316,6 +323,9 @@ public class DeviceManagedBean {
 
                 sources.add(buffer);
             }
+
+            // Sort the sources
+            Collections.sort(sources, new SourceNameComparator());
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -336,6 +346,9 @@ public class DeviceManagedBean {
             this.paramCreatorService = new ParamCreatorService();
             ParamCreator paramCreator = paramCreatorService.getParamCreatorPort();
 
+            // Escape characters traitement
+            uDevice.setLocation(SQLProtection.format(uDevice.getLocation()));
+
             // Reinitialization
             crud.deleteDevice(uDevice);
             crud.createDevice(uDevice);
@@ -347,6 +360,9 @@ public class DeviceManagedBean {
                 // Device parametrization
                 for(CallData call : source.getCalls()) {
                     for(ParamData param : call.getParameters()) {
+                        // Escape characters traitement
+                       param.getParam().setValue(SQLProtection.format(param.getParam().getValue()));
+
                         paramCreator.parametrization(uDevice.getName(), param.getParam(), call.getSetId());
                     }
                 }

@@ -96,6 +96,12 @@
                 <h:outputText value="#{bundle.PARTNERKEYS}"/>
             </h:outputLink>
         </h:panelGroup>
+
+        <h:panelGroup styleClass="menuItem">
+            <h:outputLink value="#{request.contextPath}/errorlogger/listing.jsf">
+                <h:outputText value="#{bundle.ERRORLOGGER}"/>
+            </h:outputLink>
+        </h:panelGroup>
     </h:panelGroup>
 
     <h:panelGroup styleClass="menuItem">

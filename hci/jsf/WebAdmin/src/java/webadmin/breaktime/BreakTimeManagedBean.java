@@ -5,6 +5,7 @@ import fr.unice.i3s.modalis.jseduite.technical.breaktime.BreakTimeCRUD;
 import fr.unice.i3s.modalis.jseduite.technical.breaktime.BreakTimeCRUDService;
 import fr.unice.i3s.modalis.jseduite.technical.breaktime.BreakTimeFinder;
 import fr.unice.i3s.modalis.jseduite.technical.breaktime.BreakTimeFinderService;
+
 import fr.unice.i3s.modalis.jseduite.technical.breaktime.Promo;
 import fr.unice.i3s.modalis.jseduite.technical.promos.PromoFinder;
 import fr.unice.i3s.modalis.jseduite.technical.promos.PromoFinderService;
@@ -18,6 +19,7 @@ import webadmin.breaktime.comparators.BreakTimeBuildingComparator;
 import webadmin.breaktime.comparators.BreakTimeStartComparator;
 import webadmin.util.Bundle;
 import webadmin.util.DateFormat;
+import webadmin.util.SQLProtection;
 
 
 /**
@@ -68,6 +70,9 @@ public class BreakTimeManagedBean {
 
     // The buildings
     private List<SelectItem> buildings;
+
+    // Alternative building
+    private String alterBuilding;
 
     // The kinds
     private List<SelectItem> kinds;
@@ -168,6 +173,22 @@ public class BreakTimeManagedBean {
      */
     public void setId(int i) {
         this.id = i;
+    }
+
+    /**
+     * Get the alternative building
+     * @return the alternative building
+     */
+    public String getAlterBuilding() {
+        return alterBuilding;
+    }
+
+    /**
+     * Set the alternative building
+     * @param alterKind the alternative building
+     */
+    public void setAlterBuilding(String alterBuilding) {
+        this.alterBuilding = alterBuilding;
     }
 
     /**
@@ -291,13 +312,24 @@ public class BreakTimeManagedBean {
      * @return the list of buildings
      */
     public List<SelectItem> getBuildings() {
+        List<String> buildingsBuf;
         buildings = new ArrayList<SelectItem>();
 
-        SelectItem item = new SelectItem("lucioles", "Lucioles");
-        buildings.add(item);
+        try {
+            this.finderService = new BreakTimeFinderService();
+            BreakTimeFinder port = finderService.getBreakTimeFinderPort();
+            buildingsBuf = port.getAllBuildings();
 
-        item = new SelectItem("templiers", "Templiers");
-        buildings.add(item);
+            for (String building : buildingsBuf) {
+                SelectItem item = new SelectItem(building, building);
+                buildings.add(item);
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        buildings.add(new SelectItem("other", Bundle.get("FORM_OTHER")));
 
         return buildings;
     }
@@ -348,6 +380,13 @@ public class BreakTimeManagedBean {
                 cBreakTime.getPromos().add(promotion);
             }
 
+            if(cBreakTime.getBuilding().equals("other")) {
+                cBreakTime.setBuilding(alterBuilding);
+            }
+
+            // Escape characters traitement
+            cBreakTime.setBuilding(SQLProtection.format(cBreakTime.getBuilding()));
+
             crud.createBreakTime(cBreakTime);
         }
         catch (Exception e) {
@@ -359,6 +398,7 @@ public class BreakTimeManagedBean {
         selectedPromos = null;
         startDate = new Date(0, 0, 0, 8, 0);
         endDate = new Date(0, 0, 0, 18, 0);
+        alterBuilding = "";
 
         return "created";
     }
@@ -458,6 +498,13 @@ public class BreakTimeManagedBean {
 
                 uBreakTime.getPromos().add(promotion);
             }
+
+            if(uBreakTime.getBuilding().equals("other")) {
+                uBreakTime.setBuilding(alterBuilding);
+            }
+
+            // Escape characters traitement
+            uBreakTime.setBuilding(SQLProtection.format(uBreakTime.getBuilding()));
 
             crud.updateBreakTime(uBreakTime);
 

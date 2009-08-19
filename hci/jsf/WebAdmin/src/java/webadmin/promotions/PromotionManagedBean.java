@@ -15,6 +15,7 @@ import webadmin.promotions.comparators.PromoCodeComparator;
 import webadmin.promotions.comparators.PromoCodeComparatorDesc;
 import webadmin.promotions.comparators.PromoNameComparator;
 import webadmin.promotions.comparators.PromoNameComparatorDesc;
+import webadmin.util.SQLProtection;
 
 /**
  *
@@ -186,6 +187,10 @@ public class PromotionManagedBean {
             this.crudService = new PromoCRUDService();
             PromoCRUD crud = crudService.getPromoCRUDPort();
 
+            // Escape characters traitement
+            cPromo.setCode(SQLProtection.format(cPromo.getCode()));
+            cPromo.setName(SQLProtection.format(cPromo.getName()));
+
             crud.createPromo(cPromo);
 
             cPromo = new Promo();
@@ -252,6 +257,10 @@ public class PromotionManagedBean {
         try {
             this.crudService = new PromoCRUDService();
             PromoCRUD crud = crudService.getPromoCRUDPort();
+
+            // Escape characters traitement
+            uPromo.setCode(SQLProtection.format(uPromo.getCode()));
+            uPromo.setName(SQLProtection.format(uPromo.getName()));
 
             crud.updatePromo(uPromo);
 

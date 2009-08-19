@@ -65,7 +65,12 @@
     </managed-bean>
     <managed-bean>
         <managed-bean-name>SummoningManagedBean</managed-bean-name>
-        <managed-bean-class>webadmin.summons.SummoningManagedBean</managed-bean-class>
+        <managed-bean-class>webadmin.summonings.SummoningManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>ErrorLoggerManagedBean</managed-bean-name>
+        <managed-bean-class>webadmin.errorlogger.ErrorLoggerManagedBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 
@@ -112,7 +117,7 @@
     </managed-bean>
     <managed-bean>
         <managed-bean-name>SummoningSorter</managed-bean-name>
-        <managed-bean-class>webadmin.summons.SummoningSorter</managed-bean-class>
+        <managed-bean-class>webadmin.summonings.SummoningSorter</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 

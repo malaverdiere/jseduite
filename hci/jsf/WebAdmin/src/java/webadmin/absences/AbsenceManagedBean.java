@@ -13,6 +13,7 @@ import java.util.List;
 import javax.xml.ws.WebServiceRef;
 import webadmin.absences.comparators.*;
 import webadmin.util.DateFormat;
+import webadmin.util.SQLProtection;
 
 /**
  *
@@ -255,6 +256,10 @@ public class AbsenceManagedBean {
             cAbsence.setFrom(DateFormat.toXmlCalendar(from));
             cAbsence.setUntil(DateFormat.toXmlCalendar(until));
 
+            // Escape characters traitement
+            cAbsence.setTeacher(SQLProtection.format(cAbsence.getTeacher()));
+            cAbsence.setReason(SQLProtection.format(cAbsence.getReason()));
+
             crud.createAbsence(cAbsence);
 
             cAbsence = new Absence();
@@ -349,6 +354,10 @@ public class AbsenceManagedBean {
 
             uAbsence.setFrom(DateFormat.toXmlCalendar(from));
             uAbsence.setUntil(DateFormat.toXmlCalendar(until));
+
+            // Escape characters traitement
+            uAbsence.setTeacher(SQLProtection.format(uAbsence.getTeacher()));
+            uAbsence.setReason(SQLProtection.format(uAbsence.getReason()));
 
             crud.updateAbsence(uAbsence);
 

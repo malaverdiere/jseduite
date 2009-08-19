@@ -14,6 +14,7 @@ import javax.faces.model.SelectItem;
 import javax.xml.ws.WebServiceRef;
 import webadmin.courses.comparators.*;
 import webadmin.util.Bundle;
+import webadmin.util.SQLProtection;
 
 /**
  *
@@ -246,6 +247,10 @@ public class CourseManagedBean {
                 cCourse.setKind(alterKind);
             }
 
+            // Escape characters traitement
+            cCourse.setName(SQLProtection.format(cCourse.getName()));
+            cCourse.setKind(SQLProtection.format(cCourse.getKind()));
+
             crud.createCourse(cCourse);
 
             cCourse = new Course();
@@ -316,6 +321,10 @@ public class CourseManagedBean {
             if(uCourse.getKind().equals("other")) {
                 uCourse.setKind(alterKind);
             }
+
+            // Escape characters traitement
+            uCourse.setName(SQLProtection.format(uCourse.getName()));
+            uCourse.setKind(SQLProtection.format(uCourse.getKind()));
 
             crud.updateCourse(uCourse);
 

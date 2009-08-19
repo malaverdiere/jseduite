@@ -10,6 +10,10 @@
 
 <xs:element name="getAllBreakTimeReferencesResponse" type="tns:getAllBreakTimeReferencesResponse"></xs:element>
 
+<xs:element name="getAllBuildings" type="tns:getAllBuildings"></xs:element>
+
+<xs:element name="getAllBuildingsResponse" type="tns:getAllBuildingsResponse"></xs:element>
+
 <xs:complexType name="getAllBreakTimeReferences">
 <xs:sequence></xs:sequence>
 </xs:complexType>
@@ -23,6 +27,16 @@
 <xs:complexType name="BreakTimeException">
 <xs:sequence>
 <xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllBuildings">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllBuildingsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 </xs:sequence>
 </xs:complexType>
 

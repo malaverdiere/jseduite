@@ -16,6 +16,7 @@ import java.util.List;
 import javax.xml.ws.WebServiceRef;
 import webadmin.alarms.comparators.AlarmBuildingComparator;
 import webadmin.alarms.comparators.AlarmStartComparator;
+import webadmin.util.SQLProtection;
 
 
 /**
@@ -290,6 +291,10 @@ public class AlarmManagedBean {
 
             // Start alarm
             if(start) {
+                // Escape characters traitement
+                uAlarm.getAlarmStart().setMessage(SQLProtection.format(uAlarm.getAlarmStart().getMessage()));
+                uAlarm.getAlarmStart().setSound(SQLProtection.format(uAlarm.getAlarmStart().getSound()));
+
                 if(existingAlarms.contains(uAlarm.getAlarmStart())) {
                     crudPort.updateAlarm(uAlarm.getAlarmStart());
                 }
@@ -308,6 +313,10 @@ public class AlarmManagedBean {
 
             // Almost end alarm
             if(almostEnd) {
+                // Escape characters traitement
+                uAlarm.getAlarmAlmostEnd().setMessage(SQLProtection.format(uAlarm.getAlarmAlmostEnd().getMessage()));
+                uAlarm.getAlarmAlmostEnd().setSound(SQLProtection.format(uAlarm.getAlarmAlmostEnd().getSound()));
+
                 if(existingAlarms.contains(uAlarm.getAlarmAlmostEnd())) {
                     crudPort.updateAlarm(uAlarm.getAlarmAlmostEnd());
                 }
@@ -326,6 +335,10 @@ public class AlarmManagedBean {
 
             // End alarm
             if(end) {
+                // Escape characters traitement
+                uAlarm.getAlarmEnd().setMessage(SQLProtection.format(uAlarm.getAlarmEnd().getMessage()));
+                uAlarm.getAlarmEnd().setSound(SQLProtection.format(uAlarm.getAlarmEnd().getSound()));
+
                 if(existingAlarms.contains(uAlarm.getAlarmEnd())) {
                     crudPort.updateAlarm(uAlarm.getAlarmEnd());
                 }
