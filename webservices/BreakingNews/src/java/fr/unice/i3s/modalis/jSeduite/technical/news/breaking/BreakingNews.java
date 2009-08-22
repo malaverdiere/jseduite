@@ -40,8 +40,8 @@ public class BreakingNews {
     @WebMethod(operationName = "getBreakingNews")
     public BreakNew[] getBreakingNews() throws BreakingNewsException {
         DataAccessLayer dal = new DataAccessLayer();
-        String sql = "SELECT * FROM `breaking_news` WHERE TO_DAYS(NOW()) = ";
-        sql += "TO_DAYS(`stamp`) ORDER BY `stamp` DESC LIMIT 10;";
+        String sql = "SELECT * FROM `breaking_news` ";
+        sql += "ORDER BY `stamp` DESC LIMIT 10";
         try {
             ArrayList<BreakNew> result = new ArrayList<BreakNew>();
             DalResultSet rset = dal.extractDataSet(sql);
