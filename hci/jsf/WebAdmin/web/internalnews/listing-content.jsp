@@ -23,7 +23,7 @@
                             <h:graphicImage value="../resources/images/up.png" alt="#{bundle.SORT_ASC}"/>
                             <f:setPropertyActionListener target="#{InternalNewsManagedBean.sort}" value="#{InternalNewsSorter.sortByTarget}" />
                         </h:commandLink>
-                        <h:commandLink title="#{bundle.SORT_DESC}" action="#{BreakingNewsManagedBean.sortBy}" styleClass="sort">
+                        <h:commandLink title="#{bundle.SORT_DESC}" action="#{InternalNewsManagedBean.sortBy}" styleClass="sort">
                             <h:graphicImage value="../resources/images/down.png" alt="#{bundle.SORT_DESC}"/>
                             <f:setPropertyActionListener target="#{InternalNewsManagedBean.sort}" value="#{InternalNewsSorter.sortByTargetDesc}" />
                         </h:commandLink>
@@ -43,7 +43,7 @@
                             <h:graphicImage value="../resources/images/up.png" alt="#{bundle.SORT_ASC}"/>
                             <f:setPropertyActionListener target="#{InternalNewsManagedBean.sort}" value="#{InternalNewsSorter.sortByAuthor}" />
                         </h:commandLink>
-                        <h:commandLink title="#{bundle.SORT_DESC}" action="#{BreakingNewsManagedBean.sortBy}" styleClass="sort">
+                        <h:commandLink title="#{bundle.SORT_DESC}" action="#{InternalNewsManagedBean.sortBy}" styleClass="sort">
                             <h:graphicImage value="../resources/images/down.png" alt="#{bundle.SORT_DESC}"/>
                             <f:setPropertyActionListener target="#{InternalNewsManagedBean.sort}" value="#{InternalNewsSorter.sortByAuthorDesc}" />
                         </h:commandLink>
@@ -61,7 +61,7 @@
                             <h:graphicImage value="../resources/images/up.png" alt="#{bundle.SORT_ASC}"/>
                             <f:setPropertyActionListener target="#{InternalNewsManagedBean.sort}" value="#{InternalNewsSorter.sortByStart}" />
                         </h:commandLink>
-                        <h:commandLink title="#{bundle.SORT_DESC}" action="#{BreakingNewsManagedBean.sortBy}" styleClass="sort">
+                        <h:commandLink title="#{bundle.SORT_DESC}" action="#{InternalNewsManagedBean.sortBy}" styleClass="sort">
                             <h:graphicImage value="../resources/images/down.png" alt="#{bundle.SORT_DESC}"/>
                             <f:setPropertyActionListener target="#{InternalNewsManagedBean.sort}" value="#{InternalNewsSorter.sortByStartDesc}" />
                         </h:commandLink>
@@ -81,7 +81,7 @@
                             <h:graphicImage value="../resources/images/up.png" alt="#{bundle.SORT_ASC}"/>
                             <f:setPropertyActionListener target="#{InternalNewsManagedBean.sort}" value="#{InternalNewsSorter.sortByEnd}" />
                         </h:commandLink>
-                        <h:commandLink title="#{bundle.SORT_DESC}" action="#{BreakingNewsManagedBean.sortBy}" styleClass="sort">
+                        <h:commandLink title="#{bundle.SORT_DESC}" action="#{InternalNewsManagedBean.sortBy}" styleClass="sort">
                             <h:graphicImage value="../resources/images/down.png" alt="#{bundle.SORT_DESC}"/>
                             <f:setPropertyActionListener target="#{InternalNewsManagedBean.sort}" value="#{InternalNewsSorter.sortByEndDesc}" />
                         </h:commandLink>
@@ -101,7 +101,7 @@
                             <h:graphicImage value="../resources/images/up.png" alt="#{bundle.SORT_ASC}"/>
                             <f:setPropertyActionListener target="#{InternalNewsManagedBean.sort}" value="#{InternalNewsSorter.sortByTitle}" />
                         </h:commandLink>
-                        <h:commandLink title="#{bundle.SORT_DESC}" action="#{BreakingNewsManagedBean.sortBy}" styleClass="sort">
+                        <h:commandLink title="#{bundle.SORT_DESC}" action="#{InternalNewsManagedBean.sortBy}" styleClass="sort">
                             <h:graphicImage value="../resources/images/down.png" alt="#{bundle.SORT_DESC}"/>
                             <f:setPropertyActionListener target="#{InternalNewsManagedBean.sort}" value="#{InternalNewsSorter.sortByTitleDesc}" />
                         </h:commandLink>

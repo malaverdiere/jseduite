@@ -10,7 +10,7 @@ import java.util.Comparator;
 public class InternalNewsTargetComparator  implements Comparator<News>{
 
     public int compare(News o1, News o2) {
-        return o1.getTarget().compareTo(o2.getTarget());
+        return o1.getTarget().toUpperCase().compareTo(o2.getTarget().toUpperCase());
     }
 
 }

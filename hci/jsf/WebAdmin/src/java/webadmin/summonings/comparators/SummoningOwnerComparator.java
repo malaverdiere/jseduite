@@ -10,7 +10,7 @@ import java.util.Comparator;
 public class SummoningOwnerComparator  implements Comparator<Summoning>{
 
     public int compare(Summoning o1, Summoning o2) {
-        return o1.getOwner().compareTo(o2.getOwner());
+        return o1.getOwner().toUpperCase().compareTo(o2.getOwner().toUpperCase());
     }
 
 }

@@ -122,6 +122,14 @@ a:hover {
     display: inline;
 }
 
+.content a.feed {
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-image: url('./images/feed.png');
+    margin: 5px;
+}
+
 .content tfoot {
     text-align: center;
     color: #1C2C9C;

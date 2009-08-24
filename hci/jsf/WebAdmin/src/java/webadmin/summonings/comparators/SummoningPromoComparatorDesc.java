@@ -10,7 +10,7 @@ import java.util.Comparator;
 public class SummoningPromoComparatorDesc  implements Comparator<Summoning>{
 
     public int compare(Summoning o1, Summoning o2) {
-        return o2.getPromo().getCode().compareTo(o1.getPromo().getCode());
+        return o2.getPromo().getCode().toLowerCase().compareTo(o1.getPromo().getCode().toLowerCase());
     }
 
 }

@@ -84,6 +84,15 @@
     </h:panelGroup>
 
     <h:panelGroup styleClass="menuCategory">
+        <h:outputText value="#{bundle.MENU_FEEDS}" styleClass="menuTitle"/>
+        <h:panelGroup styleClass="menuItem">
+            <h:outputLink value="#{request.contextPath}/feedregistry/listing.jsf">
+                <h:outputText value="#{bundle.FEEDREGISTRY}"/>
+            </h:outputLink>
+        </h:panelGroup>
+    </h:panelGroup>
+
+    <h:panelGroup styleClass="menuCategory">
         <h:outputText value="#{bundle.MENU_ADMIN}" styleClass="menuTitle"/>
         <h:panelGroup styleClass="menuItem">
             <h:outputLink value="#{request.contextPath}/devices/listing.jsf">

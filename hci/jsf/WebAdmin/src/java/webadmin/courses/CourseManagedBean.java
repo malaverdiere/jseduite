@@ -227,7 +227,7 @@ public class CourseManagedBean {
             e.printStackTrace();
         }
 
-        kinds.add(new SelectItem("other", Bundle.get("FORM_OTHER")));
+        kinds.add(new SelectItem("__other", Bundle.get("FORM_OTHER")));
 
         return kinds;
     }
@@ -243,7 +243,7 @@ public class CourseManagedBean {
             this.crudService = new CourseCRUDService();
             CourseCRUD crud = crudService.getCourseCRUDPort();
 
-            if(cCourse.getKind().equals("other")) {
+            if(cCourse.getKind().equals("__other")) {
                 cCourse.setKind(alterKind);
             }
 
@@ -318,7 +318,7 @@ public class CourseManagedBean {
             this.crudService = new CourseCRUDService();
             CourseCRUD crud = crudService.getCourseCRUDPort();
 
-            if(uCourse.getKind().equals("other")) {
+            if(uCourse.getKind().equals("__other")) {
                 uCourse.setKind(alterKind);
             }
 

@@ -24,7 +24,7 @@
             <script type='text/javascript' language = 'Javascript'>
                 function otherDetection()
                 {
-                    if (document.getElementById("content:form:kinds").options[document.getElementById("content:form:kinds").selectedIndex].value == "other")
+                    if (document.getElementById("content:form:kinds").options[document.getElementById("content:form:kinds").selectedIndex].value == "__other")
                     {
                         document.getElementById('content:form:kind').disabled=false;
                         document.getElementById('content:form:kind').style.display="inherit";

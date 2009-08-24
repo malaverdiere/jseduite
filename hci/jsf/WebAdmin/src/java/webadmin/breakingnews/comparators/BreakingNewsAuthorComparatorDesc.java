@@ -10,7 +10,7 @@ import java.util.Comparator;
 public class BreakingNewsAuthorComparatorDesc implements Comparator<BreakNew> {
 
     public int compare(BreakNew o1, BreakNew o2) {
-        return o2.getAuthor().compareTo(o1.getAuthor());
+        return o2.getAuthor().toUpperCase().compareTo(o1.getAuthor().toUpperCase());
     }
 
 }

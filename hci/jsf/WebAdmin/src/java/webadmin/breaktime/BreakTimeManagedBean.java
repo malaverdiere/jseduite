@@ -329,7 +329,7 @@ public class BreakTimeManagedBean {
             e.printStackTrace();
         }
 
-        buildings.add(new SelectItem("other", Bundle.get("FORM_OTHER")));
+        buildings.add(new SelectItem("__other", Bundle.get("FORM_OTHER")));
 
         return buildings;
     }
@@ -380,7 +380,7 @@ public class BreakTimeManagedBean {
                 cBreakTime.getPromos().add(promotion);
             }
 
-            if(cBreakTime.getBuilding().equals("other")) {
+            if(cBreakTime.getBuilding().equals("__other")) {
                 cBreakTime.setBuilding(alterBuilding);
             }
 
@@ -499,7 +499,7 @@ public class BreakTimeManagedBean {
                 uBreakTime.getPromos().add(promotion);
             }
 
-            if(uBreakTime.getBuilding().equals("other")) {
+            if(uBreakTime.getBuilding().equals("__other")) {
                 uBreakTime.setBuilding(alterBuilding);
             }
 

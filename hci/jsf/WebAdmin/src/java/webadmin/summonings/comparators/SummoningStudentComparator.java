@@ -10,7 +10,7 @@ import java.util.Comparator;
 public class SummoningStudentComparator  implements Comparator<Summoning>{
 
     public int compare(Summoning o1, Summoning o2) {
-        return o1.getStudent().compareTo(o2.getStudent());
+        return o1.getStudent().toUpperCase().compareTo(o2.getStudent().toUpperCase());
     }
 
 }

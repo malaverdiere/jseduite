@@ -73,6 +73,11 @@
         <managed-bean-class>webadmin.errorlogger.ErrorLoggerManagedBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>FeedRegistryManagedBean</managed-bean-name>
+        <managed-bean-class>webadmin.feedregistry.FeedRegistryManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
 
     <!--SORTERS-->
     <managed-bean>
@@ -118,6 +123,11 @@
     <managed-bean>
         <managed-bean-name>SummoningSorter</managed-bean-name>
         <managed-bean-class>webadmin.summonings.SummoningSorter</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>FeedRegistrySorter</managed-bean-name>
+        <managed-bean-class>webadmin.feedregistry.FeedRegistrySorter</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 
@@ -574,6 +584,46 @@
         <navigation-case>
             <from-outcome>cancel</from-outcome>
             <to-view-id>/summonings/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <!--FEED REGISTRY-->
+    <navigation-rule>
+        <from-view-id>/feedregistry/create.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>created</from-outcome>
+            <to-view-id>/feedregistry/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/feedregistry/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/feedregistry/listing.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>sorted</from-outcome>
+            <to-view-id>/feedregistry/listing.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>update</from-outcome>
+            <to-view-id>/feedregistry/update.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/feedregistry/update.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>updated</from-outcome>
+            <to-view-id>/feedregistry/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/feedregistry/listing.jsp</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>

@@ -10,7 +10,7 @@ import java.util.Comparator;
 public class AbsenceTeacherComparatorDesc implements Comparator<Absence> {
 
     public int compare(Absence o1, Absence o2) {
-        return o2.getTeacher().compareTo(o1.getTeacher());
+        return o2.getTeacher().toUpperCase().compareTo(o1.getTeacher().toUpperCase());
     }
 
 }

@@ -4,9 +4,9 @@
     <Scope Scope="Project">
         <Node id="breakingnews/create.jsp" x="502" y="299" zoom="true"/>
         <Node id="internalnews/listing-content.jsp" x="150" y="600" zoom="true"/>
+        <Node id="layout/footer.jsp" x="900" y="300" zoom="true"/>
         <Node id="devices/listing-content.jsp" x="150" y="1200" zoom="true"/>
         <Node id="absences/listing.jsp" x="150" y="1050" zoom="true"/>
-        <Node id="layout/footer.jsp" x="900" y="300" zoom="true"/>
         <Node id="alarms/update-content.jsp" x="400" y="1050" zoom="true"/>
         <Node id="alarms/update.jsp" x="1650" y="300" zoom="true"/>
         <Node id="absences/create.jsp" x="1150" y="750" zoom="true"/>
@@ -15,18 +15,18 @@
         <Node id="alarms/listing.jsp" x="1900" y="150" zoom="true"/>
         <Node id="summonings/update-content.jsp" x="650" y="1350" zoom="true"/>
         <Node id="absences/update-content.jsp" x="650" y="1050" zoom="true"/>
-        <Node id="breakingnews/update.jsp" x="501" y="38" zoom="true"/>
         <Node id="promotions/create-content.jsp" x="650" y="600" zoom="true"/>
-        <Node id="partnerkeys/create.jsp" x="1150" y="1050" zoom="true"/>
+        <Node id="breakingnews/update.jsp" x="501" y="38" zoom="true"/>
         <Node id="partnerkeys/listing.jsp" x="150" y="1650" zoom="true"/>
+        <Node id="partnerkeys/create.jsp" x="1150" y="1050" zoom="true"/>
         <Node id="summonings/listing-content.jsp" x="1650" y="750" zoom="true"/>
-        <Node id="promotions/create.jsp" x="150" y="900" zoom="true"/>
         <Node id="internalnews/create-content.jsp" x="150" y="150" zoom="true"/>
+        <Node id="promotions/create.jsp" x="150" y="900" zoom="true"/>
         <Node id="partnerkeys/listing-content.jsp" x="2900" y="150" zoom="true"/>
         <Node id="picturealbum/create-content.jsp" x="400" y="150" zoom="true"/>
+        <Node id="courses/create.jsp" x="150" y="1350" zoom="true"/>
         <Node id="partnerkeys/update-content.jsp" x="400" y="1500" zoom="true"/>
         <Node id="alarms/listing-content.jsp" x="1400" y="450" zoom="true"/>
-        <Node id="courses/create.jsp" x="150" y="1350" zoom="true"/>
         <Node id="menus/listing-content.jsp" x="400" y="1350" zoom="true"/>
         <Node id="picturealbum/update-content.jsp" x="650" y="150" zoom="true"/>
         <Node id="menus/listing.jsp" x="150" y="1500" zoom="true"/>
@@ -38,11 +38,11 @@
         <Node id="picturealbum/listing-content.jsp" x="150" y="750" zoom="true"/>
         <Node id="menus/update.jsp" x="1400" y="750" zoom="true"/>
         <Node id="promotions/listing.jsp" x="400" y="750" zoom="true"/>
+        <Node id="absences/update.jsp" x="900" y="900" zoom="true"/>
         <Node id="breakingnews/listing-content.jsp" x="400" y="450" zoom="true"/>
+        <Node id="internalnews/update-content.jsp" x="650" y="300" zoom="true"/>
         <Node id="breaktime/update.jsp" x="400" y="900" zoom="true"/>
         <Node id="promotions/update-content.jsp" x="1150" y="300" zoom="true"/>
-        <Node id="internalnews/update-content.jsp" x="650" y="300" zoom="true"/>
-        <Node id="absences/update.jsp" x="900" y="900" zoom="true"/>
         <Node id="breakingnews/update-content.jsp" x="150" y="450" zoom="true"/>
         <Node id="courses/listing.jsp" x="2150" y="300" zoom="true"/>
         <Node id="devices/create-content.jsp" x="900" y="750" zoom="true"/>
@@ -54,15 +54,16 @@
         <Node id="picturealbum/create.jsp" x="150" y="300" zoom="true"/>
         <Node id="partnerkeys/create-content.jsp" x="2400" y="300" zoom="true"/>
         <Node id="partnerkeys/update.jsp" x="900" y="1200" zoom="true"/>
+        <Node id="errorlogger/listing-content.jsp" x="2400" y="450" zoom="true"/>
         <Node id="summonings/update.jsp" x="2650" y="150" zoom="true"/>
-        <Node id="courses/listing-content.jsp" x="400" y="1200" zoom="true"/>
         <Node id="breaktime/listing-content.jsp" x="1400" y="300" zoom="true"/>
+        <Node id="courses/listing-content.jsp" x="400" y="1200" zoom="true"/>
         <Node id="breaktime/create.jsp" x="650" y="750" zoom="true"/>
-        <Node id="breaktime/listing.jsp" x="1150" y="450" zoom="true"/>
         <Node id="promotions/update.jsp" x="1400" y="150" zoom="true"/>
+        <Node id="breaktime/listing.jsp" x="1150" y="450" zoom="true"/>
         <Node id="breakingnews/create-content.jsp" x="1150" y="150" zoom="true"/>
-        <Node id="menus/create.jsp" x="650" y="1200" zoom="true"/>
         <Node id="layout/menu.jsp" x="400" y="300" zoom="true"/>
+        <Node id="menus/create.jsp" x="650" y="1200" zoom="true"/>
         <Node id="breaktime/update-content.jsp" x="900" y="600" zoom="true"/>
         <Node id="forwardToJSF.jsp" x="24" y="173" zoom="true"/>
         <Node id="internalnews/update.jsp" x="505" y="387" zoom="true"/>
@@ -72,10 +73,11 @@
         <Node id="devices/listing.jsp" x="650" y="900" zoom="true"/>
         <Node id="breakingnews/listing.jsp" x="504" y="174" zoom="true"/>
         <Node id="devices/update.jsp" x="1150" y="600" zoom="true"/>
-        <Node id="promotions/listing-content.jsp" x="900" y="450" zoom="true"/>
         <Node id="summonings/create.jsp" x="1400" y="900" zoom="true"/>
+        <Node id="promotions/listing-content.jsp" x="900" y="450" zoom="true"/>
         <Node id="picturealbum/update.jsp" x="900" y="150" zoom="true"/>
         <Node id="courses/update.jsp" x="2400" y="150" zoom="true"/>
+        <Node id="errorlogger/listing.jsp" x="2650" y="300" zoom="true"/>
         <Node id="absences/listing-content.jsp" x="1400" y="600" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>

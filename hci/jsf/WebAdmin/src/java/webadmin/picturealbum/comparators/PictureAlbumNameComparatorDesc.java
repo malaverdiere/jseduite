@@ -10,7 +10,7 @@ import java.util.Comparator;
 public class PictureAlbumNameComparatorDesc  implements Comparator<PictureAlbum>{
 
     public int compare(PictureAlbum o1, PictureAlbum o2) {
-        return o2.getName().compareTo(o1.getName());
+        return o2.getName().toUpperCase().compareTo(o1.getName().toUpperCase());
     }
 
 }

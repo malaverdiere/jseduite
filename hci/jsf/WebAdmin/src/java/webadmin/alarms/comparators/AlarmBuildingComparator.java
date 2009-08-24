@@ -10,7 +10,7 @@ import webadmin.alarms.Alarms;
 public class AlarmBuildingComparator implements Comparator<Alarms> {
 
     public int compare(Alarms o1, Alarms o2) {
-        return o1.getBreakTime().getBuilding().compareTo(o2.getBreakTime().getBuilding());
+        return o1.getBreakTime().getBuilding().toUpperCase().compareTo(o2.getBreakTime().getBuilding().toUpperCase());
     }
 
 }

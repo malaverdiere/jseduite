@@ -10,7 +10,7 @@ import java.util.Comparator;
 public class CourseKindComparatorDesc implements Comparator<Course> {
 
     public int compare(Course o1, Course o2) {
-        return o2.getKind().compareTo(o1.getKind());
+        return o2.getKind().toUpperCase().compareTo(o1.getKind().toUpperCase());
     }
 
 }

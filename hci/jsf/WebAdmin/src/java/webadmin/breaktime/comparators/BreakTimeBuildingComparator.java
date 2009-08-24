@@ -10,7 +10,7 @@ import java.util.Comparator;
 public class BreakTimeBuildingComparator implements Comparator<BreakTime> {
 
     public int compare(BreakTime o1, BreakTime o2) {
-        return o1.getBuilding().compareTo(o2.getBuilding());
+        return o1.getBuilding().toUpperCase().compareTo(o2.getBuilding().toUpperCase());
     }
 
 }

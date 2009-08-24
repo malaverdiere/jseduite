@@ -10,7 +10,7 @@ import webadmin.devices.SourceData;
 public class SourceNameComparator  implements Comparator<SourceData>{
 
     public int compare(SourceData o1, SourceData o2) {
-        return o1.getSource().getName().compareTo(o2.getSource().getName());
+        return o1.getSource().getName().toUpperCase().compareTo(o2.getSource().getName().toUpperCase());
     }
 
 }

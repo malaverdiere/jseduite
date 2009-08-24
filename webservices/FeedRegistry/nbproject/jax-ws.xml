@@ -4,6 +4,18 @@
     <service name="FeedRegistry">
       <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.registry.FeedRegistry</implementation-class>
     </service>
+    <service name="FeedClassFinder">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.registry.FeedClassFinder</implementation-class>
+    </service>
+    <service name="FeedClassCRUD">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.registry.FeedClassCRUD</implementation-class>
+    </service>
+    <service name="FeedFinder">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.registry.FeedFinder</implementation-class>
+    </service>
+    <service name="FeedCRUD">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.registry.FeedCRUD</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>

@@ -10,7 +10,7 @@ import java.util.Comparator;
 public class PartnerKeysKeyComparator implements Comparator<PartnerKey> {
 
     public int compare(PartnerKey o1, PartnerKey o2) {
-        return o1.getKey().compareTo(o2.getKey());
+        return o1.getKey().toUpperCase().compareTo(o2.getKey().toUpperCase());
     }
 
 }
