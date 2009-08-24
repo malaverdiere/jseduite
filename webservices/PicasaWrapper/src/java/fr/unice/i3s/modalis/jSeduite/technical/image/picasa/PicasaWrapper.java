@@ -78,6 +78,27 @@ public class PicasaWrapper {
         }
     }
 
+    /** Retrieve the content of a given protected Picasa Web Album
+     * @param user album's owner (valid Google User Account)
+     * @param album album's name (following Google's naming conventions)
+     * @param authKey album's authentication key
+     * @return an array of URL
+     */
+    @WebMethod(operationName = "getProtectedAlbumContent")
+    public URL[] getProtectedAlbumContent(@WebParam(name = "user") String user,
+            @WebParam(name = "album") String album,
+            @WebParam(name = "authKey") String authKey)
+            throws PicasaWrapperException {
+        String address = "http://" + HOST + SERVICE + "/user/" + user;
+        address += "/album/" + album;
+        address += "?authkey="+ authKey +"&kind=photo";
+        try {
+            return this.transform(address);
+        } catch (Exception e) {
+            throw new PicasaWrapperException(e.getMessage());
+        }
+    }
+
     private URL[] transform(String address) throws Exception {
         URL url = new URL(address);
         SAXBuilder builder = new SAXBuilder();
