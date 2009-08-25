@@ -19,7 +19,7 @@
                 <h:message for="repository" errorClass="errorMessage"/>
             </h:selectOneMenu>
 
-            <h:outputText value="#{bundle.PICTUREALBUM_USER}"/>
+            <h:outputText id="userField" value="#{bundle.PICTUREALBUM_USER}"/>
             <h:panelGroup>
                 <h:inputText id="user" value="#{PictureAlbumManagedBean.uPictureAlbum.user}" required="true" requiredMessage="#{bundle.PICTUREALBUM_USER_REQUIRED}">
                     <f:validateLength maximum="255" />
@@ -33,6 +33,14 @@
                     <f:validateLength maximum="255" />
                 </h:inputText>
                 <h:message for="album" errorClass="errorMessage"/>
+            </h:panelGroup>
+
+            <h:outputText id="keyField" value="#{bundle.PICTUREALBUM_KEY}"/>
+            <h:panelGroup>
+                <h:inputText id="key" value="#{PictureAlbumManagedBean.uPictureAlbum.authKey}">
+                    <f:validateLength maximum="255" />
+                </h:inputText>
+                <h:message for="key" errorClass="errorMessage"/>
             </h:panelGroup>
         </h:panelGrid>
 

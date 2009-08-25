@@ -400,7 +400,40 @@
     <target name="wsimport-client-clean-FeedClassFinderService" depends="-init-project">
         <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/registry"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-BreakingNewsCRUDService, wsimport-client-BreakingNewsFinderService, wsimport-client-InternalNewsCRUDService, wsimport-client-InternalNewsFinderService, wsimport-client-PictureAlbumRegistryCRUDService, wsimport-client-PictureAlbumRegistryFinderService, wsimport-client-PromoCRUDService, wsimport-client-PromoFinderService, wsimport-client-BreakTimeFinderService, wsimport-client-BreakTimeCRUDService, wsimport-client-AlarmFinderService, wsimport-client-AlarmCRUDService, wsimport-client-DeviceCRUDService, wsimport-client-DeviceFinderService, wsimport-client-SourceFinderService, wsimport-client-SourceCRUDService, wsimport-client-ParamFinderService, wsimport-client-ParamCreatorService, wsimport-client-AbsenceCRUDService, wsimport-client-AbsenceFinderService, wsimport-client-CourseCRUDService, wsimport-client-CourseBusinessService, wsimport-client-CourseFinderService, wsimport-client-MenuFinderService, wsimport-client-MenuBusinessService, wsimport-client-MenuCRUDService, wsimport-client-PartnerKeysFinderService, wsimport-client-PartnerKeysCRUDService, wsimport-client-SummoningFinderService, wsimport-client-SummoningCRUDService, wsimport-client-ErrorLoggerService, wsimport-client-FeedCRUDService, wsimport-client-FeedFinderService, wsimport-client-FeedClassCRUDService, wsimport-client-FeedClassFinderService"/>
+    <target name="wsimport-client-check-PicasaWrapperService" depends="wsimport-init">
+        <condition property="wsimport-client-PicasaWrapperService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/image/picasa/PicasaWrapperService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-PicasaWrapperService" depends="wsimport-init,wsimport-client-check-PicasaWrapperService" unless="wsimport-client-PicasaWrapperService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/PicasaWrapperService/wsdl/localhost_8080/jSeduite/PicasaWrapper/PicasaWrapperService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/PicasaWrapper/PicasaWrapperService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-PicasaWrapperService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/image/picasa"/>
+    </target>
+    <target name="wsimport-client-check-FlickrWrapperService" depends="wsimport-init">
+        <condition property="wsimport-client-FlickrWrapperService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/image/flickr/FlickrWrapperService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-FlickrWrapperService" depends="wsimport-init,wsimport-client-check-FlickrWrapperService" unless="wsimport-client-FlickrWrapperService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/FlickrWrapperService/wsdl/localhost_8080/jSeduite/FlickrWrapper/FlickrWrapperService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/FlickrWrapper/FlickrWrapperService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-FlickrWrapperService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/image/flickr"/>
+    </target>
+    <target name="wsimport-client-check-PartnerKeysService" depends="wsimport-init">
+        <condition property="wsimport-client-PartnerKeysService.notRequired">
+            <available file="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/registry/partners/PartnerKeysService.java"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-PartnerKeysService" depends="wsimport-init,wsimport-client-check-PartnerKeysService" unless="wsimport-client-PartnerKeysService.notRequired">
+        <wsimport sourcedestdir="${build.generated.dir}/wsimport/client" destdir="${build.generated.dir}/wsimport/binaries" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/PartnerKeysService/wsdl/localhost_8080/jSeduite/PartnerKeys/PartnerKeysService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/jSeduite/PartnerKeys/PartnerKeysService?wsdl" xnocompile="true"/>
+    </target>
+    <target name="wsimport-client-clean-PartnerKeysService" depends="-init-project">
+        <delete dir="${build.generated.dir}/wsimport/client/fr/unice/i3s/modalis/jseduite/technical/registry/partners"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-BreakingNewsCRUDService, wsimport-client-BreakingNewsFinderService, wsimport-client-InternalNewsCRUDService, wsimport-client-InternalNewsFinderService, wsimport-client-PictureAlbumRegistryCRUDService, wsimport-client-PictureAlbumRegistryFinderService, wsimport-client-PromoCRUDService, wsimport-client-PromoFinderService, wsimport-client-BreakTimeFinderService, wsimport-client-BreakTimeCRUDService, wsimport-client-AlarmFinderService, wsimport-client-AlarmCRUDService, wsimport-client-DeviceCRUDService, wsimport-client-DeviceFinderService, wsimport-client-SourceFinderService, wsimport-client-SourceCRUDService, wsimport-client-ParamFinderService, wsimport-client-ParamCreatorService, wsimport-client-AbsenceCRUDService, wsimport-client-AbsenceFinderService, wsimport-client-CourseCRUDService, wsimport-client-CourseBusinessService, wsimport-client-CourseFinderService, wsimport-client-MenuFinderService, wsimport-client-MenuBusinessService, wsimport-client-MenuCRUDService, wsimport-client-PartnerKeysFinderService, wsimport-client-PartnerKeysCRUDService, wsimport-client-SummoningFinderService, wsimport-client-SummoningCRUDService, wsimport-client-ErrorLoggerService, wsimport-client-FeedCRUDService, wsimport-client-FeedFinderService, wsimport-client-FeedClassCRUDService, wsimport-client-FeedClassFinderService, wsimport-client-PicasaWrapperService, wsimport-client-FlickrWrapperService, wsimport-client-PartnerKeysService"/>
     <target name="wsimport-client-compile" depends="-pre-pre-compile">
         <webproject2:javac srcdir="${build.generated.dir}/wsimport/client" classpath="${j2ee.platform.wsimport.classpath}:${javac.classpath}" destdir="${build.classes.dir}"/>
         <copy todir="${build.classes.dir}">

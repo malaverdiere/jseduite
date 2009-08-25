@@ -5,6 +5,12 @@ import fr.unice.i3s.modalis.jseduite.technical.image.registry.PictureAlbumRegist
 import fr.unice.i3s.modalis.jseduite.technical.image.registry.PictureAlbumRegistryCRUDService;
 import fr.unice.i3s.modalis.jseduite.technical.image.registry.PictureAlbumRegistryFinder;
 import fr.unice.i3s.modalis.jseduite.technical.image.registry.PictureAlbumRegistryFinderService;
+import fr.unice.i3s.modalis.jseduite.technical.image.picasa.PicasaWrapperService;
+import fr.unice.i3s.modalis.jseduite.technical.image.picasa.PicasaWrapper;
+import fr.unice.i3s.modalis.jseduite.technical.image.flickr.FlickrWrapperService;
+import fr.unice.i3s.modalis.jseduite.technical.image.flickr.FlickrWrapper;
+import fr.unice.i3s.modalis.jseduite.technical.registry.partners.PartnerKeys;
+import fr.unice.i3s.modalis.jseduite.technical.registry.partners.PartnerKeysService;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,6 +21,7 @@ import javax.xml.ws.WebServiceRef;
 import webadmin.picturealbum.comparators.*;
 import webadmin.util.DateFormat;
 import webadmin.util.SQLProtection;
+import webadmin.util.Thumbnail;
 
 /**
  *
@@ -27,6 +34,15 @@ public class PictureAlbumManagedBean {
 
     @WebServiceRef(wsdlLocation = "http://localhost:8080/jSeduite/PictureAlbumRegistry/PictureAlbumRegistryCRUDService?wsdl")
     PictureAlbumRegistryCRUDService crudService;
+
+    @WebServiceRef(wsdlLocation = "http://localhost:8080/jSeduite/PicasaWrapper/PicasaWrapperService?wsdl")
+    PicasaWrapperService picasaWrapper;
+
+    @WebServiceRef(wsdlLocation = "http://localhost:8080/jSeduite/FlickrWrapper/FlickrWrapperService?wsdl")
+    FlickrWrapperService flickrWrapper;
+
+    @WebServiceRef(wsdlLocation = "http://localhost:8080/jSeduite/PartnerKeys/PartnerKeysService?wsdl")
+    PartnerKeysService partnerKeys;
 
     //The list of the picture albums
     private ArrayList<PictureAlbum> pictureAlbums;
@@ -49,6 +65,9 @@ public class PictureAlbumManagedBean {
 
     // The repositories
     private List<SelectItem> repositories;
+
+    // The sample images
+    private ArrayList<ImageSet> preview = new ArrayList<ImageSet>();
 
 
     /**
@@ -150,6 +169,22 @@ public class PictureAlbumManagedBean {
     }
 
     /**
+     * Get the preview images URL
+     * @return the preview images URL
+     */
+    public ArrayList<ImageSet> getPreview() {
+        return preview;
+    }
+
+    /**
+     * Set the preview images URL
+     * @param preview the preview images URL
+     */
+    public void setPreview(ArrayList<ImageSet> preview) {
+        this.preview = preview;
+    }
+
+    /**
      * Get the picture albums
      * @return a list of the picture albums
      */
@@ -238,11 +273,20 @@ public class PictureAlbumManagedBean {
             cPictureAlbum.setValidFrom(DateFormat.toXmlCalendar(date));
 
             // Escape characters traitement
-            cPictureAlbum.setUser(SQLProtection.format(cPictureAlbum.getUser()));
             cPictureAlbum.setName(SQLProtection.format(cPictureAlbum.getName()));
             cPictureAlbum.setAlbum(SQLProtection.format(cPictureAlbum.getAlbum()));
+            if(cPictureAlbum.getRepository().equals("picasa")) {
+                cPictureAlbum.setUser(SQLProtection.format(cPictureAlbum.getUser()));
+                cPictureAlbum.setAuthKey(SQLProtection.format(cPictureAlbum.getAuthKey()));
+            }
+            else {
+                cPictureAlbum.setUser(null);
+                cPictureAlbum.setAuthKey(null);
+            }
 
             crud.createPictureAlbum(cPictureAlbum);
+
+            generatePreview(cPictureAlbum);
 
             cPictureAlbum = new PictureAlbum();
 
@@ -306,6 +350,27 @@ public class PictureAlbumManagedBean {
     }
 
     /**
+     * Initiate the preview process
+     * @return a string indicating the preview is ready to be displayed
+     */
+    public String goPreview()
+    {
+        try {
+            this.crudService = new PictureAlbumRegistryCRUDService();
+            PictureAlbumRegistryCRUD crud = crudService.getPictureAlbumRegistryCRUDPort();
+
+            PictureAlbum p = crud.readPictureAlbum(id);
+
+            generatePreview(p);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "preview";
+    }
+
+    /**
      * Update the uNews internal news
      * @return a string indicating the internal news is updated
      */
@@ -317,11 +382,21 @@ public class PictureAlbumManagedBean {
             uPictureAlbum.setValidFrom(DateFormat.toXmlCalendar(date));
 
             // Escape characters traitement
-            uPictureAlbum.setUser(SQLProtection.format(uPictureAlbum.getUser()));
             uPictureAlbum.setName(SQLProtection.format(uPictureAlbum.getName()));
             uPictureAlbum.setAlbum(SQLProtection.format(uPictureAlbum.getAlbum()));
+            if(uPictureAlbum.getRepository().equals("picasa")) {
+                uPictureAlbum.setUser(SQLProtection.format(uPictureAlbum.getUser()));
+                uPictureAlbum.setAuthKey(SQLProtection.format(uPictureAlbum.getAuthKey()));
+            }
+            else {
+                uPictureAlbum.setUser(null);
+                uPictureAlbum.setAuthKey(null);
+            }
+            
 
             crud.updatePictureAlbum(uPictureAlbum);
+
+            generatePreview(uPictureAlbum);
 
         }
         catch (Exception e) {
@@ -339,5 +414,69 @@ public class PictureAlbumManagedBean {
      */
     public String sortBy() {
         return "sorted";
+    }
+
+    /**
+     * Generate a list of images URL
+     * @param p the picture album reference
+     */
+    private void generatePreview(PictureAlbum p) {
+        List<String> previewBuffer = new ArrayList<String>();
+        preview.clear();
+
+        if(p.getRepository().equals("flickr")) {
+            try {
+                this.flickrWrapper = new FlickrWrapperService();
+                FlickrWrapper wrapper = flickrWrapper.getFlickrWrapperPort();
+
+                this.partnerKeys = new PartnerKeysService();
+                PartnerKeys partnerKeysPort = partnerKeys.getPartnerKeysPort();
+
+                previewBuffer = wrapper.getAlbumContent(p.getAlbum(), partnerKeysPort.get("flickr"));
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            for(int i=0; i<(previewBuffer.size()-1)/5+1; i++) {
+                preview.add(new ImageSet());
+
+                for(int j=0; j<5 && ((5*i+j) < previewBuffer.size()); j++) {
+                    preview.get(preview.size()-1).getImage()[j] = Thumbnail.flickr(previewBuffer.get(5*i+j));
+                }
+            }
+        }
+        else if (p.getRepository().equals("picasa")) {
+            if(p.getAuthKey().equals("")) {
+                try {
+                    this.picasaWrapper = new PicasaWrapperService();
+                    PicasaWrapper wrapper = picasaWrapper.getPicasaWrapperPort();
+
+                    previewBuffer = wrapper.getAlbumContent(p.getUser(), p.getAlbum());
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            else {
+                try {
+                    this.picasaWrapper = new PicasaWrapperService();
+                    PicasaWrapper wrapper = picasaWrapper.getPicasaWrapperPort();
+
+                    previewBuffer = wrapper.getProtectedAlbumContent(p.getUser(), p.getAlbum(), p.getAuthKey());
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            for(int i=0; i<(previewBuffer.size()-1)/5+1; i++) {
+                preview.add(new ImageSet());
+                
+                for(int j=0; j<5 && ((5*i+j) < previewBuffer.size()); j++) {
+                    preview.get(preview.size()-1).getImage()[j] = Thumbnail.picasa(previewBuffer.get(5*i+j));
+                }
+            }
+        }
     }
 }

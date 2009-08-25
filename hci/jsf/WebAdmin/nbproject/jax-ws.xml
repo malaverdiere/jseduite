@@ -842,5 +842,77 @@
         </wsimport-option>
       </wsimport-options>
     </client>
+    <client name="PicasaWrapperService">
+      <wsdl-url>http://localhost:8080/jSeduite/PicasaWrapper/PicasaWrapperService?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8080/jSeduite/PicasaWrapper/PicasaWrapperService.wsdl</local-wsdl-file>
+      <package-name>fr.unice.i3s.modalis.jseduite.technical.image.picasa</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:8080/jSeduite/PicasaWrapper/PicasaWrapperService?wsdl</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="FlickrWrapperService">
+      <wsdl-url>http://localhost:8080/jSeduite/FlickrWrapper/FlickrWrapperService?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8080/jSeduite/FlickrWrapper/FlickrWrapperService.wsdl</local-wsdl-file>
+      <package-name>fr.unice.i3s.modalis.jseduite.technical.image.flickr</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:8080/jSeduite/FlickrWrapper/FlickrWrapperService?wsdl</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="PartnerKeysService">
+      <wsdl-url>http://localhost:8080/jSeduite/PartnerKeys/PartnerKeysService?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8080/jSeduite/PartnerKeys/PartnerKeysService.wsdl</local-wsdl-file>
+      <package-name>fr.unice.i3s.modalis.jseduite.technical.registry.partners</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:8080/jSeduite/PartnerKeys/PartnerKeysService?wsdl</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
   </clients>
 </jax-ws>

@@ -39,30 +39,9 @@ public class PictureAlbum {
     private String album;
     private Date validFrom;
     private int duration;
+    private String authKey;
 
     public PictureAlbum(){};
-
-    public PictureAlbum(String repository, String user, String album,
-            Date validFrom, int duration, String name) {
-        this.repository = repository;
-        this.user = user;
-        this.album = album;
-        this.validFrom = validFrom;
-        this.duration = duration;
-        this.name = name;
-        this.id = 0;
-    }
-
-    public PictureAlbum(int id, String repository, String user, String album,
-            Date validFrom, int duration, String name) {
-        this.repository = repository;
-        this.user = user;
-        this.album = album;
-        this.validFrom = validFrom;
-        this.duration = duration;
-        this.name = name;
-        this.id = id;
-    }
 
     public PictureAlbum(DalResultSet dataSet) throws Exception {
         this.name = dataSet.getValue("album_name");
@@ -73,6 +52,7 @@ public class PictureAlbum {
         this.validFrom = format.parse(dataSet.getValue("start"));
         this.duration = Integer.parseInt(dataSet.getValue("duration"));
         this.id = Integer.parseInt(dataSet.getValue("id"));
+        this.authKey = dataSet.getValue("auth_key");
     }
 
     public int getId() {
@@ -131,6 +111,11 @@ public class PictureAlbum {
         this.validFrom = validFrom;
     }
 
-    
+    public String getAuthKey() {
+        return authKey;
+    }
 
+    public void setAuthKey(String authKey) {
+        this.authKey = authKey;
+    }
 }

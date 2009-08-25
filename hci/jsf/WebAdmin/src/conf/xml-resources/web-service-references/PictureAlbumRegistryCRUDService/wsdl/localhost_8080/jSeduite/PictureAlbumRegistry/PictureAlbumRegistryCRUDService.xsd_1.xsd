@@ -27,6 +27,7 @@
 <xs:complexType name="pictureAlbum">
 <xs:sequence>
 <xs:element name="album" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="authKey" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="duration" type="xs:int"></xs:element>
 <xs:element name="id" type="xs:int"></xs:element>
 <xs:element name="name" type="xs:string" minOccurs="0"></xs:element>

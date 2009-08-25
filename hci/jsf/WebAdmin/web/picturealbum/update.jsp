@@ -27,10 +27,22 @@
                    if (document.getElementById("content:form:repository").options[document.getElementById("content:form:repository").selectedIndex].value == "flickr")
                    {
                       document.getElementById('content:form:user').disabled=true;
+                      document.getElementById('content:form:user').style.display="none";
+                      document.getElementById('content:form:userField').style.display="none";
+
+                      document.getElementById('content:form:key').disabled=true;
+                      document.getElementById('content:form:key').style.display="none";
+                      document.getElementById('content:form:keyField').style.display="none";
                    }
                    else
                    {
                       document.getElementById('content:form:user').disabled=false;
+                      document.getElementById('content:form:user').style.display="inherit";
+                      document.getElementById('content:form:userField').style.display="inherit";
+
+                      document.getElementById('content:form:key').disabled=false;
+                      document.getElementById('content:form:key').style.display="inherit";
+                      document.getElementById('content:form:keyField').style.display="inherit";
                    }
                 }
             </script>

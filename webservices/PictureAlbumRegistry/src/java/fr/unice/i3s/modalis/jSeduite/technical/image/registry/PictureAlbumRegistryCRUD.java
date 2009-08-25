@@ -73,9 +73,9 @@ public class PictureAlbumRegistryCRUD {
 
         String sql = "INSERT INTO `picture_album_registry`";
         sql += "(`album_name`, `repository`, `repository_user_id`, ";
-        sql += "`repository_album_name`, `start`, `duration`) VALUES (";
+        sql += "`repository_album_name`, `start`, `duration`, `auth_key`) VALUES (";
         sql += "'"+p.getName()+"','"+p.getRepository()+"','"+p.getUser()+"','";
-        sql += p.getAlbum()+"','"+sqlDate+"','"+p.getDuration()+"');";
+        sql += p.getAlbum()+"','"+sqlDate+"','"+p.getDuration()+"','"+p.getAuthKey()+"');";
 
         String idGetter = "SELECT max(`id`) AS `id` FROM `picture_album_registry`";
 
@@ -126,7 +126,8 @@ public class PictureAlbumRegistryCRUD {
         sql += "`repository_user_id` = '"+p.getUser()+"', ";
         sql += "`repository_album_name` = '"+p.getAlbum()+"', ";
         sql += "`start` = '"+toSql(p.getValidFrom())+"', ";
-        sql += "`duration` = '"+p.getDuration()+"' ";
+        sql += "`duration` = '"+p.getDuration()+"', ";
+        sql += "`auth_key` = '"+p.getAuthKey()+"' ";
         sql += "WHERE `id` = '" + p.getId()+"';";
         
         DataAccessLayer dal = new DataAccessLayer();

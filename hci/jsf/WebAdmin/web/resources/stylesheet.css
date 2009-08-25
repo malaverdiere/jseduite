@@ -78,6 +78,13 @@ a:hover {
     background-repeat: no-repeat;
 }
 
+.backLink {
+    padding-left: 20px;
+    background-image: url('./images/back.png');
+    background-position: left;
+    background-repeat: no-repeat;
+}
+
 .content {
     float: right;
     width: 680px;
@@ -106,6 +113,11 @@ a:hover {
     width: 16px;
     height: 16px;
     background-repeat: no-repeat;
+}
+
+.content form a.preview {
+    background-image: url('./images/preview.png');
+    margin: 5px;
 }
 
 .content form a.update {

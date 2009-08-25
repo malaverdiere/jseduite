@@ -29,5 +29,6 @@ CREATE TABLE `picture_album_registry` (
     `repository_album_name` VARCHAR(255) NOT NULL,
     `start`                 DATE         NOT NULL,
     `duration`              INT          NOT NULL,
+    `auth_key`              VARCHAR(255),
     PRIMARY KEY (`id`));
 

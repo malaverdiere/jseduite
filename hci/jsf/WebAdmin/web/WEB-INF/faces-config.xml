@@ -286,7 +286,7 @@
         <from-view-id>/picturealbum/create.jsp</from-view-id>
         <navigation-case>
             <from-outcome>created</from-outcome>
-            <to-view-id>/picturealbum/listing.jsp</to-view-id>
+            <to-view-id>/picturealbum/preview.jsp</to-view-id>
             <redirect/>
         </navigation-case>
         <navigation-case>
@@ -306,12 +306,17 @@
             <to-view-id>/picturealbum/update.jsp</to-view-id>
             <redirect/>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>preview</from-outcome>
+            <to-view-id>/picturealbum/preview.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/picturealbum/update.jsp</from-view-id>
         <navigation-case>
             <from-outcome>updated</from-outcome>
-            <to-view-id>/picturealbum/listing.jsp</to-view-id>
+            <to-view-id>/picturealbum/preview.jsp</to-view-id>
             <redirect/>
         </navigation-case>
         <navigation-case>

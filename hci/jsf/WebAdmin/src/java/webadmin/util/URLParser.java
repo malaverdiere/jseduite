@@ -4,7 +4,7 @@ package webadmin.util;
  *
  * @author Steve Colombié
  */
-public class URLParser {
+public abstract class URLParser {
 
     public static String getProvider(String url) {
         String result = url.replaceFirst("http://", "");

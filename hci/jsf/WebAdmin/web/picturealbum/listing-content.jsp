@@ -84,6 +84,13 @@
 
         <h:column>
             <h:form>
+                <h:commandLink action="#{PictureAlbumManagedBean.goPreview}" title="#{bundle.PREVIEW}" styleClass="preview">
+                    <f:setPropertyActionListener target="#{PictureAlbumManagedBean.id}" value="#{iterator.id}" />
+                </h:commandLink>
+            </h:form>
+        </h:column>
+        <h:column>
+            <h:form>
                 <h:commandLink action="#{PictureAlbumManagedBean.goUpdate}" title="#{bundle.UPDATE}" styleClass="update">
                     <f:setPropertyActionListener target="#{PictureAlbumManagedBean.id}" value="#{iterator.id}" />
                 </h:commandLink>
