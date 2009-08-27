@@ -78,6 +78,20 @@ a:hover {
     background-repeat: no-repeat;
 }
 
+.contact {
+    padding-left: 20px;
+    background-image: url('./images/contact.png');
+    background-position: left;
+    background-repeat: no-repeat;
+}
+
+.website {
+    padding-left: 20px;
+    background-image: url('./images/website.png');
+    background-position: left;
+    background-repeat: no-repeat;
+}
+
 .backLink {
     padding-left: 20px;
     background-image: url('./images/back.png');
@@ -115,6 +129,14 @@ a:hover {
     background-repeat: no-repeat;
 }
 
+.content form a.create {
+    padding-left: 20px;
+    background-image: url('./images/add.png');
+    background-position: left;
+    background-repeat: no-repeat;
+    width: 80%;
+}
+
 .content form a.preview {
     background-image: url('./images/preview.png');
     margin: 5px;
@@ -139,6 +161,14 @@ a:hover {
     width: 16px;
     height: 16px;
     background-image: url('./images/feed.png');
+    margin: 5px;
+}
+
+.content a.planning {
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-image: url('./images/planning.png');
     margin: 5px;
 }
 
@@ -217,6 +247,10 @@ a:hover {
   color: #2339C8;
 }
 
+.list-row-even:hover .groupLink a{
+    color: #FFFFFF;
+}
+
 .list-row-odd {
   background-color: #c2ffc6;
 }
@@ -232,6 +266,10 @@ a:hover {
 
 .list-row-odd:hover .invisible {
   color: #2339C8;
+}
+
+.list-row-odd:hover .groupLink a{
+    color: #FFFFFF;
 }
 
 /* Style rules for message severity levels */

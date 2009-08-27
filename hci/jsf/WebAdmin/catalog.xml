@@ -82,4 +82,10 @@
     <system systemId="http://localhost:8080/jSeduite/FlickrWrapper/FlickrWrapperService?xsd=1" uri="src/conf/xml-resources/web-service-references/FlickrWrapperService/wsdl/localhost_8080/jSeduite/FlickrWrapper/FlickrWrapperService.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/jSeduite/PartnerKeys/PartnerKeysService?wsdl" uri="src/conf/xml-resources/web-service-references/PartnerKeysService/wsdl/localhost_8080/jSeduite/PartnerKeys/PartnerKeysService.wsdl"/>
     <system systemId="http://localhost:8080/jSeduite/PartnerKeys/PartnerKeysService?xsd=1" uri="src/conf/xml-resources/web-service-references/PartnerKeysService/wsdl/localhost_8080/jSeduite/PartnerKeys/PartnerKeysService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/jSeduite/SchoolLife/PlanningsService?wsdl" uri="src/conf/xml-resources/web-service-references/PlanningsService/wsdl/localhost_8080/jSeduite/SchoolLife/PlanningsService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/SchoolLife/PlanningsService?xsd=1" uri="src/conf/xml-resources/web-service-references/PlanningsService/wsdl/localhost_8080/jSeduite/SchoolLife/PlanningsService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/jSeduite/SchoolLife/PlanningCRUDService?wsdl" uri="src/conf/xml-resources/web-service-references/PlanningCRUDService/wsdl/localhost_8080/jSeduite/SchoolLife/PlanningCRUDService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/SchoolLife/PlanningCRUDService?xsd=1" uri="src/conf/xml-resources/web-service-references/PlanningCRUDService/wsdl/localhost_8080/jSeduite/SchoolLife/PlanningCRUDService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/jSeduite/SchoolLife/PlanningFinderService?wsdl" uri="src/conf/xml-resources/web-service-references/PlanningFinderService/wsdl/localhost_8080/jSeduite/SchoolLife/PlanningFinderService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/SchoolLife/PlanningFinderService?xsd=1" uri="src/conf/xml-resources/web-service-references/PlanningFinderService/wsdl/localhost_8080/jSeduite/SchoolLife/PlanningFinderService.xsd_1.xsd"/>
 </catalog>

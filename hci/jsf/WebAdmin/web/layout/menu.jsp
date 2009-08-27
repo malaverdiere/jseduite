@@ -81,6 +81,12 @@
                 <h:outputText value="#{bundle.PROMOTION}"/>
             </h:outputLink>
         </h:panelGroup>
+
+        <h:panelGroup styleClass="menuItem">
+            <h:outputLink value="#{request.contextPath}/plannings/listing.jsf">
+                <h:outputText value="#{bundle.PLANNING}"/>
+            </h:outputLink>
+        </h:panelGroup>
     </h:panelGroup>
 
     <h:panelGroup styleClass="menuCategory">
@@ -114,8 +120,8 @@
     </h:panelGroup>
 
     <h:panelGroup styleClass="menuItem">
-<%--        <h:outputLink value="#{request.contextPath}">--%>
+        <h:outputLink value="#{request.contextPath}/credits.jsf">
             <h:outputText value="#{bundle.CREDITS}"/>
-<%--        </h:outputLink>--%>
+        </h:outputLink>
     </h:panelGroup>
 </f:subview>

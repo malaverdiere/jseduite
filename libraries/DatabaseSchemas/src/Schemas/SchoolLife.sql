@@ -17,22 +17,31 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  * @author Main Mosser Sebastien [mosser@polytech.unice.fr]
+ * @contributor 2009 Colombié Steve [colombie@polytech.unice.fr]
 **/
 
 DROP TABLE IF EXISTS `summon_levels`;
+DROP TABLE IF EXISTS `summonings`;
+DROP VIEW IF EXISTS `valid_summonings`;
+DROP TABLE IF EXISTS `teacher_absences`;
+DROP TABLE IF EXISTS `promo_planning`;
+DROP TABLE IF EXISTS `promo_groups`;
+DROP TABLE IF EXISTS `promos`;
+
+
 CREATE TABLE `summon_levels` (
     `id`    INT(11)         NOT NULL AUTO_INCREMENT,
     `name`  VARCHAR(255)    NOT NULL,
      PRIMARY KEY  (`id`));
 
-DROP TABLE IF EXISTS `promos`;
+
 CREATE TABLE `promos` (
     `id`    INT(11)         NOT NULL AUTO_INCREMENT,
     `code`  VARCHAR(50)     NOT NULL,
     `name`  VARCHAR(255)    NOT NULL,
      PRIMARY KEY  (`id`));
 
-DROP TABLE IF EXISTS `summonings`;
+
 CREATE TABLE `summonings` (
     `id`        INT(11)         NOT NULL AUTO_INCREMENT,
     `student`   VARCHAR(255)    NOT NULL,
@@ -43,7 +52,7 @@ CREATE TABLE `summonings` (
     `valid`     BOOLEAN         NOT NULL DEFAULT TRUE,
     PRIMARY KEY  (`id`));
 
-DROP VIEW IF EXISTS `valid_summonings`;
+
 CREATE VIEW `valid_summonings` AS
     SELECT
         `summonings`.`student`, `summonings`.`owner`, `promos`.`code` AS `p_code`,
@@ -55,7 +64,7 @@ CREATE VIEW `valid_summonings` AS
         `summonings`.`level` = `summon_levels`.`id` AND `summonings`.`valid`
         AND `summonings`.`promo` = `promos`.`id`;
 
-DROP TABLE IF EXISTS `teacher_absences`;
+
 CREATE TABLE `teacher_absences` (
     `id`        INT(11)         NOT NULL AUTO_INCREMENT,
     `teacher`   VARCHAR(255)    NOT NULL,
@@ -63,3 +72,29 @@ CREATE TABLE `teacher_absences` (
     `from`      TIMESTAMP       NOT NULL DEFAULT NOW(),
     `until`     TIMESTAMP       NOT NULL,
     PRIMARY KEY(`id`));
+
+
+CREATE TABLE `promo_planning` (
+    `id`        INT(11)         NOT NULL,
+    `planning`  VARCHAR(255)    NOT NULL,
+     PRIMARY KEY  (`id`),
+
+    CONSTRAINT `fk_promo_planning_id`
+    FOREIGN KEY (`id`)
+    REFERENCES `promos` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+
+CREATE TABLE `promo_groups` (
+    `id`        INT(11)         NOT NULL AUTO_INCREMENT,
+    `name`      VARCHAR(255)    NOT NULL,
+    `planning`  VARCHAR(255)    NOT NULL,
+    `promo_id`  INT(11)         NOT NULL,
+     PRIMARY KEY  (`id`),
+
+    CONSTRAINT `fk_promo_id`
+    FOREIGN KEY (`promo_id` )
+    REFERENCES `promos` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);

@@ -23,7 +23,7 @@
                             <h:graphicImage value="../resources/images/up.png" alt="#{bundle.SORT_ASC}"/>
                             <f:setPropertyActionListener target="#{PromotionManagedBean.sort}" value="#{PromotionSorter.sortByCode}" />
                         </h:commandLink>
-                        <h:commandLink title="#{bundle.SORT_DESC}" action="#{PictureAlbumManagedBean.sortBy}" styleClass="sort">
+                        <h:commandLink title="#{bundle.SORT_DESC}" action="#{PromotionManagedBean.sortBy}" styleClass="sort">
                             <h:graphicImage value="../resources/images/down.png" alt="#{bundle.SORT_ASC}"/>
                             <f:setPropertyActionListener target="#{PromotionManagedBean.sort}" value="#{PromotionSorter.sortByCodeDesc}" />
                         </h:commandLink>

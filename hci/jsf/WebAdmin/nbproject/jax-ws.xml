@@ -914,5 +914,77 @@
         </wsimport-option>
       </wsimport-options>
     </client>
+    <client name="PlanningsService">
+      <wsdl-url>http://localhost:8080/jSeduite/SchoolLife/PlanningsService?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8080/jSeduite/SchoolLife/PlanningsService.wsdl</local-wsdl-file>
+      <package-name>fr.unice.i3s.modalis.jseduite.technical.plannings</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:8080/jSeduite/SchoolLife/PlanningsService?wsdl</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="PlanningCRUDService">
+      <wsdl-url>http://localhost:8080/jSeduite/SchoolLife/PlanningCRUDService?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8080/jSeduite/SchoolLife/PlanningCRUDService.wsdl</local-wsdl-file>
+      <package-name>fr.unice.i3s.modalis.jseduite.technical.plannings</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:8080/jSeduite/SchoolLife/PlanningCRUDService?wsdl</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="PlanningFinderService">
+      <wsdl-url>http://localhost:8080/jSeduite/SchoolLife/PlanningFinderService?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8080/jSeduite/SchoolLife/PlanningFinderService.wsdl</local-wsdl-file>
+      <package-name>fr.unice.i3s.modalis.jseduite.technical.plannings</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:8080/jSeduite/SchoolLife/PlanningFinderService?wsdl</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
   </clients>
 </jax-ws>

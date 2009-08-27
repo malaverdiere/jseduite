@@ -78,6 +78,11 @@
         <managed-bean-class>webadmin.feedregistry.FeedRegistryManagedBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>PlanningManagedBean</managed-bean-name>
+        <managed-bean-class>webadmin.plannings.PlanningManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
 
     <!--SORTERS-->
     <managed-bean>
@@ -128,6 +133,11 @@
     <managed-bean>
         <managed-bean-name>FeedRegistrySorter</managed-bean-name>
         <managed-bean-class>webadmin.feedregistry.FeedRegistrySorter</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>PlanningSorter</managed-bean-name>
+        <managed-bean-class>webadmin.plannings.PlanningSorter</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 
@@ -199,6 +209,14 @@
     <converter>
         <converter-id>LevelConverter</converter-id>
         <converter-class>webadmin.converters.LevelConverter</converter-class>
+    </converter>
+    <converter>
+        <converter-id>PromoConverter</converter-id>
+        <converter-class>webadmin.converters.PromoConverter</converter-class>
+    </converter>
+    <converter>
+        <converter-id>PlanningGroupsConverter</converter-id>
+        <converter-class>webadmin.converters.PlanningGroupsConverter</converter-class>
     </converter>
 
     <!--BREAKING NEWS-->
@@ -590,6 +608,68 @@
             <from-outcome>cancel</from-outcome>
             <to-view-id>/summonings/listing.jsp</to-view-id>
             <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+
+    <!--PLANNINGS-->
+    <navigation-rule>
+        <from-view-id>/plannings/create.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>created</from-outcome>
+            <to-view-id>/plannings/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/plannings/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+            <navigation-case>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/plannings/create.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>del</from-outcome>
+            <to-view-id>/plannings/create.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/plannings/listing.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>update</from-outcome>
+            <to-view-id>/plannings/update.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>create</from-outcome>
+            <to-view-id>/plannings/create.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>sorted</from-outcome>
+            <to-view-id>/plannings/listing.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/plannings/update.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>updated</from-outcome>
+            <to-view-id>/plannings/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/plannings/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/plannings/update.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>del</from-outcome>
+            <to-view-id>/plannings/update.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
 

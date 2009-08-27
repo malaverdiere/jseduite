@@ -37,6 +37,15 @@
     <service name="SummoningCRUD">
       <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.news.summon.SummoningCRUD</implementation-class>
     </service>
+    <service name="PlanningFinder">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.plannings.PlanningFinder</implementation-class>
+    </service>
+    <service name="PlanningCRUD">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.plannings.PlanningCRUD</implementation-class>
+    </service>
+    <service name="Plannings">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.plannings.Plannings</implementation-class>
+    </service>
   </services>
   <clients>
   </clients>
