@@ -292,6 +292,13 @@ public class PlanningManagedBean {
             // Read the planning to update
             planning = crud.readPlanning(id);
 
+            //Change the group ids
+            int i = 1;
+            for(PlanningGroup group : planning.getGroups()) {
+                group.setId(i);
+                i++;
+            }
+
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -352,8 +359,8 @@ public class PlanningManagedBean {
     }
 
     /**
-     * Delete a call
-     * @return a string indicating the call is deleted
+     * Delete a group
+     * @return a string indicating the group is deleted
      */
     public String deletion() {
         planning.getGroups().remove(groupDeletion-1);

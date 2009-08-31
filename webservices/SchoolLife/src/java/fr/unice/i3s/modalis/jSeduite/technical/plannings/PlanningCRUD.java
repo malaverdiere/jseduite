@@ -144,9 +144,12 @@ public class PlanningCRUD {
 
         String sql = "DELETE FROM `promo_planning`";
         sql += "WHERE `id` = '" + p.getId()+"';";
+        String sql_grp = "DELETE FROM `promo_groups` WHERE `promo_id` = '"+p.getId()+"';";
+
         DataAccessLayer dal = new DataAccessLayer();
         try {
             dal.executeVoid(sql);
+            dal.executeVoid(sql_grp);
         } catch(Exception e) {
            throw new PlanningException("SQLException: " + e.getMessage());
        }

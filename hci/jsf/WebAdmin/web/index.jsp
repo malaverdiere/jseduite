@@ -35,6 +35,113 @@
                     </div>
                     <div class="content">
                         <h1><h:outputText value="#{bundle.HOME}" /></h1>
+                        <h:outputText value="#{bundle.MENU_NEWS}" styleClass="homeTitle newsTitle"/>
+                        <h:panelGroup styleClass="menuItem">
+                            <h:outputLink value="#{request.contextPath}/internalnews/listing.jsf">
+                                <h:outputText value="#{bundle.INTERNALNEWS}"/>
+                            </h:outputLink>
+                        </h:panelGroup>
+                        <h:outputText value="#{bundle.INTERNALNEWS_DESCRIPTION}"/>
+                        <h:panelGroup styleClass="menuItem">
+                            <h:outputLink value="#{request.contextPath}/breakingnews/listing.jsf">
+                                <h:outputText value="#{bundle.BREAKINGNEWS}"/>
+                            </h:outputLink>
+                        </h:panelGroup>
+                        <h:outputText value="#{bundle.BREAKINGNEWS_DESCRIPTION}"/>
+
+                        <h:outputText value="#{bundle.MENU_RESTAURATION}" styleClass="homeTitle restaurationTitle"/>
+                        <h:panelGroup styleClass="menuItem">
+                            <h:outputLink value="#{request.contextPath}/courses/listing.jsf">
+                                <h:outputText value="#{bundle.COURSE}"/>
+                            </h:outputLink>
+                        </h:panelGroup>
+                        <h:outputText value="#{bundle.COURSE_DESCRIPTION}"/>
+                        <h:panelGroup styleClass="menuItem">
+                            <h:outputLink value="#{request.contextPath}/menus/listing.jsf">
+                                <h:outputText value="#{bundle.MENU}"/>
+                            </h:outputLink>
+                        </h:panelGroup>
+                        <h:outputText value="#{bundle.MENU_DESCRIPTION}"/>
+
+                        <h:outputText value="#{bundle.MENU_PICTURES}" styleClass="homeTitle picturesTitle"/>
+                        <h:panelGroup styleClass="menuItem">
+                            <h:outputLink value="#{request.contextPath}/picturealbum/listing.jsf">
+                                <h:outputText value="#{bundle.PICTUREALBUM}"/>
+                            </h:outputLink>
+                        </h:panelGroup>
+                        <h:outputText value="#{bundle.PICTUREALBUM_DESCRIPTION}"/>
+
+                        <h:outputText value="#{bundle.MENU_SCHOOLLIFE}" styleClass="homeTitle schoollifeTitle"/>
+                        <h:panelGroup styleClass="menuItem">
+                            <h:outputLink value="#{request.contextPath}/breaktime/listing.jsf">
+                                <h:outputText value="#{bundle.BREAKTIME}"/>
+                            </h:outputLink>
+                        </h:panelGroup>
+                        <h:outputText value="#{bundle.BREAKTIME_DESCRIPTION}"/>
+                        <h:panelGroup styleClass="menuItem">
+                            <h:outputLink value="#{request.contextPath}/alarms/listing.jsf">
+                                <h:outputText value="#{bundle.ALARM}"/>
+                            </h:outputLink>
+                        </h:panelGroup>
+                        <h:outputText value="#{bundle.ALARM_DESCRIPTION}"/>
+
+                        <h:panelGroup styleClass="menuItem">
+                            <h:outputLink value="#{request.contextPath}/absences/listing.jsf">
+                                <h:outputText value="#{bundle.ABSENCES}"/>
+                            </h:outputLink>
+                        </h:panelGroup>
+                        <h:outputText value="#{bundle.ABSENCES_DESCRIPTION}"/>
+
+                        <h:panelGroup styleClass="menuItem">
+                            <h:outputLink value="#{request.contextPath}/summonings/listing.jsf">
+                                <h:outputText value="#{bundle.SUMMONINGS}"/>
+                            </h:outputLink>
+                        </h:panelGroup>
+                        <h:outputText value="#{bundle.SUMMONINGS_DESCRIPTION}"/>
+
+                        <h:panelGroup styleClass="menuItem">
+                            <h:outputLink value="#{request.contextPath}/promotions/listing.jsf">
+                                <h:outputText value="#{bundle.PROMOTION}"/>
+                            </h:outputLink>
+                        </h:panelGroup>
+                        <h:outputText value="#{bundle.PROMOTION_DESCRIPTION}"/>
+
+                        <h:panelGroup styleClass="menuItem">
+                            <h:outputLink value="#{request.contextPath}/plannings/listing.jsf">
+                                <h:outputText value="#{bundle.PLANNING}"/>
+                            </h:outputLink>
+                        </h:panelGroup>
+                        <h:outputText value="#{bundle.PLANNING_DESCRIPTION}"/>
+
+                        <h:outputText value="#{bundle.MENU_FEEDS}" styleClass="homeTitle feedsTitle"/>
+                        <h:panelGroup styleClass="menuItem">
+                            <h:outputLink value="#{request.contextPath}/feedregistry/listing.jsf">
+                                <h:outputText value="#{bundle.FEEDREGISTRY}"/>
+                            </h:outputLink>
+                        </h:panelGroup>
+                        <h:outputText value="#{bundle.FEEDREGISTRY_DESCRIPTION}"/>
+
+                        <h:outputText value="#{bundle.MENU_ADMIN}" styleClass="homeTitle adminTitle"/>
+                        <h:panelGroup styleClass="menuItem">
+                            <h:outputLink value="#{request.contextPath}/devices/listing.jsf">
+                                <h:outputText value="#{bundle.DEVICES}"/>
+                            </h:outputLink>
+                        </h:panelGroup>
+                        <h:outputText value="#{bundle.DEVICES_DESCRIPTION}"/>
+
+                        <h:panelGroup styleClass="menuItem">
+                            <h:outputLink value="#{request.contextPath}/partnerkeys/listing.jsf">
+                                <h:outputText value="#{bundle.PARTNERKEYS}"/>
+                            </h:outputLink>
+                        </h:panelGroup>
+                        <h:outputText value="#{bundle.PARTNERKEYS_DESCRIPTION}"/>
+
+                        <h:panelGroup styleClass="menuItem">
+                            <h:outputLink value="#{request.contextPath}/errorlogger/listing.jsf">
+                                <h:outputText value="#{bundle.ERRORLOGGER}"/>
+                            </h:outputLink>
+                        </h:panelGroup>
+                        <h:outputText value="#{bundle.ERRORLOGGER_DESCRIPTION}"/>
                     </div>
                 </div>
 
