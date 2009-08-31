@@ -375,6 +375,11 @@ a:hover {
 }
 
 /* Home styles */
+.homeColumn {
+    display: block;
+    width: 320px;
+}
+
 .homeTitle {
     display: block;
     color: #142071;
