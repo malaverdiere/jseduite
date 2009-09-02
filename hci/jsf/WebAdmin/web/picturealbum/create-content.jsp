@@ -10,6 +10,11 @@
 
 <f:subview id="content">
     <h1><h:outputText value="#{bundle.PICTUREALBUM_CREATE}" /></h1>
+    <h:panelGrid columns="3" >
+        <h:outputText value="#{bundle.PICTUREALBUM_DIRECTLINK}"/>
+        <h:inputText id="directLink" size="60" />
+        <h:commandButton onclick="directLink()" value="#{bundle.FORM_LOAD}"/>
+    </h:panelGrid>
 
     <h:form id="form">
         <h:outputText value="#{bundle.PICTUREALBUM_HOSTER}" styleClass="subtitle"/>

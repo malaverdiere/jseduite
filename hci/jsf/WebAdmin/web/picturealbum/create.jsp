@@ -45,6 +45,29 @@
                       document.getElementById('content:form:keyField').style.display="inherit";
                    }
                 }
+
+                function directLink()
+                {
+                    var flickr = "http://www.flickr.com/";
+                    var picasa = "http://picasaweb.google.fr/";
+
+                    var link = document.getElementById('content:directLink').value
+
+                    if(link.substring(0, picasa.length) == picasa){
+                        document.getElementById("content:form:repository").selectedIndex = 1;
+                        flickrDetection();
+                        document.getElementById('content:form:user').value=link.substring(picasa.length, link.indexOf("/", picasa.length));
+                        document.getElementById('content:form:album').value=link.substring(link.indexOf("/", picasa.length)+1, link.indexOf("?", link.indexOf("/", picasa.length)));
+                        if (link.indexOf("authkey=", link.indexOf("/", picasa.length)) != -1) {
+                            document.getElementById('content:form:key').value=link.substring(link.indexOf("authkey=", link.indexOf("/", picasa.length))+8, link.indexOf("&", picasa.length));
+                        }
+                    }
+                    else if (link.substring(0, flickr.length) == flickr) {
+                        document.getElementById("content:form:repository").selectedIndex = 0;
+                        flickrDetection();
+                        document.getElementById('content:form:album').value=link.substring(link.lastIndexOf("/", link.length-2)+1, link.length-1);
+                    }
+                }
             </script>
         </head>
         <body onload="flickrDetection()">
