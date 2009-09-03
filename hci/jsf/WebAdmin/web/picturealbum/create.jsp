@@ -48,23 +48,40 @@
 
                 function directLink()
                 {
-                    var flickr = "http://www.flickr.com/";
-                    var picasa = "http://picasaweb.google.fr/";
-
-                    var link = document.getElementById('content:directLink').value
-
-                    if(link.substring(0, picasa.length) == picasa){
+                    var link = document.getElementById('content:directLink').value;
+                    
+                    if(link.indexOf("picasa") > 0) {
                         document.getElementById("content:form:repository").selectedIndex = 1;
                         flickrDetection();
-                        document.getElementById('content:form:user').value=link.substring(picasa.length, link.indexOf("/", picasa.length));
-                        document.getElementById('content:form:album').value=link.substring(link.indexOf("/", picasa.length)+1, link.indexOf("?", link.indexOf("/", picasa.length)));
-                        if (link.indexOf("authkey=", link.indexOf("/", picasa.length)) != -1) {
-                            document.getElementById('content:form:key').value=link.substring(link.indexOf("authkey=", link.indexOf("/", picasa.length))+8, link.indexOf("&", picasa.length));
+
+                        var name = link.indexOf("/", link.indexOf("picasa"))+1;
+                        var album = link.indexOf("/", name)+1;
+                        
+                        var albumEnd = link.indexOf("?", album);
+                        if(albumEnd == -1) {
+                            albumEnd = link.indexOf("#", album);
+
+                            if(albumEnd == -1) {
+                                albumEnd = link.length;
+                            }
+                        }
+
+                        var key = link.indexOf("authkey=", albumEnd)+8;
+                        var keyEnd = link.indexOf("&", key);
+
+                        document.getElementById('content:form:user').value=link.substring(name, album-1);
+                        document.getElementById('content:form:album').value=link.substring(album, albumEnd);
+                        if (key != 7) {
+                            document.getElementById('content:form:key').value=link.substring(key, keyEnd);
+                        }
+                        else {
+                            document.getElementById('content:form:key').value="";
                         }
                     }
-                    else if (link.substring(0, flickr.length) == flickr) {
+                    else if (link.indexOf("flickr") > 0) {
                         document.getElementById("content:form:repository").selectedIndex = 0;
                         flickrDetection();
+
                         document.getElementById('content:form:album').value=link.substring(link.lastIndexOf("/", link.length-2)+1, link.length-1);
                     }
                 }
