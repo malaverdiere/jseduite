@@ -4,26 +4,20 @@
 <xsd:import namespace="http://absence.news.technical.jSeduite.modalis.i3s.unice.fr/" schemaLocation="http://localhost:8080/jSeduite/SchoolLife/AbsenceCRUDService?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
-<message name="createAbsence">
-<part name="parameters" element="tns:createAbsence"></part>
-</message>
-<message name="createAbsenceResponse">
-<part name="parameters" element="tns:createAbsenceResponse"></part>
-</message>
-<message name="TeacherAbsenceException">
-<part name="fault" element="tns:TeacherAbsenceException"></part>
-</message>
 <message name="readAbsence">
 <part name="parameters" element="tns:readAbsence"></part>
 </message>
 <message name="readAbsenceResponse">
 <part name="parameters" element="tns:readAbsenceResponse"></part>
 </message>
-<message name="updateAbsence">
-<part name="parameters" element="tns:updateAbsence"></part>
+<message name="TeacherAbsenceException">
+<part name="fault" element="tns:TeacherAbsenceException"></part>
 </message>
-<message name="updateAbsenceResponse">
-<part name="parameters" element="tns:updateAbsenceResponse"></part>
+<message name="createAbsence">
+<part name="parameters" element="tns:createAbsence"></part>
+</message>
+<message name="createAbsenceResponse">
+<part name="parameters" element="tns:createAbsenceResponse"></part>
 </message>
 <message name="deleteAbsence">
 <part name="parameters" element="tns:deleteAbsence"></part>
@@ -31,20 +25,21 @@
 <message name="deleteAbsenceResponse">
 <part name="parameters" element="tns:deleteAbsenceResponse"></part>
 </message>
+<message name="updateAbsence">
+<part name="parameters" element="tns:updateAbsence"></part>
+</message>
+<message name="updateAbsenceResponse">
+<part name="parameters" element="tns:updateAbsenceResponse"></part>
+</message>
 <portType name="AbsenceCRUD">
-<operation name="createAbsence">
-<input message="tns:createAbsence"></input>
-<output message="tns:createAbsenceResponse"></output>
-<fault message="tns:TeacherAbsenceException" name="TeacherAbsenceException"></fault>
-</operation>
 <operation name="readAbsence">
 <input message="tns:readAbsence"></input>
 <output message="tns:readAbsenceResponse"></output>
 <fault message="tns:TeacherAbsenceException" name="TeacherAbsenceException"></fault>
 </operation>
-<operation name="updateAbsence">
-<input message="tns:updateAbsence"></input>
-<output message="tns:updateAbsenceResponse"></output>
+<operation name="createAbsence">
+<input message="tns:createAbsence"></input>
+<output message="tns:createAbsenceResponse"></output>
 <fault message="tns:TeacherAbsenceException" name="TeacherAbsenceException"></fault>
 </operation>
 <operation name="deleteAbsence">
@@ -52,21 +47,14 @@
 <output message="tns:deleteAbsenceResponse"></output>
 <fault message="tns:TeacherAbsenceException" name="TeacherAbsenceException"></fault>
 </operation>
+<operation name="updateAbsence">
+<input message="tns:updateAbsence"></input>
+<output message="tns:updateAbsenceResponse"></output>
+<fault message="tns:TeacherAbsenceException" name="TeacherAbsenceException"></fault>
+</operation>
 </portType>
 <binding name="AbsenceCRUDPortBinding" type="tns:AbsenceCRUD">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
-<operation name="createAbsence">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal"></soap:body>
-</input>
-<output>
-<soap:body use="literal"></soap:body>
-</output>
-<fault name="TeacherAbsenceException">
-<soap:fault name="TeacherAbsenceException" use="literal"></soap:fault>
-</fault>
-</operation>
 <operation name="readAbsence">
 <soap:operation soapAction=""></soap:operation>
 <input>
@@ -79,7 +67,7 @@
 <soap:fault name="TeacherAbsenceException" use="literal"></soap:fault>
 </fault>
 </operation>
-<operation name="updateAbsence">
+<operation name="createAbsence">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -92,6 +80,18 @@
 </fault>
 </operation>
 <operation name="deleteAbsence">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal"></soap:body>
+</input>
+<output>
+<soap:body use="literal"></soap:body>
+</output>
+<fault name="TeacherAbsenceException">
+<soap:fault name="TeacherAbsenceException" use="literal"></soap:fault>
+</fault>
+</operation>
+<operation name="updateAbsence">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>

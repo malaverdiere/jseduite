@@ -88,4 +88,29 @@ public class AlarmFinder {
             throw new AlarmException(e.getMessage());
         }
     }
+    
+    /** Extract all the alarm ids
+     * @return The alarm IDs
+     * @throws AlarmException
+     */
+    @WebMethod(operationName = "getAllAlarmIds")
+    public Integer[] getAllAlarmIds()
+            throws AlarmException {
+        DataAccessLayer dal = new DataAccessLayer();
+        String sql = "SELECT id FROM `alarms`; ";
+
+        try {
+            ArrayList<Integer> result = new ArrayList<Integer>();
+            DalResultSet rset = dal.extractDataSet(sql);
+             for (int i = 0; i < rset.size(); i++ ) {
+                result.add(Integer.parseInt(rset.getValue("id")));
+                rset.next();
+            }
+            return result.toArray(new Integer[result.size()]);
+        } catch (Exception e) {
+            throw new AlarmException(e.getMessage());
+        }
+    }
+
+
 }

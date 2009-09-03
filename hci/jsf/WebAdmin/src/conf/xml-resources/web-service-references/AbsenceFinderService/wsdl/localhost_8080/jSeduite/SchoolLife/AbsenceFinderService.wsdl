@@ -4,36 +4,36 @@
 <xsd:import namespace="http://absence.news.technical.jSeduite.modalis.i3s.unice.fr/" schemaLocation="http://localhost:8080/jSeduite/SchoolLife/AbsenceFinderService?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
-<message name="findAbsenceById">
-<part name="parameters" element="tns:findAbsenceById"></part>
-</message>
-<message name="findAbsenceByIdResponse">
-<part name="parameters" element="tns:findAbsenceByIdResponse"></part>
-</message>
-<message name="TeacherAbsenceException">
-<part name="fault" element="tns:TeacherAbsenceException"></part>
-</message>
 <message name="getAllAbsenceReferences">
 <part name="parameters" element="tns:getAllAbsenceReferences"></part>
 </message>
 <message name="getAllAbsenceReferencesResponse">
 <part name="parameters" element="tns:getAllAbsenceReferencesResponse"></part>
 </message>
+<message name="TeacherAbsenceException">
+<part name="fault" element="tns:TeacherAbsenceException"></part>
+</message>
+<message name="findAbsenceById">
+<part name="parameters" element="tns:findAbsenceById"></part>
+</message>
+<message name="findAbsenceByIdResponse">
+<part name="parameters" element="tns:findAbsenceByIdResponse"></part>
+</message>
 <portType name="AbsenceFinder">
-<operation name="findAbsenceById">
-<input message="tns:findAbsenceById"></input>
-<output message="tns:findAbsenceByIdResponse"></output>
-<fault message="tns:TeacherAbsenceException" name="TeacherAbsenceException"></fault>
-</operation>
 <operation name="getAllAbsenceReferences">
 <input message="tns:getAllAbsenceReferences"></input>
 <output message="tns:getAllAbsenceReferencesResponse"></output>
 <fault message="tns:TeacherAbsenceException" name="TeacherAbsenceException"></fault>
 </operation>
+<operation name="findAbsenceById">
+<input message="tns:findAbsenceById"></input>
+<output message="tns:findAbsenceByIdResponse"></output>
+<fault message="tns:TeacherAbsenceException" name="TeacherAbsenceException"></fault>
+</operation>
 </portType>
 <binding name="AbsenceFinderPortBinding" type="tns:AbsenceFinder">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
-<operation name="findAbsenceById">
+<operation name="getAllAbsenceReferences">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -45,7 +45,7 @@
 <soap:fault name="TeacherAbsenceException" use="literal"></soap:fault>
 </fault>
 </operation>
-<operation name="getAllAbsenceReferences">
+<operation name="findAbsenceById">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>

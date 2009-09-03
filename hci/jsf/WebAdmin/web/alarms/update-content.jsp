@@ -6,9 +6,24 @@
 
 <%@taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
 <%@taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
+<%@taglib prefix="t" uri="http://myfaces.apache.org/tomahawk"%>
 
 <f:subview id="content">
     <h1><h:outputText value="#{bundle.ALARM_UPDATE}" /></h1>
+    <h:form id="uploadform" enctype="multipart/form-data" >
+        <h:panelGrid columns="3" >
+            <h:outputText value="#{bundle.ALARM_UPLOAD}"/>
+            <t:inputFileUpload id="upload" storage="file" value="#{AlarmManagedBean.file}" />
+            <h:commandButton value="#{bundle.FORM_UPLOAD}" action="#{AlarmManagedBean.upload}"/>
+
+            <h:outputText value="#{bundle.ALARM_DELETION}"/>
+            <h:selectOneMenu id="files" value="#{AlarmManagedBean.fileToDelete}">
+                <f:selectItems value="#{AlarmManagedBean.files}" />
+            </h:selectOneMenu>
+            <h:commandButton value="#{bundle.FORM_DELETE}" action="#{AlarmManagedBean.deleteFile}"/>
+        </h:panelGrid>
+    </h:form>
+
 
     <h:form id="form">
         <h:panelGroup>
@@ -29,11 +44,9 @@
                 </h:panelGroup>
 
                 <h:outputText value="#{bundle.ALARM_SOUND}"/>
-                <h:panelGroup>
-                    <h:inputText id="startSound" value="#{AlarmManagedBean.uAlarm.alarmStart.sound}">
-                        <f:validateLength maximum="255" />
-                   </h:inputText>
-                </h:panelGroup>
+                <h:selectOneMenu id="startSound" value="#{AlarmManagedBean.uAlarm.alarmStart.sound}">
+                    <f:selectItems value="#{AlarmManagedBean.files2}" />
+                </h:selectOneMenu>
             </h:panelGrid>
         </h:panelGroup>
 
@@ -55,11 +68,9 @@
                 </h:panelGroup>
 
                 <h:outputText value="#{bundle.ALARM_SOUND}"/>
-                <h:panelGroup>
-                    <h:inputText id="almostEndSound" value="#{AlarmManagedBean.uAlarm.alarmAlmostEnd.sound}">
-                        <f:validateLength maximum="255" />
-                   </h:inputText>
-                </h:panelGroup>
+                <h:selectOneMenu id="almostEndSound" value="#{AlarmManagedBean.uAlarm.alarmAlmostEnd.sound}">
+                    <f:selectItems value="#{AlarmManagedBean.files2}" />
+                </h:selectOneMenu>
             </h:panelGrid>
         </h:panelGroup>
 
@@ -81,11 +92,9 @@
                 </h:panelGroup>
 
                 <h:outputText value="#{bundle.ALARM_SOUND}"/>
-                <h:panelGroup>
-                    <h:inputText id="endSound" value="#{AlarmManagedBean.uAlarm.alarmEnd.sound}">
-                        <f:validateLength maximum="255" />
-                   </h:inputText>
-                </h:panelGroup>
+                <h:selectOneMenu id="endSound" value="#{AlarmManagedBean.uAlarm.alarmEnd.sound}">
+                    <f:selectItems value="#{AlarmManagedBean.files2}" />
+                </h:selectOneMenu>
             </h:panelGrid>
         </h:panelGroup>
 

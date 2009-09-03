@@ -4,35 +4,58 @@
 <xsd:import namespace="http://alarms.technical.jSeduite.modalis.i3s.unice.fr/" schemaLocation="http://localhost:8080/jSeduite/SchoolLife/AlarmFinderService?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
-<message name="findAlarmById">
-<part name="parameters" element="tns:findAlarmById"></part>
-</message>
-<message name="findAlarmByIdResponse">
-<part name="parameters" element="tns:findAlarmByIdResponse"></part>
-</message>
-<message name="AlarmException">
-<part name="fault" element="tns:AlarmException"></part>
-</message>
 <message name="getAlarmsByBreakTimeId">
 <part name="parameters" element="tns:getAlarmsByBreakTimeId"></part>
 </message>
 <message name="getAlarmsByBreakTimeIdResponse">
 <part name="parameters" element="tns:getAlarmsByBreakTimeIdResponse"></part>
 </message>
+<message name="AlarmException">
+<part name="fault" element="tns:AlarmException"></part>
+</message>
+<message name="findAlarmById">
+<part name="parameters" element="tns:findAlarmById"></part>
+</message>
+<message name="findAlarmByIdResponse">
+<part name="parameters" element="tns:findAlarmByIdResponse"></part>
+</message>
+<message name="getAllAlarmIds">
+<part name="parameters" element="tns:getAllAlarmIds"></part>
+</message>
+<message name="getAllAlarmIdsResponse">
+<part name="parameters" element="tns:getAllAlarmIdsResponse"></part>
+</message>
 <portType name="AlarmFinder">
-<operation name="findAlarmById">
-<input message="tns:findAlarmById"></input>
-<output message="tns:findAlarmByIdResponse"></output>
-<fault message="tns:AlarmException" name="AlarmException"></fault>
-</operation>
 <operation name="getAlarmsByBreakTimeId">
 <input message="tns:getAlarmsByBreakTimeId"></input>
 <output message="tns:getAlarmsByBreakTimeIdResponse"></output>
 <fault message="tns:AlarmException" name="AlarmException"></fault>
 </operation>
+<operation name="findAlarmById">
+<input message="tns:findAlarmById"></input>
+<output message="tns:findAlarmByIdResponse"></output>
+<fault message="tns:AlarmException" name="AlarmException"></fault>
+</operation>
+<operation name="getAllAlarmIds">
+<input message="tns:getAllAlarmIds"></input>
+<output message="tns:getAllAlarmIdsResponse"></output>
+<fault message="tns:AlarmException" name="AlarmException"></fault>
+</operation>
 </portType>
 <binding name="AlarmFinderPortBinding" type="tns:AlarmFinder">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
+<operation name="getAlarmsByBreakTimeId">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal"></soap:body>
+</input>
+<output>
+<soap:body use="literal"></soap:body>
+</output>
+<fault name="AlarmException">
+<soap:fault name="AlarmException" use="literal"></soap:fault>
+</fault>
+</operation>
 <operation name="findAlarmById">
 <soap:operation soapAction=""></soap:operation>
 <input>
@@ -45,7 +68,7 @@
 <soap:fault name="AlarmException" use="literal"></soap:fault>
 </fault>
 </operation>
-<operation name="getAlarmsByBreakTimeId">
+<operation name="getAllAlarmIds">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>

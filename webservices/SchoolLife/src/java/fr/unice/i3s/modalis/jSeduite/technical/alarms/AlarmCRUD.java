@@ -97,10 +97,10 @@ public class AlarmCRUD {
             throw new AlarmException("Unreferenced update !");
         }
 
-        String sql = "UPDATE `alarms`";
+        String sql = "UPDATE `alarms` ";
         sql += "SET `kind` = '"+a.getKind()+"', ";
-        sql += "`message` = '"+a.getMessage()+"' ";
-        sql += "`sound` = '"+a.getSound()+"' ";
+        sql += "`message` = '"+a.getMessage()+"', ";
+        sql += "`sound` = '"+a.getSound()+"', ";
         sql += "`break_id` = '"+a.getBreakTime().getId()+"' ";
         sql += "WHERE `id` = '" + a.getId()+"';";
         DataAccessLayer dal = new DataAccessLayer();

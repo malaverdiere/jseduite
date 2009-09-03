@@ -10,12 +10,17 @@ import fr.unice.i3s.modalis.jseduite.technical.breaktime.BreakTimeCRUD;
 import fr.unice.i3s.modalis.jseduite.technical.breaktime.BreakTimeCRUDService;
 import fr.unice.i3s.modalis.jseduite.technical.breaktime.BreakTimeFinder;
 import fr.unice.i3s.modalis.jseduite.technical.breaktime.BreakTimeFinderService;
+import fr.unice.i3s.modalis.jseduite.upload.files.FileUploader;
+import fr.unice.i3s.modalis.jseduite.upload.files.FileUploaderService;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import javax.faces.model.SelectItem;
 import javax.xml.ws.WebServiceRef;
+import org.apache.myfaces.custom.fileupload.UploadedFile;
 import webadmin.alarms.comparators.AlarmBuildingComparator;
 import webadmin.alarms.comparators.AlarmStartComparator;
+import webadmin.util.Bundle;
 import webadmin.util.SQLProtection;
 
 
@@ -37,6 +42,9 @@ public class AlarmManagedBean {
     @WebServiceRef(wsdlLocation = "http://localhost:8080/jSeduite/SchoolLife/AlarmCRUDService?wsdl")
     AlarmCRUDService alarmCrudService;
 
+    @WebServiceRef(wsdlLocation = "http://localhost:8080/jSeduite/FileUploader/FileUploaderService?wsdl")
+    FileUploaderService fileUploaderService;
+
     //The list of the alarms
     private ArrayList<Alarms> alarms;
 
@@ -54,6 +62,15 @@ public class AlarmManagedBean {
     private boolean almostEnd = false;
     private boolean end = false;
 
+    // The uploaded file
+    private UploadedFile file;
+
+    // List of the files
+    private List<SelectItem> files;
+    private List<SelectItem> files2;
+
+    // The file to delete
+    private String fileToDelete;
 
     /**
      * Constructor
@@ -151,6 +168,88 @@ public class AlarmManagedBean {
     public void setEnd (boolean end) {
         this.end = end;
     }
+
+    /**
+     * Get the uploaded file
+     * @return the uploaded file
+     */
+    public UploadedFile getFile() {
+        return file;
+    }
+
+    /**
+     * Set the uploaded file
+     * @param file the uploaded file
+     */
+    public void setFile(UploadedFile file) {
+        this.file = file;
+    }
+
+    /**
+     * Get the list of files
+     * @return a list of files
+     */
+    public List<SelectItem> getFiles() {
+        this.fileUploaderService = new FileUploaderService();
+        FileUploader fileUploaderPort = fileUploaderService.getFileUploaderPort();
+
+        files = new ArrayList<SelectItem>();
+
+        try {
+            for (String name : fileUploaderPort.getAllFiles()) {
+                SelectItem item = new SelectItem(name, name);
+                files.add(item);
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return files;
+    }
+    
+    /**
+     * Get the list of files with "no one"
+     * @return a list of files with "no one"
+     */
+    public List<SelectItem> getFiles2() {
+        this.fileUploaderService = new FileUploaderService();
+        FileUploader fileUploaderPort = fileUploaderService.getFileUploaderPort();
+
+        files2 = new ArrayList<SelectItem>();
+
+        files2.add(new SelectItem("", Bundle.get("FORM_NOONE")));
+        
+        try {
+            for (String name : fileUploaderPort.getAllFiles()) {
+                SelectItem item = new SelectItem(fileUploaderPort.getURL(name), name);
+                files2.add(item);
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return files2;
+    }
+
+    /**
+     * Get the file to delete name
+     * @return the file to delete name
+     */
+    public String getFileToDelete() {
+        return fileToDelete;
+    }
+
+    /**
+     * Set the file to delete name
+     * @param fileToDelete the file to delete name
+     */
+    public void setFileToDelete(String fileToDelete) {
+        this.fileToDelete = fileToDelete;
+    }
+
+
 
     /**
      * Get the alarms
@@ -284,7 +383,7 @@ public class AlarmManagedBean {
         try {
             this.alarmFinderService = new AlarmFinderService();
             AlarmFinder finderPort = alarmFinderService.getAlarmFinderPort();
-            List<Alarm> existingAlarms = finderPort.getAlarmsByBreakTimeId(id);
+            List<Integer> existingAlarms = finderPort.getAllAlarmIds();
 
             this.alarmCrudService = new AlarmCRUDService();
             AlarmCRUD crudPort = alarmCrudService.getAlarmCRUDPort();
@@ -293,9 +392,11 @@ public class AlarmManagedBean {
             if(start) {
                 // Escape characters traitement
                 uAlarm.getAlarmStart().setMessage(SQLProtection.format(uAlarm.getAlarmStart().getMessage()));
-                uAlarm.getAlarmStart().setSound(SQLProtection.format(uAlarm.getAlarmStart().getSound()));
+                if(uAlarm.getAlarmStart().getSound() != null) {
+                    uAlarm.getAlarmStart().setSound(SQLProtection.format(uAlarm.getAlarmStart().getSound()));
+                }
 
-                if(existingAlarms.contains(uAlarm.getAlarmStart())) {
+                if(existingAlarms.contains(uAlarm.getAlarmStart().getId())) {
                     crudPort.updateAlarm(uAlarm.getAlarmStart());
                 }
                 else {
@@ -315,9 +416,11 @@ public class AlarmManagedBean {
             if(almostEnd) {
                 // Escape characters traitement
                 uAlarm.getAlarmAlmostEnd().setMessage(SQLProtection.format(uAlarm.getAlarmAlmostEnd().getMessage()));
-                uAlarm.getAlarmAlmostEnd().setSound(SQLProtection.format(uAlarm.getAlarmAlmostEnd().getSound()));
+                if(uAlarm.getAlarmAlmostEnd().getSound() != null) {
+                    uAlarm.getAlarmAlmostEnd().setSound(SQLProtection.format(uAlarm.getAlarmAlmostEnd().getSound()));
+                }
 
-                if(existingAlarms.contains(uAlarm.getAlarmAlmostEnd())) {
+                if(existingAlarms.contains(uAlarm.getAlarmAlmostEnd().getId())) {
                     crudPort.updateAlarm(uAlarm.getAlarmAlmostEnd());
                 }
                 else {
@@ -337,9 +440,11 @@ public class AlarmManagedBean {
             if(end) {
                 // Escape characters traitement
                 uAlarm.getAlarmEnd().setMessage(SQLProtection.format(uAlarm.getAlarmEnd().getMessage()));
-                uAlarm.getAlarmEnd().setSound(SQLProtection.format(uAlarm.getAlarmEnd().getSound()));
+                if(uAlarm.getAlarmEnd().getSound() != null) {
+                    uAlarm.getAlarmEnd().setSound(SQLProtection.format(uAlarm.getAlarmEnd().getSound()));
+                }
 
-                if(existingAlarms.contains(uAlarm.getAlarmEnd())) {
+                if(existingAlarms.contains(uAlarm.getAlarmEnd().getId())) {
                     crudPort.updateAlarm(uAlarm.getAlarmEnd());
                 }
                 else {
@@ -373,5 +478,43 @@ public class AlarmManagedBean {
      */
     public String sortBy() {
         return "sorted";
+    }
+
+    /**
+     * Upload the file on the server
+     * @return a string indicating the file is uploaded
+     */
+    public String upload() {
+        this.fileUploaderService = new FileUploaderService();
+        FileUploader fileUploaderPort = fileUploaderService.getFileUploaderPort();
+
+        try {
+            // Upload the file
+            fileUploaderPort.uploadNewFile(file.getName(), file.getBytes());
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "uploaded";
+    }
+
+    /**
+     * Delete the file on the server
+     * @return a string indicating the file is deleted
+     */
+    public String deleteFile() {
+        this.fileUploaderService = new FileUploaderService();
+        FileUploader fileUploaderPort = fileUploaderService.getFileUploaderPort();
+
+        try {
+            // Upload the file
+            fileUploaderPort.deleteFile(fileToDelete);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "file deleted";
     }
 }

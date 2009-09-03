@@ -4,26 +4,20 @@
 <xsd:import namespace="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/" schemaLocation="http://localhost:8080/jSeduite/MenuService/CourseCRUDService?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
-<message name="createCourse">
-<part name="parameters" element="tns:createCourse"></part>
-</message>
-<message name="createCourseResponse">
-<part name="parameters" element="tns:createCourseResponse"></part>
-</message>
-<message name="RestaurantException">
-<part name="fault" element="tns:RestaurantException"></part>
-</message>
 <message name="readCourse">
 <part name="parameters" element="tns:readCourse"></part>
 </message>
 <message name="readCourseResponse">
 <part name="parameters" element="tns:readCourseResponse"></part>
 </message>
-<message name="updateCourse">
-<part name="parameters" element="tns:updateCourse"></part>
+<message name="RestaurantException">
+<part name="fault" element="tns:RestaurantException"></part>
 </message>
-<message name="updateCourseResponse">
-<part name="parameters" element="tns:updateCourseResponse"></part>
+<message name="createCourse">
+<part name="parameters" element="tns:createCourse"></part>
+</message>
+<message name="createCourseResponse">
+<part name="parameters" element="tns:createCourseResponse"></part>
 </message>
 <message name="deleteCourse">
 <part name="parameters" element="tns:deleteCourse"></part>
@@ -31,20 +25,21 @@
 <message name="deleteCourseResponse">
 <part name="parameters" element="tns:deleteCourseResponse"></part>
 </message>
+<message name="updateCourse">
+<part name="parameters" element="tns:updateCourse"></part>
+</message>
+<message name="updateCourseResponse">
+<part name="parameters" element="tns:updateCourseResponse"></part>
+</message>
 <portType name="CourseCRUD">
-<operation name="createCourse">
-<input message="tns:createCourse"></input>
-<output message="tns:createCourseResponse"></output>
-<fault message="tns:RestaurantException" name="RestaurantException"></fault>
-</operation>
 <operation name="readCourse">
 <input message="tns:readCourse"></input>
 <output message="tns:readCourseResponse"></output>
 <fault message="tns:RestaurantException" name="RestaurantException"></fault>
 </operation>
-<operation name="updateCourse">
-<input message="tns:updateCourse"></input>
-<output message="tns:updateCourseResponse"></output>
+<operation name="createCourse">
+<input message="tns:createCourse"></input>
+<output message="tns:createCourseResponse"></output>
 <fault message="tns:RestaurantException" name="RestaurantException"></fault>
 </operation>
 <operation name="deleteCourse">
@@ -52,21 +47,14 @@
 <output message="tns:deleteCourseResponse"></output>
 <fault message="tns:RestaurantException" name="RestaurantException"></fault>
 </operation>
+<operation name="updateCourse">
+<input message="tns:updateCourse"></input>
+<output message="tns:updateCourseResponse"></output>
+<fault message="tns:RestaurantException" name="RestaurantException"></fault>
+</operation>
 </portType>
 <binding name="CourseCRUDPortBinding" type="tns:CourseCRUD">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
-<operation name="createCourse">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal"></soap:body>
-</input>
-<output>
-<soap:body use="literal"></soap:body>
-</output>
-<fault name="RestaurantException">
-<soap:fault name="RestaurantException" use="literal"></soap:fault>
-</fault>
-</operation>
 <operation name="readCourse">
 <soap:operation soapAction=""></soap:operation>
 <input>
@@ -79,7 +67,7 @@
 <soap:fault name="RestaurantException" use="literal"></soap:fault>
 </fault>
 </operation>
-<operation name="updateCourse">
+<operation name="createCourse">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -92,6 +80,18 @@
 </fault>
 </operation>
 <operation name="deleteCourse">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal"></soap:body>
+</input>
+<output>
+<soap:body use="literal"></soap:body>
+</output>
+<fault name="RestaurantException">
+<soap:fault name="RestaurantException" use="literal"></soap:fault>
+</fault>
+</operation>
+<operation name="updateCourse">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>

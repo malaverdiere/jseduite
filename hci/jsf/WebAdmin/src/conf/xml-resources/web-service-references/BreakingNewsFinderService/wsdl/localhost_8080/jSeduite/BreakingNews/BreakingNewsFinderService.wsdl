@@ -4,36 +4,36 @@
 <xsd:import namespace="http://breaking.news.technical.jSeduite.modalis.i3s.unice.fr/" schemaLocation="http://localhost:8080/jSeduite/BreakingNews/BreakingNewsFinderService?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
-<message name="getAllBreakingNewsReferences">
-<part name="parameters" element="tns:getAllBreakingNewsReferences"></part>
-</message>
-<message name="getAllBreakingNewsReferencesResponse">
-<part name="parameters" element="tns:getAllBreakingNewsReferencesResponse"></part>
-</message>
-<message name="BreakingNewsException">
-<part name="fault" element="tns:BreakingNewsException"></part>
-</message>
 <message name="findBreakNewById">
 <part name="parameters" element="tns:findBreakNewById"></part>
 </message>
 <message name="findBreakNewByIdResponse">
 <part name="parameters" element="tns:findBreakNewByIdResponse"></part>
 </message>
+<message name="BreakingNewsException">
+<part name="fault" element="tns:BreakingNewsException"></part>
+</message>
+<message name="getAllBreakingNewsReferences">
+<part name="parameters" element="tns:getAllBreakingNewsReferences"></part>
+</message>
+<message name="getAllBreakingNewsReferencesResponse">
+<part name="parameters" element="tns:getAllBreakingNewsReferencesResponse"></part>
+</message>
 <portType name="BreakingNewsFinder">
-<operation name="getAllBreakingNewsReferences">
-<input message="tns:getAllBreakingNewsReferences"></input>
-<output message="tns:getAllBreakingNewsReferencesResponse"></output>
-<fault message="tns:BreakingNewsException" name="BreakingNewsException"></fault>
-</operation>
 <operation name="findBreakNewById">
 <input message="tns:findBreakNewById"></input>
 <output message="tns:findBreakNewByIdResponse"></output>
 <fault message="tns:BreakingNewsException" name="BreakingNewsException"></fault>
 </operation>
+<operation name="getAllBreakingNewsReferences">
+<input message="tns:getAllBreakingNewsReferences"></input>
+<output message="tns:getAllBreakingNewsReferencesResponse"></output>
+<fault message="tns:BreakingNewsException" name="BreakingNewsException"></fault>
+</operation>
 </portType>
 <binding name="BreakingNewsFinderPortBinding" type="tns:BreakingNewsFinder">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
-<operation name="getAllBreakingNewsReferences">
+<operation name="findBreakNewById">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -45,7 +45,7 @@
 <soap:fault name="BreakingNewsException" use="literal"></soap:fault>
 </fault>
 </operation>
-<operation name="findBreakNewById">
+<operation name="getAllBreakingNewsReferences">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>

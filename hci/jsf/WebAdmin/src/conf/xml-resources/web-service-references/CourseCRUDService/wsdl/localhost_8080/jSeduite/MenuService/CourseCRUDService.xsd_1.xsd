@@ -51,18 +51,6 @@
 <xs:sequence></xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="readCourse">
-<xs:sequence>
-<xs:element name="ref" type="xs:string" minOccurs="0"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="readCourseResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:course" minOccurs="0"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="createCourse">
 <xs:sequence>
 <xs:element name="c" type="tns:course" minOccurs="0"></xs:element>
@@ -72,6 +60,18 @@
 <xs:complexType name="createCourseResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readCourse">
+<xs:sequence>
+<xs:element name="ref" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readCourseResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:course" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>
