@@ -65,6 +65,37 @@ public class TwitterWrapper {
         return result;
     }
 
+    /** Retrieve all '#channel' Tweets from twitter
+     * @param username the Twitter account
+     * @param password the associated password
+     * @param channel the channel you wann investigate
+     * @param treshold amount of maximum expected tweets (20 max)
+     * @return an array of "tweets" (author, date and text)
+     */
+    @WebMethod(operationName = "searchChannel")
+    public Tweet[] getChannel(
+            @WebParam(name = "username") String username,
+            @WebParam(name = "password") String password,
+            @WebParam(name = "channel") String channel,
+            @WebParam(name = "treshold") int treshold) {
+        ArrayList<Tweet> tweets = new ArrayList<Tweet>();
+        Twitter twitter = new Twitter(username, password);
+        for(Twitter.Status s: twitter.search("#"+channel)) {
+            String user = "@"+ s.getUser().getScreenName();
+            String date =  this.getDateAsString(s.getCreatedAt());
+            String message = s.getText().replaceAll("@"+username, "").trim();
+            tweets.add(new Tweet(user, date, message));
+        }
+        if (tweets.size() <= treshold)
+            return tweets.toArray(new Tweet[tweets.size()]);
+        Tweet[] result = new Tweet[treshold];
+        for(int i = 0; i < treshold; i++)
+            result[i] = tweets.get(i);
+        return result;
+    }
+
+
+
     /**
      * @param username
      * @param password
@@ -97,9 +128,6 @@ public class TwitterWrapper {
      * @param n the integer to make pretty
      * @return a preety string representing n with 0 at the begining, if needed.
      */
-    private String prettyfy(int n) {
-        return (n < 10 ? "0"+n : ""+n);
-    }
-
-
+    private String prettyfy(int n) { return (n < 10 ? "0" + n : "" + n); }
+    
 }
