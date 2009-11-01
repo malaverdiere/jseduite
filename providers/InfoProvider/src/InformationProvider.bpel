@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <process
-    name="InfoProvider"
-    targetNamespace="http://modalis.i3s.unice.fr/jSeduite/providers/bpel/InfoProvider"
+    name="InformationProvider"
+    targetNamespace="http://modalis.i3s.unice.fr/jSeduite/providers/bpel/Wrapper"
     xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
     xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
-    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/bpel/InfoProvider" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
-    <import namespace="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/InfoProvider" location="InfoProvider.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/bpel/Wrapper" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" location="NaiveInfoProvider.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Wrapper" location="InformationProvider.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" location="Sources/AbstractSource.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
     <partnerLinks>
+        <partnerLink name="ext" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Wrapper" partnerLinkType="tns:InformationProvider" myRole="InformationProviderPortTypeRole"/>
         <partnerLink name="naive" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" partnerLinkType="tns:NaiveInfoProvider" partnerRole="NaiveInfoProviderPortTypeRole"/>
-        <partnerLink name="ext" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/InfoProvider" partnerLinkType="tns:InfoProvider" myRole="InfoProviderPortTypeRole"/>
     </partnerLinks>
     <variables>
-        <variable name="identifier" type="xsd:string"/>
         <variable name="result" type="ns0:SetOfInformation"/>
+        <variable name="identifier" type="xsd:string"/>
     </variables>
     <sequence>
         <scope name="a1">
             <variables>
-                <variable name="GetInfosIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/InfoProvider" messageType="tns:GetInfosRequest"/>
+                <variable name="GetMyInformationIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Wrapper" messageType="tns:GetMyInformationRequest"/>
             </variables>
             <sequence name="a1_core">
-                <receive name="a1_tech" createInstance="yes" partnerLink="ext" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/InfoProvider" portType="tns:InfoProviderPortType" variable="GetInfosIn"/>
+                <receive name="a1_tech" createInstance="yes" partnerLink="ext" operation="GetMyInformation" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Wrapper" portType="tns:InformationProviderPortType" variable="GetMyInformationIn"/>
                 <assign name="a1_post">
                     <copy>
-                        <from>$GetInfosIn.in/ns0:identifier</from>
+                        <from variable="GetMyInformationIn" part="part1"/>
                         <to variable="identifier"/>
                     </copy>
                 </assign>
@@ -56,16 +56,16 @@
         </scope>
         <scope name="a3">
             <variables>
-                <variable name="GetInfosOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/InfoProvider" messageType="tns:GetInfosResponse"/>
+                <variable name="GetMyInformationOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Wrapper" messageType="tns:GetMyInformationResponse"/>
             </variables>
             <sequence name="a3_core">
                 <assign name="a3_pre">
                     <copy>
                         <from variable="result"/>
-                        <to>$GetInfosOut.out/ns0:result</to>
+                        <to>$GetMyInformationOut.output/ns0:result</to>
                     </copy>
                 </assign>
-                <reply name="a3_tech" partnerLink="ext" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/InfoProvider" portType="tns:InfoProviderPortType" variable="GetInfosOut"/>
+                <reply name="a3_tech" partnerLink="ext" operation="GetMyInformation" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Wrapper" portType="tns:InformationProviderPortType" variable="GetMyInformationOut"/>
             </sequence>
         </scope>
     </sequence>

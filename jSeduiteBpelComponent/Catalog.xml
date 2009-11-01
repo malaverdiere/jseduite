@@ -2,5 +2,7 @@
     
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/weatherservice.asmx.wsdl" uri="src/jbiasa/weatherservice.asmx.wsdl"/>
 <nextCatalog catalog="src/jbiServiceUnits/META-INF/WeatherProxy/catalog.xml"/>
-    <nextCatalog catalog="nbproject/private/cache/retriever/catalog.xml"/>
+    
+<nextCatalog catalog="src/jbiServiceUnits/META-INF/InfoProvider/catalog.xml"/>
+    
 </catalog>

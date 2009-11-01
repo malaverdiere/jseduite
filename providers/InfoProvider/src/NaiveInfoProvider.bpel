@@ -441,12 +441,12 @@
                         </copy>
                     </assign>
                     <while name="a35_concat_loop">
-                        <condition>$cpt &lt;= count($breakNews_star/ns0:item)</condition>
-                        <sequence name="a30_concat_core">
-                            <assign name="a30_tech">
+                        <condition>$cpt &lt;= count($teacherAbsence_star/ns0:item)</condition>
+                        <sequence name="a35_concat_core">
+                            <assign name="a35_tech">
                                 <copy>
                                     <from>$teacherAbsence_star/ns0:item[$cpt]</from>
-                                    <to>$teacherAbsence_star/ns0:item[$cpt]</to>
+                                    <to>$info_star/ns0:item[$infoCpt]</to>
                                 </copy>
                             </assign>
                             <assign name="a35_concat_incr">
