@@ -48,7 +48,7 @@ public class ICalReader {
        StringBuilder buff = new StringBuilder();
        while((line = bread.readLine()) != null)
            buff.append(line+"\n");
-        return buff.toString();
+        return new String(buff.toString().getBytes(),"UTF-8");
     }
 
     private ComponentList buildComponents(URL url) throws Exception {
