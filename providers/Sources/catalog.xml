@@ -30,4 +30,6 @@
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/MenuBusinessService.xsd" uri="src/Partners/MenuBusinessService.xsd"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/CachedFeedReader.wsdl" uri="src/Partners/CachedFeedReader.wsdl"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/CachedFeedReader.xsd" uri="src/Partners/CachedFeedReader.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/ICalReaderService.wsdl" uri="src/Partners/ICalReaderService.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/ICalReaderService.xsd" uri="src/Partners/ICalReaderService.xsd"/>
 </catalog>

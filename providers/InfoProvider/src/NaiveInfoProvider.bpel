@@ -20,6 +20,7 @@
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/WeatherSource" location="Sources/WeatherSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/MenuSource" location="Sources/MenuSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/FeedReaderSource" location="Sources/FeedReaderSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/CalendarSource" location="Sources/CalendarSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <partnerLinks>
         <partnerLink name="breakingNews" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/BreakingNewsSource" partnerLinkType="tns:BreakingNewsSource" partnerRole="BreakingNewsSourcePortTypeRole"/>
         <partnerLink name="imageScraper" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/ImageScraperSource" partnerLinkType="tns:ImageScraperSource" partnerRole="ImageScraperSourcePortTypeRole"/>
@@ -32,6 +33,7 @@
         <partnerLink name="weather" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/WeatherSource" partnerLinkType="tns:WeatherSource" partnerRole="WeatherSourcePortTypeRole"/>
         <partnerLink name="menu" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/MenuSource" partnerLinkType="tns:MenuSource" partnerRole="MenuSourcePortTypeRole"/>
         <partnerLink name="feed" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/FeedReaderSource" partnerLinkType="tns:FeedReaderSource" partnerRole="FeedReaderSourcePortTypeRole"/>
+        <partnerLink name="calendar" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/CalendarSource" partnerLinkType="tns:CalendarSource" partnerRole="CalendarSourcePortTypeRole"/>
         <partnerLink name="ext" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" partnerLinkType="tns:NaiveInfoProvider" myRole="NaiveInfoProviderPortTypeRole"/>
     </partnerLinks>
     <variables>
@@ -47,6 +49,7 @@
         <variable name="weather_star" type="ns0:SetOfInformation"/>
         <variable name="menu_star" type="ns0:SetOfInformation"/>
         <variable name="feed_star" type="ns0:SetOfInformation"/>
+        <variable name="calendar_star" type="ns0:SetOfInformation"/>
         <variable name="info_star" type="ns0:SetOfInformation"/>
         <variable name="identifier" type="xsd:string"/>
     </variables>
@@ -301,6 +304,27 @@
                         <copy>
                             <from>$GetInfosOut.out/ns0:result</from>
                             <to variable="feed_star"/>
+                        </copy>
+                    </assign>
+                </sequence>
+            </scope>
+            <scope name="a211" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/CalendarSource">
+                <variables>
+                    <variable name="GetInfosOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/CalendarSource" messageType="tns:GetInfosResponse"/>
+                    <variable name="GetInfosIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/CalendarSource" messageType="tns:GetInfosRequest"/>
+                </variables>
+                <sequence name="a211_core">
+                    <assign name="a211_pre">
+                        <copy>
+                            <from variable="identifier"/>
+                            <to>$GetInfosIn.in/ns0:identifier</to>
+                        </copy>
+                    </assign>
+                    <invoke name="a211_tech" partnerLink="calendar" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/CalendarSource" portType="tns:CalendarSourcePortType" inputVariable="GetInfosIn" outputVariable="GetInfosOut"/>
+                    <assign name="a211_post">
+                        <copy>
+                            <from>$GetInfosOut.out/ns0:result</from>
+                            <to variable="calendar_star"/>
                         </copy>
                     </assign>
                 </sequence>
@@ -660,14 +684,48 @@
                     </assign>
                     <while name="a310_concat_loop">
                         <condition>$cpt &lt;= count($feed_star/ns0:item)</condition>
-                        <sequence name="a39_concat_core">
-                            <assign name="a39_tech">
+                        <sequence name="a310_concat_core">
+                            <assign name="a310_tech">
                                 <copy>
                                     <from>$feed_star/ns0:item[$cpt]</from>
                                     <to>$info_star/ns0:item[$infoCpt]</to>
                                 </copy>
                             </assign>
                             <assign name="a310_concat_incr">
+                                <copy>
+                                    <from>$infoCpt + 1</from>
+                                    <to variable="infoCpt"/>
+                                </copy>
+                                <copy>
+                                    <from>$cpt + 1</from>
+                                    <to variable="cpt"/>
+                                </copy>
+                            </assign>
+                        </sequence>
+                    </while>
+                </sequence>
+            </scope>
+            <scope name="a311">
+                <variables>
+                    <variable name="cpt" type="xsd:integer"/>
+                </variables>
+                <sequence name="a311_core">
+                    <assign name="a311_concat_init">
+                        <copy>
+                            <from>1</from>
+                            <to variable="cpt"/>
+                        </copy>
+                    </assign>
+                    <while name="a311_concat_loop">
+                        <condition>$cpt &lt;= count($calendar_star/ns0:item)</condition>
+                        <sequence name="a311_concat_core">
+                            <assign name="a311_tech">
+                                <copy>
+                                    <from>$calendar_star/ns0:item[$cpt]</from>
+                                    <to>$info_star/ns0:item[$infoCpt]</to>
+                                </copy>
+                            </assign>
+                            <assign name="a311_concat_incr">
                                 <copy>
                                     <from>$infoCpt + 1</from>
                                     <to variable="infoCpt"/>
