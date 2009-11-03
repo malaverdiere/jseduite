@@ -39,7 +39,11 @@ public class RssReader {
             ArrayList<FeedNode> tmpList = new ArrayList<FeedNode>();
             List<SyndEntry> entries = (List<SyndEntry>) feed.getEntries();
             for (SyndEntry syndEntry : entries) {
-                FeedNode tmp = new FeedNode(syndEntry.getAuthor(),
+                String author = syndEntry.getAuthor();
+                if (author.equals(""))
+                    author = feed.getTitle();
+                //String author = (syndEntry.getAuthor().equals("") ? feed.getTitle() : syndEntry.getAuthor());
+                FeedNode tmp = new FeedNode(author,
                         syndEntry.getTitle(),
                         syndEntry.getDescription().getType(),
                         syndEntry.getDescription().getValue());
