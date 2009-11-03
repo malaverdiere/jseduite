@@ -18,6 +18,8 @@
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TvShowsSource" location="Sources/TvShowsSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" location="Sources/TwitterSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/WeatherSource" location="Sources/WeatherSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/MenuSource" location="Sources/MenuSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/FeedReaderSource" location="Sources/FeedReaderSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <partnerLinks>
         <partnerLink name="breakingNews" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/BreakingNewsSource" partnerLinkType="tns:BreakingNewsSource" partnerRole="BreakingNewsSourcePortTypeRole"/>
         <partnerLink name="imageScraper" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/ImageScraperSource" partnerLinkType="tns:ImageScraperSource" partnerRole="ImageScraperSourcePortTypeRole"/>
@@ -28,6 +30,8 @@
         <partnerLink name="tvShows" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TvShowsSource" partnerLinkType="tns:TvShowsSource" partnerRole="TvShowsSourcePortTypeRole"/>
         <partnerLink name="twitter" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/TwitterSource" partnerLinkType="tns:TwitterSource" partnerRole="TwitterSourcePortTypeRole"/>
         <partnerLink name="weather" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/WeatherSource" partnerLinkType="tns:WeatherSource" partnerRole="WeatherSourcePortTypeRole"/>
+        <partnerLink name="menu" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/MenuSource" partnerLinkType="tns:MenuSource" partnerRole="MenuSourcePortTypeRole"/>
+        <partnerLink name="feed" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/FeedReaderSource" partnerLinkType="tns:FeedReaderSource" partnerRole="FeedReaderSourcePortTypeRole"/>
         <partnerLink name="ext" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" partnerLinkType="tns:NaiveInfoProvider" myRole="NaiveInfoProviderPortTypeRole"/>
     </partnerLinks>
     <variables>
@@ -41,6 +45,8 @@
         <variable name="tvShows_star" type="ns0:SetOfInformation"/>
         <variable name="twitter_star" type="ns0:SetOfInformation"/>
         <variable name="weather_star" type="ns0:SetOfInformation"/>
+        <variable name="menu_star" type="ns0:SetOfInformation"/>
+        <variable name="feed_star" type="ns0:SetOfInformation"/>
         <variable name="info_star" type="ns0:SetOfInformation"/>
         <variable name="identifier" type="xsd:string"/>
     </variables>
@@ -253,6 +259,48 @@
                         <copy>
                             <from>$GetInfosOut.out/ns0:result</from>
                             <to variable="weather_star"/>
+                        </copy>
+                    </assign>
+                </sequence>
+            </scope>
+            <scope name="a29" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/WeatherSource">
+                <variables>
+                    <variable name="GetInfosOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/MenuSource" messageType="tns:GetInfosResponse"/>
+                    <variable name="GetInfosIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/MenuSource" messageType="tns:GetInfosRequest"/>
+                </variables>
+                <sequence name="a29_core">
+                    <assign name="a29_pre">
+                        <copy>
+                            <from variable="identifier"/>
+                            <to>$GetInfosIn.in/ns0:identifier</to>
+                        </copy>
+                    </assign>
+                    <invoke name="a29_tech" partnerLink="menu" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/MenuSource" portType="tns:MenuSourcePortType" inputVariable="GetInfosIn" outputVariable="GetInfosOut"/>
+                    <assign name="a29_post">
+                        <copy>
+                            <from>$GetInfosOut.out/ns0:result</from>
+                            <to variable="menu_star"/>
+                        </copy>
+                    </assign>
+                </sequence>
+            </scope>
+            <scope name="a210" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/MenuSource">
+                <variables>
+                    <variable name="GetInfosOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/FeedReaderSource" messageType="tns:GetInfosResponse"/>
+                    <variable name="GetInfosIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/FeedReaderSource" messageType="tns:GetInfosRequest"/>
+                </variables>
+                <sequence name="a210_core">
+                    <assign name="a210_pre">
+                        <copy>
+                            <from variable="identifier"/>
+                            <to>$GetInfosIn.in/ns0:identifier</to>
+                        </copy>
+                    </assign>
+                    <invoke name="a210_tech" partnerLink="feed" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/FeedReaderSource" portType="tns:FeedReaderSourcePortType" inputVariable="GetInfosIn" outputVariable="GetInfosOut"/>
+                    <assign name="a210_post">
+                        <copy>
+                            <from>$GetInfosOut.out/ns0:result</from>
+                            <to variable="feed_star"/>
                         </copy>
                     </assign>
                 </sequence>
@@ -552,6 +600,74 @@
                                 </copy>
                             </assign>
                             <assign name="a38_concat_incr">
+                                <copy>
+                                    <from>$infoCpt + 1</from>
+                                    <to variable="infoCpt"/>
+                                </copy>
+                                <copy>
+                                    <from>$cpt + 1</from>
+                                    <to variable="cpt"/>
+                                </copy>
+                            </assign>
+                        </sequence>
+                    </while>
+                </sequence>
+            </scope>
+            <scope name="a39">
+                <variables>
+                    <variable name="cpt" type="xsd:integer"/>
+                </variables>
+                <sequence name="a39_core">
+                    <assign name="a39_concat_init">
+                        <copy>
+                            <from>1</from>
+                            <to variable="cpt"/>
+                        </copy>
+                    </assign>
+                    <while name="a39_concat_loop">
+                        <condition>$cpt &lt;= count($menu_star/ns0:item)</condition>
+                        <sequence name="a39_concat_core">
+                            <assign name="a39_tech">
+                                <copy>
+                                    <from>$menu_star/ns0:item[$cpt]</from>
+                                    <to>$info_star/ns0:item[$infoCpt]</to>
+                                </copy>
+                            </assign>
+                            <assign name="a39_concat_incr">
+                                <copy>
+                                    <from>$infoCpt + 1</from>
+                                    <to variable="infoCpt"/>
+                                </copy>
+                                <copy>
+                                    <from>$cpt + 1</from>
+                                    <to variable="cpt"/>
+                                </copy>
+                            </assign>
+                        </sequence>
+                    </while>
+                </sequence>
+            </scope>
+            <scope name="a310">
+                <variables>
+                    <variable name="cpt" type="xsd:integer"/>
+                </variables>
+                <sequence name="a310_core">
+                    <assign name="a310_concat_init">
+                        <copy>
+                            <from>1</from>
+                            <to variable="cpt"/>
+                        </copy>
+                    </assign>
+                    <while name="a310_concat_loop">
+                        <condition>$cpt &lt;= count($feed_star/ns0:item)</condition>
+                        <sequence name="a39_concat_core">
+                            <assign name="a39_tech">
+                                <copy>
+                                    <from>$feed_star/ns0:item[$cpt]</from>
+                                    <to>$info_star/ns0:item[$infoCpt]</to>
+                                </copy>
+                            </assign>
+                            <assign name="a310_concat_incr">
                                 <copy>
                                     <from>$infoCpt + 1</from>
                                     <to variable="infoCpt"/>

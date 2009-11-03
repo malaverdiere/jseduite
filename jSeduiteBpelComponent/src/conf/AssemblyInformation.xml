@@ -7,6 +7,16 @@
 </identification>
 <service-unit>
 <identification>
+<name>jSeduiteBpelComponent-InfoProvider</name>
+<description>Represents this Service Unit</description>
+</identification>
+<target>
+<artifacts-zip>InfoProvider.jar</artifacts-zip>
+<component-name>sun-bpel-engine</component-name>
+</target>
+</service-unit>
+<service-unit>
+<identification>
 <name>jSeduiteBpelComponent-WeatherProxy</name>
 <description>Represents this Service Unit</description>
 </identification>

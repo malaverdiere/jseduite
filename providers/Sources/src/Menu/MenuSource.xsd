@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/Menu"
+    xmlns:tns="http://xml.netbeans.org/schema/MenuSource"
+    elementFormDefault="qualified" xmlns:ns5="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/"
+    xmlns:ns="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/">
+    <xsd:import schemaLocation="../Partners/MenuBusinessService.xsd" namespace="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/"/>
+    <xsd:complexType name="SetOfMenu">
+        <xsd:sequence>
+            <xsd:element name="item" minOccurs="0" maxOccurs="unbounded" type="ns:menu" />
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

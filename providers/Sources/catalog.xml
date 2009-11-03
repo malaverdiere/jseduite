@@ -24,4 +24,10 @@
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/TeacherAbsencesService.xsd" uri="src/Partners/TeacherAbsencesService.xsd"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/StudentSummonService.wsdl" uri="src/Partners/StudentSummonService.wsdl"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/StudentSummonService.xsd" uri="src/Partners/StudentSummonService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/FeedReader.wsdl" uri="src/Partners/FeedReader.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/FeedReader.xsd" uri="src/Partners/FeedReader.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/MenuBusinessService.wsdl" uri="src/Partners/MenuBusinessService.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/MenuBusinessService.xsd" uri="src/Partners/MenuBusinessService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/CachedFeedReader.wsdl" uri="src/Partners/CachedFeedReader.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/CachedFeedReader.xsd" uri="src/Partners/CachedFeedReader.xsd"/>
 </catalog>

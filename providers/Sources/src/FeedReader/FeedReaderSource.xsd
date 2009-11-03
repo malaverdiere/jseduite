@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader"
+    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader"
+    elementFormDefault="qualified" xmlns:ns8="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/">
+    <xsd:import schemaLocation="../Partners/RssReaderService.xsd" namespace="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/"/>
+    <xsd:complexType name="SetOfFeedNode">
+        <xsd:sequence>
+            <xsd:element name="item" minOccurs="0" maxOccurs="unbounded" type="ns8:feedNode"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
