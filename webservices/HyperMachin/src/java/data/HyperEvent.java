@@ -56,6 +56,16 @@ public class HyperEvent {
         this.groups = new String[] {group};
     }
 
+    @Override
+    public boolean equals(Object o) { // ALL excepting groups
+        HyperEvent other = (HyperEvent) o;
+        return  start.equals(other.start) && end.equals(other.end)
+                && kind.equals(other.kind) && course.equals((other.course))
+                && building.equals(other.building)
+                && Arrays.equals(teachers,other.teachers) 
+                && Arrays.equals(rooms,other.rooms);
+    }
+
     public void addGroup(String g) {
         ArrayList<String> tmp = new ArrayList<String>(Arrays.asList(this.groups));
         tmp.add(g);

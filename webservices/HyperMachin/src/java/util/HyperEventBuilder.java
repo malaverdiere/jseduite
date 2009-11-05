@@ -17,14 +17,12 @@ public class HyperEventBuilder {
     private HyperPromo promo;
     private Period restriction;
     private ArrayList<HyperEvent> result;
-    private ArrayList<Component> components;
 
 
     public HyperEventBuilder(HyperPromo p, Period r) {
         this.promo = p;
         this.restriction = r;
         this.result = new ArrayList<HyperEvent>();
-        this.components = new ArrayList<Component>();
     }
 
     public HyperEventBuilder(HyperPromo p) { this(p,null); }
@@ -42,16 +40,16 @@ public class HyperEventBuilder {
 
     private void process(String groupName, ComponentList cList) {
         for(Object o: cList) 
-            this.process(groupName,o);
+            this.process(groupName,(Component)o);
     }
 
-    private void process(String groupName, Object c) {
-        if (! this.components.contains(c)) {
-            HyperEvent e = new HyperEvent();
-            e.fill((Component) c,groupName);
-            this.components.add((Component) c); this.result.add(e);
+    private void process(String groupName, Component c) {
+        HyperEvent e = new HyperEvent();
+        e.fill((Component) c, groupName);
+        if (! this.result.contains(e)) {
+            this.result.add(e);
         } else {
-            this.result.get(this.components.indexOf(c)).addGroup(groupName);
+            this.result.get(this.result.indexOf(e)).addGroup(groupName);
         }
     }
 
