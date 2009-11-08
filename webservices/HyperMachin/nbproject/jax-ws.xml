@@ -4,6 +4,12 @@
     <service name="HyperMachin">
       <implementation-class>impl.HyperMachin</implementation-class>
     </service>
+    <service name="HyperLocator">
+      <implementation-class>impl.HyperLocator</implementation-class>
+    </service>
+    <service name="HyperPromoManager">
+      <implementation-class>impl.HyperPromoManager</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>

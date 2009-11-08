@@ -21,23 +21,7 @@
  * @contributor [2009] Claudine Peyrat           [claudine@polytech.unice.fr]
  *
  **/
-package data;
 
-/** A data structure to deal with Promotions
- * @author mosser
- */
-public class HyperPromo {
+package util;
 
-    private String name;         // the name of the promotion
-    private String code;         // the promo identifier
-    private HyperGroup[] groups; // the associated hyper groups
-
-    /** XML Serialization **/
-    public HyperPromo() {}
-    public HyperGroup[] getGroups()                    { return groups; }
-    public void         setGroups(HyperGroup[] groups) { this.groups = groups; }
-    public String       getName()                      { return name; }
-    public void         setName(String name)           { this.name = name; }
-    public String       getCode()                      { return code; }
-    public void         setCode(String code)           { this.code = code; }
-}
+public enum HyperCacheStatus { VALID, OLD, SYNC, EMPTY }

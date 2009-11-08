@@ -21,23 +21,16 @@
  * @contributor [2009] Claudine Peyrat           [claudine@polytech.unice.fr]
  *
  **/
-package data;
 
-/** A data structure to deal with Promotions
+package util;
+
+/** A simple class to deal with local configuration
+ * @remark should switch at deployment time
  * @author mosser
  */
-public class HyperPromo {
-
-    private String name;         // the name of the promotion
-    private String code;         // the promo identifier
-    private HyperGroup[] groups; // the associated hyper groups
-
-    /** XML Serialization **/
-    public HyperPromo() {}
-    public HyperGroup[] getGroups()                    { return groups; }
-    public void         setGroups(HyperGroup[] groups) { this.groups = groups; }
-    public String       getName()                      { return name; }
-    public void         setName(String name)           { this.name = name; }
-    public String       getCode()                      { return code; }
-    public void         setCode(String code)           { this.code = code; }
+public class Config {
+    private static final String PREFIX =
+         "/Users/mosser/repositories/jseduite/webservices/HyperMachin/web/"; // @local
+         //"../applications/j2ee-modules/Seduite4Faros-WS/"; // @server
+    public static final String PATH = PREFIX + "iCal/";
 }

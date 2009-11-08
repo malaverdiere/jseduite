@@ -26,8 +26,10 @@ package impl;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
+import javax.jws.WebParam;
 import data.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 import net.fortuna.ical4j.model.DateTime;
 import net.fortuna.ical4j.model.Dur;
 import net.fortuna.ical4j.model.Period;
@@ -40,20 +42,65 @@ import util.*;
 @WebService(targetNamespace="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin")
 public class HyperMachin {
 
-    /**
-     * Web service operation
+    /** Extract ALL relevant HyperEvents for a given HyperPromo
+     * @param promo the HyperPromo to handle
+     * @return a set of HyperEvents
+     * @throws HyperException
+     */
+    @WebMethod(operationName = "getHyperEvents")
+    public HyperEvent[] getHyperEvents(
+            @WebParam(name = "promo") HyperPromo promo) throws HyperException {
+        return get(promo,null);
+    }
+
+    /** Extract current HyperEvents (running now) for a given HyperPromo
+     * @param promo the HyperPromo to handle
+     * @return a set of HyperEvents
+     * @throws data.HyperException
+     */
+    @WebMethod(operationName = "getHyperEventsRestriction")
+    public HyperEvent[] getCurrentHyperEvents(
+            @WebParam(name = "promo")   HyperPromo promo)
+            throws HyperException {
+        Dur now = new Dur(0,0,0,0);
+        return get(promo,now);
+    }
+
+    /*********************
+     ** Private methods **
+     *********************/
+
+    /** Factorized HyperPromo -> HyperEvents* transformation
+     * @param p the HyperPromo to handle
+     * @param delta a filter to restrict the set of extracted HyperEvents
+     * @return a set of HyperEvents for 'p' restricted following 'delta'
+     */
+    private HyperEvent[] get(HyperPromo p, Dur delta) throws HyperException {
+
+        try {
+            Calendar now = Calendar.getInstance();
+            now.set(java.util.Calendar.HOUR_OF_DAY, 0);
+            now.clear(java.util.Calendar.MINUTE);
+            now.clear(java.util.Calendar.SECOND);
+            Period today = (null == delta? null : new Period(new DateTime(now.getTime()),delta));
+            HyperEventBuilder builder = new HyperEventBuilder(p,today);
+            builder.transform();
+            ArrayList<HyperEvent> result = builder.getResult();
+            return result.toArray(new HyperEvent[result.size()]);
+        } catch(Exception e) {
+            throw new HyperException(e.getMessage());
+        }
+    }
+
+    /** DEPRECATED (should disapears)
+     * @param promo
+     * @return
+     * @throws data.HyperException
      */
     @WebMethod(operationName = "getToday")
-    public HyperEvent[] getToday(HyperPromo p) throws Exception {
-        java.util.Calendar now = java.util.Calendar.getInstance();
-        now.set(java.util.Calendar.HOUR_OF_DAY, 0);
-        now.clear(java.util.Calendar.MINUTE);
-        now.clear(java.util.Calendar.SECOND);
-        Period today = new Period(new DateTime(now.getTime()),new Dur(1,0,0,0));
-        HyperEventBuilder builder = new HyperEventBuilder(p,today);
-        builder.transform();
-        ArrayList<HyperEvent> result = builder.getResult();
-        return result.toArray(new HyperEvent[result.size()]);
+    public HyperEvent[] getToday(@WebParam(name="promo") HyperPromo promo)
+            throws HyperException {
+        return getHyperEvents(promo);
     }
- 
+    
 }

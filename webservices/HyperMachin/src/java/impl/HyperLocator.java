@@ -21,23 +21,36 @@
  * @contributor [2009] Claudine Peyrat           [claudine@polytech.unice.fr]
  *
  **/
-package data;
 
-/** A data structure to deal with Promotions
+package impl;
+
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebService;
+import data.*;
+
+/**
+ *
  * @author mosser
  */
-public class HyperPromo {
+@WebService()
+public class HyperLocator {
 
-    private String name;         // the name of the promotion
-    private String code;         // the promo identifier
-    private HyperGroup[] groups; // the associated hyper groups
+    @WebMethod(operationName = "getAll")
+    public HyperEvent[] getAll(@WebParam(name="identifiers") String[] identifiers) {
+        
+        return null;
+    }
 
-    /** XML Serialization **/
-    public HyperPromo() {}
-    public HyperGroup[] getGroups()                    { return groups; }
-    public void         setGroups(HyperGroup[] groups) { this.groups = groups; }
-    public String       getName()                      { return name; }
-    public void         setName(String name)           { this.name = name; }
-    public String       getCode()                      { return code; }
-    public void         setCode(String code)           { this.code = code; }
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getByBuilding")
+    public String getByBuilding(
+            @WebParam(name="identifiers") String[] identifiers, 
+            @WebParam(name = "building") String building) {
+        //TODO write your implementation code here:
+        return null;
+    }
+
 }
