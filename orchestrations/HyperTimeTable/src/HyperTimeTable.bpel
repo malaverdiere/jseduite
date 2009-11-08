@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process
+    name="HyperTimeTable"
+    targetNamespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/HyperTimeTable"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
+    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/HyperTimeTable" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin">
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/HyperTimeTable" location="HyperTimeTable.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable" location="HyperTimeTable.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/HyperMachinServiceWrapper" location="Partners/HyperMachinServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" location="Partners/HyperMachinService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/HyperPromoManagerServiceWrapper" location="Partners/HyperPromoManagerServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" location="Partners/HyperPromoManagerService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" location="Partners/HyperPromoManagerService.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" location="Partners/HyperMachinService.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
+    <partnerLinks>
+        <partnerLink name="hyperreader" xmlns:tns="http://enterprise.netbeans.org/bpel/HyperMachinServiceWrapper" partnerLinkType="tns:HyperMachinLinkType" partnerRole="HyperMachinRole"/>
+        <partnerLink name="hypercache" xmlns:tns="http://enterprise.netbeans.org/bpel/HyperPromoManagerServiceWrapper" partnerLinkType="tns:HyperPromoManagerLinkType" partnerRole="HyperPromoManagerRole"/>
+        <partnerLink name="ext" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/HyperTimeTable" partnerLinkType="tns:HyperTimeTable" myRole="HyperTimeTablePortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="hyperpromo" type="ns1:hyperPromo"/>
+        <variable name="status" type="ns1:hyperCacheStatus"/>
+        <variable name="result" type="ns0:SetOfHyperEvent"/>
+        <variable name="promo" type="xsd:string"/>
+    </variables>
+    <sequence>
+        <scope name="a0">
+            <variables>
+                <variable name="RetrieveTimeTableIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/HyperTimeTable" messageType="tns:RetrieveTimeTableRequest"/>
+            </variables>
+            <sequence name="a0_core">
+                <receive name="a0_tech" createInstance="yes" partnerLink="ext" operation="RetrieveTimeTable" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/HyperTimeTable" portType="tns:HyperTimeTablePortType" variable="RetrieveTimeTableIn"/>
+                <assign name="a0_post">
+                    <copy>
+                        <from>$RetrieveTimeTableIn.input/ns0:promo</from>
+                        <to variable="promo"/>
+                    </copy>
+                </assign>
+            </sequence>
+        </scope>
+        <scope name="a1">
+            <variables>
+                <variable name="IsValidOut" messageType="ns1:isValidResponse"/>
+                <variable name="IsValidIn" messageType="ns1:isValid"/>
+            </variables>
+            <sequence name="a1_core">
+                <assign name="a1_pre">
+                    <copy>
+                        <from variable="promo"/>
+                        <to>$IsValidIn.parameters/promoId</to>
+                    </copy>
+                </assign>
+                <invoke name="a1_tech" partnerLink="hypercache" operation="isValid" portType="ns1:HyperPromoManager" inputVariable="IsValidIn" outputVariable="IsValidOut"/>
+                <assign name="a1_post">
+                    <copy>
+                        <from>$IsValidOut.parameters/return</from>
+                        <to variable="status"/>
+                    </copy>
+                </assign>
+            </sequence>
+        </scope>
+        <if name="dispacth">
+            <condition>'SYNC' = $status</condition>
+            <scope name="a20">
+                <assign name="a20_tech">
+                    <copy>
+                            <from>''</from>
+                                <to variable="result"/>
+                        </copy>
+                </assign>
+            </scope>
+            <elseif>
+                <condition>'EMPTY' = $status</condition>
+                <scope name="a21">
+                    <variables>
+                        <variable name="SynchronizeIn" messageType="ns1:synchronize"/>
+                    </variables>
+                    <sequence name="a21_core">
+                        <assign name="a21_pre">
+                            <copy>
+                                <from variable="promo"/>
+                                <to>$SynchronizeIn.parameters/promoId</to>
+                            </copy>
+                            <copy>
+                                <from>''</from>
+                                <to variable="result"/>
+                            </copy>
+                        </assign>
+                        <invoke name="a21_tech" partnerLink="hypercache" operation="synchronize" portType="ns1:HyperPromoManager" inputVariable="SynchronizeIn"/>
+                    </sequence>
+                </scope>
+            </elseif>
+            <else>
+                <sequence name="read_sequence">
+                    <scope name="a22">
+                        <variables>
+                            <variable name="GetOut" messageType="ns1:getResponse"/>
+                            <variable name="GetIn" messageType="ns1:get"/>
+                        </variables>
+                        <sequence name="a22_core">
+                                <assign name="a22_pre">
+                                    <copy>
+                                        <from variable="promo"/>
+                                        <to>$GetIn.parameters/promoId</to>
+                                    </copy>
+                                </assign>
+                                    <invoke name="a22_tech" partnerLink="hypercache" operation="get" portType="ns1:HyperPromoManager" inputVariable="GetIn" outputVariable="GetOut"/>
+                                    <assign name="a22_post">
+                                        <copy>
+                                            <from>$GetOut.parameters/return</from>
+                                            <to variable="hyperpromo"/>
+                                        </copy>
+                                    </assign>
+                            </sequence>
+                    </scope>
+                    <scope name="a3">
+                        <variables>
+                            <variable name="GetHyperEventsOut" messageType="ns1:getHyperEventsResponse"/>
+                            <variable name="GetHyperEventsIn" messageType="ns1:getHyperEvents"/>
+                        </variables>
+                        <sequence name="a3_core">
+                            <assign name="a3_pre">
+                                <copy>
+                                    <from variable="hyperpromo"/>
+                                    <to>$GetHyperEventsIn.parameters/promo</to>
+                                </copy>
+                            </assign>
+                            <invoke name="a3_tech" partnerLink="hyperreader" operation="getHyperEvents" portType="ns1:HyperMachin" inputVariable="GetHyperEventsIn" outputVariable="GetHyperEventsOut"/>
+                            <assign name="a3_post">
+                                <copy>
+                                    <from>$GetHyperEventsOut.parameters/return</from>
+                                    <to>$result/ns0:item</to>
+                                </copy>
+                            </assign>
+                        </sequence>
+                    </scope>
+                    <if name="isOld">
+                        <condition>'EMPTY' = $status</condition>
+                        <scope name="a4">
+                            <variables>
+                                <variable name="SynchronizeIn" messageType="ns1:synchronize"/>
+                            </variables>
+                            <sequence name="a4_core">
+                                <assign name="a4_pre">
+                                    <copy>
+                                        <from variable="promo"/>
+                                        <to>$SynchronizeIn.parameters/promoId</to>
+                                    </copy>
+                                </assign>
+                                <invoke name="a4_tech" partnerLink="hypercache" operation="synchronize" portType="ns1:HyperPromoManager" inputVariable="SynchronizeIn"/>
+                            </sequence>
+                        </scope>
+                        <else>
+                            <empty name="nop"/>
+                        </else>
+                    </if>
+                </sequence>
+            </else>
+        </if>
+        <scope name="aX">
+            <variables>
+                <variable name="RetrieveTimeTableOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/HyperTimeTable" messageType="tns:RetrieveTimeTableResponse"/>
+            </variables>
+            <sequence name="aX_core">
+                <assign name="aX_pre">
+                    <copy>
+                        <from variable="result"/>
+                        <to>$RetrieveTimeTableOut.output/ns0:result</to>
+                    </copy>
+                </assign>
+                <reply name="aX_tech" partnerLink="ext" operation="RetrieveTimeTable" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/HyperTimeTable" portType="tns:HyperTimeTablePortType" variable="RetrieveTimeTableOut"/>
+            </sequence>
+        </scope>
+    </sequence>
+</process>
