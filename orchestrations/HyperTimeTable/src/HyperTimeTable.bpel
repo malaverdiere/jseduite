@@ -138,7 +138,7 @@
                         </sequence>
                     </scope>
                     <if name="isOld">
-                        <condition>'EMPTY' = $status</condition>
+                        <condition>'OLD' = $status</condition>
                         <scope name="a4">
                             <variables>
                                 <variable name="SynchronizeIn" messageType="ns1:synchronize"/>
