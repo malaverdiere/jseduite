@@ -284,12 +284,16 @@ To retrieve the value of a param named 'p', use the following XPath selector:
                                         </copy>
                                 </assign>
                         </scope>
-                        <if name="If1">
+                        <if name="add_if_any">
                             <condition>count($info/ns0:hyperloc/ns2:item) &gt; 0</condition>
                             <assign name="a8_tech">
                                 <copy>
                                         <from variable="info"/>
-                                            <to>$info_star/ns0:item[$i]</to>
+                                        <to>$info_star/ns0:item[$infoCpt]</to>
+                                    </copy>
+                                    <copy>
+                                        <from>1 + $infoCpt</from>
+                                        <to variable="infoCpt" />
                                     </copy>
                             </assign>
                             <else>
