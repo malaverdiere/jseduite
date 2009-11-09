@@ -34,6 +34,9 @@
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/ICalReaderService.xsd" uri="src/Partners/ICalReaderService.xsd"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/ApalWrapperService.wsdl" uri="src/Partners/ApalWrapperService.wsdl"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/ApalWrapperService.xsd" uri="src/Partners/ApalWrapperService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/HyperTimeTable.wsdl" uri="src/Partners/HyperTimeTable.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/HyperTimeTable.xsd" uri="src/Partners/HyperTimeTable.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/HyperMachinService.xsd" uri="src/Partners/HyperMachinService.xsd"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/HyperLocatorService.wsdl" uri="src/Partners/HyperLocatorService.wsdl"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/HyperLocatorService.xsd" uri="src/Partners/HyperLocatorService.xsd"/>
 </catalog>
