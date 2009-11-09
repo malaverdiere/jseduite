@@ -155,6 +155,23 @@
         <move todir="${src.dir}/../jbiServiceUnits/META-INF/${FeedReader.su.name}">
             <fileset dir="${FeedReader.su.dir}/META-INF"/>
         </move>
+        <ant target="dist_se" inheritall="false" antfile="${project.HyperTimeTable}/build.xml"/>
+        <basename property="HyperTimeTable.su.name" file="${project.HyperTimeTable}"/>
+        <unzip src="${reference.HyperTimeTable.dist_se}" dest="${src.dir}/../jbiServiceUnits/${HyperTimeTable.su.name}">
+            <patternset>
+                <include name="**/*.wsdl"/>
+                <include name="**/*.WSDL"/>
+                <include name="**/*.xsd"/>
+                <include name="**/*.XSD"/>
+                <include name="META-INF/jbi.xml"/>
+                <include name="META-INF/catalog.xml"/>
+            </patternset>
+        </unzip>
+        <property name="HyperTimeTable.su.dir" value="${src.dir}/../jbiServiceUnits/${HyperTimeTable.su.name}"/>
+        <move file="${HyperTimeTable.su.dir}/META-INF/jbi.xml" todir="${HyperTimeTable.su.dir}"/>
+        <move todir="${src.dir}/../jbiServiceUnits/META-INF/${HyperTimeTable.su.name}">
+            <fileset dir="${HyperTimeTable.su.dir}/META-INF"/>
+        </move>
         <ant target="dist_se" inheritall="false" antfile="${project.ImageScraper}/build.xml"/>
         <basename property="ImageScraper.su.name" file="${project.ImageScraper}"/>
         <unzip src="${reference.ImageScraper.dist_se}" dest="${src.dir}/../jbiServiceUnits/${ImageScraper.su.name}">
@@ -267,6 +284,7 @@
         <!-- You can override this target in the ../build.xml file. -->
     </target>
     <target name="library-inclusion-in-archive" depends="compile">
+        <unjar dest="${build.classes.dir}" src="${reference.HyperTimeTable.dist_se}"/>
         <unjar dest="${build.classes.dir}" src="${reference.InfoProvider.dist_se}"/>
         <unjar dest="${build.classes.dir}" src="${reference.WeatherProxy.dist_se}"/>
         <unjar dest="${build.classes.dir}" src="${reference.Sources.dist_se}"/>
@@ -277,6 +295,8 @@
         <unjar dest="${build.classes.dir}" src="${reference.CachedFeedReader.dist_se}"/>
     </target>
     <target name="library-inclusion-in-manifest" depends="compile">
+        <basename property="included.lib.reference.HyperTimeTable.dist_se" file="${reference.HyperTimeTable.dist_se}"/>
+        <copy todir="${build.classes.dir}" file="${reference.HyperTimeTable.dist_se}"/>
         <basename property="included.lib.reference.InfoProvider.dist_se" file="${reference.InfoProvider.dist_se}"/>
         <copy todir="${build.classes.dir}" file="${reference.InfoProvider.dist_se}"/>
         <basename property="included.lib.reference.WeatherProxy.dist_se" file="${reference.WeatherProxy.dist_se}"/>
@@ -294,7 +314,7 @@
         <basename property="included.lib.reference.CachedFeedReader.dist_se" file="${reference.CachedFeedReader.dist_se}"/>
         <copy todir="${build.classes.dir}" file="${reference.CachedFeedReader.dist_se}"/>
         <manifest file="${build.classes.dir}/META-INF/MANIFEST.MF" mode="update">
-            <attribute name="Class-Path" value="${included.lib.reference.InfoProvider.dist_se},${included.lib.reference.WeatherProxy.dist_se},${included.lib.reference.Sources.dist_se},${included.lib.reference.TvShows.dist_se},${included.lib.reference.PictureAlbums.dist_se},${included.lib.reference.ImageScraper.dist_se},${included.lib.reference.FeedReader.dist_se},${included.lib.reference.CachedFeedReader.dist_se}"/>
+            <attribute name="Class-Path" value="${included.lib.reference.HyperTimeTable.dist_se},${included.lib.reference.InfoProvider.dist_se},${included.lib.reference.WeatherProxy.dist_se},${included.lib.reference.Sources.dist_se},${included.lib.reference.TvShows.dist_se},${included.lib.reference.PictureAlbums.dist_se},${included.lib.reference.ImageScraper.dist_se},${included.lib.reference.FeedReader.dist_se},${included.lib.reference.CachedFeedReader.dist_se}"/>
         </manifest>
     </target>
     <target name="do-compile" depends="init,deps-jar,pre-pre-compile,pre-compile"/>
@@ -383,6 +403,7 @@
     <target name="deps-clean" depends="init" unless="${no.dependencies}">
         <ant target="clean" inheritall="false" antfile="${project.CachedFeedReader}/build.xml"/>
         <ant target="clean" inheritall="false" antfile="${project.FeedReader}/build.xml"/>
+        <ant target="clean" inheritall="false" antfile="${project.HyperTimeTable}/build.xml"/>
         <ant target="clean" inheritall="false" antfile="${project.ImageScraper}/build.xml"/>
         <ant target="clean" inheritall="false" antfile="${project.InfoProvider}/build.xml"/>
         <ant target="clean" inheritall="false" antfile="${project.PictureAlbums}/build.xml"/>

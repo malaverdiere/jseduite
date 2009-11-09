@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-417-SNAPSHOT. -->
+<xs:schema xmlns:tns="http://apal.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://apal.technical.jSeduite.modalis.i3s.unice.fr/">
+  <xs:element name="getLoosers" type="tns:getLoosers"/>
+  <xs:element name="getLoosersResponse" type="tns:getLoosersResponse"/>
+  <xs:element name="getPromos" type="tns:getPromos"/>
+  <xs:element name="getPromosResponse" type="tns:getPromosResponse"/>
+  <xs:element name="getTop10" type="tns:getTop10"/>
+  <xs:element name="getTop10Response" type="tns:getTop10Response"/>
+  <xs:element name="getTopWithTreshold" type="tns:getTopWithTreshold"/>
+  <xs:element name="getTopWithTresholdResponse" type="tns:getTopWithTresholdResponse"/>
+  <xs:complexType name="getLoosers">
+    <xs:sequence>
+      <xs:element name="treshold" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getLoosersResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:apalLooser" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="apalLooser">
+    <xs:complexContent>
+      <xs:extension base="tns:apalInfo">
+        <xs:sequence>
+          <xs:element name="promo" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="apalInfo">
+    <xs:sequence>
+      <xs:element name="counter" type="xs:int"/>
+      <xs:element name="firstname" type="xs:string" minOccurs="0"/>
+      <xs:element name="lastname" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTopWithTreshold">
+    <xs:sequence>
+      <xs:element name="promoId" type="xs:int"/>
+      <xs:element name="treshold" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTopWithTresholdResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:apalInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTop10">
+    <xs:sequence>
+      <xs:element name="promoId" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTop10Response">
+    <xs:sequence>
+      <xs:element name="return" type="tns:apalInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getPromos">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getPromosResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:apalPromo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="apalPromo">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

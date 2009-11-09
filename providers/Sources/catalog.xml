@@ -32,4 +32,8 @@
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/CachedFeedReader.xsd" uri="src/Partners/CachedFeedReader.xsd"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/ICalReaderService.wsdl" uri="src/Partners/ICalReaderService.wsdl"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/ICalReaderService.xsd" uri="src/Partners/ICalReaderService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/ApalWrapperService.wsdl" uri="src/Partners/ApalWrapperService.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/ApalWrapperService.xsd" uri="src/Partners/ApalWrapperService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/HyperLocatorService.wsdl" uri="src/Partners/HyperLocatorService.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/HyperLocatorService.xsd" uri="src/Partners/HyperLocatorService.xsd"/>
 </catalog>
