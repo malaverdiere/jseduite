@@ -81,7 +81,11 @@ public class HyperCache {
     }
 
     public static String[] getCacheContent() throws Exception {
-        return new File(Config.PATH).list();
+        return new File(Config.PATH).list(new FilenameFilter() {
+            public boolean accept(File dir, String name) {
+               return ! name.startsWith(".");
+            }
+        });
     }
     /** Private Methods **/
 

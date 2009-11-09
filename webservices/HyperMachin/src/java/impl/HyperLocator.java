@@ -28,6 +28,15 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import data.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import net.fortuna.ical4j.model.DateTime;
+import net.fortuna.ical4j.model.Dur;
+import net.fortuna.ical4j.model.Period;
+import util.HyperCache;
+import util.HyperCacheStatus;
+import util.HyperEventBuilder;
 
 /**
  *
@@ -36,21 +45,72 @@ import data.*;
 @WebService()
 public class HyperLocator {
 
-    @WebMethod(operationName = "getAll")
-    public HyperEvent[] getAll(@WebParam(name="identifiers") String[] identifiers) {
-        
-        return null;
+    @WebMethod(operationName = "getAllPromo")
+    public HyperLocation[] getAllPromo()
+            throws HyperException {
+        ArrayList<HyperLocation> result = new ArrayList<HyperLocation>();
+        try {
+            for(String id: HyperCache.getCacheContent())
+                result.addAll(Arrays.asList(getByPromo(id)));
+        } catch(Exception e) {throw new HyperException(e.getMessage()); }
+        return result.toArray(new HyperLocation[result.size()]);
+    }
+
+    @WebMethod(operationName = "getByPromo")
+    public HyperLocation[] getByPromo(@WebParam(name="id") String id)
+            throws HyperException {
+        ArrayList<HyperLocation> result = new ArrayList<HyperLocation>();
+        Period r = getNowPeriod();
+        try {
+            HyperCache c = new HyperCache(id);
+            if (c.isValid() == HyperCacheStatus.VALID) {
+                HyperPromo p = c.localize();
+                HyperEventBuilder builder = new HyperEventBuilder(p,r);
+                builder.transform();
+                for(HyperEvent event: builder.getResult()) {
+                    result.addAll(Arrays.asList(HyperLocation.build(event)));
+                 }
+            }
+        } catch(Exception e) { throw new HyperException(e.getMessage()); }
+        return result.toArray(new HyperLocation[result.size()]);
+    }
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getAllPromoByBuilding")
+    public HyperLocation[] getAllPromoByBuilding(
+            @WebParam(name = "building") String building)
+            throws HyperException {
+        ArrayList<HyperLocation> result = new ArrayList<HyperLocation>();
+        for(HyperLocation loc: getAllPromo()) {
+            if (loc.getBuilding().equals(building))
+                result.add(loc);
+        }
+        return  result.toArray(new HyperLocation[result.size()]);
     }
 
     /**
      * Web service operation
      */
-    @WebMethod(operationName = "getByBuilding")
-    public String getByBuilding(
-            @WebParam(name="identifiers") String[] identifiers, 
-            @WebParam(name = "building") String building) {
-        //TODO write your implementation code here:
-        return null;
+    @WebMethod(operationName = "locateTeacher")
+    public HyperLocation[] locateTeacher(@WebParam(name = "name") String name)
+            throws HyperException {
+        ArrayList<HyperLocation> result = new ArrayList<HyperLocation>();
+        for(HyperLocation loc: getAllPromo()) {
+            if (loc.getTeacher().endsWith(name))
+                result.add(loc);
+        }
+        return  result.toArray(new HyperLocation[result.size()]);
+    }
+
+    /** private methods **/
+    private Period getNowPeriod() {
+        java.util.Calendar now = java.util.Calendar.getInstance();
+        //now.set(java.util.Calendar.HOUR_OF_DAY, 0);
+        //now.clear(java.util.Calendar.MINUTE);
+        //now.clear(java.util.Calendar.SECOND);
+        Period r = new Period(new DateTime(now.getTime()), new Dur(0,0,0,0));
+        return  r;
     }
 
 }

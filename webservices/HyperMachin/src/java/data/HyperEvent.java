@@ -96,7 +96,7 @@ public class HyperEvent {
     private String extractBuilding(Component c) {
         try {
             String s = HyperHelper.readString("LOCATION", c);
-            return s.substring(s.lastIndexOf("-")+1,s.length());
+            return s.substring(s.lastIndexOf("-")+1,s.length()).trim();
         } catch (Exception e) { return "??"; }
     }
     private String[] extractRooms(Component c) {

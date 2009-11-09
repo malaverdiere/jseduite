@@ -91,16 +91,5 @@ public class HyperMachin {
             throw new HyperException(e.getMessage());
         }
     }
-
-    /** DEPRECATED (should disapears)
-     * @param promo
-     * @return
-     * @throws data.HyperException
-     */
-    @WebMethod(operationName = "getToday")
-    public HyperEvent[] getToday(@WebParam(name="promo") HyperPromo promo)
-            throws HyperException {
-        return getHyperEvents(promo);
-    }
     
 }
