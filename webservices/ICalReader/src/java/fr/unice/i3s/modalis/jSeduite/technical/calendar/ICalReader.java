@@ -23,7 +23,7 @@
 
 package fr.unice.i3s.modalis.jSeduite.technical.calendar;
 
-import java.io.*;
+
 import java.net.URL;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -41,24 +41,6 @@ import net.fortuna.ical4j.filter.*;
 @WebService()
 public class ICalReader {
 
-    private String getResourceContent(URL url) throws Exception  {
-       InputStream is = url.openStream();
-       BufferedReader bread = new BufferedReader(new InputStreamReader(is));
-       String line = "";
-       StringBuilder buff = new StringBuilder();
-       while((line = bread.readLine()) != null)
-           buff.append(line+"\n");
-        return new String(buff.toString().getBytes(),"UTF-8");
-    }
-
-    private ComponentList buildComponents(URL url) throws Exception {
-        StringReader sin = new StringReader(getResourceContent(url));
-        CalendarBuilder builder = new CalendarBuilder();
-        Calendar c = builder.build(sin);
-        return c.getComponents(Component.VEVENT);
-    }
-
-
     /** Dump the whole content of an iCal calendar
      * @param calendar an URL to reach the iCal file.
      * @return A set of CalendarEvent, built from the 'calendar' file
@@ -68,7 +50,7 @@ public class ICalReader {
     public CalendarEvent[] getContent(@WebParam(name = "calendar") URL calendar)
             throws ICalReaderException {
         try {
-            ComponentList cList = buildComponents(calendar);
+            ComponentList cList = ICalHelper.buildComponents(calendar);
             return CalendarEvent.transform(cList);
         }
         catch(Exception e) { throw new ICalReaderException(e.getMessage()); }
@@ -83,7 +65,7 @@ public class ICalReader {
     public CalendarEvent[] getToday(@WebParam(name = "calendar") URL calendar)
             throws ICalReaderException {
         try {
-            ComponentList cList = buildComponents(calendar);
+            ComponentList cList = ICalHelper.buildComponents(calendar);
             java.util.Calendar today = java.util.Calendar.getInstance();
             today.set(java.util.Calendar.HOUR_OF_DAY, 0);
             today.clear(java.util.Calendar.MINUTE);
@@ -106,7 +88,7 @@ public class ICalReader {
     public CalendarEvent[] getNow(@WebParam(name = "calendar") URL calendar)
             throws ICalReaderException {
         try {
-            ComponentList cList = buildComponents(calendar);
+            ComponentList cList = ICalHelper.buildComponents(calendar);
             java.util.Calendar today = java.util.Calendar.getInstance();
             Period period = new Period(new DateTime(today.getTime()),
                                        new Dur(0, 0, 0, 0));

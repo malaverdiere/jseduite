@@ -6,50 +6,65 @@
                 ===================
             -->
     <target name="wsgen-init" depends="init, -do-compile">
-        <mkdir dir="${build.generated.sources.dir}/jax-ws/resources/"/>
+        <mkdir dir="${build.generated.dir}/wsgen/service"/>
+        <mkdir dir="${build.generated.dir}/wsgen/service/resources/"/>
+        <mkdir dir="${build.generated.dir}/wsgen/binaries"/>
         <mkdir dir="${build.classes.dir}"/>
         <taskdef name="wsgen" classname="com.sun.tools.ws.ant.WsGen">
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </taskdef>
     </target>
     <target name="wsgen-LineStepsCRUD" depends="wsgen-init">
-        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" xendorsed="true" keep="true" genwsdl="true" sei="ca.m1.montreal.jSeduite.technical.busschedule.LineStepsCRUD">
+        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="ca.m1.montreal.jSeduite.technical.busschedule.LineStepsCRUD">
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>
     <target name="wsgen-BusScheduleFinder" depends="wsgen-init">
-        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" xendorsed="true" keep="true" genwsdl="true" sei="ca.m1.montreal.jSeduite.technical.busschedule.BusScheduleFinder">
+        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="ca.m1.montreal.jSeduite.technical.busschedule.BusScheduleFinder">
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>
     <target name="wsgen-PeriodLinkCRUD" depends="wsgen-init">
-        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" xendorsed="true" keep="true" genwsdl="true" sei="ca.m1.montreal.jSeduite.technical.busschedule.PeriodLinkCRUD">
+        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="ca.m1.montreal.jSeduite.technical.busschedule.PeriodLinkCRUD">
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>
     <target name="wsgen-ScheduleCRUD" depends="wsgen-init">
-        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" xendorsed="true" keep="true" genwsdl="true" sei="ca.m1.montreal.jSeduite.technical.busschedule.ScheduleCRUD">
+        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="ca.m1.montreal.jSeduite.technical.busschedule.ScheduleCRUD">
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>
     <target name="wsgen-BusScheduleBusiness" depends="wsgen-init">
-        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" xendorsed="true" keep="true" genwsdl="true" sei="ca.m1.montreal.jSeduite.technical.busschedule.BusScheduleBusiness">
+        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="ca.m1.montreal.jSeduite.technical.busschedule.BusScheduleBusiness">
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>
     <target name="wsgen-PeriodCRUD" depends="wsgen-init">
-        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" xendorsed="true" keep="true" genwsdl="true" sei="ca.m1.montreal.jSeduite.technical.busschedule.PeriodCRUD">
+        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="ca.m1.montreal.jSeduite.technical.busschedule.PeriodCRUD">
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>
     <target name="wsgen-LineCRUD" depends="wsgen-init">
-        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" xendorsed="true" keep="true" genwsdl="true" sei="ca.m1.montreal.jSeduite.technical.busschedule.LineCRUD">
+        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="ca.m1.montreal.jSeduite.technical.busschedule.LineCRUD">
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>
     <target name="wsgen-StopCRUD" depends="wsgen-init">
-        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" xendorsed="true" keep="true" genwsdl="true" sei="ca.m1.montreal.jSeduite.technical.busschedule.StopCRUD">
+        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="ca.m1.montreal.jSeduite.technical.busschedule.StopCRUD">
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
+    </target>
+    <target name="wsgen-BusScheduleFinder" depends="wsgen-init">
+        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="ca.m1.montreal.jSeduite.technical.busschedule.BusScheduleFinder">
+            <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
+        </wsgen>
+    </target>
+    <target name="wsgen-PeriodLinkCRUD" depends="wsgen-init">
+        <wsgen sourcedestdir="${build.generated.dir}/wsgen/service" resourcedestdir="${build.generated.dir}/wsgen/service/resources/" destdir="${build.generated.dir}/wsgen/binaries" xendorsed="true" keep="true" genwsdl="true" sei="ca.m1.montreal.jSeduite.technical.busschedule.PeriodLinkCRUD">
+            <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
+        </wsgen>
+    </target>
+    <target name="wsgen-service-compile" depends="wsgen-LineStepsCRUD, wsgen-BusScheduleFinder, wsgen-PeriodLinkCRUD, wsgen-ScheduleCRUD, wsgen-BusScheduleBusiness, wsgen-PeriodCRUD, wsgen-LineCRUD, wsgen-StopCRUD, wsgen-BusScheduleFinder, wsgen-PeriodLinkCRUD">
+        <webproject2:javac srcdir="${build.generated.dir}/wsgen/service" classpath="${j2ee.platform.wsimport.classpath}:${javac.classpath}" destdir="${build.classes.dir}"/>
     </target>
 </project>

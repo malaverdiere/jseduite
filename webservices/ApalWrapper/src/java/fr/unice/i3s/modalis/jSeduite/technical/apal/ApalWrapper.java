@@ -126,7 +126,7 @@ public class ApalWrapper {
            String line = "";
            ArrayList<String> buffer = new ArrayList<String>();
            while((line = bread.readLine()) != null)
-               buffer.add(line);
+               buffer.add(new String(line.getBytes(),"UTF-8"));
             return buffer;
        } catch(Exception e) { throw new RuntimeException(e.getMessage()); }
     }

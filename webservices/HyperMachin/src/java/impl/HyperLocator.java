@@ -30,7 +30,6 @@ import javax.jws.WebService;
 import data.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
 import net.fortuna.ical4j.model.DateTime;
 import net.fortuna.ical4j.model.Dur;
 import net.fortuna.ical4j.model.Period;
@@ -42,7 +41,7 @@ import util.HyperEventBuilder;
  *
  * @author mosser
  */
-@WebService()
+@WebService(targetNamespace="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator")
 public class HyperLocator {
 
     @WebMethod(operationName = "getAllPromo")
@@ -106,9 +105,6 @@ public class HyperLocator {
     /** private methods **/
     private Period getNowPeriod() {
         java.util.Calendar now = java.util.Calendar.getInstance();
-        //now.set(java.util.Calendar.HOUR_OF_DAY, 0);
-        //now.clear(java.util.Calendar.MINUTE);
-        //now.clear(java.util.Calendar.SECOND);
         Period r = new Period(new DateTime(now.getTime()), new Dur(0,0,0,0));
         return  r;
     }
