@@ -1,28 +1,24 @@
-INSERT INTO `teacher_absences` VALUES (NULL, "Sébastien Mosser","Conférence",
-    NOW(), NOW() + INTERVAL 10 DAY);
-
+/** This file is part of jSeduite::Database Schemas
+ *
+ * Copyright (C) 2008-  Sebastien Mosser
+ *
+ * jSeduite::DatabaseSchema is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * jSeduite::DatabaseSchema is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with jSeduite::DatabaseSchema; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ *
+ * @author Main Mosser Sebastien [mosser@polytech.unice.fr]
+**/
 INSERT INTO `summon_levels` VALUES (NULL,"Immédiatement");
 INSERT INTO `summon_levels` VALUES (NULL,"Urgent");
 INSERT INTO `summon_levels` VALUES (NULL,"Régularisation");
 INSERT INTO `summon_levels` VALUES (NULL,"Information");
-
-INSERT INTO `promos` VALUES(NULL,"cip1","Cycle Prépa 1A");
-INSERT INTO `promos` VALUES(NULL,"cip2","Cycle Prépa 2A");
-INSERT INTO `promos` VALUES(NULL,"si3","Sciences Info 3A");
-INSERT INTO `promos` VALUES(NULL,"si4","Sciences Info 4A");
-INSERT INTO `promos` VALUES(NULL,"si5","Sciences Info 5A");
-INSERT INTO `promos` VALUES(NULL,"elec3","Electronique 3A");
-INSERT INTO `promos` VALUES(NULL,"elec4","Electronique 4A");
-INSERT INTO `promos` VALUES(NULL,"elec5","Electronique 5A");
-INSERT INTO `promos` VALUES(NULL,"mam3","Maths Appli. 3A");
-INSERT INTO `promos` VALUES(NULL,"mam4","Maths Appli. 4A");
-INSERT INTO `promos` VALUES(NULL,"mam5","Maths Appli. 5A");
-INSERT INTO `promos` VALUES(NULL,"bio3","Biologie 3A");
-INSERT INTO `promos` VALUES(NULL,"bio4","Biologie 4A");
-INSERT INTO `promos` VALUES(NULL,"bio5","Biologie 5A");
-INSERT INTO `promos` VALUES(NULL,"hydro3","Hydro 3A");
-INSERT INTO `promos` VALUES(NULL,"hydro4","Hydro 4A");
-INSERT INTO `promos` VALUES(NULL,"hydro5","Hydro 5A");
-
-INSERT INTO `summonings` VALUES (NULL,"XXX xxx",2,"Sébastien Mosser",
-    NULL, 3, TRUE);
