@@ -5,6 +5,7 @@
 
 package fr.unice.i3s.modalis.jSeduite.technical.feeds;
 
+import com.sun.syndication.feed.synd.SyndContent;
 import javax.jws.*;
 import java.net.URL;
 import java.util.ArrayList;
@@ -42,11 +43,18 @@ public class RssReader {
                 String author = syndEntry.getAuthor();
                 if (author.equals(""))
                     author = feed.getTitle();
-                //String author = (syndEntry.getAuthor().equals("") ? feed.getTitle() : syndEntry.getAuthor());
-                FeedNode tmp = new FeedNode(author,
-                        syndEntry.getTitle(),
-                        syndEntry.getDescription().getType(),
-                        syndEntry.getDescription().getValue());
+                String title = feed.getTitle();
+                String value = "??";
+                String  type = "??";
+                SyndContent content = syndEntry.getDescription();
+                if ( null == content) {
+                    content = (SyndContent) syndEntry.getContents().get(0);
+                }
+                if (null != content) {
+                    value = content.getValue();
+                    type = content.getType();
+                }
+                FeedNode tmp = new FeedNode(author,title,type, value);
                 tmpList.add(tmp);
             }
             result.setContent(tmpList.toArray(new FeedNode[tmpList.size()]));
