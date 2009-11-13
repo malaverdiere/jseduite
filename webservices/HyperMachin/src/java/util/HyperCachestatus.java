@@ -24,13 +24,4 @@
 
 package util;
 
-/** A simple class to deal with local configuration
- * @remark should switch at deployment time
- * @author mosser
- */
-public class Config {
-    private static final String PREFIX =
-         //"/Users/mosser/repositories/jseduite/webservices/HyperMachin/web/"; // @local
-         "../applications/j2ee-modules/HyperMachin/"; // @server
-    public static final String PATH = PREFIX + "iCal/";
-}
+public enum HyperCacheStatus { VALID, OLD, SYNC, EMPTY }
