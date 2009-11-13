@@ -18,7 +18,7 @@
  *
  * @author Main Mosser Sebastien [mosser@polytech.unice.fr]
 **/
-
+ 
 -- Sources:
 INSERT INTO `sources`    VALUES ('internal_news','News Interne');
 INSERT INTO `parameters` VALUES (NULL, 'internal_news', 'target', 'all', 'Cible');
@@ -31,7 +31,7 @@ INSERT INTO `parameters` VALUES (NULL, 'picture_albums', 'treshold', '10', 'Seui
 INSERT INTO `sources`    VALUES ('image_scraper','Folksonomie Image');
 INSERT INTO `parameters` VALUES (NULL, 'image_scraper', 'tags', '??', 'Tag');
 INSERT INTO `parameters` VALUES (NULL, 'image_scraper', 'treshold', '10', 'Seuil');
-INSERT INTO `sources`    VALUES ('weather','Météo');
+INSERT INTO `sources`    VALUES ('weather','MétÃé');
 INSERT INTO `parameters` VALUES (NULL, 'weather', 'cityCode', '??', 'Code de la ville');
 INSERT INTO `sources`    VALUES ('tv_shows','Programme Télé');
 INSERT INTO `parameters` VALUES (NULL, 'tv_shows', 'provider', '', 'Fournisseur');
