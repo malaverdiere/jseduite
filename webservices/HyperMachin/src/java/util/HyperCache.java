@@ -64,9 +64,18 @@ public class HyperCache {
 
     public void repatriate() throws Exception {
         this.lock(true);
+        this.clearCacheContent();
         for(HyperGroup g: this.remote.getGroups())
             getRemoteCalendar(g.getName(), g.getUrl());
         this.lock(false);
+    }
+
+
+    private void clearCacheContent() {
+        File dir = getDirectory();
+        for(File f: dir.listFiles()) {
+            f.delete();
+        }
     }
 
     public HyperCacheStatus isValid() {
