@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-749-SNAPSHOT. --><xs:schema xmlns:tns="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/">
+
+<xs:element name="InternalNewsException" type="tns:InternalNewsException"></xs:element>
+
+<xs:element name="createInternalNews" type="tns:createInternalNews"></xs:element>
+
+<xs:element name="createInternalNewsResponse" type="tns:createInternalNewsResponse"></xs:element>
+
+<xs:element name="deleteInternalNews" type="tns:deleteInternalNews"></xs:element>
+
+<xs:element name="deleteInternalNewsResponse" type="tns:deleteInternalNewsResponse"></xs:element>
+
+<xs:element name="readInternalNews" type="tns:readInternalNews"></xs:element>
+
+<xs:element name="readInternalNewsResponse" type="tns:readInternalNewsResponse"></xs:element>
+
+<xs:element name="updateInternalNews" type="tns:updateInternalNews"></xs:element>
+
+<xs:element name="updateInternalNewsResponse" type="tns:updateInternalNewsResponse"></xs:element>
+
+<xs:complexType name="deleteInternalNews">
+<xs:sequence>
+<xs:element name="i" type="tns:news" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="news">
+<xs:sequence>
+<xs:element name="author" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="content" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="end" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="id" type="xs:int"></xs:element>
+<xs:element name="start" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="target" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="title" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteInternalNewsResponse">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InternalNewsException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createInternalNews">
+<xs:sequence>
+<xs:element name="i" type="tns:news" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createInternalNewsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateInternalNews">
+<xs:sequence>
+<xs:element name="i" type="tns:news" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateInternalNewsResponse">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readInternalNews">
+<xs:sequence>
+<xs:element name="id" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readInternalNewsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:news" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
