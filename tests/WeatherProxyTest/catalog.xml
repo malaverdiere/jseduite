@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="file:/Users/mosser/repositories/jseduite/orchestrations/WeatherProxy/src/WeatherProxy.wsdl" uri="xml-resources/web-service-references/WeatherProxy/wsdl/WeatherProxy.wsdl"/>
-    <system systemId="file:/Users/mosser/repositories/jseduite/orchestrations/WeatherProxy/src/WeatherProxy.xsd" uri="xml-resources/web-service-references/WeatherProxy/wsdl/WeatherProxy.xsd"/>
-    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/WeatherProxy.wsdl" uri="xml-resources/web-service-references/WeatherProxy/wsdl/WeatherProxy.wsdl"/>
-    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/WeatherProxy.xsd" uri="xml-resources/web-service-references/WeatherProxy/wsdl/WeatherProxy.xsd"/>
-</catalog>

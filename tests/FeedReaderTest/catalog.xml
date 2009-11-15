@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/FeedReader.wsdl" uri="xml-resources/web-service-references/FeedReader/wsdl/FeedReader.wsdl"/>
-    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/FeedReader.xsd" uri="xml-resources/web-service-references/FeedReader/wsdl/FeedReader.xsd"/>
-    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/RssReaderService.xsd" uri="xml-resources/web-service-references/FeedReader/wsdl/RssReaderService.xsd"/>
-</catalog>
