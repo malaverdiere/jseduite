@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-749-SNAPSHOT. --><xs:schema xmlns:tns="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/">
+
+<xs:element name="InternalNewsException" type="tns:InternalNewsException"></xs:element>
+
+<xs:element name="findInternalNewsById" type="tns:findInternalNewsById"></xs:element>
+
+<xs:element name="findInternalNewsByIdResponse" type="tns:findInternalNewsByIdResponse"></xs:element>
+
+<xs:element name="findTargetById" type="tns:findTargetById"></xs:element>
+
+<xs:element name="findTargetByIdResponse" type="tns:findTargetByIdResponse"></xs:element>
+
+<xs:element name="getAllInternalNewsReferences" type="tns:getAllInternalNewsReferences"></xs:element>
+
+<xs:element name="getAllInternalNewsReferencesResponse" type="tns:getAllInternalNewsReferencesResponse"></xs:element>
+
+<xs:element name="getTargetsIds" type="tns:getTargetsIds"></xs:element>
+
+<xs:element name="getTargetsIdsResponse" type="tns:getTargetsIdsResponse"></xs:element>
+
+<xs:complexType name="getAllInternalNewsReferences">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllInternalNewsReferencesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InternalNewsException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findInternalNewsById">
+<xs:sequence>
+<xs:element name="id" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findInternalNewsByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:news" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="news">
+<xs:sequence>
+<xs:element name="author" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="content" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="end" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="id" type="xs:int"></xs:element>
+<xs:element name="start" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="target" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="title" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findTargetById">
+<xs:sequence>
+<xs:element name="id" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findTargetByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTargetsIds">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTargetsIdsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

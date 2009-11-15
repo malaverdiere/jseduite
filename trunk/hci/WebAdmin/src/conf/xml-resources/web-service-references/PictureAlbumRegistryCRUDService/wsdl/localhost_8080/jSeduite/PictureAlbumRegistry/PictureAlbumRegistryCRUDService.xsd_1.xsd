@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-749-SNAPSHOT. --><xs:schema xmlns:tns="http://registry.image.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://registry.image.technical.jSeduite.modalis.i3s.unice.fr/">
+
+<xs:element name="PictureAlbumRegistryException" type="tns:PictureAlbumRegistryException"></xs:element>
+
+<xs:element name="createPictureAlbum" type="tns:createPictureAlbum"></xs:element>
+
+<xs:element name="createPictureAlbumResponse" type="tns:createPictureAlbumResponse"></xs:element>
+
+<xs:element name="deletePictureAlbum" type="tns:deletePictureAlbum"></xs:element>
+
+<xs:element name="deletePictureAlbumResponse" type="tns:deletePictureAlbumResponse"></xs:element>
+
+<xs:element name="readPictureAlbum" type="tns:readPictureAlbum"></xs:element>
+
+<xs:element name="readPictureAlbumResponse" type="tns:readPictureAlbumResponse"></xs:element>
+
+<xs:element name="updatePictureAlbum" type="tns:updatePictureAlbum"></xs:element>
+
+<xs:element name="updatePictureAlbumResponse" type="tns:updatePictureAlbumResponse"></xs:element>
+
+<xs:complexType name="updatePictureAlbum">
+<xs:sequence>
+<xs:element name="p" type="tns:pictureAlbum" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="pictureAlbum">
+<xs:sequence>
+<xs:element name="album" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="authKey" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="duration" type="xs:int"></xs:element>
+<xs:element name="id" type="xs:int"></xs:element>
+<xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="repository" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="user" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="validFrom" type="xs:dateTime" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updatePictureAlbumResponse">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="PictureAlbumRegistryException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readPictureAlbum">
+<xs:sequence>
+<xs:element name="id" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readPictureAlbumResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:pictureAlbum" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deletePictureAlbum">
+<xs:sequence>
+<xs:element name="p" type="tns:pictureAlbum" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deletePictureAlbumResponse">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createPictureAlbum">
+<xs:sequence>
+<xs:element name="p" type="tns:pictureAlbum" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createPictureAlbumResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

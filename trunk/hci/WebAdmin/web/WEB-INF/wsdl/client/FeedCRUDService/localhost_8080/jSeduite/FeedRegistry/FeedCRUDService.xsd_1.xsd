@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-749-SNAPSHOT. --><xs:schema xmlns:tns="http://registry.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://registry.technical.jSeduite.modalis.i3s.unice.fr/">
+
+<xs:element name="FeedRegistryException" type="tns:FeedRegistryException"></xs:element>
+
+<xs:element name="createFeed" type="tns:createFeed"></xs:element>
+
+<xs:element name="createFeedResponse" type="tns:createFeedResponse"></xs:element>
+
+<xs:element name="deleteFeed" type="tns:deleteFeed"></xs:element>
+
+<xs:element name="deleteFeedResponse" type="tns:deleteFeedResponse"></xs:element>
+
+<xs:element name="readFeed" type="tns:readFeed"></xs:element>
+
+<xs:element name="readFeedResponse" type="tns:readFeedResponse"></xs:element>
+
+<xs:element name="updateFeed" type="tns:updateFeed"></xs:element>
+
+<xs:element name="updateFeedResponse" type="tns:updateFeedResponse"></xs:element>
+
+<xs:complexType name="createFeed">
+<xs:sequence>
+<xs:element name="f" type="tns:feed" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="feed">
+<xs:sequence>
+<xs:element name="feedClass" type="tns:feedClass" minOccurs="0"></xs:element>
+<xs:element name="feedURL" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="nickname" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="providerDNS" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="feedClass">
+<xs:sequence>
+<xs:element name="id" type="xs:int"></xs:element>
+<xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createFeedResponse">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="FeedRegistryException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteFeed">
+<xs:sequence>
+<xs:element name="f" type="tns:feed" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteFeedResponse">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateFeed">
+<xs:sequence>
+<xs:element name="f" type="tns:feed" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateFeedResponse">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readFeed">
+<xs:sequence>
+<xs:element name="provider_dns" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="feed_url" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readFeedResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:feed" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
