@@ -43,7 +43,7 @@ public class RssReader {
                 String author = syndEntry.getAuthor();
                 if (author.equals(""))
                     author = feed.getTitle();
-                String title = feed.getTitle();
+                String title = syndEntry.getTitle();
                 String value = "??";
                 String  type = "??";
                 SyndContent content = syndEntry.getDescription();
