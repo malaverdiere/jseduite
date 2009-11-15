@@ -18,7 +18,7 @@
  *
  * @author Main Mosser Sebastien [mosser@polytech.unice.fr]
 **/
-INSERT INTO `summon_levels` VALUES (NULL,"Immediatement");
-INSERT INTO `summon_levels` VALUES (NULL,"Urgent");
-INSERT INTO `summon_levels` VALUES (NULL,"Regularisation");
-INSERT INTO `summon_levels` VALUES (NULL,"Information");
+
+INSERT INTO `feed_class` VALUES (NULL,'tv');
+INSERT INTO `feed_registry` VALUES ('tv.voila.fr',1,'voila_tv','/rss/fluxRssProgrammeSoiree.xml');
+INSERT INTO `cache` VALUES ('voila_tv',CURRENT_TIMESTAMP(),'');

@@ -18,8 +18,6 @@
  *
  * @author Main Mosser Sebastien [mosser@polytech.unice.fr]
 **/
-
-
 INSERT INTO `internal_news_target` VALUES (NULL, "profs");
 INSERT INTO `internal_news_target` VALUES (NULL, "etudiants");
-INSERT INTO `internal_news_target` VALUES (NULL, "administration");
+INSERT INTO `internal_news_target` VALUES (NULL, "administratifs");
