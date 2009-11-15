@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/HyperMachinService.wsdl" uri="src/Partners/HyperMachinService.wsdl"/>
-    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/HyperPromoManagerService.wsdl" uri="src/Partners/HyperPromoManagerService.wsdl"/>
-    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/HyperMachinService.xsd" uri="src/Partners/HyperMachinService.xsd"/>
-    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/HyperPromoManagerService.xsd" uri="src/Partners/HyperPromoManagerService.xsd"/>
-</catalog>
