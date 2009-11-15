@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/AbstractSource.wsdl" uri="src/Sources/AbstractSource.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/BreakingNewsSource.wsdl" uri="src/Sources/BreakingNewsSource.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/ImageScraperSource.wsdl" uri="src/Sources/ImageScraperSource.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/InternalNewsSource.wsdl" uri="src/Sources/InternalNewsSource.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/PictureAlbumSource.wsdl" uri="src/Sources/PictureAlbumSource.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/StudentSummonSource.wsdl" uri="src/Sources/StudentSummonSource.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/TeacherAbsenceSource.wsdl" uri="src/Sources/TeacherAbsenceSource.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/TvShowsSource.wsdl" uri="src/Sources/TvShowsSource.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/TwitterSource.wsdl" uri="src/Sources/TwitterSource.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/WeatherSource.wsdl" uri="src/Sources/WeatherSource.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/AbstractSource.xsd" uri="src/Sources/AbstractSource.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/InternalNewsSource.xsd" uri="src/Sources/InternalNewsSource.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/Partners/InternalNewsService.xsd" uri="src/Sources/Partners/InternalNewsService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/Partners/TwitterWrapperService.xsd" uri="src/Sources/Partners/TwitterWrapperService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/Partners/PictureAlbums.xsd" uri="src/Sources/Partners/PictureAlbums.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/Partners/ImageScraper.xsd" uri="src/Sources/Partners/ImageScraper.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/Partners/WeatherProxy.xsd" uri="src/Sources/Partners/WeatherProxy.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/Partners/TvShows.xsd" uri="src/Sources/Partners/TvShows.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/Partners/BreakingNewsService.xsd" uri="src/Sources/Partners/BreakingNewsService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/Partners/TeacherAbsencesService.xsd" uri="src/Sources/Partners/TeacherAbsencesService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/Partners/StudentSummonService.xsd" uri="src/Sources/Partners/StudentSummonService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/Partners/PictureAlbumRegistryService.xsd" uri="src/Sources/Partners/PictureAlbumRegistryService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/providers/Sources/src/Partners/RssReaderService.xsd" uri="src/Sources/Partners/RssReaderService.xsd"/>
+</catalog>

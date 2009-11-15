@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/DataCacheService.wsdl" uri="src/Partners/DataCacheService.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/FeedReader.wsdl" uri="src/Partners/FeedReader.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/DataCacheService.xsd" uri="src/Partners/DataCacheService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/FeedReader.xsd" uri="src/Partners/FeedReader.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/RssReaderService.xsd" uri="src/Partners/RssReaderService.xsd"/>
+</catalog>

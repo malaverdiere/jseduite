@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information"
+    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information"
+    elementFormDefault="qualified" xmlns:ns0="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns7="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums" xmlns:ns5="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/ImageScraper" xmlns:ns12="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/WeatherProxy" xmlns:ns13="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" xmlns:ns8="http://breaking.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns18="http://absence.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns19="http://summon.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns20="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns15="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns9="http://calendar.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/Apal" xmlns:ns27="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperLocatorSource" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperTimeTableSource">
+    <xsd:import schemaLocation="Partners/InternalNewsService.xsd" namespace="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/"/>
+    <xsd:import schemaLocation="Partners/TwitterWrapperService.xsd" namespace="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/"/>
+    <xsd:import schemaLocation="Partners/PictureAlbums.xsd" namespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums"/>
+    <xsd:import schemaLocation="Partners/ImageScraper.xsd" namespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/ImageScraper"/>
+    <xsd:import schemaLocation="Partners/WeatherProxy.xsd" namespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/WeatherProxy"/>
+    <xsd:import schemaLocation="Partners/TvShows.xsd" namespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows"/>
+    <xsd:import schemaLocation="Partners/BreakingNewsService.xsd" namespace="http://breaking.news.technical.jSeduite.modalis.i3s.unice.fr/"/>
+    <xsd:import schemaLocation="Partners/TeacherAbsencesService.xsd" namespace="http://absence.news.technical.jSeduite.modalis.i3s.unice.fr/"/>
+    <xsd:import schemaLocation="Partners/StudentSummonService.xsd" namespace="http://summon.news.technical.jSeduite.modalis.i3s.unice.fr/"/>
+    <xsd:import schemaLocation="Partners/MenuBusinessService.xsd" namespace="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/"/>
+    <xsd:import schemaLocation="Partners/RssReaderService.xsd" namespace="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/"/>
+    <xsd:import schemaLocation="Partners/ICalReaderService.xsd" namespace="http://calendar.technical.jSeduite.modalis.i3s.unice.fr/"/>
+    <xsd:import schemaLocation="Partners/ApalSource.xsd" namespace="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/Apal"/>
+    <xsd:import schemaLocation="Partners/HyperLocatorSource.xsd" namespace="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperLocatorSource"/>
+    <xsd:import schemaLocation="Partners/HyperTimeTableSource.xsd" namespace="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperTimeTableSource"/>
+    <xsd:complexType name="Information">
+        <xsd:choice>
+            <xsd:element name="any" type="xsd:anyType"/>
+            <xsd:element name="album" type="ns7:Album"/>
+            <xsd:element name="internalNews" type="ns0:news"/>
+            <xsd:element name="tweet" type="ns1:tweet"/>
+            <xsd:element name="scrap" type="ns5:SetOfUrl"/>
+            <xsd:element name="weather" type="ns12:WeatherInformation"></xsd:element>
+            <xsd:element name="shows" type="ns13:SetOfShow"></xsd:element>
+            <xsd:element name="breakNews" type="ns8:breakNew"></xsd:element>
+            <xsd:element name="teacherAbsence" type="ns18:absence"></xsd:element>
+            <xsd:element name="studentSummon" type="ns19:validSummoning"></xsd:element>
+            <xsd:element name="menu"    type="ns20:menu"></xsd:element>
+            <xsd:element name="feedNews"    type="ns15:feedNode"></xsd:element>
+            <xsd:element name="calEvent" type="ns9:calendarEvent"></xsd:element>
+            <xsd:element name="apal" type="ns3:SetOfApalLooser"></xsd:element>
+            <xsd:element name="hyperloc" type="ns27:SetOfHyperLocation"></xsd:element>
+            <xsd:element name="timetable" type="ns2:TimeTable"></xsd:element>
+        </xsd:choice>
+        <xsd:attribute name="source" type="xsd:string"/>
+    </xsd:complexType>
+    <xsd:complexType name="SetOfInformation">
+        <xsd:sequence>
+            <xsd:element name="item" type="tns:Information" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="GetInformationIn">
+        <xsd:sequence>
+            <xsd:element name="identifier" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="GetInformationOut">
+        <xsd:sequence>
+            <xsd:element name="result" type="tns:SetOfInformation"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="SetOfAnyType">
+        <xsd:sequence>
+            <xsd:element name="item" minOccurs="0" maxOccurs="unbounded" type="xsd:anyType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="GetInformationRequest" type="tns:GetInformationIn"/>
+    <xsd:element name="GetInformationResponse" type="tns:GetInformationOut"/>
+</xsd:schema>

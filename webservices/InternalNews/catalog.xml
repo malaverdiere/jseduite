@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/jSeduite/InternalNews/InternalNewsService?WSDL" uri="web/WSDL/localhost_8080/jSeduite/InternalNews/InternalNewsService.wsdl"/>
+    <system systemId="http://localhost:8080/jSeduite/InternalNews/InternalNewsService?xsd=1" uri="web/WSDL/localhost_8080/jSeduite/InternalNews/InternalNewsService.xsd_1.xsd"/>
+</catalog>

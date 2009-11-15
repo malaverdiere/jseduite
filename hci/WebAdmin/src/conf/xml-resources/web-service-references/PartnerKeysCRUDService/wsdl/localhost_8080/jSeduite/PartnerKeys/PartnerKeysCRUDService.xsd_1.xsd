@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-749-SNAPSHOT. --><xs:schema xmlns:tns="http://partners.registry.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://partners.registry.technical.jSeduite.modalis.i3s.unice.fr/">
+
+<xs:element name="PartnerKeysException" type="tns:PartnerKeysException"></xs:element>
+
+<xs:element name="createPartnerKey" type="tns:createPartnerKey"></xs:element>
+
+<xs:element name="createPartnerKeyResponse" type="tns:createPartnerKeyResponse"></xs:element>
+
+<xs:element name="deletePartnerKey" type="tns:deletePartnerKey"></xs:element>
+
+<xs:element name="deletePartnerKeyResponse" type="tns:deletePartnerKeyResponse"></xs:element>
+
+<xs:element name="readPartnerKey" type="tns:readPartnerKey"></xs:element>
+
+<xs:element name="readPartnerKeyResponse" type="tns:readPartnerKeyResponse"></xs:element>
+
+<xs:element name="updatePartnerKey" type="tns:updatePartnerKey"></xs:element>
+
+<xs:element name="updatePartnerKeyResponse" type="tns:updatePartnerKeyResponse"></xs:element>
+
+<xs:complexType name="createPartnerKey">
+<xs:sequence>
+<xs:element name="p" type="tns:partnerKey" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="partnerKey">
+<xs:sequence>
+<xs:element name="key" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="value" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createPartnerKeyResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="PartnerKeysException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updatePartnerKey">
+<xs:sequence>
+<xs:element name="p" type="tns:partnerKey" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updatePartnerKeyResponse">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deletePartnerKey">
+<xs:sequence>
+<xs:element name="p" type="tns:partnerKey" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deletePartnerKeyResponse">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readPartnerKey">
+<xs:sequence>
+<xs:element name="key" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readPartnerKeyResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:partnerKey" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

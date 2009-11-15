@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-749-SNAPSHOT. --><xs:schema xmlns:tns="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/">
+
+<xs:element name="RestaurantException" type="tns:RestaurantException"></xs:element>
+
+<xs:element name="createCourse" type="tns:createCourse"></xs:element>
+
+<xs:element name="createCourseResponse" type="tns:createCourseResponse"></xs:element>
+
+<xs:element name="deleteCourse" type="tns:deleteCourse"></xs:element>
+
+<xs:element name="deleteCourseResponse" type="tns:deleteCourseResponse"></xs:element>
+
+<xs:element name="readCourse" type="tns:readCourse"></xs:element>
+
+<xs:element name="readCourseResponse" type="tns:readCourseResponse"></xs:element>
+
+<xs:element name="updateCourse" type="tns:updateCourse"></xs:element>
+
+<xs:element name="updateCourseResponse" type="tns:updateCourseResponse"></xs:element>
+
+<xs:complexType name="updateCourse">
+<xs:sequence>
+<xs:element name="c" type="tns:course" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="course">
+<xs:sequence>
+<xs:element name="kind" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateCourseResponse">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="RestaurantException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteCourse">
+<xs:sequence>
+<xs:element name="c" type="tns:course" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteCourseResponse">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createCourse">
+<xs:sequence>
+<xs:element name="c" type="tns:course" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createCourseResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readCourse">
+<xs:sequence>
+<xs:element name="ref" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readCourseResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:course" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperLocatorSource"
+    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperLocatorSource"
+    elementFormDefault="qualified" xmlns:ns4="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator">
+    <xsd:import schemaLocation="../Partners/HyperLocatorService.xsd" namespace="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator"/>
+    <xsd:complexType name="SetOfHyperLocation">
+  <xsd:sequence>
+    <xsd:element name="item" minOccurs="0" maxOccurs="unbounded" type="ns4:hyperLocation"/>
+  </xsd:sequence>
+</xsd:complexType>
+</xsd:schema>

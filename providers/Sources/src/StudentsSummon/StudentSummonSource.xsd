@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information/StudentSummon"
+    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information/StudentSummon"
+    elementFormDefault="qualified" xmlns:ns12="http://summon.news.technical.jSeduite.modalis.i3s.unice.fr/">
+    <xsd:import schemaLocation="../Partners/StudentSummonService.xsd" namespace="http://summon.news.technical.jSeduite.modalis.i3s.unice.fr/"/>
+    <xsd:complexType name="SetOfValidSummoning">
+        <xsd:sequence>
+            <xsd:element name="item" minOccurs="0" maxOccurs="unbounded" type="ns12:validSummoning"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
