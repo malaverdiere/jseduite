@@ -26,9 +26,9 @@ var studSummon = Class.create(jSeduiteTransformation, {
     initialize: function() {
         this.levels = new Array();
         this.levels["Information"] = "level1.png";
-        this.levels["Régularisation"] = "level2.png";
+        this.levels["Regularisation"] = "level2.png";
         this.levels["Urgent"] = "level3.png";
-        this.levels["Immédiatement"] = "level3.png";
+        this.levels["Immediatement"] = "level3.png";
     },
     perform: function(xml) {
         var content = "";

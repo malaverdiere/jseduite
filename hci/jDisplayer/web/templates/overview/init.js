@@ -22,27 +22,25 @@
  **/
 
 // creating a template.
-var polytech = new jSeduiteTemplate("polytech");
+var overview = new jSeduiteTemplate("overview");
 
 // declaring info handlers
-// scrollings
-polytech.declare("twitter",        new scrollingTwitter(),   0);
-polytech.declare("breaking_news",  new breakingNews(),       0);
-// mains
-polytech.declare("tv_shows",       new tv_shows_array(6),    5);
-polytech.declare("weather",        new weatherTransfo(),     5);
-polytech.declare("image_scraper",  new imageScrapTransfo(),  5);
-polytech.declare("apal",           new apal_array(5),        5);
-polytech.declare("picture_albums", new pictAlbumTransfo(),   5);
-polytech.declare("internal_news",  new internalNews(),       5);
-polytech.declare("feed_reader",    new feedHandler(),        5);
-polytech.declare("stud_summon",    new studSummon(),         5);
-polytech.declare("absences_profs", new absenceHandler(),     5);
-polytech.declare("calendar",       new iCalHandler(),        5);
-polytech.declare("timetable",      new edtHandler(),         5);
+overview.declare("twitter",        new scrollingTwitter(),  0);
+overview.declare("tv_shows",       new tv_shows_array(6),   1);
+overview.declare("weather",        new weatherTransfo(),    1);
+overview.declare("image_scraper",  new imageScrapTransfo(), 1);
+overview.declare("apal",           new apal_array(5),       1);
+overview.declare("picture_albums", new pictAlbumTransfo(),  1);
+overview.declare("internal_news",  new internalNews(),      1);
+overview.declare("breaking_news",  new breakingNews(),      0);
+overview.declare("feed_reader",    new feedHandler(),       1);
+overview.declare("stud_summon",    new studSummon(),        1);
+overview.declare("absences_profs", new absenceHandler(),    1);
+overview.declare("calendar",       new iCalHandler(),       1);
+overview.declare("timetable",      new edtHandler(),        1);
 
 // dispatching the information kinds in the display loops
-polytech.dispatch = function(k) {
+overview.dispatch = function(k) {
     if ("alarm" == k)
         return "timer";
     else if ("breaking_news" == k || "twitter" == k)
@@ -52,4 +50,4 @@ polytech.dispatch = function(k) {
 };
 
 // setting the template
-engine.setTemplate(polytech);
+engine.setTemplate(overview);

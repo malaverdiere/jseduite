@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Body>
+        <ns1:GetInformationResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+            <ns1:result>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="absences_profs">
+                    <ns0:teacherAbsence>
+                        <from xmlns="">2009-08-15T19:04:33+02:00</from>
+                        <reason xmlns="">Conférence</reason>
+                        <teacher xmlns="">Sébastien Mosser</teacher>
+                        <until xmlns="">2009-08-25T19:04:33+02:00</until>
+                    </ns0:teacherAbsence>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="picture_albums">
+                    <ns0:album>
+                        <ns0:repository xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums">picasa</ns0:repository>
+                        <ns0:name xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums">HorseTooth Reservoir</ns0:name>
+                        <ns0:picture_star xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums">
+                            <ns0:item>http://lh4.ggpht.com/_wCA2lu03EyU/SsK4vDW9MfI/AAAAAAAAJv8/4kbzh3guunI/DSC04414.JPG</ns0:item>
+                            <ns0:item>http://lh5.ggpht.com/_wCA2lu03EyU/SsK45PK2y-I/AAAAAAAAJxE/vlgQ95xb7rQ/DSC04427.JPG</ns0:item>
+                            <ns0:item>http://lh5.ggpht.com/_wCA2lu03EyU/SsK40ZiNtKI/AAAAAAAAJwk/1Lshs2osFxk/DSC04421.JPG</ns0:item>
+                            <ns0:item>http://lh6.ggpht.com/_wCA2lu03EyU/SsK5PULWkRI/AAAAAAAAJzg/jBG2lHi1dRQ/DSC04445.JPG</ns0:item>
+                            <ns0:item>http://lh6.ggpht.com/_wCA2lu03EyU/SsK4tznoz5I/AAAAAAAAJv0/E-3zika8NbM/DSC04413.JPG</ns0:item>
+                            <ns0:item>http://lh4.ggpht.com/_wCA2lu03EyU/SsK4y15GbQI/AAAAAAAAJwU/9PdYslKSXbg/DSC04419.JPG</ns0:item>
+                            <ns0:item>http://lh5.ggpht.com/_wCA2lu03EyU/SsK5GlmYbvI/AAAAAAAAJyQ/Pa7zyrsQkpc/DSC04437.JPG</ns0:item>
+                            <ns0:item>http://lh3.ggpht.com/_wCA2lu03EyU/SsK4-g9ecoI/AAAAAAAAJxo/MEId0y7TPPA/DSC04432.JPG</ns0:item>
+                            <ns0:item>http://lh6.ggpht.com/_wCA2lu03EyU/SsK5NTMy15I/AAAAAAAAJzQ/KNcB0ZsdFWU/DSC04443.JPG</ns0:item>
+                            <ns0:item>http://lh5.ggpht.com/_wCA2lu03EyU/SsK4bgPgX5I/AAAAAAAAJto/jceVq78LkNo/DSC04401.JPG</ns0:item>
+                        </ns0:picture_star>
+                    </ns0:album>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="apal">
+                    <ns0:apal>
+                        <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/Apal" xmlns:ns2="http://apal.technical.jSeduite.modalis.i3s.unice.fr/">
+                            <counter xmlns="">26</counter>
+                            <firstname xmlns="">Wafaa</firstname>
+                            <lastname xmlns="">NAMASSE</lastname>
+                            <promo xmlns="">CIP 1</promo>
+                        </ns0:item>
+                        <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/Apal" xmlns:ns2="http://apal.technical.jSeduite.modalis.i3s.unice.fr/">
+                            <counter xmlns="">25</counter>
+                            <firstname xmlns="">Mickaël</firstname>
+                            <lastname xmlns="">RENAULT</lastname>
+                            <promo xmlns="">CIP 1</promo>
+                        </ns0:item>
+                        <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/Apal" xmlns:ns2="http://apal.technical.jSeduite.modalis.i3s.unice.fr/">
+                            <counter xmlns="">11</counter>
+                            <firstname xmlns="">Akouvi Anne-marie</firstname>
+                            <lastname xmlns="">DEGUE</lastname>
+                            <promo xmlns="">CIP 1</promo>
+                        </ns0:item>
+                        <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/Apal" xmlns:ns2="http://apal.technical.jSeduite.modalis.i3s.unice.fr/">
+                            <counter xmlns="">11</counter>
+                            <firstname xmlns="">Omar</firstname>
+                            <lastname xmlns="">EL ADLOUNI</lastname>
+                            <promo xmlns="">CIP 1</promo>
+                        </ns0:item>
+                        <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/Apal" xmlns:ns2="http://apal.technical.jSeduite.modalis.i3s.unice.fr/">
+                            <counter xmlns="">10</counter>
+                            <firstname xmlns="">Hamza</firstname>
+                            <lastname xmlns="">CAOUCABI</lastname>
+                            <promo xmlns="">CIP 1</promo>
+                        </ns0:item>
+                        <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/Apal" xmlns:ns2="http://apal.technical.jSeduite.modalis.i3s.unice.fr/">
+                            <counter xmlns="">10</counter>
+                            <firstname xmlns="">Ambre</firstname>
+                            <lastname xmlns="">COMES</lastname>
+                            <promo xmlns="">CIP 2</promo>
+                        </ns0:item>
+                        <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/Apal" xmlns:ns2="http://apal.technical.jSeduite.modalis.i3s.unice.fr/">
+                            <counter xmlns="">7</counter>
+                            <firstname xmlns="">Cédric</firstname>
+                            <lastname xmlns="">BLANQUER</lastname>
+                            <promo xmlns="">CIP 2</promo>
+                        </ns0:item>
+                        <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/Apal" xmlns:ns2="http://apal.technical.jSeduite.modalis.i3s.unice.fr/">
+                            <counter xmlns="">7</counter>
+                            <firstname xmlns="">Florent</firstname>
+                            <lastname xmlns="">DAO</lastname>
+                            <promo xmlns="">CIP 2</promo>
+                        </ns0:item>
+                        <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/Apal" xmlns:ns2="http://apal.technical.jSeduite.modalis.i3s.unice.fr/">
+                            <counter xmlns="">6</counter>
+                            <firstname xmlns="">Simon</firstname>
+                            <lastname xmlns="">LAMBELIN</lastname>
+                            <promo xmlns="">CIP 2</promo>
+                        </ns0:item>
+                        <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/Apal" xmlns:ns2="http://apal.technical.jSeduite.modalis.i3s.unice.fr/">
+                            <counter xmlns="">6</counter>
+                            <firstname xmlns="">Baptiste</firstname>
+                            <lastname xmlns="">SANTARELLI</lastname>
+                            <promo xmlns="">CIP 2</promo>
+                        </ns0:item>
+                    </ns0:apal>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
+                    <ns0:calEvent>
+                        <description xmlns=""/>
+                        <end xmlns="">2009-11-09T10:35:00+01:00</end>
+                        <location xmlns=""/>
+                        <start xmlns="">2009-11-09T10:30:00+01:00</start>
+                        <summary xmlns="">Pitch SI3 NuitInfo</summary>
+                    </ns0:calEvent>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
+                    <ns0:calEvent>
+                        <description xmlns="">La demoscene est une communauté de passionnés d’informatique qui compose des programmes d’animation 3D temps-réel. La plupart du temps, les méthodes employées pour créer ces animations sont particulièrement novatrices, et souvent le code source est libre. Après un rapide historique de la demoscene, la présentation portera sur les potentiels bienfaits de tels programmes dans le monde du logiciel libre, ainsi que les raisons qui poussent ces créateurs à libérer leurs oeuvres.</description>
+                        <end xmlns="">2009-11-27T18:00:00+01:00</end>
+                        <location xmlns="">Salle Polytech'</location>
+                        <start xmlns="">2009-11-27T17:00:00+01:00</start>
+                        <summary xmlns="">La demoscene et le logiciel libre </summary>
+                    </ns0:calEvent>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
+                    <ns0:calEvent>
+                        <description xmlns="">LaTeX est un outil de formatage de documents très utilisé pour les rédactions universitaires et scientifiques. Contrairement aux traitements de texte graphique, il met l’accent sur la structure logique du document pour produire une mise en page soignée. Venez découvrir les principes et les possibilités de ce logiciel original, que vous pourrez ensuite apprendre à utiliser lors de l’atelier du samedi.</description>
+                        <end xmlns="">2009-11-27T17:00:00+01:00</end>
+                        <location xmlns="">Salle des développeurs</location>
+                        <start xmlns="">2009-11-27T16:00:00+01:00</start>
+                        <summary xmlns="">LaTeX : vos documents comme vous ne les avez jamais vus</summary>
+                    </ns0:calEvent>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
+                    <ns0:calEvent>
+                        <description xmlns="">Distribution linux simple, légère et minimaliste dont la philosophie KISS est la clé. La présentation portera sur l’utilisation et l’installation pour obtenir le système convenant le plus possible à l’utilisateur. On y verra également la force de la communauté ArchLinux au travers du système de paquets et de AUR.</description>
+                        <end xmlns="">2009-11-27T17:00:00+01:00</end>
+                        <location xmlns="">Salle Polytech'</location>
+                        <start xmlns="">2009-11-27T16:00:00+01:00</start>
+                        <summary xmlns="">Archlinux</summary>
+                    </ns0:calEvent>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
+                    <ns0:calEvent>
+                        <description xmlns="">La conception électronique repose sur de nombreux logiciels : les logiciels EDA (Electronic Design Automation). Ces logiciels sont principalement propriétaires et souvent très chers. Bien que peu connue, l’alternative des logiciels libres existe. Fedora Electronic Lab a pour but de renforcer cette communauté de logiciel libre EDA en la faisant connaître et en s’efforçant de créer une unité entre les outils (design-flow, interopérabilité). Fedora Electronic Lab propose un ensemble d’outils prêts à l’emploi sous la forme d’un liveDVD. A vous de l’essayer et de l’adopter !</description>
+                        <end xmlns="">2009-11-27T17:00:00+01:00</end>
+                        <location xmlns="">Salle des communautés</location>
+                        <start xmlns="">2009-11-27T16:00:00+01:00</start>
+                        <summary xmlns="">Fedora Electronic Lab</summary>
+                    </ns0:calEvent>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
+                    <ns0:calEvent>
+                        <description xmlns="">Janua est une société de service et d’intégration qui se propose d’accompagner les entreprises vers le monde des logiciels libres et des infrastructures à base de composants standards.
+
+Lors de la conférence l’entreprise vous présentera ses implications dans le libre, les business models de l’Open Source et finira par aborder l’impact économique des logiciels libres en France et en région PACA.
+                        </description>
+                        <end xmlns="">2009-11-27T16:00:00+01:00</end>
+                        <location xmlns="">Salle des développeurs</location>
+                        <start xmlns="">2009-11-27T15:00:00+01:00</start>
+                        <summary xmlns="">Janua, l’open source en entreprise</summary>
+                    </ns0:calEvent>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
+                    <ns0:calEvent>
+                        <description xmlns="">Cette conférence montrera de manière simple pourquoi il est important d’utiliser des formats ouverts</description>
+                        <end xmlns="">2009-11-27T16:00:00+01:00</end>
+                        <location xmlns="">Salle des communautés</location>
+                        <start xmlns="">2009-11-27T15:00:00+01:00</start>
+                        <summary xmlns="">La bataille des formats</summary>
+                    </ns0:calEvent>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
+                    <ns0:calEvent>
+                        <description xmlns="">L’équipe MODALIS du laboratoire CNRS / I3S s’interesse à la définition de modèles pour les architectures largement distribuées. Dans le cadre de nos recherches sur les Architectures Orientées Services (SOA), nous avons mis en place (en partenariat avec l’Institut d’Education Sensoriel Clément Ader, établissement scolaire niçois accueillant de jeunes handicapés) une architecture orientée services permettant de diffuser des informations en milieu scolaire : menu de la cantine, Horaire de bus, Albums Photos, Vidéos, ... Le framework ainsi créé (jSeduite, publié sous licence LGPL) est déployé sur le site de l’EPU Polytech’Nice - Sophia Antipolis ainsi qu’à l’IES.
+
+Nous nous proposons d’illustrer le fonctionnement d’une SOA sur cet exemple. Comment le Web 2.0, de par sa nature participative, nous permet de mettre en place un système de diffusion d’information libre relié aux principaux acteurs du marché (Google, Yahoo, Twitter, ...) ? Comment intégrer la multitude d’information existantes sur la toile dans le système ? Comment techniquement déployer une architecture orientée service sans être débordé ? Quelles solutions ’libres’ peuvent supporter une telle infrastructure ? Comment manipuler les informations récupérées pour les diffuser efficacement aux utilisateurs ? C’est à ces questions que nous tenterons de répondre en décrivant l’architecture ainsi que la mise en oeuvre du framework jSeduite.
+                        </description>
+                        <end xmlns="">2009-11-27T16:00:00+01:00</end>
+                        <location xmlns="">Salle Polytech'</location>
+                        <start xmlns="">2009-11-27T15:00:00+01:00</start>
+                        <summary xmlns="">Le framework jSeduite</summary>
+                    </ns0:calEvent>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
+                    <ns0:calEvent>
+                        <description xmlns="">Lors de cette première conférence nous vous présenterons brièvement ce qu’est le logiciel et vous présenterons le déroulement des Journées Méditerranéennes du Logiciel Libre.</description>
+                        <end xmlns="">2009-11-27T15:00:00+01:00</end>
+                        <location xmlns="">Amphi GNU</location>
+                        <start xmlns="">2009-11-27T14:00:00+01:00</start>
+                        <summary xmlns="">Conférence d’ouverture</summary>
+                    </ns0:calEvent>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="timetable">
+                    <ns0:timetable>
+                        <ns2:events xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperTimeTableSource">
+                            <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
+                                <building xmlns="">Lucioles</building>
+                                <course xmlns="">Analyse</course>
+                                <end xmlns="">2009-11-09T16:30:00+01:00</end>
+                                <groups xmlns="">G1</groups>
+                                <kind xmlns="">TD</kind>
+                                <promo xmlns="">Cycle Prépa 1A</promo>
+                                <rooms xmlns="">C4 Luc.</rooms>
+                                <start xmlns="">2009-11-09T15:00:00+01:00</start>
+                                <teachers xmlns="">M. Bourgeois</teachers>
+                            </ns0:item>
+                            <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
+                                <building xmlns="">Lucioles</building>
+                                <course xmlns="">Circuits</course>
+                                <end xmlns="">2009-11-09T11:15:00+01:00</end>
+                                <groups xmlns="">G1</groups>
+                                <groups xmlns="">G2</groups>
+                                <kind xmlns="">Cours Int</kind>
+                                <promo xmlns="">Cycle Prépa 1A</promo>
+                                <rooms xmlns="">C3 Luc.</rooms>
+                                <start xmlns="">2009-11-09T09:45:00+01:00</start>
+                                <teachers xmlns="">Mme Vigouroux</teachers>
+                            </ns0:item>
+                            <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
+                                <building xmlns="">Lucioles</building>
+                                <course xmlns="">SD. Programmation</course>
+                                <end xmlns="">2009-11-09T16:30:00+01:00</end>
+                                <groups xmlns="">G2</groups>
+                                <kind xmlns="">TD</kind>
+                                <promo xmlns="">Cycle Prépa 1A</promo>
+                                <rooms xmlns="">TD13 Luc.</rooms>
+                                <start xmlns="">2009-11-09T15:00:00+01:00</start>
+                                <teachers xmlns="">M. Marlin</teachers>
+                            </ns0:item>
+                            <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
+                                <building xmlns="">Lucioles</building>
+                                <course xmlns="">Analyse</course>
+                                <end xmlns="">2009-11-09T18:15:00+01:00</end>
+                                <groups xmlns="">G2</groups>
+                                <kind xmlns="">TD</kind>
+                                <promo xmlns="">Cycle Prépa 1A</promo>
+                                <rooms xmlns="">C4 Luc.</rooms>
+                                <start xmlns="">2009-11-09T16:45:00+01:00</start>
+                                <teachers xmlns="">M. Bourgeois</teachers>
+                            </ns0:item>
+                            <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
+                                <building xmlns="">Lucioles</building>
+                                <course xmlns="">Analyse</course>
+                                <end xmlns="">2009-11-09T11:15:00+01:00</end>
+                                <groups xmlns="">G3</groups>
+                                <kind xmlns="">TD</kind>
+                                <promo xmlns="">Cycle Prépa 1A</promo>
+                                <rooms xmlns="">285 Luc.</rooms>
+                                <start xmlns="">2009-11-09T09:45:00+01:00</start>
+                                <teachers xmlns="">M. Bourgeois</teachers>
+                            </ns0:item>
+                            <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
+                                <building xmlns="">Lucioles</building>
+                                <course xmlns="">Analyse</course>
+                                <end xmlns="">2009-11-09T11:15:00+01:00</end>
+                                <groups xmlns="">G4</groups>
+                                <kind xmlns="">TD</kind>
+                                <promo xmlns="">Cycle Prépa 1A</promo>
+                                <rooms xmlns="">TD10 Luc.</rooms>
+                                <start xmlns="">2009-11-09T09:45:00+01:00</start>
+                                <teachers xmlns="">M. Rault</teachers>
+                            </ns0:item>
+                            <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
+                                <building xmlns="">Lucioles</building>
+                                <course xmlns="">Analyse</course>
+                                <end xmlns="">2009-11-09T09:30:00+01:00</end>
+                                <groups xmlns="">Promo</groups>
+                                <kind xmlns="">Cours</kind>
+                                <promo xmlns="">Cycle Prépa 1A</promo>
+                                <rooms xmlns="">A2 Luc.</rooms>
+                                <start xmlns="">2009-11-09T08:00:00+01:00</start>
+                                <teachers xmlns="">M. Bourgeois</teachers>
+                            </ns0:item>
+                            <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
+                                <building xmlns="">Lucioles</building>
+                                <course xmlns="">Elec. Num.</course>
+                                <end xmlns="">2009-11-09T14:45:00+01:00</end>
+                                <groups xmlns="">Promo</groups>
+                                <kind xmlns="">Cours</kind>
+                                <promo xmlns="">Cycle Prépa 1A</promo>
+                                <rooms xmlns="">C3 Luc.</rooms>
+                                <rooms xmlns="">C4 Luc.</rooms>
+                                <start xmlns="">2009-11-09T13:15:00+01:00</start>
+                                <teachers xmlns="">M. Muller</teachers>
+                            </ns0:item>
+                            <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
+                                <building xmlns="">Lucioles</building>
+                                <course xmlns="">??</course>
+                                <end xmlns="">2009-11-09T16:30:00+01:00</end>
+                                <groups xmlns="">soutien math 2</groups>
+                                <kind xmlns="">Soutien Math</kind>
+                                <promo xmlns="">Cycle Prépa 1A</promo>
+                                <rooms xmlns="">C3 Luc.</rooms>
+                                <start xmlns="">2009-11-09T15:00:00+01:00</start>
+                                <teachers xmlns="">Mme Litovsky</teachers>
+                            </ns0:item>
+                        </ns2:events>
+                    </ns0:timetable>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="timetable">
+                    <ns0:timetable>
+                        <ns2:events xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperTimeTableSource">
+                            <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
+                                <building xmlns="">Templiers</building>
+                                <course xmlns="">Env. informatique 2</course>
+                                <end xmlns="">2009-11-09T09:30:00+01:00</end>
+                                <groups xmlns="">G1a</groups>
+                                <groups xmlns="">G1b</groups>
+                                <kind xmlns="">TD</kind>
+                                <promo xmlns="">Cycle Prépa 2A</promo>
+                                <rooms xmlns="">222 Templiers 28 pl.</rooms>
+                                <start xmlns="">2009-11-09T08:00:00+01:00</start>
+                                <teachers xmlns="">M. Gallesio</teachers>
+                            </ns0:item>
+                            <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
+                                <building xmlns="">Templiers</building>
+                                <course xmlns="">Analyse</course>
+                                <end xmlns="">2009-11-09T09:30:00+01:00</end>
+                                <groups xmlns="">G2a</groups>
+                                <groups xmlns="">G2b</groups>
+                                <kind xmlns="">TD</kind>
+                                <promo xmlns="">Cycle Prépa 2A</promo>
+                                <rooms xmlns="">310 Templiers VA 64pl.</rooms>
+                                <start xmlns="">2009-11-09T08:00:00+01:00</start>
+                                <teachers xmlns="">Mme Litovsky</teachers>
+                            </ns0:item>
+                            <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
+                                <building xmlns="">Lucioles</building>
+                                <course xmlns="">Env. informatique 2</course>
+                                <end xmlns="">2009-11-09T18:15:00+01:00</end>
+                                <groups xmlns="">G2a</groups>
+                                <groups xmlns="">G2b</groups>
+                                <kind xmlns="">TD</kind>
+                                <promo xmlns="">Cycle Prépa 2A</promo>
+                                <rooms xmlns="">285 Luc.</rooms>
+                                <start xmlns="">2009-11-09T16:45:00+01:00</start>
+                                <teachers xmlns="">M De Antoni</teachers>
+                            </ns0:item>
+                            <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
+                                <building xmlns="">Templiers</building>
+                                <course xmlns="">Env. informatique 2</course>
+                                <end xmlns="">2009-11-09T09:30:00+01:00</end>
+                                <groups xmlns="">G3a</groups>
+                                <groups xmlns="">G3b</groups>
+                                <kind xmlns="">TD</kind>
+                                <promo xmlns="">Cycle Prépa 2A</promo>
+                                <rooms xmlns="">217 Templiers 20pl.</rooms>
+                                <start xmlns="">2009-11-09T08:00:00+01:00</start>
+                                <teachers xmlns="">M De Antoni</teachers>
+                            </ns0:item>
+                            <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
+                                <building xmlns="">Templiers</building>
+                                <course xmlns="">Analyse</course>
+                                <end xmlns="">2009-11-09T11:15:00+01:00</end>
+                                <groups xmlns="">Promo</groups>
+                                <kind xmlns="">Cours</kind>
+                                <promo xmlns="">Cycle Prépa 2A</promo>
+                                <rooms xmlns="">308 Templiers VA  60pl..</rooms>
+                                <start xmlns="">2009-11-09T09:45:00+01:00</start>
+                                <teachers xmlns="">Mme Litovsky</teachers>
+                            </ns0:item>
+                            <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
+                                <building xmlns="">Lucioles</building>
+                                <course xmlns="">Electromag.</course>
+                                <end xmlns="">2009-11-09T16:30:00+01:00</end>
+                                <groups xmlns="">Promo</groups>
+                                <kind xmlns="">Cours</kind>
+                                <promo xmlns="">Cycle Prépa 2A</promo>
+                                <rooms xmlns="">A2 Luc.</rooms>
+                                <start xmlns="">2009-11-09T15:00:00+01:00</start>
+                                <teachers xmlns="">M. Aliferis</teachers>
+                            </ns0:item>
+                            <ns0:item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
+                                <building xmlns="">Lucioles</building>
+                                <course xmlns="">Electrotechnique</course>
+                                <end xmlns="">2009-11-09T14:45:00+01:00</end>
+                                <groups xmlns="">Promo</groups>
+                                <kind xmlns="">Cours</kind>
+                                <promo xmlns="">Cycle Prépa 2A</promo>
+                                <rooms xmlns="">A2 Luc.</rooms>
+                                <start xmlns="">2009-11-09T13:15:00+01:00</start>
+                                <teachers xmlns="">M. Arnould</teachers>
+                            </ns0:item>
+                        </ns2:events>
+                    </ns0:timetable>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
+                    <ns1:feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+                        <author xmlns="">TV5.org info - La Une</author>
+                        <content xmlns=""> Des dizaines de milliers de personnes fêtaient lundi dans les rues de Berlin les 20 ans de la chute du Mur, qui a signé la fin de la Guerre froide et permis la réunification de l'Allemagne et de l'Europe.Evénement</content>
+                        <title xmlns="">Les 20 ans de la chute du Mur: la foule au rendez-vous à Berlin</title>
+                        <type xmlns="">text/html</type>
+                    </ns1:feedNews>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
+                    <ns1:feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+                        <author xmlns="">TV5.org info - La Une</author>
+                        <content xmlns="">Rebondissement dans l'affaire du casse exceptionnel par un convoyeur de fonds la semaine dernière à Lyon : la police a annoncé lundi avoir retrouvé neuf des 11 millions d'euros dérobés, tandis que l'homme, Toni Musulin, traqué à travers l'Europe, reste introuvable.</content>
+                        <title xmlns="">Fourgon volé : le convoyeur a laissé plus de 9 millions d'euros derrière lui à Lyon</title>
+                        <type xmlns="">text/html</type>
+                    </ns1:feedNews>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
+                    <ns1:feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+                        <author xmlns="">TV5.org info - La Une</author>
+                        <content xmlns="">Deux grèves sont à l'origine lundi de très fortes perturbations en Ile-de-France sur le RER A, affectant le million de passagers quotidiens de cette ligne, et dans une moindre mesure le RER B, où une réorganisation du travail par la RATP et la SNCF est au coeur du conflit.</content>
+                        <title xmlns="">Deux grèves perturbent fortement le RER A, la ligne B également touchée</title>
+                        <type xmlns="">text/html</type>
+                    </ns1:feedNews>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
+                    <ns1:feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+                        <author xmlns="">TV5.org info - La Une</author>
+                        <content xmlns="">Des souvenirs qui s'emmêlent ou la tentation de se faire une place au soleil de l'Histoire ? Le récit par le président Nicolas Sarkozy de "son" 9 novembre 1989 à Berlin suscite un flot de commentaires étonnés, voire ironiques, qui en dénoncent les incohérences, notamment de date.</content>
+                        <title xmlns="">Le 9 novembre 1989 de Nicolas Sarkozy en question sur la toile</title>
+                        <type xmlns="">text/html</type>
+                    </ns1:feedNews>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
+                    <ns1:feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+                        <author xmlns="">TV5.org info - La Une</author>
+                        <content xmlns="">Le militaire d'origine palestinienne soupçonné d'avoir ouvert le feu à la base de Fort Hood au Texas a commencé à parler, a annoncé lundi l'armée américaine, quatre jours après le massacre qui a fait 13 morts et 28 blessés.</content>
+                        <title xmlns="">Fusillade aux Etats-Unis: l'auteur de la tuerie s'est mis à parler</title>
+                        <type xmlns="">text/html</type>
+                    </ns1:feedNews>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
+                    <ns1:feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+                        <author xmlns="">Antibes : actu quotidienne locale départementale sportive </author>
+                        <content xmlns="">lundi 09 novembre 2009&lt;br&gt; &lt;p class="nm_txt_1_lettrine_courant"&gt;L'&amp;#233;changeur autoroutier de Biot est une nouvelle fois sur le devant de la sc&amp;#232;ne. Ce vieux serpent de mer refait surface apr&amp;#232;s de nombreuses ann&amp;#233;es de tergiversations : il y a pr&amp;#232;s de 20 ans, on en parlait d&amp;#233;j&amp;#224;.&lt;/p&gt; &lt;br&gt;&lt;br&gt; circulation Des études sont en cours pour déterminer un nouvel emplacement en tenant compte de la zone inondable qui avait fait capoter le premier projet </content>
+                        <title xmlns=""> L'échangeur autoroutier de Biot refait surface  (Nice-Matin)</title>
+                        <type xmlns="">text/html</type>
+                    </ns1:feedNews>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
+                    <ns1:feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+                        <author xmlns="">Antibes : actu quotidienne locale départementale sportive </author>
+                        <content xmlns="">lundi 09 novembre 2009&lt;br&gt; &lt;p class="nm_txt_1_lettrine_courant"&gt;L'&amp;#233;changeur autoroutier de Biot est une nouvelle fois sur le devant de la sc&amp;#232;ne. Ce vieux serpent de mer refait surface apr&amp;#232;s de nombreuses ann&amp;#233;es de tergiversations : il y a pr&amp;#232;s de 20 ans, on en parlait d&amp;#233;j&amp;#224;.&lt;/p&gt; &lt;br&gt;&lt;br&gt; circulation Des études sont en cours pour déterminer un nouvel emplacement en tenant compte de la zone inondable qui avait fait capoter le premier projet </content>
+                        <title xmlns=""> L'échangeur autoroutier de Biot refait surface  (Nice-Matin)</title>
+                        <type xmlns="">text/html</type>
+                    </ns1:feedNews>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
+                    <ns1:feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+                        <author xmlns="">Antibes : actu quotidienne locale départementale sportive </author>
+                        <content xmlns="">lundi 09 novembre 2009&lt;br&gt; &lt;p class="nm_tit_encadre_new"&gt;L'histoire du jour&lt;/p&gt; &lt;br&gt;&lt;br&gt;  </content>
+                        <title xmlns=""> Il tombe du brancard et retourne à l'hosto  (Nice-Matin)</title>
+                        <type xmlns="">text/html</type>
+                    </ns1:feedNews>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
+                    <ns1:feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+                        <author xmlns="">Antibes : actu quotidienne locale départementale sportive </author>
+                        <content xmlns="">lundi 09 novembre 2009&lt;br&gt; &lt;p class="nm_txt_1_lettrine_courant"&gt;&lt;span class="unused"&gt;Les milliers de dossiers qui &amp;#233;taient en souffrance avant 2007 sont peu &amp;#224; peu r&amp;#233;sorb&amp;#233;s dans les Alpes-Maritimes.&lt;/span&gt;&lt;/p&gt; &lt;br&gt;&lt;br&gt; immigration Les milliers de dossiers qui étaient en souffrance avant 2007 sont peu à peu résorbés dans les Alpes-Maritimes </content>
+                        <title xmlns=""> Naturalisations : plus de moyens pour mieux traiter les demandes  (Nice-Matin)</title>
+                        <type xmlns="">text/html</type>
+                    </ns1:feedNews>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
+                    <ns1:feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+                        <author xmlns="">Antibes : actu quotidienne locale départementale sportive </author>
+                        <content xmlns="">lundi 09 novembre 2009&lt;br&gt; &lt;p class="nm_txt_1_lettrine_courant"&gt;&lt;span class="unused"&gt;Les milliers de dossiers qui &amp;#233;taient en souffrance avant 2007 sont peu &amp;#224; peu r&amp;#233;sorb&amp;#233;s dans les Alpes-Maritimes.&lt;/span&gt;&lt;/p&gt; &lt;br&gt;&lt;br&gt; immigration Les milliers de dossiers qui étaient en souffrance avant 2007 sont peu à peu résorbés dans les Alpes-Maritimes </content>
+                        <title xmlns=""> Naturalisations : plus de moyens pour mieux traiter les demandes  (Nice-Matin)</title>
+                        <type xmlns="">text/html</type>
+                    </ns1:feedNews>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="internal_news">
+                    <ns0:internalNews>
+                        <author>Sébastien Mosser</author>
+                        <content>Le système d'information de l'EPU est opérationel depuis ce matin !
+                            <br/>
+                        Pour tout renseignements: mosser@polytech.unice.fr
+                        </content>
+                        <end>2009-11-18T00:00:00+01:00</end>
+                        <start>2009-11-13T00:00:00+01:00</start>
+                        <target>profs</target>
+                        <title>Lancement de jSeduite 1.0 !</title>
+                    </ns0:internalNews>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="breaking_news">
+                    <ns0:breakNews>
+                        <author>Sébastien Mosser</author>
+                        <content>Test d'info en continue</content>
+                        <stamp>2009-11-13T17:55:00+01:00</stamp>
+                    </ns0:breakNews>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="image_scraper">
+                    <ns0:scrap>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/ImageScraper">http://farm4.static.flickr.com/3289/3082462591_7a6eb7a4a0.jpg</ns0:item>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/ImageScraper">http://lh4.ggpht.com/_DbB9SfXeKOM/SThazAHT8lI/AAAAAAAAATg/mOwYLUq5iVU/IMG_8770.JPG</ns0:item>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/ImageScraper">http://farm4.static.flickr.com/3196/3082462841_072b413db2.jpg</ns0:item>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/ImageScraper">http://lh6.ggpht.com/_DbB9SfXeKOM/SThartQzyrI/AAAAAAAAARc/tFPZuQXwQrM/IMG_8764.JPG</ns0:item>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/ImageScraper">http://farm4.static.flickr.com/3195/3083298800_bd746229b5.jpg</ns0:item>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/ImageScraper">http://lh3.ggpht.com/_lPxFFvUmG4g/ST1CR_Z60nI/AAAAAAAAABs/-eznaYPI4d8/IMG_1916.JPG</ns0:item>
+                    </ns0:scrap>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="image_scraper">
+                    <ns0:scrap>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/ImageScraper">http://farm4.static.flickr.com/3230/2687104881_ab383446fd.jpg</ns0:item>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/ImageScraper">http://farm4.static.flickr.com/3236/2687912344_e4787151f1.jpg</ns0:item>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/ImageScraper">http://farm4.static.flickr.com/3096/2687917770_93dd1531da.jpg</ns0:item>
+                    </ns0:scrap>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="stud_summon">
+                    <ns0:studentSummon>
+                        <date xmlns="">2009-08-15T19:04:34+02:00</date>
+                        <id xmlns="">1</id>
+                        <level xmlns="">Régularisation</level>
+                        <owner xmlns="">Sébastien Mosser</owner>
+                        <promo xmlns="">Cycle Prépa 2A</promo>
+                        <student xmlns="">XXX xxx</student>
+                    </ns0:studentSummon>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="stud_summon">
+                    <ns0:studentSummon>
+                        <date xmlns="">2009-08-15T23:10:00+02:00</date>
+                        <id xmlns="">2</id>
+                        <level xmlns="">Urgent</level>
+                        <owner xmlns="">Mireille Blay</owner>
+                        <promo xmlns="">Sciences Info 5A</promo>
+                        <student xmlns="">Steve Colombié</student>
+                    </ns0:studentSummon>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="tv_shows">
+                    <ns0:shows>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="TF 1">
+                            <ns0:title>Soeur Thérèse.com</ns0:title>
+                            <ns0:start>20:45</ns0:start>
+                            <ns0:summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/12543718.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Suite au versement d'un important don anonyme au couvent, soeur Thérèse enquête pour tenter de découvrir l'identité et les motivations du généreux donateur.</ns0:summary>
+                        </ns0:item>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="TF 1">
+                            <ns0:title>Dr House</ns0:title>
+                            <ns0:start>22:30</ns0:start>
+                            <ns0:summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/6847304.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Dans un établissement de jeux, House discute avec une femme qui est subitement prise d'un grave malaise. Après un rapide examen, les diagnostics divergent.</ns0:summary>
+                        </ns0:item>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="France 2">
+                            <ns0:title>Cold Case, affaires classées</ns0:title>
+                            <ns0:start>20:35</ns0:start>
+                            <ns0:summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/10585608.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Lilly et son équipe remontent le temps pour identifier l'assassin d'un jeune homme, retrouvé mort peu de temps après avoir été accusé de viol.</ns0:summary>
+                        </ns0:item>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="France 2">
+                            <ns0:title>Mots croisés</ns0:title>
+                            <ns0:start>22:10</ns0:start>
+                            <ns0:summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/14019356.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Au sommaire : - Qu'est-ce qu'être Français ? - Sarkozy peut-il tenir sa droite ?</ns0:summary>
+                        </ns0:item>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="France 3">
+                            <ns0:title>Les dernières heures du mur</ns0:title>
+                            <ns0:start>20:35</ns0:start>
+                            <ns0:summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/13998178.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Retour sur les coulisses de la chute du mur de Berlin, en novembre 1989, où se jouaient des luttes politiques importantes, influencées par Bonn et le Kremlin.</ns0:summary>
+                        </ns0:item>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="France 3">
+                            <ns0:title>Ce soir (ou jamais !)</ns0:title>
+                            <ns0:start>22:50</ns0:start>
+                            <ns0:summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/14012219.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Il y a 20 ans, au cours d'une nuit restée dans les mémoires et sous l'oeil des caméras du monde entier, le mur de Berlin tombait. Avec ses invités, Frédéric Taddéï revient sur cet événement majeur de l'histoire contemporaine, qui a marqué la fin de la guerre froide et préfigurait l'effondrement de l'URSS.</ns0:summary>
+                        </ns0:item>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="Canal+">
+                            <ns0:title>En berline à Berlin</ns0:title>
+                            <ns0:start>20:45</ns0:start>
+                            <ns0:summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/13988764.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Vingt ans après la chute du Mur de Berlin, Antoine de Caunes se rend dans la capitale allemande, pour y filmer la vie culturelle et artistique.</ns0:summary>
+                        </ns0:item>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="Canal+">
+                            <ns0:title>Berlin, «24 heures», 20 ans après</ns0:title>
+                            <ns0:start>22:15</ns0:start>
+                            <ns0:summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/13988278.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Filmés en 89 pour l'émission «24 Heures», trois témoins de la chute du Mur de Berlin reviennent vingt ans après sur cet événement et ses conséquences pour eux.</ns0:summary>
+                        </ns0:item>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="Arte">
+                            <ns0:title>Sabotage</ns0:title>
+                            <ns0:start>20:45</ns0:start>
+                            <ns0:summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/57592.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Après une panne d'électricité qui a plongé Londres dans le noir, la police suspecte un terroriste d'avoir monté cette opération de sabotage.</ns0:summary>
+                        </ns0:item>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="Arte">
+                            <ns0:title>Musique classique et guerre froide</ns0:title>
+                            <ns0:start>22:00</ns0:start>
+                            <ns0:summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/13969317.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Au lendemain de la création de la RDA, le régime centralisé régente la création artistique dans le but d'en faire une vitrine culturelle à l'étranger.</ns0:summary>
+                        </ns0:item>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="M6">
+                            <ns0:title>Maman cherche l'amour (saison 2)</ns0:title>
+                            <ns0:start>20:40</ns0:start>
+                            <ns0:summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/14016084.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Le nombre des prétendants se restreint pour chacune des jeunes femmes. Les choix sont de plus en plus difficiles pour Marie-Jo, qui rend visite tour à tour à Phil et Dany, Katia, dont le coeur balance entre Patrick et Olivier, Angie, qui bouleverse Franck et Thierry par son annonce, et Sophie, qui peine à choisir entre Cédric et Romuald, aussi craquants l'un que l'autre.</ns0:summary>
+                        </ns0:item>
+                        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="M6">
+                            <ns0:title>Belle toute nue</ns0:title>
+                            <ns0:start>22:20</ns0:start>
+                            <ns0:summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/14015751.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Deux nouvelles jeunes femmes font appel à William. Elles manquent de confiance en elles et veulent apprendre à s'aimer et se mettre en valeur. Stéphanie, 36 ans, élève seule ses deux enfants. Mélodie, 19 ans, vit avec son petit ami. Toutes les deux sont affreusement complexées par leurs rondeurs et leurs formes généreuses.</ns0:summary>
+                        </ns0:item>
+                    </ns0:shows>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="twitter">
+                    <ns0:tweet>
+                        <author xmlns="">@petitroll</author>
+                        <content xmlns="">Trop cool, le système fonctionne !!!</content>
+                        <date xmlns="">2009-08-18 11:11:26</date>
+                    </ns0:tweet>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="twitter">
+                    <ns0:tweet>
+                        <author xmlns="">@petitroll</author>
+                        <content xmlns="">mais c'est que ca marche cette affaire !</content>
+                        <date xmlns="">2009-07-27 17:41:04</date>
+                    </ns0:tweet>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="twitter">
+                    <ns0:tweet>
+                        <author xmlns="">@petitroll</author>
+                        <content xmlns="">Fais un test avec Twitter pour voir si ça fonctionne comme c'est supposé l'être ...</content>
+                        <date xmlns="">2009-07-27 17:08:41</date>
+                    </ns0:tweet>
+                </ns0:item>
+                <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="weather">
+                    <ns0:weather>
+                        <ns0:live xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/WeatherProxy">
+                            <ns0:station>Nice (Cote D'Azur)</ns0:station>
+                            <ns0:pressure>1004.07</ns0:pressure>
+                            <ns0:rain>0.0</ns0:rain>
+                            <ns0:windSpeed>15</ns0:windSpeed>
+                            <ns0:windDirection>NW</ns0:windDirection>
+                            <ns0:icon>cond004.gif</ns0:icon>
+                            <ns0:minTemp>9.0</ns0:minTemp>
+                            <ns0:maxTemp>16.0</ns0:maxTemp>
+                            <ns0:temp>13.0</ns0:temp>
+                        </ns0:live>
+                        <ns0:forecast_star xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/WeatherProxy">
+                            <ns0:item day="MON">
+                                <ns0:maxTemp>12.0</ns0:maxTemp>
+                                <ns0:minTemp>8.0</ns0:minTemp>
+                                <ns0:icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond050.gif</ns0:icon>
+                            </ns0:item>
+                            <ns0:item day="TUE">
+                                <ns0:maxTemp>13.0</ns0:maxTemp>
+                                <ns0:minTemp>8.0</ns0:minTemp>
+                                <ns0:icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond007.gif</ns0:icon>
+                            </ns0:item>
+                            <ns0:item day="WED">
+                                <ns0:maxTemp>12.0</ns0:maxTemp>
+                                <ns0:minTemp>8.0</ns0:minTemp>
+                                <ns0:icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond007.gif</ns0:icon>
+                            </ns0:item>
+                            <ns0:item day="THU">
+                                <ns0:maxTemp>14.0</ns0:maxTemp>
+                                <ns0:minTemp>10.0</ns0:minTemp>
+                                <ns0:icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond003.gif</ns0:icon>
+                            </ns0:item>
+                            <ns0:item day="FRI">
+                                <ns0:maxTemp>14.0</ns0:maxTemp>
+                                <ns0:minTemp>13.0</ns0:minTemp>
+                                <ns0:icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond109.gif</ns0:icon>
+                            </ns0:item>
+                            <ns0:item day="SAT">
+                                <ns0:maxTemp>14.0</ns0:maxTemp>
+                                <ns0:minTemp>11.0</ns0:minTemp>
+                                <ns0:icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond093.gif</ns0:icon>
+                            </ns0:item>
+                            <ns0:item day="SUN">
+                                <ns0:maxTemp>13.0</ns0:maxTemp>
+                                <ns0:minTemp>11.0</ns0:minTemp>
+                                <ns0:icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond050.gif</ns0:icon>
+                            </ns0:item>
+                        </ns0:forecast_star>
+                    </ns0:weather>
+                </ns0:item>
+            </ns1:result>
+        </ns1:GetInformationResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

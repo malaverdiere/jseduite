@@ -35,12 +35,14 @@ INSERT INTO `parameters` VALUES (NULL, 'weather', 'cityCode', '??', 'Code de la 
 INSERT INTO `sources` VALUES ('tv_shows','Programme TV');
 INSERT INTO `parameters` VALUES (NULL, 'tv_shows', 'provider', '', 'Fournisseur');
 INSERT INTO `parameters` VALUES (NULL, 'tv_shows', 'period', '0', 'Delai de Validite');
-INSERT INTO `sources`    VALUES ('feeds','Lecteur de Flux RSS');
-INSERT INTO `parameters` VALUES (NULL, 'feeds', 'feedName', '??', 'Nom du flux');
-INSERT INTO `parameters` VALUES (NULL, 'feeds', 'cacheValidity', '??', 'Validite du cache');
+INSERT INTO `sources`    VALUES ('feed_reader','Lecteur de Flux RSS');
+INSERT INTO `parameters` VALUES (NULL, 'feed_reader', 'tag', '??', 'Nom du flux');
+INSERT INTO `parameters` VALUES (NULL, 'feed_reader', 'delta', '??', 'Validite du cache');
+INSERT INTO `parameters` VALUES (NULL, 'feed_reader', 'treshold', '??', 'Seuil');
 INSERT INTO `sources`    VALUES ('breaking_news','Nouvelles en continu');
 INSERT INTO `sources`    VALUES ('absences_profs','Absence du Personnel');
 INSERT INTO `sources`    VALUES ('stud_summon','Convocation des Etudiants');
+INSERT INTO `parameters` VALUES (NULL, 'stud_summon', 'promoId', 'all', 'Promotion');
 INSERT INTO `sources`    VALUES ('menu_source','Restaurant Universitaire');
 INSERT INTO `sources`    VALUES ('calendar','Lecteur de calendrier iCal');
 INSERT INTO `parameters` VALUES (NULL, 'calendar', 'url', '??', 'URL');

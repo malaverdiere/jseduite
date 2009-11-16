@@ -30,6 +30,15 @@ function dispatch(e) {
   	}
 }
 
+function setLoadingState(){
+    var loading = "<center><img src=\"templates/_img/loading-polytech.gif\" alt=\"\" /></center>";
+    $('main').update("<br/> <br/> <br/><br/><br/>" + loading);
+}
+
+function removeLoadingState() {
+    $('main').update("");
+}
+
 function loadCss(file)
 {
     var css = new Element('link', { rel: "stylesheet", type: "text/css",

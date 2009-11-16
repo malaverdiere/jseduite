@@ -22,12 +22,18 @@
  **/
 
 var speed_scrolling = 15;
+/** PRIVATE CONFIG, DO NOT TOUCH **/
+var provider_url = "proxy.jsp";
 var engine = null;
+var debug = null;
+
 
 function jSeduiteInit() {
     init_date();
     var args = new String(window.location).toQueryParams();
     var screen = (null == args["display"] ? "default" : args["display"]);
     var tpl = (null == args["tpl"] ? "default" : args["tpl"]);
+    var debug = (null == args["dbg"] ? "F" : "T");
+    provider_url = ("F" == debug? "samples/_all.xml": provider_url+"?display=" + screen);
     engine =  new jSeduiteEngine(screen,tpl);
 }

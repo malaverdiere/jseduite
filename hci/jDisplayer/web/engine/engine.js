@@ -21,8 +21,6 @@
  * @contributor 2009     Celine Auzias          [celine.auzias@gmail.com]
  **/
 
-var provider_url = "samples/edt.xml";
-
 var jSeduiteEngine = Class.create({
 
     // Initialize the Engine
@@ -44,11 +42,13 @@ var jSeduiteEngine = Class.create({
     setTemplate: function(tpl) { this.tpl = tpl; this.initLoops();  },
     // Run the engine
     run: function() {
+        setLoadingState();
         addLog("Retrieving informations");
         new Ajax.Request(provider_url, {
             method:'get',
             parameters: {display: this.screen},
             onSuccess: function(transport){
+                removeLoadingState();
                 addLog("Information set successfully received")
                 var infos = transport.responseXML;
                 engine.feed(infos);
@@ -62,7 +62,6 @@ var jSeduiteEngine = Class.create({
             }
         });
     }, 
-
     /*********************/
     /** Private Methods **/
     /*********************/
