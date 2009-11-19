@@ -32,17 +32,17 @@ var studSummon = Class.create(jSeduiteTransformation, {
     },
     perform: function(xml) {
         var content = "";
-        content += "<img class=\"logo\" src=\"templates/_logos/summons.png\" alt=\"\" align=\"left\">";
-        content += "<p class=\"content_title\"> &nbsp; Convocation </p>";
-        content += "<span class=\"sum_target\">";
+        content += "<div id=\"info_logo\" class=\"summon_logo\"></div>";
+        content += "<p class=\"title\"> &nbsp; Convocation </p>";
+        content += "<span class=\"sum_level\">";
         content += "<img src=\"templates/_img/summons/"+this.levels[getTag("level", xml)]+"\" alt=\"\">";
         content += "</span>";
         content += "<br><br>";
-        content += "<p class=\"sum_content\">";
+        content += "<p class=\"sum_content error\">";
         content += getTag("student", xml)+"<br>("+getTag("promo", xml)+")";
         content += "</p>";
         content += "<p class=\"sum_content\">";
-        content += "<span class=\"blue\">Convoqué par :</span>";
+        content += "<span class=\"emphasize\">Convoqué par :</span>";
         content += "</p>";
         content += "<p class=\"sum_content\">";
         content += getTag("owner", xml);

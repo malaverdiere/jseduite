@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
-  <SOAP-ENV:Body>
-    <ns1:GetInformationResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
-      <ns1:result>
-    <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="picture_albums">
-          <ns0:album>
-            <ns0:repository xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums">picasa</ns0:repository>
-            <ns0:name xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums">HorseTooth Reservoir</ns0:name>
-            <ns0:picture_star xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums">
-              <ns0:item>http://lh4.ggpht.com/_wCA2lu03EyU/SsK4vDW9MfI/AAAAAAAAJv8/4kbzh3guunI/DSC04414.JPG</ns0:item>
-              <ns0:item>http://lh5.ggpht.com/_wCA2lu03EyU/SsK45PK2y-I/AAAAAAAAJxE/vlgQ95xb7rQ/DSC04427.JPG</ns0:item>
-              <ns0:item>http://lh5.ggpht.com/_wCA2lu03EyU/SsK40ZiNtKI/AAAAAAAAJwk/1Lshs2osFxk/DSC04421.JPG</ns0:item>
-              <ns0:item>http://lh6.ggpht.com/_wCA2lu03EyU/SsK5PULWkRI/AAAAAAAAJzg/jBG2lHi1dRQ/DSC04445.JPG</ns0:item>
-              <ns0:item>http://lh6.ggpht.com/_wCA2lu03EyU/SsK4tznoz5I/AAAAAAAAJv0/E-3zika8NbM/DSC04413.JPG</ns0:item>
-              <ns0:item>http://lh4.ggpht.com/_wCA2lu03EyU/SsK4y15GbQI/AAAAAAAAJwU/9PdYslKSXbg/DSC04419.JPG</ns0:item>
-              <ns0:item>http://lh5.ggpht.com/_wCA2lu03EyU/SsK5GlmYbvI/AAAAAAAAJyQ/Pa7zyrsQkpc/DSC04437.JPG</ns0:item>
-              <ns0:item>http://lh3.ggpht.com/_wCA2lu03EyU/SsK4-g9ecoI/AAAAAAAAJxo/MEId0y7TPPA/DSC04432.JPG</ns0:item>
-              <ns0:item>http://lh6.ggpht.com/_wCA2lu03EyU/SsK5NTMy15I/AAAAAAAAJzQ/KNcB0ZsdFWU/DSC04443.JPG</ns0:item>
-              <ns0:item>http://lh5.ggpht.com/_wCA2lu03EyU/SsK4bgPgX5I/AAAAAAAAJto/jceVq78LkNo/DSC04401.JPG</ns0:item>
-            </ns0:picture_star>
-          </ns0:album>
-          </ns0:item>
-      </ns1:result>
-    </ns1:GetInformationResponse>
- </SOAP-ENV:Body>
+    <SOAP-ENV:Body>
+        <GetInformationResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+            <result>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="picture_albums">
+                    <album>
+                        <repository xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums">picasa</repository>
+                        <name xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums">HorseTooth Reservoir</name>
+                        <picture_star xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums">
+                            <item>http://lh4.ggpht.com/_wCA2lu03EyU/SsK4vDW9MfI/AAAAAAAAJv8/4kbzh3guunI/DSC04414.JPG</item>
+                            <item>http://lh5.ggpht.com/_wCA2lu03EyU/SsK45PK2y-I/AAAAAAAAJxE/vlgQ95xb7rQ/DSC04427.JPG</item>
+                            <item>http://lh5.ggpht.com/_wCA2lu03EyU/SsK40ZiNtKI/AAAAAAAAJwk/1Lshs2osFxk/DSC04421.JPG</item>
+                            <item>http://lh6.ggpht.com/_wCA2lu03EyU/SsK5PULWkRI/AAAAAAAAJzg/jBG2lHi1dRQ/DSC04445.JPG</item>
+                            <item>http://lh6.ggpht.com/_wCA2lu03EyU/SsK4tznoz5I/AAAAAAAAJv0/E-3zika8NbM/DSC04413.JPG</item>
+                            <item>http://lh4.ggpht.com/_wCA2lu03EyU/SsK4y15GbQI/AAAAAAAAJwU/9PdYslKSXbg/DSC04419.JPG</item>
+                            <item>http://lh5.ggpht.com/_wCA2lu03EyU/SsK5GlmYbvI/AAAAAAAAJyQ/Pa7zyrsQkpc/DSC04437.JPG</item>
+                            <item>http://lh3.ggpht.com/_wCA2lu03EyU/SsK4-g9ecoI/AAAAAAAAJxo/MEId0y7TPPA/DSC04432.JPG</item>
+                            <item>http://lh6.ggpht.com/_wCA2lu03EyU/SsK5NTMy15I/AAAAAAAAJzQ/KNcB0ZsdFWU/DSC04443.JPG</item>
+                            <item>http://lh5.ggpht.com/_wCA2lu03EyU/SsK4bgPgX5I/AAAAAAAAJto/jceVq78LkNo/DSC04401.JPG</item>
+                        </picture_star>
+                    </album>
+                </item>
+            </result>
+        </GetInformationResponse>
+    </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>

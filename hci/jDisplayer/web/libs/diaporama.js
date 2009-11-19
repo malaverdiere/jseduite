@@ -30,7 +30,7 @@ var Diaporama = Class.create({
    prepare: function() {
        var content = "";
        content += "<center><div id=\"diapo_content\"></div></center>";
-       content += "<div id=\"diapo_loading\"><img src=\"templates/_img/diapo-load.gif\" alt=\"...\" width=\"60\"></div>";
+       content += "<center><div id=\"diapo_loading\"></div></center>";
        return content;
    },
    start: function() {

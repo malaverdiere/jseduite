@@ -26,7 +26,8 @@ var scrollingTwitter = Class.create(jSeduiteTransformation, {
         var r = "";
         var stamp = getTag("date", xml);
         var stampTwit = stamp.substring(11,13)+"h"+stamp.substring(14,16);
-        r += "<img src=\"templates/_logos/twitter.png\" align=\"top\" height=\"70\">";
+        //r += "<img src=\"templates/_logos/twitter.png\" align=\"top\" height=\"70\">";
+        r += "<div id=\"info_logo\" class=\"twitter_logo\"></div>"
         r += buildSpan(null,"date",stampTwit)+" ";
         r += buildSpan(null,"content",getTag("content", xml)) + " ";
         r += buildSpan(null,"author",getTag("author",xml)+" - ");

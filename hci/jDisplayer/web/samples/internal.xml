@@ -16,16 +16,7 @@
                         <title>Lancement de jSeduite 1.0 !</title>
                     </internalNews>
                 </item>
-                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="breaking_news">
-                    <breakNews>
-                        <author>Sébastien Mosser</author>
-                        <content>Test d'info en continue</content>
-                        <stamp>2009-11-13T17:55:00+01:00</stamp>
-                    </breakNews>
-                </item>
             </result>
         </GetInformationResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-
-

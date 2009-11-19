@@ -24,7 +24,8 @@
 var jSeduiteEngine = Class.create({
 
     // Initialize the Engine
-    initialize: function(screen,tplName) {
+    initialize: function(url, screen,tplName) {
+        this.provider = url;
         this.screen = screen;
         // this.initLoops();
         loadCss("templates/"+tplName+"/style.css");
@@ -44,7 +45,7 @@ var jSeduiteEngine = Class.create({
     run: function() {
         setLoadingState();
         addLog("Retrieving informations");
-        new Ajax.Request(provider_url, {
+        new Ajax.Request(this.provider, {
             method:'get',
             parameters: {display: this.screen},
             onSuccess: function(transport){
@@ -73,7 +74,7 @@ var jSeduiteEngine = Class.create({
     // dispatch informations
     feed: function(xml) {
         this.clearLoops();
-        var allResults = getNode("ns1:result", xml);
+        var allResults = getNode("result", xml);
         var root = Element.extend(allResults[0]);
         var allItems = root.children;
 
@@ -88,3 +89,12 @@ var jSeduiteEngine = Class.create({
         //this.loops["timer"] = new loop(this.tpl);
     }
 });
+
+function setLoadingState() {
+    var loading = "<center><div id=\"loading_animation\"> </div></center>";
+    $('main').update("<br/><br/><br/><br/><br/>" + loading);
+}
+
+function removeLoadingState() { $('main').update(""); }
+
+

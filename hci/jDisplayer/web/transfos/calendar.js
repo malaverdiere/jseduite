@@ -28,27 +28,31 @@ var iCalHandler = Class.create(jSeduiteTransformation, {
         var stampTo = getTag("end", xml);
 
         var now = new Date();
-        if ((now.getHours() > stampTo.substring(11,13)) ||
-            (now.getHours() == stampTo.substring(11,13)) && now.getMinutes() > stampTo.substring(14,16)) {
-            return []; // Ignoring, to late.
-        }
+        if (isBefore(stampTo, now))
+            return [];
+
+        var started = false;
+        if (isBefore(stampFrom,now) && isAfter(stampTo, now))
+            started = true;
+        
        	var content = "";
-        content += "<img class=\"logo\" src=\"templates/_logos/ical.png\" alt=\"\" align=\"left\">";
-        content += "<p class=\"content_title\"> &nbsp; ";
+        content += "<div id=\"info_logo\" class=\"calendar_logo\"></div>";
+        content += "<p class=\"title\"> &nbsp; ";
         content += truncate(getTag("summary", xml),25);
         content += "</p>";
         content += "<div class=\"clearDiv\">&nbsp;</div>";
         
-        content += "<p class=\"abs_dates\">";
-        content += "<span class=\"blue\"></span>" + stampFrom.substring(11,13) +"h"+ stampFrom.substring(14,16);
-        content += " &rarr; "+ stampTo.substring(11,13) +"h"+ stampTo.substring(14,16);
+        content += "<p class=\"huge\">";
+        var dateCl = (started? "error": "");
+        content += "<span class=\""+dateCl+"\">" + getHours(stampFrom) +"h"+getMinutes(stampFrom);
+        content += " &rarr; "+ getHours(stampTo) +"h"+getMinutes(stampTo) + "</span>";
         content += "<br></p>";
-        content += "<p class=\"abs_reason\">";
+        content += "<p class=\"large\">";
         if ("" != getTag("location", xml)) {
             content += "("+getTag("location", xml)+")"
         } else { content += "Lieu indeterminé !"; }
         content += "<br></p>";
-        content += "<p class=\"abs_teacher\">";
+        content += "<p class=\"huge\">";
         if ("" != getTag("description", xml)) {
             content += truncate(getTag("description", xml),75);
         } else { content += "Pas de description !"; }
@@ -57,4 +61,4 @@ var iCalHandler = Class.create(jSeduiteTransformation, {
         content += "</center>";
         return [content]; 
     }
-});
+}); 

@@ -30,15 +30,6 @@ function dispatch(e) {
   	}
 }
 
-function setLoadingState(){
-    var loading = "<center><img src=\"templates/_img/loading-polytech.gif\" alt=\"\" /></center>";
-    $('main').update("<br/> <br/> <br/><br/><br/>" + loading);
-}
-
-function removeLoadingState() {
-    $('main').update("");
-}
-
 function loadCss(file)
 {
     var css = new Element('link', { rel: "stylesheet", type: "text/css",
@@ -62,7 +53,7 @@ function buildSpan(i, c, txt) {
 
 function truncate(str, length) {
     if (str.length > length)
-        return str.substring(0,length) + "...";
+        return str.substring(0,length) + " ...";
     return str;
 }
 
@@ -74,6 +65,27 @@ function imageHacking(imgName) {
 	var slash = imgName.lastIndexOf('/', imgName.length);
     return imgName.substring(0, slash) + (isPicasa? "/s800": "")
            + imgName.substring(slash, imgName.length);
+}
+
+
+function getHours(stamp)  { return stamp.substring(11,13); }
+function getMinutes(stamp){ return stamp.substring(14,16); }
+
+function isAfter(stamp, aDate) {
+    return ( (aDate.getHours() < getHours(stamp))
+             || ( (aDate.getHours() == getHours(stamp))
+                  && aDate.getMinutes() < getMinutes(stamp)));
+}
+
+function isBefore(stamp, aDate) {
+     return ( (aDate.getHours() > getHours(stamp))
+              || ( (aDate.getHours() == getHours(stamp))
+                    && aDate.getMinutes() > getMinutes(stamp)));
+}
+
+function isTheSame(stamp, aDate) {
+    return (aDate.getHours() == getHours(stamp))
+            && (aDate.getMinutes() == getMinutes(stamp));
 }
 
 /*--------------------------------------------------------------------------

@@ -24,7 +24,7 @@
 
 var edtHandler = Class.create(jSeduiteTransformation, {
     perform: function(xml) {
-        var raws = this.ignore($A(getNode("ns0:item", xml)));
+        var raws = this.ignore($A(getNode("item", xml)));
         var lectures = raws.sort(function(a,b) { return getTag("start",a) > getTag("start",b); });
         var screens = new Array();
         for(var i = 0; i < lectures.length; i = i+3) {
@@ -48,8 +48,8 @@ var edtHandler = Class.create(jSeduiteTransformation, {
     },
     buildScreen: function(first, second, third) {
         var content = "";
-        content += "<img class=\"logo\" src=\"templates/_logos/edt.png\" alt=\"\" align=\"left\">";
-        content += "<p class=\"content_title\"> &nbsp; ";
+        content += "<div id=\"info_logo\" class=\"timetable_logo\"></div>";
+        content += "<p class=\"title\"> &nbsp; ";
         content += getTag("promo", first);
         content += "</p>";
         content += this.build(first);
@@ -63,8 +63,15 @@ var edtHandler = Class.create(jSeduiteTransformation, {
         var content = "";
         content += "<table class=\"timetable\">";
 		content +="<tr class=\"odd\">";
+        var now = new Date();
+        var stampFrom = getTag("start",elem);
+        var stampTo = getTag("end",elem);
+        var started = false;
+        if (isBefore(stampFrom,now) && isAfter(stampTo, now))
+            started = true;
+        var startedCl = (started? "error": "emphasize");
 		content +="<td colspan=\"2\">";
-		content += truncate(getTag("course", elem),20);
+		content += ""+truncate(getTag("course", elem),20)+"";
 		content +="</td>";
 		content +="<td class=\"tdRight\">";
 		content +=getTags("groups", elem);
@@ -75,7 +82,7 @@ var edtHandler = Class.create(jSeduiteTransformation, {
 		var stampCB = stampB.substring(11,13)+"h"+stampB.substring(14,16);
 		var stampCE = stampE.substring(11,13)+"h"+stampE.substring(14,16);
 		content +="<tr class=\"even\">";
-		content +="<td><span class=\"blue\">"+stampCB+" &rarr; "+stampCE+"</span></td>";
+		content +="<td><span class=\""+startedCl+"\">"+stampCB+" &rarr; "+stampCE+"</span></td>";
 		content +="<td class=\"tdCenter\"> </td>";
         var raw_rooms = getTags("rooms", elem);
         var rooms = raw_rooms.map(function(e) { 
@@ -86,7 +93,7 @@ var edtHandler = Class.create(jSeduiteTransformation, {
                 return id + "Luc.";
             }
         });
-		content +="<td class=\"tdRight\"><span class=\"blue\">"+rooms +"</span></td>";
+		content +="<td class=\"tdRight\"><span class=\""+startedCl+"\">"+rooms +"</span></td>";
 		content +="</tr>";
 		content += "</table>";
         return content;

@@ -27,8 +27,8 @@ var pictAlbumTransfo = Class.create(jSeduiteTransformation, {
     handle: function(aDiv,xml,delta, callback) {
         var diapo = new Diaporama(this.buildImgs(xml), delta, callback);
         var content = "";
-        content += "<img class=\"logo\" src=\"templates/_logos/pict.png\" alt=\"\" align=\"left\">";
-        content += "<p class=\"content_title\"> &nbsp; "+getTag("ns0:name",xml)+"</p>";
+        content += "<div id=\"info_logo\" class=\"album_logo\"></div>";
+        content += "<p class=\"title\"> &nbsp; "+getTag("name",xml)+"</p>";
         content += diapo.prepare();
         aDiv.update(content);
         diapo.start();
@@ -37,7 +37,7 @@ var pictAlbumTransfo = Class.create(jSeduiteTransformation, {
     },
     buildImgs: function(xml) {
         var result = new Array();
-        var items = getNode("ns0:item", xml);
+        var items = getNode("item", xml);
         for(var k=0; k < items.length; k++){
             result.push(imageHacking(items[k].textContent));
         }

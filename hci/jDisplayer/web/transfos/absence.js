@@ -25,22 +25,22 @@
 var absenceHandler = Class.create(jSeduiteTransformation, {
     perform: function(xml) {
         var content = "";
-        content += "<img class=\"logo\" src=\"templates/_logos/absence.png\" alt=\"\" align=\"left\">";
-        content += "<p class=\"content_title\"> &nbsp; Absence du personnel </p>";
+        content += "<div id=\"info_logo\" class=\"absence_logo\"></div>";
+        content += "<p class=\"title\"> &nbsp; Absence du personnel</p>";
         content += "<div class=\"clearDiv\">&nbsp;</div>";
-        content += "<p class=\"abs_teacher\">";
+        content += "<p class=\"huge\">";
         content += getTag("teacher", xml);
         content += "<br></p>";
-        content += "<p class=\"abs_teacher\">";
-        content += "<span class=\"blue\">sera absent(e)</span>";
+        content += "<p class=\"huge\">";
+        content += "<span class=\"emphasize\">sera absent(e)</span>";
         content += "</p>";
         var stampFrom = getTag("from", xml);
         var stampTo = getTag("until", xml);
-        content += "<p class=\"abs_dates\">";
-        content += "<span class=\"blue\">du</span> "+stampFrom.substring(8,10)+"/" + stampFrom.substring(5,7) + " " + stampFrom.substring(11,13) +"h"+ stampFrom.substring(14,16);
-        content += "<span class=\"blue\"> au</span> "+stampTo.substring(8,10)+"/" + stampTo.substring(5,7) + " " + stampTo.substring(11,13) +"h"+ stampTo.substring(14,16);
+        content += "<p class=\"huge\">";
+        content += "<span class=\"emphasize\">du</span> "+stampFrom.substring(8,10)+"/" + stampFrom.substring(5,7) + " " + stampFrom.substring(11,13) +"h"+ stampFrom.substring(14,16);
+        content += "<span class=\"emphasize\"> au</span> "+stampTo.substring(8,10)+"/" + stampTo.substring(5,7) + " " + stampTo.substring(11,13) +"h"+ stampTo.substring(14,16);
         content += "<br></p>";
-        content += "<p class=\"abs_reason\">";
+        content += "<p class=\"large\">";
         content += "("+getTag("reason", xml)+")";
         content += "</p>";
         content += "</center>";

@@ -25,16 +25,16 @@
 var feedHandler = Class.create(jSeduiteTransformation, {
     perform: function(xml) {
         var content = "";
-        content += "<img class=\"logo\" src=\"templates/_logos/rss.png\" alt=\"\" align=\"left\">";
-        content += "<p class=\"content_title\">";
+        content += "<div id=\"info_logo\" class=\"feed_logo\"></div>";
+        content += "<p class=\"title\">";
         content += truncate(getTag("author", xml),35);
         content += "</p>";
         content += "<div class=\"clearDiv\">&nbsp;</div>";
-        content += "<span class=\"in_author\">";
+        content += "<span class=\"feed_title\">";
         content += getTag("title", xml);
         content += "</span>";
-        content += "<p class=\"in_content\">";
-        content += truncate(unescape(getTag("content", xml)),80);
+        content += "<p class=\"feed_content\">";
+        content += truncate(unescape(getTag("content", xml)),90);
         content += "</p>";
         return [content];
     }

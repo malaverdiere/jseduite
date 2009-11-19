@@ -1,4 +1,29 @@
-body {}
+/**
+ * This file is part of jSeduite::util
+ *
+ * Copyright (C) 2008-  Sebastien Mosser
+ *
+ * jSeduite::util is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * jSeduite::util is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with jSeduite::util; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ *
+ * @author      Main     Celine Auzias          [celine.auzias@gmail.com]
+ * @contributor 2009     Sebastien Mosser       [mosser@polytech.unice.fr]
+ **/
+
+/*****************
+ * Date position *
+ *****************/
 
 #date_time{
     position:absolute;
@@ -9,255 +34,46 @@ body {}
     line-height:66px;
 }
 
-.error{ color:#ff0000; }
+/*******************
+ * Special classes *
+ *******************/
 
-.blue{ color:#20709e; }
+.clearDiv { display:block; clear:both; }
 
-.little{ font-size:150%; }
-
-body
-{
-    background: #B2D5E5 url('_img/background.png') repeat top left;
-    font-family:arial;
-    font-size:120%;
-}
-
-#date_time
-{
-    text-align:center;
-    color:#ffffff;
-    font-size: 230%;
-    background: transparent url('_img/datetime.png') no-repeat top left;
-    font-family:arial;
-}
-
-/*****************
- *   DATE TIME   *
- ****************/
-
-
+/*********************
+ *   LOGS            *
+ ********************/
+ #logs{
+ 	position:absolute;
+ 	top:10px;
+ 	left:10px;
+ 	width:990px;
+	height:680px;
+	border:3px solid #000000;
+	background-color:#ffffff;
+	color:#000000;
+	display:none;
+	overflow:auto;
+ }
+ 
 /********************
  *   MAIN CONTENT   *
  *******************/
 #main {
-	width:912px;
-	height:520px;
+	width:912px; height:520px;
 	margin:0px auto 0 auto;
 	padding:60px 20px 10px 20px;
-    background-color: transparent;
-	background-image : url('_img/back_content.png');
-	background-repeat: no-repeat;
-	background-position:0px 118px;
-	color:#000000;
 	font-size:120%;
 }
 
-.mini_logo{
-	margin-right:15px;
-	margin-bottom:10px;
-}
+#info_logo { float: left; }
 
-.content_title{
-	color:#20709e;
-	font-weight:normal;
-	font-size:210%;
-	margin-top:14px;
-	margin-bottom:5px;
-}
+.title { margin-top: 14px; margin-bottom: 5px; }
 
-.clearDiv{
-	display:block;
-	clear:both;
-}
+/*************************
+ *   Scrolling Content   *
+ *************************/
 
-/** Internal news **/
-.in_logo{
-	background: transparent url('_img/in_logo.png') no-repeat top left;
-}
-
-
-p.in_content{
-	padding:0px;
-	font-size:230%;
-	margin:10px 0px 20px 0px;
-	text-align:justify;
-}
-
-.in_author{
-	color:#20709e;
-	font-size:220%;
-	font-style:italic;
-}
-
-.in_date{
-	color:#20709e;
-	font-size:220%;
-	font-style:italic;
-}
-
-/** Stud summon**/
-.sum_target{
-	color:#83d827;
-	padding-left:5px;
-	float:right;
-}
-
-p.sum_content{
-	padding:0px;
-	font-size:240%;
-	margin:0px 0px 0px 0px;
-	text-align:center;
-}
-
-
-.sum_date{
-	color:#20709e;
-	font-size:230%;
-	text-align:center;
-	font-style:italic;
-	text-align:center;
-}
-
-/** Abscence prof **/
-.abs_teacher{
-	font-size:240%;
-	text-align:center;
-	margin:0px 0px 20px 0px;
-}
-.abs_dates{
-	font-size:240%;
-	text-align:center;
-	margin:0px 0px 20px 0px;
-}
-
-.abs_reason{
-	font-size:230%;
-	text-align:center;
-	margin:0px 0px 20px 0px;
-}
-
-/** weather**/
-.weat_today{
-	font-size:250%;
-	padding:10px;
-}
-.weat_temp{
-	font-size:240%;
-	padding:20px 0 20px 0;
-}
-
-.t_min{ color:#20709e; }
-
-.t_max{ color:#ff8620; }
-
-.weat_infos{
-	font-size:220%;
-	display:block;
-	padding:0px;
-	background-color:#ffffff;
-	border:1px solid #DEDEDE;
-	text-align:center;
-}
-
-.w_wind {
-	margin-right:100px;
-}
-
-.w_press{
-	margin-right:10px;
-}
-
-.w_rain{
-
-}
-
-table.weather{ font-size:100%; }
-table.weather td { text-align:center; vertical-align:center;}
-
-.weat_day{
-	color:#20709e;
-	font-size:220%;
-	display:block;
-	font-style:italic;
-	padding:1px;
-	background-color:#ffffff;
-	border:1px solid #DEDEDE;
-	text-align:center;
-}
-
-.weat2_temp{ font-size:240%;}
-.weat4_temp{ font-size:230%;}
-
-.weat_day__img, .weat4_temp _img{
-	padding:5px;
-	background-color:#efefef;
-	border:1px solid #DEDEDE;
-	margin:5px;
-}
-
-/** tv show **/
-.tv_channel{
-	color:#ff0000;
-	font-size:220%;
-	display:block;
-	padding:0px;
-	background-color:#ffffff;
-	border:1px solid #DEDEDE;
-	text-align:center;
-}
-.tv_channel _img{
-	margin-right:0px;
-	margin-bottom:0px;
-}
-
-
-
-.tv_hour{
-	font-size:230%;
-	color:#20709e;
-	margin-right:10px;
-}
-
-.tv_title{
-	font-size:230%;
-}
-
-.tv_sum{
-	margin:0;
-}
-.tv_sum _img{
-	padding:5px;
-	background-color:#efefef;
-	border:1px solid #DEDEDE;
-	margin-right:5px;
-}
-
-
-/** images **/
-#diapo_content img{
-	width:61%;
-	height:61%;
-	padding:8px;
-	background-color:#efefef;
-	border:1px solid #DEDEDE;
-	margin:20px 130px 0 0;
-	max-height:371px;
-}
-
-#diapo_loading {
-	position:absolute;
-	display:block;
-	width:60px;
-	height:30px;
-	left:50%;
-	top:50%;
-}
-
-
-
-/*********************
- *   BREAKING_NEWS   *
- ********************/
 .scrolling_content {
     position:absolute;
     bottom:10px;
@@ -266,17 +82,9 @@ table.weather td { text-align:center; vertical-align:center;}
     width:992px;
     height:80px;
     line-height:80px;
-    color:#000000;
-    font-size:300%;
-    background: transparent url('_img/back_breaking_news.png') no-repeat top left;
-    font-family:arial;
-    overflow:hidden;
 }
 
-.scrolling_content_empty{
-	opacity: 0;
-	-moz-opacity:0;
-}
+.scrolling_content_empty { opacity: 0; -moz-opacity:0; }
 
 .scrolling_marquee{
 	width:1200px;
@@ -303,55 +111,26 @@ table.weather td { text-align:center; vertical-align:center;}
     right:0px;
     width:151px;
     height:77px;
-    background: transparent url('_img/back_logo.png') no-repeat top left;
 }
 
-/*********************
- *   LOGS            *
- ********************/
- #logs{
- 	position:absolute;
- 	top:10px;
- 	left:10px;
- 	width:990px;
-	height:680px;
-	border:3px solid #000000;
-	background-color:#ffffff;
-	color:#000000;
-	display:none;
-	overflow:auto;
- }
 
- /** APAL **/
+/*************
+ * Diaporama *
+ *************/
 
- .apal{
-     width:98%;
-     padding:4px 0 0 0;
-     margin:4px 0 0 0;
-     font-size:190%;
- }
+#diapo_content img{
+	width:61%;
+	height:61%;
+}
 
- .timetable{
-     width:98%;
-     padding:2px 0 0 0;
-     margin:2px 0 0 0;
-     font-size:190%;
-     border-collapse:collapse;
-     margin-bottom:15px;
- }
- .tdCenter{
-     text-align:center;
- }
+#diapo_loading {
+	position:absolute;
+	display:block;
+}
 
- .tdRight{
-     text-align:right;
- }
-
- .odd{
-     background-color:#acd2e3;
- }
-
- .even{
-     background-color:#dfecff;
- }
-
+/**********
+ * Arrays *
+ **********/
+ .tdCenter{ text-align:center; }
+ .tdRight { text-align:right;  }
+ 

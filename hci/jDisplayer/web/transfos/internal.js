@@ -25,14 +25,14 @@
 var internalNews = Class.create(jSeduiteTransformation, {
     perform: function(xml) {
         var content = "";
-        content += "<img class=\"logo\" src=\"templates/_logos/internal.png\" alt=\"\" align=\"left\">";
-        content += "<p class=\"content_title\"> &nbsp; ";
+        content += "<div id=\"info_logo\" class=\"internal_logo\"></div>";
+        content += "<p class=\"title\"> &nbsp; ";
         content += getTag("title", xml) + "</p>";
         content += "<div class=\"clearDiv\">&nbsp;</div>";
-        content += "<p class=\"in_content\">" +  getTag("content", xml) + "</p>"
-        content += "<span class=\"in_author\">" + getTag("author", xml) + "</span>"; 
+        content += "<p class=\"internal_content\">" +  getTag("content", xml) + "</p>"
+        content += "<span class=\"internal_author\">" + getTag("author", xml) + "</span>";
         var stampIN = getTag("start", xml);
-        content += "<span class=\"in_date\">";
+        content += "<span class=\"internal_date\">";
         content += " ("+stampIN.substring(8,10)+"/"+stampIN.substring(5,7)+")";
         content += "</span>";
         return [content];

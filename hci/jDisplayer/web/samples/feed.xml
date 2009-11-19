@@ -1,89 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
-  <SOAP-ENV:Body>
-    <ns1:GetInformationResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
-      <ns1:result>
-<ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
-          <ns1:feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
-            <author xmlns="">TV5.org info - La Une</author>
-            <content xmlns=""> Des dizaines de milliers de personnes fêtaient lundi dans les rues de Berlin les 20 ans de la chute du Mur, qui a signé la fin de la Guerre froide et permis la réunification de l'Allemagne et de l'Europe.Evénement</content>
-            <title xmlns="">Les 20 ans de la chute du Mur: la foule au rendez-vous à Berlin</title>
-            <type xmlns="">text/html</type>
-          </ns1:feedNews>
-        </ns0:item>
-        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
-          <ns1:feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
-            <author xmlns="">TV5.org info - La Une</author>
-            <content xmlns="">Rebondissement dans l'affaire du casse exceptionnel par un convoyeur de fonds la semaine dernière à Lyon : la police a annoncé lundi avoir retrouvé neuf des 11 millions d'euros dérobés, tandis que l'homme, Toni Musulin, traqué à travers l'Europe, reste introuvable.</content>
-            <title xmlns="">Fourgon volé : le convoyeur a laissé plus de 9 millions d'euros derrière lui à Lyon</title>
-            <type xmlns="">text/html</type>
-          </ns1:feedNews>
-        </ns0:item>
-        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
-          <ns1:feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
-            <author xmlns="">TV5.org info - La Une</author>
-            <content xmlns="">Deux grèves sont à l'origine lundi de très fortes perturbations en Ile-de-France sur le RER A, affectant le million de passagers quotidiens de cette ligne, et dans une moindre mesure le RER B, où une réorganisation du travail par la RATP et la SNCF est au coeur du conflit.</content>
-            <title xmlns="">Deux grèves perturbent fortement le RER A, la ligne B également touchée</title>
-            <type xmlns="">text/html</type>
-          </ns1:feedNews>
-        </ns0:item>
-        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
-          <ns1:feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
-            <author xmlns="">TV5.org info - La Une</author>
-            <content xmlns="">Des souvenirs qui s'emmêlent ou la tentation de se faire une place au soleil de l'Histoire ? Le récit par le président Nicolas Sarkozy de "son" 9 novembre 1989 à Berlin suscite un flot de commentaires étonnés, voire ironiques, qui en dénoncent les incohérences, notamment de date.</content>
-            <title xmlns="">Le 9 novembre 1989 de Nicolas Sarkozy en question sur la toile</title>
-            <type xmlns="">text/html</type>
-          </ns1:feedNews>
-        </ns0:item>
-        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
-          <ns1:feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
-            <author xmlns="">TV5.org info - La Une</author>
-            <content xmlns="">Le militaire d'origine palestinienne soupçonné d'avoir ouvert le feu à la base de Fort Hood au Texas a commencé à parler, a annoncé lundi l'armée américaine, quatre jours après le massacre qui a fait 13 morts et 28 blessés.</content>
-            <title xmlns="">Fusillade aux Etats-Unis: l'auteur de la tuerie s'est mis à parler</title>
-            <type xmlns="">text/html</type>
-          </ns1:feedNews>
-        </ns0:item>
-        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
-          <ns1:feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
-            <author xmlns="">Antibes : actu quotidienne locale départementale sportive </author>
-            <content xmlns="">lundi 09 novembre 2009&lt;br&gt; &lt;p class="nm_txt_1_lettrine_courant"&gt;L'&amp;#233;changeur autoroutier de Biot est une nouvelle fois sur le devant de la sc&amp;#232;ne. Ce vieux serpent de mer refait surface apr&amp;#232;s de nombreuses ann&amp;#233;es de tergiversations : il y a pr&amp;#232;s de 20 ans, on en parlait d&amp;#233;j&amp;#224;.&lt;/p&gt; &lt;br&gt;&lt;br&gt; circulation Des études sont en cours pour déterminer un nouvel emplacement en tenant compte de la zone inondable qui avait fait capoter le premier projet </content>
-            <title xmlns=""> L'échangeur autoroutier de Biot refait surface  (Nice-Matin)</title>
-            <type xmlns="">text/html</type>
-          </ns1:feedNews>
-        </ns0:item>
-        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
-          <ns1:feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
-            <author xmlns="">Antibes : actu quotidienne locale départementale sportive </author>
-            <content xmlns="">lundi 09 novembre 2009&lt;br&gt; &lt;p class="nm_txt_1_lettrine_courant"&gt;L'&amp;#233;changeur autoroutier de Biot est une nouvelle fois sur le devant de la sc&amp;#232;ne. Ce vieux serpent de mer refait surface apr&amp;#232;s de nombreuses ann&amp;#233;es de tergiversations : il y a pr&amp;#232;s de 20 ans, on en parlait d&amp;#233;j&amp;#224;.&lt;/p&gt; &lt;br&gt;&lt;br&gt; circulation Des études sont en cours pour déterminer un nouvel emplacement en tenant compte de la zone inondable qui avait fait capoter le premier projet </content>
-            <title xmlns=""> L'échangeur autoroutier de Biot refait surface  (Nice-Matin)</title>
-            <type xmlns="">text/html</type>
-          </ns1:feedNews>
-        </ns0:item>
-        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
-          <ns1:feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
-            <author xmlns="">Antibes : actu quotidienne locale départementale sportive </author>
-            <content xmlns="">lundi 09 novembre 2009&lt;br&gt; &lt;p class="nm_tit_encadre_new"&gt;L'histoire du jour&lt;/p&gt; &lt;br&gt;&lt;br&gt;  </content>
-            <title xmlns=""> Il tombe du brancard et retourne à l'hosto  (Nice-Matin)</title>
-            <type xmlns="">text/html</type>
-          </ns1:feedNews>
-        </ns0:item>
-        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
-          <ns1:feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
-            <author xmlns="">Antibes : actu quotidienne locale départementale sportive </author>
-            <content xmlns="">lundi 09 novembre 2009&lt;br&gt; &lt;p class="nm_txt_1_lettrine_courant"&gt;&lt;span class="unused"&gt;Les milliers de dossiers qui &amp;#233;taient en souffrance avant 2007 sont peu &amp;#224; peu r&amp;#233;sorb&amp;#233;s dans les Alpes-Maritimes.&lt;/span&gt;&lt;/p&gt; &lt;br&gt;&lt;br&gt; immigration Les milliers de dossiers qui étaient en souffrance avant 2007 sont peu à peu résorbés dans les Alpes-Maritimes </content>
-            <title xmlns=""> Naturalisations : plus de moyens pour mieux traiter les demandes  (Nice-Matin)</title>
-            <type xmlns="">text/html</type>
-          </ns1:feedNews>
-        </ns0:item>
-        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
-          <ns1:feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
-            <author xmlns="">Antibes : actu quotidienne locale départementale sportive </author>
-            <content xmlns="">lundi 09 novembre 2009&lt;br&gt; &lt;p class="nm_txt_1_lettrine_courant"&gt;&lt;span class="unused"&gt;Les milliers de dossiers qui &amp;#233;taient en souffrance avant 2007 sont peu &amp;#224; peu r&amp;#233;sorb&amp;#233;s dans les Alpes-Maritimes.&lt;/span&gt;&lt;/p&gt; &lt;br&gt;&lt;br&gt; immigration Les milliers de dossiers qui étaient en souffrance avant 2007 sont peu à peu résorbés dans les Alpes-Maritimes </content>
-            <title xmlns=""> Naturalisations : plus de moyens pour mieux traiter les demandes  (Nice-Matin)</title>
-            <type xmlns="">text/html</type>
-          </ns1:feedNews>
-        </ns0:item>
-      </ns1:result>
-    </ns1:GetInformationResponse>
- </SOAP-ENV:Body>
+    <SOAP-ENV:Body>
+        <GetInformationResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+            <result>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
+                    <feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+                        <author xmlns="">TV5.org info - La Une</author>
+                        <content xmlns=""> Des dizaines de milliers de personnes fêtaient lundi dans les rues de Berlin les 20 ans de la chute du Mur, qui a signé la fin de la Guerre froide et permis la réunification de l'Allemagne et de l'Europe.Evénement</content>
+                        <title xmlns="">Les 20 ans de la chute du Mur: la foule au rendez-vous à Berlin</title>
+                        <type xmlns="">text/html</type>
+                    </feedNews>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
+                    <feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+                        <author xmlns="">TV5.org info - La Une</author>
+                        <content xmlns="">Rebondissement dans l'affaire du casse exceptionnel par un convoyeur de fonds la semaine dernière à Lyon : la police a annoncé lundi avoir retrouvé neuf des 11 millions d'euros dérobés, tandis que l'homme, Toni Musulin, traqué à travers l'Europe, reste introuvable.</content>
+                        <title xmlns="">Fourgon volé : le convoyeur a laissé plus de 9 millions d'euros derrière lui à Lyon</title>
+                        <type xmlns="">text/html</type>
+                    </feedNews>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
+                    <feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+                        <author xmlns="">TV5.org info - La Une</author>
+                        <content xmlns="">Deux grèves sont à l'origine lundi de très fortes perturbations en Ile-de-France sur le RER A, affectant le million de passagers quotidiens de cette ligne, et dans une moindre mesure le RER B, où une réorganisation du travail par la RATP et la SNCF est au coeur du conflit.</content>
+                        <title xmlns="">Deux grèves perturbent fortement le RER A, la ligne B également touchée</title>
+                        <type xmlns="">text/html</type>
+                    </feedNews>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
+                    <feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+                        <author xmlns="">TV5.org info - La Une</author>
+                        <content xmlns="">Des souvenirs qui s'emmêlent ou la tentation de se faire une place au soleil de l'Histoire ? Le récit par le président Nicolas Sarkozy de "son" 9 novembre 1989 à Berlin suscite un flot de commentaires étonnés, voire ironiques, qui en dénoncent les incohérences, notamment de date.</content>
+                        <title xmlns="">Le 9 novembre 1989 de Nicolas Sarkozy en question sur la toile</title>
+                        <type xmlns="">text/html</type>
+                    </feedNews>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
+                    <feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+                        <author xmlns="">TV5.org info - La Une</author>
+                        <content xmlns="">Le militaire d'origine palestinienne soupçonné d'avoir ouvert le feu à la base de Fort Hood au Texas a commencé à parler, a annoncé lundi l'armée américaine, quatre jours après le massacre qui a fait 13 morts et 28 blessés.</content>
+                        <title xmlns="">Fusillade aux Etats-Unis: l'auteur de la tuerie s'est mis à parler</title>
+                        <type xmlns="">text/html</type>
+                    </feedNews>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
+                    <feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+                        <author xmlns="">Antibes : actu quotidienne locale départementale sportive </author>
+                        <content xmlns="">lundi 09 novembre 2009&lt;br&gt; &lt;p class="nm_txt_1_lettrine_courant"&gt;L'&amp;#233;changeur autoroutier de Biot est une nouvelle fois sur le devant de la sc&amp;#232;ne. Ce vieux serpent de mer refait surface apr&amp;#232;s de nombreuses ann&amp;#233;es de tergiversations : il y a pr&amp;#232;s de 20 ans, on en parlait d&amp;#233;j&amp;#224;.&lt;/p&gt; &lt;br&gt;&lt;br&gt; circulation Des études sont en cours pour déterminer un nouvel emplacement en tenant compte de la zone inondable qui avait fait capoter le premier projet </content>
+                        <title xmlns=""> L'échangeur autoroutier de Biot refait surface  (Nice-Matin)</title>
+                        <type xmlns="">text/html</type>
+                    </feedNews>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
+                    <feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+                        <author xmlns="">Antibes : actu quotidienne locale départementale sportive </author>
+                        <content xmlns="">lundi 09 novembre 2009&lt;br&gt; &lt;p class="nm_txt_1_lettrine_courant"&gt;L'&amp;#233;changeur autoroutier de Biot est une nouvelle fois sur le devant de la sc&amp;#232;ne. Ce vieux serpent de mer refait surface apr&amp;#232;s de nombreuses ann&amp;#233;es de tergiversations : il y a pr&amp;#232;s de 20 ans, on en parlait d&amp;#233;j&amp;#224;.&lt;/p&gt; &lt;br&gt;&lt;br&gt; circulation Des études sont en cours pour déterminer un nouvel emplacement en tenant compte de la zone inondable qui avait fait capoter le premier projet </content>
+                        <title xmlns=""> L'échangeur autoroutier de Biot refait surface  (Nice-Matin)</title>
+                        <type xmlns="">text/html</type>
+                    </feedNews>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
+                    <feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+                        <author xmlns="">Antibes : actu quotidienne locale départementale sportive </author>
+                        <content xmlns="">lundi 09 novembre 2009&lt;br&gt; &lt;p class="nm_tit_encadre_new"&gt;L'histoire du jour&lt;/p&gt; &lt;br&gt;&lt;br&gt;  </content>
+                        <title xmlns=""> Il tombe du brancard et retourne à l'hosto  (Nice-Matin)</title>
+                        <type xmlns="">text/html</type>
+                    </feedNews>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
+                    <feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+                        <author xmlns="">Antibes : actu quotidienne locale départementale sportive </author>
+                        <content xmlns="">lundi 09 novembre 2009&lt;br&gt; &lt;p class="nm_txt_1_lettrine_courant"&gt;&lt;span class="unused"&gt;Les milliers de dossiers qui &amp;#233;taient en souffrance avant 2007 sont peu &amp;#224; peu r&amp;#233;sorb&amp;#233;s dans les Alpes-Maritimes.&lt;/span&gt;&lt;/p&gt; &lt;br&gt;&lt;br&gt; immigration Les milliers de dossiers qui étaient en souffrance avant 2007 sont peu à peu résorbés dans les Alpes-Maritimes </content>
+                        <title xmlns=""> Naturalisations : plus de moyens pour mieux traiter les demandes  (Nice-Matin)</title>
+                        <type xmlns="">text/html</type>
+                    </feedNews>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="feed_reader">
+                    <feedNews xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/FeedReader" xmlns:ns2="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+                        <author xmlns="">Antibes : actu quotidienne locale départementale sportive </author>
+                        <content xmlns="">lundi 09 novembre 2009&lt;br&gt; &lt;p class="nm_txt_1_lettrine_courant"&gt;&lt;span class="unused"&gt;Les milliers de dossiers qui &amp;#233;taient en souffrance avant 2007 sont peu &amp;#224; peu r&amp;#233;sorb&amp;#233;s dans les Alpes-Maritimes.&lt;/span&gt;&lt;/p&gt; &lt;br&gt;&lt;br&gt; immigration Les milliers de dossiers qui étaient en souffrance avant 2007 sont peu à peu résorbés dans les Alpes-Maritimes </content>
+                        <title xmlns=""> Naturalisations : plus de moyens pour mieux traiter les demandes  (Nice-Matin)</title>
+                        <type xmlns="">text/html</type>
+                    </feedNews>
+                </item>
+            </result>
+        </GetInformationResponse>
+    </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>

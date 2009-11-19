@@ -25,7 +25,7 @@
 var tv_shows_array = Class.create(jSeduiteTransformation, {
     initialize: function(treshold) { this.treshold = treshold; },
     perform: function(xml) {
-        var items = getNode("ns0:item", xml);
+        var items = getNode("item", xml);
         var raw = new Array(); 
         var rawCpt = 0;
         for(var i = 0; i < items.length; i = i+2)
@@ -44,15 +44,15 @@ var tv_shows_array = Class.create(jSeduiteTransformation, {
         return r + this.buildAnItem(first) + this.buildAnItem(second);
     },
     buildAnItem: function(item) {
-        var r = buildSpan(null, "tv_hour", getTag("ns0:start", item));
-        r += buildSpan(null,"tv_title", truncate(getTag("ns0:title",item),29));
+        var r = buildSpan(null, "tv_hour", getTag("start", item));
+        r += buildSpan(null,"tv_title", truncate(getTag("title",item),24));
         r += "<br />";
         return r;
     },
     buildAScreen: function(ch1, ch2) {
         var result = "";
-        result += "<img class=\"logo\" src=\"templates/_logos/tv.png\" align=\"left\">";
-        result += "<p class=\"content_title\"> &nbsp; Programme TV</p>";
+        result += "<div id=\"info_logo\" class=\"tv_logo\"></div>";
+        result += "<p class=\"title\"> &nbsp; Programme TV</p>";
         result += "<br /> <br />";
         result += ch1 + ch2;
         return result;

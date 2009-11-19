@@ -27,7 +27,7 @@ var apal_array = Class.create(jSeduiteTransformation, {
         this.treshold = treshold;
     },
     perform: function(xml) {
-        var dispatch = this.dispatch(getNode("ns0:item", xml));
+        var dispatch = this.dispatch(getNode("item", xml));
         var promos = dispatch["keys"].sort(function (a,b){ return a > b; });
         var values = dispatch["values"];
         var result = new Array();
@@ -37,18 +37,18 @@ var apal_array = Class.create(jSeduiteTransformation, {
     },
     buildAPromo: function(name, elements) {
     	var screen = "";
-        screen += "<img class=\"logo\" src=\"templates/_logos/apal.png\" alt=\"\" align=\"left\">";
+        screen += "<div id=\"info_logo\" class=\"apal_logo\"></div>";
         var items = elements.sort(function (a,b) {
             return  new Number(getTag("counter",a)) < new Number(getTag("counter",b));
         });
-        screen += "<p class=\"content_title\"> &nbsp; Absences: Top " + this.treshold + " (" + name + ")";
+        screen += "<p class=\"title\"> &nbsp; Absences : Top " + this.treshold + " (" + name + ")";
         screen += "</p>";
         screen += "<div class=\"clearDiv\">&nbsp;</div>";
         screen += "<table class=\"apal\">";
         for (var i = 0; i < this.treshold && i < items.length; i++) {
             screen +=(i%2==0)?"<tr class=\"odd\">":"<tr class=\"even\">";
             screen += "<td> " + (i+1) + ".</td>"
-            screen +="<td>";
+            screen +="<td> &nbsp; ";
             screen +=getTag("firstname",items[i])+" ";
             screen +=getTag("lastname", items[i]);
             screen +="</td>";

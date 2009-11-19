@@ -21,28 +21,4 @@
  * @contributor 2009     Celine Auzias          [celine.auzias@gmail.com]
  **/
 
-var speed_scrolling = 15;
-/** PRIVATE CONFIG, DO NOT TOUCH **/
-//var provider_url = null;
-var engine = null;
-var debug = null;
 
-
-function jSeduiteInit() {
-    init_date();
-    // Reading URL arguments
-    var args = new String(window.location).toQueryParams();
-    var tpl    = (null == args["tpl"]     ? "default" : args["tpl"]);
-    var screen = (null == args["display"] ? null      : args["display"]);
-    var debug  = (null == args["dbg"]     ? "F"       : args["dbg"]);
-    // start the engine according to such parameters
-    startEngine(tpl, screen, debug);
-}
-
-function startEngine(template, screen, debug)
-{
-    var url = null;
-    if ("F" != debug) { url = "samples/" + debug + ".xml"; }
-    else { url = "proxy.jsp?display=" + screen; }
-    engine =  new jSeduiteEngine(url, screen,template);
-}
