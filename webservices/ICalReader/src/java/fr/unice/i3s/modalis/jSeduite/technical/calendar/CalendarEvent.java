@@ -28,12 +28,13 @@ import net.fortuna.ical4j.model.property.*;
 import java.util.Iterator;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 /** A data class to store calendar events in a more simple way than ICal model
  * @author mosser
  */
-public class CalendarEvent implements Serializable {
+public class CalendarEvent implements Serializable, Comparable<CalendarEvent> {
     
     private String summary;
     private String description;
@@ -51,7 +52,9 @@ public class CalendarEvent implements Serializable {
         while(it.hasNext()) {
           result.add(new CalendarEvent((Component) it.next()));
         }
-        return result.toArray(new CalendarEvent[result.size()]);
+        CalendarEvent[] r = result.toArray(new CalendarEvent[result.size()]);
+        Arrays.sort(r);
+        return r;
     }
 
 
@@ -131,5 +134,13 @@ public class CalendarEvent implements Serializable {
     public void setLocation(String location) {
         this.location = location;
     }
-    
+
+    public int compareTo(CalendarEvent o) {
+        Date mine = this.getStart();
+        Date other = o.getStart();
+        return mine.compareTo(other);
+    }
+
+    /** comparable methods **/
+
 }
