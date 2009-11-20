@@ -68,24 +68,21 @@ function imageHacking(imgName) {
 }
 
 
-function getHours(stamp)  { return stamp.substring(11,13); }
-function getMinutes(stamp){ return stamp.substring(14,16); }
-
-function isAfter(stamp, aDate) {
-    return ( (aDate.getHours() < getHours(stamp))
-             || ( (aDate.getHours() == getHours(stamp))
-                  && aDate.getMinutes() < getMinutes(stamp)));
+function buildDateFromStamp(stamp) {
+    var year    = stamp.substring(0,4);
+    var month   = (stamp.substring(5,7) - 1);
+    var day     = stamp.substring(8,10);
+    var hours   = stamp.substring(11,13);
+    var minutes = stamp.substring(14,16);
+    return new Date(year,month,day,hours,minutes);
 }
 
-function isBefore(stamp, aDate) {
-     return ( (aDate.getHours() > getHours(stamp))
-              || ( (aDate.getHours() == getHours(stamp))
-                    && aDate.getMinutes() > getMinutes(stamp)));
-}
-
-function isTheSame(stamp, aDate) {
-    return (aDate.getHours() == getHours(stamp))
-            && (aDate.getMinutes() == getMinutes(stamp));
+function dateToString(aDate) {
+    var h = "" + aDate.getHours();
+    var m = "" + aDate.getMinutes()
+    h = (h.length < 2? "0"+h: h);
+    m = (m.length < 2? "0"+m: m);
+    return h + "h" + m;
 }
 
 /*--------------------------------------------------------------------------

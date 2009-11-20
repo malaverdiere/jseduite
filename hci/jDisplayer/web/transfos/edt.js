@@ -23,6 +23,9 @@
 
 
 var edtHandler = Class.create(jSeduiteTransformation, {
+    initialize: function (delta) {
+      this.delta = delta;
+    },
     perform: function(xml) {
         var raws = this.ignore($A(getNode("item", xml)));
         var lectures = raws.sort(function(a,b) { return getTag("start",a) > getTag("start",b); });
@@ -33,18 +36,15 @@ var edtHandler = Class.create(jSeduiteTransformation, {
         return screens;
     },
     ignore: function(raw) {
-        var now = new Date();
+        var d = this.delta;
         return raw.filter( function(e) {
-            var stampFrom = getTag("start",e);
-            var stampTo = getTag("end",e);
-            var before = ((now.getHours() <= stampFrom.substring(11,13))
-                           && now.getMinutes() < stampFrom.substring(14,16));
-            var after = ((now.getHours() > stampTo.substring(11,13)) ||
-                            ( (now.getHours() == stampTo.substring(11,13))
-                               && now.getMinutes() > stampTo.substring(14,16)));
-            return (before || (! before && !after));
-        }
-        );
+            var start = buildDateFromStamp(getTag("start",e));
+            var end = buildDateFromStamp(getTag("end",e));
+            var now = new Date();
+            var next = new Date(now);
+            next.setHours(now.getHours() + d);
+            return ((start <= now && now < end) || (now < start && start <= next));
+        });
     },
     buildScreen: function(first, second, third) {
         var content = "";
@@ -64,12 +64,8 @@ var edtHandler = Class.create(jSeduiteTransformation, {
         content += "<table class=\"timetable\">";
 		content +="<tr class=\"odd\">";
         var now = new Date();
-        var stampFrom = getTag("start",elem);
-        var stampTo = getTag("end",elem);
-        var started = false;
-        if (isBefore(stampFrom,now) && isAfter(stampTo, now))
-            started = true;
-        var startedCl = (started? "error": "emphasize");
+        var from = buildDateFromStamp(getTag("start",elem));
+        var to = buildDateFromStamp(getTag("end",elem));
 		content +="<td colspan=\"2\">";
 		content += ""+truncate(getTag("course", elem),20)+"";
 		content +="</td>";
@@ -77,12 +73,9 @@ var edtHandler = Class.create(jSeduiteTransformation, {
 		content +=getTags("groups", elem);
 		content +="</td>";
 		content +="</tr>";
-		var stampB = getTag("start", elem);
-		var stampE = getTag("end", elem);
-		var stampCB = stampB.substring(11,13)+"h"+stampB.substring(14,16);
-		var stampCE = stampE.substring(11,13)+"h"+stampE.substring(14,16);
 		content +="<tr class=\"even\">";
-		content +="<td><span class=\""+startedCl+"\">"+stampCB+" &rarr; "+stampCE+"</span></td>";
+        var startedCl = ((from <= now && now < to)? "error": "emphasize");
+		content +="<td><span class=\""+startedCl+"\">"+dateToString(from)+" &rarr; "+dateToString(to)+"</span></td>";
 		content +="<td class=\"tdCenter\"> </td>";
         var raw_rooms = getTags("rooms", elem);
         var rooms = raw_rooms.map(function(e) { 

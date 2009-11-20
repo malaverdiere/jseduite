@@ -41,7 +41,7 @@ polytech.declare("feed_reader",    new feedHandler(),        5);
 polytech.declare("stud_summon",    new studSummon(),         5);
 
 polytech.declare("calendar",       new iCalHandler(),        5);
-polytech.declare("timetable",      new edtHandler(),         5);
+polytech.declare("timetable",      new edtHandler(1),        5);
 
 // dispatching the information kinds in the display loops
 polytech.dispatch = function(k) {

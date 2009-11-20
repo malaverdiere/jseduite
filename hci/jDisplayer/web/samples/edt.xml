@@ -9,102 +9,102 @@
               <item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
                 <building xmlns="">Lucioles</building>
                 <course xmlns="">Analyse</course>
-                <end xmlns="">2009-11-09T16:30:00+01:00</end>
+                <end xmlns="">2009-11-20T16:30:00+01:00</end>
                 <groups xmlns="">G1</groups>
                 <kind xmlns="">TD</kind>
                 <promo xmlns="">Cycle Prépa 1A</promo>
                 <rooms xmlns="">C4 Luc.</rooms>
-                <start xmlns="">2009-11-09T15:00:00+01:00</start>
+                <start xmlns="">2009-11-20T15:00:00+01:00</start>
                 <teachers xmlns="">M. Bourgeois</teachers>
               </item>
               <item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
                 <building xmlns="">Lucioles</building>
                 <course xmlns="">Circuits</course>
-                <end xmlns="">2009-11-09T11:15:00+01:00</end>
+                <end xmlns="">2009-11-20T11:15:00+01:00</end>
                 <groups xmlns="">G1</groups>
                 <groups xmlns="">G2</groups>
                 <kind xmlns="">Cours Int</kind>
                 <promo xmlns="">Cycle Prépa 1A</promo>
                 <rooms xmlns="">C3 Luc.</rooms>
-                <start xmlns="">2009-11-09T09:45:00+01:00</start>
+                <start xmlns="">2009-11-20T09:45:00+01:00</start>
                 <teachers xmlns="">Mme Vigouroux</teachers>
               </item>
               <item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
                 <building xmlns="">Lucioles</building>
                 <course xmlns="">SD. Programmation</course>
-                <end xmlns="">2009-11-09T16:30:00+01:00</end>
+                <end xmlns="">2009-11-20T16:30:00+01:00</end>
                 <groups xmlns="">G2</groups>
                 <kind xmlns="">TD</kind>
                 <promo xmlns="">Cycle Prépa 1A</promo>
                 <rooms xmlns="">TD13 Luc.</rooms>
-                <start xmlns="">2009-11-09T15:00:00+01:00</start>
+                <start xmlns="">2009-11-20T15:00:00+01:00</start>
                 <teachers xmlns="">M. Marlin</teachers>
               </item>
               <item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
                 <building xmlns="">Lucioles</building>
                 <course xmlns="">Analyse</course>
-                <end xmlns="">2009-11-09T18:15:00+01:00</end>
+                <end xmlns="">2009-11-20T18:15:00+01:00</end>
                 <groups xmlns="">G2</groups>
                 <kind xmlns="">TD</kind>
                 <promo xmlns="">Cycle Prépa 1A</promo>
                 <rooms xmlns="">C4 Luc.</rooms>
-                <start xmlns="">2009-11-09T16:45:00+01:00</start>
+                <start xmlns="">2009-11-20T16:45:00+01:00</start>
                 <teachers xmlns="">M. Bourgeois</teachers>
               </item>
               <item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
                 <building xmlns="">Lucioles</building>
                 <course xmlns="">Analyse</course>
-                <end xmlns="">2009-11-09T11:15:00+01:00</end>
+                <end xmlns="">2009-11-20T11:15:00+01:00</end>
                 <groups xmlns="">G3</groups>
                 <kind xmlns="">TD</kind>
                 <promo xmlns="">Cycle Prépa 1A</promo>
                 <rooms xmlns="">285 Luc.</rooms>
-                <start xmlns="">2009-11-09T09:45:00+01:00</start>
+                <start xmlns="">2009-11-20T09:45:00+01:00</start>
                 <teachers xmlns="">M. Bourgeois</teachers>
               </item>
               <item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
                 <building xmlns="">Lucioles</building>
                 <course xmlns="">Analyse</course>
-                <end xmlns="">2009-11-09T11:15:00+01:00</end>
+                <end xmlns="">2009-11-20T11:15:00+01:00</end>
                 <groups xmlns="">G4</groups>
                 <kind xmlns="">TD</kind>
                 <promo xmlns="">Cycle Prépa 1A</promo>
                 <rooms xmlns="">TD10 Luc.</rooms>
-                <start xmlns="">2009-11-09T09:45:00+01:00</start>
+                <start xmlns="">2009-11-20T09:45:00+01:00</start>
                 <teachers xmlns="">M. Rault</teachers>
               </item>
               <item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
                 <building xmlns="">Lucioles</building>
                 <course xmlns="">Analyse</course>
-                <end xmlns="">2009-11-09T09:30:00+01:00</end>
+                <end xmlns="">2009-11-20T09:30:00+01:00</end>
                 <groups xmlns="">Promo</groups>
                 <kind xmlns="">Cours</kind>
                 <promo xmlns="">Cycle Prépa 1A</promo>
                 <rooms xmlns="">A2 Luc.</rooms>
-                <start xmlns="">2009-11-09T08:00:00+01:00</start>
+                <start xmlns="">2009-11-20T08:00:00+01:00</start>
                 <teachers xmlns="">M. Bourgeois</teachers>
               </item>
               <item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
                 <building xmlns="">Lucioles</building>
                 <course xmlns="">Elec. Num.</course>
-                <end xmlns="">2009-11-09T14:45:00+01:00</end>
+                <end xmlns="">2009-11-20T14:45:00+01:00</end>
                 <groups xmlns="">Promo</groups>
                 <kind xmlns="">Cours</kind>
                 <promo xmlns="">Cycle Prépa 1A</promo>
                 <rooms xmlns="">C3 Luc.</rooms>
                 <rooms xmlns="">C4 Luc.</rooms>
-                <start xmlns="">2009-11-09T13:15:00+01:00</start>
+                <start xmlns="">2009-11-20T13:15:00+01:00</start>
                 <teachers xmlns="">M. Muller</teachers>
               </item>
               <item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
                 <building xmlns="">Lucioles</building>
                 <course xmlns="">??</course>
-                <end xmlns="">2009-11-09T16:30:00+01:00</end>
+                <end xmlns="">2009-11-20T16:30:00+01:00</end>
                 <groups xmlns="">soutien math 2</groups>
                 <kind xmlns="">Soutien Math</kind>
                 <promo xmlns="">Cycle Prépa 1A</promo>
                 <rooms xmlns="">C3 Luc.</rooms>
-                <start xmlns="">2009-11-09T15:00:00+01:00</start>
+                <start xmlns="">2009-11-20T15:00:00+01:00</start>
                 <teachers xmlns="">Mme Litovsky</teachers>
               </item>
             </events>
@@ -116,82 +116,82 @@
               <item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
                 <building xmlns="">Templiers</building>
                 <course xmlns="">Env. informatique 2</course>
-                <end xmlns="">2009-11-09T09:30:00+01:00</end>
+                <end xmlns="">2009-11-20T09:30:00+01:00</end>
                 <groups xmlns="">G1a</groups>
                 <groups xmlns="">G1b</groups>
                 <kind xmlns="">TD</kind>
                 <promo xmlns="">Cycle Prépa 2A</promo>
                 <rooms xmlns="">222 Templiers 28 pl.</rooms>
-                <start xmlns="">2009-11-09T08:00:00+01:00</start>
+                <start xmlns="">2009-11-20T08:00:00+01:00</start>
                 <teachers xmlns="">M. Gallesio</teachers>
               </item>
               <item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
                 <building xmlns="">Templiers</building>
                 <course xmlns="">Analyse</course>
-                <end xmlns="">2009-11-09T09:30:00+01:00</end>
+                <end xmlns="">2009-11-20T09:30:00+01:00</end>
                 <groups xmlns="">G2a</groups>
                 <groups xmlns="">G2b</groups>
                 <kind xmlns="">TD</kind>
                 <promo xmlns="">Cycle Prépa 2A</promo>
                 <rooms xmlns="">310 Templiers VA 64pl.</rooms>
-                <start xmlns="">2009-11-09T08:00:00+01:00</start>
+                <start xmlns="">2009-11-20T08:00:00+01:00</start>
                 <teachers xmlns="">Mme Litovsky</teachers>
               </item>
               <item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
                 <building xmlns="">Lucioles</building>
                 <course xmlns="">Env. informatique 2</course>
-                <end xmlns="">2009-11-09T18:15:00+01:00</end>
+                <end xmlns="">2009-11-20T18:15:00+01:00</end>
                 <groups xmlns="">G2a</groups>
                 <groups xmlns="">G2b</groups>
                 <kind xmlns="">TD</kind>
                 <promo xmlns="">Cycle Prépa 2A</promo>
                 <rooms xmlns="">285 Luc.</rooms>
-                <start xmlns="">2009-11-09T16:45:00+01:00</start>
+                <start xmlns="">2009-11-20T16:45:00+01:00</start>
                 <teachers xmlns="">M De Antoni</teachers>
               </item>
               <item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
                 <building xmlns="">Templiers</building>
                 <course xmlns="">Env. informatique 2</course>
-                <end xmlns="">2009-11-09T09:30:00+01:00</end>
+                <end xmlns="">2009-11-20T09:30:00+01:00</end>
                 <groups xmlns="">G3a</groups>
                 <groups xmlns="">G3b</groups>
                 <kind xmlns="">TD</kind>
                 <promo xmlns="">Cycle Prépa 2A</promo>
                 <rooms xmlns="">217 Templiers 20pl.</rooms>
-                <start xmlns="">2009-11-09T08:00:00+01:00</start>
+                <start xmlns="">2009-11-20T08:00:00+01:00</start>
                 <teachers xmlns="">M De Antoni</teachers>
               </item>
               <item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
                 <building xmlns="">Templiers</building>
                 <course xmlns="">Analyse</course>
-                <end xmlns="">2009-11-09T11:15:00+01:00</end>
+                <end xmlns="">2009-11-20T11:15:00+01:00</end>
                 <groups xmlns="">Promo</groups>
                 <kind xmlns="">Cours</kind>
                 <promo xmlns="">Cycle Prépa 2A</promo>
                 <rooms xmlns="">308 Templiers VA  60pl..</rooms>
-                <start xmlns="">2009-11-09T09:45:00+01:00</start>
+                <start xmlns="">2009-11-20T09:45:00+01:00</start>
                 <teachers xmlns="">Mme Litovsky</teachers>
               </item>
               <item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
                 <building xmlns="">Lucioles</building>
                 <course xmlns="">Electromag.</course>
-                <end xmlns="">2009-11-09T16:30:00+01:00</end>
+                <end xmlns="">2009-11-20T16:30:00+01:00</end>
                 <groups xmlns="">Promo</groups>
                 <kind xmlns="">Cours</kind>
                 <promo xmlns="">Cycle Prépa 2A</promo>
                 <rooms xmlns="">A2 Luc.</rooms>
-                <start xmlns="">2009-11-09T15:00:00+01:00</start>
+                <start xmlns="">2009-11-20T15:00:00+01:00</start>
                 <teachers xmlns="">M. Aliferis</teachers>
               </item>
               <item xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hypermachin" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/HyperTimeTable">
                 <building xmlns="">Lucioles</building>
                 <course xmlns="">Electrotechnique</course>
-                <end xmlns="">2009-11-09T14:45:00+01:00</end>
+                <end xmlns="">2009-11-20T14:45:00+01:00</end>
                 <groups xmlns="">Promo</groups>
                 <kind xmlns="">Cours</kind>
                 <promo xmlns="">Cycle Prépa 2A</promo>
                 <rooms xmlns="">A2 Luc.</rooms>
-                <start xmlns="">2009-11-09T13:15:00+01:00</start>
+                <start xmlns="">2009-11-20T13:15:00+01:00</start>
                 <teachers xmlns="">M. Arnould</teachers>
               </item>
             </events>

@@ -111,10 +111,9 @@ body
 	font-size:210%;
 }
 
-.error  { color:#ff0000;  }
-.emphasize   { color:#20709e;  }
-
-
+.error     { color:#ff0000;  }
+.emphasize { color:#20709e;  }
+.ok        { color: #348017; }
 
 .huge {
     font-size: 240%;

@@ -28,12 +28,25 @@ function showLogs(){
 			$("logs").style.display = 'block';
 }
 
+var logCpt = 0;
+function logRotate() {
+    logCpt = (logCpt + 1) % 50;
+    if (0 == logCpt) { clearLogs(); }
+}
 
 function addLog(aLog){
+    logRotate();
 	var stamp = buildStamp();
 	$("logUL").innerHTML += "<li>["+stamp+"] "+aLog+"</li>";
 }
 
+function addErrLog(aLog) {
+    addLog("<span class=\"error\">" + aLog + "</span>");
+}
+
+function addOkLog(aLog) {
+    addLog("<span class=\"ok\">" + aLog + "</span>");
+}
 function clearLogs() {
     $("logUL").update("");
 }

@@ -1,4 +1,4 @@
-/**
+6/**
  * This file is part of jSeduite::util
  *
  * Copyright (C) 2008-  Sebastien Mosser
@@ -24,16 +24,13 @@
 
 var iCalHandler = Class.create(jSeduiteTransformation, {
     perform: function(xml) {
-        var stampFrom = getTag("start", xml);
-        var stampTo = getTag("end", xml);
+        var start = buildDateFromStamp(getTag("start", xml));
+        var end = buildDateFromStamp(getTag("end", xml));
 
         var now = new Date();
-        if (isBefore(stampTo, now))
-            return [];
 
-        var started = false;
-        if (isBefore(stampFrom,now) && isAfter(stampTo, now))
-            started = true;
+        if ( end <= now)
+            return [];
         
        	var content = "";
         content += "<div id=\"info_logo\" class=\"calendar_logo\"></div>";
@@ -43,9 +40,9 @@ var iCalHandler = Class.create(jSeduiteTransformation, {
         content += "<div class=\"clearDiv\">&nbsp;</div>";
         
         content += "<p class=\"huge\">";
-        var dateCl = (started? "error": "");
-        content += "<span class=\""+dateCl+"\">" + getHours(stampFrom) +"h"+getMinutes(stampFrom);
-        content += " &rarr; "+ getHours(stampTo) +"h"+getMinutes(stampTo) + "</span>";
+        var dateCl = ((start < now && now < end)? "error": "emphasize");
+        content += "<span class=\""+dateCl+"\">" + dateToString(start);
+        content += " &rarr; "+ dateToString(end) + "</span>";
         content += "<br></p>";
         content += "<p class=\"large\">";
         if ("" != getTag("location", xml)) {

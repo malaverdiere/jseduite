@@ -50,16 +50,22 @@ var jSeduiteEngine = Class.create({
             parameters: {display: this.screen},
             onSuccess: function(transport){
                 removeLoadingState();
-                addLog("Information set successfully received")
+                addOkLog("Information set successfully received")
                 var infos = transport.responseXML;
                 engine.feed(infos);
                 engine.startLoops();
             },
             onFailure: function(){
+                setLoadingState();
                 var err = "Cannot retrieve information!";
                 $("main").update(buildSpan(null, "error", err));
-                addLog("Engine#run(): Unable to retrieve informations (Server failure)");
+                addErrLog("Engine#run(): Unable to retrieve informations (Server failure)");
                 window.setTimeout(function() { engine.run(); }, 5000);
+            },
+            onException: function(self, exception) {
+                setLoadingState();
+                addErrLog("Engine#run() exception: " + exception);
+                window.setTimeout(function() { engine.run(); }, 10000);
             }
         });
     }, 
