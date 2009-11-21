@@ -60,7 +60,7 @@
  *   MAIN CONTENT   *
  *******************/
 #main {
-	width:912px; height:520px;
+	width:912px; height:580px;
 	margin:0px auto 0 auto;
 	padding:60px 20px 10px 20px;
 	font-size:120%;
@@ -79,7 +79,7 @@
     bottom:10px;
     left:10px;
     padding-left:0em;
-    width:992px;
+    width:1000px;
     height:80px;
     line-height:80px;
 }
