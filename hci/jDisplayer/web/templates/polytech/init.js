@@ -28,6 +28,7 @@ var polytech = new jSeduiteTemplate("polytech");
 // scrollings
 polytech.declare("twitter",        new scrollingTwitter(),   0);
 polytech.declare("breaking_news",  new breakingNews(),       0);
+
 // mains
 polytech.declare("absences_profs", new absenceHandler(),     5);
 polytech.declare("picture_albums", new pictAlbumTransfo(),   5);
@@ -35,11 +36,10 @@ polytech.declare("tv_shows",       new tv_shows_array(6),    5);
 polytech.declare("weather",        new weatherTransfo(),     5);
 polytech.declare("image_scraper",  new imageScrapTransfo(),  5);
 polytech.declare("apal",           new apal_array(5),        5);
-
+polytech.declare("hyperloc",       new hyperLocHandler(7),   5);
 polytech.declare("internal_news",  new internalNews(),       5);
 polytech.declare("feed_reader",    new feedHandler(),        5);
 polytech.declare("stud_summon",    new studSummon(),         5);
-
 polytech.declare("calendar",       new iCalHandler(),        5);
 polytech.declare("timetable",      new edtHandler(1),        5);
 

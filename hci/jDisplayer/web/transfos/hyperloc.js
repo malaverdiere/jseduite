@@ -22,20 +22,58 @@
  **/
 
 
-var edtHandler = Class.create(jSeduiteTransformation, {
+var hyperLocHandler = Class.create(jSeduiteTransformation, {
     initialize: function (delta) {
       this.delta = delta;
     },
     perform: function(xml) {
-        var raws = this.ignore($A(getNode("item", xml)));
-        var lectures = raws.sort(function(a,b) { return getTag("start",a) > getTag("start",b); });
-        var screens = new Array();
-        for(var i = 0; i < lectures.length; i = i+4) {
-            screens.push(this.buildScreen(lectures[i], lectures[i+1], 
-                                          lectures[i+2], lectures[i+3]));
-        }
-        return screens;
+        var raws = $A(getNode("item", xml));
+        var filtered = raws.filter(function(e) {return "??" != getTag("teacher",e);});
+        var items = filtered.sort(function(a,b) {
+            return getTag("start",a) < getTag("start",b) ;
+        }); 
+        return this.buildScreens(items);
     },
+    buildScreens: function(items) {  
+        var slices = items.eachSlice(this.delta);
+        var result = new Array();
+        for (var i = 0; i < slices.length; i++) {
+            result.push(this.buildAScreen(slices[i]));
+        }
+        return result;
+    },
+    buildAScreen: function(elements) {
+        var content = "";
+        content += "<div id=\"info_logo\" class=\"hyperloc_logo\"></div>";
+        content += "<p class=\"title\"> &nbsp; Localisation des Enseignants";
+        content += "</p>";
+        content += "<table class=\"hyperloc\">"
+        for(var i = 0; i < elements.length; i++) {
+            content += this.transformAnElement(elements[i],(i%2==0?"odd":"even"));
+        }
+        content += "</table>";
+        return content;
+    },
+    transformAnElement: function(e, css) {
+        var result = "<tr class=\""+css+"\">";
+        var start = buildDateFromStamp(getTag("start",e));
+        var end = buildDateFromStamp(getTag("end",e));
+        var now = new Date();
+        result += "<td>" + getTag("teacher",e) + "</td>";
+        var startedCl = (now <= start? "error": "");
+        result += "<td class=\"tdCenter\"><span class=\""+startedCl+"\">" + dateToString(start) + " ";
+        result += " &rarr; " + dateToString(end) + "</span></td>";
+        var raw_rooms = getTags("rooms", e);
+        var rooms = raw_rooms.map(function(elem) {
+            return elem.split(" ")[0];
+        });
+        result += "<td class=\"tdCenter\">" + rooms + "</td>";
+        result += "</tr>";
+        return result;
+    }
+
+
+    /**
     ignore: function(raw) {
         var d = this.delta;
         return raw.filter( function(e) {
@@ -92,5 +130,5 @@ var edtHandler = Class.create(jSeduiteTransformation, {
 		content +="</tr>";
 		content += "</table>";
         return content;
-    }
+    } **/
 });

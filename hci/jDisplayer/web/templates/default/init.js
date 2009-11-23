@@ -33,6 +33,7 @@ defaultTpl.declare("tv_shows",       new tv_shows_array(6),    1);
 defaultTpl.declare("weather",        new weatherTransfo(),     1);
 defaultTpl.declare("image_scraper",  new imageScrapTransfo(),  1);
 defaultTpl.declare("apal",           new apal_array(5),        1);
+defaultTpl.declare("hyperloc",       new hyperLocHandler(7),   1);
 defaultTpl.declare("picture_albums", new pictAlbumTransfo(),   1);
 defaultTpl.declare("internal_news",  new internalNews(),       1);
 defaultTpl.declare("feed_reader",    new feedHandler(),        1);

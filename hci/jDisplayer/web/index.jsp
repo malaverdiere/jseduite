@@ -24,6 +24,7 @@
     <script type="text/javascript" src="transfos/calendar.js"></script>
     <script type="text/javascript" src="transfos/edt.js"></script>
     <script type="text/javascript" src="transfos/feed.js"></script>
+    <script type="text/javascript" src="transfos/hyperloc.js"></script>
     <script type="text/javascript" src="transfos/internal.js"></script>
     <script type="text/javascript" src="transfos/scrap.js"></script>
     <script type="text/javascript" src="transfos/summons.js"></script>

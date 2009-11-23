@@ -63,11 +63,10 @@ body
 /** Diaporamas **/
 
 #diapo_content img{
-    	padding:8px;
+    padding:8px;  
 	background-color:#efefef;
 	border:1px solid #DEDEDE;
-	margin:20px 130px 0 0;
-	max-height:371px;
+	margin:40px 120px 0 0;
 }
 
 #diapo_loading {
@@ -112,6 +111,7 @@ body
 }
 
 .error     { color:#ff0000;  }
+.alert     { color: #ff8620; }
 .emphasize { color:#20709e;  }
 .ok        { color: #348017; }
 
@@ -156,9 +156,9 @@ body
 }
 
 .apal{
-     width:98%;
+     width:100%;
      padding:4px 0 0 0;
-     margin:4px 0 0 0;
+     margin: 44px 0 0 0;
      font-size:190%;
  }
 
@@ -180,12 +180,12 @@ body
 }
 
 .timetable{
-     width: 98%;
+     width: 100%;
      padding: 2px 0 0 0;
      margin: 2px 0 0 0;
      font-size: 190%;
      border-collapse: collapse;
-     margin-bottom: 15px;
+     margin-bottom: 9px;
  }
 
 /** feed **/
@@ -279,8 +279,9 @@ body
 	background-color:#ffffff;
 	border:1px solid #DEDEDE;
 	text-align:center;
+    margin-top: 30px;
 }
-.tv_channel _img{
+.tv_channel img{
 	margin-right:0px;
 	margin-bottom:0px;
 }
@@ -298,12 +299,25 @@ body
 .tv_sum{
 	margin:0;
 }
-.tv_sum _img{
+.tv_sum img{
 	padding:5px;
 	background-color:#efefef;
 	border:1px solid #DEDEDE;
 	margin-right:5px;
 }
+
+/** Hyperloc **/
+.hyperloc_logo {
+    width: 132px; height: 116px;
+    background: transparent url('_logos/edt.png') no-repeat top left;
+}
+
+.hyperloc {
+     width:100%;
+     padding:4px 0 0 0;
+     margin: 24px 0 0 0;
+     font-size:190%;
+ }
 
 
 /** twitter **/
@@ -371,8 +385,8 @@ table.weather td { text-align:center; vertical-align:center;}
 .weat2_temp{ font-size:240%;}
 .weat4_temp{ font-size:230%;}
 
-.weat_day__img, .weat4_temp _img{
-	padding:5px;
+.weat_day_img, .weat4_temp img{
+	padding:5px;  
 	background-color:#efefef;
 	border:1px solid #DEDEDE;
 	margin:5px;

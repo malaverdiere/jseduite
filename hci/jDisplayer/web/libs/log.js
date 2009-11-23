@@ -37,7 +37,7 @@ function logRotate() {
 function addLog(aLog){
     logRotate();
 	var stamp = buildStamp();
-	$("logUL").innerHTML += "<li>["+stamp+"] "+aLog+"</li>";
+	$("logUL").innerHTML = "<li>["+stamp+"] "+aLog+"</li>" + $("logUL").innerHTML;
 }
 
 function addErrLog(aLog) {
