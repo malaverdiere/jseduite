@@ -25,6 +25,7 @@
 package data;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 
@@ -45,10 +46,23 @@ public class HyperLocation {
             loc.setStart(source.getStart());
             loc.setBuilding(source.getBuilding());
             loc.setRooms(source.getRooms());
+            loc.setKind(source.getKind());
             loc.setTeacher(t);
             result.add(loc);
         }
         return result.toArray(new HyperLocation[result.size()]);
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        HyperLocation other = (HyperLocation) o;
+        return this.building.equals(other.getBuilding())
+                &&  this.end.equals(other.getEnd())
+                &&  this.kind.equals(other.getKind())
+                && this.start.equals(other.getStart())
+                && this.teacher.equals(other.getTeacher())
+                && Arrays.equals(this.rooms, other.getRooms());
     }
 
     /** XML Serialization **/

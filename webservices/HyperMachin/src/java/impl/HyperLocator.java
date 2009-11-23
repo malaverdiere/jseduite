@@ -30,6 +30,7 @@ import javax.jws.WebService;
 import data.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import net.fortuna.ical4j.model.DateTime;
 import net.fortuna.ical4j.model.Dur;
 import net.fortuna.ical4j.model.Period;
@@ -43,14 +44,16 @@ import util.HyperEventBuilder;
  */
 @WebService(targetNamespace="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator")
 public class HyperLocator {
+    private static final int NEXT_DELTA = 15;
 
     @WebMethod(operationName = "getAllPromo")
     public HyperLocation[] getAllPromo()
             throws HyperException {
         ArrayList<HyperLocation> result = new ArrayList<HyperLocation>();
         try {
-            for(String id: HyperCache.getCacheContent())
-                result.addAll(Arrays.asList(getByPromo(id)));
+            for(String id: HyperCache.getCacheContent()) {
+                result = new ArrayList(Arrays.asList(unify(result, new ArrayList(Arrays.asList(getByPromo(id))))));
+            }
         } catch(Exception e) {throw new HyperException(e.getMessage()); }
         return result.toArray(new HyperLocation[result.size()]);
     }
@@ -58,21 +61,12 @@ public class HyperLocator {
     @WebMethod(operationName = "getByPromo")
     public HyperLocation[] getByPromo(@WebParam(name="id") String id)
             throws HyperException {
-        ArrayList<HyperLocation> result = new ArrayList<HyperLocation>();
-        Period r = getNowPeriod();
-        try {
-            HyperCache c = new HyperCache(id);
-            if (c.isValid() == HyperCacheStatus.VALID) {
-                HyperPromo p = c.localize();
-                HyperEventBuilder builder = new HyperEventBuilder(p,r);
-                builder.transform();
-                for(HyperEvent event: builder.getResult()) {
-                    result.addAll(Arrays.asList(HyperLocation.build(event)));
-                 }
-            }
-        } catch(Exception e) { throw new HyperException(e.getMessage()); }
-        return result.toArray(new HyperLocation[result.size()]);
+        // Ugly hack, should be done with a better usage of Period and Filters
+        ArrayList<HyperLocation> now = extractLocations(id, getNowPeriod());
+        ArrayList<HyperLocation> next = extractLocations(id, getNextPeriod());
+        return unify(now,next);
     }
+    
     /**
      * Web service operation
      */
@@ -107,6 +101,41 @@ public class HyperLocator {
         java.util.Calendar now = java.util.Calendar.getInstance();
         Period r = new Period(new DateTime(now.getTime()), new Dur(0,0,0,0));
         return  r;
+    }
+
+    private Period getNextPeriod() {
+        java.util.Calendar now = java.util.Calendar.getInstance();
+        Date next = (new Dur(0,0,NEXT_DELTA,0)).getTime(now.getTime());
+        Period r = new Period(new DateTime(next), new Dur(0,0,0,0));
+        return  r;
+    }
+
+    private ArrayList<HyperLocation> extractLocations(String idPromo, Period filter)
+            throws HyperException {
+        ArrayList<HyperLocation> result = new ArrayList<HyperLocation>();
+        try {
+            HyperCache c = new HyperCache(idPromo);
+            if (c.isValid() == HyperCacheStatus.VALID) {
+                HyperPromo p = c.localize();
+                HyperEventBuilder builder = new HyperEventBuilder(p,filter);
+                builder.transform();
+                for(HyperEvent event: builder.getResult()) {
+                    result.addAll(Arrays.asList(HyperLocation.build(event)));
+                 }
+            }
+        } catch(Exception e) { throw new HyperException(e.getMessage()); }
+        return result; 
+    }
+
+    private HyperLocation[] unify(ArrayList<HyperLocation> l1, 
+            ArrayList<HyperLocation> l2) {
+        ArrayList<HyperLocation> result = new ArrayList<HyperLocation>();
+        result.addAll(l1);
+        for(HyperLocation loc: l2) {
+            if (! l1.contains(loc))
+                result.add(loc);
+        }
+        return result.toArray(new HyperLocation[result.size()]);
     }
 
 }
