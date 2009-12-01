@@ -285,6 +285,10 @@
                 <invoke name="a8_tech" partnerLink="helper" operation="truncate" xmlns:tns="http://helper.image.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:PictureSet" inputVariable="TruncateIn" outputVariable="TruncateOut"/>
                 <assign name="a8_post">
                     <copy>
+                        <from>''</from>
+                        <to variable="result"/>
+                    </copy>
+                    <copy>
                         <from>$TruncateOut.parameters/return</from>
                         <to>$result/ns0:item</to>
                     </copy>
