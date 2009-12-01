@@ -39,3 +39,18 @@ var feedHandler = Class.create(jSeduiteTransformation, {
         return [content];
     }
 });
+
+var feedHandlerTitleOnly = Class.create(jSeduiteTransformation, {
+    perform: function(xml) {
+        var content = "";
+        content += "<div id=\"info_logo\" class=\"feed_logo\"></div>";
+        content += "<p class=\"title\">";
+        content += truncate(getTag("author", xml),35);
+        content += "</p><br /><br />";
+        content += "<div class=\"clearDiv\">&nbsp;</div>";
+        content += "<span class=\"feed_title\">";
+        content += getTag("title", xml);
+        content += "</span>";
+        return [content];
+    }
+});

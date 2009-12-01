@@ -37,7 +37,7 @@ n2i.declare("image_scraper",  new imageScrapTransfo(),  5);
 n2i.declare("apal",           new apal_array(5),        5);
 n2i.declare("hyperloc",       new hyperLocHandler(7),   5);
 n2i.declare("internal_news",  new internalNews(),       5);
-n2i.declare("feed_reader",    new feedHandler(),        5);
+n2i.declare("feed_reader",    new feedHandlerTitleOnly(),        5);
 n2i.declare("stud_summon",    new studSummon(),         5);
 
 n2i.declare("calendar",       new iCalHandler(),        5);
