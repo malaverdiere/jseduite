@@ -27,7 +27,7 @@ var jSeduiteEngine = Class.create({
     initialize: function(url, screen,tplName) {
         this.provider = url;
         this.screen = screen;
-        // this.initLoops();
+        this.initLoops();
         loadCss("templates/"+tplName+"/style.css");
         loadJs("templates/"+tplName+"/init.js");
     },

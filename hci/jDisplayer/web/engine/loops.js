@@ -60,7 +60,6 @@ var mainLoop = Class.create(loop, {
     start: function() {
         this.idx = 0;
         this.next();
-        window.mainLoop = this;
     },
     setCallback: function(f) { this.callback = f; },
     next: function () {
@@ -72,7 +71,8 @@ var mainLoop = Class.create(loop, {
             var delta = this.tpl.getDelta(getSource(anItem));
             this.idx = this.idx + 1;
             if (transfo.isSelfHandled()) {
-                transfo.handle($('main'), anItem, delta, function() { window.mainLoop.next() });
+                var self = this;
+                transfo.handle($('main'), anItem, delta, function() { self.next(); });
             } else {
                 var screens = transfo.perform(anItem);
                 this.displayElements(screens.reverse(),delta);
@@ -85,9 +85,9 @@ var mainLoop = Class.create(loop, {
         } else {
             var elem = elements.pop();
             $('main').update(elem);
-            window.setTimeout(function() {
-                window.mainLoop.displayElements(elements, delta);
-            },delta);
+            window.setTimeout(function(loop) {
+                loop.displayElements(elements, delta);
+            },delta,this);
         }
     }
 });
