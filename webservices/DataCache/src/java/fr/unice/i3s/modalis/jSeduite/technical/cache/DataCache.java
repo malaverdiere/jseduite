@@ -94,7 +94,9 @@ public class DataCache {
             String ans = dal.extractScalar(sql, "valid");
             return (ans.equals("0") ? false : true);
         } catch (Exception e) {
-            throw new DataCacheException(e.getMessage());
+            this.initContent(key);
+            return false;
+            //throw new DataCacheException(e.getMessage());
         }
     }
 

@@ -6,19 +6,24 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
     xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
-    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/WeatherProxy" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/WeatherProxy" xmlns:ns1="http://api.wxbug.net/">
+    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/WeatherProxy" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/WeatherProxy" xmlns:ns1="http://api.wxbug.net/" xmlns:ns2="http://partners.registry.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns3="http://cache.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:sxxf="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/XPathFunctions">
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/WeatherProxy" location="WeatherProxy.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://enterprise.netbeans.org/bpel/weatherservice.asmxWrapper" location="Partners/weatherservice.asmxWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://api.wxbug.net/" location="Partners/weatherservice.asmx.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://enterprise.netbeans.org/bpel/PartnerKeysServiceWrapper" location="Partners/PartnerKeysServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://partners.registry.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/PartnerKeysService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/WeatherProxy" location="WeatherProxy.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/DataCacheServiceWrapper" location="Partners/DataCacheServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://cache.technical.jSeduite.modalis.i3s.unice.fr/" location="Partners/DataCacheService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <partnerLinks>
+        <partnerLink name="cache" xmlns:tns="http://enterprise.netbeans.org/bpel/DataCacheServiceWrapper" partnerLinkType="tns:DataCacheLinkType" partnerRole="DataCacheRole"/>
         <partnerLink name="partnerKeys" xmlns:tns="http://enterprise.netbeans.org/bpel/PartnerKeysServiceWrapper" partnerLinkType="tns:PartnerKeysLinkType" partnerRole="PartnerKeysRole"/>
         <partnerLink name="weatherBugService" xmlns:tns="http://enterprise.netbeans.org/bpel/weatherservice.asmxWrapper" partnerLinkType="tns:WeatherBugWebServicesSoapLinkType" partnerRole="WeatherBugWebServicesSoapRole"/>
         <partnerLink name="external" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/WeatherProxy" partnerLinkType="tns:WeatherProxy" myRole="WeatherProxyPortTypeRole"/>
     </partnerLinks>
     <variables>
+        <variable name="isValid" type="xsd:boolean"/>
+        <variable name="cache_key" type="xsd:string"/>
         <variable name="simpl_forecastInfo_star" type="ns0:SetOfForecastWeather"/>
         <variable name="simpl_liveInfo" type="ns0:LiveWeather"/>
         <variable name="forecastInfo_star" type="ns1:ArrayOfApiForecastData"/>
@@ -61,177 +66,257 @@
                 </assign>
             </sequence>
         </sequence>
-        <sequence name="a2">
-            <assign name="a2_pre">
+        <sequence name="e0">
+            <assign name="e0_tech">
                 <copy>
-                    <from variable="keyName"/>
-                    <to>$GetIn.parameters/partner</to>
-                </copy>
-            </assign>
-            <invoke name="a2_tech" partnerLink="partnerKeys" operation="get" xmlns:tns="http://partners.registry.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:PartnerKeys" inputVariable="GetIn" outputVariable="GetOut"/>
-            <assign name="a2_post">
-                <copy>
-                    <from>$GetOut.parameters/return</from>
-                    <to variable="key"/>
+                    <from>concat('weather_', string($cityCode))</from>
+                    <to variable="cache_key"/>
                 </copy>
             </assign>
         </sequence>
-        <flow name="flow_0">
-            <sequence name="subseq_0_0">
-                <sequence name="a3">
-                    <assign name="a3_pre">
-                        <copy>
-                            <from variable="cityCode"/>
-                            <to>$GetLiveWeatherByCityCodeIn.parameters/ns1:cityCode</to>
-                        </copy>
-                        <copy>
-                            <from variable="unit"/>
-                            <to>$GetLiveWeatherByCityCodeIn.parameters/ns1:unittype</to>
-                        </copy>
-                        <copy>
-                            <from variable="key"/>
-                            <to>$GetLiveWeatherByCityCodeIn.parameters/ns1:ACode</to>
-                        </copy>
-                    </assign>
-                    <invoke name="a3_tech" partnerLink="weatherBugService" operation="GetLiveWeatherByCityCode" xmlns:tns="http://api.wxbug.net/" portType="tns:WeatherBugWebServicesSoap" inputVariable="GetLiveWeatherByCityCodeIn" outputVariable="GetLiveWeatherByCityCodeOut"/>
-                    <assign name="a3_post">
-                        <copy>
-                            <from>$GetLiveWeatherByCityCodeOut.parameters/ns1:GetLiveWeatherByCityCodeResult</from>
-                            <to variable="liveInfo"/>
-                        </copy>
-                    </assign>
-                </sequence>
-                <assign name="a4">
+        <scope name="e1">
+            <variables>
+                <variable name="IsValidOut" messageType="ns3:isValidResponse"/>
+                <variable name="IsValidIn" messageType="ns3:isValid"/>
+            </variables>
+            <sequence name="e1_seq">
+                <assign name="e1_pre">
                     <copy>
-                        <from>number($liveInfo/ns1:Pressure)</from>
-                        <to>$simpl_liveInfo/ns0:pressure</to>
+                        <from variable="cache_key"/>
+                        <to>$IsValidIn.parameters/key</to>
                     </copy>
                     <copy>
-                        <from>$liveInfo/ns1:StationName</from>
-                        <to>$simpl_liveInfo/ns0:station</to>
-                    </copy>
-                    <copy>
-                        <from>number($liveInfo/ns1:RainToday)</from>
-                        <to>$simpl_liveInfo/ns0:rain</to>
-                    </copy>
-                    <copy>
-                        <from>number($liveInfo/ns1:WindSpeed)</from>
-                        <to>$simpl_liveInfo/ns0:windSpeed</to>
-                    </copy>
-                    <copy>
-                        <from>$liveInfo/ns1:CurrIcon</from>
-                        <to>$simpl_liveInfo/ns0:icon</to>
-                    </copy>
-                    <copy>
-                        <from>$liveInfo/ns1:WindDirection</from>
-                        <to>$simpl_liveInfo/ns0:windDirection</to>
-                    </copy>
-                    <copy>
-                        <from>number($liveInfo/ns1:TemperatureLow)</from>
-                        <to>$simpl_liveInfo/ns0:minTemp</to>
-                    </copy>
-                    <copy>
-                        <from>number($liveInfo/ns1:TemperatureHigh)</from>
-                        <to>$simpl_liveInfo/ns0:maxTemp</to>
-                    </copy>
-                    <copy>
-                        <from>number($liveInfo/ns1:Temperature)</from>
-                        <to>$simpl_liveInfo/ns0:temp</to>
+                        <from>30</from>
+                        <to>$IsValidIn.parameters/delta</to>
                     </copy>
                 </assign>
-            </sequence>
-            <sequence>
-                <sequence name="a5">
-                    <assign name="a5_pre">
+                    <invoke name="e1_tech" partnerLink="cache" operation="isValid" portType="ns3:DataCache" inputVariable="IsValidIn" outputVariable="IsValidOut"/>
+                    <assign name="e1_post">
                         <copy>
-                            <from variable="cityCode"/>
-                            <to>$GetForecastByCityCodeIn.parameters/ns1:cityCode</to>
-                        </copy>
-                        <copy>
-                            <from variable="unit"/>
-                            <to>$GetForecastByCityCodeIn.parameters/ns1:unitType</to>
-                        </copy>
-                        <copy>
-                            <from variable="key"/>
-                            <to>$GetForecastByCityCodeIn.parameters/ns1:ACode</to>
+                            <from>$IsValidOut.parameters/return</from>
+                            <to variable="isValid"/>
                         </copy>
                     </assign>
-                    <invoke name="a5_tech" partnerLink="weatherBugService" operation="GetForecastByCityCode" xmlns:tns="http://api.wxbug.net/" portType="tns:WeatherBugWebServicesSoap" inputVariable="GetForecastByCityCodeIn" outputVariable="GetForecastByCityCodeOut"/>
-                    <assign name="a5_post">
+            </sequence>
+        </scope>
+        <if name="is_valid">
+            <condition>$isValid</condition>
+            <scope name="e2">
+                <variables>
+                    <variable name="GetContentOut" messageType="ns3:getContentResponse"/>
+                    <variable name="GetContentIn" messageType="ns3:getContent"/>
+                </variables>
+                <sequence name="e2_seq">
+                    <assign name="e2_pre">
                         <copy>
-                            <from>$GetForecastByCityCodeOut.parameters/ns1:GetForecastByCityCodeResult</from>
-                            <to variable="forecastInfo_star"/>
+                            <from variable="cache_key"/>
+                            <to>$GetContentIn.parameters/key</to>
+                        </copy>
+                    </assign>
+                    <invoke name="e2_tech" partnerLink="cache" operation="getContent" portType="ns3:DataCache" inputVariable="GetContentIn" outputVariable="GetContentOut"/>
+                    <assign name="e2_post">
+                        <copy>
+                            <from>sxxf:doUnMarshal($GetContentOut.parameters/return)</from>
+                            <to variable="result"/>
                         </copy>
                     </assign>
                 </sequence>
-                <scope name="set_0">
-                    <variables>
-                        <variable name="simpl_forecastInfo" type="ns0:ForecastWeather"/>
-                        <variable name="forecastInfo" type="ns1:ApiForecastData"/>
-                        <variable name="current" type="xsd:integer"/>
-                    </variables>
-                    <sequence name="set_0_body">
-                        <assign name="set_0_init">
-                            <copy>
-                                <from>1</from>
-                                <to variable="current"/>
+            </scope>
+            <else>
+                <sequence name="invalid_cache">
+                    <sequence name="a2">
+                            <assign name="a2_pre">
+                                    <copy>
+                                            <from variable="keyName"/>
+                                                <to>$GetIn.parameters/partner</to>
+                                        </copy>
+                                </assign>
+                                <invoke name="a2_tech" partnerLink="partnerKeys" operation="get" portType="ns2:PartnerKeys" inputVariable="GetIn" outputVariable="GetOut"/>
+                                <assign name="a2_post">
+                                    <copy>
+                                            <from>$GetOut.parameters/return</from>
+                                                <to variable="key"/>
+                                        </copy>
+                                </assign>
+                        </sequence>
+                        <flow name="flow_0">
+                            <sequence name="subseq_0_0">
+                                    <sequence name="a3">
+                                            <assign name="a3_pre">
+                                                    <copy>
+                                                            <from variable="cityCode"/>
+                                                                <to>$GetLiveWeatherByCityCodeIn.parameters/ns1:cityCode</to>
+                                                        </copy>
+                                                        <copy>
+                                                            <from variable="unit"/>
+                                                                <to>$GetLiveWeatherByCityCodeIn.parameters/ns1:unittype</to>
+                                                        </copy>
+                                                        <copy>
+                                                            <from variable="key"/>
+                                                                <to>$GetLiveWeatherByCityCodeIn.parameters/ns1:ACode</to>
+                                                        </copy>
+                                                </assign>
+                    <invoke name="a3_tech" partnerLink="weatherBugService" operation="GetLiveWeatherByCityCode" xmlns:tns="http://api.wxbug.net/" portType="tns:WeatherBugWebServicesSoap" inputVariable="GetLiveWeatherByCityCodeIn" outputVariable="GetLiveWeatherByCityCodeOut"/>
+                                                <assign name="a3_post">
+                                                    <copy>
+                                                            <from>$GetLiveWeatherByCityCodeOut.parameters/ns1:GetLiveWeatherByCityCodeResult</from>
+                                                                <to variable="liveInfo"/>
+                                                        </copy>
+                                                </assign>
+                                        </sequence>
+                                        <assign name="a4">
+                                            <copy>
+                                                    <from>number($liveInfo/ns1:Pressure)</from>
+                                                        <to>$simpl_liveInfo/ns0:pressure</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$liveInfo/ns1:StationName</from>
+                                                        <to>$simpl_liveInfo/ns0:station</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>number($liveInfo/ns1:RainToday)</from>
+                                                        <to>$simpl_liveInfo/ns0:rain</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>number($liveInfo/ns1:WindSpeed)</from>
+                                                        <to>$simpl_liveInfo/ns0:windSpeed</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$liveInfo/ns1:CurrIcon</from>
+                                                        <to>$simpl_liveInfo/ns0:icon</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>$liveInfo/ns1:WindDirection</from>
+                                                        <to>$simpl_liveInfo/ns0:windDirection</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>number($liveInfo/ns1:TemperatureLow)</from>
+                                                        <to>$simpl_liveInfo/ns0:minTemp</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>number($liveInfo/ns1:TemperatureHigh)</from>
+                                                        <to>$simpl_liveInfo/ns0:maxTemp</to>
+                                                </copy>
+                                                <copy>
+                                                    <from>number($liveInfo/ns1:Temperature)</from>
+                                                        <to>$simpl_liveInfo/ns0:temp</to>
+                                                </copy>
+                                        </assign>
+                                </sequence>
+                                <sequence>
+                                    <sequence name="a5">
+                                            <assign name="a5_pre">
+                                                    <copy>
+                                                            <from variable="cityCode"/>
+                                                                <to>$GetForecastByCityCodeIn.parameters/ns1:cityCode</to>
+                                                        </copy>
+                                                        <copy>
+                                                            <from variable="unit"/>
+                                                                <to>$GetForecastByCityCodeIn.parameters/ns1:unitType</to>
+                                                        </copy>
+                                                        <copy>
+                                                            <from variable="key"/>
+                                                                <to>$GetForecastByCityCodeIn.parameters/ns1:ACode</to>
+                                                        </copy>
+                                                </assign>
+                    <invoke name="a5_tech" partnerLink="weatherBugService" operation="GetForecastByCityCode" xmlns:tns="http://api.wxbug.net/" portType="tns:WeatherBugWebServicesSoap" inputVariable="GetForecastByCityCodeIn" outputVariable="GetForecastByCityCodeOut"/>
+                                                <assign name="a5_post">
+                                                    <copy>
+                                                            <from>$GetForecastByCityCodeOut.parameters/ns1:GetForecastByCityCodeResult</from>
+                                                                <to variable="forecastInfo_star"/>
+                                                        </copy>
+                                                </assign>
+                                        </sequence>
+                                        <scope name="set_0">
+                                            <variables>
+                                                    <variable name="simpl_forecastInfo" type="ns0:ForecastWeather"/>
+                                                        <variable name="forecastInfo" type="ns1:ApiForecastData"/>
+                                                        <variable name="current" type="xsd:integer"/>
+                                                </variables>
+                                                <sequence name="set_0_body">
+                                                    <assign name="set_0_init">
+                                                            <copy>
+                                                                    <from>1</from>
+                                                                        <to variable="current"/>
+                                                                </copy>
+                                                        </assign>
+                                                        <while name="set_0_loop">
+                                                            <condition>$current &lt;= count($forecastInfo_star/ns1:ApiForecastData)</condition>
+                                                                <sequence name="set_0_loop_body">
+                                                                    <assign name="set_0_feed">
+                                                                            <copy>
+                                                                                    <from>$forecastInfo_star/ns1:ApiForecastData[$current]</from>
+                                                                                        <to variable="forecastInfo"/>
+                                                                                </copy>
+                                                                        </assign>
+                                                                        <assign name="a6">
+                                                                            <copy>
+                                                                                    <from>number($forecastInfo/ns1:TempHigh)</from>
+                                                                                        <to>$simpl_forecastInfo/ns0:maxTemp</to>
+                                                                                </copy>
+                                                                                <copy>
+                                                                                    <from>number($forecastInfo/ns1:TempLow)</from>
+                                                                                        <to>$simpl_forecastInfo/ns0:minTemp</to>
+                                                                                </copy>
+                                                                                <copy>
+                                                                                    <from>$forecastInfo/ns1:ShortTitle</from>
+                                                                                        <to>$simpl_forecastInfo/@day</to>
+                                                                                </copy>
+                                                                                <copy>
+                                                                                    <from>$forecastInfo/ns1:Image</from>
+                                                                                        <to>$simpl_forecastInfo/ns0:icon</to>
+                                                                                </copy>
+                                                                        </assign>
+                                                                        <assign name="set_0_swell">
+                                                                            <copy>
+                                                                                    <from variable="simpl_forecastInfo"/>
+                                                                                        <to>$simpl_forecastInfo_star/ns0:item[$current]</to>
+                                                                                </copy>
+                                                                        </assign>
+                                                                        <assign name="set_0_increment">
+                                                                            <copy>
+                                                                                    <from>$current + 1</from>
+                                                                                        <to variable="current"/>
+                                                                                </copy>
+                                                                        </assign>
+                                                                </sequence>
+                                                        </while>
+                                                </sequence>
+                                        </scope>
+                                </sequence>
+                        </flow>
+                    <assign name="a7">
+                        <copy>
+                                <from variable="simpl_liveInfo"/>
+                                    <to>$result/ns0:live</to>
                             </copy>
-                        </assign>
-                        <while name="set_0_loop">
-                            <condition>$current &lt;= count($forecastInfo_star/ns1:ApiForecastData)</condition>
-                            <sequence name="set_0_loop_body">
-                                <assign name="set_0_feed">
-                                    <copy>
-                                        <from>$forecastInfo_star/ns1:ApiForecastData[$current]</from>
-                                        <to variable="forecastInfo"/>
-                                    </copy>
-                                </assign>
-                                <assign name="a6">
-                                    <copy>
-                                        <from>number($forecastInfo/ns1:TempHigh)</from>
-                                        <to>$simpl_forecastInfo/ns0:maxTemp</to>
-                                    </copy>
-                                    <copy>
-                                        <from>number($forecastInfo/ns1:TempLow)</from>
-                                        <to>$simpl_forecastInfo/ns0:minTemp</to>
-                                    </copy>
-                                    <copy>
-                                        <from>$forecastInfo/ns1:ShortTitle</from>
-                                        <to>$simpl_forecastInfo/@day</to>
-                                    </copy>
-                                    <copy>
-                                        <from>$forecastInfo/ns1:Image</from>
-                                        <to>$simpl_forecastInfo/ns0:icon</to>
-                                    </copy>
-                                </assign>
-                                <assign name="set_0_swell">
-                                    <copy>
-                                        <from variable="simpl_forecastInfo"/>
-                                        <to>$simpl_forecastInfo_star/ns0:item[$current]</to>
-                                    </copy>
-                                </assign>
-                                <assign name="set_0_increment">
-                                    <copy>
-                                        <from>$current + 1</from>
-                                        <to variable="current"/>
-                                    </copy>
-                                </assign>
-                            </sequence>
-                        </while>
-                    </sequence>
-                </scope>
-            </sequence>
-        </flow>
-        <assign name="a7">
-            <copy>
-                <from variable="simpl_liveInfo"/>
-                <to>$result/ns0:live</to>
-            </copy>
-            <copy>
-                <from variable="simpl_forecastInfo_star"/>
-                <to>$result/ns0:forecast_star</to>
-            </copy>
-        </assign>
+                            <copy>
+                                <from variable="simpl_forecastInfo_star"/>
+                                    <to>$result/ns0:forecast_star</to>
+                            </copy>
+                    </assign>
+                    <scope name="e3">
+                        <variables>
+                            <variable name="SetContentOut" messageType="ns3:setContentResponse"/>
+                            <variable name="SetContentIn" messageType="ns3:setContent"/>
+                        </variables>
+                        <sequence name="e3_seq">
+                            <assign name="e3_pre">
+                                <copy>
+                                    <from variable="cache_key"/>
+                                    <to>$SetContentIn.parameters/key</to>
+                                </copy>
+                                <copy>
+                                    <from>sxxf:doMarshal($result)</from>
+                                    <to>$SetContentIn.parameters/content</to>
+                                </copy>
+                            </assign>
+                            <invoke name="e3_tech" partnerLink="cache" operation="setContent" portType="ns3:DataCache" inputVariable="SetContentIn" outputVariable="SetContentOut"/>
+                        </sequence>
+                    </scope>
+                </sequence>
+            </else>
+        </if>
         <sequence name="a8">
             <assign name="a8_pre">
                 <copy>
