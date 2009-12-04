@@ -109,7 +109,7 @@ public class HyperEvent {
     private String[] extractTeachers(Component c) {
         try {
             String s = HyperHelper.readString("DESCRIPTION", c);
-            return extractCommaSeparated(s.split(":")[1]);
+            return extractCommaSeparated(s.substring(s.lastIndexOf(":")+1));
         } catch (Exception e) { return new String[] {"??"}; }
     }
 
@@ -121,10 +121,10 @@ public class HyperEvent {
     }
 
     private String extractCourse(Component c) {
+        String s = HyperHelper.readString("SUMMARY", c);
         try {
-            String s = HyperHelper.readString("SUMMARY", c);
             return s.substring(0,s.lastIndexOf("-")).trim();
-        } catch (Exception e) { return "??"; }
+        } catch (Exception e) { return s; }
     }
 
 
