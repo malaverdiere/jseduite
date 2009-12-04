@@ -118,7 +118,13 @@ function getAttribute(attribute, element) {
 /** getTag()
 	return value of 'tag' in 'element' **/	
 function getTag(tag, element){
-	return element.getElementsByTagName(tag)[0].textContent;
+    var elem = element.getElementsByTagName(tag)[0];
+    if (null == elem) {
+        addErrLog("#helpers::getTag("+tag+","+element+") fails");
+        return "??";
+    } else {
+        return elem.textContent;
+    }
 }
 
 function getTags(tag, element){

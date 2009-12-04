@@ -22,7 +22,7 @@
  **/
 
 
-var weatherTransfo = Class.create(jSeduiteTransformation, {
+var weatherHelper = Class.create({
     initialize: function() {
         this.days = new Array();
         this.days["MON"]="Lundi";
@@ -32,12 +32,6 @@ var weatherTransfo = Class.create(jSeduiteTransformation, {
         this.days["FRI"]="Vendredi";
         this.days["SAT"]="Samedi";
         this.days["SUN"]="Dimanche";
-    },
-    perform: function(xml) {
-        var live = this.getLive(getNode("live", xml)[0]);
-        var forecast = this.getForecast(getNode("forecast_star", xml)[0]);
-        var result = new Array();
-        return result.concat([live], forecast);
     },
     getLive: function(weatherLive) {
         var url = "http://img.weather.weatherbug.com/forecast/icons/localized/250x210/en/trans/";
@@ -63,11 +57,8 @@ var weatherTransfo = Class.create(jSeduiteTransformation, {
         content += "</center>";
         return content;
     },
-    getForecast: function(fcast) {
-        return [ this.getClose(fcast), this.getFar(fcast) ];
-    },
     getClose: function(forecast) {
-        var content = "<div id=\"info_logo\" class=\"weather_logo\"></div>"; 
+        var content = "<div id=\"info_logo\" class=\"weather_logo\"></div>";
         content += "<p class=\"title\"> &nbsp; M&eacute;t&eacute;o</p>";
         content += "<br><br><center>";
         content += "<table class=\"weather\" width=\"100%\" height=\"380\">";
@@ -109,5 +100,26 @@ var weatherTransfo = Class.create(jSeduiteTransformation, {
         content += "</table>";
         content += "</center>";
         return content;
+    }
+});
+
+var weatherTransfo = Class.create(jSeduiteTransformation, {
+    perform: function(xml) {
+        var helper = new weatherHelper();
+        var live = helper.getLive(getNode("live", xml)[0]);
+        var forecast = this.getForecast(getNode("forecast_star", xml)[0],helper);
+        var result = new Array();
+        return result.concat([live], forecast);
+    },
+    getForecast: function(fcast,helper) {
+        return [ helper.getClose(fcast), helper.getFar(fcast) ];
+    }
+});
+
+var liveWeatherTransfo = Class.create(jSeduiteTransformation, {
+    perform: function(xml) {
+        var helper = new weatherHelper();
+        var live = helper.getLive(getNode("live", xml)[0]);
+        return [live];
     }
 });
