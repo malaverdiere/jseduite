@@ -30,7 +30,7 @@ package util;
  */
 public class Config {
     private static final String PREFIX =
-         "/Users/mosser/repositories/jseduite/trunk/webservices/HyperMachin/web/"; // @local
-         //"./../applications/j2ee-modules/HyperMachin/"; // @server
+         //"/Users/mosser/repositories/jseduite/trunk/webservices/HyperMachin/web/"; // @local
+         "./../applications/j2ee-modules/HyperMachin/"; // @server
     public static final String PATH = PREFIX + "iCal/";
 }
