@@ -96,7 +96,8 @@ public class HyperEvent {
     private String extractBuilding(Component c) {
         try { // works as a misunderstanding (aka SHAZAM)
             String s = HyperHelper.readString("LOCATION", c);
-            return s.substring(s.lastIndexOf(" ")+1,s.length()).trim();
+            return s.split(" ")[1].trim();
+            //return s.substring(s.lastIndexOf(" ")+1,s.length()).trim();
         } catch (Exception e) { return "??"; }
     }
     private String[] extractRooms(Component c) {
@@ -125,7 +126,7 @@ public class HyperEvent {
         try {
            String s = HyperHelper.readString("SUMMARY", c);
            if (s.lastIndexOf("-") == -1)
-                return "??";
+                return "TD";
            return s.substring(s.lastIndexOf("-")+1,s.length()).trim();
         } catch (Exception e) { return "??"; }
     }
