@@ -94,21 +94,29 @@ public class HyperEvent {
      *********************/
     
     private String extractBuilding(Component c) {
-        try {
+        try { // works as a misunderstanding (aka SHAZAM)
             String s = HyperHelper.readString("LOCATION", c);
-            return s.substring(s.lastIndexOf("-")+1,s.length()).trim();
+            return s.substring(s.lastIndexOf(" ")+1,s.length()).trim();
         } catch (Exception e) { return "??"; }
     }
     private String[] extractRooms(Component c) {
         try {
             String s = HyperHelper.readString("LOCATION", c);
-            return extractCommaSeparated(s.substring(0,s.lastIndexOf("-")));
+            String[] raw = extractCommaSeparated(s);
+            ArrayList<String> result = new ArrayList<String>();
+            for(String str: raw){
+                try {result.add(str.split(" ")[0]);}
+                catch(Exception e){continue;}
+            }
+            return result.toArray(new String[result.size()]);
+            //return extractCommaSeparated(s.substring(0,s.lastIndexOf("-")));
         } catch (Exception e) { return new String[] {"??"}; }
     }
 
     private String[] extractTeachers(Component c) {
         try {
             String s = HyperHelper.readString("DESCRIPTION", c);
+            s = s.split("\n")[1]; // Information is located line #2
             return extractCommaSeparated(s.substring(s.lastIndexOf(":")+1));
         } catch (Exception e) { return new String[] {"??"}; }
     }
@@ -116,6 +124,8 @@ public class HyperEvent {
     private String extractKind(Component c) {
         try {
            String s = HyperHelper.readString("SUMMARY", c);
+           if (s.lastIndexOf("-") == -1)
+                return "??";
            return s.substring(s.lastIndexOf("-")+1,s.length()).trim();
         } catch (Exception e) { return "??"; }
     }
