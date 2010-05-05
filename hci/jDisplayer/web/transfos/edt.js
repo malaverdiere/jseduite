@@ -79,7 +79,7 @@ var edtHandler = Class.create(jSeduiteTransformation, {
         var startedCl = ((from <= now && now < to)? "alert": "emphasize");
 		content +="<td><span class=\""+startedCl+"\">"+dateToString(from)+" &rarr; "+dateToString(to)+"</span></td>";
 		content +="<td class=\"tdCenter\"> </td>";
-        var raw_rooms = getTags("rooms", elem);
+        /** var raw_rooms = getTags("rooms", elem);
         var rooms = raw_rooms.map(function(e) { 
             var id = e.split(" ")[0] + " ";
             if (e.indexOf("Templ", 0) != -1) {
@@ -87,8 +87,10 @@ var edtHandler = Class.create(jSeduiteTransformation, {
             } else {
                 return id + "Luc.";
             }
-        });
-		content +="<td class=\"tdRight\"><span class=\""+startedCl+"\">"+rooms +"</span></td>";
+        }); */
+        var building = getTags("building", elem);
+        var rooms = getTags("rooms", elem);
+		content +="<td class=\"tdRight\"><span class=\""+startedCl+"\">"+ rooms + " " + building +"</span></td>";
 		content +="</tr>";
 		content += "</table>";
         return content;

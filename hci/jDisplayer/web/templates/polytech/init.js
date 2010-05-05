@@ -33,10 +33,10 @@ polytech.declare("weather",        new weatherTransfo(),     5);
 polytech.declare("image_scraper",  new imageScrapTransfo(),  5);
 polytech.declare("apal",           new apal_array(5),        5);
 polytech.declare("hyperloc",       new hyperLocHandler(7),  10);
-polytech.declare("internal_news",  new internalNews(),       5);
-polytech.declare("feed_reader",    new feedHandler(),        5);
+polytech.declare("internal_news",  new internalNews(),       6);
+polytech.declare("feed_reader",    new feedHandler(),        7);
 polytech.declare("stud_summon",    new studSummon(),         5);
-polytech.declare("calendar",       new iCalHandler(),        5);
+polytech.declare("calendar",       new iCalHandler(),        6);
 polytech.declare("timetable",      new edtHandler(1),        5);
 // dispatching the information kinds in the display loops
 polytech.dispatch = function(k) {
