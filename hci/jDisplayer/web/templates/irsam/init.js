@@ -19,34 +19,35 @@
  *
  * @author      Main     Sebastien Mosser       [mosser@polytech.unice.fr]
  * @contributor 2009     Celine Auzias          [celine.auzias@gmail.com]
+ * @contributor 2010     Christophe Desclaux    [desclaux@polytech.unice.fr]
  **/
 
 // creating a template.
-var polytech = new jSeduiteTemplate("polytech");
+var irsam = new jSeduiteTemplate("template destiné à l'IRSAM");
 // declaring info handlers
-polytech.declare("twitter",        new scrollingTwitter(),   0);
-polytech.declare("breaking_news",  new breakingNews(),       0);
-polytech.declare("absences_profs", new absenceHandler(),     5);
-polytech.declare("picture_albums", new pictAlbumTransfo(),   5);
-polytech.declare("tv_shows",       new tv_shows_array(6),    5);
-polytech.declare("weather",        new weatherTransfo(),     5);
-polytech.declare("image_scraper",  new imageScrapTransfo(),  5);
-polytech.declare("apal",           new apal_array(5),        5);
-polytech.declare("hyperloc",       new hyperLocHandler(7),  10);
-polytech.declare("internal_news",  new internalNews(),       6);
-polytech.declare("feed_reader",    new feedHandler(),        7);
-polytech.declare("stud_summon",    new studSummon(),         5);
-polytech.declare("calendar",       new iCalHandler(),        6);
-polytech.declare("timetable",      new edtHandler(1),        5);
+irsam.declare("twitter",        new scrollingTwitter(),   0);
+irsam.declare("breaking_news",  new breakingNews(),       0);
+irsam.declare("absences_profs", new absenceHandler(),     5);
+irsam.declare("picture_albums", new pictAlbumTransfo(),   5);
+irsam.declare("tv_shows",       new tv_shows_array(6),    5);
+irsam.declare("weather",        new liveWeatherTransfo(), 5);
+irsam.declare("image_scraper",  new imageScrapTransfo(),  5);
+irsam.declare("apal",           new apal_array(5),        5);
+irsam.declare("hyperloc",       new hyperLocHandler(7),  10);
+irsam.declare("internal_news",  new internalNews(),       6);
+irsam.declare("feed_reader",    new feedHandler(),        7);
+irsam.declare("stud_summon",    new studSummon(),         5);
+irsam.declare("calendar",       new iCalHandler(),        6);
+irsam.declare("timetable",      new edtHandler(1),        5);
 // dispatching the information kinds in the display loops
-polytech.dispatch = function(k) {
+irsam.dispatch = function(k) {
     if ("breaking_news" == k || "twitter" == k)
         return "scroll";
     else
         return "main";
 };
 // setting the template
-engine.setTemplate(polytech);
+engine.setTemplate(irsam);
 
 
 
