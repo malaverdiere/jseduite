@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-749-SNAPSHOT. --><xs:schema xmlns:tns="http://promos.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://promos.technical.jSeduite.modalis.i3s.unice.fr/">
+
+<xs:element name="PromoException" type="tns:PromoException"></xs:element>
+
+<xs:element name="findPromoById" type="tns:findPromoById"></xs:element>
+
+<xs:element name="findPromoByIdResponse" type="tns:findPromoByIdResponse"></xs:element>
+
+<xs:element name="getAllPromosReferences" type="tns:getAllPromosReferences"></xs:element>
+
+<xs:element name="getAllPromosReferencesResponse" type="tns:getAllPromosReferencesResponse"></xs:element>
+
+<xs:complexType name="getAllPromosReferences">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllPromosReferencesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="PromoException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findPromoById">
+<xs:sequence>
+<xs:element name="id" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findPromoByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:promo" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="promo">
+<xs:sequence>
+<xs:element name="code" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="id" type="xs:int"></xs:element>
+<xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-749-SNAPSHOT. --><xs:schema xmlns:tns="http://summon.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://summon.news.technical.jSeduite.modalis.i3s.unice.fr/">
+
+<xs:element name="StudentsSummonException" type="tns:StudentsSummonException"></xs:element>
+
+<xs:element name="findSummoningById" type="tns:findSummoningById"></xs:element>
+
+<xs:element name="findSummoningByIdResponse" type="tns:findSummoningByIdResponse"></xs:element>
+
+<xs:element name="getAllSummoningReferences" type="tns:getAllSummoningReferences"></xs:element>
+
+<xs:element name="getAllSummoningReferencesResponse" type="tns:getAllSummoningReferencesResponse"></xs:element>
+
+<xs:complexType name="getAllSummoningReferences">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllSummoningReferencesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="StudentsSummonException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findSummoningById">
+<xs:sequence>
+<xs:element name="id" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findSummoningByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:summoning" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="summoning">
+<xs:sequence>
+<xs:element name="date" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="id" type="xs:int"></xs:element>
+<xs:element name="level" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="owner" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="promo" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="student" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="valid" type="xs:boolean"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
