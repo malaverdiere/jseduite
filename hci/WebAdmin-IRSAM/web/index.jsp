@@ -45,14 +45,6 @@
                                 </h:panelGroup>
                                 <h:outputText value="#{bundle.INTERNALNEWS_DESCRIPTION}"/>
                             </div></h:panelGroup>
-                            <%--<h:panelGroup><div class="homeColumn">
-                                <h:panelGroup styleClass="menuItem">
-                                    <h:outputLink value="#{request.contextPath}/breakingnews/listing.jsf">
-                                        <h:outputText value="#{bundle.BREAKINGNEWS}"/>
-                                    </h:outputLink>
-                                </h:panelGroup>
-                                <h:outputText value="#{bundle.BREAKINGNEWS_DESCRIPTION}"/>
-                            </div></h:panelGroup>--%>
                         </h:panelGrid>
 
                         <h:outputText value="#{bundle.MENU_RESTAURATION}" styleClass="homeTitle restaurationTitle"/>
@@ -115,28 +107,13 @@
                             </div></h:panelGroup>
                             <h:panelGroup><div class="homeColumn">
                                 <h:panelGroup styleClass="menuItem">
-                                    <h:outputLink value="#{request.contextPath}/summonings/listing.jsf">
-                                        <h:outputText value="#{bundle.SUMMONINGS}"/>
-                                    </h:outputLink>
-                                </h:panelGroup>
-                                <h:outputText value="#{bundle.SUMMONINGS_DESCRIPTION}"/>
-                            </div></h:panelGroup>
-                            <h:panelGroup><div class="homeColumn">
-                                <h:panelGroup styleClass="menuItem">
                                     <h:outputLink value="#{request.contextPath}/promotions/listing.jsf">
                                         <h:outputText value="#{bundle.PROMOTION}"/>
                                     </h:outputLink>
                                 </h:panelGroup>
                                 <h:outputText value="#{bundle.PROMOTION_DESCRIPTION}"/>
                             </div></h:panelGroup>
-                            <h:panelGroup><div class="homeColumn">
-                                <h:panelGroup styleClass="menuItem">
-                                    <h:outputLink value="#{request.contextPath}/plannings/listing.jsf">
-                                        <h:outputText value="#{bundle.PLANNING}"/>
-                                    </h:outputLink>
-                                </h:panelGroup>
-                                <h:outputText value="#{bundle.PLANNING_DESCRIPTION}"/>
-                            </div></h:panelGroup>
+                            
                         </h:panelGrid>
 
                         <h:outputText value="#{bundle.MENU_FEEDS}" styleClass="homeTitle feedsTitle"/>

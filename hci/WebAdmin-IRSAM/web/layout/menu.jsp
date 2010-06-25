@@ -21,11 +21,6 @@
                 <h:outputText value="#{bundle.INTERNALNEWS}"/>
             </h:outputLink>
         </h:panelGroup>
-        <h:panelGroup styleClass="menuItem">
-            <h:outputLink value="#{request.contextPath}/breakingnews/listing.jsf">
-                <h:outputText value="#{bundle.BREAKINGNEWS}"/>
-            </h:outputLink>
-        </h:panelGroup>
     </h:panelGroup>
 
     <h:panelGroup styleClass="menuCategory">
@@ -69,22 +64,9 @@
                 <h:outputText value="#{bundle.ABSENCES}"/>
             </h:outputLink>
         </h:panelGroup>
-
-        <h:panelGroup styleClass="menuItem">
-            <h:outputLink value="#{request.contextPath}/summonings/listing.jsf">
-                <h:outputText value="#{bundle.SUMMONINGS}"/>
-            </h:outputLink>
-        </h:panelGroup>
-
         <h:panelGroup styleClass="menuItem">
             <h:outputLink value="#{request.contextPath}/promotions/listing.jsf">
                 <h:outputText value="#{bundle.PROMOTION}"/>
-            </h:outputLink>
-        </h:panelGroup>
-
-        <h:panelGroup styleClass="menuItem">
-            <h:outputLink value="#{request.contextPath}/plannings/listing.jsf">
-                <h:outputText value="#{bundle.PLANNING}"/>
             </h:outputLink>
         </h:panelGroup>
     </h:panelGroup>
