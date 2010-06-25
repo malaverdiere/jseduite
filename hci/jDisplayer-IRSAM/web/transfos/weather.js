@@ -107,9 +107,12 @@ var weatherTransfo = Class.create(jSeduiteTransformation, {
     perform: function(xml) {
         var helper = new weatherHelper();
         var live = helper.getLive(getNode("live", xml)[0]);
-        var forecast = this.getForecast(getNode("forecast_star", xml)[0],helper);
+        //modifications pour n'afficher que la météo du jour
+        //var forecast = this.getForecast(getNode("forecast_star", xml)[0],helper);
         var result = new Array();
-        return result.concat([live], forecast);
+        result[0] = live;
+        //return live;
+        return result;
     },
     getForecast: function(fcast,helper) {
         return [ helper.getClose(fcast), helper.getFar(fcast) ];
