@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Body>
+        <GetInformationResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+            <result>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="tv_shows">
+                    <shows>
+                        <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="TF 1">
+                            <title>Soeur Thérèse.com</title>
+                            <start>20:45</start>
+                            <summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/12543718.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Suite au versement d'un important don anonyme au couvent, soeur Thérèse enquête pour tenter de découvrir l'identité et les motivations du généreux donateur.</summary>
+                        </item>
+                        <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="TF 1">
+                            <title>Dr House</title>
+                            <start>22:30</start>
+                            <summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/6847304.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Dans un établissement de jeux, House discute avec une femme qui est subitement prise d'un grave malaise. Après un rapide examen, les diagnostics divergent.</summary>
+                        </item>
+                        <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="France 2">
+                            <title>Cold Case, affaires classées</title>
+                            <start>20:35</start>
+                            <summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/10585608.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Lilly et son équipe remontent le temps pour identifier l'assassin d'un jeune homme, retrouvé mort peu de temps après avoir été accusé de viol.</summary>
+                        </item>
+                        <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="France 2">
+                            <title>Mots croisés</title>
+                            <start>22:10</start>
+                            <summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/14019356.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Au sommaire : - Qu'est-ce qu'être Français ? - Sarkozy peut-il tenir sa droite ?</summary>
+                        </item>
+                        <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="France 3">
+                            <title>Les dernières heures du mur</title>
+                            <start>20:35</start>
+                            <summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/13998178.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Retour sur les coulisses de la chute du mur de Berlin, en novembre 1989, où se jouaient des luttes politiques importantes, influencées par Bonn et le Kremlin.</summary>
+                        </item>
+                        <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="France 3">
+                            <title>Ce soir (ou jamais !)</title>
+                            <start>22:50</start>
+                            <summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/14012219.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Il y a 20 ans, au cours d'une nuit restée dans les mémoires et sous l'oeil des caméras du monde entier, le mur de Berlin tombait. Avec ses invités, Frédéric Taddéï revient sur cet événement majeur de l'histoire contemporaine, qui a marqué la fin de la guerre froide et préfigurait l'effondrement de l'URSS.</summary>
+                        </item>
+                        <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="Canal+">
+                            <title>En berline à Berlin</title>
+                            <start>20:45</start>
+                            <summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/13988764.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Vingt ans après la chute du Mur de Berlin, Antoine de Caunes se rend dans la capitale allemande, pour y filmer la vie culturelle et artistique.</summary>
+                        </item>
+                        <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="Canal+">
+                            <title>Berlin, «24 heures», 20 ans après</title>
+                            <start>22:15</start>
+                            <summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/13988278.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Filmés en 89 pour l'émission «24 Heures», trois témoins de la chute du Mur de Berlin reviennent vingt ans après sur cet événement et ses conséquences pour eux.</summary>
+                        </item>
+                        <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="Arte">
+                            <title>Sabotage</title>
+                            <start>20:45</start>
+                            <summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/57592.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Après une panne d'électricité qui a plongé Londres dans le noir, la police suspecte un terroriste d'avoir monté cette opération de sabotage.</summary>
+                        </item>
+                        <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="Arte">
+                            <title>Musique classique et guerre froide</title>
+                            <start>22:00</start>
+                            <summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/13969317.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Au lendemain de la création de la RDA, le régime centralisé régente la création artistique dans le but d'en faire une vitrine culturelle à l'étranger.</summary>
+                        </item>
+                        <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="M6">
+                            <title>Maman cherche l'amour (saison 2)</title>
+                            <start>20:40</start>
+                            <summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/14016084.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Le nombre des prétendants se restreint pour chacune des jeunes femmes. Les choix sont de plus en plus difficiles pour Marie-Jo, qui rend visite tour à tour à Phil et Dany, Katia, dont le coeur balance entre Patrick et Olivier, Angie, qui bouleverse Franck et Thierry par son annonce, et Sophie, qui peine à choisir entre Cédric et Romuald, aussi craquants l'un que l'autre.</summary>
+                        </item>
+                        <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" channel="M6">
+                            <title>Belle toute nue</title>
+                            <start>22:20</start>
+                            <summary>&lt;img src="http://media.tv.voila.fr/Images/Programme/95x74/14015751.jpg" width="95" height="74" align="left" border="0"&gt;&amp;#160;Deux nouvelles jeunes femmes font appel à William. Elles manquent de confiance en elles et veulent apprendre à s'aimer et se mettre en valeur. Stéphanie, 36 ans, élève seule ses deux enfants. Mélodie, 19 ans, vit avec son petit ami. Toutes les deux sont affreusement complexées par leurs rondeurs et leurs formes généreuses.</summary>
+                        </item>
+                    </shows>
+                </item>
+            </result>
+        </GetInformationResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Body>
+        <GetInformationResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+            <result>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="weather">
+                    <weather>
+                        <live xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/WeatherProxy">
+                            <station>Nice (Cote D'Azur)</station>
+                            <pressure>1004.07</pressure>
+                            <rain>0.0</rain>
+                            <windSpeed>15</windSpeed>
+                            <windDirection>NW</windDirection>
+                            <icon>cond004.gif</icon>
+                            <minTemp>9.0</minTemp>
+                            <maxTemp>16.0</maxTemp>
+                            <temp>13.0</temp>
+                        </live>
+                        <forecast_star xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/WeatherProxy">
+                            <item day="MON">
+                                <maxTemp>12.0</maxTemp>
+                                <minTemp>8.0</minTemp>
+                                <icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond050.gif</icon>
+                            </item>
+                            <item day="TUE">
+                                <maxTemp>13.0</maxTemp>
+                                <minTemp>8.0</minTemp>
+                                <icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond007.gif</icon>
+                            </item>
+                            <item day="WED">
+                                <maxTemp>12.0</maxTemp>
+                                <minTemp>8.0</minTemp>
+                                <icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond007.gif</icon>
+                            </item>
+                            <item day="THU">
+                                <maxTemp>14.0</maxTemp>
+                                <minTemp>10.0</minTemp>
+                                <icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond003.gif</icon>
+                            </item>
+                            <item day="FRI">
+                                <maxTemp>14.0</maxTemp>
+                                <minTemp>13.0</minTemp>
+                                <icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond109.gif</icon>
+                            </item>
+                            <item day="SAT">
+                                <maxTemp>14.0</maxTemp>
+                                <minTemp>11.0</minTemp>
+                                <icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond093.gif</icon>
+                            </item>
+                            <item day="SUN">
+                                <maxTemp>13.0</maxTemp>
+                                <minTemp>11.0</minTemp>
+                                <icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond050.gif</icon>
+                            </item>
+                        </forecast_star>
+                    </weather>
+                </item>
+            </result>
+        </GetInformationResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

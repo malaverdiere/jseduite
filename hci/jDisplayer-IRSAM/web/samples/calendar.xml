@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Body>
+        <GetInformationResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+            <result>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
+                    <calEvent>
+                        <description xmlns=""/>
+                        <end xmlns="">2009-11-25T10:35:00+01:00</end>
+                        <location xmlns=""/>
+                        <start xmlns="">2009-11-25T10:30:00+01:00</start>
+                        <summary xmlns="">Pitch SI3 NuitInfo</summary>
+                    </calEvent>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
+                    <calEvent>
+                        <description xmlns="">La demoscene est une communauté de passionnés d’informatique qui compose des programmes d’animation 3D temps-réel. La plupart du temps, les méthodes employées pour créer ces animations sont particulièrement novatrices, et souvent le code source est libre. Après un rapide historique de la demoscene, la présentation portera sur les potentiels bienfaits de tels programmes dans le monde du logiciel libre, ainsi que les raisons qui poussent ces créateurs à libérer leurs oeuvres.</description>
+                        <end xmlns="">2009-11-25T18:00:00+01:00</end>
+                        <location xmlns="">Salle Polytech'</location>
+                        <start xmlns="">2009-11-25T17:00:00+01:00</start>
+                        <summary xmlns="">La demoscene et le logiciel libre </summary>
+                    </calEvent>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
+                    <calEvent>
+                        <description xmlns="">LaTeX est un outil de formatage de documents très utilisé pour les rédactions universitaires et scientifiques. Contrairement aux traitements de texte graphique, il met l’accent sur la structure logique du document pour produire une mise en page soignée. Venez découvrir les principes et les possibilités de ce logiciel original, que vous pourrez ensuite apprendre à utiliser lors de l’atelier du samedi.</description>
+                        <end xmlns="">2009-11-25T17:00:00+01:00</end>
+                        <location xmlns="">Salle des développeurs</location>
+                        <start xmlns="">2009-11-25T16:00:00+01:00</start>
+                        <summary xmlns="">LaTeX : vos documents comme vous ne les avez jamais vus</summary>
+                    </calEvent>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
+                    <calEvent>
+                        <description xmlns="">Distribution linux simple, légère et minimaliste dont la philosophie KISS est la clé. La présentation portera sur l’utilisation et l’installation pour obtenir le système convenant le plus possible à l’utilisateur. On y verra également la force de la communauté ArchLinux au travers du système de paquets et de AUR.</description>
+                        <end xmlns="">2009-11-25T17:00:00+01:00</end>
+                        <location xmlns="">Salle Polytech'</location>
+                        <start xmlns="">2009-11-25T16:00:00+01:00</start>
+                        <summary xmlns="">Archlinux</summary>
+                    </calEvent>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
+                    <calEvent>
+                        <description xmlns="">La conception électronique repose sur de nombreux logiciels : les logiciels EDA (Electronic Design Automation). Ces logiciels sont principalement propriétaires et souvent très chers. Bien que peu connue, l’alternative des logiciels libres existe. Fedora Electronic Lab a pour but de renforcer cette communauté de logiciel libre EDA en la faisant connaître et en s’efforçant de créer une unité entre les outils (design-flow, interopérabilité). Fedora Electronic Lab propose un ensemble d’outils prêts à l’emploi sous la forme d’un liveDVD. A vous de l’essayer et de l’adopter !</description>
+                        <end xmlns="">2009-11-25T17:00:00+01:00</end>
+                        <location xmlns="">Salle des communautés</location>
+                        <start xmlns="">2009-11-25T16:00:00+01:00</start>
+                        <summary xmlns="">Fedora Electronic Lab</summary>
+                    </calEvent>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
+                    <calEvent>
+                        <description xmlns="">Janua est une société de service et d’intégration qui se propose d’accompagner les entreprises vers le monde des logiciels libres et des infrastructures à base de composants standards.
+
+Lors de la conférence l’entreprise vous présentera ses implications dans le libre, les business models de l’Open Source et finira par aborder l’impact économique des logiciels libres en France et en région PACA.
+                        </description>
+                        <end xmlns="">2009-11-25T16:00:00+01:00</end>
+                        <location xmlns="">Salle des développeurs</location>
+                        <start xmlns="">2009-11-25T15:00:00+01:00</start>
+                        <summary xmlns="">Janua, l’open source en entreprise</summary>
+                    </calEvent>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
+                    <calEvent>
+                        <description xmlns="">Cette conférence montrera de manière simple pourquoi il est important d’utiliser des formats ouverts</description>
+                        <end xmlns="">2009-11-25T16:00:00+01:00</end>
+                        <location xmlns="">Salle des communautés</location>
+                        <start xmlns="">2009-11-25T15:00:00+01:00</start>
+                        <summary xmlns="">La bataille des formats</summary>
+                    </calEvent>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
+                    <calEvent>
+                        <description xmlns="">L’équipe MODALIS du laboratoire CNRS / I3S s’interesse à la définition de modèles pour les architectures largement distribuées. Dans le cadre de nos recherches sur les Architectures Orientées Services (SOA), nous avons mis en place (en partenariat avec l’Institut d’Education Sensoriel Clément Ader, établissement scolaire niçois accueillant de jeunes handicapés) une architecture orientée services permettant de diffuser des informations en milieu scolaire : menu de la cantine, Horaire de bus, Albums Photos, Vidéos, ... Le framework ainsi créé (jSeduite, publié sous licence LGPL) est déployé sur le site de l’EPU Polytech’Nice - Sophia Antipolis ainsi qu’à l’IES.
+
+Nous nous proposons d’illustrer le fonctionnement d’une SOA sur cet exemple. Comment le Web 2.0, de par sa nature participative, nous permet de mettre en place un système de diffusion d’information libre relié aux principaux acteurs du marché (Google, Yahoo, Twitter, ...) ? Comment intégrer la multitude d’information existantes sur la toile dans le système ? Comment techniquement déployer une architecture orientée service sans être débordé ? Quelles solutions ’libres’ peuvent supporter une telle infrastructure ? Comment manipuler les informations récupérées pour les diffuser efficacement aux utilisateurs ? C’est à ces questions que nous tenterons de répondre en décrivant l’architecture ainsi que la mise en oeuvre du framework jSeduite.
+                        </description>
+                        <end xmlns="">2009-11-25T16:00:00+01:00</end>
+                        <location xmlns="">Salle Polytech'</location>
+                        <start xmlns="">2009-11-25T15:00:00+01:00</start>
+                        <summary xmlns="">Le framework jSeduite</summary>
+                    </calEvent>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
+                    <calEvent>
+                        <description xmlns="">Lors de cette première conférence nous vous présenterons brièvement ce qu’est le logiciel et vous présenterons le déroulement des Journées Méditerranéennes du Logiciel Libre.</description>
+                        <end xmlns="">2009-11-25T15:00:00+01:00</end>
+                        <location xmlns="">Amphi GNU</location>
+                        <start xmlns="">2009-11-25T14:00:00+01:00</start>
+                        <summary xmlns="">Conférence d’ouverture</summary>
+                    </calEvent>
+                </item>
+            </result>
+        </GetInformationResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

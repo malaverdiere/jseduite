@@ -1,0 +1,397 @@
+/**
+ * This file is part of jSeduite::util
+ *
+ * Copyright (C) 2008-  Sebastien Mosser
+ *
+ * jSeduite::util is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * jSeduite::util is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with jSeduite::util; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ *
+ * @author      Main     Sebastien Mosser       [mosser@polytech.unice.fr]
+ * @contributor 2009     Celine Auzias          [celine.auzias@gmail.com]
+ **/
+
+/****************************
+ * Main look'n feel & date  *
+ ****************************/
+
+/** Main Loop **/
+body
+{
+    background: #B2D5E5 url('_img/background.png') repeat top left;
+    font-family:arial;
+    font-size:120%;
+}
+
+
+#main {
+    background-color: transparent;
+	background-image : url('_img/back_content.png');
+	background-repeat: no-repeat;
+	background-position:0px 125px;
+	color:#000000;
+    padding-top: 60px;	
+}
+
+#loading_animation {
+    height: 334px;
+    width: 501px;
+    background: transparent url('_img/loading-polytech.gif') no-repeat top left;
+    
+}
+
+/** Date **/
+#date_time
+{
+    text-align:center;
+    color:#ffffff;
+    font-size: 230%;
+    background: transparent url('_img/datetime.png') no-repeat top left;
+    font-family:arial;
+    width:144px;
+    height:72px;
+    padding-top:20px;
+}
+
+
+/** Diaporamas **/
+
+#diapo_content img{
+    padding:8px;  
+	background-color:#efefef;
+	border:1px solid #DEDEDE;
+	margin:40px 100px 0 0;
+}
+
+#diapo_loading {
+	width:60px;
+	height:30px;
+	left:50%;
+	top:50%;
+}
+
+/** ARRAYS COLORS (Odd / Even rows) **/
+ .odd{ background-color:#acd2e3; }
+ .even{ background-color:#dfecff; }
+ 
+/*************************
+ * Scrolling & mini logo *
+ *************************/
+
+.scrolling_content {
+    color:#000000;
+    font-size:300%;
+    background: transparent url('_img/back_scroll.png') no-repeat top left;
+    font-family:arial;
+    overflow:hidden;
+}
+
+#mini_logo{
+    background: transparent url('_img/mini_logo.png') no-repeat top left;
+}
+
+#diapo_loading {
+    height: 60px;
+    width: 60px;
+    background: transparent url('_img/diapo-load.gif') no-repeat top left;
+}
+
+/** Global Customisation **/
+
+.title {
+ 	color:#fff;
+    font-weight:normal;
+	font-size:210%;
+}
+
+.error     { color:#ff0000;  }
+.alert     { color: #ff8620; }
+.emphasize { color:#20709e;  }
+.ok        { color: #348017; }
+
+.huge {
+    font-size: 240%;
+	text-align: center;
+	margin:0px 0px 20px 0px;
+}
+
+.large {
+	font-size:230%;
+	text-align:center;
+	margin:0px 0px 20px 0px;
+}
+
+.little {
+    font-size:150%;
+}
+
+/*****************************
+ * Information customisation *
+ *****************************/
+
+/** Absences **/
+.absence_logo {
+    width: 145px; height: 116px;
+    background: transparent url('_logos/absence.png') no-repeat top left;
+}
+
+/** Album **/
+
+.album_logo {
+    width: 145px; height: 116px;
+    background: transparent url('_logos/pict.png') no-repeat top left;
+}
+
+/** Apal **/
+
+.apal_logo {
+    width: 145px; height: 116px;
+    background: transparent url('_logos/apal.png') no-repeat top left;
+}
+
+.apal{
+     width:100%;
+     padding:4px 0 0 0;
+     margin: 44px 0 0 0;
+     font-size:190%;
+ }
+
+ 
+
+/** breaking news **/
+
+/** calendar **/
+
+.calendar_logo {
+    width: 145px; height: 116px;
+    background: transparent url('_logos/ical.png') no-repeat top left;
+}
+
+/** edt **/
+.timetable_logo {
+    width: 145px; height: 116px;
+    background: transparent url('_logos/edt.png') no-repeat top left;
+}
+
+.timetable{
+     width: 100%;
+     padding: 2px 0 0 0;
+     margin: 2px 0 0 0;
+     font-size: 190%;
+     border-collapse: collapse;
+     margin-bottom: 9px;
+ }
+
+/** feed **/
+
+.feed_logo {
+    width: 145px; height: 116px;
+    background: transparent url('_logos/rss.png') no-repeat top left;
+}
+
+.feed_title{
+    color:#20709e;
+	font-size:220%;
+	font-style:italic;
+}
+
+.feed_content {
+    padding:0px;
+	font-size:230%;
+	margin:10px 0px 20px 0px;
+	text-align:justify;
+}
+
+/** internal news **/
+.internal_logo {
+    width: 145px; height: 116px;
+    background: transparent url('_logos/internal.png') no-repeat top left;
+}
+
+.internal_content{
+	padding: 0px;
+	font-size: 220%;
+	margin: 10px 0px 20px 0px;
+	text-align: justify;
+}
+
+.internal_author{
+	color:#20709e;
+	font-size:220%;
+	font-style:italic;
+}
+
+.internal_date{
+	color:#20709e;
+	font-size:220%;
+	font-style:italic;
+}
+/** scrap **/
+
+.scrap_logo {
+    width: 145px; height: 116px;
+    background: transparent url('_logos/pict.png') no-repeat top left;
+}
+
+/** summons **/
+
+.summon_logo {
+    width: 145px; height: 116px;
+    background: transparent url('_logos/summons.png') no-repeat top left;
+}
+
+.sum_level{
+	float: right;
+}
+.sum_content{
+	padding:0px;
+	font-size:240%;
+	margin:0px 0px 0px 0px;
+	text-align:center;
+}
+
+.sum_date{
+	color:#20709e;
+	font-size:230%;
+	text-align:center;
+	font-style:italic;
+	text-align:center;
+}
+
+/** tv_shows **/
+
+.tv_logo {
+    width: 145px; height: 116px;
+    background: transparent url('_logos/tv.png') no-repeat top left;
+}
+
+.tv_channel{
+	color:#ff0000;
+	font-size:220%;
+	display:block;
+	padding:0px;
+	background-color:#ffffff;
+	border:1px solid #DEDEDE;
+	text-align:center;
+    margin-top: 30px;
+}
+.tv_channel img{
+	margin-right:0px;
+	margin-bottom:0px;
+}
+
+.tv_hour{
+	font-size:230%;
+	color:#20709e;
+	margin-right:10px;
+}
+
+.tv_title{
+	font-size:230%;
+}
+
+.tv_sum{
+	margin:0;
+}
+.tv_sum img{
+	padding:5px;
+	background-color:#efefef;
+	border:1px solid #DEDEDE;
+	margin-right:5px;
+}
+
+/** Hyperloc **/
+.hyperloc_logo {
+    width: 145px; height: 116px;
+    background: transparent url('_logos/hyperloc.png') no-repeat top left;
+}
+
+.hyperloc {
+     width:100%;
+     padding:4px 0 0 0;
+     margin: 24px 0 0 0;
+     font-size:190%;
+ }
+
+
+/** twitter **/
+
+.twitter_logo {
+    width: 70px; height: 70px;
+    background: transparent url('_logos/twitter.png') no-repeat top left;
+}
+
+/** weather **/
+
+.weather_logo {
+    width: 145px; height: 116px;
+    background: transparent url('_logos/weather.png') no-repeat top left;
+}
+
+.weat_today{
+	font-size:250%;
+	padding:10px;
+}
+.weat_temp{
+	font-size:240%;
+	padding:20px 0 20px 0;
+}
+
+.t_min{ color:#20709e; }
+
+.t_max{ color:#ff8620; }
+
+.weat_infos{
+	font-size:220%;
+	display:block;
+	padding:0px;
+	background-color:#ffffff;
+	border:1px solid #DEDEDE;
+	text-align:center;
+}
+
+.w_wind {
+	margin-right:100px;
+}
+
+.w_press{
+	margin-right:10px;
+}
+
+.w_rain{
+
+}
+
+table.weather{ font-size:100%; }
+table.weather td { text-align:center; vertical-align:center;}
+
+.weat_day{
+	color:#20709e;
+	font-size:220%;
+	display:block;
+	font-style:italic;
+	padding:1px;
+	background-color:#ffffff;
+	border:1px solid #DEDEDE;
+	text-align:center;
+}
+
+.weat2_temp{ font-size:240%;}
+.weat4_temp{ font-size:230%;}
+
+.weat_day_img, .weat4_temp img{
+	padding:5px;  
+	background-color:#efefef;
+	border:1px solid #DEDEDE;
+	margin:5px;
+} 

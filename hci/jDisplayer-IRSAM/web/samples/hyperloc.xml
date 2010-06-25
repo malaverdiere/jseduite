@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Body>
+        <GetInformationResponse xmlns="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+            <result xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Wrapper">
+                <item xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/HyperLocatorSource" source="hyperloc">
+                    <hyperloc>
+                        <item xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperLocatorSource">
+                            <building xmlns="">Templiers</building>
+                            <end xmlns="">2009-11-23T12:30:00+01:00</end>
+                            <rooms xmlns="">302 Templiers VA 50pl.</rooms>
+                            <start xmlns="">2009-11-23T09:30:00+01:00</start>
+                            <teacher xmlns="">Champagnat</teacher>
+                        </item>
+                        <item xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperLocatorSource">
+                            <building xmlns="">Templiers</building>
+                            <end xmlns="">2009-11-23T12:15:00+01:00</end>
+                            <rooms xmlns="">AmO Templiers VA 150pl</rooms>
+                            <start xmlns="">2009-11-23T10:15:00+01:00</start>
+                            <teacher xmlns="">M. Rueher</teacher>
+                        </item>
+                        <item xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperLocatorSource">
+                            <building xmlns="">Templiers</building>
+                            <end xmlns="">2009-11-23T12:45:00+01:00</end>
+                            <rooms xmlns="">219 Templiers 20pl.</rooms>
+                            <start xmlns="">2009-11-23T10:45:00+01:00</start>
+                            <teacher xmlns="">Mlle Occello</teacher>
+                        </item>
+                        <item xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperLocatorSource">
+                            <building xmlns="">Templiers</building>
+                            <end xmlns="">2009-11-23T12:45:00+01:00</end>
+                            <rooms xmlns="">111 Templiers 30pl.</rooms>
+                            <start xmlns="">2009-11-23T10:45:00+01:00</start>
+                            <teacher xmlns="">M. Stromboni</teacher>
+                        </item>
+                        <item xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperLocatorSource">
+                            <building xmlns="">Templiers</building>
+                            <end xmlns="">2009-11-23T12:45:00+01:00</end>
+                            <rooms xmlns="">303 Templiers VA48pl.</rooms>
+                            <start xmlns="">2009-11-23T10:45:00+01:00</start>
+                            <teacher xmlns="">Mme Peyrat</teacher>
+                        </item>
+                        <item xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperLocatorSource">
+                            <building xmlns="">Templiers</building>
+                            <end xmlns="">2009-11-23T12:45:00+01:00</end>
+                            <rooms xmlns="">211 Templiers 24pl.</rooms>
+                            <start xmlns="">2009-11-23T10:45:00+01:00</start>
+                            <teacher xmlns="">Mme Hugues</teacher>
+                        </item>
+                        <item xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperLocatorSource">
+                            <building xmlns="">Templiers</building>
+                            <end xmlns="">2009-11-23T12:45:00+01:00</end>
+                            <rooms xmlns="">318 Templiers VA24pl</rooms>
+                            <start xmlns="">2009-11-23T10:45:00+01:00</start>
+                            <teacher xmlns="">Mme Storey</teacher>
+                        </item>
+                        <item xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperLocatorSource">
+                            <building xmlns="">Templiers</building>
+                            <end xmlns="">2009-11-23T12:30:00+01:00</end>
+                            <rooms xmlns="">302 Templiers VA 50pl.</rooms>
+                            <start xmlns="">2009-11-23T09:30:00+01:00</start>
+                            <teacher xmlns="">??</teacher>
+                        </item>
+                        <item xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/ws/technical/hyperlocator" xmlns="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperLocatorSource">
+                            <building xmlns="">Templiers</building>
+                            <end xmlns="">2009-11-23T12:15:00+01:00</end>
+                            <rooms xmlns="">AmO Templiers VA 150pl</rooms>
+                            <start xmlns="">2009-11-23T10:15:00+01:00</start>
+                            <teacher xmlns="">M. Rueher</teacher>
+                        </item>
+                    </hyperloc>
+                </item>
+            </result>
+        </GetInformationResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
