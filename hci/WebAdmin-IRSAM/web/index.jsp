@@ -45,14 +45,14 @@
                                 </h:panelGroup>
                                 <h:outputText value="#{bundle.INTERNALNEWS_DESCRIPTION}"/>
                             </div></h:panelGroup>
-                            <h:panelGroup><div class="homeColumn">
+                            <%--<h:panelGroup><div class="homeColumn">
                                 <h:panelGroup styleClass="menuItem">
                                     <h:outputLink value="#{request.contextPath}/breakingnews/listing.jsf">
                                         <h:outputText value="#{bundle.BREAKINGNEWS}"/>
                                     </h:outputLink>
                                 </h:panelGroup>
                                 <h:outputText value="#{bundle.BREAKINGNEWS_DESCRIPTION}"/>
-                            </div></h:panelGroup>
+                            </div></h:panelGroup>--%>
                         </h:panelGrid>
 
                         <h:outputText value="#{bundle.MENU_RESTAURATION}" styleClass="homeTitle restaurationTitle"/>
