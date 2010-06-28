@@ -39,6 +39,7 @@ irsam.declare("feed_reader",    new feedHandler(),        7);
 irsam.declare("stud_summon",    new studSummon(),         5);
 irsam.declare("calendar",       new iCalHandler(),        6);
 irsam.declare("timetable",      new edtHandler(1),        5);
+irsam.declare("clock",          new clock(),              5);
 // dispatching the information kinds in the display loops
 irsam.dispatch = function(k) {
     if ("breaking_news" == k || "twitter" == k)

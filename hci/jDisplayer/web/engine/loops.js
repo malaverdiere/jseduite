@@ -74,7 +74,7 @@ var mainLoop = Class.create(loop, {
                 var self = this;
                 transfo.handle($('main'), anItem, delta, function() { self.next(); });
             } else {
-                var screens = transfo.perform(anItem);
+                var screens = transfo.perform(anItem);//ici on édite
                 this.displayElements(screens.reverse(),delta);
             }            
         }
