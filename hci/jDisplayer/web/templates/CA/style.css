@@ -28,18 +28,20 @@
 /** Main Loop **/
 body
 {
-    background: #B2D5E5 url('_img/background.png') repeat top left;
+    background-color: #FAFAFA;
     font-family:arial;
-    font-size:120%;
+    font-size:150%;
 }
 
 
 #main {
-    background-color: transparent;
-	background-image : url('_img/back_content.png');
-	background-repeat: no-repeat;
-	background-position:0px 118px;
-	color:#000000;
+	width:910px;
+	height:600px;
+	margin:55px auto 0 auto;
+	padding:10px 20px 10px 20px;
+	background-color: #000000;
+	color:#ffffff;
+	font-size:120%;
 }
 
 #loading_animation {
@@ -52,10 +54,16 @@ body
 /** Date **/
 #date_time
 {
+    position:absolute;
+    top:0.1em;
+    right:0.58em;
+    width:200px;
+    height:70px;
+    line-height:70px;
     text-align:center;
     color:#ffffff;
-    font-size: 230%;
-    background: transparent url('_img/datetime.png') no-repeat top left;
+    font-size:230%;
+    background-color: #000000;
     font-family:arial;
 }
 
@@ -63,18 +71,22 @@ body
 /** Diaporamas **/
 
 #diapo_content img{
-    padding:8px;  
+	width:75%;
+	height:75%;
+	padding:10px;
 	background-color:#efefef;
 	border:1px solid #DEDEDE;
-	margin:40px 120px 0 0;
+	margin:15px 10px 0 0;
+	max-height:457px;
 }
 
 #diapo_loading {
+	position:absolute;
+	display:block;
 	width:60px;
 	height:30px;
 	left:50%;
-	top:50%;
-}
+	top:50%;}
 
 /** ARRAYS COLORS (Odd / Even rows) **/
  .odd{ background-color:#acd2e3; }
@@ -85,11 +97,7 @@ body
  *************************/
 
 .scrolling_content {
-    color:#000000;
-    font-size:300%;
-    background: transparent url('_img/back_scroll.png') no-repeat top left;
-    font-family:arial;
-    overflow:hidden;
+	display:none;
 }
 
 #mini_logo{
@@ -105,9 +113,13 @@ body
 /** Global Customisation **/
 
 .title {
- 	color:#20709e;
-    font-weight:normal;
-	font-size:210%;
+	color:#B1F7F6;
+	font-weight:normal;
+	font-size:230%;	
+	margin-bottom:5px;
+	margin-top:0px;
+	text-indent:150px;
+	text-transform:uppercase;
 }
 
 .error     { color:#ff0000;  }
@@ -210,26 +222,26 @@ body
 
 /** internal news **/
 .internal_logo {
-    width: 132px; height: 116px;
     background: transparent url('_logos/internal.png') no-repeat top left;
 }
 
 .internal_content{
 	padding: 0px;
-	font-size: 220%;
-	margin: 10px 0px 20px 0px;
+	font-size: 240%;
+	margin: 5px 0px 10px 0px;
 	text-align: justify;
 }
 
 .internal_author{
-	color:#20709e;
-	font-size:220%;
+	color:#B1F7F6;
+	font-size:230%;	
 	font-style:italic;
+
 }
 
 .internal_date{
-	color:#20709e;
-	font-size:220%;
+	color:#B1F7F6;
+	font-size:230%;	
 	font-style:italic;
 }
 /** scrap **/
