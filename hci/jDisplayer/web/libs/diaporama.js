@@ -37,11 +37,16 @@ var Diaporama = Class.create({
        // this function MUST be externalized, as window.setTimeout drop the
        // lambda context and use "window" itself instead (real crap +o().
        this.idx = 0;
-       this.next();
+       this.next(0);
    },
-   next: function() {
+   next: function(curCSS) {
+       replaceTurningCss(engine.getTurningCSS(curCSS++));
        if ( this.idx >= this.images.length) { this.callback(); return; }
-       var img = this.images[this.idx++];
+       var img = this.images[this.idx];
+       if(curCSS >= engine.getAmountCSS()){
+           this.idx++;
+           curCSS = 0;
+       }
        $('diapo_content').style.visibility = 'hidden';
        $('diapo_loading').style.display = 'block';
        $('diapo_content').update("<img id=\"diapo_img\" src=\""
@@ -49,7 +54,7 @@ var Diaporama = Class.create({
        // What to do when an img error happens (404, ...)
        $('diapo_img').onerror = function(){
            addLog("diaporama error: ["+ img +"]");
-           this.next();
+           this.next(curCSS);
        }
        var delta = this.delta;
        var self = this;
@@ -57,7 +62,7 @@ var Diaporama = Class.create({
        $('diapo_img').onload = function() {
            $('diapo_loading').style.display = 'none';
            $('diapo_content').style.visibility = 'visible';
-           window.setTimeout(function(obj) { obj.next();}, delta, self);
+           window.setTimeout(function(obj) { obj.next(curCSS);}, delta, self);
        }
    }
 });
