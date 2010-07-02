@@ -22,7 +22,7 @@
  **/
 
 var loop = Class.create({
-   initialize: function(tpl) { 
+   initialize: function(tpl) {
        this.tpl = tpl;
        this.clear();
    },
@@ -74,7 +74,7 @@ var mainLoop = Class.create(loop, {
                 var self = this;
                 transfo.handle($('main'), anItem, delta, function() { self.next(); });
             } else {
-                var screens = transfo.perform(anItem);//ici on édite
+                var screens = transfo.perform(anItem);
                 this.displayElements(screens.reverse(),delta);
             }            
         }
@@ -85,9 +85,19 @@ var mainLoop = Class.create(loop, {
         } else {
             var elem = elements.pop();
             $('main').update(elem);
-            window.setTimeout(function(loop) {
-                loop.displayElements(elements, delta);
-            },delta,this);
+            this.changeTurningCSS(elements,delta,1);
         }
+    },
+    changeTurningCSS: function(elements,delta,curCSS){
+        window.setTimeout(function(loop) {
+                if(curCSS < engine.getAmountCSS()){
+                    replaceTurningCss(engine.getTurningCSS(curCSS));
+                    loop.changeTurningCSS(elements,delta,curCSS+1);
+                }
+                else{
+                    replaceTurningCss(engine.getTurningCSS(0));
+                    loop.displayElements(elements, delta);
+                }
+            },delta,this);
     }
 });

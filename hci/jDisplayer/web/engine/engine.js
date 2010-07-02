@@ -28,6 +28,8 @@ var jSeduiteEngine = Class.create({
         this.provider = url;
         this.screen = screen;
         this.initLoops();
+        this.additionalCSS = new Array();
+        this.addCSS("templates/"+tplName+"/style.css");
         loadCss("templates/"+tplName+"/style.css");
         loadJs("templates/"+tplName+"/init.js");
     },
@@ -41,6 +43,12 @@ var jSeduiteEngine = Class.create({
     },
     // Ste the template to use
     setTemplate: function(tpl) { this.tpl = tpl; this.initLoops();  },
+
+    //Add alternative CSS to use
+    addCSS: function(urlCSS){ this.additionalCSS.push(urlCSS);},
+    getAmountCSS: function(){ return this.additionalCSS.length; },
+    getTurningCSS: function(id){ return this.additionalCSS[id]},
+
     // Run the engine
     run: function() {
         setLoadingState();

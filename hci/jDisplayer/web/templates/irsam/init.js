@@ -29,17 +29,12 @@ irsam.declare("twitter",        new scrollingTwitter(),   0);
 irsam.declare("breaking_news",  new breakingNews(),       0);
 irsam.declare("absences_profs", new absenceHandler(),     5);
 irsam.declare("picture_albums", new pictAlbumTransfo(),   5);
-irsam.declare("tv_shows",       new tv_shows_array(6),    5);
-irsam.declare("weather",        new liveWeatherTransfo(), 5);
+irsam.declare("weather",        new closeWeatherTransfo(), 5);
 irsam.declare("image_scraper",  new imageScrapTransfo(),  5);
-irsam.declare("apal",           new apal_array(5),        5);
-irsam.declare("hyperloc",       new hyperLocHandler(7),  10);
 irsam.declare("internal_news",  new internalNews(),       6);
 irsam.declare("feed_reader",    new feedHandler(),        7);
-irsam.declare("stud_summon",    new studSummon(),         5);
 irsam.declare("calendar",       new iCalHandler(),        6);
-irsam.declare("timetable",      new edtHandler(1),        5);
-irsam.declare("clock",          new clock(),              5);
+//irsam.declare("clock",          new clock(),              5);
 // dispatching the information kinds in the display loops
 irsam.dispatch = function(k) {
     if ("breaking_news" == k || "twitter" == k)
@@ -50,5 +45,9 @@ irsam.dispatch = function(k) {
 // setting the template
 engine.setTemplate(irsam);
 
+//we add new ccs styles for turning CSS
+engine.addCSS("templates/irsam/style2.css");
+//engine.addCSS("templates/irsam/style3.css");
+//engine.addCSS("templates/irsam/style4.css");
 
 

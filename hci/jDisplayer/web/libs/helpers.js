@@ -33,8 +33,19 @@ function dispatch(e) {
 function loadCss(file)
 {
     var css = new Element('link', { rel: "stylesheet", type: "text/css",
-                          href: file });
+                          href: file, title: "turningCSS" });
     $$("head")[0].appendChild(css);
+}
+
+function replaceTurningCss(newFileName){
+    var allsuspects=document.getElementsByTagName("link");
+    for (var i=allsuspects.length; i>=0; i--){ //search backwards within nodelist for matching elements to remove
+        if (allsuspects[i] && allsuspects[i].getAttribute("title")!=null &&
+            allsuspects[i].getAttribute("title").indexOf("turningCSS")!=-1){
+                allsuspects[i].parentNode.removeChild(allsuspects[i]);
+        }
+    }
+    loadCss(newFileName);
 }
 
 function loadJs(file)

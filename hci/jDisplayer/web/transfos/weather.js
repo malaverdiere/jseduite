@@ -116,6 +116,14 @@ var weatherTransfo = Class.create(jSeduiteTransformation, {
     }
 });
 
+var closeWeatherTransfo = Class.create(jSeduiteTransformation, {
+    perform: function(xml) {
+        var helper = new weatherHelper();
+        var live = helper.getLive(getNode("live", xml)[0]);
+        var close = helper.getClose(getNode("forecast_star", xml)[0]);
+        return [live,close];
+    }
+});
 var liveWeatherTransfo = Class.create(jSeduiteTransformation, {
     perform: function(xml) {
         var helper = new weatherHelper();
