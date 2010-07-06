@@ -19,6 +19,7 @@
  *
  * @author      Main     Sebastien Mosser       [mosser@polytech.unice.fr]
  * @contributor 2009     Celine Auzias          [celine.auzias@gmail.com]
+ * @contributor 2010     Christophe Desclaux    [desclaux@polytech.unice.fr]
  **/
 
 /****************************
@@ -59,8 +60,8 @@ body
 /** Diaporamas **/
 
 #diapo_content img{
-	width:75%;
-	height:75%;
+	width:100%;
+	height:100%;
 	padding:10px;
 	background-color:#efefef;
 	border:1px solid #DEDEDE;
@@ -103,7 +104,7 @@ body
 .title {
 	color:#B1F7F6;
 	font-weight:normal;
-	font-size:230%;	
+	font-size:230%;
 	margin-bottom:5px;
 	margin-top:0px;
 	text-indent:150px;
@@ -228,9 +229,7 @@ body
 }
 
 .internal_date{
-	color:#B1F7F6;
-	font-size:230%;	
-	font-style:italic;
+    visibility:hidden;
 }
 /** scrap **/
 
@@ -351,10 +350,10 @@ body
 	font-size:220%;
 	display:block;
 	padding:0px;
-	background-color:#ffffff;
+	background-color:#2b2b2b;
 	border:1px solid #DEDEDE;
 	text-align:center;
-    color:#000000;
+    color:#FFFFFF;
 }
 
 .w_wind {
@@ -373,12 +372,12 @@ table.weather{ font-size:100%; }
 table.weather td { text-align:center; vertical-align:center;}
 
 .weat_day{
-	color:#20709e;
+	color:#94cae9;
 	font-size:220%;
 	display:block;
 	font-style:italic;
 	padding:1px;
-	background-color:#ffffff;
+	background-color:#1a1a1a;
 	border:1px solid #DEDEDE;
 	text-align:center;
 }
@@ -387,8 +386,10 @@ table.weather td { text-align:center; vertical-align:center;}
 .weat4_temp{ font-size:230%;}
 
 .weat_day_img, .weat4_temp img{
+    height:80%;
+    width:80%;
 	padding:5px;  
-	background-color:#efefef;
+	background-color:#1a1a1a;
 	border:1px solid #DEDEDE;
 	margin:5px;
 } 

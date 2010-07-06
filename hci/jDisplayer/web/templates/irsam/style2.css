@@ -19,6 +19,7 @@
  *
  * @author      Main     Sebastien Mosser       [mosser@polytech.unice.fr]
  * @contributor 2009     Celine Auzias          [celine.auzias@gmail.com]
+ * @contributor 2010     Christophe Desclaux    [desclaux@polytech.unice.fr]
  **/
 
 /****************************
@@ -28,18 +29,18 @@
 /** Main Loop **/
 body
 {
-    background: #FFFFFF;
     font-family:arial;
-    font-size:120%;
+    font-size:150%;
+    background-color: #FFFFFF;
 }
 
 
 #main {
-    background-color: transparent;
-	background-image : url('_img/back_content.png');
-	background-repeat: no-repeat;
-	background-position:0px 118px;
+	/*margin:55px auto 0 auto;*/
+	padding:10px 10px 10px 10px;
+	
 	color:#000000;
+	font-size:120%;
 }
 
 #loading_animation {
@@ -52,29 +53,29 @@ body
 /** Date **/
 #date_time
 {
-    text-align:center;
-    color:#ffffff;
-    font-size: 230%;
-    background: transparent url('_img/datetime.png') no-repeat top left;
-    font-family:arial;
+    visibility:hidden;
 }
 
 
 /** Diaporamas **/
 
 #diapo_content img{
-    padding:8px;  
+	width:100%;
+	height:100%;
+	padding:10px;
 	background-color:#efefef;
 	border:1px solid #DEDEDE;
-	margin:40px 120px 0 0;
+	margin:15px 10px 0 0;
+	max-height:457px;
 }
 
 #diapo_loading {
+	position:absolute;
+	display:block;
 	width:60px;
 	height:30px;
 	left:50%;
-	top:50%;
-}
+	top:50%;}
 
 /** ARRAYS COLORS (Odd / Even rows) **/
  .odd{ background-color:#acd2e3; }
@@ -85,11 +86,7 @@ body
  *************************/
 
 .scrolling_content {
-    color:#000000;
-    font-size:300%;
-    background: transparent url('_img/back_scroll.png') no-repeat top left;
-    font-family:arial;
-    overflow:hidden;
+	display:none;
 }
 
 #mini_logo{
@@ -105,9 +102,13 @@ body
 /** Global Customisation **/
 
 .title {
- 	color:#20709e;
-    font-weight:normal;
-	font-size:210%;
+	color:#094972;
+	font-weight:normal;
+	font-size:230%;
+	margin-bottom:5px;
+	margin-top:0px;
+	text-indent:150px;
+	text-transform:uppercase;
 }
 
 .error     { color:#ff0000;  }
@@ -196,7 +197,7 @@ body
 }
 
 .feed_title{
-    color:#20709e;
+    color:#123f59;
 	font-size:220%;
 	font-style:italic;
 }
@@ -210,27 +211,24 @@ body
 
 /** internal news **/
 .internal_logo {
-    width: 132px; height: 116px;
     background: transparent url('_logos/internal.png') no-repeat top left;
 }
 
 .internal_content{
 	padding: 0px;
-	font-size: 220%;
-	margin: 10px 0px 20px 0px;
+	font-size: 240%;
+	margin: 5px 0px 10px 0px;
 	text-align: justify;
 }
 
 .internal_author{
-	color:#20709e;
-	font-size:220%;
+	color:#0a6160;
+	font-size:230%;	
 	font-style:italic;
 }
 
 .internal_date{
-	color:#20709e;
-	font-size:220%;
-	font-style:italic;
+    visibility:hidden;
 }
 /** scrap **/
 
@@ -343,17 +341,18 @@ body
 	padding:20px 0 20px 0;
 }
 
-.t_min{ color:#20709e; }
+.t_min{ color:#1c638b; }
 
-.t_max{ color:#ff8620; }
+.t_max{ color:#8b4000; }
 
 .weat_infos{
 	font-size:220%;
 	display:block;
 	padding:0px;
-	background-color:#ffffff;
+	background-color:#e8e8e8;
 	border:1px solid #DEDEDE;
 	text-align:center;
+    color:#000000;
 }
 
 .w_wind {
@@ -372,12 +371,12 @@ table.weather{ font-size:100%; }
 table.weather td { text-align:center; vertical-align:center;}
 
 .weat_day{
-	color:#20709e;
+	color:#12a5e2;
 	font-size:220%;
 	display:block;
 	font-style:italic;
 	padding:1px;
-	background-color:#ffffff;
+	background-color:#e8e8e8;
 	border:1px solid #DEDEDE;
 	text-align:center;
 }
@@ -386,8 +385,11 @@ table.weather td { text-align:center; vertical-align:center;}
 .weat4_temp{ font-size:230%;}
 
 .weat_day_img, .weat4_temp img{
+    color:#000000;
+    height:80%;
+    width:80%;
 	padding:5px;  
-	background-color:#efefef;
+	background-color:#e8e8e8;
 	border:1px solid #DEDEDE;
 	margin:5px;
 } 
