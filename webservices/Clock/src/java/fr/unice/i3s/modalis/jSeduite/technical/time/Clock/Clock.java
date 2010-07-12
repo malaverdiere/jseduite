@@ -35,5 +35,12 @@ public class Clock {
     public void getClock(){
         
     }
+    
+    @WebMethod(operationName = "getEphemerides")
+    public String getEphemerides(int day){
+        return "St Christophe";
+    }
+    
+
 
 }
