@@ -30,24 +30,24 @@
 body
 {
     font-family:arial;
-    font-size:150%;
+    font-size:160%;
     background-color: #FFFFFF;
 }
 
 
 #main {
-	/*margin:55px auto 0 auto;*/
+    width:98%; height:98%;
 	padding:10px 10px 10px 10px;
-	
+
 	color:#000000;
-	font-size:120%;
+	font-size:160%;
 }
 
 #loading_animation {
     height: 334px;
     width: 501px;
     background: transparent url('_img/loading-polytech.gif') no-repeat top left;
-    
+
 }
 
 /** Date **/
@@ -80,7 +80,7 @@ body
 /** ARRAYS COLORS (Odd / Even rows) **/
  .odd{ background-color:#acd2e3; }
  .even{ background-color:#dfecff; }
- 
+
 /*************************
  * Scrolling & mini logo *
  *************************/
@@ -89,9 +89,6 @@ body
 	display:none;
 }
 
-#mini_logo{
-    background: transparent url('_img/mini_logo.png') no-repeat top left;
-}
 
 #diapo_loading {
     height: 60px;
@@ -102,10 +99,10 @@ body
 /** Global Customisation **/
 
 .title {
-	color:#094972;
+	color:#FFFFF;
 	font-weight:normal;
 	font-size:230%;
-	margin-bottom:5px;
+	margin-bottom:0px;
 	margin-top:0px;
 	text-indent:150px;
 	text-transform:uppercase;
@@ -119,7 +116,7 @@ body
 .huge {
     font-size: 240%;
 	text-align: center;
-	margin:0px 0px 20px 0px;
+	margin:0px 0px 5px 0px;
 }
 
 .large {
@@ -148,24 +145,6 @@ body
     width: 132px; height: 116px;
     background: transparent url('_logos/pict.png') no-repeat top left;
 }
-
-/** Apal **/
-
-.apal_logo {
-    width: 132px; height: 116px;
-    background: transparent url('_logos/apal.png') no-repeat top left;
-}
-
-.apal{
-     width:100%;
-     padding:4px 0 0 0;
-     margin: 44px 0 0 0;
-     font-size:190%;
- }
-
- 
-
-/** breaking news **/
 
 /** calendar **/
 
@@ -197,7 +176,7 @@ body
 }
 
 .feed_title{
-    color:#123f59;
+    color:#FFFFFF;
 	font-size:220%;
 	font-style:italic;
 }
@@ -223,7 +202,7 @@ body
 
 .internal_author{
 	color:#0a6160;
-	font-size:230%;	
+	font-size:230%;
 	font-style:italic;
 }
 
@@ -260,69 +239,6 @@ body
 	text-align:center;
 	font-style:italic;
 	text-align:center;
-}
-
-/** tv_shows **/
-
-.tv_logo {
-    width: 132px; height: 116px;
-    background: transparent url('_logos/tv.png') no-repeat top left;
-}
-
-.tv_channel{
-	color:#ff0000;
-	font-size:220%;
-	display:block;
-	padding:0px;
-	background-color:#ffffff;
-	border:1px solid #DEDEDE;
-	text-align:center;
-    margin-top: 30px;
-}
-.tv_channel img{
-	margin-right:0px;
-	margin-bottom:0px;
-}
-
-.tv_hour{
-	font-size:230%;
-	color:#20709e;
-	margin-right:10px;
-}
-
-.tv_title{
-	font-size:230%;
-}
-
-.tv_sum{
-	margin:0;
-}
-.tv_sum img{
-	padding:5px;
-	background-color:#efefef;
-	border:1px solid #DEDEDE;
-	margin-right:5px;
-}
-
-/** Hyperloc **/
-.hyperloc_logo {
-    width: 132px; height: 116px;
-    background: transparent url('_logos/hyperloc.png') no-repeat top left;
-}
-
-.hyperloc {
-     width:100%;
-     padding:4px 0 0 0;
-     margin: 24px 0 0 0;
-     font-size:190%;
- }
-
-
-/** twitter **/
-
-.twitter_logo {
-    width: 70px; height: 70px;
-    background: transparent url('_logos/twitter.png') no-repeat top left;
 }
 
 /** weather **/
@@ -371,7 +287,7 @@ table.weather{ font-size:100%; }
 table.weather td { text-align:center; vertical-align:center;}
 
 .weat_day{
-	color:#12a5e2;
+	color:#000000;
 	font-size:220%;
 	display:block;
 	font-style:italic;
@@ -385,11 +301,10 @@ table.weather td { text-align:center; vertical-align:center;}
 .weat4_temp{ font-size:230%;}
 
 .weat_day_img, .weat4_temp img{
-    color:#000000;
-    height:80%;
-    width:80%;
-	padding:5px;  
+    height:70%;
+    width:70%;
+	padding:5px;
 	background-color:#e8e8e8;
 	border:1px solid #DEDEDE;
 	margin:5px;
-} 
+}

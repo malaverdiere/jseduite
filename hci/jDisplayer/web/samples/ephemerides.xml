@@ -3,13 +3,12 @@
     <SOAP-ENV:Body>
         <GetInformationResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
             <result>
-                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="clock">
-                    <clock>
-                        <day>Lundi</day>
-                        <time>10h42</time>
-                        <month>juin</month>
-                        <year>2010</year>
-                    </clock>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="ephemerides">
+                    <ephemerides>
+                        <item>Alexandrine</item>
+                        <item>Sandie</item>
+                        <item>Sandra</item>
+                    </ephemerides>
                 </item>
             </result>
         </GetInformationResponse>

@@ -21,7 +21,7 @@
  **/
 
 
-var clock = Class.create(jSeduiteTransformation, {
+var ephemerides = Class.create(jSeduiteTransformation, {
     initialize: function() {
         this.clock = new Array();
         this.clock["day"]    = get_day();
@@ -39,6 +39,13 @@ var clock = Class.create(jSeduiteTransformation, {
         content += "</p>";
         content += "<p class=\"clock_time\">";
         content += "Il est " + this.clock["time"];
+        content += "</p>";
+        content += "<p class=\"clock_time\">";
+
+        //TODO: add random choose of a name inephemerides
+        items = getTags("item",xml);
+        
+        content += "Le saint du jour est " + items;
         content += "</p>";
         return [content];
     }
