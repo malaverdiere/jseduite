@@ -25,18 +25,22 @@ import fr.unice.i3s.modalis.jSeduite.libraries.mysql.*;
 
 import javax.jws.WebService;
 import javax.jws.WebMethod;
-import javax.jws.WebService;
+import javax.jws.WebParam;
+
 
 
 @WebService()
 public class Ephemerides {
 
     @WebMethod(operationName = "getEphemerides")
-    public String[] getEphemerides(int day, int month) throws EphemeridesException{
+    public NamesOfTheDay getEphemerides(@WebParam(name="day") int day,
+            @WebParam(name="month") int month) throws EphemeridesException{
         DataAccessLayer dal = new DataAccessLayer();
-        String sql = "SELECT * FROM `ephemerides WHERE day = `"+day+"` AND month = `"+month+"`;";
+        String sql = "SELECT * FROM `ephemerides` WHERE day = '"+day+"'";
+        sql += " AND month = '"+month+"';";
         try {
-            return dal.extractScalarSet(sql, "name");
+            String[] names = dal.extractScalarSet(sql, "name");
+            return new NamesOfTheDay(names, month, day);
         } catch(Exception e) {
             throw new EphemeridesException(e.getMessage());
         }
