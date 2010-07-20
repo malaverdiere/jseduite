@@ -18,6 +18,7 @@
  *
  * @author      Mireille Blay-Fornarino [blay@polytech.unice.fr]
  * @contributor 2009 Mosser Sebastien   [mosser@polytech.unice.fr]
+ * @contributor 2010 Desclaux Christophe[desclaux@polytech.unice.fr]
 **/
 package fr.unice.i3s.modalis.jSeduite.technical.restaurant;
 
@@ -26,12 +27,18 @@ import java.util.Date;
 public class Menu {
     private Date date;
     private Course[] courses;
+    private String typeMenu;
 
     public Menu() {}
 
     public Menu(Date date, Course[] courses) {
+        this(date,courses,"déjeuner");
+    }
+
+    public Menu(Date date, Course[] courses,String type) {
         this.date = date;
         this.courses = courses;
+        this.typeMenu = type;
     }
 
     public Course[] getCourses() {
@@ -49,5 +56,12 @@ public class Menu {
     public void setDate(Date date) {
         this.date = date;
     }
-    
+
+    public String getTypeMenu(){
+        return typeMenu;
+    }
+
+    public void setTypeMenu(String type){
+        this.typeMenu = type;
+    }
 }

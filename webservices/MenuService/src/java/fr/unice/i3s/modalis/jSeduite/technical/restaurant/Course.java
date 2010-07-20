@@ -18,6 +18,7 @@
  *
  * @author      Mireille Blay-Fornarino [blay@polytech.unice.fr]
  * @contributor 2009 Mosser Sebastien   [mosser@polytech.unice.fr]
+ * @contributor 2010 Desclaux Christophe[desclaux@polytech.unice.fr]
 **/
 package fr.unice.i3s.modalis.jSeduite.technical.restaurant;
 import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DalResultSet;
@@ -25,16 +26,22 @@ public class Course {
     
     private String kind;
     private String name;
+    private int id=0;
 
     public Course(){}
-    
-    public Course(String k, String n) {
-        this.setKind(k);
-        this.setName(n);
+
+    public Course(String k, String n){
+        this(k,n,0);
     }
 
+    public Course(String k, String n, int id) {
+        this.setKind(k);
+        this.setName(n);
+        this.setId(id);
+    }
+    
     public Course(DalResultSet tuple) {
-        this(tuple.getValue("kind"), tuple.getValue("name"));
+        this(tuple.getValue("kind"), tuple.getValue("name"),Integer.parseInt(tuple.getValue("id")));
     }
 
     public String getKind() {
@@ -53,4 +60,12 @@ public class Course {
         this.name = name;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
 }

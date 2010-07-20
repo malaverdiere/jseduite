@@ -18,6 +18,7 @@
  *
  * @author      Mireille Blay-Fornarino [blay@polytech.unice.fr]
  * @contributor 2009 Mosser Sebastien   [mosser@polytech.unice.fr]
+ * @contributor 2010 Desclaux Christophe[desclaux@polytech.unice.fr]
 **/
 package fr.unice.i3s.modalis.jSeduite.technical.restaurant;
 
@@ -36,40 +37,47 @@ public class CourseCRUD {
 
     /** Create CRUD pattern operation
      * @param c the trasient course to transform in a persistent one
-     * @return the course reference (i.e. its name)
+     * @return the course reference (i.e. its id)
      * @throws RestaurantException: null object, still persistent
      */
     @WebMethod(operationName = "createCourse")
-    public String createCourse(@WebParam(name = "c") Course c)
+    public int createCourse(@WebParam(name = "c") Course c)
             throws RestaurantException {
         if (null == c)
             throw new RestaurantException("Null creation !");
-        if (null != finder.findCourseByName(c.getName()))
+        if (null != finder.findCourseByName(c.getName()) || c.getId() > 0)
             throw new RestaurantException("Re-Creation !");
         DataAccessLayer dal = new DataAccessLayer();
         try {
-            String sql = "INSERT INTO `course` (`kind`, `name`) VALUES (";
-            sql += "'"+c.getKind()+"','"+c.getName()+"');";
+            String sql = "INSERT INTO `course` (`id`, `kind`, `name`) VALUES (";
+            sql += "NULL, '" + c.getKind() + "', '" + c.getName() + "');";
             dal.executeVoid(sql);
-            return c.getName();
+        } catch (Exception e) {
+            throw new RestaurantException("SQL Exception: " + e.getMessage());
+        }
+        try{
+            String sql2 = "SELECT max(id) as `id` FROM `course`";
+            DalResultSet rSet = dal.extractDataSet(sql2);
+            c.setId(Integer.parseInt(rSet.getValue("id")));
+            return c.getId();
         } catch (Exception e) {
             throw new RestaurantException("SQL Exception: " + e.getMessage());
         }
     }
 
     /** Read CRUD pattern operation 
-     * @param ref an existing reference (i.e. name) to a persistent course
+     * @param ref an existing reference (i.e. id) to a persistent course
      * @return the expected course
      * @throws RestaurantException: null ref or not binded to persistent object
      */
     @WebMethod(operationName = "readCourse")
-    public Course readCourse(@WebParam(name = "ref") String ref)
+    public Course readCourse(@WebParam(name = "id") int id)
             throws RestaurantException {
-       if(null == ref)
+       if(id < 0)
            throw new RestaurantException("Null read !");
-       Course found = finder.findCourseByName(ref);
+       Course found = finder.findCourseById(id);
        if (null == found)
-           throw new RestaurantException("UnexistingRefRead: " + ref);
+           throw new RestaurantException("UnexistingRefRead: " + id);
        return found;
     }
 
@@ -82,12 +90,13 @@ public class CourseCRUD {
             throws RestaurantException {
         if (null == c)
             throw new RestaurantException("Null update !");
-        if (null == c.getName())
+        if (c.getId() <= 0)
             throw new RestaurantException("Unreferenced update !");
-        String sql = "UPDATE `course` SET `kind` = '"+c.getKind()+"' ";
-        sql += "WHERE `name` = '" + c.getName()+"';";
-        DataAccessLayer dal = new DataAccessLayer();
+        String sql = "UPDATE `course` SET `kind` = '"+c.getKind()+"', ";
+        sql += "`name` = '" + c.getName()+"'";
+        sql += " WHERE `id` = '" + c.getId()+"';";
         try {
+            DataAccessLayer dal = new DataAccessLayer();
             dal.executeVoid(sql);
         } catch(Exception e) {
            throw new RestaurantException("SQLException: " + e.getMessage());
@@ -103,9 +112,9 @@ public class CourseCRUD {
             throws RestaurantException {
         if (null == c)
             throw new RestaurantException("Null delete !");
-        if (null == c.getName())
+        if (c.getId() <= 0)
             throw new RestaurantException("Unreferenced delete !");
-        String sql = "DELETE FROM `course` WHERE `name` = '" + c.getName()+"';";
+        String sql = "DELETE FROM `course` WHERE `id` = '" + c.getId()+"';";
         DataAccessLayer dal = new DataAccessLayer();
         try {
             dal.executeVoid(sql);

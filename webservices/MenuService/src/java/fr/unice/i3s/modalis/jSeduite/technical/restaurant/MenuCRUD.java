@@ -18,6 +18,7 @@
  *
  * @author      Mireille Blay-Fornarino [blay@polytech.unice.fr]
  * @contributor 2009 Mosser Sebastien   [mosser@polytech.unice.fr]
+ * @contributor 2010 Desclaux Christophe[desclaux@polytech.unice.fr]
  **/
 package fr.unice.i3s.modalis.jSeduite.technical.restaurant;
 
@@ -38,9 +39,33 @@ public class MenuCRUD {
     // A finder to retrieves menu whan needed
     private MenuFinder finder = new MenuFinder();
 
-    /** A static method to transform a java Date into a valid SQL entry
+    /** A static method to transform a SQL entry into a java Date
+     * @param dateString the SQL date entry to transform
+     * @return a java Date
+     */
+    public static Date toDate(String dateString)throws RestaurantException {
+        GregorianCalendar cal;
+        Date result = null;
+        try{
+            cal = new GregorianCalendar();
+            String[] items = dateString.split("-");
+            String[] items2 = items[2].split(" ");
+            String[] items3 = items2[1].split(":");
+            cal.set(Integer.parseInt(items[0]) , Integer.parseInt(items[1]),
+                    Integer.parseInt(items2[0]), Integer.parseInt(items3[0]),
+                    Integer.parseInt(items3[1]), 0);
+            result = cal.getTime();
+        } catch(Exception e){
+               throw new RestaurantException("Date translation Exception: " +
+                       "element parse:" + dateString +"\n error: " +
+                       "" + e.getMessage() +"");
+        }
+       return result;
+    }
+
+   /** A static method to transform a java Date into a valid SQL entry
      * @param date the date to transform
-     * @return a string formatted as YYYY-MM-DD
+     * @return a string formatted as YYYY-MM-DD HH:MM:SS
      */
     public static String toSql(Date date) {
         GregorianCalendar cal = new GregorianCalendar();
@@ -48,6 +73,9 @@ public class MenuCRUD {
         String d = "" + cal.get(Calendar.YEAR);
         d += "-" + cal.get(Calendar.MONTH);
         d += "-" + cal.get(Calendar.DAY_OF_MONTH);
+        d += " " + cal.get(Calendar.HOUR_OF_DAY);
+        d += ":" + cal.get(Calendar.MINUTE);
+        d += ":00";
         return d;
     }
 
@@ -69,8 +97,8 @@ public class MenuCRUD {
         try {
             String d = toSql(m.getDate());
             for (Course c : m.getCourses()) {
-                String sql = "INSERT INTO `menu` (`date`, `course`) VALUES (";
-                sql += "'" + d + "','" + c.getName() + "');";
+                String sql = "INSERT INTO `menu` (`date`, `courseId`, `typeMenu`) VALUES (";
+                sql += "'" + d + "','" + c.getId()+ "', '" + m.getTypeMenu() + "');";
                 dal.executeVoid(sql);
             }
             return m.getDate();
@@ -95,7 +123,7 @@ public class MenuCRUD {
             throw new RestaurantException("UnexistingRefRead: " + ref);
         }
         return found;
-    }
+        }
 
     /** Update CRUD pattern operation
      * @param m the persistent menu to update

@@ -18,6 +18,7 @@
  *
  * @author      Mireille Blay-Fornarino [blay@polytech.unice.fr]
  * @contributor 2009 Mosser Sebastien   [mosser@polytech.unice.fr]
+ * @contributor 2010 Desclaux Christophe[desclaux@polytech.unice.fr]
 **/
 package fr.unice.i3s.modalis.jSeduite.technical.restaurant;
 
@@ -73,16 +74,41 @@ public class CourseFinder {
         }
     }
 
+        /** Retrieves a course for a given name
+     * @param id the course you're looking for
+     * @return The associated course, null if not exists
+     * @throws RestaurantException when SQL exception occurs
+     */
+    @WebMethod(operationName="findCourseById")
+    public Course findCourseById(@WebParam(name="id") int id)
+            throws RestaurantException {
+        DataAccessLayer dal = new DataAccessLayer();
+        try {
+            String sql = "SELECT * FROM `course` WHERE `id`= '"+id+"';";
+            DalResultSet rSet = dal.extractDataSet(sql);
+            if (rSet.size() == 0)
+                return null;
+            return new Course(rSet);
+        } catch (Exception e) {
+            throw new RestaurantException("SQL Exception: " + e.getMessage());
+        }
+    }
+    
     /** Extract all persistent references for the Course business object
      * @return all existing course references
      * @throws RestaurantException
      */
     @WebMethod(operationName="getAllCoursesReferences")
-    public String[] getAllCoursesReferences() throws RestaurantException {
+    public int[] getAllCoursesReferences() throws RestaurantException {
         DataAccessLayer dal = new DataAccessLayer();
         try {
-            String sql = "SELECT `name` FROM `course`;";
-            return dal.extractScalarSet(sql, "name");
+            String sql = "SELECT `id` FROM `course`;";
+            String[] refsString  = dal.extractScalarSet(sql, "id");
+            int [] refs = new int[refsString.length];
+            for(int i=0; i<refs.length;i++)
+                refs[i] = Integer.parseInt(refsString[i]);
+
+            return refs;
         } catch (Exception e) {
             throw new RestaurantException("SQL Exception: " + e.getMessage());
         }

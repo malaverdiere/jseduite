@@ -16,31 +16,37 @@
  * along with jSeduite::MenuService; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
- * @author      Mireille Blay-Fornarino [blay@polytech.unice.fr]
- * @contributor 2009 Mosser Sebastien   [mosser@polytech.unice.fr]
- * @contributor 2010 Desclaux Christophe[desclaux@polytech.unice.fr]
+ * @author 2010 Desclaux Christophe[desclaux@polytech.unice.fr]
 **/
 package fr.unice.i3s.modalis.jSeduite.technical.restaurant;
 
-import java.util.Date;
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.jws.WebService;
 
-/** jSeduite Business service for Menu business object
- */
-@WebService()
-public class MenuBusiness {
+//TODO: poubelle
 
-    /** Return today's menu
-     * @return the menu expected for today, null if not exists
-     * @throws RestaurantException (see findMenuByDate @MenuFinder
-     */
-    @WebMethod(operationName = "getNextMenu")
-    public Menu getNextMenu(@WebParam(name = "delta") int delta) throws RestaurantException {
-        MenuFinder finder = new MenuFinder();
-        Date nextMenuDate = finder.findNextDateMenu(new java.util.Date(), delta);
-        return finder.findMenuByDate(nextMenuDate);
+public class TypeMenu {
+    private String time;
+    private String typeMenu;
+
+    public TypeMenu() {}
+
+    public TypeMenu(String time,String type) {
+        this.time = time;
+        this.typeMenu = type;
     }
 
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getTypeMenu(){
+        return typeMenu;
+    }
+
+    public void setTypeMenu(String type){
+        this.typeMenu = type;
+    }
 }
