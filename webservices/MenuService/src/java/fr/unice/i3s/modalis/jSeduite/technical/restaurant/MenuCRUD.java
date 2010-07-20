@@ -123,7 +123,7 @@ public class MenuCRUD {
             throw new RestaurantException("UnexistingRefRead: " + ref);
         }
         return found;
-        }
+    }
 
     /** Update CRUD pattern operation
      * @param m the persistent menu to update

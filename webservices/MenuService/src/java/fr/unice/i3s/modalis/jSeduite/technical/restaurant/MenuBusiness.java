@@ -32,8 +32,9 @@ import javax.jws.WebService;
 @WebService()
 public class MenuBusiness {
 
-    /** Return today's menu
-     * @return the menu expected for today, null if not exists
+    /** Return next menu
+     * @return the menu the next menu
+     * @param delta the delta time for writing last menu
      * @throws RestaurantException (see findMenuByDate @MenuFinder
      */
     @WebMethod(operationName = "getNextMenu")

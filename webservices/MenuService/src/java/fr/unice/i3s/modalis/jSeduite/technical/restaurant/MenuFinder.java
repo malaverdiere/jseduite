@@ -34,7 +34,7 @@ import fr.unice.i3s.modalis.jSeduite.libraries.mysql.*;
 @WebService()
 public class MenuFinder {
 
-    /** FindByDay operation from the Finder pattern
+    /** FindNextDateMenu return the Date of a futur  Menu
      * @param date the element you're looking for
      * @param delta the delta time for saying old menu in minutes
      * @return null if no persistent object, such an object if exists
@@ -77,7 +77,7 @@ public class MenuFinder {
     }
 
 
-    /** FindByDate operation from the Finder pattern
+    /** FindMenuByDate operation from the Finder pattern
      * @param date the element you're looking for
      * @return null if no persistent object, such an object if exists
      */
