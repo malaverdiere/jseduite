@@ -6,13 +6,14 @@ import javax.faces.model.SelectItem;
 /**
  *
  * @author Steve Colombié
+ * @edit Christophe Desclaux (2010)
  */
 public class CoursesData {
     private String kind;
     private List<SelectItem> courses;
-    private String[] selectedCourses;
+    private int[] selectedCourses;
 
-    public CoursesData(String kind, List<SelectItem> courses, String[] selectedCourses) {
+    public CoursesData(String kind, List<SelectItem> courses, int[] selectedCourses) {
         this.kind = kind;
         this.courses = courses;
         this.selectedCourses = selectedCourses;
@@ -34,11 +35,11 @@ public class CoursesData {
         this.kind = kind;
     }
 
-    public String[] getSelectedCourses() {
+    public int[] getSelectedCourses() {
         return selectedCourses;
     }
 
-    public void setSelectedCourses(String[] selectedCourses) {
+    public void setSelectedCourses(int[] selectedCourses) {
         this.selectedCourses = selectedCourses;
     }
 }

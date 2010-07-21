@@ -2,6 +2,7 @@
     Document   : update
     Created on : 11 août 2009
     Author     : Steve Colombié
+    Edit       : Christophe Desclaux (2010)
 --%>
 
 <%@page contentType="text/html"%>
@@ -20,8 +21,23 @@
             <link rel='stylesheet' type='text/css' href='<%=request.getContextPath()%>/resources/stylesheet.css' />
 
             <title><h:outputText value="#{bundle.MENU}" /></title>
+            <script type='text/javascript' language = 'Javascript'>
+                function otherDetection()
+                {
+                    if (document.getElementById("content:form:typeMenus").options[document.getElementById("content:form:typeMenus").selectedIndex].value == "__other")
+                    {
+                        document.getElementById('content:form:typeMenu').disabled=false;
+                        document.getElementById('content:form:typeMenu').style.display="inherit";
+                    }
+                    else
+                    {
+                        document.getElementById('content:form:typeMenu').disabled=true;
+                        document.getElementById('content:form:typeMenu').style.display="none";
+                    }
+                }
+            </script>
         </head>
-        <body>
+        <body onload="otherDetection()">
             <div class="body">
                 <div class="header">
                     <%@include file="../layout/header.jsp" %>

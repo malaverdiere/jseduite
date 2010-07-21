@@ -21,10 +21,13 @@ import javax.xml.ws.WebServiceRef;
 import webadmin.menus.comparators.MenuDateComparator;
 import webadmin.menus.comparators.MenuDateComparatorDesc;
 import webadmin.util.DateFormat;
+import webadmin.util.Bundle;
+import webadmin.util.SQLProtection;
 
 /**
  *
  * @author Steve Colombié
+ * @edit Christophe Desclaux (2010)
  */
 
 public class MenuManagedBean {
@@ -65,6 +68,11 @@ public class MenuManagedBean {
     // The courses to update
     private ArrayList<CoursesData> coursesDataToUpdate;
 
+    // The typeMenu
+    private List<SelectItem> typeMenu;
+
+    // Alternative typeMenu
+    private String alterTypeMenu;
     /**
      * Constructor
      */
@@ -163,6 +171,21 @@ public class MenuManagedBean {
         this.sort = s;
     }
 
+   /**
+     * Get the alternative typeMenu
+     * @return the alternative TypeMenu
+     */
+    public String getAlterTypeMenu() {
+        return alterTypeMenu;
+    }
+
+    /**
+     * Set the alternative TypeMenu
+     * @param alterKind the alternative TypeMenu
+     */
+    public void setAlterTypeMenu(String alterTypeMenu) {
+        this.alterTypeMenu = alterTypeMenu;
+    }
     /**
      * Get the courses
      * @return the list of courses
@@ -188,10 +211,10 @@ public class MenuManagedBean {
                 items = new ArrayList();
 
                 for(Course course : coursesBuf) {
-                    items.add(new SelectItem(course.getName(), course.getName()));
+                    items.add(new SelectItem(course.getId(), course.getName()));
                 }
 
-                coursesData.add(new CoursesData(kind, items, new String[items.size()]));
+                coursesData.add(new CoursesData(kind, items, new int[items.size()]));
             }
 
 
@@ -211,7 +234,7 @@ public class MenuManagedBean {
         List<String> kinds;
         List<Course> coursesBuf;
         ArrayList<SelectItem> items;
-        String[] selectedCourses;
+        int[] selectedCourses;
         int i;
 
         coursesDataToUpdate = new ArrayList<CoursesData>();
@@ -228,15 +251,15 @@ public class MenuManagedBean {
                 coursesBuf = finderPort.findCoursesByKind(kind);
 
                 items = new ArrayList();
-                selectedCourses = new String[coursesBuf.size()];
+                selectedCourses = new int[coursesBuf.size()];
                 i=0;
 
                 for(Course course : coursesBuf) {
-                    items.add(new SelectItem(course.getName(), course.getName()));
+                    items.add(new SelectItem(course.getId(), course.getName()));
 
                     for(Course uCourse : uMenu.getCourses()) {
                         if(uCourse.getName().equals(course.getName())) {
-                            selectedCourses[i] = course.getName();
+                            selectedCourses[i] = course.getId();
                             break;
                         }
                     }
@@ -297,7 +320,29 @@ public class MenuManagedBean {
         return menus;
     }
 
+    /**
+     * Get the TypeMenu
+     * @return the list of typeMenu
+     */
+    public List<SelectItem> getTypeMenu() {
+        java.util.List<java.lang.String> typeMenuBuf;
+        typeMenu = new ArrayList<SelectItem>();
 
+        try { // Call Web Service Operation
+            MenuFinder port = finderService.getMenuFinderPort();
+            typeMenuBuf = port.findAvailableMenuType();
+            for (String type : typeMenuBuf) {
+                SelectItem item = new SelectItem(type, type);
+                typeMenu.add(item);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        typeMenu.add(new SelectItem("__other", Bundle.get("FORM_OTHER")));
+        return typeMenu;
+    }
+    
     /**
      * Create a menu
      * @return a string indicating the menus is created
@@ -315,18 +360,21 @@ public class MenuManagedBean {
 
             Course course;
             for(CoursesData courses : coursesData) {
-                for(String cid : courses.getSelectedCourses()) {
+                for(int cid : courses.getSelectedCourses()) {
                     course = new Course();
-                    course.setName(cid);
-                    course.setKind(finderPort.findCourseByName(cid).getKind());
+                    course.setId(cid);
+                    course.setKind(finderPort.findCourseById(cid).getKind());
+                    course.setName(finderPort.findCourseById(cid).getName());
 
                     cMenu.getCourses().add(course);
                 }
             }
 
-
+            if(cMenu.getTypeMenu().equals("__other")) {
+                cMenu.setTypeMenu(alterTypeMenu);
+            }
+            cMenu.setTypeMenu(SQLProtection.format(cMenu.getTypeMenu()));
             crud.createMenu(cMenu);
-
             cMenu = new Menu();
 
         }
@@ -359,8 +407,6 @@ public class MenuManagedBean {
             this.crudService = new MenuCRUDService();
             MenuCRUD crud = crudService.getMenuCRUDPort();
 
-            id.setTime(1,1,1);
-
             Menu menuToDelete = crud.readMenu(id);
             crud.deleteMenu(menuToDelete);
 
@@ -380,7 +426,6 @@ public class MenuManagedBean {
             this.crudService = new MenuCRUDService();
             MenuCRUD crud = crudService.getMenuCRUDPort();
 
-            id.setTime(1,1,1);
             uMenu = crud.readMenu(id);
 
             date = uMenu.getDate().toGregorianCalendar().getTime();
@@ -403,21 +448,22 @@ public class MenuManagedBean {
 
             this.courseFinderService = new CourseFinderService();
             CourseFinder finderPort = courseFinderService.getCourseFinderPort();
-            
+            XMLGregorianCalendar oldDate = uMenu.getDate();
             uMenu.setDate(DateFormat.toXmlCalendar(date));
             uMenu.getCourses().clear();
 
             Course course;
             for(CoursesData courses : coursesDataToUpdate) {
-                for(String cid : courses.getSelectedCourses()) {
+                for(int cid : courses.getSelectedCourses()) {
                     course = new Course();
-                    course.setName(cid);
-                    course.setKind(finderPort.findCourseByName(cid).getKind());
+                    course.setId(cid);
+                    course.setKind(finderPort.findCourseById(cid).getKind());
+                    course.setName(finderPort.findCourseById(cid).getName());
 
                     uMenu.getCourses().add(course);
                 }
             }
-            crud.updateMenu(uMenu);
+            crud.updateMenu(uMenu,oldDate);
 
         }
         catch (Exception e) {
