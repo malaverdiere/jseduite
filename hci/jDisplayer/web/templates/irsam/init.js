@@ -47,5 +47,7 @@ engine.setTemplate(irsam);
 
 //we add new ccs styles for turning CSS
 engine.addCSS("templates/irsam/style2.css");
-
+engine.addCSS("templates/irsam/styleBleu.css");
+engine.addCSS("templates/irsam/styleJaune.css");
+engine.addCSS("templates/irsam/styleRouge.css");
 

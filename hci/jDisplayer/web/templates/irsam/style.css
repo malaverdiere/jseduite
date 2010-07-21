@@ -38,7 +38,7 @@ body
 #main {
     width:98%; height:98%;
 	padding:10px 10px 10px 10px;
-	
+
 	color:#ffffff;
 	font-size:160%;
 }
@@ -60,8 +60,6 @@ body
 /** Diaporamas **/
 
 #diapo_content img{
-	width:100%;
-	height:100%;
 	padding:10px;
 	background-color:#efefef;
 	border:1px solid #DEDEDE;
@@ -80,7 +78,7 @@ body
 /** ARRAYS COLORS (Odd / Even rows) **/
  .odd{ background-color:#DEDEDE; }
  .even{ background-color:#dfecff; }
- 
+
 /*************************
  * Scrolling & mini logo *
  *************************/
@@ -304,7 +302,7 @@ table.weather td { text-align:center; vertical-align:center;}
 .weat_day_img, .weat4_temp img{
     height:70%;
     width:70%;
-	padding:5px;  
+	padding:5px;
 	background-color:#1a1a1a;
 	border:1px solid #DEDEDE;
 	margin:5px;

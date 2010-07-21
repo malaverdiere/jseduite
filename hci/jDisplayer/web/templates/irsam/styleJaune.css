@@ -30,35 +30,36 @@
 
 /** text color **/
 #main, .title, .feed_title, .internal_author, .sum_date, .weat_infos{
-    color:#ffffff;
+    color:#282d65;
 }
 
 /**background color **/
 body{
-    background-color:#000000;
+    background-color:#f4cb01;
 }
 
-.t_min{    color:#ffffff; }
-.t_max{    color:#ffffff; }
-.weat_day{ color:#ffffff; }
+.t_min{    color:#282d65; }
+.t_max{    color:#282d65; }
+.weat_day{ color:#282d65; }
 
 /**borders colors**/
-.weat_infos, .weat_day{
-    background-color:#000000;
+#diapo_content img, .weat_day_img, .weat4_temp img{
+    background-color:#282d65;
 	border:1px solid #DEDEDE;
 }
-#diapo_content img, .weat_day_img, .weat4_temp img{
-    background-color:#ffffff;
+
+.weat_infos, .weat_day{
+    background-color:#f4cb01;
 	border:1px solid #DEDEDE;
 }
 /**arrays colors (Odd / Even rows) **/
- .odd{ background-color:#000000; }
- .even{ background-color:#000000; }
+ .odd{ background-color:#f4cb01; }
+ .even{ background-color:#f4cb01; }
 
-.error     { color:#ffffff; }
-.alert     { color:#ffffff; }
-.emphasize { color:#ffffff; }
-.ok        { color:#ffffff; }
+.error     { color:#282d65; }
+.alert     { color:#282d65; }
+.emphasize { color:#282d65; }
+.ok        { color:#282d65; }
 
 
 
