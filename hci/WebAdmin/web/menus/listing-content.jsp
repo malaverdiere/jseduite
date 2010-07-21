@@ -1,7 +1,8 @@
-<%-- 
+<%--
     Document   : listing-content
     Created on : 11 août 2009
     Author     : Steve Colombié
+    Edit       : Christophe Desclaux (2010)
 --%>
 
 <%@taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
@@ -32,8 +33,11 @@
             </f:facet>
             <h:panelGroup styleClass="alignCenter">
                 <h:outputText value="#{iterator.date}">
-                    <f:converter converterId="XMLGregorianCalendarDateConverter" />
+                    <f:converter converterId="XMLGregorianCalendarConverter" />
                 </h:outputText>
+            </h:panelGroup>
+            <h:panelGroup styleClass="alignCenter">
+                <h:outputText value="#{iterator.typeMenu}"/>
             </h:panelGroup>
         </h:column>
 

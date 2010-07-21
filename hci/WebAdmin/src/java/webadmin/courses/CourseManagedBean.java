@@ -19,6 +19,7 @@ import webadmin.util.SQLProtection;
 /**
  *
  * @author Steve Colombié
+ * @edit Christophe Desclaux (2010)
  */
 
 public class CourseManagedBean {
@@ -42,7 +43,7 @@ public class CourseManagedBean {
     private Course uCourse = new Course();
 
     //The current ID
-    private String id = "";
+    private int id = 0;
 
     //The sorting method
     private int sort = CourseSorter.sortByName;
@@ -50,7 +51,7 @@ public class CourseManagedBean {
     // The kinds
     private List<SelectItem> kinds;
 
-    // ALternative kind
+    // Alternative kind
     private String alterKind;
 
     /**
@@ -104,7 +105,7 @@ public class CourseManagedBean {
      * Get the identifier
      * @return the identifer
      */
-    public String getId() {
+    public int getId() {
         return this.id;
 
     }
@@ -113,7 +114,7 @@ public class CourseManagedBean {
      * Set the identifier
      * @param i the identifier
      */
-    public void setId(String i) {
+    public void setId(int i) {
         this.id = i;
     }
 
@@ -165,7 +166,7 @@ public class CourseManagedBean {
             //Get the courses ids
             this.finderService = new CourseFinderService();
             CourseFinder finderPort = finderService.getCourseFinderPort();
-            List<String> coursesIds = finderPort.getAllCoursesReferences();
+            List<Integer> coursesIds = finderPort.getAllCoursesReferences();
 
             //Get the courses
             this.crudService = new CourseCRUDService();
