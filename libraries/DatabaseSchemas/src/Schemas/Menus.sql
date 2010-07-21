@@ -23,13 +23,15 @@
 -- Represents a "course" inside the jSeduite database
 DROP TABLE IF EXISTS `course`;
 CREATE TABLE `course` (
+  `id`      INT(11)      NOT NULL auto_increment,
   `kind`    VARCHAR(50)  NOT NULL,
   `name`    VARCHAR(255) NOT NULL,
-  PRIMARY KEY(`name`));
+  PRIMARY KEY(`id`));
 
 -- Represents a menu as a date and a set of courses
 DROP TABLE IF EXISTS `menu`;
 CREATE TABLE `menu`(
-  `date`    DATE         NOT NULL,
-  `course`  VARCHAR(255) NOT NULL REFERENCES `course`,
-  PRIMARY KEY(`date`,`course`));
+  `date`    DATETIME       NOT NULL,
+  `courseId`  VARCHAR(255) NOT NULL,
+  `typeMenu` varchar(255)  NOT NULL,
+  PRIMARY KEY(`date`,`courseId`,`typeMenu`));
