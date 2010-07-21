@@ -1,17 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Body>
-    <SOAP-ENV:Fault>
-      <faultcode xmlns="">SOAP-ENV:Server</faultcode>
-      <faultstring xmlns="">BPCOR-6135:A fault was not handled in the process scope; Fault Name is {http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling}systemFault; Fault Data is &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;lt;jbi:message xmlns:sxeh=&amp;quot;http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling&amp;quot; type=&amp;quot;sxeh:faultMessage&amp;quot; version=&amp;quot;1.0&amp;quot; xmlns:jbi=&amp;quot;http://java.sun.com/xml/ns/jbi/wsdl-11-wrapper&amp;quot;&amp;gt;&amp;lt;jbi:part&amp;gt;BPJBI-6018:EndPoint Reference is not available from the JBI corresponding to the service name {http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/WeatherProxy}weatherBugService and endpoint name WeatherBugWebServicesSoapRole_partnerRole&amp;lt;/jbi:part&amp;gt;&amp;lt;/jbi:message&amp;gt;. Sending errors for the pending requests in the process scope before terminating the process instance</faultstring>
-      <faultactor xmlns="">sun-bpel-engine</faultactor>
-      <detail xmlns="">
-        <detailText>BPCOR-6135:A fault was not handled in the process scope; Fault Name is {http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling}systemFault; Fault Data is &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;lt;jbi:message xmlns:sxeh=&amp;quot;http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling&amp;quot; type=&amp;quot;sxeh:faultMessage&amp;quot; version=&amp;quot;1.0&amp;quot; xmlns:jbi=&amp;quot;http://java.sun.com/xml/ns/jbi/wsdl-11-wrapper&amp;quot;&amp;gt;&amp;lt;jbi:part&amp;gt;BPJBI-6018:EndPoint Reference is not available from the JBI corresponding to the service name {http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/WeatherProxy}weatherBugService and endpoint name WeatherBugWebServicesSoapRole_partnerRole&amp;lt;/jbi:part&amp;gt;&amp;lt;/jbi:message&amp;gt;. Sending errors for the pending requests in the process scope before terminating the process instance
-   Caused by: BPCOR-7131:A fatal exception has occurred
-BPCOR-6129:Line Number is 96
-BPCOR-6130:Activity Name is a3_tech
-   Caused by: BPJBI-6018:EndPoint Reference is not available from the JBI corresponding to the service name {http://modalis.i3s.unice.fr/jSeduite/orchestrations/bpel/WeatherProxy}weatherBugService and endpoint name WeatherBugWebServicesSoapRole_partnerRole</detailText>
-      </detail>
-    </SOAP-ENV:Fault>
+    <WeatherProxyResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/wsdl/WeatherProxy" xmlns="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/WeatherProxy">
+      <return>
+        <live>
+          <station>Nice (Cote D'Azur)</station>
+          <pressure>1004.07</pressure>
+          <rain>0.0</rain>
+          <windSpeed>13</windSpeed>
+          <windDirection>N</windDirection>
+          <icon>cond159.gif</icon>
+          <minTemp>8.0</minTemp>
+          <maxTemp>9.0</maxTemp>
+          <temp>8.0</temp>
+        </live>
+        <forecast_star>
+          <item day="FRI">
+            <maxTemp>10.0</maxTemp>
+            <minTemp>7.0</minTemp>
+            <icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond003.gif</icon>
+          </item>
+          <item day="SAT">
+            <maxTemp>11.0</maxTemp>
+            <minTemp>8.0</minTemp>
+            <icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond007.gif</icon>
+          </item>
+          <item day="SUN">
+            <maxTemp>12.0</maxTemp>
+            <minTemp>9.0</minTemp>
+            <icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond024.gif</icon>
+          </item>
+          <item day="MON">
+            <maxTemp>12.0</maxTemp>
+            <minTemp>11.0</minTemp>
+            <icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond089.gif</icon>
+          </item>
+          <item day="TUE">
+            <maxTemp>13.0</maxTemp>
+            <minTemp>10.0</minTemp>
+            <icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond003.gif</icon>
+          </item>
+          <item day="WED">
+            <maxTemp>12.0</maxTemp>
+            <minTemp>9.0</minTemp>
+            <icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond026.gif</icon>
+          </item>
+          <item day="THU">
+            <maxTemp>13.0</maxTemp>
+            <minTemp>9.0</minTemp>
+            <icon>http://deskwx.weatherbug.com/images/Forecast/icons/cond003.gif</icon>
+          </item>
+        </forecast_star>
+      </return>
+    </WeatherProxyResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>

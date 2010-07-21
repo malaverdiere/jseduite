@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <ns1:GetInformationResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/EphemerideSource" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+      <ns1:result>
+        <ns0:item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+          <ns0:ephemeride xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://Ephemerides.time.technical.jSeduite.modalis.i3s.unice.fr/">
+            <day xmlns="">20</day>
+            <month xmlns="">1</month>
+            <names xmlns="">Bastien</names>
+            <names xmlns="">Fabienne</names>
+            <names xmlns="">Sébastien</names>
+          </ns0:ephemeride>
+        </ns0:item>
+      </ns1:result>
+    </ns1:GetInformationResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

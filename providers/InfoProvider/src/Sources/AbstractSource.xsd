@@ -2,7 +2,23 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information"
     xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information"
-    elementFormDefault="qualified" xmlns:ns0="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns1="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns7="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums" xmlns:ns5="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/ImageScraper" xmlns:ns12="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/WeatherProxy" xmlns:ns13="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows" xmlns:ns8="http://breaking.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns18="http://absence.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns19="http://summon.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns20="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns15="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns9="http://calendar.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/Apal" xmlns:ns27="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperLocatorSource" xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperTimeTableSource">
+    elementFormDefault="qualified" 
+    xmlns:ns0="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/"
+    xmlns:ns1="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/"
+    xmlns:ns7="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums"
+    xmlns:ns5="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/ImageScraper"
+    xmlns:ns12="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/WeatherProxy"
+    xmlns:ns13="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/TvShows"
+    xmlns:ns8="http://breaking.news.technical.jSeduite.modalis.i3s.unice.fr/"
+    xmlns:ns18="http://absence.news.technical.jSeduite.modalis.i3s.unice.fr/"
+    xmlns:ns19="http://summon.news.technical.jSeduite.modalis.i3s.unice.fr/"
+    xmlns:ns20="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/"
+    xmlns:ns15="http://feeds.technical.jSeduite.modalis.i3s.unice.fr/"
+    xmlns:ns9="http://calendar.technical.jSeduite.modalis.i3s.unice.fr/"
+    xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/Apal"
+    xmlns:ns27="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperLocatorSource"
+    xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperTimeTableSource"
+    xmlns:ns6="http://Ephemerides.time.technical.jSeduite.modalis.i3s.unice.fr/">
     <xsd:import schemaLocation="Partners/InternalNewsService.xsd" namespace="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/"/>
     <xsd:import schemaLocation="Partners/TwitterWrapperService.xsd" namespace="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/"/>
     <xsd:import schemaLocation="Partners/PictureAlbums.xsd" namespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums"/>
@@ -18,6 +34,8 @@
     <xsd:import schemaLocation="Partners/ApalSource.xsd" namespace="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/Apal"/>
     <xsd:import schemaLocation="Partners/HyperLocatorSource.xsd" namespace="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperLocatorSource"/>
     <xsd:import schemaLocation="Partners/HyperTimeTableSource.xsd" namespace="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperTimeTableSource"/>
+    <xsd:import schemaLocation="Partners/EphemeridesService.xsd" namespace="http://Ephemerides.time.technical.jSeduite.modalis.i3s.unice.fr/"/>
+    
     <xsd:complexType name="Information">
         <xsd:choice>
             <xsd:element name="any" type="xsd:anyType"/>
@@ -36,6 +54,7 @@
             <xsd:element name="apal" type="ns3:SetOfApalLooser"></xsd:element>
             <xsd:element name="hyperloc" type="ns27:SetOfHyperLocation"></xsd:element>
             <xsd:element name="timetable" type="ns2:TimeTable"></xsd:element>
+            <xsd:element name="ephemeride" type="ns6:namesOfTheDay"></xsd:element>
         </xsd:choice>
         <xsd:attribute name="source" type="xsd:string"/>
     </xsd:complexType>

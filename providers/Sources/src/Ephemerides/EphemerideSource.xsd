@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/EphemerideSource"
+    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/EphemerideSource"
+    elementFormDefault="qualified" xmlns:ns5="http://Ephemerides.time.technical.jSeduite.modalis.i3s.unice.fr/">
+    <xsd:import schemaLocation="../Partners/EphemeridesService.xsd" namespace="http://Ephemerides.time.technical.jSeduite.modalis.i3s.unice.fr/"/>
+    <xsd:complexType name="SetOfEphemeride">
+  <xsd:sequence>
+    <xsd:element name="item" minOccurs="0" maxOccurs="unbounded" type="ns5:namesOfTheDay"/>
+  </xsd:sequence>
+</xsd:complexType>
+</xsd:schema>

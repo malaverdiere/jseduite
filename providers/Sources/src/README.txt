@@ -51,6 +51,7 @@ http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/SourceName
 
   - Replace Abstract by Source almost everywhere (except in types)
 
+  - Change the abstractSource import location to fit the new forled (ie ../)
 
 #######################
 #### BPEL Artefact ####

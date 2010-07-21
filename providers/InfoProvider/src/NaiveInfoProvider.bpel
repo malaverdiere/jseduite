@@ -24,6 +24,7 @@
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/ApalSource" location="Sources/ApalSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/HyperLocatorSource" location="Sources/HyperLocatorSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/HyperTimeTableSource" location="Sources/HyperTimeTableSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/EphemerideSource" location="Sources/EphemerideSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <partnerLinks>
         <partnerLink name="breakingNews" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/BreakingNewsSource" partnerLinkType="tns:BreakingNewsSource" partnerRole="BreakingNewsSourcePortTypeRole"/>
         <partnerLink name="imageScraper" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/ImageScraperSource" partnerLinkType="tns:ImageScraperSource" partnerRole="ImageScraperSourcePortTypeRole"/>
@@ -40,6 +41,7 @@
         <partnerLink name="apal" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/ApalSource" partnerLinkType="tns:ApalSource" partnerRole="ApalSourcePortTypeRole"/>
         <partnerLink name="hyperloc" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/HyperLocatorSource" partnerLinkType="tns:HyperLocatorSource" partnerRole="HyperLocatorSourcePortTypeRole"/>
         <partnerLink name="timetable" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/HyperTimeTableSource" partnerLinkType="tns:HyperTimeTableSource" partnerRole="HyperTimeTableSourcePortTypeRole"/>
+        <partnerLink name="ephemeride" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/EphemerideSource" partnerLinkType="tns:EphemerideSource" partnerRole="EphemerideSourcePortTypeRole"/>
         <partnerLink name="ext" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" partnerLinkType="tns:NaiveInfoProvider" myRole="NaiveInfoProviderPortTypeRole"/>
     </partnerLinks>
     <variables>
@@ -60,6 +62,7 @@
         <variable name="hyperloc_star" type="ns0:SetOfInformation"/>
         <variable name="timetable_star" type="ns0:SetOfInformation"/>
         <variable name="info_star" type="ns0:SetOfInformation"/>
+        <variable name="ephemeride_star" type="ns0:SetOfInformation"/>
         <variable name="identifier" type="xsd:string"/>
     </variables>
     <sequence>
@@ -397,6 +400,27 @@
                         <copy>
                             <from>$GetInfosOut.out/ns0:result</from>
                             <to variable="timetable_star"/>
+                        </copy>
+                    </assign>
+                </sequence>
+            </scope>
+            <scope name="a215" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/EphemerideSource">
+                <variables>
+                    <variable name="GetInfosOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/EphemerideSource" messageType="tns:GetInfosResponse"/>
+                    <variable name="GetInfosIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/EphemerideSource" messageType="tns:GetInfosRequest"/>
+                </variables>
+                <sequence name="a215_core">
+                    <assign name="a215_pre">
+                        <copy>
+                            <from variable="identifier"/>
+                            <to>$GetInfosIn.in/ns0:identifier</to>
+                        </copy>
+                    </assign>
+                    <invoke name="a215_tech" partnerLink="ephemeride" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/EphemerideSource" portType="tns:EphemerideSourcePortType" inputVariable="GetInfosIn" outputVariable="GetInfosOut"/>
+                    <assign name="a215_post">
+                        <copy>
+                            <from>$GetInfosOut.out/ns0:result</from>
+                            <to variable="ephemeride_star"/>
                         </copy>
                     </assign>
                 </sequence>
@@ -900,6 +924,40 @@
                                 </copy>
                             </assign>
                             <assign name="a314_concat_incr">
+                                <copy>
+                                    <from>$infoCpt + 1</from>
+                                    <to variable="infoCpt"/>
+                                </copy>
+                                <copy>
+                                    <from>$cpt + 1</from>
+                                    <to variable="cpt"/>
+                                </copy>
+                            </assign>
+                        </sequence>
+                    </while>
+                </sequence>
+            </scope>
+            <scope name="a315">
+                <variables>
+                    <variable name="cpt" type="xsd:integer"/>
+                </variables>
+                <sequence name="a315_core">
+                    <assign name="a315_concat_init">
+                        <copy>
+                            <from>1</from>
+                            <to variable="cpt"/>
+                        </copy>
+                    </assign>
+                    <while name="a315_concat_loop">
+                        <condition>$cpt &lt;= count($ephemeride_star/ns0:item)</condition>
+                        <sequence name="a315_concat_core">
+                            <assign name="a315_tech">
+                                <copy>
+                                    <from>$ephemeride_star/ns0:item[$cpt]</from>
+                                    <to>$info_star/ns0:item[$infoCpt]</to>
+                                </copy>
+                            </assign>
+                            <assign name="a315_concat_incr">
                                 <copy>
                                     <from>$infoCpt + 1</from>
                                     <to variable="infoCpt"/>
