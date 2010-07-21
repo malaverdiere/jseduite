@@ -26,9 +26,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import fr.unice.i3s.modalis.jSeduite.libraries.mysql.*;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 /** CRUD pattern implementation for Menu business object
  *  Create~Read~Update~Delete 'automagic' data access layer
@@ -38,46 +36,6 @@ public class MenuCRUD {
 
     // A finder to retrieves menu whan needed
     private MenuFinder finder = new MenuFinder();
-
-    /** A static method to transform a SQL entry into a java Date
-     * @param dateString the SQL date entry to transform
-     * @return a java Date
-     */
-    public static Date toDate(String dateString)throws RestaurantException {
-        GregorianCalendar cal;
-        Date result = null;
-        try{
-            cal = new GregorianCalendar();
-            String[] items = dateString.split("-");
-            String[] items2 = items[2].split(" ");
-            String[] items3 = items2[1].split(":");
-            cal.set(Integer.parseInt(items[0]) , Integer.parseInt(items[1]),
-                    Integer.parseInt(items2[0]), Integer.parseInt(items3[0]),
-                    Integer.parseInt(items3[1]), 0);
-            result = cal.getTime();
-        } catch(Exception e){
-               throw new RestaurantException("Date translation Exception: " +
-                       "element parse:" + dateString +"\n error: " +
-                       "" + e.getMessage() +"");
-        }
-       return result;
-    }
-
-   /** A static method to transform a java Date into a valid SQL entry
-     * @param date the date to transform
-     * @return a string formatted as YYYY-MM-DD HH:MM:SS
-     */
-    public static String toSql(Date date) {
-        GregorianCalendar cal = new GregorianCalendar();
-        cal.setTime(date);
-        String d = "" + cal.get(Calendar.YEAR);
-        d += "-" + cal.get(Calendar.MONTH);
-        d += "-" + cal.get(Calendar.DAY_OF_MONTH);
-        d += " " + cal.get(Calendar.HOUR_OF_DAY);
-        d += ":" + cal.get(Calendar.MINUTE);
-        d += ":00";
-        return d;
-    }
 
     /** Create CRUD pattern operation
      * @param m the transient menu to transform as a peristent one
@@ -95,7 +53,7 @@ public class MenuCRUD {
         }
         DataAccessLayer dal = new DataAccessLayer();
         try {
-            String d = toSql(m.getDate());
+            String d = MenuTools.toSql(m.getDate());
             for (Course c : m.getCourses()) {
                 String sql = "INSERT INTO `menu` (`date`, `courseId`, `typeMenu`) VALUES (";
                 sql += "'" + d + "','" + c.getId()+ "', '" + m.getTypeMenu() + "');";
@@ -130,7 +88,7 @@ public class MenuCRUD {
      * @throws RestaurantException: null object, non persistent object
      */
     @WebMethod(operationName = "updateMenu")
-    public void updateMenu(@WebParam(name = "m") Menu m)
+    public void updateMenu(@WebParam(name = "m") Menu m, @WebParam(name = "id") Date oldDate)
             throws RestaurantException {
         if (null == m) {
             throw new RestaurantException("Null update !");
@@ -138,7 +96,10 @@ public class MenuCRUD {
         if (null == m.getDate()) {
             throw new RestaurantException("Unreferenced update !");
         }
+        Date newDate = m.getDate();
+        m.setDate(oldDate);
         this.deleteMenu(m); // Ouch ... An ugly shortcut (but simple)
+        m.setDate(newDate);
         this.createMenu(m); // => should be improved in next releases
     }
 
@@ -155,7 +116,7 @@ public class MenuCRUD {
         if (null == m.getDate()) {
             throw new RestaurantException("Unreferenced delete !");
         }
-        String k = toSql(m.getDate());
+        String k = MenuTools.toSql(m.getDate());
         String sql = "DELETE FROM `menu` WHERE `date` = '" + k + "';";
         DataAccessLayer dal = new DataAccessLayer();
         try {

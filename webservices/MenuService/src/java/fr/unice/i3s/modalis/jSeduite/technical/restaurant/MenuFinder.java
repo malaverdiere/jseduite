@@ -49,13 +49,13 @@ public class MenuFinder {
 
 
             String sql = "SELECT date FROM `menu` WHERE";
-            sql += " `date` >= '" + MenuCRUD.toSql(searchDate) + "'";
+            sql += " `date` >= '" + MenuTools.toSql(searchDate) + "'";
             sql += "ORDER BY date ASC Limit 1;";
             DalResultSet rSet = dal.extractDataSet(sql);
             String nextDate  = rSet.getValue("date");
             if (rSet.size() == 0)
                 return null;
-            return MenuCRUD.toDate(nextDate);
+            return MenuTools.toDate(nextDate);
         } catch(Exception e) {
             throw new RestaurantException("SQL Exception:" + e.getMessage());
         }
@@ -86,7 +86,7 @@ public class MenuFinder {
             throws RestaurantException {
         DataAccessLayer dal = new DataAccessLayer();
         try {
-            String kDate = MenuCRUD.toSql(date);
+            String kDate = MenuTools.toSql(date);
             String sql = "SELECT * FROM `menu`, `course` WHERE";
             sql += " `date` = '" + kDate + "'";
             sql += " AND `menu`.`courseId` = `course`.`id`;";
@@ -94,7 +94,7 @@ public class MenuFinder {
             if (rSet.size() == 0)
                 return null;
             Menu result = new Menu();
-            result.setDate(MenuCRUD.toDate(rSet.getValue("date")));
+            result.setDate(MenuTools.toDate(rSet.getValue("date")));
             result.setTypeMenu(rSet.getValue("typeMenu"));
             ArrayList<Course> courses = new ArrayList<Course>(rSet.size());
             for(int i = 0; i < rSet.size(); i++){
@@ -120,7 +120,7 @@ public class MenuFinder {
             String[] dates = dal.extractScalarSet(sql,"date");
             ArrayList<Date> result = new ArrayList<Date>();
             for(String date: dates) {
-                result.add(MenuCRUD.toDate(date));
+                result.add(MenuTools.toDate(date));
             }
             return result.toArray(new Date[result.size()]);
         } catch(Exception e) {
