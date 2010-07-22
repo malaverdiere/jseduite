@@ -316,3 +316,13 @@ table.weather td { text-align:center; vertical-align:center;}
 .ephemerides_day, .ephemerides_clock_time{
     margin-bottom: 80px;
 }
+
+/** Menus **/
+.menus{
+    font-size:160%;
+    text-align:center;
+}
+.menus_title{
+   margin-bottom:100px;
+   text-decoration:underline;
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Body>
+        <GetInformationResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+            <result>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="menus">
+                    <menus>
+                        <date>2009-11-21T16:30:00+01:00</date>
+                        <courses>
+                                <course><kind>entree</kind><name>Concombre Sauce Yahourt</name></course>
+                                <course><kind>plat</kind><name>Chipolatas Grillée</name></course>
+                                <course><kind>plat</kind><name>Haricot beurre</name></course>
+                                <course><kind>dessert</kind><name>Fromage</name></course>
+                                <course><kind>dessert</kind><name>Assiette de Fruit découpés</name></course>
+                        </courses>
+                        <typeMenu>Déjeuner</typeMenu>
+                    </menus>
+                </item>
+            </result>
+        </GetInformationResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

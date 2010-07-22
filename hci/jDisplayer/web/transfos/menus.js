@@ -22,17 +22,29 @@
 
 var menus = Class.create(jSeduiteTransformation, {
         perform: function(xml) {
-        var content = "";
-        content += "<div id=\"menus_logo\" class=\"menus_logo\"></div>";
-        content += "<p class=\"title\"> &nbsp; ";
-        content += getTag("title", xml) + "</p>";
-        content += "<div class=\"clearDiv\">&nbsp;</div>";
-        content += "<p class=\"internal_content\">" +  getTag("content", xml) + "</p>"
-        content += "<span class=\"internal_author\">" + getTag("author", xml) + "</span>";
-        var stampIN = getTag("start", xml);
-        content += "<span class=\"internal_date\">";
-        content += " ("+stampIN.substring(8,10)+"/"+stampIN.substring(5,7)+")";
-        content += "</span>";
+
+        var date = getTag("date", xml);
+        var content = "<span class=\"menus\">";
+        content += "<span class=\"menus_title\">";
+        content += getTag("typeMenu", xml)+ " du ";
+        content += date.substring(8,10)+"/" + date.substring(5,7) + " " + date.substring(11,13) + " heures</span>";
+
+        content += "<div id=\"menus_content\" class=\"menus_content\">";
+        var coursesNode = getNode("course",xml);
+        
+        var courses = new Array();
+        for(var i=0; i <coursesNode.length;i++){
+            var kind = getTag("kind",coursesNode[i]);
+            var name = getTag("name",coursesNode[i]);
+            if(courses[kind] == null) courses[kind] = name;
+            else courses[kind] +="<br/> " + name;
+        }
+        content += courses["entree"] + "<br/>~~~<br/>";
+        content += courses["plat"] + "<br/>~~~<br/>";
+        content += courses["dessert"];
+
+
+        content += "</div></span>";
         return [content];
     }
 });

@@ -32,6 +32,7 @@
     <script type="text/javascript" src="transfos/twitter.js"></script>
     <script type="text/javascript" src="transfos/weather.js"></script>
     <script type="text/javascript" src="transfos/ephemeride.js"></script>
+    <script type="text/javascript" src="transfos/menus.js"></script>
     <!-- StyleSheets -->
     <link rel="stylesheet" type="text/css" href="templates/common.css" >
   </head>
