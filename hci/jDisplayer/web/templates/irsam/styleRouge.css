@@ -318,5 +318,9 @@ table.weather td { text-align:center; vertical-align:center;}
 
 /** Ephemerides **/
 .ephemerides{
-    font-size:180%;
+    font-size:220%;
+    text-align:center;
+}
+.ephemerides_day, .ephemerides_clock_time{
+    margin-bottom: 80px;
 }
