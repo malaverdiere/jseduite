@@ -313,4 +313,9 @@ table.weather td { text-align:center; vertical-align:center;}
     width:70%;
 	padding:5px;
 	margin:5px;
-} 
+}
+
+/** Ephemerides **/
+.ephemerides{
+    font-size:180%;
+}

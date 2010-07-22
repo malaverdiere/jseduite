@@ -21,8 +21,8 @@
  **/
 
 
-var ephemerides = Class.create(jSeduiteTransformation, {
-    initialize: function() {
+var ephemeride = Class.create(jSeduiteTransformation, {
+        initialize: function() {
         this.clock = new Array();
         this.clock["day"]    = get_day();
         this.clock["time"]   = get_time();
@@ -33,20 +33,19 @@ var ephemerides = Class.create(jSeduiteTransformation, {
     perform: function(xml) {
         var content = "";
         content += "<div id=\"clock_logo\" class=\"clock_logo\"></div>";
-        content += "<p class=\"title\"> &nbsp; Date </p>";
-        content += "<p class=\"clock_day\">";
-        content += "<span class=\"emphasize\">Nous sommes le " + this.clock["day"] + " " + this.clock["UTCDate"] + " " + this.clock["month"] + " " + this.clock["year"] + "</span>";
-        content += "</p>";
-        content += "<p class=\"clock_time\">";
-        content += "Il est " + this.clock["time"];
+        content += "<p class=\"title\"> &nbsp; Ephémérides </p>";
+        content += "<span class=\"ephemerides\"><p class=\"clock_day\">";
+        content += "<span class=\"emphasize\">Nous sommes le ";
+        content += this.clock["day"] + " " + this.clock["UTCDate"];
+        content += " " + this.clock["month"] + " " + this.clock["year"];
+        content += ", il est " + this.clock["time"];
         content += "</p>";
         content += "<p class=\"clock_time\">";
 
-        //TODO: add random choose of a name inephemerides
-        items = getTags("item",xml);
-        
-        content += "Le saint du jour est " + items;
-        content += "</p>";
+        items = getTags("names",xml);
+        idSaint = Math.floor(Math.random() * items.length);
+        content += "Le saint du jour est " + items[idSaint];
+        content += "</p></span>";
         return [content];
     }
 });

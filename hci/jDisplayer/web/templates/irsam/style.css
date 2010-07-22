@@ -306,4 +306,9 @@ table.weather td { text-align:center; vertical-align:center;}
 	background-color:#1a1a1a;
 	border:1px solid #DEDEDE;
 	margin:5px;
-} 
+}
+
+/** Ephemerides **/
+.ephemerides{
+    font-size:180%;
+}

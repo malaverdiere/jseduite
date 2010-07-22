@@ -49,11 +49,11 @@ function get_time(){
 }
 
 function get_year(){
-    return ate().getFullYear();
+    return (new Date()).getFullYear();
 }
 
 function get_month(){
-    var month =  Date().getMonth();
+    var month =  (new Date()).getMonth();
     switch (month){
         case 1: return "janvier";   break;
         case 2: return "février";   break;
@@ -71,7 +71,7 @@ function get_month(){
 }
 
 function get_day(){
-    var d = Date().getDay();
+    var d = (new Date()).getDay();
     switch (d){
     case 1: return "lundi";break;
     case 2: return "mardi";break;
@@ -84,6 +84,6 @@ function get_day(){
 }
 
 function get_UTCDate(){
-    return Date().getUTCDate();
+    return (new Date()).getUTCDate();
 }
 
