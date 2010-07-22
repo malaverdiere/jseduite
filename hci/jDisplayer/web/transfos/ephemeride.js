@@ -20,9 +20,8 @@
  * @author 2020     Christophe Desclaux          [desclaux@polytech.unice.fr]
  **/
 
-
-var ephemeride = Class.create(jSeduiteTransformation, {
-        initialize: function() {
+var ephemerideHelper = Class.create({
+     initialize: function() {
         this.clock = new Array();
         this.clock["day"]    = get_day();
         this.clock["time"]   = get_time();
@@ -30,22 +29,58 @@ var ephemeride = Class.create(jSeduiteTransformation, {
         this.clock["year"]   = get_year();
         this.clock["UTCDate"]= get_UTCDate();
     },
+    getClock: function(){
+        return this.clock;
+    },
+    getAllSaints: function(names) {
+        var content = "<p class=\"ephemerides_saints\">Les saints du jour sont:<ul>";
+        for(var i=0;i<names.length;i=i+1){
+            content += "<li>" + names[i] + "</li>";
+        }
+        content += "</p></li>";
+        return content;
+    },
+    getOneSaint: function(names) {
+        var content = "<p class=\"ephemerides_saints\">";
+        idSaint = Math.floor(Math.random() * names.length);
+        content += "Le saint du jour est " + names[idSaint];
+        content += "</p></span>";
+        return content;
+    }
+});
+var ephemeride = Class.create(jSeduiteTransformation, {
+
+});
+var ephemerideOneSaint = Class.create(jSeduiteTransformation, {
     perform: function(xml) {
+        var helper = new ephemerideHelper();
         var content = "";
         content += "<div id=\"clock_logo\" class=\"clock_logo\"></div>";
         content += "<p class=\"title\"> &nbsp; Ephémérides </p>";
         content += "<span class=\"ephemerides\"><p class=\"clock_day\">";
         content += "<span class=\"emphasize\">Nous sommes le ";
-        content += this.clock["day"] + " " + this.clock["UTCDate"];
-        content += " " + this.clock["month"] + " " + this.clock["year"];
-        content += ", il est " + this.clock["time"];
-        content += "</p>";
-        content += "<p class=\"clock_time\">";
+        content += helper.clock["day"] + " " + helper.clock["UTCDate"];
+        content += " " + helper.clock["month"] + " " + helper.clock["year"];
+        content += "<span class=\"ephemerides_clock_time\", il est " + helper.clock["time"];
+        content += "</span></p>";
+        content += helper.getOneSaint(getTags("names",xml));
+        return [content];
+    }
+});
 
-        items = getTags("names",xml);
-        idSaint = Math.floor(Math.random() * items.length);
-        content += "Le saint du jour est " + items[idSaint];
-        content += "</p></span>";
+var ephemerideAllSaints = Class.create(jSeduiteTransformation, {
+    perform: function(xml) {
+        var helper = new ephemerideHelper();
+        var content = "";
+        content += "<div id=\"clock_logo\" class=\"clock_logo\"></div>";
+        content += "<p class=\"title\"> &nbsp; Ephémérides </p>";
+        content += "<span class=\"ephemerides\"><p class=\"clock_day\">";
+        content += "<span class=\"emphasize\">Nous sommes le ";
+        content += helper.clock["day"] + " " + helper.clock["UTCDate"];
+        content += " " + helper.clock["month"] + " " + helper.clock["year"];
+        content += "<span class=\"ephemerides_clock_time\", il est " + helper.clock["time"];
+        content += "</span></p>";
+        content += helper.getAllSaints(getTags("names",xml));
         return [content];
     }
 });

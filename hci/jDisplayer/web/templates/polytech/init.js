@@ -38,6 +38,7 @@ polytech.declare("feed_reader",    new feedHandler(),        7);
 polytech.declare("stud_summon",    new studSummon(),         5);
 polytech.declare("calendar",       new iCalHandler(),        6);
 polytech.declare("timetable",      new edtHandler(1),        5);
+polytech.declare("ephemeride",     new ephemerideAllSaints(),5);
 // dispatching the information kinds in the display loops
 polytech.dispatch = function(k) {
     if ("breaking_news" == k || "twitter" == k)
