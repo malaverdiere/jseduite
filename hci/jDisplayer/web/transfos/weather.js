@@ -69,7 +69,7 @@ var weatherHelper = Class.create({
             var iconImg = getTag("icon", curDay);
             content += "<td>";
             content += "<span class=\"weat_day\">"+this.days[getAttribute("day", curDay)]+"</span>";
-            content += "<img class=\"weat_day_img\" src=\"http://img.weather.weatherbug.com/forecast/icons/localized/120x101/en/opaq/"+(iconImg.substring(iconImg.lastIndexOf('/', iconImg.length)+1, iconImg.length)).replace(reg, ".png")+"\" alt=\"\"><br>";
+            content += "<img class=\"weat_day_img\" src=\"http://img.weather.weatherbug.com/forecast/icons/localized/500x420/en/opaq/"+(iconImg.substring(iconImg.lastIndexOf('/', iconImg.length)+1, iconImg.length)).replace(reg, ".png")+"\" alt=\"\"><br>";
             content += "<span class=\"weat2_temp\"> "+getTag("minTemp", curDay)+"&deg;/"+getTag("maxTemp", curDay)+"&deg;C</span>";
             content += "</td>";
         }

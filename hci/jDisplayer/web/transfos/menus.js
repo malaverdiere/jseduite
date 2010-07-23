@@ -26,8 +26,8 @@ var menus = Class.create(jSeduiteTransformation, {
         var date = getTag("date", xml);
         var content = "<span class=\"menus\">";
         content += "<span class=\"menus_title\">";
-        content += getTag("typeMenu", xml)+ " du ";
-        content += date.substring(8,10)+"/" + date.substring(5,7) + " " + date.substring(11,13) + " heures</span>";
+        content += getTag("typeMenu", xml)+ " à ";
+        content +=  date.substring(11,13) + " heures</span>";
 
         content += "<div id=\"menus_content\" class=\"menus_content\">";
         var coursesNode = getNode("course",xml);
