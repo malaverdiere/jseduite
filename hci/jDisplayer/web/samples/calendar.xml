@@ -4,14 +4,14 @@
         <GetInformationResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
             <result>
                 <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
-                    <calEvent>
+<calEvent>
                         <description xmlns=""/>
                         <end xmlns="">2009-11-25T10:35:00+01:00</end>
                         <location xmlns=""/>
                         <start xmlns="">2009-11-25T10:30:00+01:00</start>
                         <summary xmlns="">Pitch SI3 NuitInfo</summary>
-                    </calEvent>
-                </item>
+</calEvent>
+</item>
                 <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
                     <calEvent>
                         <description xmlns="">La demoscene est une communauté de passionnés d’informatique qui compose des programmes d’animation 3D temps-réel. La plupart du temps, les méthodes employées pour créer ces animations sont particulièrement novatrices, et souvent le code source est libre. Après un rapide historique de la demoscene, la présentation portera sur les potentiels bienfaits de tels programmes dans le monde du logiciel libre, ainsi que les raisons qui poussent ces créateurs à libérer leurs oeuvres.</description>

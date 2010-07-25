@@ -8,6 +8,7 @@
                         <date>2009-11-21T16:30:00+01:00</date>
                         <courses>
                                 <course><kind>entree</kind><name>Concombre Sauce Yahourt</name></course>
+                                <course><kind>entree</kind><name>vide</name></course>
                                 <course><kind>plat</kind><name>Chipolatas Grillée</name></course>
                                 <course><kind>plat</kind><name>Haricot beurre</name></course>
                                 <course><kind>dessert</kind><name>Fromage</name></course>

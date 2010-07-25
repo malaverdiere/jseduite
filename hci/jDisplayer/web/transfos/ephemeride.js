@@ -43,8 +43,7 @@ var ephemerideHelper = Class.create({
     getOneSaint: function(names) {
         var content = "<div class=\"ephemerides_saints\">";
         idSaint = Math.floor(Math.random() * names.length);
-        content += "Bonne fête<br/> " + names[idSaint]+ "!";
-        content += "</div>";
+        content += "Bonne fête " + names[idSaint] + "</div>";
         return content;
     }
 });
@@ -55,7 +54,7 @@ var ephemerideOneSaint = Class.create(jSeduiteTransformation, {
     perform: function(xml) {
         var helper = new ephemerideHelper();
         var content = "<span class=\"ephemerides\">";
-        content += "<div class=\"ephemerides_day\">";
+        content += "<div class=\"ephemerides_title\">";
         content += helper.clock["day"] + " " + helper.clock["UTCDate"];
         content += " " + helper.clock["month"] + " " + helper.clock["year"];
         content +="</div>";

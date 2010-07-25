@@ -129,7 +129,7 @@ body
 	font-size:230%;
 	margin-bottom:0px;
 	margin-top:0px;
-	text-indent:150px;
+	text-indent:70px;
 	text-transform:uppercase;
 }
 
@@ -318,16 +318,29 @@ table.weather td { text-align:center; vertical-align:center;}
     font-size:220%;
     text-align:center;
 }
-.ephemerides_day, .ephemerides_clock_time{
+.ephemerides_clock_time{
     margin-bottom: 80px;
 }
 
-/** Menus **/
-.menus{
-    font-size:160%;
+.ephemerides_title {
+	font-weight:normal;
+	margin-bottom:100px;
+	margin-top:0px;
+	text-transform:uppercase;
     text-align:center;
 }
-.menus_title{
-   margin-bottom:100px;
-   text-decoration:underline;
+
+
+/** Menus **/
+.menus{
+    font-size:170%;
+    text-align:center;
+}
+
+.menus_title {
+	font-weight:normal;
+	margin-bottom:15px;
+	margin-top:0px;
+    text-align:center;
+	text-transform:uppercase;
 }
