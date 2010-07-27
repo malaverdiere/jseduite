@@ -12,9 +12,16 @@
 
     <h:form id="form">
         <h:panelGrid columns="2" >
+            <h:outputText value="#{bundle.COURSE_ID}"/>
+            <h:panelGroup>
+                <h:inputText id="id" value="#{CourseManagedBean.uCourse.id}" required="true" requiredMessage="#{bundle.COURSE_NAME_REQUIRED}" disabled="true">
+                    <f:validateLength maximum="255" />
+                </h:inputText>
+                <h:message for="id" errorClass="errorMessage"/>
+            </h:panelGroup>
             <h:outputText value="#{bundle.COURSE_NAME}"/>
             <h:panelGroup>
-                <h:inputText id="name" value="#{CourseManagedBean.uCourse.name}" required="true" requiredMessage="#{bundle.COURSE_NAME_REQUIRED}" disabled="true">
+                <h:inputText id="name" value="#{CourseManagedBean.uCourse.name}" required="true" requiredMessage="#{bundle.COURSE_NAME_REQUIRED}">
                     <f:validateLength maximum="255" />
                 </h:inputText>
                 <h:message for="name" errorClass="errorMessage"/>

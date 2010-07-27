@@ -55,7 +55,7 @@
         <h:column>
             <h:form>
                 <h:commandLink action="#{CourseManagedBean.goUpdate}" title="#{bundle.UPDATE}" styleClass="update">
-                    <f:setPropertyActionListener target="#{CourseManagedBean.id}" value="#{iterator.name}" />
+                    <f:setPropertyActionListener target="#{CourseManagedBean.id}" value="#{iterator.id}" />
                 </h:commandLink>
             </h:form>
         </h:column>
