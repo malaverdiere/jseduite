@@ -53,7 +53,7 @@ function get_year(){
 }
 
 function get_month(){
-    var month =  (new Date()).getMonth();
+    var month =  (new Date()).getMonth() + 1;
     switch (month){
         case 1: return "janvier";   break;
         case 2: return "février";   break;
