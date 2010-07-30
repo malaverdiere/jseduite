@@ -27,18 +27,20 @@ var irsam = new jSeduiteTemplate("template destiné à l'IRSAM");
 // declaring info handlers
 irsam.declare("twitter",        new scrollingTwitter(),   0);
 irsam.declare("breaking_news",  new breakingNews(),       0);
-irsam.declare("absences_profs", new absenceHandler(),     5);
-irsam.declare("picture_albums", new pictAlbumTransfo(),   5);
-irsam.declare("weather",        new closeWeatherTransfo(), 5);
-irsam.declare("image_scraper",  new imageScrapTransfo(),  5);
-irsam.declare("internal_news",  new internalNews(),       6);
-irsam.declare("feed_reader",    new feedHandler(),        7);
-irsam.declare("calendar",       new iCalHandler(),        6);
-irsam.declare("ephemeride",     new ephemerideOneSaint(), 5);
-irsam.declare("menus",          new menus(),              5);
-//irsam.declare("clock",          new clock(),              5);
+irsam.declare("absences_profs", new absenceHandler(),     15);
+irsam.declare("picture_albums", new pictAlbumTransfo(),   7);
+irsam.declare("weather",        new closeWeatherTransfo(), 15);
+irsam.declare("image_scraper",  new imageScrapTransfo(),  15);
+irsam.declare("internal_news",  new internalNews(),       16);
+irsam.declare("feed_reader",    new feedHandler(),        15);
+irsam.declare("calendar",       new iCalHandler(),        15);
+irsam.declare("ephemeride",     new ephemerideOneSaint(), 15);
+irsam.declare("menus",          new menus(),              15);
+//irsam.declare("alarm",          new alarm(),              0);
 // dispatching the information kinds in the display loops
 irsam.dispatch = function(k) {
+//    if ("alarm" == k)
+//        return "timer";
     if ("breaking_news" == k || "twitter" == k)
         return "scroll";
     else
@@ -48,7 +50,7 @@ irsam.dispatch = function(k) {
 engine.setTemplate(irsam);
 
 //we add new ccs styles for turning CSS
-engine.addCSS("templates/irsam/styleBleu.css");
+//engine.addCSS("templates/irsam/styleBleu.css");
 engine.addCSS("templates/irsam/styleJaune.css");
-engine.addCSS("templates/irsam/styleRouge.css");
+//engine.addCSS("templates/irsam/styleRouge.css");
 
