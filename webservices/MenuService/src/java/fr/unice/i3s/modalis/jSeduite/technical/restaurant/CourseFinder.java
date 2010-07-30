@@ -41,7 +41,7 @@ public class CourseFinder {
             throws RestaurantException {
         DataAccessLayer dal = new DataAccessLayer();
         try {
-            String sql = "SELECT * FROM `course` WHERE `kind`= '"+kind+"';";
+            String sql = "SELECT * FROM `course` WHERE `kind`= '"+kind+"' ORDER BY name ASC;";
             DalResultSet rSet = dal.extractDataSet(sql);
             ArrayList<Course> result = new ArrayList<Course>(rSet.size());
             for(int i = 0; i < rSet.size(); i++){
