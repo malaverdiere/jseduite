@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
+  <services>
+    <service name="BreakScreenCRUD">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.breaks.BreakScreenCRUD</implementation-class>
+    </service>
+    <service name="BreakScreenFinder">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.breaks.BreakScreenFinder</implementation-class>
+    </service>
+  </services>
+  <clients/>
+</jax-ws>
