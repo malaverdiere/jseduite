@@ -49,6 +49,11 @@
     <h:panelGroup styleClass="menuCategory">
         <h:outputText value="#{bundle.MENU_SCHOOLLIFE}" styleClass="menuTitle"/>
         <h:panelGroup styleClass="menuItem">
+            <h:outputLink value="#{request.contextPath}/breakscreen/listing.jsf">
+                <h:outputText value="#{bundle.BREAKSCREEN}"/>
+            </h:outputLink>
+        </h:panelGroup>
+        <h:panelGroup styleClass="menuItem">
             <h:outputLink value="#{request.contextPath}/breaktime/listing.jsf">
                 <h:outputText value="#{bundle.BREAKTIME}"/>
             </h:outputLink>

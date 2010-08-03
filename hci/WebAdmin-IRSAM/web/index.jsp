@@ -81,6 +81,15 @@
 
                         <h:outputText value="#{bundle.MENU_SCHOOLLIFE}" styleClass="homeTitle schoollifeTitle"/>
                         <h:panelGrid columns="2">
+
+                            <h:panelGroup><div class="homeColumn">
+                                <h:panelGroup styleClass="menuItem">
+                                    <h:outputLink value="#{request.contextPath}/breakscreen/listing.jsf">
+                                        <h:outputText value="#{bundle.BREAKSCREEN}"/>
+                                    </h:outputLink>
+                                </h:panelGroup>
+                                <h:outputText value="#{bundle.BREAKSCREEN_DESCRIPTION}"/>
+                            </div></h:panelGroup>
                             <h:panelGroup><div class="homeColumn">
                                 <h:panelGroup styleClass="menuItem">
                                     <h:outputLink value="#{request.contextPath}/breaktime/listing.jsf">

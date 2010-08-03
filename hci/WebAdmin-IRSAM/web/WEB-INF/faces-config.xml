@@ -29,6 +29,11 @@
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     <managed-bean>
+        <managed-bean-name>BreakScreenManagedBean</managed-bean-name>
+        <managed-bean-class>webadmin.breakscreen.BreakScreenManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
         <managed-bean-name>AlarmManagedBean</managed-bean-name>
         <managed-bean-class>webadmin.alarms.AlarmManagedBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
@@ -184,7 +189,10 @@
         <converter-id>PromoConverter</converter-id>
         <converter-class>webadmin.converters.PromoConverter</converter-class>
     </converter>
-
+    <converter>
+        <converter-id>ContentConverter</converter-id>
+        <converter-class>webadmin.converters.ContentConverter</converter-class>
+    </converter>
     <!--INTERNAL NEWS-->
     <navigation-rule>
         <from-view-id>/internalnews/create.jsp</from-view-id>
@@ -426,6 +434,46 @@
         <navigation-case>
             <from-outcome>cancel</from-outcome>
             <to-view-id>/breaktime/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <!--BREAK SCREEN-->
+    <navigation-rule>
+        <from-view-id>/breakscreen/create.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>created</from-outcome>
+            <to-view-id>/breakscreen/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/breakscreen/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/breakscreen/listing.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>sorted</from-outcome>
+            <to-view-id>/breakscreen/listing.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>update</from-outcome>
+            <to-view-id>/breakscreen/update.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/breakscreen/update.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>updated</from-outcome>
+            <to-view-id>/breakscreen/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/breakscreen/listing.jsp</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>

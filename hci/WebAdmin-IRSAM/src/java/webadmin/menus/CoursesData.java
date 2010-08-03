@@ -1,5 +1,6 @@
 package webadmin.menus;
 
+import java.util.Collections;
 import java.util.List;
 import javax.faces.model.SelectItem;
 

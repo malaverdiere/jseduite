@@ -2,54 +2,6 @@
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services/>
   <clients>
-    <client name="BreakingNewsCRUDService">
-      <wsdl-url>http://localhost:8080/jSeduite/BreakingNews/BreakingNewsCRUDService?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_8080/jSeduite/BreakingNews/BreakingNewsCRUDService.wsdl</local-wsdl-file>
-      <package-name>fr.unice.i3s.modalis.jseduite.technical.news.breaking</package-name>
-      <catalog-file>catalog.xml</catalog-file>
-      <wsimport-options>
-        <wsimport-option>
-          <wsimport-option-name>extension</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>verbose</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/jSeduite/BreakingNews/BreakingNewsCRUDService?wsdl</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xnocompile</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-      </wsimport-options>
-    </client>
-    <client name="BreakingNewsFinderService">
-      <wsdl-url>http://localhost:8080/jSeduite/BreakingNews/BreakingNewsFinderService?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_8080/jSeduite/BreakingNews/BreakingNewsFinderService.wsdl</local-wsdl-file>
-      <package-name>fr.unice.i3s.modalis.jseduite.technical.news.breaking</package-name>
-      <catalog-file>catalog.xml</catalog-file>
-      <wsimport-options>
-        <wsimport-option>
-          <wsimport-option-name>extension</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>verbose</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/jSeduite/BreakingNews/BreakingNewsFinderService?wsdl</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xnocompile</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-      </wsimport-options>
-    </client>
     <client name="InternalNewsCRUDService">
       <wsdl-url>http://localhost:8080/jSeduite/InternalNews/InternalNewsCRUDService?wsdl</wsdl-url>
       <local-wsdl-file>localhost_8080/jSeduite/InternalNews/InternalNewsCRUDService.wsdl</local-wsdl-file>
@@ -674,54 +626,6 @@
         </wsimport-option>
       </wsimport-options>
     </client>
-    <client name="SummoningFinderService">
-      <wsdl-url>http://localhost:8080/jSeduite/SchoolLife/SummoningFinderService?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_8080/jSeduite/SchoolLife/SummoningFinderService.wsdl</local-wsdl-file>
-      <package-name>fr.unice.i3s.modalis.jseduite.technical.news.summon</package-name>
-      <catalog-file>catalog.xml</catalog-file>
-      <wsimport-options>
-        <wsimport-option>
-          <wsimport-option-name>extension</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>verbose</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/jSeduite/SchoolLife/SummoningFinderService?wsdl</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xnocompile</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-      </wsimport-options>
-    </client>
-    <client name="SummoningCRUDService">
-      <wsdl-url>http://localhost:8080/jSeduite/SchoolLife/SummoningCRUDService?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_8080/jSeduite/SchoolLife/SummoningCRUDService.wsdl</local-wsdl-file>
-      <package-name>fr.unice.i3s.modalis.jseduite.technical.news.summon</package-name>
-      <catalog-file>catalog.xml</catalog-file>
-      <wsimport-options>
-        <wsimport-option>
-          <wsimport-option-name>extension</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>verbose</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/jSeduite/SchoolLife/SummoningCRUDService?wsdl</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xnocompile</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-      </wsimport-options>
-    </client>
     <client name="ErrorLoggerService">
       <wsdl-url>http://localhost:8080/jSeduite/ErrorLogger/ErrorLoggerService?wsdl</wsdl-url>
       <local-wsdl-file>localhost_8080/jSeduite/ErrorLogger/ErrorLoggerService.wsdl</local-wsdl-file>
@@ -914,78 +818,6 @@
         </wsimport-option>
       </wsimport-options>
     </client>
-    <client name="PlanningsService">
-      <wsdl-url>http://localhost:8080/jSeduite/SchoolLife/PlanningsService?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_8080/jSeduite/SchoolLife/PlanningsService.wsdl</local-wsdl-file>
-      <package-name>fr.unice.i3s.modalis.jseduite.technical.plannings</package-name>
-      <catalog-file>catalog.xml</catalog-file>
-      <wsimport-options>
-        <wsimport-option>
-          <wsimport-option-name>extension</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>verbose</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/jSeduite/SchoolLife/PlanningsService?wsdl</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xnocompile</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-      </wsimport-options>
-    </client>
-    <client name="PlanningCRUDService">
-      <wsdl-url>http://localhost:8080/jSeduite/SchoolLife/PlanningCRUDService?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_8080/jSeduite/SchoolLife/PlanningCRUDService.wsdl</local-wsdl-file>
-      <package-name>fr.unice.i3s.modalis.jseduite.technical.plannings</package-name>
-      <catalog-file>catalog.xml</catalog-file>
-      <wsimport-options>
-        <wsimport-option>
-          <wsimport-option-name>extension</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>verbose</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/jSeduite/SchoolLife/PlanningCRUDService?wsdl</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xnocompile</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-      </wsimport-options>
-    </client>
-    <client name="PlanningFinderService">
-      <wsdl-url>http://localhost:8080/jSeduite/SchoolLife/PlanningFinderService?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_8080/jSeduite/SchoolLife/PlanningFinderService.wsdl</local-wsdl-file>
-      <package-name>fr.unice.i3s.modalis.jseduite.technical.plannings</package-name>
-      <catalog-file>catalog.xml</catalog-file>
-      <wsimport-options>
-        <wsimport-option>
-          <wsimport-option-name>extension</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>verbose</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/jSeduite/SchoolLife/PlanningFinderService?wsdl</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xnocompile</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-      </wsimport-options>
-    </client>
     <client name="FileUploaderService">
       <wsdl-url>http://localhost:8080/jSeduite/FileUploader/FileUploaderService?wsdl</wsdl-url>
       <local-wsdl-file>localhost_8080/jSeduite/FileUploader/FileUploaderService.wsdl</local-wsdl-file>
@@ -1003,6 +835,54 @@
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
           <wsimport-option-value>http://localhost:8080/jSeduite/FileUploader/FileUploaderService?wsdl</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="BreakScreenCRUDService">
+      <wsdl-url>http://localhost:8080/jSeduite/breakScreen/BreakScreenCRUDService?WSDL</wsdl-url>
+      <local-wsdl-file>localhost_8080/jSeduite/breakScreen/BreakScreenCRUDService.wsdl</local-wsdl-file>
+      <package-name>fr.unice.i3s.modalis.jseduite.technical.breaks</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:8080/jSeduite/breakScreen/BreakScreenCRUDService?WSDL</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="BreakScreenFinderService">
+      <wsdl-url>http://localhost:8080/jSeduite/breakScreen/BreakScreenFinderService?WSDL</wsdl-url>
+      <local-wsdl-file>localhost_8080/jSeduite/breakScreen/BreakScreenFinderService.wsdl</local-wsdl-file>
+      <package-name>fr.unice.i3s.modalis.jseduite.technical.breaks</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:8080/jSeduite/breakScreen/BreakScreenFinderService?WSDL</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
