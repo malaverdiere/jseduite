@@ -17,7 +17,7 @@
  * along with jSeduite::util; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
- * @author 2020     Christophe Desclaux          [desclaux@polytech.unice.fr]
+ * @author Main     Christophe Desclaux          [desclaux@polytech.unice.fr]
  **/
 
 var ephemerideHelper = Class.create({
@@ -56,7 +56,7 @@ var ephemerideOneSaint = Class.create(jSeduiteTransformation, {
         var content = "<span class=\"ephemerides\">";
         content += "<div class=\"ephemerides_title\">";
         content += helper.clock["day"] + " " + helper.clock["UTCDate"];
-        content += " " + helper.clock["month"] + " " + helper.clock["year"];
+        content += " " + helper.clock["month"];
         content +="</div>";
         content += "<div class=\"ephemerides_clock_time\">" + helper.clock["time"];
         content += "</div>";

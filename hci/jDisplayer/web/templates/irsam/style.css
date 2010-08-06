@@ -33,6 +33,10 @@
     color:#ffffff;
 }
 
+.internal_author{
+    color:#00ffff;
+}
+
 /**background color **/
 body{
     background-color:#000000;
@@ -55,13 +59,16 @@ body{
  .odd{ background-color:#000000; }
  .even{ background-color:#000000; }
 
-.error     { color:#ffffff; }
-.alert     { color:#ffffff; }
-.emphasize { color:#ffffff; }
-.ok        { color:#ffffff; }
+.error     { color:#00FFFF; }
+.alert     { color:#000000; }
+.emphasize { color:#000000; }
+.ok        { color:#000000; }
 
 
-
+.error {
+    font-size:120%;
+    font-weight:bold;
+}
 
 body
 {
@@ -93,9 +100,11 @@ body
 /** Diaporamas **/
 
 #diapo_content img{
-	padding:10px;
-	margin:15px 10px 0 0;
-	max-height:457px;
+	padding:10px 10px 10px 10px;
+    top:0px;
+    left:0px;
+    position:absolute;
+    max-height:none;
 }
 
 #diapo_loading {
@@ -222,6 +231,9 @@ body
 .internal_author{
 	font-size:230%;
 	font-style:italic;
+    right:0px;
+    bottom:0px;
+    position:absolute;
 
 }
 
@@ -314,16 +326,19 @@ table.weather td { text-align:center; vertical-align:center;}
 
 /** Ephemerides **/
 .ephemerides{
-    font-size:220%;
+    font-size:240%;
     text-align:center;
 }
 .ephemerides_clock_time{
-    margin-bottom: 80px;
+    margin-bottom: 50px;
+    font-weight:bold;
+    font-size:140px;
+
 }
 
 .ephemerides_title {
 	font-weight:normal;
-	margin-bottom:100px;
+	margin-bottom:80px;
 	margin-top:0px;
 	text-transform:uppercase;
     text-align:center;
@@ -342,4 +357,14 @@ table.weather td { text-align:center; vertical-align:center;}
 	margin-top:0px;
     text-align:center;
 	text-transform:uppercase;
+}
+
+.alarm{
+    font-size:220%;
+}
+
+.alarm_player{
+        position:absolute;
+        bottom:0;
+        right:0;
 }

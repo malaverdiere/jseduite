@@ -19,14 +19,16 @@
  *
  * @author      Main     Celine Auzias          [celine.auzias@gmail.com]
  * @contributor 2009     Sebastien Mosser       [mosser@polytech.unice.fr]
+ * @contributor 2010     Christophe Desclaux    [desclaux@polytech.unice.fr]
  **/
 
 var Diaporama = Class.create({
-   initialize: function(imgs, delta, cb) {
+   initialize: function(imgs, delta, cb, fullScreen) {
        this.delta = delta;
        this.images = imgs;
        this.callback = cb;
-   }, 
+       this.fullScreen = fullScreen;
+   },
    prepare: function() {
        var content = "";
        content += "<center><div id=\"diapo_content\"></div></center>";
@@ -57,12 +59,35 @@ var Diaporama = Class.create({
            this.next(curCSS);
        }
        var delta = this.delta;
-       var self = this;
+       var fullScreen = this.fullScreen;
+        var self = this;
        // What to do when the image is successfully loaded
        $('diapo_img').onload = function() {
-           $('diapo_loading').style.display = 'none';
-           $('diapo_content').style.visibility = 'visible';
-           window.setTimeout(function(obj) { obj.next(curCSS);}, delta, self);
+            $('diapo_loading').style.display = 'none';
+            $('diapo_content').style.visibility = 'visible';
+
+            if(fullScreen == "true"){
+                var screenHeight = window.innerHeight - 22;
+                var screenWidth = window.innerWidth - 22;
+                var newHeight, newWidth;
+
+                if($('diapo_img').width > $('diapo_img').height){
+                    newWidth = screenWidth;
+                    newHeight = ( screenWidth * $('diapo_img').height ) / $('diapo_img').width;
+                    if(newHeight > screenHeight)newHeight = screenHeight;
+                }
+                else{
+                    newHeight = screenHeight;
+                    newWidth = ( screenHeight * $('diapo_img').width ) / $('diapo_img').height;
+                    if(newWidth > screenWidth)newWidth = screenWidth;
+                }
+                $('diapo_img').style.marginLeft = (screenWidth - newWidth)/ 2 +"px";
+                $('diapo_img').style.marginTop = (screenHeight - newHeight)/ 2 +"px";
+                $('diapo_img').height = newHeight;
+                $('diapo_img').width = newWidth;
+            }
+
+            setDelay(function(obj) { obj.next(curCSS);}, delta, self);
        }
    }
 });

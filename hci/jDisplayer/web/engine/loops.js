@@ -19,6 +19,7 @@
  *
  * @author      Main     Sebastien Mosser       [mosser@polytech.unice.fr]
  * @contributor 2009     Celine Auzias          [celine.auzias@gmail.com]
+ * @contributor 2010     Christophe Desclaux    [desclaux@polytech.unice.fr]
  **/
 
 var loop = Class.create({
@@ -89,7 +90,7 @@ var mainLoop = Class.create(loop, {
         }
     },
     changeTurningCSS: function(elements,delta,curCSS){
-        window.setTimeout(function(loop) {
+        setDelay(function(loop) {
                 if(curCSS < engine.getAmountCSS()){
                     replaceTurningCss(engine.getTurningCSS(curCSS));
                     loop.changeTurningCSS(elements,delta,curCSS+1);
@@ -99,5 +100,36 @@ var mainLoop = Class.create(loop, {
                     loop.displayElements(elements, delta);
                 }
             },delta,this);
+    }
+});
+
+/***************
+ ** TIMER LOOP **
+ ***************/
+var timers  = new Array();
+var timerLoop = Class.create(loop, {
+    start: function() {
+        initDelays();
+        for(var i=0; i < timers.length;i++){
+            var timeoutID = timers[i];
+            window.clearTimeout(timeoutID);
+        }
+        timers = new Array();
+        for(var i=0; i < this.content.length;i++){
+            var id = this.setTimer(this.content[i]);
+            timers.push(id);
+        }
+    },
+    
+    setTimer: function(item) {
+        //we start loarding the transformation witch will be print
+        var transfo = this.tpl.getTransformation(getSource(item));
+        var delta = this.tpl.getDelta(getSource(item));
+        var timer  = transfo.startDate(item) - (new Date()).getTime();
+        //we put a timeout on the transformation
+        var idTimer = window.setTimeout(function() {
+            stopDelays();//we stop the mainLoop scrolling
+            transfo.handle($('main'),item, delta, function() { continueDelays(); });        },timer);
+        return idTimer;
     }
 });

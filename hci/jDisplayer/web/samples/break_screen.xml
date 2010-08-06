@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Body>
+        <GetInformationResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+            <result>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="ephemeride">
+                    <ephemeride>
+                        <day>22</day>
+                        <month>7</month>
+                        <names>Maddy</names>
+                    </ephemeride>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="break_screen">
+                    <break_screen>
+                        <content>#picture_albums</content>
+                        <sound>http://localhost:8080/jSeduite/FileUploader/resources/test.ogg</sound>
+                        <start>2010-08-06T11:56:00+01:00</start>
+                          <end>2011-08-06T13:23:30+01:00</end>
+                        <building>IRSAM</building>
+                    </break_screen>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="picture_albums">
+                    <album>
+                        <repository xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums">picasa</repository>
+                        <name xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums">HorseTooth Reservoir</name>
+                        <picture_star xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums">
+                            <item>http://lh4.ggpht.com/_wCA2lu03EyU/SsK4vDW9MfI/AAAAAAAAJv8/4kbzh3guunI/DSC04414.JPG</item>
+                            <item>http://jascooby.pagesperso-orange.fr/portrait%20snapshots/Cel%20portrait3a%20116-1602_IMG.jpg</item>
+                        </picture_star>
+                    </album>
+                </item>
+            </result>
+        </GetInformationResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

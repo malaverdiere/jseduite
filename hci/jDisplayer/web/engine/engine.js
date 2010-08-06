@@ -19,6 +19,7 @@
  *
  * @author      Main     Sebastien Mosser       [mosser@polytech.unice.fr]
  * @contributor 2009     Celine Auzias          [celine.auzias@gmail.com]
+ * @contributor 2010     Christophe Desclaux    [desclaux@polytech.unice.fr]
  **/
 
 var jSeduiteEngine = Class.create({
@@ -38,10 +39,10 @@ var jSeduiteEngine = Class.create({
         this.loops["main"] = new mainLoop(this.tpl);
         this.loops["main"].setCallback(function() { engine.run(); });
         this.loops["scroll"] = new scrollLoop(this.tpl);
-        this.loops["timer"] = new loop(this.tpl);
+        this.loops["timer"] = new timerLoop(this.tpl);
         this.clearLoops();
     },
-    // Ste the template to use
+    // Set the template to use
     setTemplate: function(tpl) { this.tpl = tpl; this.initLoops();  },
 
     //Add alternative CSS to use
@@ -95,12 +96,12 @@ var jSeduiteEngine = Class.create({
         for(var i=0; i<allItems.length; i++){
             myItem = allItems[i];
             this.loops[this.tpl.dispatch(getSource(myItem))].feed(myItem);
-        }
+            }
     },
     startLoops: function() {
         this.loops["main"].start();
         this.loops["scroll"].start();
-        //this.loops["timer"] = new loop(this.tpl);
+        this.loops["timer"].start();
     }
 });
 

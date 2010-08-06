@@ -22,13 +22,49 @@
  **/
 
 
+var fullScreenPictAlbumTransfo =  Class.create(pictAlbumTransfo, {
+    isSelfHandled: function() { return true; },
+    handle: function(aDiv,xml,delta, callback) {
+        return this.handleType(aDiv,xml,delta, callback,"true");
+    },
+
+    handleType: function(aDiv,xml,delta, callback, fullScreen) {
+        var diapo = new Diaporama(this.buildImgs(xml), delta, callback, fullScreen);
+        var content = "";
+        if(fullScreen == "false"){
+            content += "<div id=\"info_logo\" class=\"album_logo\"></div>";
+            content += "<p class=\"title\"> &nbsp; "+getTag("name",xml)+"</p>";
+        }
+        content += diapo.prepare();
+        aDiv.update(content);
+        diapo.start();
+        return;
+
+    },
+    buildImgs: function(xml) {
+        var result = new Array();
+        var items = getNode("item", xml);
+        for(var k=0; k < items.length; k++){
+            result.push(imageHacking(items[k].textContent));
+        }
+        return result;
+    }
+});
+
+
 var pictAlbumTransfo = Class.create(jSeduiteTransformation, {
     isSelfHandled: function() { return true; },
     handle: function(aDiv,xml,delta, callback) {
-        var diapo = new Diaporama(this.buildImgs(xml), delta, callback);
+        return this.handleType(aDiv,xml,delta, callback,"false");
+    },
+    
+    handleType: function(aDiv,xml,delta, callback, fullScreen) {
+        var diapo = new Diaporama(this.buildImgs(xml), delta, callback,fullScreen);
         var content = "";
-        content += "<div id=\"info_logo\" class=\"album_logo\"></div>";
-        content += "<p class=\"title\"> &nbsp; "+getTag("name",xml)+"</p>";
+        if(!fullScreen){
+            content += "<div id=\"info_logo\" class=\"album_logo\"></div>";
+            content += "<p class=\"title\"> &nbsp; "+getTag("name",xml)+"</p>";
+        }
         content += diapo.prepare();
         aDiv.update(content);
         diapo.start();
@@ -44,3 +80,4 @@ var pictAlbumTransfo = Class.create(jSeduiteTransformation, {
         return result;
     }
 });
+

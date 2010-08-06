@@ -87,3 +87,21 @@ function get_UTCDate(){
     return (new Date()).getUTCDate();
 }
 
+
+function buildDateFromStamp(stamp) {
+    var year    = stamp.substring(0,4);
+    var month   = (stamp.substring(5,7) - 1);
+    var day     = stamp.substring(8,10);
+    var hours   = stamp.substring(11,13);
+    var minutes = stamp.substring(14,16);
+    var secondes= stamp.substring(17,19);
+    return new Date(year,month,day,hours,minutes,secondes);
+}
+
+function dateToString(aDate) {
+    var h = "" + aDate.getHours();
+    var m = "" + aDate.getMinutes()
+    h = (h.length < 2? "0"+h: h);
+    m = (m.length < 2? "0"+m: m);
+    return h + "h" + m;
+}

@@ -19,6 +19,7 @@
  *
  * @author      Main     Celine Auzias          [celine.auzias@gmail.com]
  * @contributor 2009     Sebastien Mosser       [mosser@polytech.unice.fr]
+ * @contributor 2010     Christophe Desclaux    [desclaux@polytech.unice.fr]
  **/
  
  
@@ -76,24 +77,6 @@ function imageHacking(imgName) {
 	var slash = imgName.lastIndexOf('/', imgName.length);
     return imgName.substring(0, slash) + (isPicasa? "/s800": "")
            + imgName.substring(slash, imgName.length);
-}
-
-
-function buildDateFromStamp(stamp) {
-    var year    = stamp.substring(0,4);
-    var month   = (stamp.substring(5,7) - 1);
-    var day     = stamp.substring(8,10);
-    var hours   = stamp.substring(11,13);
-    var minutes = stamp.substring(14,16);
-    return new Date(year,month,day,hours,minutes);
-}
-
-function dateToString(aDate) {
-    var h = "" + aDate.getHours();
-    var m = "" + aDate.getMinutes()
-    h = (h.length < 2? "0"+h: h);
-    m = (m.length < 2? "0"+m: m);
-    return h + "h" + m;
 }
 
 /*--------------------------------------------------------------------------
@@ -173,9 +156,100 @@ function scrolling(scrolled, psinit, pscrnt) {
    		scrolled.style.left = pscrnt+"px";
    	}
    	
-   	scroll_timer = setTimeout(scrolling, speed_scrolling, scrolled, psinit, pscrnt);
+   	scroll_timer = window.setTimeout(scrolling, speed_scrolling, scrolled, psinit, pscrnt);
 }
 
 function stopScroll() {
-    window.clearTimeout(scroll_timer);
-} 
+    clearDelay(scroll_timer);
+}
+
+
+
+/**
+ * alarm gestion
+ */
+
+
+var timeOuts = new Array(); //the list of timeOuts currently waiting
+var saveScreen = null;      //a save of the main frame when we stop timeOuts
+
+/**
+ * seDelay(fonction,delta,self)
+ * add a timeOut on the fonction to load in delta milliseconds
+ */
+function  setDelay(fonction,delta,self){
+    var id = window.setTimeout(fonction,delta,self);
+    var curTimeout = new Array();
+    curTimeout["fonction"] = fonction;
+    curTimeout["delta"]     = delta;
+    curTimeout["startDelayDate"] = (new Date()).getTime();
+    curTimeout["self"]     = self;
+    curTimeout["id"] = id;
+    timeOuts.push(curTimeout);
+    return id;
+}
+
+/**
+ * clearDelay(id)
+ * delete a delay from table
+ * id his tim
+ */
+function clearDelay(id){
+    for(var i = 0; i < timeOuts.length;i++){
+        if(timeOuts[i] == null){}
+        else if(timeOuts[i]["id"] == id){
+            timeOuts[i] = null;
+            window.clearTimeout(id);
+            return true;
+        }
+    }
+    return false;
+}
+
+/**
+ * initDelays()
+ * Clean all timeouts
+ */
+function initDelays(){
+    for(var i = 0; i < timeOuts.length;i++){
+        if(timeOuts[i] != null){
+            window.clearTimeout(timeOuts[i]["id"]);
+        }
+    }
+    timeOuts = new Array();
+}
+/**
+ * stopDelays()
+ * Break all timeouts wich where waiting
+ */
+function stopDelays(){
+    saveScreen = $('main').innerHTML;
+    for(var i = 0; i < timeOuts.length;i++){
+        if(timeOuts[i] != null){
+            window.clearTimeout(timeOuts[i]["id"]);
+            if(timeOuts[i]["startDelayDate"] + timeOuts[i]["delta"] < (new Date()).getTime()){
+                //delay finish, we can clear
+                timeOuts[i] = null;
+            } else {
+                timeOuts[i]["breakDate"] = (new Date()).getTime();
+            }
+        }
+    }
+}
+
+/**
+ * return in the context seen before breaking all timeouts
+ */
+function continueDelays(){
+    $('main').update(saveScreen);
+    for(var i = 0; i < timeOuts.length;i++){
+        if(timeOuts[i] == null){}
+        else {
+            var newDelta = timeOuts[i]["delta"] - (timeOuts[i]["breakDate"] - timeOuts[i]["startDelayDate"]);
+            var newId = window.setTimeout(timeOuts[i]["fonction"],newDelta,timeOuts[i]["self"]);
+            timeOuts[i]["delta"] = newDelta;
+            timeOuts[i]["startDelayDate"] = (new Date()).getTime();
+            timeOuts[i]["id"] = newId;
+        }
+    }
+}
