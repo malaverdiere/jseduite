@@ -160,7 +160,7 @@ function scrolling(scrolled, psinit, pscrnt) {
 }
 
 function stopScroll() {
-    clearDelay(scroll_timer);
+    window.clearTimeout(scroll_timer);
 }
 
 
