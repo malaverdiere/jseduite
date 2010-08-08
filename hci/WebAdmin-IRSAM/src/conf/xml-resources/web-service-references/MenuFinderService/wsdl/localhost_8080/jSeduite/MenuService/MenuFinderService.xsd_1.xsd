@@ -1,10 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-749-SNAPSHOT. --><xs:schema xmlns:tns="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/">
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-417-SNAPSHOT. --><xs:schema xmlns:tns="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/">
 
 <xs:element name="RestaurantException" type="tns:RestaurantException"></xs:element>
+
+<xs:element name="findAvailableMenuType" type="tns:findAvailableMenuType"></xs:element>
+
+<xs:element name="findAvailableMenuTypeResponse" type="tns:findAvailableMenuTypeResponse"></xs:element>
 
 <xs:element name="findMenuByDate" type="tns:findMenuByDate"></xs:element>
 
 <xs:element name="findMenuByDateResponse" type="tns:findMenuByDateResponse"></xs:element>
+
+<xs:element name="findNextDateMenu" type="tns:findNextDateMenu"></xs:element>
+
+<xs:element name="findNextDateMenuResponse" type="tns:findNextDateMenuResponse"></xs:element>
 
 <xs:element name="getAllMenuReferences" type="tns:getAllMenuReferences"></xs:element>
 
@@ -26,11 +34,13 @@
 <xs:sequence>
 <xs:element name="courses" type="tns:course" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 <xs:element name="date" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="typeMenu" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="course">
 <xs:sequence>
+<xs:element name="id" type="xs:int"></xs:element>
 <xs:element name="kind" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
@@ -42,6 +52,19 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="findNextDateMenu">
+<xs:sequence>
+<xs:element name="date" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="delta" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findNextDateMenuResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:dateTime" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="getAllMenuReferences">
 <xs:sequence></xs:sequence>
 </xs:complexType>
@@ -49,6 +72,16 @@
 <xs:complexType name="getAllMenuReferencesResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:dateTime" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAvailableMenuType">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAvailableMenuTypeResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

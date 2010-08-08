@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-417-SNAPSHOT. --><xs:schema xmlns:tns="http://breaks.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://breaks.technical.jSeduite.modalis.i3s.unice.fr/">
+
+<xs:element name="BreakScreenException" type="tns:BreakScreenException"></xs:element>
+
+<xs:element name="findBreakScreenById" type="tns:findBreakScreenById"></xs:element>
+
+<xs:element name="findBreakScreenByIdResponse" type="tns:findBreakScreenByIdResponse"></xs:element>
+
+<xs:element name="getAllBreakScreenReferences" type="tns:getAllBreakScreenReferences"></xs:element>
+
+<xs:element name="getAllBreakScreenReferencesResponse" type="tns:getAllBreakScreenReferencesResponse"></xs:element>
+
+<xs:element name="getAllBuildings" type="tns:getAllBuildings"></xs:element>
+
+<xs:element name="getAllBuildingsResponse" type="tns:getAllBuildingsResponse"></xs:element>
+
+<xs:complexType name="findBreakScreenById">
+<xs:sequence>
+<xs:element name="id" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findBreakScreenByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:breakScreen" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="breakScreen">
+<xs:sequence>
+<xs:element name="building" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="content" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="days" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element name="end" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="id" type="xs:int"></xs:element>
+<xs:element name="start" type="xs:dateTime" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="BreakScreenException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllBuildings">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllBuildingsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllBreakScreenReferences">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllBreakScreenReferencesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
