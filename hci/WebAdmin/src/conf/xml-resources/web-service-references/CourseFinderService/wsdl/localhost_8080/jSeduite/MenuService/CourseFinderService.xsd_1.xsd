@@ -1,6 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-749-SNAPSHOT. --><xs:schema xmlns:tns="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/">
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-417-SNAPSHOT. --><xs:schema xmlns:tns="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/">
 
 <xs:element name="RestaurantException" type="tns:RestaurantException"></xs:element>
+
+<xs:element name="findCourseById" type="tns:findCourseById"></xs:element>
+
+<xs:element name="findCourseByIdResponse" type="tns:findCourseByIdResponse"></xs:element>
 
 <xs:element name="findCourseByName" type="tns:findCourseByName"></xs:element>
 
@@ -14,13 +18,13 @@
 
 <xs:element name="getAllCoursesReferencesResponse" type="tns:getAllCoursesReferencesResponse"></xs:element>
 
-<xs:complexType name="findCourseByName">
+<xs:complexType name="findCourseById">
 <xs:sequence>
-<xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="id" type="xs:int"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="findCourseByNameResponse">
+<xs:complexType name="findCourseByIdResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:course" minOccurs="0"></xs:element>
 </xs:sequence>
@@ -28,6 +32,7 @@
 
 <xs:complexType name="course">
 <xs:sequence>
+<xs:element name="id" type="xs:int"></xs:element>
 <xs:element name="kind" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
@@ -51,13 +56,25 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="findCourseByName">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findCourseByNameResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:course" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="getAllCoursesReferences">
 <xs:sequence></xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="getAllCoursesReferencesResponse">
 <xs:sequence>
-<xs:element name="return" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element name="return" type="xs:int" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

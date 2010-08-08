@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-749-SNAPSHOT. --><xs:schema xmlns:tns="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/">
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-417-SNAPSHOT. --><xs:schema xmlns:tns="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://restaurant.technical.jSeduite.modalis.i3s.unice.fr/">
 
 <xs:element name="RestaurantException" type="tns:RestaurantException"></xs:element>
 
@@ -18,9 +18,10 @@
 
 <xs:element name="updateMenuResponse" type="tns:updateMenuResponse"></xs:element>
 
-<xs:complexType name="deleteMenu">
+<xs:complexType name="updateMenu">
 <xs:sequence>
 <xs:element name="m" type="tns:menu" minOccurs="0"></xs:element>
+<xs:element name="id" type="xs:dateTime" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
@@ -28,29 +29,15 @@
 <xs:sequence>
 <xs:element name="courses" type="tns:course" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 <xs:element name="date" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="typeMenu" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="course">
 <xs:sequence>
+<xs:element name="id" type="xs:int"></xs:element>
 <xs:element name="kind" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="deleteMenuResponse">
-<xs:sequence></xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="RestaurantException">
-<xs:sequence>
-<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="updateMenu">
-<xs:sequence>
-<xs:element name="m" type="tns:menu" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
@@ -58,15 +45,9 @@
 <xs:sequence></xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="readMenu">
+<xs:complexType name="RestaurantException">
 <xs:sequence>
-<xs:element name="ref" type="xs:dateTime" minOccurs="0"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="readMenuResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:menu" minOccurs="0"></xs:element>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
@@ -79,6 +60,28 @@
 <xs:complexType name="createMenuResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:dateTime" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteMenu">
+<xs:sequence>
+<xs:element name="m" type="tns:menu" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteMenuResponse">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readMenu">
+<xs:sequence>
+<xs:element name="ref" type="xs:dateTime" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readMenuResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:menu" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>
