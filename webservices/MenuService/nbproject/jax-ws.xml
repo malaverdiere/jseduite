@@ -7,14 +7,14 @@
     <service name="MenuFinder">
       <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.restaurant.MenuFinder</implementation-class>
     </service>
-    <service name="CourseCRUD">
-      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.restaurant.CourseCRUD</implementation-class>
-    </service>
     <service name="MenuBusiness">
       <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.restaurant.MenuBusiness</implementation-class>
     </service>
     <service name="CourseBusiness">
       <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.restaurant.CourseBusiness</implementation-class>
+    </service>
+    <service name="CourseCRUD">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.restaurant.CourseCRUD</implementation-class>
     </service>
     <service name="MenuCRUD">
       <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.restaurant.MenuCRUD</implementation-class>
