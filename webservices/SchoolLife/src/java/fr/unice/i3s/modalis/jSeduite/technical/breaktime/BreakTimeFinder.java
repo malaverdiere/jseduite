@@ -25,6 +25,7 @@ package fr.unice.i3s.modalis.jSeduite.technical.breaktime;
 import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DalResultSet;
 import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DataAccessLayer;
 import fr.unice.i3s.modalis.jSeduite.technical.promos.Promo;
+import java.util.Calendar;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
@@ -109,6 +110,38 @@ public class BreakTimeFinder {
         }
     }
 
+    /**
+     * Extract references for the Break Time business object for a day
+     * @param day the day to search in
+     * @return all existing Break Time references
+     * @throws BreakScreenException
+     */
+    @WebMethod(operationName="getADateBreakTimesIds")
+    public int[] getADateBreakTimesIds(@WebParam(name = "day") int daySearch) throws BreakTimeException {
+        String dayName = "";
+        switch (daySearch){
+            case Calendar.MONDAY:   dayName = "monday";     break;
+            case Calendar.TUESDAY:  dayName = "tuesday";    break;
+            case Calendar.WEDNESDAY:dayName = "wednesday";  break;
+            case Calendar.THURSDAY: dayName = "thursday";   break;
+            case Calendar.FRIDAY:   dayName = "friday";     break;
+            case Calendar.SATURDAY: dayName = "saturday";   break;
+            case Calendar.SUNDAY:   dayName = "sunday";     break;
+        }
+        DataAccessLayer dal = new DataAccessLayer();
+        String sql = "SELECT `break_id` FROM `break_time_days` WHERE `day` = '" + dayName + "'";
+        try {
+            String[] results = dal.extractScalarSet(sql, "break_id");
+            int[] ids = new int[results.length];
+            for(int i=0; i<results.length; i++) {
+                ids[i] = Integer.parseInt(results[i]);
+            }
+            return ids;
+        } catch (Exception e) {
+            throw new BreakTimeException("SQL Exception: " + e.getMessage());
+        }
+    }
+    
     /**
      * Get all the buildings
      */

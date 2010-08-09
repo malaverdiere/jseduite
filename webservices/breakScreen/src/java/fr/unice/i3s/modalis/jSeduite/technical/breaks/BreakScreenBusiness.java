@@ -40,13 +40,12 @@ public class BreakScreenBusiness {
         Calendar now = Calendar.getInstance();
         //now.set(Calendar.DAY_OF_MONTH,8);
         BreakScreenFinder finder = new BreakScreenFinder();
-        int [] breaks = finder.getADateBreakScreensIds(now.get(Calendar.DAY_OF_WEEK));//bad hack but I don't have answer...
+        int [] breaks = finder.getADateBreakScreensIds(now.get(Calendar.DAY_OF_WEEK));
         ArrayList<BreakScreen> items = new ArrayList<BreakScreen>();
 
         for (int cur : breaks){
             BreakScreen curBreak = finder.findBreakScreenById(cur);
             Calendar start = Calendar.getInstance();
-            start.setTime(new Date());
             start.setTime(curBreak.getStart());
             start.set(Calendar.YEAR,now.get(Calendar.YEAR));
             start.set(Calendar.MONTH,now.get(Calendar.MONTH));
@@ -63,9 +62,7 @@ public class BreakScreenBusiness {
                 items.add(curBreak);
             }
         }
-        BreakScreen [] result = (BreakScreen[]) items.toArray(new BreakScreen[0]);
-        result = items.toArray(result);
-        return result;
+        return items.toArray(new BreakScreen[items.size()]);
     }
 
 }

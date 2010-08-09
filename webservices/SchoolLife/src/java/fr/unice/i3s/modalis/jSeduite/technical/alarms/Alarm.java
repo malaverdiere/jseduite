@@ -24,6 +24,8 @@ package fr.unice.i3s.modalis.jSeduite.technical.alarms;
 
 import fr.unice.i3s.modalis.jSeduite.libraries.mysql.DalResultSet;
 import fr.unice.i3s.modalis.jSeduite.technical.breaktime.BreakTime;
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class Alarm {
@@ -31,6 +33,7 @@ public class Alarm {
     private String kind;
     private String message;
     private String sound;
+    private Date dateRing;
     private BreakTime breakTime;
 
     public Alarm() {}
@@ -81,5 +84,29 @@ public class Alarm {
 
     public void setBreakTime (BreakTime breakTime) {
         this.breakTime = breakTime;
+    }
+    
+    public Date getDateRing(){
+        if(this.dateRing != null)
+            return this.dateRing;
+        
+        if(this.kind.equals("start"))
+            this.dateRing = this.breakTime.getStart();
+        else if(this.kind.equals("end"))
+            this.dateRing = this.breakTime.getEnd();
+        else if(this.kind.equals("almost_end")){
+            int duration = this.breakTime.getDuration();
+            int timeToEnd = duration / 5;
+            Calendar cal= Calendar.getInstance();
+            cal.setTime(this.breakTime.getEnd());
+            cal.add(Calendar.MINUTE, -1* timeToEnd);
+            this.dateRing = cal.getTime();
+        }else
+            this.dateRing = this.breakTime.getStart();
+        return this.dateRing;
+    }
+
+    public void setDateRing(Date date){
+        this.dateRing = date;
     }
 }

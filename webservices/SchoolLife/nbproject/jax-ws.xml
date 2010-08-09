@@ -46,6 +46,12 @@
     <service name="Plannings">
       <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.plannings.Plannings</implementation-class>
     </service>
+    <service name="BreakTimeBusiness">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.breaktime.BreakTimeBusiness</implementation-class>
+    </service>
+    <service name="AlarmBusiness">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.alarms.AlarmBusiness</implementation-class>
+    </service>
   </services>
   <clients>
   </clients>

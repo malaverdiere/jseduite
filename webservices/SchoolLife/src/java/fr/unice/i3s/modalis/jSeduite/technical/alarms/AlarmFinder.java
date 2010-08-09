@@ -66,6 +66,7 @@ public class AlarmFinder {
     }
 
 
+
     /** Extract the alarms corresponding to the given break time id
      * @return The corresponding alarms
      * @throws AlarmException
@@ -88,7 +89,31 @@ public class AlarmFinder {
             throw new AlarmException(e.getMessage());
         }
     }
-    
+
+    /** Extract the alarms corresponding to the given day
+     * @return The corresponding alarms
+     * @throws AlarmException
+     */
+    @WebMethod(operationName = "getADayAlarms")
+    public Alarm[] getADayAlarms(@WebParam(name = "id") int searchDay)
+            throws AlarmException{
+        BreakTimeFinder breakTimeFinder = new BreakTimeFinder();
+        try{
+            int [] breaks = breakTimeFinder.getADateBreakTimesIds(searchDay);
+            ArrayList<Alarm> result = new ArrayList<Alarm>();
+            for (int i = 0; i < breaks.length; i++ ) {
+                for(int j = 0; j < this.getAlarmsByBreakTimeId(breaks[i]).length; j++){
+                    result.add(this.getAlarmsByBreakTimeId(breaks[i])[j]);
+                }
+            }
+            return result.toArray(new Alarm[result.size()]);
+        }catch(Exception e){
+            throw new AlarmException(e.getMessage());
+        }
+        
+    }
+
+
     /** Extract all the alarm ids
      * @return The alarm IDs
      * @throws AlarmException

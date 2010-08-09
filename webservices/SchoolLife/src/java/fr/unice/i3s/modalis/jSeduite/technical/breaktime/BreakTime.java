@@ -117,6 +117,9 @@ public class BreakTime {
         return days;
     }
 
+    public int getDuration(){
+        return ((int)(this.getEnd().getTime() - this.getStart().getTime()))/(60*1000);
+    }
     public void setDays(String[] days) {
         this.days = days;
     }
