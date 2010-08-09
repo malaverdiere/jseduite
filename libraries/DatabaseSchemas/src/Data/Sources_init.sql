@@ -53,3 +53,4 @@ INSERT INTO `parameters` VALUES (NULL, 'hyperloc', 'building', '??', 'Batiment')
 INSERT INTO `sources`    VALUES ('timetable','Emploi du Temps');
 INSERT INTO `parameters` VALUES (NULL, 'timetable', 'promo', '??', 'Code Promotion');
 INSERT INTO `sources`    VALUES ('ephemeride','Ephemeride');
+INSERT INTO `sources`    VALUES ('menu','Menu');
