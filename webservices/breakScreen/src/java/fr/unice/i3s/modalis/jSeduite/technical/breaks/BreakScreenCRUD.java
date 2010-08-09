@@ -176,7 +176,7 @@ public class BreakScreenCRUD {
 
         String sql = "DELETE FROM `break_screen`";
         sql += "WHERE `id` = '" + b.getId()+"';";
-
+        
         DataAccessLayer dal = new DataAccessLayer();
         try {
             dal.executeVoid(sql);

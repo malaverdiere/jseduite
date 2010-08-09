@@ -7,6 +7,9 @@
     <service name="BreakScreenFinder">
       <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.breaks.BreakScreenFinder</implementation-class>
     </service>
+    <service name="BreakScreenBusiness">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.breaks.BreakScreenBusiness</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>
