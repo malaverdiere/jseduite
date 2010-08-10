@@ -463,6 +463,10 @@ public class MenuManagedBean {
                     uMenu.getCourses().add(course);
                 }
             }
+
+            if(uMenu.getTypeMenu().equals("__other")) {
+                uMenu.setTypeMenu(alterTypeMenu);
+            }
             crud.updateMenu(uMenu,oldDate);
 
         }
