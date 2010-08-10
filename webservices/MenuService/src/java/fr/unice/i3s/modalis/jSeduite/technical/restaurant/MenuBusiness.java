@@ -22,6 +22,7 @@
 **/
 package fr.unice.i3s.modalis.jSeduite.technical.restaurant;
 
+import java.util.Calendar;
 import java.util.Date;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -41,6 +42,10 @@ public class MenuBusiness {
     public Menu getNextMenu(@WebParam(name = "delta") int delta) throws RestaurantException {
         MenuFinder finder = new MenuFinder();
         Date nextMenuDate = finder.findNextDateMenu(new java.util.Date(), delta);
+        Calendar now = Calendar.getInstance();
+        now.set(Calendar.HOUR_OF_DAY, 23);
+        now.set(Calendar.MINUTE,59);
+        if(nextMenuDate.after(now.getTime()) == true) return null;
         return finder.findMenuByDate(nextMenuDate);
     }
 
