@@ -7,12 +7,12 @@
                     <menus>
                         <date>2009-11-21T16:30:00+01:00</date>
                         <courses>
-                                <course><kind>entree</kind><name>Concombre Sauce Yahourt</name></course>
-                                <course><kind>entree</kind><name>vide</name></course>
-                                <course><kind>plat</kind><name>Chipolatas Grillée</name></course>
-                                <course><kind>plat</kind><name>Haricot beurre</name></course>
-                                <course><kind>dessert</kind><name>Fromage</name></course>
-                                <course><kind>dessert</kind><name>Assiette de Fruit découpés</name></course>
+                                <courses><kind>entree</kind><name>Concombre Sauce Yahourt</name></courses>
+                                <courses><kind>entree</kind><name>vide</name></courses>
+                                <courses><kind>plat</kind><name>Chipolatas Grillée</name></courses>
+                                <courses><kind>plat</kind><name>Haricot beurre</name></courses>
+                                <courses><kind>dessert</kind><name>Fromage</name></courses>
+                                <courses><kind>dessert</kind><name>Assiette de Fruit découpés</name></courses>
                         </courses>
                         <typeMenu>Déjeuner</typeMenu>
                     </menus>

@@ -30,9 +30,12 @@ var menus = Class.create(jSeduiteTransformation, {
         content +=  date.substring(11,13) + " heures</div>";
 
         content += "<div id=\"menus_content\" class=\"menus_content\">";
-        var coursesNode = getNode("course",xml);
+        var coursesNode = getNode("courses",xml);
         
         var courses = new Array();
+        courses["entree"] = "";
+        courses["plat"] = "";
+        courses["dessert"] = "";
         for(var i=0; i <coursesNode.length;i++){
             var kind = getTag("kind",coursesNode[i]);
             var name = getTag("name",coursesNode[i]);

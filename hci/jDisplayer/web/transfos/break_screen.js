@@ -72,6 +72,7 @@ var breakScreen = Class.create(jSeduiteTransformation, {
                 var self = this;
                 transfo.handle($('main'), anItem, delta, function() { self.handleSelfManaged(); });
             } else {
+                //don't work
                 var screens = transfo.perform(anItem);
                 this.displayElements(screens.reverse(),delta);
             }

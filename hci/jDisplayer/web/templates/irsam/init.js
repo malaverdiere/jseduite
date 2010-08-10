@@ -35,7 +35,7 @@ irsam.declare("internal_news",  new internalNews(),              16);
 irsam.declare("feed_reader",    new feedHandler(),               15);
 irsam.declare("calendar",       new iCalHandler(),               15);
 irsam.declare("ephemeride",     new ephemerideOneSaint(),        15);
-irsam.declare("menus",          new menus(),                     12);
+irsam.declare("menu",          new menus(),                     12);
 irsam.declare("alarm",          new alarm(),                     15);
 irsam.declare("break_screen",   new breakScreen(),               15);
 // dispatching the information kinds in the display loops
