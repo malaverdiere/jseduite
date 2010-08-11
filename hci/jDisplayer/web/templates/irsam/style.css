@@ -51,10 +51,12 @@ body{
     background-color:#000000;
 	border:1px solid #DEDEDE;
 }
+
 #diapo_content img, .weat_day_img, .weat4_temp img{
     background-color:#ffffff;
 	border:1px solid #DEDEDE;
 }
+
 /**arrays colors (Odd / Even rows) **/
  .odd{ background-color:#000000; }
  .even{ background-color:#000000; }
@@ -63,7 +65,6 @@ body{
 .alert     { color:#000000; }
 .emphasize { color:#000000; }
 .ok        { color:#000000; }
-
 
 .error {
     font-size:120%;
@@ -231,10 +232,7 @@ body
 .internal_author{
 	font-size:230%;
 	font-style:italic;
-    right:0px;
-    bottom:0px;
-    position:absolute;
-
+    float:right;
 }
 
 .internal_date{
@@ -359,6 +357,8 @@ table.weather td { text-align:center; vertical-align:center;}
 	text-transform:uppercase;
 }
 
+
+/**Alarmes**/
 .alarm{
     font-size:220%;
 }

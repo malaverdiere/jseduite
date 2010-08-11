@@ -32,9 +32,11 @@
 #main, .title, .feed_title, .sum_date, .weat_infos{
     color:#282d65;
 }
+
 .internal_author{
     color:#282dFF;
 }
+
 /**background color **/
 body{
     background-color:#f4cb01;
@@ -54,13 +56,14 @@ body{
     background-color:#f4cb01;
 	border:1px solid #DEDEDE;
 }
+
 /**arrays colors (Odd / Even rows) **/
  .odd{ background-color:#f4cb01; }
  .even{ background-color:#f4cb01; }
 
 .error     { color:#2800FF; }
 .alert     { color:#282d65; }
-.emphasize { color:#282d65; }
+.emphasize { color:#f4cb01; }
 .ok        { color:#282d65; }
 
 .error {
@@ -229,10 +232,7 @@ body
 .internal_author{
 	font-size:230%;
 	font-style:italic;
-    right:0px;
-    bottom:0px;
-    position:absolute;
-
+    float:right;
 }
 
 .internal_date{
@@ -367,5 +367,4 @@ table.weather td { text-align:center; vertical-align:center;}
         position:absolute;
         bottom:0;
         right:0;
-
 }
