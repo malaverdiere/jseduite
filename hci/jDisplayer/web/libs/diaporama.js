@@ -70,15 +70,16 @@ var Diaporama = Class.create({
                 var screenHeight = window.innerHeight - 22;
                 var screenWidth = window.innerWidth - 22;
                 var newHeight, newWidth;
-
-                if($('diapo_img').width > $('diapo_img').height){
+                var ratioScreen = screenHeight / screenWidth;
+                var ratioPicture = $('diapo_img').height / $('diapo_img').width;
+                if(ratioScreen > ratioPicture){
                     newWidth = screenWidth;
-                    newHeight = ( screenWidth * $('diapo_img').height ) / $('diapo_img').width;
+                    newHeight = screenWidth * ratioPicture;
                     if(newHeight > screenHeight)newHeight = screenHeight;
                 }
                 else{
                     newHeight = screenHeight;
-                    newWidth = ( screenHeight * $('diapo_img').width ) / $('diapo_img').height;
+                    newWidth  = screenHeight / ratioPicture;
                     if(newWidth > screenWidth)newWidth = screenWidth;
                 }
                 $('diapo_img').style.marginLeft = (screenWidth - newWidth)/ 2 +"px";
