@@ -59,6 +59,7 @@ var scrollLoop = Class.create(loop,{
 
 var mainLoop = Class.create(loop, {
     start: function() {
+        initDelays();
         this.idx = 0;
         this.next();
     },
@@ -109,13 +110,12 @@ var mainLoop = Class.create(loop, {
 var timers  = new Array();
 var timerLoop = Class.create(loop, {
     start: function() {
-        initDelays();
         for(var i=0; i < timers.length;i++){
             var timeoutID = timers[i];
             window.clearTimeout(timeoutID);
         }
         timers = new Array();
-        for(var i=0; i < this.content.length;i++){
+        for(i=0; i < this.content.length;i++){
             var id = this.setTimer(this.content[i]);
             timers.push(id);
         }
