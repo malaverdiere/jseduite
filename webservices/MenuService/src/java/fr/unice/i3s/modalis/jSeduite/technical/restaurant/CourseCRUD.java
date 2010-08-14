@@ -115,7 +115,7 @@ public class CourseCRUD {
         if (c.getId() <= 0)
             throw new RestaurantException("Unreferenced delete !");
         String sql = "DELETE FROM `course` WHERE `id` = '" + c.getId()+"';";
-        String sql2 = "DELETE FROM `menus` WHERE `courseId` = '" + c.getId()+"';";
+        String sql2 = "DELETE FROM `menu` WHERE `courseId` = '" + c.getId()+"';";
         DataAccessLayer dal = new DataAccessLayer();
         try {
             dal.executeVoid(sql);
