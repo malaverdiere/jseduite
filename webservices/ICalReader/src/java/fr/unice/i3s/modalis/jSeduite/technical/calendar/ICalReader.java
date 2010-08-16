@@ -79,6 +79,30 @@ public class ICalReader {
         catch(Exception e) { throw new ICalReaderException(e.getMessage()); }
     }
 
+    /** Extract the content of next day inside the calendar
+     * @param calendar an URL to reach the iCal file.
+     * @return A set of filtered CalendarEvent, built from the 'calendar' file
+     * @throws ICalReaderException
+     */
+    @WebMethod(operationName = "getTomorrow")
+    public CalendarEvent[] getTomorrow(@WebParam(name = "calendar") URL calendar)
+            throws ICalReaderException {
+        try {
+            ComponentList cList = ICalHelper.buildComponents(calendar);
+            java.util.Calendar today = java.util.Calendar.getInstance();
+            today.set(java.util.Calendar.HOUR_OF_DAY, 0);
+            today.clear(java.util.Calendar.MINUTE);
+            today.clear(java.util.Calendar.SECOND);
+            today.add(java.util.Calendar.HOUR_OF_DAY, 24);
+            Period period = new Period(new DateTime(today.getTime()),
+                                       new Dur(1, 0, 0, 0));
+            Filter filter = new Filter(new PeriodRule(period));
+            cList = (ComponentList) filter.filter(cList);
+            return CalendarEvent.transform(cList);
+        }
+        catch(Exception e) { throw new ICalReaderException(e.getMessage()); }
+    }
+    
     /** Extract current events inside the calendar
      * @param calendar an URL to reach the iCal file.
      * @return A set of filtered CalendarEvent, built from the 'calendar' file
