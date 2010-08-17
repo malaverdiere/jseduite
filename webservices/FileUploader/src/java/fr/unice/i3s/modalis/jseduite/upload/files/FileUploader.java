@@ -37,16 +37,24 @@ public class FileUploader {
 
     @WebMethod(operationName = "uploadNewFile")
     public void uploadNewFile(@WebParam(name = "name") String name,
-                             @WebParam(name = "content") byte[] content)
+                             @WebParam(name = "content") byte[] content,@WebParam(name = "folder") String folder)
             throws FileUploaderException {
 
+        //on test si le dossier existe
+        File folderFile = new File(path+folder);
+        if(folderFile.isFile()){
+            throw new FileUploaderException("can't create folder");
+        }
+        if(!folderFile.exists()){
+            folderFile.mkdir();
+        }
         String fileName = name;
-        File file = new File(path+fileName);
+        File file = new File(path+folder+fileName);
         int i = 0;
         while(file.exists()) {
             i++;
             fileName = name.substring(0, name.lastIndexOf('.'))+"("+i+")"+name.substring(name.lastIndexOf('.'));
-            file = new File(path+fileName);
+            file = new File(path+folder+fileName);
         }
 
 		try {
@@ -72,6 +80,13 @@ public class FileUploader {
         }
 
         file.delete();
+    }
+
+    @WebMethod(operationName = "getFolderFiles")
+    public String[] getFolderFiles(@WebParam(name = "folder") String folder) {
+        File file = new File(path + "/" + folder);
+
+        return file.list();
     }
 
     @WebMethod(operationName = "getAllFiles")
