@@ -385,7 +385,10 @@ table.weather td { text-align:center; vertical-align:center;}
 
 .weat2_temp{ font-size:240%;}
 .weat4_temp{ font-size:230%;}
-
+.weat_day_img{
+    height:220px;
+    width:250px;
+}
 .weat_day_img, .weat4_temp img{
 	padding:5px;
 	background-color:#efefef;
