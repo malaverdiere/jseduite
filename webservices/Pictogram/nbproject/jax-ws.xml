@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
+  <services>
+    <service name="PictogramCRUD">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.pictogram.PictogramCRUD</implementation-class>
+    </service>
+    <service name="PictogramBusiness">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.pictogram.PictogramBusiness</implementation-class>
+    </service>
+    <service name="PictogramFinder">
+      <implementation-class>fr.unice.i3s.modalis.jSeduite.technical.pictogram.PictogramFinder</implementation-class>
+    </service>
+  </services>
+  <clients/>
+</jax-ws>
