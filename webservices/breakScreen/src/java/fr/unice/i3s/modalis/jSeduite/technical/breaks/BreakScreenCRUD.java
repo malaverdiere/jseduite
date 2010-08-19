@@ -65,8 +65,8 @@ public class BreakScreenCRUD {
         String sqlEnd = toSql(b.getEnd());
 
         String sql_bt = "INSERT INTO `break_screen` ";
-        sql_bt += "(`start`, `end`, `building`, `content`) VALUES (";
-        sql_bt += "'" + sqlStart + "','" + sqlEnd + "','" + b.getBuilding() + "','" + b.getContent() + "');";
+        sql_bt += "(`start`, `end`, `building`, `content`, `sound`) VALUES (";
+        sql_bt += "'" + sqlStart + "','" + sqlEnd + "','" + b.getBuilding() + "','" + b.getContent() + "', '" + b.getSound() + "');";
 
         String idGetter = "SELECT max(`id`) AS `id` FROM `break_screen`";
 
@@ -130,7 +130,8 @@ public class BreakScreenCRUD {
         sql += "SET `start` = '"+toSql(b.getStart())+"', ";
         sql += "`end` = '"+toSql(b.getEnd())+"', ";
         sql += "`building` = '"+b.getBuilding()+"', ";
-        sql += "`content` = '"+b.getContent()+"' ";
+        sql += "`content` = '"+b.getContent()+"', ";
+        sql += "`sound` = '"+b.getSound()+"' ";
         sql += "WHERE `id` = '" + b.getId()+"';";
 
         String sql_day_deletion = "DELETE FROM `break_screen_days`";

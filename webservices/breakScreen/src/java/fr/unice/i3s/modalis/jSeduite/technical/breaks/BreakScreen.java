@@ -33,6 +33,7 @@ public class BreakScreen {
     private Date end;
     private String building;
     private String content;
+    private String sound;
 
     private String[] days;
 
@@ -48,16 +49,18 @@ public class BreakScreen {
         this.end = format.parse(rset.getValue("end"));
         this.building = rset.getValue("building");
         this.content = rset.getValue("content");
+        this.sound = rset.getValue("sound");
         this.days = days;
     }
 
     public BreakScreen(int id, Date start, Date end, String building, 
-                       String content, String[] days) {
+                       String content, String sound, String[] days) {
         this.id = id;
         this.start = start;
         this.end = end;
         this.building = building;
         this.content = content;
+        this.sound = sound;
         this.days = days;
     }
 
@@ -108,4 +111,14 @@ public class BreakScreen {
     public void setDays(String[] days) {
         this.days = days;
     }
+
+    public String getSound() {
+        return sound;
+    }
+
+    public void setSound(String sound) {
+        this.sound = sound;
+    }
+
+
 }

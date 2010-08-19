@@ -24,7 +24,6 @@ package fr.unice.i3s.modalis.jSeduite.technical.breaks;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
