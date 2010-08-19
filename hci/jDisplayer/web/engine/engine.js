@@ -36,10 +36,10 @@ var jSeduiteEngine = Class.create({
     },
     initLoops: function() {
         this.loops = new Array();
+        this.loops["timer"] = new timerLoop(this.tpl);
         this.loops["main"] = new mainLoop(this.tpl);
         this.loops["main"].setCallback(function() { engine.run(); });
         this.loops["scroll"] = new scrollLoop(this.tpl);
-        this.loops["timer"] = new timerLoop(this.tpl);
         this.clearLoops();
     },
     // Set the template to use

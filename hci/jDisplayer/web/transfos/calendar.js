@@ -40,7 +40,7 @@ var iCalHandler = Class.create(jSeduiteTransformation, {
         content += "<div class=\"clearDiv\">&nbsp;</div>";
         
         content += "<p class=\"huge\">";
-        var dateCl = ((start < now && now < end)? "error": "emphasize");
+        var dateCl = ((start < now && now < end)? "calendar_hour_now": "calendar_hour");
         content += "<span class=\""+dateCl+"\">" + dateToString(start);
         content += " &rarr; "+ dateToString(end) + "</span>";
         content += "<br></p>";

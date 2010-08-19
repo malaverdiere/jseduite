@@ -38,6 +38,7 @@ irsam.declare("ephemeride",     new ephemerideOneSaint(),        15);
 irsam.declare("menu",          new menus(),                     12);
 irsam.declare("alarm",          new alarm(),                     15);
 irsam.declare("break_screen",   new breakScreen(),               15);
+irsam.declare("pictogram",      new pictogram(),                 7);
 // dispatching the information kinds in the display loops
 irsam.dispatch = function(k) {
     if ("alarm" == k || "break_screen"  == k)

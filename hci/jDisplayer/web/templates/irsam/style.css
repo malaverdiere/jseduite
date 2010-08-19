@@ -26,15 +26,9 @@
  * Main look'n feel & date  *
  ****************************/
 
-/** Main Loop **/
-
 /** text color **/
-#main, .title, .feed_title, .internal_author, .sum_date, .weat_infos{
+#main, .title, .feed_title, .internal_author, .sum_date, .weat_infos, .t_min, .t_max{
     color:#ffffff;
-}
-
-.internal_author{
-    color:#00ffff;
 }
 
 /**background color **/
@@ -42,17 +36,28 @@ body{
     background-color:#000000;
 }
 
-.t_min{    color:#ffffff; }
-.t_max{    color:#ffffff; }
-.weat_day{ color:#ffffff; }
+/**second color for putting text in revelant**/
+.internal_author, .calendar_hour{
+    color:#00ffff;
+}
 
-/**borders colors**/
+/**3eme color to really put in revelant**/
+.calendar_hour_now{
+    color:#ff0000;
+}
+
+/** color to put text invible**/
+.weat_city{
+    color: #000000;
+}
+/**just borders colors**/
 .weat_infos, .weat_day{
     background-color:#000000;
 	border:1px solid #DEDEDE;
 }
 
-#diapo_content img, .weat_day_img, .weat4_temp img{
+/**all grid border colors**/
+#diapo_content img, .weat_day_img, .weat4_temp img, .pictograms_picture{
     background-color:#ffffff;
 	border:1px solid #DEDEDE;
 }
@@ -62,9 +67,9 @@ body{
  .even{ background-color:#000000; }
 
 .error     { color:#00FFFF; }
-.alert     { color:#000000; }
-.emphasize { color:#000000; }
-.ok        { color:#000000; }
+.alert     { color:#ff0000; }
+.emphasize { color:#00ffff; }
+.ok        { color:#FFFFFF; }
 
 .error {
     font-size:120%;
@@ -182,6 +187,12 @@ body
     width: 132px; height: 116px;
     background: transparent url('_logos/ical.png') no-repeat top left;
 }
+
+.calendar_hour_now {
+    font-size:120%;
+    font-weight:bold;
+}
+
 
 /** edt **/
 .timetable_logo {
@@ -351,7 +362,7 @@ table.weather td { text-align:center; vertical-align:center;}
 
 .menus_title {
 	font-weight:normal;
-	margin-bottom:15px;
+	margin-bottom:5px;
 	margin-top:0px;
     text-align:center;
 	text-transform:uppercase;
@@ -367,4 +378,18 @@ table.weather td { text-align:center; vertical-align:center;}
         position:absolute;
         bottom:0;
         right:0;
+}
+
+/**Pictograms**/
+.pictograms{
+    position:absolute;
+}
+
+.pictograms_picture{
+    position:absolute;
+    top:5px;
+    left:0px;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding:5px 5px 5px 5px;
 }

@@ -3,7 +3,7 @@
     <SOAP-ENV:Body>
         <GetInformationResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
             <result>
-                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="menus">
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="menu">
                     <menus>
                         <date>2009-11-21T16:30:00+01:00</date>
                         <courses>
@@ -13,6 +13,8 @@
                                 <courses><kind>plat</kind><name>Haricot beurre</name></courses>
                                 <courses><kind>dessert</kind><name>Fromage</name></courses>
                                 <courses><kind>dessert</kind><name>Assiette de Fruit découpés</name></courses>
+                                <courses><kind>pizza</kind><name>Pizza fromage</name></courses>
+                                <courses><kind>pizza</kind><name>Pizza jambon</name></courses>
                         </courses>
                         <typeMenu>Déjeuner</typeMenu>
                     </menus>

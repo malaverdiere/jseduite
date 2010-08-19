@@ -12,10 +12,9 @@
                 </item>
                 <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="break_screen">
                     <break_screen>
-                        <content>#picture_albums</content>
-                        <sound>http://localhost:8080/jSeduite/FileUploader/resources/test.ogg</sound>
-                        <start>2010-08-06T11:56:00+01:00</start>
-                          <end>2011-08-06T13:23:30+01:00</end>
+                        <content>#menus</content>
+                        <start>2010-08-06T16:15:40+01:00</start>
+                          <end>2010-08-06T16:16:40+01:00</end>
                         <building>IRSAM</building>
                     </break_screen>
                 </item>
@@ -28,6 +27,20 @@
                             <item>http://jascooby.pagesperso-orange.fr/portrait%20snapshots/Cel%20portrait3a%20116-1602_IMG.jpg</item>
                         </picture_star>
                     </album>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="menus">
+                    <menus>
+                        <date>2009-11-21T16:30:00+01:00</date>
+                        <courses>
+                                <course><kind>entree</kind><name>Concombre Sauce Yahourt</name></course>
+                                <course><kind>entree</kind><name>vide</name></course>
+                                <course><kind>plat</kind><name>Chipolatas Grillée</name></course>
+                                <course><kind>plat</kind><name>Haricot beurre</name></course>
+                                <course><kind>dessert</kind><name>Fromage</name></course>
+                                <course><kind>dessert</kind><name>Assiette de Fruit découpés</name></course>
+                        </courses>
+                        <typeMenu>Déjeuner</typeMenu>
+                    </menus>
                 </item>
             </result>
         </GetInformationResponse>

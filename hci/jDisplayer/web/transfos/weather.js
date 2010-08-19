@@ -40,7 +40,7 @@ var weatherHelper = Class.create({
         content += "<p class=\"title\"> &nbsp; M&eacute;t&eacute;o</p>";
 	    content += "<br><center>";
 	    var reg=new RegExp("(.gif)", "g");
-        content += "<span class=\"large emphasize\">";
+        content += "<span class=\"large weat_city\">";
         content += getTag("station", weatherLive)+"<br>";
         content += "</span>";
         content += "<span class=\"weat_today\">";

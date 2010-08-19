@@ -393,4 +393,12 @@ table.weather td { text-align:center; vertical-align:center;}
 	background-color:#efefef;
 	border:1px solid #DEDEDE;
 	margin:5px;
-} 
+}
+
+/**menus**/
+.menus_content{
+	padding: 0px;
+	font-size: 220%;
+	margin: 10px 0px 20px 0px;
+	text-align: justify;
+}

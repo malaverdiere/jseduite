@@ -26,15 +26,9 @@
  * Main look'n feel & date  *
  ****************************/
 
-/** Main Loop **/
-
 /** text color **/
-#main, .title, .feed_title, .sum_date, .weat_infos{
+#main, .title, .feed_title, .internal_author, .sum_date, .weat_infos, .t_min, .t_max{
     color:#282d65;
-}
-
-.internal_author{
-    color:#282dFF;
 }
 
 /**background color **/
@@ -42,18 +36,28 @@ body{
     background-color:#f4cb01;
 }
 
-.t_min{    color:#282d65; }
-.t_max{    color:#282d65; }
-.weat_day{ color:#282d65; }
+/**second color for putting text in revelant**/
+.internal_author, .calendar_hour{
+    color:#00afaf;
+}
 
-/**borders colors**/
-#diapo_content img, .weat_day_img, .weat4_temp img{
-    background-color:#282d65;
+/**3eme color to really put in revelant**/
+.calendar_hour_now{
+    color:#ff0000;
+}
+
+/** color to put text invisible**/
+.weat_city{
+    color: #f4cb01;
+}
+/**just borders colors**/
+.weat_infos, .weat_day{
 	border:1px solid #DEDEDE;
 }
 
-.weat_infos, .weat_day{
-    background-color:#f4cb01;
+/**all grid border colors**/
+#diapo_content img, .weat_day_img, .weat4_temp img, .pictograms_picture{
+    background-color:#282d65;
 	border:1px solid #DEDEDE;
 }
 
@@ -62,8 +66,8 @@ body{
  .even{ background-color:#f4cb01; }
 
 .error     { color:#2800FF; }
-.alert     { color:#282d65; }
-.emphasize { color:#f4cb01; }
+.alert     { color:#ff0000; }
+.emphasize { color:#0000ff; }
 .ok        { color:#282d65; }
 
 .error {
@@ -182,6 +186,12 @@ body
     width: 132px; height: 116px;
     background: transparent url('_logos/ical.png') no-repeat top left;
 }
+
+.calendar_hour_now {
+    font-size:120%;
+    font-weight:bold;
+}
+
 
 /** edt **/
 .timetable_logo {
@@ -351,7 +361,7 @@ table.weather td { text-align:center; vertical-align:center;}
 
 .menus_title {
 	font-weight:normal;
-	margin-bottom:15px;
+	margin-bottom:5px;
 	margin-top:0px;
     text-align:center;
 	text-transform:uppercase;
@@ -367,4 +377,18 @@ table.weather td { text-align:center; vertical-align:center;}
         position:absolute;
         bottom:0;
         right:0;
+}
+
+/**Pictograms**/
+.pictograms{
+    position:absolute;
+}
+
+.pictograms_picture{
+    position:absolute;
+    top:5px;
+    left:0px;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding:5px 5px 5px 5px;
 }
