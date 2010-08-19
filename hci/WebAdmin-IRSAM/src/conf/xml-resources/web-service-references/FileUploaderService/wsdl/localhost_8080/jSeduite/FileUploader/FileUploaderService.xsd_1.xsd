@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-749-SNAPSHOT. --><xs:schema xmlns:tns="http://files.upload.jseduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://files.upload.jseduite.modalis.i3s.unice.fr/">
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-417-SNAPSHOT. --><xs:schema xmlns:tns="http://files.upload.jseduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://files.upload.jseduite.modalis.i3s.unice.fr/">
 
 <xs:element name="FileUploaderException" type="tns:FileUploaderException"></xs:element>
 
@@ -10,6 +10,10 @@
 
 <xs:element name="getAllFilesResponse" type="tns:getAllFilesResponse"></xs:element>
 
+<xs:element name="getFolderFiles" type="tns:getFolderFiles"></xs:element>
+
+<xs:element name="getFolderFilesResponse" type="tns:getFolderFilesResponse"></xs:element>
+
 <xs:element name="getURL" type="tns:getURL"></xs:element>
 
 <xs:element name="getURLResponse" type="tns:getURLResponse"></xs:element>
@@ -18,13 +22,25 @@
 
 <xs:element name="uploadNewFileResponse" type="tns:uploadNewFileResponse"></xs:element>
 
-<xs:complexType name="deleteFile">
+<xs:complexType name="getAllFiles">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllFilesResponse">
 <xs:sequence>
-<xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="return" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="deleteFileResponse">
+<xs:complexType name="uploadNewFile">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="content" type="xs:base64Binary" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="folder" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="uploadNewFileResponse">
 <xs:sequence></xs:sequence>
 </xs:complexType>
 
@@ -34,8 +50,21 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="getFolderFiles">
+<xs:sequence>
+<xs:element name="folder" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFolderFilesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="getURL">
 <xs:sequence>
+<xs:element name="folder" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
@@ -46,24 +75,13 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="uploadNewFile">
+<xs:complexType name="deleteFile">
 <xs:sequence>
 <xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="content" type="xs:base64Binary" nillable="true" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="uploadNewFileResponse">
+<xs:complexType name="deleteFileResponse">
 <xs:sequence></xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="getAllFiles">
-<xs:sequence></xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="getAllFilesResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
-</xs:sequence>
 </xs:complexType>
 </xs:schema>

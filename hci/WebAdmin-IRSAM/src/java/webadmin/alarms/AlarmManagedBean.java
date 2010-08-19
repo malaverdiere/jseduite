@@ -27,6 +27,7 @@ import webadmin.util.SQLProtection;
 /**
  *
  * @author Steve Colombié
+ * @Edit Christophe Desclaux
  */
 
 public class AlarmManagedBean {
@@ -65,6 +66,7 @@ public class AlarmManagedBean {
     // The uploaded file
     private UploadedFile file;
 
+    static final String FOLDER = "sound/";
     // List of the files
     private List<SelectItem> files;
     private List<SelectItem> files2;
@@ -196,7 +198,7 @@ public class AlarmManagedBean {
         files = new ArrayList<SelectItem>();
 
         try {
-            for (String name : fileUploaderPort.getAllFiles()) {
+            for (String name : fileUploaderPort.getFolderFiles(FOLDER)) {
                 SelectItem item = new SelectItem(name, name);
                 files.add(item);
             }
@@ -221,8 +223,8 @@ public class AlarmManagedBean {
         files2.add(new SelectItem("", Bundle.get("FORM_NOONE")));
         
         try {
-            for (String name : fileUploaderPort.getAllFiles()) {
-                SelectItem item = new SelectItem(fileUploaderPort.getURL(name), name);
+            for (String name : fileUploaderPort.getFolderFiles(FOLDER)) {
+                SelectItem item = new SelectItem(fileUploaderPort.getURL(FOLDER,name), name);
                 files2.add(item);
             }
         }
@@ -490,7 +492,7 @@ public class AlarmManagedBean {
 
         try {
             // Upload the file
-            fileUploaderPort.uploadNewFile(file.getName(), file.getBytes());
+            fileUploaderPort.uploadNewFile(file.getName(), file.getBytes(),FOLDER);
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -509,7 +511,7 @@ public class AlarmManagedBean {
 
         try {
             // Upload the file
-            fileUploaderPort.deleteFile(fileToDelete);
+            fileUploaderPort.deleteFile(FOLDER+fileToDelete);
         }
         catch (Exception e) {
             e.printStackTrace();

@@ -1,11 +1,12 @@
 package webadmin.breakscreen;
 
-import webadmin.breakscreen.*;
 import fr.unice.i3s.modalis.jseduite.technical.breaks.BreakScreen;
 import fr.unice.i3s.modalis.jseduite.technical.breaks.BreakScreenCRUD;
 import fr.unice.i3s.modalis.jseduite.technical.breaks.BreakScreenCRUDService;
 import fr.unice.i3s.modalis.jseduite.technical.breaks.BreakScreenFinder;
 import fr.unice.i3s.modalis.jseduite.technical.breaks.BreakScreenFinderService;
+import fr.unice.i3s.modalis.jseduite.upload.files.FileUploader;
+import fr.unice.i3s.modalis.jseduite.upload.files.FileUploaderService;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,8 +14,8 @@ import java.util.Date;
 import java.util.List;
 import javax.faces.model.SelectItem;
 import javax.xml.ws.WebServiceRef;
-import webadmin.breakscreen.comparators.BreakScreenBuildingComparator;
-import webadmin.breakscreen.comparators.BreakScreenStartComparator;
+import org.apache.myfaces.custom.fileupload.UploadedFile;
+import webadmin.breakscreen.comparators.*;
 import webadmin.util.Bundle;
 import webadmin.util.DateFormat;
 import webadmin.util.SQLProtection;
@@ -32,7 +33,9 @@ public class BreakScreenManagedBean {
     @WebServiceRef(wsdlLocation = "http://localhost:8080/jSeduite/breakScreen/BreakScreenCRUDService?wsdl")
     BreakScreenCRUDService crudService;
 
-
+    @WebServiceRef(wsdlLocation = "http://localhost:8080/jSeduite/FileUploader/FileUploaderService?wsdl")
+    FileUploaderService fileUploaderService;
+    
     //The list of the break screens
     private ArrayList<BreakScreen> breakScreens;
 
@@ -67,6 +70,21 @@ public class BreakScreenManagedBean {
     // The kinds
     private String content;
 
+    //The sound
+    private String sound;
+    
+    // The uploaded file
+    private UploadedFile file;
+
+    //the folder where are sounds
+    static final String FOLDER = "sound/";
+
+    // List of the files
+    private List<SelectItem> files;
+    private List<SelectItem> files2;
+
+    // The file to delete
+    private String fileToDelete;
 
     /**
      * Constructor
@@ -163,6 +181,86 @@ public class BreakScreenManagedBean {
      */
     public void setId(int i) {
         this.id = i;
+    }
+
+    /**
+     * Get the uploaded file
+     * @return the uploaded file
+     */
+    public UploadedFile getFile() {
+        return file;
+    }
+
+    /**
+     * Set the uploaded file
+     * @param file the uploaded file
+     */
+    public void setFile(UploadedFile file) {
+        this.file = file;
+    }
+
+    /**
+     * Get the list of files
+     * @return a list of files
+     */
+    public List<SelectItem> getFiles() {
+        this.fileUploaderService = new FileUploaderService();
+        FileUploader fileUploaderPort = fileUploaderService.getFileUploaderPort();
+
+        files = new ArrayList<SelectItem>();
+
+        try {
+            for (String name : fileUploaderPort.getFolderFiles(FOLDER)) {
+                SelectItem item = new SelectItem(name, name);
+                files.add(item);
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return files;
+    }
+
+    /**
+     * Get the list of files with "no one"
+     * @return a list of files with "no one"
+     */
+    public List<SelectItem> getFiles2() {
+        this.fileUploaderService = new FileUploaderService();
+        FileUploader fileUploaderPort = fileUploaderService.getFileUploaderPort();
+
+        files2 = new ArrayList<SelectItem>();
+
+        files2.add(new SelectItem("", Bundle.get("FORM_NOONE")));
+
+        try {
+            for (String name : fileUploaderPort.getFolderFiles(FOLDER)) {
+                SelectItem item = new SelectItem(fileUploaderPort.getURL(FOLDER,name), name);
+                files2.add(item);
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return files2;
+    }
+
+    /**
+     * Get the file to delete name
+     * @return the file to delete name
+     */
+    public String getFileToDelete() {
+        return fileToDelete;
+    }
+
+    /**
+     * Set the file to delete name
+     * @param fileToDelete the file to delete name
+     */
+    public void setFileToDelete(String fileToDelete) {
+        this.fileToDelete = fileToDelete;
     }
 
     /**
@@ -300,7 +398,23 @@ public class BreakScreenManagedBean {
     public void setContent(String d) {
         this.content = d;
     }
-    
+
+    /**
+     * get the sound
+     * @return the sound
+     */
+    public String getSound() {
+        return sound;
+    }
+
+    /**
+     * Get the sound
+     * @param sound the sound
+     */
+    public void setSound(String sound) {
+        this.sound = sound;
+    }
+
     /**
      * Create a break screen
      * @return a string indicating the break screen is created
@@ -323,11 +437,14 @@ public class BreakScreenManagedBean {
             }
 
             cBreakScreen.setContent(content);
-
+            cBreakScreen.setSound(sound);
+            
             // Escape characters traitement
             cBreakScreen.setBuilding(SQLProtection.format(cBreakScreen.getBuilding()));
             cBreakScreen.setContent(SQLProtection.format(cBreakScreen.getContent()));
-
+            if(cBreakScreen.getSound() != null) {
+                cBreakScreen.setSound(SQLProtection.format(cBreakScreen.getSound()));
+            }
             crud.createBreakScreen(cBreakScreen);
         }
         catch (Exception e) {
@@ -340,6 +457,7 @@ public class BreakScreenManagedBean {
         endDate = new Date(0, 0, 0, 18, 0);
         alterBuilding = "";
         content = "";
+        sound = "";
 
         return "created";
     }
@@ -351,6 +469,7 @@ public class BreakScreenManagedBean {
     public String cancel() {
         selectedDays = null;
         content = "";
+        sound = "";
         startDate = new Date(0, 0, 0, 8, 0);
         endDate = new Date(0, 0, 0, 18, 0);
 
@@ -396,6 +515,7 @@ public class BreakScreenManagedBean {
                 selectedDays[i] = uBreakScreen.getDays().get(i);
             }
             content = uBreakScreen.getContent();
+            sound = uBreakScreen.getSound();
 
         }
         catch (Exception e) {
@@ -427,10 +547,13 @@ public class BreakScreenManagedBean {
             }
 
             uBreakScreen.setContent(content);
+            uBreakScreen.setSound(sound);
             // Escape characters traitement
             uBreakScreen.setBuilding(SQLProtection.format(uBreakScreen.getBuilding()));
             uBreakScreen.setContent(SQLProtection.format(uBreakScreen.getContent()));
-
+            if(uBreakScreen.getSound() != null) {
+                uBreakScreen.setSound(SQLProtection.format(uBreakScreen.getSound()));
+            }
             crud.updateBreakScreen(uBreakScreen);
 
         }
@@ -451,5 +574,42 @@ public class BreakScreenManagedBean {
      */
     public String sortBy() {
         return "sorted";
+    }
+
+    /**
+     * Upload the file on the server
+     * @return a string indicating the file is uploaded
+     */
+    public String upload() {
+        this.fileUploaderService = new FileUploaderService();
+        FileUploader fileUploaderPort = fileUploaderService.getFileUploaderPort();
+
+        try {
+            fileUploaderPort.uploadNewFile(file.getName(), file.getBytes(), FOLDER);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "uploaded";
+    }
+
+    /**
+     * Delete the file on the server
+     * @return a string indicating the file is deleted
+     */
+    public String deleteFile() {
+        this.fileUploaderService = new FileUploaderService();
+        FileUploader fileUploaderPort = fileUploaderService.getFileUploaderPort();
+
+        try {
+            // Upload the file
+            fileUploaderPort.deleteFile(FOLDER+fileToDelete);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "file deleted";
     }
 }

@@ -4,26 +4,20 @@
 <xsd:import namespace="http://breaks.technical.jSeduite.modalis.i3s.unice.fr/" schemaLocation="http://localhost:8080/jSeduite/breakScreen/BreakScreenCRUDService?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
-<message name="createBreakScreen">
-<part name="parameters" element="tns:createBreakScreen"></part>
-</message>
-<message name="createBreakScreenResponse">
-<part name="parameters" element="tns:createBreakScreenResponse"></part>
-</message>
-<message name="BreakScreenException">
-<part name="fault" element="tns:BreakScreenException"></part>
-</message>
 <message name="readBreakScreen">
 <part name="parameters" element="tns:readBreakScreen"></part>
 </message>
 <message name="readBreakScreenResponse">
 <part name="parameters" element="tns:readBreakScreenResponse"></part>
 </message>
-<message name="updateBreakScreen">
-<part name="parameters" element="tns:updateBreakScreen"></part>
+<message name="BreakScreenException">
+<part name="fault" element="tns:BreakScreenException"></part>
 </message>
-<message name="updateBreakScreenResponse">
-<part name="parameters" element="tns:updateBreakScreenResponse"></part>
+<message name="createBreakScreen">
+<part name="parameters" element="tns:createBreakScreen"></part>
+</message>
+<message name="createBreakScreenResponse">
+<part name="parameters" element="tns:createBreakScreenResponse"></part>
 </message>
 <message name="deleteBreakScreen">
 <part name="parameters" element="tns:deleteBreakScreen"></part>
@@ -31,20 +25,21 @@
 <message name="deleteBreakScreenResponse">
 <part name="parameters" element="tns:deleteBreakScreenResponse"></part>
 </message>
+<message name="updateBreakScreen">
+<part name="parameters" element="tns:updateBreakScreen"></part>
+</message>
+<message name="updateBreakScreenResponse">
+<part name="parameters" element="tns:updateBreakScreenResponse"></part>
+</message>
 <portType name="BreakScreenCRUD">
-<operation name="createBreakScreen">
-<input message="tns:createBreakScreen"></input>
-<output message="tns:createBreakScreenResponse"></output>
-<fault message="tns:BreakScreenException" name="BreakScreenException"></fault>
-</operation>
 <operation name="readBreakScreen">
 <input message="tns:readBreakScreen"></input>
 <output message="tns:readBreakScreenResponse"></output>
 <fault message="tns:BreakScreenException" name="BreakScreenException"></fault>
 </operation>
-<operation name="updateBreakScreen">
-<input message="tns:updateBreakScreen"></input>
-<output message="tns:updateBreakScreenResponse"></output>
+<operation name="createBreakScreen">
+<input message="tns:createBreakScreen"></input>
+<output message="tns:createBreakScreenResponse"></output>
 <fault message="tns:BreakScreenException" name="BreakScreenException"></fault>
 </operation>
 <operation name="deleteBreakScreen">
@@ -52,21 +47,14 @@
 <output message="tns:deleteBreakScreenResponse"></output>
 <fault message="tns:BreakScreenException" name="BreakScreenException"></fault>
 </operation>
+<operation name="updateBreakScreen">
+<input message="tns:updateBreakScreen"></input>
+<output message="tns:updateBreakScreenResponse"></output>
+<fault message="tns:BreakScreenException" name="BreakScreenException"></fault>
+</operation>
 </portType>
 <binding name="BreakScreenCRUDPortBinding" type="tns:BreakScreenCRUD">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
-<operation name="createBreakScreen">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal"></soap:body>
-</input>
-<output>
-<soap:body use="literal"></soap:body>
-</output>
-<fault name="BreakScreenException">
-<soap:fault name="BreakScreenException" use="literal"></soap:fault>
-</fault>
-</operation>
 <operation name="readBreakScreen">
 <soap:operation soapAction=""></soap:operation>
 <input>
@@ -79,7 +67,7 @@
 <soap:fault name="BreakScreenException" use="literal"></soap:fault>
 </fault>
 </operation>
-<operation name="updateBreakScreen">
+<operation name="createBreakScreen">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -92,6 +80,18 @@
 </fault>
 </operation>
 <operation name="deleteBreakScreen">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal"></soap:body>
+</input>
+<output>
+<soap:body use="literal"></soap:body>
+</output>
+<fault name="BreakScreenException">
+<soap:fault name="BreakScreenException" use="literal"></soap:fault>
+</fault>
+</operation>
+<operation name="updateBreakScreen">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>

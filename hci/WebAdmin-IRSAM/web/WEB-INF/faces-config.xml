@@ -14,6 +14,11 @@
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     <managed-bean>
+        <managed-bean-name>PictogramManagedBean</managed-bean-name>
+        <managed-bean-class>webadmin.pictogram.PictogramManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
         <managed-bean-name>PictureAlbumManagedBean</managed-bean-name>
         <managed-bean-class>webadmin.picturealbum.PictureAlbumManagedBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
@@ -78,6 +83,11 @@
     <managed-bean>
         <managed-bean-name>InternalNewsSorter</managed-bean-name>
         <managed-bean-class>webadmin.internalnews.InternalNewsSorter</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>PictogramSorter</managed-bean-name>
+        <managed-bean-class>webadmin.pictogram.PictogramSorter</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     <managed-bean>
@@ -229,6 +239,46 @@
         <navigation-case>
             <from-outcome>cancel</from-outcome>
             <to-view-id>/internalnews/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <!--PICTOGRAMS-->
+    <navigation-rule>
+        <from-view-id>/pictograms/create.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>created</from-outcome>
+            <to-view-id>/pictograms/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/pictograms/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pictograms/listing.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>sorted</from-outcome>
+            <to-view-id>/pictograms/listing.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>update</from-outcome>
+            <to-view-id>/pictograms/update.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pictograms/update.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>updated</from-outcome>
+            <to-view-id>/pictograms/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/pictograms/listing.jsp</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>

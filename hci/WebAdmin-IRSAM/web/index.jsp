@@ -45,6 +45,14 @@
                                 </h:panelGroup>
                                 <h:outputText value="#{bundle.INTERNALNEWS_DESCRIPTION}"/>
                             </div></h:panelGroup>
+                            <h:panelGroup><div class="homeColumn">
+                                <h:panelGroup styleClass="menuItem">
+                                    <h:outputLink value="#{request.contextPath}/internalnews/listing.jsf">
+                                        <h:outputText value="#{bundle.PICTOGRAMS}"/>
+                                    </h:outputLink>
+                                </h:panelGroup>
+                                <h:outputText value="#{bundle.PICTOGRAMS_DESCRIPTION}"/>
+                            </div></h:panelGroup>
                         </h:panelGrid>
 
                         <h:outputText value="#{bundle.MENU_RESTAURATION}" styleClass="homeTitle restaurationTitle"/>

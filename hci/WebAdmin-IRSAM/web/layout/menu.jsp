@@ -21,6 +21,11 @@
                 <h:outputText value="#{bundle.INTERNALNEWS}"/>
             </h:outputLink>
         </h:panelGroup>
+        <h:panelGroup styleClass="menuItem">
+            <h:outputLink value="#{request.contextPath}/pictograms/listing.jsf">
+                <h:outputText value="#{bundle.PICTOGRAMS}"/>
+            </h:outputLink>
+        </h:panelGroup>
     </h:panelGroup>
 
     <h:panelGroup styleClass="menuCategory">

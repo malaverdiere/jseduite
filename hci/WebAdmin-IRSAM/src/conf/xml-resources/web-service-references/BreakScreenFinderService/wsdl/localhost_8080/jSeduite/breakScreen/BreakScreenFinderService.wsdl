@@ -4,14 +4,20 @@
 <xsd:import namespace="http://breaks.technical.jSeduite.modalis.i3s.unice.fr/" schemaLocation="http://localhost:8080/jSeduite/breakScreen/BreakScreenFinderService?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
+<message name="getAllBreakScreenReferences">
+<part name="parameters" element="tns:getAllBreakScreenReferences"></part>
+</message>
+<message name="getAllBreakScreenReferencesResponse">
+<part name="parameters" element="tns:getAllBreakScreenReferencesResponse"></part>
+</message>
+<message name="BreakScreenException">
+<part name="fault" element="tns:BreakScreenException"></part>
+</message>
 <message name="getAllBuildings">
 <part name="parameters" element="tns:getAllBuildings"></part>
 </message>
 <message name="getAllBuildingsResponse">
 <part name="parameters" element="tns:getAllBuildingsResponse"></part>
-</message>
-<message name="BreakScreenException">
-<part name="fault" element="tns:BreakScreenException"></part>
 </message>
 <message name="findBreakScreenById">
 <part name="parameters" element="tns:findBreakScreenById"></part>
@@ -19,13 +25,18 @@
 <message name="findBreakScreenByIdResponse">
 <part name="parameters" element="tns:findBreakScreenByIdResponse"></part>
 </message>
-<message name="getAllBreakScreenReferences">
-<part name="parameters" element="tns:getAllBreakScreenReferences"></part>
+<message name="getADateBreakScreensIds">
+<part name="parameters" element="tns:getADateBreakScreensIds"></part>
 </message>
-<message name="getAllBreakScreenReferencesResponse">
-<part name="parameters" element="tns:getAllBreakScreenReferencesResponse"></part>
+<message name="getADateBreakScreensIdsResponse">
+<part name="parameters" element="tns:getADateBreakScreensIdsResponse"></part>
 </message>
 <portType name="BreakScreenFinder">
+<operation name="getAllBreakScreenReferences">
+<input message="tns:getAllBreakScreenReferences"></input>
+<output message="tns:getAllBreakScreenReferencesResponse"></output>
+<fault message="tns:BreakScreenException" name="BreakScreenException"></fault>
+</operation>
 <operation name="getAllBuildings">
 <input message="tns:getAllBuildings"></input>
 <output message="tns:getAllBuildingsResponse"></output>
@@ -36,14 +47,26 @@
 <output message="tns:findBreakScreenByIdResponse"></output>
 <fault message="tns:BreakScreenException" name="BreakScreenException"></fault>
 </operation>
-<operation name="getAllBreakScreenReferences">
-<input message="tns:getAllBreakScreenReferences"></input>
-<output message="tns:getAllBreakScreenReferencesResponse"></output>
+<operation name="getADateBreakScreensIds">
+<input message="tns:getADateBreakScreensIds"></input>
+<output message="tns:getADateBreakScreensIdsResponse"></output>
 <fault message="tns:BreakScreenException" name="BreakScreenException"></fault>
 </operation>
 </portType>
 <binding name="BreakScreenFinderPortBinding" type="tns:BreakScreenFinder">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
+<operation name="getAllBreakScreenReferences">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal"></soap:body>
+</input>
+<output>
+<soap:body use="literal"></soap:body>
+</output>
+<fault name="BreakScreenException">
+<soap:fault name="BreakScreenException" use="literal"></soap:fault>
+</fault>
+</operation>
 <operation name="getAllBuildings">
 <soap:operation soapAction=""></soap:operation>
 <input>
@@ -68,7 +91,7 @@
 <soap:fault name="BreakScreenException" use="literal"></soap:fault>
 </fault>
 </operation>
-<operation name="getAllBreakScreenReferences">
+<operation name="getADateBreakScreensIds">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
