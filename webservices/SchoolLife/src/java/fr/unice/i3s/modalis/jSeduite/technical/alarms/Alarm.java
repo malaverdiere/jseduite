@@ -96,7 +96,7 @@ public class Alarm {
             this.dateRing = this.breakTime.getEnd();
         else if(this.kind.equals("almost_end")){
             int duration = this.breakTime.getDuration();
-            int timeToEnd = duration / 5;
+            int timeToEnd = duration / 3;
             Calendar cal= Calendar.getInstance();
             cal.setTime(this.breakTime.getEnd());
             cal.add(Calendar.MINUTE, -1* timeToEnd);
