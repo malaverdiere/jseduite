@@ -97,12 +97,12 @@ public class FileUploader {
     }
 
     @WebMethod(operationName = "getURL")
-    public String getURL(@WebParam(name = "name") String name)
+    public String getURL(@WebParam(name = "folder") String folder, @WebParam(name = "name") String name)
             throws FileUploaderException {
 
-        File file = new File(path+name);
+        File file = new File(path+folder+name);
         if(file.exists()) {
-            return context + name;
+            return context + folder + name;
         }
 
         return null;
