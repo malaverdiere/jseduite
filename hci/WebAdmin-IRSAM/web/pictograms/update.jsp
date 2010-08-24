@@ -20,8 +20,21 @@
             <link rel='stylesheet' type='text/css' href='<%=request.getContextPath()%>/resources/stylesheet.css' />
 
             <title><h:outputText value="#{bundle.PICTOGRAMS}" /></title>
+            <script type='text/javascript' language = 'Javascript'>
+                function onChangePicture1()
+                {
+
+                    picture = document.getElementById("content:form:picture1").value;
+                    document.getElementById("content:form:picture1preview").setAttribute("src", picture);
+                }
+                function onChangePicture2()
+                {
+                    picture = document.getElementById("content:form:picture2").value;
+                    document.getElementById("content:form:picture2preview").setAttribute("src", picture);
+                }
+            </script>
         </head>
-        <body>
+        <body  onload="onChangePicture1(), onChangePicture2()">
             <div class="body">
                 <div class="header">
                     <%@include file="../layout/header.jsp" %>

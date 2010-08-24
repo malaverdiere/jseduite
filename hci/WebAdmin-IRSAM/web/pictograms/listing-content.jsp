@@ -59,7 +59,7 @@
             <f:facet name="header">
                 <h:form>
                     <h:panelGroup id="theader">
-                        <h:outputText value="#{bundle.PICTOGRAMS_TITLE}"/>
+                        <%--<h:outputText value="#{bundle.PICTOGRAMS_TITLE}"/>
                         <h:commandLink title="#{bundle.SORT_ASC}" action="#{PictogramManagedBean.sortBy}" styleClass="sort">
                             <h:graphicImage value="../resources/images/up.png" alt="#{bundle.SORT_ASC}"/>
                             <f:setPropertyActionListener target="#{PictogramManagedBean.sort}" value="#{PictogramSorter.sortByTitle}" />
@@ -67,13 +67,15 @@
                         <h:commandLink title="#{bundle.SORT_DESC}" action="#{PictogramManagedBean.sortBy}" styleClass="sort">
                             <h:graphicImage value="../resources/images/down.png" alt="#{bundle.SORT_DESC}"/>
                             <f:setPropertyActionListener target="#{PictogramManagedBean.sort}" value="#{PictogramSorter.sortByTitleDesc}" />
-                        </h:commandLink>
-                        <h:outputText value=" & #{bundle.PICTOGRAMS_PICTURES}" />
+                        </h:commandLink>--%>
+                        <h:outputText value=" #{bundle.PICTOGRAMS_PICTURES}" />
                     </h:panelGroup>
                 </h:form>
             </f:facet>
             <h:panelGrid columns="1">
-                <h:outputText value="#{iterator.title}" styleClass="bold"/>
+                <h:graphicImage height="150" width="150" value="../../..#{iterator.picture1}" alt="Aucun" id="picture1preview"/>
+                <h:graphicImage height="150" width="150" value="../../..#{iterator.picture2}" alt="Aucun" id="picture2preview"/>
+                <%--<h:outputText value="#{iterator.title}" styleClass="bold"/>--%>
             </h:panelGrid>
         </h:column>
         <h:column>

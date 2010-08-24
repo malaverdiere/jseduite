@@ -69,7 +69,7 @@ public class PictogramManagedBean {
     // The file to delete
     private String fileToDelete;
 
-    
+
     /**
      * Constructor
      */
@@ -516,4 +516,4 @@ public class PictogramManagedBean {
 
         return "file deleted";
     }
-}
+    }

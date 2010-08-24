@@ -12,7 +12,7 @@
 <f:subview id="content">
     <h1><h:outputText value="#{bundle.PICTOGRAMS_UPDATE}" /></h1>
 
-    <h:form>
+    <h:form id="form">
         <h:panelGrid columns="2" >
             <%--<h:outputText value="#{bundle.PICTOGRAMS_TITLE}"/>
             <h:panelGroup>
@@ -37,17 +37,18 @@
                </h:inputText>
                 <h:message for="end" errorClass="errorMessage"/>
             </h:panelGroup>
-
+        </h:panelGrid>
+        <h:panelGrid columns="3" >
             <h:outputText value="#{bundle.PICTOGRAMS_PICTURE1}"/>
-            <h:selectOneMenu id="picture1" value="#{PictogramManagedBean.uPictogram.picture1}">
+            <h:selectOneMenu id="picture1" value="#{PictogramManagedBean.uPictogram.picture1}" onchange="onChangePicture1()">
                  <f:selectItems value="#{PictogramManagedBean.files2}" />
             </h:selectOneMenu>
-
+            <h:graphicImage height="150" width="150" value="" alt="Aucun" id="picture1preview"/>
             <h:outputText value="#{bundle.PICTOGRAMS_PICTURE2}"/>
-            <h:selectOneMenu id="picture2" value="#{PictogramManagedBean.uPictogram.picture2}">
+            <h:selectOneMenu id="picture2" value="#{PictogramManagedBean.uPictogram.picture2}"  onchange="onChangePicture2()">
                  <f:selectItems value="#{PictogramManagedBean.files2}" />
             </h:selectOneMenu>
-
+            <h:graphicImage height="150" width="150" value="" alt="Aucun" id="picture2preview"/>
         </h:panelGrid>
 
         <h:commandButton value="#{bundle.FORM_OK}" action="#{PictogramManagedBean.update}"/>
