@@ -64,19 +64,7 @@ public class ICalReader {
     @WebMethod(operationName = "getToday")
     public CalendarEvent[] getToday(@WebParam(name = "calendar") URL calendar)
             throws ICalReaderException {
-        try {
-            ComponentList cList = ICalHelper.buildComponents(calendar);
-            java.util.Calendar today = java.util.Calendar.getInstance();
-            today.set(java.util.Calendar.HOUR_OF_DAY, 0);
-            today.clear(java.util.Calendar.MINUTE);
-            today.clear(java.util.Calendar.SECOND);
-            Period period = new Period(new DateTime(today.getTime()),
-                                       new Dur(1, 0, 0, 0));
-            Filter filter = new Filter(new PeriodRule(period));
-            cList = (ComponentList) filter.filter(cList);
-            return CalendarEvent.transform(cList);
-        }
-        catch(Exception e) { throw new ICalReaderException(e.getMessage()); }
+            return getNDays(calendar,1);
     }
 
     /** Extract the content of next day inside the calendar
@@ -84,8 +72,8 @@ public class ICalReader {
      * @return A set of filtered CalendarEvent, built from the 'calendar' file
      * @throws ICalReaderException
      */
-    @WebMethod(operationName = "getTomorrow")
-    public CalendarEvent[] getTomorrow(@WebParam(name = "calendar") URL calendar)
+    @WebMethod(operationName = "getNDays")
+    public CalendarEvent[] getNDays(@WebParam(name = "calendar") URL calendar, @WebParam(name = "n")int n)
             throws ICalReaderException {
         try {
             ComponentList cList = ICalHelper.buildComponents(calendar);
@@ -93,9 +81,8 @@ public class ICalReader {
             today.set(java.util.Calendar.HOUR_OF_DAY, 0);
             today.clear(java.util.Calendar.MINUTE);
             today.clear(java.util.Calendar.SECOND);
-            today.add(java.util.Calendar.HOUR_OF_DAY, 24);
             Period period = new Period(new DateTime(today.getTime()),
-                                       new Dur(1, 0, 0, 0));
+                                       new Dur(n, 0, 0, 0));
             Filter filter = new Filter(new PeriodRule(period));
             cList = (ComponentList) filter.filter(cList);
             return CalendarEvent.transform(cList);
