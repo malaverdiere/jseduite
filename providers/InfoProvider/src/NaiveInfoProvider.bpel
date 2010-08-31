@@ -25,6 +25,10 @@
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/HyperLocatorSource" location="Sources/HyperLocatorSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/HyperTimeTableSource" location="Sources/HyperTimeTableSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/EphemerideSource" location="Sources/EphemerideSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AlarmSource" location="Sources/AlarmSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/BreakScreenSource" location="Sources/BreakScreenSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/CalendarNSource" location="Sources/CalendarNSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/PictogramsSource" location="Sources/PictogramsSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <partnerLinks>
         <partnerLink name="breakingNews" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/BreakingNewsSource" partnerLinkType="tns:BreakingNewsSource" partnerRole="BreakingNewsSourcePortTypeRole"/>
         <partnerLink name="imageScraper" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/ImageScraperSource" partnerLinkType="tns:ImageScraperSource" partnerRole="ImageScraperSourcePortTypeRole"/>
@@ -42,6 +46,10 @@
         <partnerLink name="hyperloc" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/HyperLocatorSource" partnerLinkType="tns:HyperLocatorSource" partnerRole="HyperLocatorSourcePortTypeRole"/>
         <partnerLink name="timetable" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/HyperTimeTableSource" partnerLinkType="tns:HyperTimeTableSource" partnerRole="HyperTimeTableSourcePortTypeRole"/>
         <partnerLink name="ephemeride" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/EphemerideSource" partnerLinkType="tns:EphemerideSource" partnerRole="EphemerideSourcePortTypeRole"/>
+        <partnerLink name="alarm" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AlarmSource" partnerLinkType="tns:AlarmSource" partnerRole="AlarmSourcePortTypeRole"/>
+        <partnerLink name="breakscreen" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/BreakScreenSource" partnerLinkType="tns:BreakScreenSource" partnerRole="BreakScreenSourcePortTypeRole"/>
+        <partnerLink name="calendarN" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/CalendarNSource" partnerLinkType="tns:CalendarNSource" partnerRole="CalendarNSourcePortTypeRole"/>
+        <partnerLink name="pictograms" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/PictogramsSource" partnerLinkType="tns:PictogramsSource" partnerRole="PictogramsSourcePortTypeRole"/>
         <partnerLink name="ext" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" partnerLinkType="tns:NaiveInfoProvider" myRole="NaiveInfoProviderPortTypeRole"/>
     </partnerLinks>
     <variables>
@@ -63,6 +71,10 @@
         <variable name="timetable_star" type="ns0:SetOfInformation"/>
         <variable name="info_star" type="ns0:SetOfInformation"/>
         <variable name="ephemeride_star" type="ns0:SetOfInformation"/>
+        <variable name="alarm_star" type="ns0:SetOfInformation"/>
+        <variable name="breakscreen_star" type="ns0:SetOfInformation"/>
+        <variable name="calendarN_star" type="ns0:SetOfInformation"/>
+        <variable name="pictogram_star" type="ns0:SetOfInformation"/>
         <variable name="identifier" type="xsd:string"/>
     </variables>
     <sequence>
@@ -421,6 +433,111 @@
                         <copy>
                             <from>$GetInfosOut.out/ns0:result</from>
                             <to variable="ephemeride_star"/>
+                        </copy>
+                    </assign>
+                </sequence>
+            </scope>
+            <scope name="a216" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AlarmSource">
+                <variables>
+                    <variable name="GetInfosOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AlarmSource" messageType="tns:GetInfosResponse"/>
+                    <variable name="GetInfosIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AlarmSource" messageType="tns:GetInfosRequest"/>
+                </variables>
+                <sequence name="a216_core">
+                    <assign name="a216_pre">
+                        <copy>
+                            <from variable="identifier"/>
+                            <to>$GetInfosIn.in/ns0:identifier</to>
+                        </copy>
+                    </assign>
+                    <invoke name="a216_tech" partnerLink="alarm" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AlarmSource" portType="tns:AlarmSourcePortType" inputVariable="GetInfosIn" outputVariable="GetInfosOut"/>
+                    <assign name="a216_post">
+                        <copy>
+                            <from>$GetInfosOut.out/ns0:result</from>
+                            <to variable="alarm_star"/>
+                        </copy>
+                    </assign>
+                </sequence>
+            </scope>
+            <scope name="a217" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/BreakScreenSource">
+                <variables>
+                    <variable name="GetInfosOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/BreakScreenSource" messageType="tns:GetInfosResponse"/>
+                    <variable name="GetInfosIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/BreakScreenSource" messageType="tns:GetInfosRequest"/>
+                </variables>
+                <sequence name="a217_core">
+                    <assign name="a217_pre">
+                        <copy>
+                            <from variable="identifier"/>
+                            <to>$GetInfosIn.in/ns0:identifier</to>
+                        </copy>
+                    </assign>
+                    <invoke name="a217_tech" partnerLink="breakscreen" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/BreakScreenSource" portType="tns:BreakScreenSourcePortType" inputVariable="GetInfosIn" outputVariable="GetInfosOut"/>
+                    <assign name="a217_post">
+                        <copy>
+                            <from>$GetInfosOut.out/ns0:result</from>
+                            <to variable="breakscreen_star"/>
+                        </copy>
+                    </assign>
+                </sequence>
+            </scope>
+            <scope name="a218" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/BreakScreenSource">
+                <variables>
+                    <variable name="GetInfosOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/BreakScreenSource" messageType="tns:GetInfosResponse"/>
+                    <variable name="GetInfosIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/BreakScreenSource" messageType="tns:GetInfosRequest"/>
+                </variables>
+                <sequence name="a218_core">
+                    <assign name="a218_pre">
+                        <copy>
+                            <from variable="identifier"/>
+                            <to>$GetInfosIn.in/ns0:identifier</to>
+                        </copy>
+                    </assign>
+                    <invoke name="a218_tech" partnerLink="breakscreen" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/BreakScreenSource" portType="tns:BreakScreenSourcePortType" inputVariable="GetInfosIn" outputVariable="GetInfosOut"/>
+                    <assign name="a218_post">
+                        <copy>
+                            <from>$GetInfosOut.out/ns0:result</from>
+                            <to variable="breakscreen_star"/>
+                        </copy>
+                    </assign>
+                </sequence>
+            </scope>
+            <scope name="a219" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/CalendarNSource">
+                <variables>
+                    <variable name="GetInfosOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/CalendarNSource" messageType="tns:GetInfosResponse"/>
+                    <variable name="GetInfosIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/CalendarNSource" messageType="tns:GetInfosRequest"/>
+                </variables>
+                <sequence name="a219_core">
+                    <assign name="a219_pre">
+                        <copy>
+                            <from variable="identifier"/>
+                            <to>$GetInfosIn.in/ns0:identifier</to>
+                        </copy>
+                    </assign>
+                    <invoke name="a219_tech" partnerLink="calendarN" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/CalendarNSource" portType="tns:CalendarNSourcePortType" inputVariable="GetInfosIn" outputVariable="GetInfosOut"/>
+                    <assign name="a219_post">
+                        <copy>
+                            <from>$GetInfosOut.out/ns0:result</from>
+                            <to variable="calendarN_star"/>
+                        </copy>
+                    </assign>
+                </sequence>
+            </scope>
+            <scope name="a220" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/PictogramsSource">
+                <variables>
+                    <variable name="GetInfosOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/PictogramsSource" messageType="tns:GetInfosResponse"/>
+                    <variable name="GetInfosIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/PictogramsSource" messageType="tns:GetInfosRequest"/>
+                </variables>
+                <sequence name="a220_core">
+                    <assign name="a220_pre">
+                        <copy>
+                            <from variable="identifier"/>
+                            <to>$GetInfosIn.in/ns0:identifier</to>
+                        </copy>
+                    </assign>
+                    <invoke name="a220_tech" partnerLink="pictograms" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/PictogramsSource" portType="tns:PictogramsSourcePortType" inputVariable="GetInfosIn" outputVariable="GetInfosOut"/>
+                    <assign name="a220_post">
+                        <copy>
+                            <from>$GetInfosOut.out/ns0:result</from>
+                            <to variable="pictogram_star"/>
                         </copy>
                     </assign>
                 </sequence>
@@ -958,6 +1075,142 @@
                                 </copy>
                             </assign>
                             <assign name="a315_concat_incr">
+                                <copy>
+                                    <from>$infoCpt + 1</from>
+                                    <to variable="infoCpt"/>
+                                </copy>
+                                <copy>
+                                    <from>$cpt + 1</from>
+                                    <to variable="cpt"/>
+                                </copy>
+                            </assign>
+                        </sequence>
+                    </while>
+                </sequence>
+            </scope>
+            <scope name="a316">
+                <variables>
+                    <variable name="cpt" type="xsd:integer"/>
+                </variables>
+                <sequence name="a316_core">
+                    <assign name="a316_concat_init">
+                        <copy>
+                            <from>1</from>
+                            <to variable="cpt"/>
+                        </copy>
+                    </assign>
+                    <while name="a316_concat_loop">
+                        <condition>$cpt &lt;= count($alarm_star/ns0:item)</condition>
+                        <sequence name="a316_concat_core">
+                            <assign name="a316_tech">
+                                <copy>
+                                    <from>$alarm_star/ns0:item[$cpt]</from>
+                                    <to>$info_star/ns0:item[$infoCpt]</to>
+                                </copy>
+                            </assign>
+                            <assign name="a316_concat_incr">
+                                <copy>
+                                    <from>$infoCpt + 1</from>
+                                    <to variable="infoCpt"/>
+                                </copy>
+                                <copy>
+                                    <from>$cpt + 1</from>
+                                    <to variable="cpt"/>
+                                </copy>
+                            </assign>
+                        </sequence>
+                    </while>
+                </sequence>
+            </scope>
+            <scope name="a317">
+                <variables>
+                    <variable name="cpt" type="xsd:integer"/>
+                </variables>
+                <sequence name="a317_core">
+                    <assign name="a317_concat_init">
+                        <copy>
+                            <from>1</from>
+                            <to variable="cpt"/>
+                        </copy>
+                    </assign>
+                    <while name="a317_concat_loop">
+                        <condition>$cpt &lt;= count($breakscreen_star/ns0:item)</condition>
+                        <sequence name="a317_concat_core">
+                            <assign name="a317_tech">
+                                <copy>
+                                    <from>$breakscreen_star/ns0:item[$cpt]</from>
+                                    <to>$info_star/ns0:item[$infoCpt]</to>
+                                </copy>
+                            </assign>
+                            <assign name="a317_concat_incr">
+                                <copy>
+                                    <from>$infoCpt + 1</from>
+                                    <to variable="infoCpt"/>
+                                </copy>
+                                <copy>
+                                    <from>$cpt + 1</from>
+                                    <to variable="cpt"/>
+                                </copy>
+                            </assign>
+                        </sequence>
+                    </while>
+                </sequence>
+            </scope>
+            <scope name="a318">
+                <variables>
+                    <variable name="cpt" type="xsd:integer"/>
+                </variables>
+                <sequence name="a318_core">
+                    <assign name="a318_concat_init">
+                        <copy>
+                            <from>1</from>
+                            <to variable="cpt"/>
+                        </copy>
+                    </assign>
+                    <while name="a318_concat_loop">
+                        <condition>$cpt &lt;= count($calendarN_star/ns0:item)</condition>
+                        <sequence name="a318_concat_core">
+                            <assign name="a318_tech">
+                                <copy>
+                                    <from>$calendarN_star/ns0:item[$cpt]</from>
+                                    <to>$info_star/ns0:item[$infoCpt]</to>
+                                </copy>
+                            </assign>
+                            <assign name="a318_concat_incr">
+                                <copy>
+                                    <from>$infoCpt + 1</from>
+                                    <to variable="infoCpt"/>
+                                </copy>
+                                <copy>
+                                    <from>$cpt + 1</from>
+                                    <to variable="cpt"/>
+                                </copy>
+                            </assign>
+                        </sequence>
+                    </while>
+                </sequence>
+            </scope>
+            <scope name="a319">
+                <variables>
+                    <variable name="cpt" type="xsd:integer"/>
+                </variables>
+                <sequence name="a319_core">
+                    <assign name="a319_concat_init">
+                        <copy>
+                            <from>1</from>
+                            <to variable="cpt"/>
+                        </copy>
+                    </assign>
+                    <while name="a319_concat_loop">
+                        <condition>$cpt &lt;= count($pictogram_star/ns0:item)</condition>
+                        <sequence name="a319_concat_core">
+                            <assign name="a319_tech">
+                                <copy>
+                                    <from>$pictogram_star/ns0:item[$cpt]</from>
+                                    <to>$info_star/ns0:item[$infoCpt]</to>
+                                </copy>
+                            </assign>
+                            <assign name="a319_concat_incr">
                                 <copy>
                                     <from>$infoCpt + 1</from>
                                     <to variable="infoCpt"/>
