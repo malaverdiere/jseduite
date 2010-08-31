@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process
+    name="AlarmSource"
+    targetNamespace="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/AlarmSource"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
+    xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/bpel/AlarmSource"
+    xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" xmlns:ns1="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/">
+    <import namespace="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" location="../Partners/Helpers/SourceManagerService.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AlarmSource" location="AlarmSource.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/SourceManagerServiceWrapper" location="../Partners/Helpers/SourceManagerServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" location="../Partners/Helpers/SourceManagerService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+        <import namespace="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" location="../AbstractSource.xsd" importType="http://www.w3.org/2001/XMLSchema"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/ErrorLoggerServiceWrapper" location="../Partners/Helpers/ErrorLoggerServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" location="../Partners/Helpers/ErrorLoggerService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/AlarmBusinessServiceWrapper" location="../Partners/AlarmBusinessServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://alarms.technical.jSeduite.modalis.i3s.unice.fr/" location="../Partners/AlarmBusinessService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="sources" xmlns:tns="http://enterprise.netbeans.org/bpel/SourceManagerServiceWrapper" partnerLinkType="tns:SourceManagerLinkType" partnerRole="SourceManagerRole"/>
+        <partnerLink name="logger" xmlns:tns="http://enterprise.netbeans.org/bpel/ErrorLoggerServiceWrapper" partnerLinkType="tns:ErrorLoggerLinkType" partnerRole="ErrorLoggerRole"/>
+        <partnerLink name="alrams" xmlns:tns="http://enterprise.netbeans.org/bpel/AlarmBusinessServiceWrapper" partnerLinkType="tns:AlarmBusinessLinkType" partnerRole="AlarmBusinessRole"/>
+        <partnerLink name="ext" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AlarmSource" partnerLinkType="tns:AlarmSource" myRole="AlarmSourcePortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="GetTodayAlarmsOut" xmlns:tns="http://alarms.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:getTodayAlarmsResponse"/>
+        <variable name="GetTodayAlarmsIn" xmlns:tns="http://alarms.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:getTodayAlarms"/>
+        <variable name="paramSpace" type="ns1:parameterSpace"/>
+        <variable name="info_star" type="ns0:SetOfInformation"/>
+        <variable name="shouldCall" type="xsd:boolean"/>
+        <variable name="sourceName" type="xsd:string"/>
+        <variable name="identifier" type="xsd:string"/>
+        <variable name="infoCpt" type="xsd:int"/>
+    </variables>
+    <faultHandlers>
+        <catchAll>
+            <sequence name="onError_policy">
+                <scope name="logError">
+                    <variables>
+                        <variable name="LogOut" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:logResponse"/>
+                        <variable name="LogIn" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:log"/>
+                    </variables>
+                    <sequence name="logError">
+                        <assign name="logError_pre">
+                            <copy>
+                                <from variable="sourceName"></from>
+                                <to>$LogIn.parameters/trigger</to>
+                            </copy>
+                            <copy>
+                                <from>'Error when running process'</from>
+                                <to>$LogIn.parameters/message</to>
+                            </copy>
+                            <copy>
+                                <from>'ERROR'</from>
+                                <to>$LogIn.parameters/level</to>
+                            </copy>
+                        </assign>
+                        <invoke name="logError_tech" partnerLink="logger" operation="log" xmlns:tns="http://error.logger.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:ErrorLogger" inputVariable="LogIn" outputVariable="LogOut"/>
+                    </sequence>
+                </scope>
+                <scope name="onError_reply">
+                    <variables>
+                        <variable name="GetInfosOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AlarmSource" messageType="tns:GetInfosResponse"/>
+                    </variables>
+                        <sequence name="onError_core">
+                            <assign name="onError_pre">
+                                    <copy>
+                                            <from>''</from>
+                                                <to>$GetInfosOut.out/ns0:result</to>
+                                        </copy>
+                                </assign>
+                                <reply name="onError_tech" partnerLink="ext" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AlarmSource" portType="tns:AlarmSourcePortType" variable="GetInfosOut"/>
+                                <exit name="onError_post"/>
+                        </sequence>
+                </scope>
+            </sequence>
+        </catchAll>
+    </faultHandlers>
+    <sequence>
+<scope name="a0">
+            <variables>
+                <variable name="GetInfosIn" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AlarmSource" messageType="tns:GetInfosRequest"/>
+            </variables>
+            <sequence name="a0_core">
+                <receive name="a0_tech" createInstance="yes" partnerLink="ext" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AlarmSource" portType="tns:AlarmSourcePortType" variable="GetInfosIn"/>
+                <assign name="a0_post">
+                    <copy>
+                        <from>'AlarmsSource'</from>
+                        <to variable="sourceName"/>
+                    </copy>
+                    <copy>
+                        <from>''</from>
+                        <to variable="info_star"/>
+                    </copy>
+                    <copy>
+                        <from>$GetInfosIn.in/ns0:identifier</from>
+                        <to variable="identifier"/>
+                    </copy>
+                    <copy>
+                        <from>1.0</from>
+                        <to variable="infoCpt"/>
+                    </copy>
+                </assign>
+            </sequence>
+        </scope>
+        <scope name="a1">
+            <variables>
+                <variable name="ShouldCallOut" xmlns:tns="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:shouldCallResponse"/>
+                <variable name="ShouldCallIn" xmlns:tns="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:shouldCall"/>
+            </variables>
+            <sequence name="a1_core">
+                <assign name="a1_pre">
+                    <copy>
+                        <from variable="identifier"/>
+                        <to>$ShouldCallIn.parameters/device</to>
+                    </copy>
+                    <copy>
+                        <from variable="sourceName"/>
+                        <to>$ShouldCallIn.parameters/source</to>
+                    </copy>
+                </assign>
+                <invoke name="a1_tech" partnerLink="sources" operation="shouldCall" xmlns:tns="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:SourceManager" inputVariable="ShouldCallIn" outputVariable="ShouldCallOut"/>
+                <assign name="a1_post">
+                    <copy>
+                        <from>$ShouldCallOut.parameters/return</from>
+                        <to variable="shouldCall"/>
+                    </copy>
+                </assign>
+            </sequence>
+        </scope>
+        <if name="condition_on_not_shouldCall">
+            <condition>not($shouldCall)</condition>
+            <scope name="a2">
+                <variables>
+                    <variable name="GetInfosOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AlarmSource" messageType="tns:GetInfosResponse"/>
+                </variables>
+                <sequence name="a2_core">
+                    <assign name="a2_pre">
+                        <copy>
+                            <from>''</from>
+                            <to>$GetInfosOut.out/ns0:result</to>
+                        </copy>
+                    </assign>
+                    <reply name="a2_tech" partnerLink="ext" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AlarmSource" portType="tns:AlarmSourcePortType" variable="GetInfosOut"/>
+                    <exit name="a2_post"/>
+                </sequence>
+            </scope>
+            <else>
+                <empty name="nop1"/>
+            </else>
+        </if>
+        <scope name="a3">
+            <variables>
+                <variable name="GetParameterSpaceOut" xmlns:tns="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:getParameterSpaceResponse"/>
+                <variable name="GetParameterSpaceIn" xmlns:tns="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" messageType="tns:getParameterSpace"/>
+            </variables>
+            <sequence name="a3_core">
+                <assign name="a3_pre">
+                    <copy>
+                        <from variable="identifier"/>
+                        <to>$GetParameterSpaceIn.parameters/device</to>
+                    </copy>
+                    <copy>
+                        <from variable="sourceName"/>
+                        <to>$GetParameterSpaceIn.parameters/source</to>
+                    </copy>
+                </assign>
+                <invoke name="a3_tech" partnerLink="sources" operation="getParameterSpace" xmlns:tns="http://profiles.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:SourceManager" inputVariable="GetParameterSpaceIn" outputVariable="GetParameterSpaceOut"/>
+                <assign name="a3_post">
+                    <copy>
+                        <from>$GetParameterSpaceOut.parameters/return</from>
+                        <to variable="paramSpace"/>
+                    </copy>
+                </assign>
+            </sequence>
+        </scope>
+
+
+
+        <!-- -->
+        <assign name="Assign1">
+            <copy>
+                <from>''</from>
+                <to variable="GetTodayAlarmsIn" part="parameters"/>
+            </copy>
+        </assign>
+        <invoke name="Invoke1" partnerLink="alrams" operation="getTodayAlarms" xmlns:tns="http://alarms.technical.jSeduite.modalis.i3s.unice.fr/" portType="tns:AlarmBusiness" inputVariable="GetTodayAlarmsIn" outputVariable="GetTodayAlarmsOut"/>
+        <forEach name="ForEach1" parallel="no" counterName="cpt">
+            <startCounterValue>1</startCounterValue>
+            <finalCounterValue>count($GetTodayAlarmsOut.parameters/return)</finalCounterValue>
+            <scope name="Scope1">
+                <assign name="Assign2">
+                    <copy>
+                        <from>$GetTodayAlarmsOut.parameters/return[$cpt]</from>
+                        <to>$info_star/ns0:item[$cpt]/ns0:alarm</to>
+                    </copy>
+                    <copy>
+                        <from>'alarm'</from>
+                        <to>$info_star/ns0:item[$cpt]/@source</to>
+                    </copy>
+                </assign>
+            </scope>
+        </forEach>
+        <scope name="a9">
+            <variables>
+                <variable name="GetInfosOut" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AlarmSource" messageType="tns:GetInfosResponse"/>
+            </variables>
+            <sequence name="a9_core">
+                <assign name="a9_pre">
+                    <copy>
+                        <from variable="info_star"/>
+                        <to>$GetInfosOut.out/ns0:result</to>
+                    </copy>
+                </assign>
+                <reply name="a9_tech" partnerLink="ext" operation="GetInfos" xmlns:tns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/AlarmSource" portType="tns:AlarmSourcePortType" variable="GetInfosOut"/>
+            </sequence>
+        </scope>
+   </sequence>
+</process>
