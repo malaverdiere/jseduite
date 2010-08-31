@@ -18,7 +18,8 @@
     xmlns:ns3="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/Apal"
     xmlns:ns27="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperLocatorSource"
     xmlns:ns2="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperTimeTableSource"
-    xmlns:ns6="http://Ephemerides.time.technical.jSeduite.modalis.i3s.unice.fr/">
+    xmlns:ns6="http://Ephemerides.time.technical.jSeduite.modalis.i3s.unice.fr/"
+    xmlns:ns28="http://pictogram.technical.jSeduite.modalis.i3s.unice.fr/">
     <xsd:import schemaLocation="Partners/InternalNewsService.xsd" namespace="http://internal.news.technical.jSeduite.modalis.i3s.unice.fr/"/>
     <xsd:import schemaLocation="Partners/TwitterWrapperService.xsd" namespace="http://twitter.messaging.technical.jSeduite.modalis.i3s.unice.fr/"/>
     <xsd:import schemaLocation="Partners/PictureAlbums.xsd" namespace="http://modalis.i3s.unice.fr/jSeduite/orchestrations/schema/PictureAlbums"/>
@@ -35,6 +36,7 @@
     <xsd:import schemaLocation="HyperLocator/HyperLocatorSource.xsd" namespace="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperLocatorSource"/>
     <xsd:import schemaLocation="HyperTimeTable/HyperTimeTableSource.xsd" namespace="http://modalis.i3s.unice.fr/jSeduite/sources/schemas/Information/HyperTimeTableSource"/>
     <xsd:import schemaLocation="Partners/EphemeridesService.xsd" namespace="http://Ephemerides.time.technical.jSeduite.modalis.i3s.unice.fr/"/>
+    <xsd:import schemaLocation="Partners/PictogramBusinessService.xsd" namespace="http://pictogram.technical.jSeduite.modalis.i3s.unice.fr/"/>
     <xsd:complexType name="Information">
         <xsd:choice>
             <xsd:element name="any" type="xsd:anyType"/>
@@ -54,6 +56,7 @@
             <xsd:element name="hyperloc" type="ns27:SetOfHyperLocation"></xsd:element>
             <xsd:element name="timetable" type="ns2:TimeTable"></xsd:element>
             <xsd:element name="ephemeride" type="ns6:namesOfTheDay"></xsd:element>
+            <xsd:element name="pictogram" type="ns28:pictogram"></xsd:element>
         </xsd:choice>
         <xsd:attribute name="source" type="xsd:string"/>
     </xsd:complexType>

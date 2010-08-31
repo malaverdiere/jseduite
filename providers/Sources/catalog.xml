@@ -39,4 +39,6 @@
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/HyperMachinService.xsd" uri="src/Partners/HyperMachinService.xsd"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/HyperLocatorService.wsdl" uri="src/Partners/HyperLocatorService.wsdl"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/architecture/contracts/HyperLocatorService.xsd" uri="src/Partners/HyperLocatorService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/trunk/architecture/contracts/PictogramBusinessService.wsdl" uri="src/Partners/PictogramBusinessService.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/trunk/architecture/contracts/PictogramBusinessService.xsd" uri="src/Partners/PictogramBusinessService.xsd"/>
 </catalog>
