@@ -56,4 +56,4 @@ INSERT INTO `sources`    VALUES ('ephemeride','Ephemeride');
 INSERT INTO `sources`    VALUES ('menu','Menu');
 INSERT INTO `sources`    VALUES ('PictogramsSource','Pictogrammes');
 INSERT INTO `sources`    VALUES ('AlarmsSource','Alarmes');
-
+INSERT INTO `sources`    VALUES ('BreakScreenSource','Ecrans de Pause');

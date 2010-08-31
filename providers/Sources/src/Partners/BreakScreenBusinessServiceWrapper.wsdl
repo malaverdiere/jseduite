@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BreakScreenBusinessServiceWrapper" targetNamespace="http://enterprise.netbeans.org/bpel/BreakScreenBusinessServiceWrapper" xmlns:tns="http://enterprise.netbeans.org/bpel/BreakScreenBusinessServiceWrapper" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns="http://breaks.technical.jSeduite.modalis.i3s.unice.fr/">
+    <import location="BreakScreenBusinessService.wsdl" namespace="http://breaks.technical.jSeduite.modalis.i3s.unice.fr/"/>
+    <plnk:partnerLinkType name="BreakScreenBusinessLinkType">
+        <plnk:role name="BreakScreenBusinessRole" portType="ns:BreakScreenBusiness"/>
+    </plnk:partnerLinkType>
+</definitions>

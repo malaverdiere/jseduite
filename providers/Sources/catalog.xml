@@ -43,4 +43,6 @@
     <system systemId="file:/Users/mosser/repositories/jseduite/trunk/architecture/contracts/PictogramBusinessService.xsd" uri="src/Partners/PictogramBusinessService.xsd"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/trunk/architecture/contracts/AlarmBusinessService.wsdl" uri="src/Partners/AlarmBusinessService.wsdl"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/trunk/architecture/contracts/AlarmBusinessService.xsd" uri="src/Partners/AlarmBusinessService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/trunk/architecture/contracts/BreakScreenBusinessService.wsdl" uri="src/Partners/BreakScreenBusinessService.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/trunk/architecture/contracts/BreakScreenBusinessService.xsd" uri="src/Partners/BreakScreenBusinessService.xsd"/>
 </catalog>

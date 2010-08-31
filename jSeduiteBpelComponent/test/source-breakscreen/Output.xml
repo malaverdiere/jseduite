@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <GetInformationResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/sources/wsdl/BreakScreenSource" xmlns="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
+      <result>
+        <item source="breakscreen">
+          <breakscreen xmlns:msgns="http://breaks.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns2="http://breaks.technical.jSeduite.modalis.i3s.unice.fr/">
+            <building xmlns="">gg</building>
+            <content xmlns="">C'est la pause !!</content>
+            <days xmlns="">monday</days>
+            <days xmlns="">tuesday</days>
+            <days xmlns="">wednesday</days>
+            <days xmlns="">thursday</days>
+            <days xmlns="">friday</days>
+            <days xmlns="">saturday</days>
+            <days xmlns="">sunday</days>
+            <end xmlns="">2010-08-31T19:00:00+02:00</end>
+            <id xmlns="">1</id>
+            <start xmlns="">2010-08-31T08:00:00+02:00</start>
+          </breakscreen>
+        </item>
+        <item source="breakscreen">
+          <breakscreen xmlns:msgns="http://breaks.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:ns2="http://breaks.technical.jSeduite.modalis.i3s.unice.fr/">
+            <building xmlns="">kk</building>
+            <content xmlns="">Dehors!!!!</content>
+            <days xmlns="">monday</days>
+            <days xmlns="">tuesday</days>
+            <days xmlns="">wednesday</days>
+            <days xmlns="">thursday</days>
+            <days xmlns="">friday</days>
+            <end xmlns="">2010-08-31T22:00:00+02:00</end>
+            <id xmlns="">2</id>
+            <start xmlns="">2010-08-31T20:00:00+02:00</start>
+          </breakscreen>
+        </item>
+      </result>
+    </GetInformationResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
