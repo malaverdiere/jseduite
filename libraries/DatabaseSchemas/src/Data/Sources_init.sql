@@ -57,3 +57,6 @@ INSERT INTO `sources`    VALUES ('menu','Menu');
 INSERT INTO `sources`    VALUES ('PictogramsSource','Pictogrammes');
 INSERT INTO `sources`    VALUES ('AlarmsSource','Alarmes');
 INSERT INTO `sources`    VALUES ('BreakScreenSource','Ecrans de Pause');
+INSERT INTO `sources`    VALUES ('CalendarNSource','Calendrier (jours multiples)');
+INSERT INTO `parameters` VALUES (NULL, 'CalendarNSource', 'url', '??', 'URL');
+INSERT INTO `parameters` VALUES (NULL, 'CalendarNSource', 'delta', '2', 'Nombre de Jours');

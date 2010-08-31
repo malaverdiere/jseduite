@@ -45,4 +45,6 @@
     <system systemId="file:/Users/mosser/repositories/jseduite/trunk/architecture/contracts/AlarmBusinessService.xsd" uri="src/Partners/AlarmBusinessService.xsd"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/trunk/architecture/contracts/BreakScreenBusinessService.wsdl" uri="src/Partners/BreakScreenBusinessService.wsdl"/>
     <system systemId="file:/Users/mosser/repositories/jseduite/trunk/architecture/contracts/BreakScreenBusinessService.xsd" uri="src/Partners/BreakScreenBusinessService.xsd"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/trunk/architecture/contracts/ICalReaderService.wsdl" uri="src/Partners/ICalReaderService.wsdl"/>
+    <system systemId="file:/Users/mosser/repositories/jseduite/trunk/architecture/contracts/ICalReaderService.xsd" uri="src/Partners/ICalReaderService.xsd"/>
 </catalog>
