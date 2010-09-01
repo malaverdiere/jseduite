@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-749-SNAPSHOT. -->
+<xs:schema xmlns:tns="http://breaks.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://breaks.technical.jSeduite.modalis.i3s.unice.fr/">
+  <xs:element name="BreakScreenException" type="tns:BreakScreenException"/>
+  <xs:element name="getTodayBreakScreens" type="tns:getTodayBreakScreens"/>
+  <xs:element name="getTodayBreakScreensResponse" type="tns:getTodayBreakScreensResponse"/>
+  <xs:complexType name="getTodayBreakScreens">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getTodayBreakScreensResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:breakScreen" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="breakScreen">
+    <xs:sequence>
+      <xs:element name="building" type="xs:string" minOccurs="0"/>
+      <xs:element name="content" type="xs:string" minOccurs="0"/>
+      <xs:element name="days" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="end" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="start" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BreakScreenException">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
