@@ -24,22 +24,23 @@ package fr.unice.i3s.modalis.jSeduite.technical.pictogram;
 import fr.unice.i3s.modalis.jSeduite.libraries.mysql.*;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
-/** A web service to handle pictograms
- * @author mosser
- */
 @WebService()
 public class PictogramBusiness {
 
     /**
-     * Web service operation
+     * Web service which return all pictograms in use
      */
     @WebMethod(operationName = "getAllPictograms")
     public Pictogram[] getAllPictograms() throws PictogramException {
+        String nowSQL = toSql(new Date());
         DataAccessLayer dal = new DataAccessLayer();
-        String sql = "SELECT * FROM `pictograms`; ";
+        String sql = "SELECT * FROM `pictograms` WHERE `start` <= '" + nowSQL + "' AND `end` >= '" + nowSQL + "';";
         try {
             ArrayList<Pictogram> result = new ArrayList<Pictogram>();
             DalResultSet rset = dal.extractDataSet(sql);
@@ -52,5 +53,21 @@ public class PictogramBusiness {
         } catch(Exception e) {
             throw new PictogramException(e.getMessage());
         }
+    }
+    
+    /** A static method to transform a java Date into a valid SQL entry
+     * @param date the date to transform
+     * @return a string formatted as YYYY-MM-DD HH:MM:SS
+     */
+    public static String toSql(Date date) {
+        GregorianCalendar cal = new GregorianCalendar();
+        cal.setTime(date);
+        String d = "" + cal.get(Calendar.YEAR);
+        d += "-" + (cal.get(Calendar.MONTH) + 1);
+        d += "-" + cal.get(Calendar.DAY_OF_MONTH);
+        d += " " + cal.get(Calendar.HOUR_OF_DAY);
+        d += ":" + cal.get(Calendar.MINUTE);
+        d += ":00";
+        return d;
     }
 }
