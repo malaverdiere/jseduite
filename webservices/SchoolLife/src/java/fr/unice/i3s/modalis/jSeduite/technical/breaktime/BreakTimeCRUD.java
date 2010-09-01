@@ -204,9 +204,13 @@ public class BreakTimeCRUD {
         String sql = "DELETE FROM `break_time`";
         sql += "WHERE `id` = '" + b.getId()+"';";
 
+        String sql2 = "DELETE FROM `alarms`";
+        sql2 += "WHERE `break_id` = '" + b.getId()+"';";
+
         DataAccessLayer dal = new DataAccessLayer();
         try {
             dal.executeVoid(sql);
+            dal.executeVoid(sql2);
          } catch(Exception e) {
            throw new BreakTimeException("SQLException: " + e.getMessage());
        }
