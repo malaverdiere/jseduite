@@ -72,6 +72,10 @@ function get_month(){
 
 function get_day(){
     var d = (new Date()).getDay();
+    return get_a_day(d);
+}
+
+function get_a_day(d){
     switch (d){
     case 0: return "dimanche";break;
     case 1: return "lundi";break;

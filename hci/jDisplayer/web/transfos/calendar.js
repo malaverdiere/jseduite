@@ -28,7 +28,8 @@ var iCalHandler = Class.create(jSeduiteTransformation, {
         var end = buildDateFromStamp(getTag("end", xml));
 
         var now = new Date();
-
+        var tomorow = new Date();
+        tomorow.setHours(23, 59, 59, 999);
         if ( end <= now)
             return [];
         
@@ -40,8 +41,12 @@ var iCalHandler = Class.create(jSeduiteTransformation, {
         content += "<div class=\"clearDiv\">&nbsp;</div>";
         
         content += "<p class=\"huge\">";
+
+        if(tomorow < start){
+            day = get_a_day(start.getDay());
+        }else{day = "";}
         var dateCl = ((start < now && now < end)? "calendar_hour_now": "calendar_hour");
-        content += "<span class=\""+dateCl+"\">" + dateToString(start);
+        content += "<span class=\""+dateCl+"\">"+ day + " " + dateToString(start);
         content += " &rarr; "+ dateToString(end) + "</span>";
         content += "<br></p>";
         content += "<p class=\"large\">";
@@ -58,4 +63,4 @@ var iCalHandler = Class.create(jSeduiteTransformation, {
         content += "</center>";
         return [content]; 
     }
-}); 
+});

@@ -126,6 +126,7 @@ var timerLoop = Class.create(loop, {
         var transfo = this.tpl.getTransformation(getSource(item));
         var delta = this.tpl.getDelta(getSource(item));
         var timer  = transfo.startDate(item) - (new Date()).getTime();
+        if(timer < 0)return -1;
         //we put a timeout on the transformation
         var idTimer = window.setTimeout(function() {
             stopDelays();//we stop the mainLoop scrolling

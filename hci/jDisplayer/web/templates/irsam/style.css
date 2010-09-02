@@ -92,7 +92,7 @@ body
 #loading_animation {
     height: 334px;
     width: 501px;
-    background: transparent url('_img/loading-polytech.gif') no-repeat top left;
+    background: transparent url('_img/loading-irsam.gif') no-repeat top left;
 
 }
 
@@ -230,6 +230,7 @@ body
 
 /** internal news **/
 .internal_logo {
+    width: 132px; height: 116px;
     background: transparent url('_logos/internal.png') no-repeat top left;
 }
 
@@ -355,6 +356,11 @@ table.weather td { text-align:center; vertical-align:center;}
 
 
 /** Menus **/
+.menus_logo {
+    width: 132px; height: 116px;
+    background: transparent url('_logos/restaurant.png') no-repeat top left;
+}
+
 .menus{
     font-size:170%;
     text-align:center;

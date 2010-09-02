@@ -6,9 +6,9 @@
                 <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="calendar">
 <calEvent>
                         <description xmlns=""/>
-                        <end xmlns="">2009-08-11T19:35:00+01:00</end>
+                        <end xmlns="">2010-09-03T19:35:00+01:00</end>
                         <location xmlns=""/>
-                        <start xmlns="">2009-11-25T10:30:00+01:00</start>
+                        <start xmlns="">2010-11-25T10:30:00+01:00</start>
                         <summary xmlns="">Pitch SI3 NuitInfo</summary>
 </calEvent>
 </item>

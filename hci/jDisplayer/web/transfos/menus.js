@@ -24,7 +24,9 @@ var menusFullScreen = Class.create(jSeduiteTransformation, {
         perform: function(xml) {
 
         var date = getTag("date", xml);
-        var content = "<span class =\"menus\">";
+        var content = "";
+        content += "<div id=\"info_logo\" class=\"menus_logo\"></div>";
+        content += "<span class =\"menus\">";
         content += "<div class=\"menus_title\">";
         content += getTag("typeMenu", xml)+ " à ";
         content +=  date.substring(11,13) + " heures</div>";
