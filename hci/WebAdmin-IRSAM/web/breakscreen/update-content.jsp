@@ -51,24 +51,31 @@
 
             <h:outputText value="#{bundle.BREAKSCREEN_BUILDING}"/>
             <h:panelGroup>
-                <h:selectOneMenu id="buildings" value="#{BreakScreenManagedBean.uBreakScreen.building}"  onchange="otherDetection()">
+                <h:selectOneMenu id="buildings" value="#{BreakScreenManagedBean.uBreakScreen.building}"  onchange="otherDetectionBuilding()">
                     <f:selectItems value="#{BreakScreenManagedBean.buildings}" />
                     <h:message for="buildings" errorClass="errorMessage"/>
                 </h:selectOneMenu>
                 <h:outputText value=" "/>
-                <h:inputText id="building" value="#{BreakScreenManagedBean.alterBuilding}" required="true" requiredMessage="#{bundle.BREAKSCREEEN_BUILDING_REQUIRED}">
+                <h:inputText id="building" value="#{BreakScreenManagedBean.alterBuilding}" required="true" requiredMessage="#{bundle.BREAKSCREEN_BUILDING_REQUIRED}">
                     <f:validateLength maximum="10" />
                 </h:inputText>
                <h:message for="building" errorClass="errorMessage"/>
             </h:panelGroup>
-
+            <h:panelGroup>
             <h:outputText value="#{bundle.BREAKSCREEN_CONTENT}"/>
-            <h:inputText id="content" value="#{BreakScreenManagedBean.content}">
-                <f:validateLength maximum="255" />
+                <h:outputText value=": (#{bundle.BREAKSCREEN_CONTENT_WARNING})"/>
+            </h:panelGroup>
+            <h:panelGroup>
+                <h:selectOneMenu id="contents" value="#{BreakScreenManagedBean.uBreakScreen.content}" onchange="otherDetectionContent()">
+                    <f:selectItems value="#{BreakScreenManagedBean.contents}" />
+                    <h:message for="contents" errorClass="errorMessage"/>
+                </h:selectOneMenu>
+                <h:inputText id="content" value="#{BreakScreenManagedBean.alterContent}" required="true" requiredMessage="#{bundle.BREAKSCREEN_CONTENT_REQUIRED}">
+                    <f:validateLength maximum="100" />
+                </h:inputText>
                 <h:message for="content" errorClass="errorMessage"/>
-            </h:inputText>
-
-            <h:outputText value="#{bundle.ALARM_SOUND}"/>
+            </h:panelGroup>
+            <h:outputText id="sound_title" value="#{bundle.ALARM_SOUND}"/>
                 <h:selectOneMenu id="sound" value="#{BreakScreenManagedBean.sound}">
                     <f:selectItems value="#{BreakScreenManagedBean.files2}" />
                 </h:selectOneMenu>

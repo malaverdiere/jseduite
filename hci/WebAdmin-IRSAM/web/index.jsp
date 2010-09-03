@@ -116,14 +116,6 @@
                             </div></h:panelGroup>
                             <h:panelGroup><div class="homeColumn">
                                 <h:panelGroup styleClass="menuItem">
-                                    <h:outputLink value="#{request.contextPath}/absences/listing.jsf">
-                                        <h:outputText value="#{bundle.ABSENCES}"/>
-                                    </h:outputLink>
-                                </h:panelGroup>
-                                <h:outputText value="#{bundle.ABSENCES_DESCRIPTION}"/>
-                            </div></h:panelGroup>
-                            <h:panelGroup><div class="homeColumn">
-                                <h:panelGroup styleClass="menuItem">
                                     <h:outputLink value="#{request.contextPath}/promotions/listing.jsf">
                                         <h:outputText value="#{bundle.PROMOTION}"/>
                                     </h:outputLink>

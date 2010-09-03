@@ -22,7 +22,7 @@
             <title><h:outputText value="#{bundle.BREAKSCREEN}" /></title>
 
             <script type='text/javascript' language = 'Javascript'>
-                function otherDetection()
+                function otherDetectionBuilding()
                 {
                     if (document.getElementById("content:form:buildings").options[document.getElementById("content:form:buildings").selectedIndex].value == "__other")
                     {
@@ -35,9 +35,33 @@
                         document.getElementById('content:form:building').style.display="none";
                     }
                 }
+                var activatedContents = new Array("#calendar", "#calendarNsource","#ephemeride","#internal_news","#menu","#PictogramsSource","#weather");
+                function otherDetectionContent(action)
+                {
+                    var selectedItem = document.getElementById("content:form:contents").options[document.getElementById("content:form:contents").selectedIndex].value;
+                    if(action != 'start' && activatedContents.lastIndexOf(selectedItem) < 0 && selectedItem != "__other"){
+                        alert("Il est fortement déconseillé d'utiliser cet élément pour source de contenu.");
+                    }
+                    if (selectedItem[0] != '#')
+                    {
+                        document.getElementById('content:form:content').disabled=false;
+                        document.getElementById('content:form:content').style.display="inherit";
+                        document.getElementById('content:form:sound').disabled=false;
+                        document.getElementById('content:form:sound').style.display="inherit";
+                        document.getElementById('content:form:sound_title').style.display="inherit";
+                    }
+                    else
+                    {
+                        document.getElementById('content:form:content').disabled=true;
+                        document.getElementById('content:form:content').style.display="none";
+                        document.getElementById('content:form:sound').disabled=true;
+                        document.getElementById('content:form:sound').style.display="none";
+                        document.getElementById('content:form:sound_title').style.display="none";
+                    }
+                }
             </script>
         </head>
-        <body onload="otherDetection()">
+        <body onload="otherDetectionBuilding();otherDetectionContent('start')">
             <div class="body">
                 <div class="header">
                     <%@include file="../layout/header.jsp" %>

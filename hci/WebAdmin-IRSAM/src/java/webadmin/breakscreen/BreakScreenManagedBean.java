@@ -5,6 +5,8 @@ import fr.unice.i3s.modalis.jseduite.technical.breaks.BreakScreenCRUD;
 import fr.unice.i3s.modalis.jseduite.technical.breaks.BreakScreenCRUDService;
 import fr.unice.i3s.modalis.jseduite.technical.breaks.BreakScreenFinder;
 import fr.unice.i3s.modalis.jseduite.technical.breaks.BreakScreenFinderService;
+import fr.unice.i3s.modalis.jseduite.technical.profiles.sources.SourceFinder;
+import fr.unice.i3s.modalis.jseduite.technical.profiles.sources.SourceFinderService;
 import fr.unice.i3s.modalis.jseduite.upload.files.FileUploader;
 import fr.unice.i3s.modalis.jseduite.upload.files.FileUploaderService;
 
@@ -27,6 +29,10 @@ import webadmin.util.SQLProtection;
  */
 
 public class BreakScreenManagedBean {
+    @WebServiceRef(wsdlLocation = "http://localhost:8080/jSeduite/ProfileManager/SourceFinderService?wsdl")
+    SourceFinderService finderSourceService;
+
+    
     @WebServiceRef(wsdlLocation = "http://localhost:8080/jSeduite/breakScreen/BreakScreenFinderService?wsdl")
     BreakScreenFinderService finderService;
     
@@ -67,8 +73,11 @@ public class BreakScreenManagedBean {
     // Alternative building
     private String alterBuilding;
 
-    // The kinds
-    private String content;
+    // The contents
+    private List<SelectItem> contents;
+
+    // Alternative content
+    private String alterContent;
 
     //The sound
     private String sound;
@@ -280,6 +289,22 @@ public class BreakScreenManagedBean {
     }
 
     /**
+     * Get the alternative content
+     * @return the alternative content
+     */
+    public String getAlterContent() {
+        return alterContent;
+    }
+
+    /**
+     * Set the alternative Content
+     * @param alterKind the alternative Content
+     */
+    public void setAlterContent(String alterContent) {
+        this.alterContent = alterContent;
+    }
+    
+    /**
      * Get the break screens
      * @return a list of the break screens
      */
@@ -384,21 +409,30 @@ public class BreakScreenManagedBean {
     }
 
     /**
-     * Get the content
-     * @return the content
+     * Get the contents
+     * @return the list of contents
      */
-    public String getContent() {
-        return content;
-    }
+    public List<SelectItem> getContents() {
+        contents = new ArrayList<SelectItem>();
+        List<String> contentsBuf;
+        try {
+            SourceFinder port = finderSourceService.getSourceFinderPort();
+            contentsBuf = port.getAllSourceReferences();
+            for(int i=0; i<contentsBuf.size(); i++) {
+                SelectItem item = new SelectItem("#" + contentsBuf.get(i), contentsBuf.get(i));
+                contents.add(item);
+            }
 
-    /**
-     * Set the content
-     * @param d the content to set
-     */
-    public void setContent(String d) {
-        this.content = d;
-    }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        contents.add(new SelectItem("__other", Bundle.get("FORM_OTHER")));
 
+        return contents;
+    }
+ 
     /**
      * get the sound
      * @return the sound
@@ -435,8 +469,10 @@ public class BreakScreenManagedBean {
             if(cBreakScreen.getBuilding().equals("__other")) {
                 cBreakScreen.setBuilding(alterBuilding);
             }
-
-            cBreakScreen.setContent(content);
+            if(cBreakScreen.getContent().equals("__other")) {
+                cBreakScreen.setContent(alterContent);
+            }
+            
             cBreakScreen.setSound(sound);
             
             // Escape characters traitement
@@ -456,7 +492,7 @@ public class BreakScreenManagedBean {
         startDate = new Date(0, 0, 0, 8, 0);
         endDate = new Date(0, 0, 0, 18, 0);
         alterBuilding = "";
-        content = "";
+        alterContent = "";
         sound = "";
 
         return "created";
@@ -468,7 +504,6 @@ public class BreakScreenManagedBean {
      */
     public String cancel() {
         selectedDays = null;
-        content = "";
         sound = "";
         startDate = new Date(0, 0, 0, 8, 0);
         endDate = new Date(0, 0, 0, 18, 0);
@@ -507,6 +542,10 @@ public class BreakScreenManagedBean {
 
             uBreakScreen = crud.readBreakScreen(id);
 
+            if(uBreakScreen.getContent().charAt(0) != '#'){
+                this.alterContent = uBreakScreen.getContent();
+                uBreakScreen.setContent("__other");
+            }
             startDate = uBreakScreen.getStart().toGregorianCalendar().getTime();
             endDate = uBreakScreen.getEnd().toGregorianCalendar().getTime();
 
@@ -514,7 +553,6 @@ public class BreakScreenManagedBean {
             for(int i=0; i< uBreakScreen.getDays().size(); i++) {
                 selectedDays[i] = uBreakScreen.getDays().get(i);
             }
-            content = uBreakScreen.getContent();
             sound = uBreakScreen.getSound();
 
         }
@@ -546,7 +584,10 @@ public class BreakScreenManagedBean {
                 uBreakScreen.setBuilding(alterBuilding);
             }
 
-            uBreakScreen.setContent(content);
+            if(uBreakScreen.getContent().equals("__other")) {
+                uBreakScreen.setContent(alterContent);
+            }
+
             uBreakScreen.setSound(sound);
             // Escape characters traitement
             uBreakScreen.setBuilding(SQLProtection.format(uBreakScreen.getBuilding()));
