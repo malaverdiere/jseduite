@@ -27,6 +27,7 @@ CREATE TABLE `break_screen` (
     `end`       TIME            NOT NULL,
     `building`  VARCHAR(10)     NOT NULL ,
     `content`   VARCHAR(255)    NOT NULL,
+    `sound`   VARCHAR(255)    NOT NULL,
     PRIMARY KEY  (`id`));
 
 CREATE TABLE `break_screen_days`(
