@@ -16,6 +16,7 @@
     <xs:sequence>
       <xs:element name="building" type="xs:string" minOccurs="0"/>
       <xs:element name="content" type="xs:string" minOccurs="0"/>
+      <xs:element name="sound" type="xs:string" minOccurs="0"/>
       <xs:element name="days" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="end" type="xs:dateTime" minOccurs="0"/>
       <xs:element name="id" type="xs:int"/>
