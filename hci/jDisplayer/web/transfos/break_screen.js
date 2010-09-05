@@ -19,7 +19,7 @@
  *
  * @author Main     Christophe Desclaux          [desclaux@polytech.unice.fr]
  **/
-
+var repeatSoundNumber = 5;
 
 var breakScreen = Class.create(jSeduiteTransformation, {
     isSelfHandled: function() { return true; },
@@ -111,9 +111,22 @@ var breakScreen = Class.create(jSeduiteTransformation, {
         var content = "<span class=\"alarm\">";
         content += getTag("content",this.xml);
         content += "</span>";
-        content += "</audio></span>";
+
+        var urlSound = getTag("sound",this.xml);
+        var self;
+        if(urlSound != "null"){
+            if(urlSound.search(/http/) == -1){
+                urlSound = "http://" + location.host + "" + urlSound;
+            }
+            content += "<span class=\"alarm_player\"><audio width=\"1024\" controls=\"\" id=\"audio \" ";
+            content += "src=\"" + urlSound + "\" autoplay style=\"width: 480; height: 360;\">";
+            content += "You need a HTML5 compliant web browser. (eg Firefox 3.5...)";
+            content += "</audio></span>";
+            self = this;
+            window.setTimeout(function(end,self){self.initSound(end,self)}, 1000, this.endDate(this.xml) - 1000,self);
+        }
         this.aDiv.update(content);
-        var self = this;
+        self = this;
         window.setTimeout(function(self){self.next(0);},self.delta,self);
     },
     
@@ -127,14 +140,30 @@ var breakScreen = Class.create(jSeduiteTransformation, {
            curCSS = 0;
        }
        var self = this;
-       if((this.endDate(this.xml) + this.delta) < (new Date()).getTime()){
-           var timeBreak = (new Date()).getTime() - this.endDate(this.xml);
+       if(this.endDate(this.xml)  < ((new Date()).getTime() + this.delta)){
+           var timeBreak = this.endDate(this.xml) - (new Date()).getTime();
            window.setTimeout(function(obj) { obj.callback();}, timeBreak,  self);
        }
-       window.setTimeout(function(obj) { obj.next(curCSS);}, this.delta,  self);
+       else{
+           window.setTimeout(function(obj) { obj.next(curCSS);}, this.delta,  self);
+       }
     },
 
-    
+    initSound: function(end) {
+        var audio = document.getElementsByTagName("audio")[0];
+        var duree = audio.duration * 1000;
+        var timeToEnd = end - (new Date()).getTime() - 3000;
+        if(timeToEnd < repeatSoundNumber*duree){
+            repeatSoundNumber = Math.floor(timeToEnd / duree);
+        }
+        var timeBreakSound = (timeToEnd - repeatSoundNumber*duree)/(repeatSoundNumber - 1);
+        alert(repeatSoundNumber);
+        for(var i=0; i < repeatSoundNumber;i++){
+            var delayToPlay = (timeBreakSound + duree)*i;
+            window.setTimeout(function(){var audio = document.getElementsByTagName("audio")[0]; audio.play();}, delayToPlay);
+        }
+    },
+
     startDate: function(xml) {
         return (buildDateFromStamp(getTag("start",xml))).getTime();
     },

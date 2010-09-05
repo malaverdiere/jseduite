@@ -3,17 +3,34 @@
     <SOAP-ENV:Body>
         <GetInformationResponse xmlns:msgns="http://modalis.i3s.unice.fr/jSeduite/providers/wsdl/Naive" xmlns:ns1="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information">
             <result>
-                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="pictogram">
+
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="pictograms">
+                    <pictogram>
+                        <picture1>http://localhost/albumBlanc.png</picture1>
+                        <picture2>http://localhost/albumNoir.png</picture2>
+                    </pictogram>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="pictograms">
                     <pictogram>
                         <picture1>http://localhost/albumBlanc.png</picture1>
                         <picture2>null</picture2>
                     </pictogram>
                 </item>
-                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="pictogram">
-                    <pictogram>
-                        <picture1>http://localhost/albumBlanc.png</picture1>
-                        <picture2>http://localhost/albumNoir.png</picture2>
-                    </pictogram>
+                                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="menu">
+                    <menus>
+                        <date>2009-11-21T16:30:00+01:00</date>
+                        <courses>
+                                <courses><kind>entree</kind><name>Concombre Sauce Yahourt</name></courses>
+                                <courses><kind>entree</kind><name>vide</name></courses>
+                                <courses><kind>plat</kind><name>Chipolatas Grillée</name></courses>
+                                <courses><kind>plat</kind><name>Haricot beurre</name></courses>
+                                <courses><kind>dessert</kind><name>Fromage</name></courses>
+                                <courses><kind>dessert</kind><name>Assiette de Fruit découpés</name></courses>
+                                <courses><kind>pizza</kind><name>Pizza fromage</name></courses>
+                                <courses><kind>pizza</kind><name>Pizza jambon</name></courses>
+                        </courses>
+                        <typeMenu>Déjeuner</typeMenu>
+                    </menus>
                 </item>
             </result>
         </GetInformationResponse>

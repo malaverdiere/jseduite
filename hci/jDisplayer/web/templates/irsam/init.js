@@ -38,11 +38,11 @@ irsam.declare("CalendarNSource",new iCalHandler(),               15);
 irsam.declare("ephemeride",     new ephemerideOneSaint(),        15);
 irsam.declare("menu",          new menusFullScreen(),            15);
 irsam.declare("alarm",          new alarm(),                     15);
-irsam.declare("break_screen",   new breakScreen(),               15);
-irsam.declare("pictograms",      new pictogram(),                 7);
+irsam.declare("breakscreen",   new breakScreen(),                15);
+irsam.declare("pictograms",      new pictogramBlink(),            7);
 // dispatching the information kinds in the display loops
 irsam.dispatch = function(k) {
-    if ("alarm" == k || "break_screen"  == k)
+    if ("alarm" == k || "breakscreen"  == k)
         return "timer";
     else if ("breaking_news" == k || "twitter" == k)
         return "scroll";

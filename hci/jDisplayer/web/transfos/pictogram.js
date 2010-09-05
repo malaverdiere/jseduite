@@ -21,8 +21,8 @@
  **/
 
 
-var pictogram = Class.create(jSeduiteTransformation, {
-    perform: function(xml) {
+var pictogramHelper = Class.create({
+    get: function(xml) {
         if(getTag("picture2", xml) == "null"){
             return this.printOnePicture(getTag("picture1", xml));
         }
@@ -50,5 +50,30 @@ var pictogram = Class.create(jSeduiteTransformation, {
             return [content];
         
 
+    }
+});
+
+var pictogramBlink = Class.create(jSeduiteTransformation, {
+    /**
+     * Limitation: if an alarm/alert is ringing during this transformation sh while blink
+     */
+    perform: function(xml) {
+        var delta = engine.tpl.getDelta(getSource(xml))*engine.getAmountCSS();
+        var id = window.setInterval(function(){
+                var saveScreen = $('main').innerHTML;
+                $('main').update("");
+                window.setTimeout(function(saveScreen){$('main').update(saveScreen);}, 200,saveScreen);}
+            , 2000);
+        window.setTimeout(window.clearInterval, delta - 3000, id);
+
+        var helper = new pictogramHelper();
+        return helper.get(xml);
+    }
+});
+
+var pictogram = Class.create(jSeduiteTransformation, {
+    perform: function(xml) {
+        var helper = new pictogramHelper();
+        return helper.get(xml);
     }
 });
