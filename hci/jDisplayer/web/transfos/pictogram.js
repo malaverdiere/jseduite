@@ -33,20 +33,22 @@ var pictogramHelper = Class.create({
             var pictureHeight = window.innerHeight - 22;
             var pictureWidth = (window.innerWidth - 35) / 2;
             var startPictureRight = pictureWidth + 10 + 10;
-            var content = "";
+            var content = "<span id='pictogram'>";
             content += "<span class='pictograms_picture' style='left:5px;' id='pictograms_picture1'>";
             content += "<img height='"+pictureHeight+"' width='"+pictureWidth+"' src='" + getTag("picture1", xml) + "'/></span>";
             content += "<span class='pictograms_picture' style='left:"+startPictureRight+"px;' id='pictograms_picture2'>";
             content += "<img height='"+pictureHeight+"' width='"+pictureWidth+"' src='" + getTag("picture2", xml) + "'/></span>";
+            content += "</span>";
             return [content];
         }
     },
     printOnePicture: function(picture) {
             var pictureHeight = window.innerHeight - 22;
             var pictureWidth = (window.innerWidth - 20);
-            content = "";
+            var content = "<span id='pictogram'>";
             content += "<span class='pictograms_picture' style='left:5px;' id='pictograms_picture1'>";
             content += "<img height='"+pictureHeight+"' width='"+pictureWidth+"' src='" + picture + "'/></span>";
+            content += "</span>";
             return [content];
         
 
@@ -61,10 +63,13 @@ var pictogramBlink = Class.create(jSeduiteTransformation, {
         var delta = engine.tpl.getDelta(getSource(xml))*engine.getAmountCSS();
         var id = window.setInterval(function(){
                 var saveScreen = $('main').innerHTML;
+                if($('pictogram') == null) return;
                 $('main').update("");
-                window.setTimeout(function(saveScreen){$('main').update(saveScreen);}, 200,saveScreen);}
+                window.setTimeout(function(saveScreen){
+                    if($('main').innerHTML == ""){$('main').update(saveScreen);}
+                }, 200,saveScreen);}
             , 2000);
-        window.setTimeout(window.clearInterval, delta - 3000, id);
+        window.setTimeout(window.clearInterval, delta + 3000, id);
 
         var helper = new pictogramHelper();
         return helper.get(xml);
