@@ -60,6 +60,8 @@ var pictogramBlink = Class.create(jSeduiteTransformation, {
      * Limitation: if an alarm/alert is ringing during this transformation sh while blink
      */
     perform: function(xml) {
+        var timeBlinking = 200;
+        var timeBeforeBlink = 2000;
         var delta = engine.tpl.getDelta(getSource(xml))*engine.getAmountCSS();
         var id = window.setInterval(function(){
                 var saveScreen = $('main').innerHTML;
@@ -67,9 +69,9 @@ var pictogramBlink = Class.create(jSeduiteTransformation, {
                 $('main').update("");
                 window.setTimeout(function(saveScreen){
                     if($('main').innerHTML == ""){$('main').update(saveScreen);}
-                }, 200,saveScreen);}
-            , 2000);
-        window.setTimeout(window.clearInterval, delta + 3000, id);
+                }, timeBlinking ,saveScreen);}
+            , timeBeforeBlink);
+        window.setTimeout(window.clearInterval, delta, id);
 
         var helper = new pictogramHelper();
         return helper.get(xml);
