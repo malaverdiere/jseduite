@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-417-SNAPSHOT. --><xs:schema xmlns:tns="http://pictogram.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://pictogram.technical.jSeduite.modalis.i3s.unice.fr/">
+
+<xs:element name="PictogramException" type="tns:PictogramException"></xs:element>
+
+<xs:element name="findPictogramById" type="tns:findPictogramById"></xs:element>
+
+<xs:element name="findPictogramByIdResponse" type="tns:findPictogramByIdResponse"></xs:element>
+
+<xs:element name="getAllPictogramReferences" type="tns:getAllPictogramReferences"></xs:element>
+
+<xs:element name="getAllPictogramReferencesResponse" type="tns:getAllPictogramReferencesResponse"></xs:element>
+
+<xs:complexType name="getAllPictogramReferences">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllPictogramReferencesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="PictogramException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findPictogramById">
+<xs:sequence>
+<xs:element name="id" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findPictogramByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:pictogram" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="pictogram">
+<xs:sequence>
+<xs:element name="end" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="id" type="xs:int"></xs:element>
+<xs:element name="picture1" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="picture2" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="start" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="title" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
