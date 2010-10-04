@@ -26,6 +26,11 @@
                 <h:outputText value="#{bundle.BREAKINGNEWS}"/>
             </h:outputLink>
         </h:panelGroup>
+        <h:panelGroup styleClass="menuItem">
+            <h:outputLink value="#{request.contextPath}/pictograms/listing.jsf">
+                <h:outputText value="#{bundle.PICTOGRAMS}"/>
+            </h:outputLink>
+        </h:panelGroup>
     </h:panelGroup>
 
     <h:panelGroup styleClass="menuCategory">
@@ -53,6 +58,11 @@
 
     <h:panelGroup styleClass="menuCategory">
         <h:outputText value="#{bundle.MENU_SCHOOLLIFE}" styleClass="menuTitle"/>
+        <h:panelGroup styleClass="menuItem">
+            <h:outputLink value="#{request.contextPath}/breakscreen/listing.jsf">
+                <h:outputText value="#{bundle.BREAKSCREEN}"/>
+            </h:outputLink>
+        </h:panelGroup>
         <h:panelGroup styleClass="menuItem">
             <h:outputLink value="#{request.contextPath}/breaktime/listing.jsf">
                 <h:outputText value="#{bundle.BREAKTIME}"/>
