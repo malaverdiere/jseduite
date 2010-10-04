@@ -246,6 +246,8 @@ public class BreakTimeManagedBean {
         days.add(item);
         item = new SelectItem("saturday", Bundle.get("FORM_SATURDAY"));
         days.add(item);
+        item = new SelectItem("sunday", Bundle.get("FORM_SUNDAY"));
+        days.add(item);
 
         return days;
     }

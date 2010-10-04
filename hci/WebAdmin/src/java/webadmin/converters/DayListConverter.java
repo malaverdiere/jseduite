@@ -58,6 +58,12 @@ public class DayListConverter implements Converter {
         }
         days += ">"+Bundle.get("FORM_SATURDAY")+"</td>";
 
+        days += "<td";
+        if(!list.contains("sunday")) {
+            days += " class=\"invisible\"";
+        }
+        days += ">"+Bundle.get("FORM_SUNDAY")+"</td>";
+
         days += "</tr></table>";
         return days;
     }
