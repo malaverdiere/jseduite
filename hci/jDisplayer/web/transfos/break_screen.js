@@ -157,7 +157,6 @@ var breakScreen = Class.create(jSeduiteTransformation, {
             repeatSoundNumber = Math.floor(timeToEnd / duree);
         }
         var timeBreakSound = (timeToEnd - repeatSoundNumber*duree)/(repeatSoundNumber - 1);
-        alert(repeatSoundNumber);
         for(var i=0; i < repeatSoundNumber;i++){
             var delayToPlay = (timeBreakSound + duree)*i;
             window.setTimeout(function(){var audio = document.getElementsByTagName("audio")[0]; audio.play();}, delayToPlay);

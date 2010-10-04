@@ -61,5 +61,8 @@ var alarm = Class.create(jSeduiteTransformation, {
 
     startDate: function(xml) {
         return (buildDateFromStamp(getTag("dateRing",xml))).getTime();
+    },
+    endDate: function(xml) {
+        return 1;
     }
 });

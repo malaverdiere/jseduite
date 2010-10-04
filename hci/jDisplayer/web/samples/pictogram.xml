@@ -18,7 +18,7 @@
                 </item>
                                 <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="menu">
                     <menus>
-                        <date>2009-11-21T16:30:00+01:00</date>
+                        <date>2010-09-09T19:30:00+01:00</date>
                         <courses>
                                 <courses><kind>entree</kind><name>Concombre Sauce Yahourt</name></courses>
                                 <courses><kind>entree</kind><name>vide</name></courses>
@@ -31,6 +31,14 @@
                         </courses>
                         <typeMenu>Déjeuner</typeMenu>
                     </menus>
+                </item>
+                <item xmlns:ns0="http://modalis.i3s.unice.fr/jSeduite/providers/schema/Information" source="break_screen">
+                    <break_screen>
+                        <content>#menus</content>
+                        <start>2010-09-09T15:17:40+01:00</start>
+                          <end>2010-09-09T17:16:40+01:00</end>
+                        <building>IRSAM</building>
+                    </break_screen>
                 </item>
             </result>
         </GetInformationResponse>
