@@ -53,6 +53,14 @@
                                 </h:panelGroup>
                                 <h:outputText value="#{bundle.BREAKINGNEWS_DESCRIPTION}"/>
                             </div></h:panelGroup>
+                            <h:panelGroup><div class="homeColumn">
+                                <h:panelGroup styleClass="menuItem">
+                                    <h:outputLink value="#{request.contextPath}/internalnews/listing.jsf">
+                                        <h:outputText value="#{bundle.PICTOGRAMS}"/>
+                                    </h:outputLink>
+                                </h:panelGroup>
+                                <h:outputText value="#{bundle.PICTOGRAMS_DESCRIPTION}"/>
+                            </div></h:panelGroup>
                         </h:panelGrid>
 
                         <h:outputText value="#{bundle.MENU_RESTAURATION}" styleClass="homeTitle restaurationTitle"/>
@@ -89,6 +97,15 @@
 
                         <h:outputText value="#{bundle.MENU_SCHOOLLIFE}" styleClass="homeTitle schoollifeTitle"/>
                         <h:panelGrid columns="2">
+
+                            <h:panelGroup><div class="homeColumn">
+                                <h:panelGroup styleClass="menuItem">
+                                    <h:outputLink value="#{request.contextPath}/breakscreen/listing.jsf">
+                                        <h:outputText value="#{bundle.BREAKSCREEN}"/>
+                                    </h:outputLink>
+                                </h:panelGroup>
+                                <h:outputText value="#{bundle.BREAKSCREEN_DESCRIPTION}"/>
+                            </div></h:panelGroup>
                             <h:panelGroup><div class="homeColumn">
                                 <h:panelGroup styleClass="menuItem">
                                     <h:outputLink value="#{request.contextPath}/breaktime/listing.jsf">

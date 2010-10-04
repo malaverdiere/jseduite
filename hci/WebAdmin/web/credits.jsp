@@ -35,6 +35,11 @@
 
                         <h:outputText value="#{bundle.CREDITS_CONTACTS}" styleClass="subtitle"/>
                         <h:panelGrid columns="2">
+                            <h:outputLink value="mailto:#{bundle.CREDITS_DC_MAIL}" styleClass="contact">
+                                <h:outputText value="#{bundle.CREDITS_DC_NAME}"/>
+                            </h:outputLink>
+                            <h:outputText value="#{bundle.CREDITS_DC_POSITION}"/>
+                            
                             <h:outputLink value="mailto:#{bundle.CREDITS_SC_MAIL}" styleClass="contact">
                                 <h:outputText value="#{bundle.CREDITS_SC_NAME}"/>
                             </h:outputLink>

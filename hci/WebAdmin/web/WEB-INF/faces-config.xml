@@ -9,13 +9,18 @@
 
     <!--MANAGED BEANS-->
     <managed-bean>
+        <managed-bean-name>InternalNewsManagedBean</managed-bean-name>
+        <managed-bean-class>webadmin.internalnews.InternalNewsManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
         <managed-bean-name>BreakingNewsManagedBean</managed-bean-name>
         <managed-bean-class>webadmin.breakingnews.BreakingNewsManagedBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     <managed-bean>
-        <managed-bean-name>InternalNewsManagedBean</managed-bean-name>
-        <managed-bean-class>webadmin.internalnews.InternalNewsManagedBean</managed-bean-class>
+        <managed-bean-name>PictogramManagedBean</managed-bean-name>
+        <managed-bean-class>webadmin.pictogram.PictogramManagedBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     <managed-bean>
@@ -31,6 +36,11 @@
     <managed-bean>
         <managed-bean-name>BreakTimeManagedBean</managed-bean-name>
         <managed-bean-class>webadmin.breaktime.BreakTimeManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>BreakScreenManagedBean</managed-bean-name>
+        <managed-bean-class>webadmin.breakscreen.BreakScreenManagedBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     <managed-bean>
@@ -93,6 +103,11 @@
     <managed-bean>
         <managed-bean-name>InternalNewsSorter</managed-bean-name>
         <managed-bean-class>webadmin.internalnews.InternalNewsSorter</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>PictogramSorter</managed-bean-name>
+        <managed-bean-class>webadmin.pictogram.PictogramSorter</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     <managed-bean>
@@ -218,47 +233,10 @@
         <converter-id>PlanningGroupsConverter</converter-id>
         <converter-class>webadmin.converters.PlanningGroupsConverter</converter-class>
     </converter>
-
-    <!--BREAKING NEWS-->
-    <navigation-rule>
-        <from-view-id>/breakingnews/create.jsp</from-view-id>
-        <navigation-case>
-            <from-outcome>created</from-outcome>
-            <to-view-id>/breakingnews/listing.jsp</to-view-id>
-            <redirect/>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>cancel</from-outcome>
-            <to-view-id>/breakingnews/listing.jsp</to-view-id>
-            <redirect/>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/breakingnews/listing.jsp</from-view-id>
-        <navigation-case>
-            <from-outcome>update</from-outcome>
-            <to-view-id>/breakingnews/update.jsp</to-view-id>
-            <redirect/>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>sorted</from-outcome>
-            <to-view-id>/breakingnews/listing.jsp</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/breakingnews/update.jsp</from-view-id>
-        <navigation-case>
-            <from-outcome>updated</from-outcome>
-            <to-view-id>/breakingnews/listing.jsp</to-view-id>
-            <redirect/>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>cancel</from-outcome>
-            <to-view-id>/breakingnews/listing.jsp</to-view-id>
-            <redirect/>
-        </navigation-case>
-    </navigation-rule>
-
+    <converter>
+        <converter-id>ContentConverter</converter-id>
+        <converter-class>webadmin.converters.ContentConverter</converter-class>
+    </converter>
     <!--INTERNAL NEWS-->
     <navigation-rule>
         <from-view-id>/internalnews/create.jsp</from-view-id>
@@ -295,6 +273,85 @@
         <navigation-case>
             <from-outcome>cancel</from-outcome>
             <to-view-id>/internalnews/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <!--PICTOGRAMS-->
+    <navigation-rule>
+        <from-view-id>/pictograms/create.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>created</from-outcome>
+            <to-view-id>/pictograms/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/pictograms/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pictograms/listing.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>sorted</from-outcome>
+            <to-view-id>/pictograms/listing.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>update</from-outcome>
+            <to-view-id>/pictograms/update.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pictograms/update.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>updated</from-outcome>
+            <to-view-id>/pictograms/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/pictograms/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <!--BREAKING NEWS-->
+    <navigation-rule>
+        <from-view-id>/breakingnews/create.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>created</from-outcome>
+            <to-view-id>/breakingnews/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/breakingnews/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/breakingnews/listing.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>update</from-outcome>
+            <to-view-id>/breakingnews/update.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>sorted</from-outcome>
+            <to-view-id>/breakingnews/listing.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/breakingnews/update.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>updated</from-outcome>
+            <to-view-id>/breakingnews/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/breakingnews/listing.jsp</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>
@@ -500,6 +557,46 @@
         <navigation-case>
             <from-outcome>cancel</from-outcome>
             <to-view-id>/breaktime/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <!--BREAK SCREEN-->
+    <navigation-rule>
+        <from-view-id>/breakscreen/create.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>created</from-outcome>
+            <to-view-id>/breakscreen/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/breakscreen/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/breakscreen/listing.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>sorted</from-outcome>
+            <to-view-id>/breakscreen/listing.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>update</from-outcome>
+            <to-view-id>/breakscreen/update.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/breakscreen/update.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>updated</from-outcome>
+            <to-view-id>/breakscreen/listing.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/breakscreen/listing.jsp</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>
