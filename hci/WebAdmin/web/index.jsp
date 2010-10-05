@@ -55,7 +55,7 @@
                             </div></h:panelGroup>
                             <h:panelGroup><div class="homeColumn">
                                 <h:panelGroup styleClass="menuItem">
-                                    <h:outputLink value="#{request.contextPath}/internalnews/listing.jsf">
+                                    <h:outputLink value="#{request.contextPath}/pictograms/listing.jsf">
                                         <h:outputText value="#{bundle.PICTOGRAMS}"/>
                                     </h:outputLink>
                                 </h:panelGroup>
