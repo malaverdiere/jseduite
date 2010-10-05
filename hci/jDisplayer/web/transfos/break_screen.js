@@ -108,7 +108,10 @@ var breakScreen = Class.create(jSeduiteTransformation, {
     },
 
     handleNotSelfManaged: function(){
-        var content = "<span class=\"alarm\">";
+        var content = "";
+        content += "<p class=\"title_breakscreen\"> &nbsp;</p><div class=\"clearDiv\">&nbsp;</div>";
+
+        content += "<span class=\"alarm\">";
         content += getTag("content",this.xml);
         content += "</span>";
 

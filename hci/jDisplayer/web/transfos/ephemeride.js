@@ -76,8 +76,7 @@ var ephemerideAllSaints = Class.create(jSeduiteTransformation, {
         content += "<span class=\"emphasize\">Nous sommes le ";
         content += helper.clock["day"] + " " + helper.clock["UTCDate"];
         content += " " + helper.clock["month"] + " " + helper.clock["year"];
-        content += "<span class=\"ephemerides_clock_time\", il est " + helper.clock["time"];
-        content += "</span></p>";
+        content += "</span></p></span>";
         content += helper.getAllSaints(getTags("names",xml));
         return [content];
     }

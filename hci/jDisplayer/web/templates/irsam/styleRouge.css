@@ -26,10 +26,8 @@
  * Main look'n feel & date  *
  ****************************/
 
-/** Main Loop **/
-
 /** text color **/
-#main, .title, .feed_title, .internal_author, .sum_date, .weat_infos{
+#main, .title, .title_breakscreen, .feed_title, .internal_author, .sum_date, .weat_infos, .t_min, .t_max{
     color:#ffd5d2;
 }
 
@@ -38,31 +36,45 @@ body{
     background-color:#d00000;
 }
 
-.t_min{    color:#ffd5d2; }
-.t_max{    color:#ffd5d2; }
-.weat_day{ color:#ffd5d2; }
-
-/**borders colors**/
-#diapo_content img, .weat_day_img, .weat4_temp img{
-    background-color:#ffd5d2;
-	border:1px solid #DEDEDE;
+/**second color for putting text in revelant**/
+.internal_author, .calendar_hour{
+    color:#00ffff;
 }
 
+/**3eme color to really put in revelant**/
+.calendar_hour_now{
+    color:#ff0000;
+}
+
+/** color to put text invisible**/
+.weat_city{
+    color: #d00000;
+}
+/**just borders colors**/
 .weat_infos, .weat_day{
     background-color:#d00000;
 	border:1px solid #DEDEDE;
 }
-/**arrays colors (Odd / Even rows) **/
- .odd{ background-color:#d00000; }
- .even{ background-color:#d00000; }
 
+/**all grid border colors**/
+#diapo_content img, .weat_day_img, .weat4_temp img, .pictograms_picture{
+    background-color:#ffd5d2;
+	border:1px solid #DEDEDE;
+}
+
+/**arrays colors (Odd / Even rows) **/
+ .odd{ background-color:#000000; }
+ .even{ background-color:#000000; }
 .error     { color:#ffd5d2; }
 .alert     { color:#ffd5d2; }
 .emphasize { color:#ffd5d2; }
 .ok        { color:#ffd5d2; }
 
 
-
+.error {
+    font-size:120%;
+    font-weight:bold;
+}
 
 body
 {
@@ -94,9 +106,11 @@ body
 /** Diaporamas **/
 
 #diapo_content img{
-	padding:10px;
-	margin:15px 10px 0 0;
-	max-height:457px;
+	padding:10px 10px 10px 10px;
+    top:0px;
+    left:0px;
+    position:absolute;
+    max-height:none;
 }
 
 #diapo_loading {
@@ -174,6 +188,12 @@ body
     background: transparent url('_logos/ical.png') no-repeat top left;
 }
 
+.calendar_hour_now {
+    font-size:120%;
+    font-weight:bold;
+}
+
+
 /** edt **/
 .timetable_logo {
     width: 132px; height: 116px;
@@ -210,6 +230,7 @@ body
 
 /** internal news **/
 .internal_logo {
+    width: 132px; height: 116px;
     background: transparent url('_logos/internal.png') no-repeat top left;
 }
 
@@ -223,7 +244,7 @@ body
 .internal_author{
 	font-size:230%;
 	font-style:italic;
-
+    float:right;
 }
 
 .internal_date{
@@ -315,16 +336,19 @@ table.weather td { text-align:center; vertical-align:center;}
 
 /** Ephemerides **/
 .ephemerides{
-    font-size:220%;
+    font-size:240%;
     text-align:center;
 }
 .ephemerides_clock_time{
-    margin-bottom: 80px;
+    margin-bottom: 50px;
+    font-weight:bold;
+    font-size:140px;
+
 }
 
 .ephemerides_title {
 	font-weight:normal;
-	margin-bottom:100px;
+	margin-bottom:80px;
 	margin-top:0px;
 	text-transform:uppercase;
     text-align:center;
@@ -332,6 +356,11 @@ table.weather td { text-align:center; vertical-align:center;}
 
 
 /** Menus **/
+.menus_logo {
+    width: 132px; height: 116px;
+    background: transparent url('_logos/restaurant.png') no-repeat top left;
+}
+
 .menus{
     font-size:170%;
     text-align:center;
@@ -339,8 +368,44 @@ table.weather td { text-align:center; vertical-align:center;}
 
 .menus_title {
 	font-weight:normal;
-	margin-bottom:15px;
+	margin-bottom:5px;
 	margin-top:0px;
     text-align:center;
+	text-transform:uppercase;
+}
+
+
+/**Alarmes**/
+.alarm{
+    font-size:220%;
+}
+
+.alarm_player{
+        position:absolute;
+        bottom:0;
+        right:0;
+}
+
+/**Pictograms**/
+.pictograms{
+    position:absolute;
+}
+
+.pictograms_picture{
+    position:absolute;
+    top:5px;
+    left:0px;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding:5px 5px 5px 5px;
+}
+
+/** BreakScreen**/
+.title_breakscreen {
+	font-weight:normal;
+	font-size:0%;
+	margin-bottom:0px;
+	margin-top:0px;
+	text-indent:0px;
 	text-transform:uppercase;
 }

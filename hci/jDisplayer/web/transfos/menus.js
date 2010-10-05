@@ -86,7 +86,7 @@ var menus = Class.create(jSeduiteTransformation, {
         var curNbLines = 0; //number of lines in content page
 
         var content = ""; //cur page we are making
-        content += "<div id=\"menus_logo\" class=\"menus_logo\"></div>";
+        content += "<div id=\"info_logo\" class=\"menus_logo\"></div>";
         content += "<p class=\"title\"> &nbsp; ";
         content += getTag("typeMenu", xml) + " à ";
         content +=  getTag("date", xml).substring(11,13) + " heures</p>";

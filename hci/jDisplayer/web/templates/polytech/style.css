@@ -19,6 +19,7 @@
  *
  * @author      Main     Sebastien Mosser       [mosser@polytech.unice.fr]
  * @contributor 2009     Celine Auzias          [celine.auzias@gmail.com]
+ * @contributor 2010     Christophe Desclaux    [desclaux@polytech.unice.fr]
  **/
 
 /****************************
@@ -401,4 +402,77 @@ table.weather td { text-align:center; vertical-align:center;}
 	font-size: 220%;
 	margin: 10px 0px 20px 0px;
 	text-align: justify;
+}
+
+/** Ephemerides **/
+.ephemerides{
+    font-size:240%;
+    text-align:center;
+}
+.ephemerides_clock_time{
+    margin-bottom: 50px;
+    font-weight:bold;
+    font-size:140px;
+
+}
+
+.ephemerides_title {
+	font-weight:normal;
+	margin-bottom:80px;
+	margin-top:0px;
+	text-transform:uppercase;
+    text-align:center;
+}
+
+
+/** Menus **/
+.menus_logo {
+    width: 132px; height: 116px;
+    background: transparent url('_logos/restaurant.png') no-repeat top left;
+}
+
+.menus{
+    font-size:170%;
+    text-align:center;
+}
+
+.menus_title {
+	font-weight:normal;
+	margin-bottom:5px;
+	margin-top:0px;
+    text-align:center;
+	text-transform:uppercase;
+}
+
+
+/**Alarmes**/
+.alarm{
+    font-size:220%;
+}
+
+.alarm_player{
+        position:absolute;
+        bottom:0;
+        right:0;
+}
+
+/**Pictograms**/
+.pictograms{
+    position:absolute;
+}
+
+.pictograms_picture{
+    position:absolute;
+    top:5px;
+    left:0px;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding:5px 5px 5px 5px;
+}
+
+/** Break Screen**/
+.title_breakscreen {
+ 	color:#20709e;
+    font-weight:normal;
+	font-size:210%;
 }

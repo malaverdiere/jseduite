@@ -27,7 +27,7 @@
  ****************************/
 
 /** text color **/
-#main, .title, .feed_title, .internal_author, .sum_date, .weat_infos, .t_min, .t_max{
+#main, .title, .title_breakscreen, .feed_title, .internal_author, .sum_date, .weat_infos, .t_min, .t_max{
     color:#282d65;
 }
 
@@ -52,6 +52,7 @@ body{
 }
 /**just borders colors**/
 .weat_infos, .weat_day{
+    background-color:#000000;
 	border:1px solid #DEDEDE;
 }
 
@@ -397,4 +398,14 @@ table.weather td { text-align:center; vertical-align:center;}
     margin-top:0px;
     margin-bottom:0px;
     padding:5px 5px 5px 5px;
+}
+
+/** BreakScreen**/
+.title_breakscreen {
+	font-weight:normal;
+	font-size:0%;
+	margin-bottom:0px;
+	margin-top:0px;
+	text-indent:0px;
+	text-transform:uppercase;
 }
