@@ -58,7 +58,7 @@ var pictogramHelper = Class.create({
 var pictogramBlink = Class.create(jSeduiteTransformation, {
     perform: function(xml) {
         var timeBlinking = 200;
-        var timeBeforeBlink = 3000;
+        var timeBeforeBlink = 7000;
         var delta = engine.tpl.getDelta(getSource(xml))*engine.getAmountCSS();
         var id = window.setInterval(function(){
                 var saveScreen = $('main').innerHTML;
